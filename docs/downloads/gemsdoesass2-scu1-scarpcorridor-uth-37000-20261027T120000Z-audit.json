@@ -332,5 +332,23 @@
         "sgmc_dti": 0.09536
       }
     ]
+  },
+  "sibling_lanes_this_repo": {
+    "note": "Parallel-run protocol lane-drift check vs sibling deliverables merged from main (2026-10-27). Gates: overlap<=70%, |rho|<=0.90.",
+    "rows": [
+      {
+        "name": "TTC-A1 gemsdoesass2-thermo-tilt-conduit-37654-d8f85365 (verdict promote, HR 0.1215 per its run card)",
+        "dot_overlap_3px": 0.4138,
+        "spearman_final": 0.0334,
+        "passes": true
+      },
+      {
+        "name": "ALEDGE gemsass2-ass2-altedge-hgb-44090-cc854482 (verdict negative per its validator JSON)",
+        "dot_overlap_3px": 0.4175,
+        "spearman_final": -0.0014,
+        "passes": true
+      }
+    ],
+    "all_pass": true
   }
 }
