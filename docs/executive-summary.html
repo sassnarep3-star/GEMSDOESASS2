@@ -1,0 +1,84 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Executive summary — how to submit | GEMSDOESASS2</title>
+<style>
+body{font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;margin:0;background:#f6f8fa;color:#1f2328}
+.wrap{max-width:1100px;margin:0 auto;padding:24px}
+header{background:#0d1b2a;color:#fff;padding:28px 0}
+header .wrap{padding-top:0;padding-bottom:0}
+h1{margin:0 0 6px;font-size:26px} h2{margin-top:36px;border-bottom:2px solid #d0d7de;padding-bottom:6px}
+.sub{color:#9fb3c8}
+.banner{border-radius:10px;padding:18px 22px;margin:20px 0;font-size:17px}
+.banner.ok{background:#dafbe1;border:2px solid #1a7f37}
+.btn{display:inline-block;background:#1a7f37;color:#fff;font-weight:700;padding:14px 26px;border-radius:8px;text-decoration:none;font-size:18px;margin:8px 12px 8px 0}
+.btn.alt{background:#0969da}
+table{border-collapse:collapse;width:100%;background:#fff;font-size:14px;margin:14px 0}
+th,td{border:1px solid #d0d7de;padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#eaeef2}
+tr.ours{background:#dafbe1;font-weight:600}
+.tag{font-size:11px;padding:2px 7px;border-radius:10px;color:#fff;font-weight:700}
+.tag.owner{background:#57606a}.tag.est{background:#9a6700}
+.no{color:#a40e26}.yes{color:#1a7f37}
+code{background:#eff2f5;padding:1px 5px;border-radius:4px;font-size:13px}
+.small{font-size:13px;color:#57606a}
+ol li, ul li{margin:6px 0}
+.card{background:#fff;border:1px solid #d0d7de;border-radius:10px;padding:16px 20px;margin:14px 0}
+footer{color:#57606a;font-size:13px;margin:40px 0 20px}
+</style></head><body>
+<header><div class="wrap"><h1>Executive summary — exactly how to submit</h1>
+<div class="sub"><a href="index.html" style="color:#9fb3c8">← back to dashboard</a></div></div></header>
+<div class="wrap">
+
+<div class="banner ok"><b>✅ OK TO DOWNLOAD AND SUBMIT — unique, fully validated, not a copy of any prior GEMSDOE submission</b><br><br>
+<a class="btn" href="downloads/gemsdoesass2-scu1-scarpcorridor-uth-37000-20261027T120000Z-zeros.zip">⬇ Download gemsdoesass2-scu1-scarpcorridor-uth-37000-20261027T120000Z-zeros.zip</a>
+<span class="small">SHA-256 (of the .tif inside) <code>0ab88d8ab85c9bbfc690557bca0e8bf6d92dcd7657825306c9eaf294dab3fe6d</code></span>
+</div>
+
+<h2>Submit in 6 steps (takes ~2 minutes)</h2>
+<div class="card"><ol>
+<li><b>Download</b> <a href="downloads/gemsdoesass2-scu1-scarpcorridor-uth-37000-20261027T120000Z-zeros.zip"><code>gemsdoesass2-scu1-scarpcorridor-uth-37000-20261027T120000Z-zeros.zip</code></a> (or the raw <a href="downloads/gemsdoesass2-scu1-scarpcorridor-uth-37000-20261027T120000Z-zeros.tif"><code>.tif</code></a> — the portal accepts a single-band GeoTIFF or a .zip containing one).</li>
+<li>Go to the competition's <b>New submission</b> page: <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/submissions/">drivendata.org/competitions/306 → Submissions → New submission</a> (log in first).</li>
+<li><b>File to submit:</b> choose the downloaded file.</li>
+<li><b>Name it uniquely.</b> Suggested name: <code>GEMSDOESASS2-SCU1-0AB88D8A</code></li>
+<li><b>Note (optional, ≤140 chars; helps tell submissions apart later):</b><br><code>SASS2 SCU scarp-corridor-UTh 37000d B2 sep2 | SGMC 0.135 vs champ 0.094 | HR 0.0163 | est 0.14-0.40 | 0ab88d8a</code></li>
+<li>Click <b>Submit</b>. The weekly cap shown on the submission page applies — this file is designed to be worth a slot only because it passed every gate below.</li>
+</ol></div>
+
+<h2>Why the portal will accept it (the exact error you hit is cured)</h2>
+<div class="card">
+<p>You previously saw <code>"Predicted values must be in range [0, 1]"</code>. That happens when any <i>finite</i> cell is outside [0,1] (NaN-filled files from some sites also tripped validators). This file is written in <b>zeros mode</b>: all 12,279,160 cells are finite float32 in [0,1] (0 outside the scored footprint), so that check passes by construction. The automated validator (<code>scripts/check_submission.py</code>) proves, with no human inspection:</p>
+<ul>
+<li>single band · float32 · 3730×3292 · EPSG:32611 · geotransform (100, 0, 243350, 0, −100, 4508550) — byte-matched to <code>sample_submission.tif</code></li>
+<li>every cell finite, every value in [0,1], zero NaN/Inf/sentinel inside the footprint</li>
+<li>zero positive pixels on the known catalogue (those pixels are masked at scoring — mass there is wasted)</li>
+<li>the .zip contains exactly one .tif</li>
+</ul>
+<p>Validator output is embedded in <a href="downloads/gemsdoesass2-scu1-scarpcorridor-uth-37000-20261027T120000Z-audit.json">the audit JSON</a>.</p>
+</div>
+
+<h2>What this submission is</h2>
+<div class="card">
+<p><b>GEMSDOESASS2-SCU1-0AB88D8A</b> — 37,000 binary dots on the SCU surface
+(lidar scarp morphology × 200 m–3 km catalogue flank corridor × GeoDAWN U/Th corroboration),
+greedy placement with 2-px minimum separation, B=2 catalogue prune.
+Unique vs all 12 registry rasters (worst 3-px overlap 24.5%).
+<br><b>ESTIMATE 0.144–0.399</b>: lower bound = within-family SGMC regression (extrapolated), upper bound = champion-ratio on the SGMC instrument.
+Both are estimates from proxies — the only real number arrives from the organizer after submission.</p>
+</div>
+
+<h2>The 9 focus sites at a glance</h2>
+<table><tr><th>Site</th><th>File to download</th><th>Score</th><th>Unique?</th><th>Status</th></tr>
+<tr><td><a href='https://github.com/buffedlizard55-lab/GEMSDOE24'>GEMSDOE24</a></td><td><code>h25-1-dotted-h19-5-d1-5-…-nan.tif</code></td><td>0.2477 <span class='tag owner'>OWNER-REPORTED</span></td><td class='no'>NO — D1.5 lattice ancestor of the family</td><td>already scored 2026-10-02</td></tr>
+<tr><td><a href='https://github.com/buffedlizard55-lab/GEMSDOE25'>GEMSDOE25</a></td><td><code>dotted-h19-5-d2-8-…-nan.tif</code></td><td>0.2600 <span class='tag owner'>OWNER-REPORTED</span></td><td class='no'>NO — dot-identical to GEMSDOE30&#x27;s best</td><td>already scored</td></tr>
+<tr><td><a href='https://github.com/buffedlizard55-lab/GEMSDOE27'>GEMSDOE27</a></td><td><code>topo-gap-closure-t-v2-on-d1-5-…-nan.tif</code></td><td>0.2449 <span class='tag owner'>OWNER-REPORTED</span></td><td class='no'>NO — gap-closure increment on the D1.5 lattice</td><td>already scored</td></tr>
+<tr><td><a href='https://github.com/buffedlizard55-lab/GEMSDOE28'>GEMSDOE28</a></td><td><code>h36-1-rung30-blind-r1-…-nan.tif</code></td><td>0.2710 <span class='tag owner'>OWNER-REPORTED</span></td><td class='no'>NO — rung-30 prune of the same lattice (best of its 4 scored files)</td><td>already scored</td></tr>
+<tr><td><a href='https://github.com/buffedlizard55-lab/GEMSDOE30'>GEMSDOE30</a></td><td><code>d28-poisson300m-offcat-44090-…tif</code></td><td>0.2600 <span class='tag owner'>OWNER-REPORTED</span></td><td class='no'>NO — Poisson re-sample, dot-identical to GEMSDOE25</td><td>already scored</td></tr>
+<tr><td><a href='https://github.com/buffedlizard55-lab/GEMSDOE31'>GEMSDOE31</a></td><td><code>h27-4-solo-d28-20261004-8acb75e1-…tif</code></td><td>0.2708 <span class='tag owner'>OWNER-REPORTED</span></td><td class='no'>NO — byte-level duplicate of GEMSDOE28 h27-4-r1</td><td>already scored</td></tr>
+<tr><td><a href='https://github.com/buffedlizard55-lab/GEMSDOE32'>GEMSDOE32</a></td><td><code>h33-h33-2-b2-…-e5eb6e7e-zeros.tif (CHAMPION)</code></td><td>0.2778 <span class='tag owner'>OWNER-REPORTED</span></td><td class='no'>NO — family champion; ALREADY SUBMITTED, do not resubmit</td><td>already scored</td></tr>
+<tr><td><a href='https://github.com/buffedlizard55-lab/GEMSDOE33'>GEMSDOE33</a></td><td><code>h33d-analog-tip-stepover-r30-…tif</code></td><td>0.2632 <span class='tag owner'>OWNER-REPORTED</span></td><td class='no'>NO — tip/step-over variant of the family</td><td>already scored</td></tr>
+<tr><td><a href='https://github.com/buffedlizard55-lab/GEMSDOE36'>GEMSDOE36</a></td><td><code>anderson-geothermal-pinn-38854-…-zeros.tif</code></td><td>0.2750 <span class='tag owner'>OWNER-REPORTED</span></td><td class='no'>NO — champion + 1,200 extra dots</td><td>already scored</td></tr>
+<tr class='ours'><td><b>THIS REPO</b></td><td><a href='downloads/gemsdoesass2-scu1-scarpcorridor-uth-37000-20261027T120000Z-zeros.tif'><code>gemsdoesass2-scu1-scarpcorridor-uth-37000-20261027T120000Z-zeros.tif</code></a></td><td><b>0.144 – 0.399</b> <span class='tag est'>ESTIMATE</span></td><td class='yes'><b>YES — passes every uniqueness gate</b></td><td><b>NOT yet submitted — this is the file to submit</b></td></tr>
+</table>
+
+<footer>Generated 2026-10-27T11:48:13.428483+00:00 from evidence JSONs — no manual input.</footer>
+</div></body></html>
