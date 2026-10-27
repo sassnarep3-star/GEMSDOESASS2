@@ -388,7 +388,7 @@ def main() -> int:
 
     dl_dir = ROOT / "docs" / "downloads"
     dl_dir.mkdir(parents=True, exist_ok=True)
-    for old_f in dl_dir.glob("gemsdoesass2-*"):
+    for old_f in dl_dir.glob("gemsdoesass2-hvfd-*"):
         old_f.unlink()
 
     mask_digest8 = hashlib.sha256(np.packbits((final_pred_2d > 0).ravel()).tobytes()).hexdigest()[:8]
@@ -544,8 +544,8 @@ def main() -> int:
         "submission_note_chars": len(sub_note),
         "verdict": verdict,
     }
-    (ev_dir / "run_card.json").write_text(json.dumps(run_card, indent=2) + "\n", encoding="utf-8")
-    print(f"[DONE] Run card written to {ev_dir / 'run_card.json'} | verdict = {verdict} | elapsed = {total_elapsed:.1f}s")
+    (ev_dir / "hvfd_exp3_run_card.json").write_text(json.dumps(run_card, indent=2) + "\n", encoding="utf-8")
+    print(f"[DONE] Run card written to {ev_dir / 'hvfd_exp3_run_card.json'} | verdict = {verdict} | elapsed = {total_elapsed:.1f}s")
     print(f"       Deliverable TIF: docs/downloads/{sub_filename} (sha256={receipt['sha256'][:16]}...)")
     return 0
 

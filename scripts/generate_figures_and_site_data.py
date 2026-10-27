@@ -76,7 +76,7 @@ def main() -> int:
     assets_dir.mkdir(parents=True, exist_ok=True)
     data_out_dir.mkdir(parents=True, exist_ok=True)
 
-    run_card = json.loads((ev_dir / "run_card.json").read_text(encoding="utf-8"))
+    run_card = json.loads((ev_dir / "hvfd_exp3_run_card.json").read_text(encoding="utf-8"))
     nine_audit = json.loads((ev_dir / "nine_sites_audit.json").read_text(encoding="utf-8"))
     forensics = json.loads((ev_dir / "leaderboard_ledger_forensics.json").read_text(encoding="utf-8"))
     canary = json.loads((ev_dir / "leakage_canary.json").read_text(encoding="utf-8"))

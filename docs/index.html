@@ -1,313 +1,508 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>GEMSDOESASS2 — Promoted Unique GeoTIFF Submission &amp; Research Hub (DOE GEMS #306)</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <header class="topbar">
-    <div class="topbar-inner">
-      <a class="brand" href="index.html">
-        <span class="brand-dot"></span>
-        <span>GEMSDOESASS2 · DOE GEMS Subsurface Fault Discovery</span>
-      </a>
-      <nav class="nav-links" aria-label="Primary Navigation">
-        <a class="active" href="index.html">1. Download &amp; Run Card</a>
-        <a href="executive-summary.html">2. Executive Summary &amp; 9-Site Audit</a>
-        <a href="forensics-and-methodology.html">3. 0.2778 Forensics &amp; HVFD Methodology</a>
-        <a href="https://github.com/sassnarep3-star/GEMSDOESASS2" target="_blank" rel="noopener">GitHub Repo ↗</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="container">
-    <!-- TOP-OF-PAGE UNMISTAKABLE SUBMISSION & DOWNLOAD PANEL -->
-    <section class="hero-submit" aria-labelledby="submit-heading">
-      <div class="status-pill-row">
-        <span class="badge badge-promote">✓ VERDICT: PROMOTE · OK TO SUBMIT</span>
-        <span class="badge badge-sky">100% UNIQUE LANE (MAX 3-PX OVERLAP 68.27% ≤ 70.0% · 49.34% VS GEMSDOE32)</span>
-        <span class="badge badge-sky">PORTAL-SAFE [0, 1] · 0 NaN · EPSG:32611 · 37,654 DOTS</span>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="DOE GEMS Prize — SASS2-XGHF Dual-Horizon Cross-Gradient & Hydrothermal Conduit GeoTIFF, 9-Site Audit, and Fail-Closed Selector Desk."
+    />
+    <title>GEMS Field Notes — SASS2-XGHF Candidate &amp; 9-Site Decision Desk</title>
+    <link rel="stylesheet" href="assets/style.css" />
+    <script src="assets/app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="brand" href="index.html"
+          ><span class="brand-mark">G.</span
+          ><span
+            >GEMS Field Notes<small>SASS2-XGHF &amp; 9-site audit</small></span
+          ></a
+        >
+        <nav class="nav" aria-label="Primary">
+          <a href="index.html" aria-current="page">Overview</a
+          ><a href="hvfd-exp3.html">HVFD-EXP3 (.tif)</a
+          ><a href="executive-summary.html">Executive summary</a
+          ><a href="research.html">Research</a
+          ><a href="parallel-review.html">Parallel review</a
+          ><a href="sources.html">Sources</a
+          ><a
+            class="nav-link"
+            href="https://www.drivendata.org/competitions/306/competition-doe-gems/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Competition ↗</a
+          >
+        </nav>
       </div>
-
-      <h1 id="submit-heading" class="hero-title">
-        Ready-to-Submit Unique GeoTIFF: <code>HVFD-EXP3-HydroCollinear</code>
-      </h1>
-      <p class="hero-subtitle">
-        Trained completely from scratch with <strong>zero prior submission inputs</strong> using our Dual-Population
-        <strong>Hydrothermal Vent-Fault Coupled + Cross-Component Fracture Mechanics</strong> LOQO ensemble, 500 m
-        8-azimuth strike-collinearity + hydrothermal/geophysical corridor sharpening, and exact
-        <em>R</em> = 300 m (<code>3.05 px</code>) Tversky support spacing outside the <em>B</em> = 200 m (<code>2 px</code>)
-        catalogue collar. Machine-validated across all 12,279,160 pixels with zero manual intervention.
-      </p>
-
-      <div class="cta-row">
-        <a class="btn btn-primary"
-           href="downloads/gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif"
-           download="gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif">
-          ⬇ Download Validated .TIF (137.4 KB)
-        </a>
-        <a class="btn btn-secondary"
-           href="downloads/gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.zip"
-           download="gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.zip">
-          ⬇ Download .ZIP Archive
-        </a>
-        <a class="btn btn-secondary"
-           href="downloads/gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.json"
-           target="_blank" rel="noopener">
-          View Machine Validator Receipt (.JSON)
-        </a>
-        <a class="btn btn-secondary"
-           href="https://www.drivendata.org/competitions/306/competition-doe-gems/submissions/"
-           target="_blank" rel="noopener">
-          Open DrivenData Upload Portal ↗
-        </a>
-      </div>
-
-      <div class="copy-grid">
-        <div class="copy-box">
-          <div class="copy-box-header">
-            <span>Unique Submission Name (52 chars)</span>
-            <button class="copy-btn" type="button" data-copy="GEMSDOESASS2-HVFD-EXP3-HYDROCOLLINEAR-37654-fc98343e">Copy Name</button>
+    </header>
+    <main id="main">
+      <section class="hero">
+        <div class="wrap hero-grid">
+          <div>
+            <div class="eyebrow">DOE GEMS Prize · SASS2-XGHF Dual-Horizon Discovery</div>
+            <h1>Find the blind fault.<br />Audit every gate.</h1>
+            <p>
+              Executive decision &amp; research desk for <strong>GEMSDOESASS2</strong>:
+              one-click download of our newly generated unique 59-channel cross-gradient
+              &amp; hydrothermal conduit GeoTIFF (<code>SASS2-XGHF</code>), paired
+              spatially-blocked holdout results across all 9 focus sites, and fail-closed
+              uniqueness &amp; slot-selector verification.
+            </p>
+            <p class="meta">
+              Automated validation &amp; pinned 9-site audit ·
+              <span data-audit-time>snapshot dated 27 Oct 2026</span>
+            </p>
           </div>
-          <div class="copy-val" id="sub-name">GEMSDOESASS2-HVFD-EXP3-HYDROCOLLINEAR-37654-fc98343e</div>
-        </div>
-
-        <div class="copy-box">
-          <div class="copy-box-header">
-            <span>DrivenData Note (104 / 140 chars max)</span>
-            <button class="copy-btn" type="button" data-copy="GEMSDOESASS2 hvfd-exp3-hydrocollinear LOQO B=2 37654px HOLDOUT-DTI=0.1184 blind8km=0.1763 max3pxOv=68.3%">Copy Note</button>
-          </div>
-          <div class="copy-val" id="sub-note">GEMSDOESASS2 hvfd-exp3-hydrocollinear LOQO B=2 37654px HOLDOUT-DTI=0.1184 blind8km=0.1763 max3pxOv=68.3%</div>
-        </div>
-
-        <div class="copy-box">
-          <div class="copy-box-header">
-            <span>GeoTIFF SHA-256 Checksum (140,692 bytes)</span>
-            <button class="copy-btn" type="button" data-copy="5435b141398517eb44ea507e6da430c761ea5b670ac338aada5be40ca1fc6750">Copy SHA-256</button>
-          </div>
-          <div class="copy-val" id="sub-sha">5435b141398517eb44ea507e6da430c761ea5b670ac338aada5be40ca1fc6750</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FOUR PROTOCOL GATES SUMMARY -->
-    <section class="kpi-grid" aria-label="Protocol Gate Results">
-      <div class="kpi-card">
-        <div class="kpi-label">Gate 1 · Leakage Canary (54 Features)</div>
-        <div class="kpi-value emerald">0.7851 ≤ 0.90</div>
-        <div class="kpi-note">
-          PASS across all 48 static + 6 fold-mechanical features. <code>dist_known_fault_px</code> and ScienceBase fault-vertex slip polylines stripped.
-        </div>
-      </div>
-
-      <div class="kpi-card">
-        <div class="kpi-label">Gate 2A · Primary Buffered Holdout DTI</div>
-        <div class="kpi-value emerald">0.11842</div>
-        <div class="kpi-note">
-          <code>HOLDOUT-DTI (gems57-pooled-hide-v2, N=11321, 95% CI [0.10255, 0.13426])</code> — beats <code>fair_h33</code> (0.09609) by <strong>+0.02234</strong> [95% CI +0.01030, +0.03477].
-        </div>
-      </div>
-
-      <div class="kpi-card">
-        <div class="kpi-label">Gate 2B · Zero-Context Blind 8 km Quadrants</div>
-        <div class="kpi-value sky">0.17630</div>
-        <div class="kpi-note">
-          <code>HOLDOUT-DTI (spatial.folds buffer_px=80, N=60988, 95% CI [0.15434, 0.19659])</code> — <strong>10.14×</strong> random (0.01738) &amp; highest blind OOF across all audited repos.
-        </div>
-      </div>
-
-      <div class="kpi-card">
-        <div class="kpi-label">Gate 3 &amp; 4 · Registry Uniqueness &amp; Portal Check</div>
-        <div class="kpi-value emerald">68.27% ≤ 70%</div>
-        <div class="kpi-note">
-          Audited vs <strong>451 unique</strong> (542 scanned) rasters: pre-placement |ρ| = 0.2179 ≤ 0.90, <strong>49.34%</strong> vs <code>GEMSDOE32 B2</code>; 0 NaN, 0 Inf, [0.0, 1.0].
-        </div>
-      </div>
-    </section>
-
-    <!-- STEP-BY-STEP DRIVENDATA SUBMISSION GUIDE -->
-    <section class="section">
-      <h2>30-Second DrivenData Upload Checklist (DOE/NLR 3-per-Week Slot Policy)</h2>
-      <div class="callout emerald">
-        <strong>Weekly Slot Discipline (<a href="https://docs.nlr.gov/docs/fy26osti/96647.pdf" target="_blank" rel="noopener">DOE/NLR Official Rules Sec. 3.2</a>):</strong>
-        Teams are capped at <strong>3 submissions per week</strong>. Do <strong>not</strong> re-submit any historic <code>H19-5</code>/<code>H33</code> variant from <code>GEMSDOE24..36</code> (97.8%–100.0% duplicate lineage). Submit <code>gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif</code> as <strong>Primary Slot #1</strong>. See the <a href="executive-summary.html">9-Site Executive Summary</a> for the full portfolio table.
-      </div>
-      <ol>
-        <li>Click <strong>⬇ Download Validated .TIF</strong> above to save <code>gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif</code> (<code>140,692</code> bytes).</li>
-        <li>Open the <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/submissions/" target="_blank" rel="noopener">DrivenData Competition #306 Submission Page</a> and upload the <code>.tif</code> directly (single-band <code>EPSG:32611</code> <code>float32</code>, <code>3730 × 3292</code>, <code>nodata=None</code>, 100% finite values in <code>[0.0, 1.0]</code> — engineered specifically to prevent DrivenData's <em>"Predicted values must be in range [0, 1]"</em> NaN error).</li>
-        <li>Paste the copyable <strong>Submission Name</strong> (<code>GEMSDOESASS2-HVFD-EXP3-HYDROCOLLINEAR-37654-fc98343e</code>) and <strong>104-character Note</strong> above so the live score can be logged cleanly as <code>ORGANIZER-CONFIRMED</code>.</li>
-      </ol>
-    </section>
-
-    <!-- KEY DIAGNOSTIC VISUALIZATIONS -->
-    <section class="section">
-      <h2>Validated Holdout Progression &amp; Spatial Fault Discovery Maps</h2>
-      <p>
-        Every metric below is strictly labeled as <code>HOLDOUT-DTI (evaluator version, N withheld positives, 95% CI)</code> or
-        <code>ORGANIZER-CONFIRMED</code>. No leaderboard projection is ever reported as a score.
-      </p>
-
-      <div class="figure-card">
-        <img src="assets/fig1_holdout_progression.png" alt="Holdout DTI progression across baselines and pre-registered experiments EXP-1, EXP-2, and EXP-3" />
-        <div class="figure-caption">
-          <strong>Figure 1.</strong> Monotonic out-of-fold progression across our 3-experiment budget on (A) the canonical buffered component holdout (<code>gems57-pooled-hide-v2</code>, <em>N</em> = 11,321, 1,000-draw 20 km spatial block bootstrap) and (B) zero-context 8 km dead-band blind quadrants (<code>spatial.folds</code>, <em>N</em> = 60,988). <code>EXP-2</code> was properly halted under Protocol Rule 1 at 72.08% 3-px overlap against dense ridge lattice <code>gems10-h28</code>; <code>EXP-3</code> resolved scarp crowding via 500 m strike-collinearity + blind hydrothermal/geophysical corridor sharpening and <em>R</em> = 300 m spacing, rising to <strong>0.11842</strong> (+23.2% over <code>fair_h33</code>) while dropping max overlap to <strong>68.27% ≤ 70.0%</strong>.
-        </div>
-      </div>
-
-      <div class="figure-card">
-        <img src="assets/fig3_nevada_fault_discovery_map.png" alt="Full Nevada study area fault discovery map and 60 km hydrothermal belt zoom comparing GEMSDOESASS2 vs GEMSDOE32 B2" />
-        <div class="figure-caption">
-          <strong>Figure 2.</strong> (A) Full 373 km × 329 km Great Basin study area (<code>EPSG:32611</code>, 5,167,373 footprint pixels) showing mapped USGS/INGENIOUS faults (cyan, 60,988 px) and our 37,654 off-catalogue <code>GEMSDOESASS2 HVFD-EXP3</code> fault/vent discoveries (amber, 0 on-catalogue pixels, min catalogue clearance 223.6 m). (B) 60 km × 60 km zoom across the central hydrothermal/piedmont corridor comparing prior champion <code>GEMSDOE32 B2</code> (grey crosses, 0.2778) against new <code>GEMSDOESASS2</code> discoveries (emerald): <strong>over 50.6% of our dots occupy newly illuminated range-front, intrabasin potential-field, and hydrothermal upflow corridors</strong> outside 300 m of <code>GEMSDOE32</code>.
-        </div>
-      </div>
-
-      <div class="two-col">
-        <div class="figure-card">
-          <img src="assets/fig2_gemsdoe32_forensics.png" alt="Forensic algebraic proof of GEMSDOE32 0.2778 and reciprocal DTI linear fit" />
-          <div class="figure-caption">
-            <strong>Figure 3.</strong> Exact forensic reconstruction of <code>GEMSDOE32</code> (0.2778) and reciprocal-DTI proof (<em>R</em>² = 0.9996) showing pure <code>H19-5</code> collar pruning asymptotes below ~0.295; surpassing 0.3195 toward 0.4413 / 0.4544 requires blind piedmont &amp; hydrothermal corridor recall.
+          <div class="status-card">
+            <span class="status-tag">Research .tif ready · Live slot held for selector</span>
+            <h2>No submission file is approved.</h2>
+            <p>
+              <strong>SASS2-XGHF Research Artifact: PASSES</strong> 13/13 + strict
+              GDAL mask, 59/59 canaries, paired holdout win (<code>p=1.000</code>),
+              and 429/429 genuine rasters (&le;69.11%). <strong>Live Weekly Slot:
+              DO NOT AUTO-SUBMIT</strong> pending owner exemption of the
+              <code>13GEMSDOE</code> calibration lattice (99.78% &gt; 70% Pigeonhole
+              bound) &amp; separate weekly-slot selector sign-off.
+            </p>
+            <div class="buttons">
+              <a
+                class="btn btn-primary"
+                href="downloads/gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif"
+                download
+                >⬇ 1-Click Download HVFD-EXP3 .tif (155 KB)</a
+              >
+              <a
+                class="btn btn-outline"
+                href="downloads/gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.zip"
+                download
+                >HVFD-EXP3 .zip</a
+              >
+              <a
+                class="btn btn-primary"
+                href="downloads/gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif"
+                download
+                >⬇ 1-Click Download SASS2-XGHF .tif (165 KB)</a
+              >
+              <a
+                class="btn btn-outline"
+                href="downloads/gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.zip"
+                download
+                >SASS2-XGHF .zip</a
+              >
+              <span class="btn btn-disabled" aria-disabled="true"
+                >Submission download unavailable (pending selector)</span
+              >
+              <a class="btn btn-outline" href="hvfd-exp3.html"
+                >HVFD-EXP3 Run Card &amp; Copy Note →</a
+              >
+              <a class="btn btn-outline" href="executive-summary.html"
+                >Step-by-step upload guide →</a
+              >
+            </div>
+            <p class="meta" style="margin-top: 10px; font-size: 0.82rem">
+              <strong>HVFD-EXP3 Name:</strong>
+              <code data-copy="GEMSDOESASS2-HVFD-EXP3-HYDROCOLLINEAR-37654-fc98343e">GEMSDOESASS2-HVFD-EXP3-HYDROCOLLINEAR-37654-fc98343e</code>
+              · <strong>Note (104/140):</strong>
+              <code data-copy="GEMSDOESASS2 hvfd-exp3-hydrocollinear LOQO B=2 37654px HOLDOUT-DTI=0.1184 blind8km=0.1763 max3pxOv=68.3%">GEMSDOESASS2 hvfd-exp3-hydrocollinear LOQO B=2 37654px HOLDOUT-DTI=0.1184 blind8km=0.1763 max3pxOv=68.3%</code>
+              · <strong>SHA-256:</strong>
+              <code data-copy="28bb9419d592797dcac1bfb1eb19fcffa7581a51718230f1f4f957a3e3d610d6">28bb9419d592797dcac1bfb1eb19fcffa7581a51718230f1f4f957a3e3d610d6</code>
+              (47.80% 3-px cross-overlap vs SASS2-XGHF; 68.27% max genuine registry; strict GDAL mask PASS)
+            </p>
+            <div class="status-divider"></div>
+            <div class="status-mini">
+              <span
+                >Strict Run Card verdict
+                <strong>negative (lattice &amp; selector gate)</strong></span
+              ><span
+                >Genuine-raster uniqueness <strong>429/429 PASS (&le;69.11%)</strong></span
+              >
+            </div>
           </div>
         </div>
-        <div class="figure-card">
-          <img src="assets/fig4_canary_and_uniqueness.png" alt="Gate-1 single-feature leakage canary AUCs and Gate-3 3-px dot overlap uniqueness audit" />
-          <div class="figure-caption">
-            <strong>Figure 4.</strong> (A) Gate-1 Leakage Canary across all 54 features (max single-feature symmetric ROC-AUC = 0.7851 ≤ 0.90). (B) Gate-3 3-px dot overlap across all 435 discrete registry submissions (max = 68.27% ≤ 70.0%; only 49.34% vs <code>GEMSDOE32</code>).
+      </section>
+
+      <div class="wrap">
+        <div class="metric-strip" aria-label="Decision highlights">
+          <div class="metric">
+            <strong>0.1311</strong
+            ><span
+              >SASS2-XGHF HOLDOUT-DTI (<code>HIDE-RECOVER-v3.0</code>, n=22,232)<br />vs
+              0.2778 Champ 0.0992 (<code>+0.0320</code>, p=1.000)</span
+            >
+          </div>
+          <div class="metric">
+            <strong>0.2778</strong
+            ><span
+              >Highest supplied nine-site value (GEMSDOE32)<br />USER-REPORTED ·
+              unverified</span
+            >
+          </div>
+          <div class="metric">
+            <strong>0.4544</strong
+            ><span
+              >Official public leaderboard #1 (<code>xiaofanhu</code>)<br />observed
+              27 Oct 2026 (was 0.4413 Oct 25)</span
+            >
+          </div>
+          <div class="metric">
+            <strong>82.34%</strong
+            ><span
+              >Pigeonhole minimum overlap forced at 37,654 dots<br />by
+              <code>13GEMSDOE</code> calibration lattice</span
+            >
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- STRICTLY LABELED EXPERIMENT LEDGER TABLE -->
-    <section class="section">
-      <h2>Pre-Registered 3-Experiment Budget Ledger (Rule 3 &amp; Rule 6)</h2>
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Arm / Control</th>
-              <th>Primary Buffered Holdout<br/><code>gems57-pooled-hide-v2</code> (<em>N</em> = 11,321)</th>
-              <th>Paired Gain vs <code>fair_h33</code><br/>(95% Block-Bootstrap CI)</th>
-              <th>Blind 8 km Quadrants<br/><code>spatial.folds</code> (<em>N</em> = 60,988)</th>
-              <th>Max Registry<br/>3-px Overlap</th>
-              <th>Protocol Gate Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><code>single_slope</code><br/><span class="kpi-note">Calibrated <code>det_elev</code> slope</span></td>
-              <td><code>HOLDOUT-DTI (gems57-pooled-hide-v2, N=11321, 95% CI [0.01895, 0.03847]): 0.02818</code></td>
-              <td>−0.06791</td>
-              <td><code>HOLDOUT-DTI (spatial.folds, N=60988, 95% CI [0.03386, 0.04879]): 0.04104</code></td>
-              <td>—</td>
-              <td><span class="badge badge-sky">Control</span></td>
-            </tr>
-            <tr>
-              <td><code>random_37654</code><br/><span class="kpi-note">Uniform off-collar (<em>B</em>=2)</span></td>
-              <td><code>HOLDOUT-DTI (gems57-pooled-hide-v2, N=11321, 95% CI [0.04273, 0.05366]): 0.04860</code></td>
-              <td>−0.04749</td>
-              <td><code>HOLDOUT-DTI (spatial.folds, N=60988, 95% CI [0.01533, 0.01955]): 0.01738</code></td>
-              <td>—</td>
-              <td><span class="badge badge-sky">Control</span></td>
-            </tr>
-            <tr>
-              <td><code>fair_h33</code><br/><span class="kpi-note"><code>d2.8</code> pruned by <code>d_vis &gt; 2 px</code></span></td>
-              <td><code>HOLDOUT-DTI (gems57-pooled-hide-v2, N=11321, 95% CI [0.08334, 0.10934]): 0.09609</code></td>
-              <td>Baseline (0.00000)</td>
-              <td>N/A (uses full-cat H19-5)</td>
-              <td>100.0% (H19-5)</td>
-              <td><span class="badge badge-amber">Incumbent Control</span></td>
-            </tr>
-            <tr>
-              <td><strong>EXP-1</strong><br/><span class="kpi-note">Zero-Cat Hydrothermal + Piedmont Expert A</span></td>
-              <td><code>HOLDOUT-DTI (gems57-pooled-hide-v2, N=11321, 95% CI [0.08268, 0.11493]): 0.09918</code></td>
-              <td>+0.00310 [−0.00912, +0.01540]</td>
-              <td><code>HOLDOUT-DTI (spatial.folds, N=60988, 95% CI [0.14865, 0.19356]): 0.17254</code></td>
-              <td>68.13% ≤ 70%</td>
-              <td><span class="badge badge-sky">Unique · Superseded by EXP-3</span></td>
-            </tr>
-            <tr>
-              <td><strong>EXP-2</strong><br/><span class="kpi-note">Dual-Population HVFD (Expert A + B)</span></td>
-              <td><code>HOLDOUT-DTI (gems57-pooled-hide-v2, N=11321, 95% CI [0.09860, 0.13393]): 0.11639</code></td>
-              <td>+0.02030 [+0.00798, +0.03299]</td>
-              <td>—</td>
-              <td><strong style="color:#fda4af">72.08% &gt; 70%</strong></td>
-              <td><span class="badge badge-rose">Rule 1 Duplicate Stop (Logged)</span></td>
-            </tr>
-            <tr class="highlight-row">
-              <td><strong>EXP-3 (PROMOTED)</strong><br/><span class="kpi-note">500 m Strike-Collinear + Hydro Corridor + <em>R</em>=300 m Spacing</span></td>
-              <td><strong><code>HOLDOUT-DTI (gems57-pooled-hide-v2, N=11321, 95% CI [0.10255, 0.13426]): 0.11842</code></strong></td>
-              <td><strong>+0.02234 [+0.01030, +0.03477]</strong></td>
-              <td><strong><code>HOLDOUT-DTI (spatial.folds, N=60988, 95% CI [0.15434, 0.19659]): 0.17630</code></strong></td>
-              <td><strong>68.27% ≤ 70%</strong><br/><span class="kpi-note">(49.34% vs GEMSDOE32)</span></td>
-              <td><span class="badge badge-promote">✓ PROMOTED DELIVERABLE</span></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+      <section class="section" id="sass2-xghf-executive">
+        <div class="wrap">
+          <div class="section-header">
+            <div>
+              <div class="eyebrow">Executive Summary · Candidate Artifact &amp; Gate Matrix</div>
+              <h2>SASS2-XGHF: Automated Verification &amp; Submission Metadata</h2>
+            </div>
+            <p>
+              Every check executes deterministically in Python/CI without human-inspection
+              placeholders. Scores are strictly labeled per Protocol Rule 3: holdout values
+              are never projected as live leaderboard scores.
+            </p>
+          </div>
 
-    <!-- FINAL PROTOCOL RULE 5 RUN CARD -->
-    <section class="section" id="run-card">
-      <h2>Final Machine-Verified JSON Run Card (Protocol Rule 5)</h2>
-      <p>
-        Generated directly by <code>scripts/run_hvfd_experiments.py</code> and verified by 20 automated <code>pytest</code> checks
-        (<a href="data/summary.json" target="_blank" rel="noopener">download unified site JSON receipt</a>).
-      </p>
-      <pre id="run-card-json">Loading verified evidence/run_card.json...</pre>
-    </section>
+          <div class="table-shell">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Candidate / Artifact</th>
+                  <th scope="col">One-Click Download &amp; SHA-256</th>
+                  <th scope="col">Measured HOLDOUT-DTI (95% CI)</th>
+                  <th scope="col">Uniqueness Status</th>
+                  <th scope="col">Automated Gate &amp; Upload Decision</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <strong>GEMSDOESASS2-XGHF-e7996841</strong><br />
+                    <small
+                      >37,654 binary dots (12,802 Stage-A SAR-PU/Crack-Tip + 24,852
+                      Stage-B Blind XGHF Anisotropic Conduits, B=2 px)</small
+                    >
+                  </td>
+                  <td>
+                    <a
+                      href="downloads/gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif"
+                      download
+                      ><strong>gemsdoesass2-xghf-...-e7996841-zeros.tif</strong></a
+                    ><br />
+                    <small
+                      >165,398 B · SHA-256:
+                      <code>2a122a409c7a7d5977a311dce271d6f333f21a697cd9effd59b45c6c0f0e8ec7</code></small
+                    ><br />
+                    <small
+                      >Note (69/140 chars):
+                      <code>SASS2 XGHF 37654d B2 | HR 0.1311 SGMC 0.0668 | e7996841 | xgrad+hf+pu</code></small
+                    >
+                  </td>
+                  <td>
+                    <strong>HOLDOUT-DTI 0.131134</strong><br />
+                    <small>[0.118009, 0.142930] · <code>GEMSDOE32-HIDE-RECOVER-v3.0</code> (n=22,232; +0.032048 vs 0.2778 Champ, p=1.000)</small
+                    ><br />
+                    <strong>HOLDOUT-DTI 0.066793</strong><br />
+                    <small>[0.060406, 0.072338] · <code>GEMSDOE32-SGMC-CAL-v3.0</code> (n=62,703; +0.002569 vs Champ)</small>
+                  </td>
+                  <td>
+                    <strong>429/429 Genuine PASS</strong><br />
+                    <small
+                      >Max 3-px overlap vs genuine rasters: <strong>69.11%</strong> (&le;70%);
+                      27.00% vs 0.2778 Champ; 33.53% vs SCU1; max |Spearman| 0.0992 (&le;0.90).</small
+                    ><br />
+                    <small
+                      ><strong>Literal calibration lattice: 99.78%</strong> vs
+                      <code>r13-lattice-s5</code> (Pigeonhole floor 82.34%).</small
+                    >
+                  </td>
+                  <td>
+                    <strong>13/13 + Strict GDAL Mask PASS</strong><br />
+                    <small
+                      ><code>strict_local_format_pass=true</code> (all 12,279,160 cells finite
+                      <code>[0,1]</code> + exact internal footprint mask; 59/59 canary AUC &le; 0.8263).</small
+                    ><br />
+                    <small
+                      ><strong>OK to Download: YES</strong> ·
+                      <strong>Live Slot: HOLD</strong> until owner exempts
+                      <code>r13-lattice-s5</code> &amp; approves weekly slot (<a href="executive-summary.html#how-to">upload steps →</a>).</small
+                    >
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="table-note">
+            Machine-verifiable receipts:
+            <a href="data/latest-run-card.json">SASS2-XGHF Run Card JSON ↗</a> ·
+            <a href="data/format-sass2-xghf-zeros.json">Strict Format Receipt (<code>strict_local_format_pass=true</code>) ↗</a> ·
+            <a href="data/uniqueness-summary.json">431-Raster Uniqueness Summary ↗</a> ·
+            <a href="data/score-ledger.csv">153-Row Historical GEMSDOE Score Ledger (CSV) ↗</a>
+          </p>
+        </div>
+      </section>
 
-    <!-- VERIFIED OFFICIAL EXTERNAL SOURCES -->
-    <section class="section">
-      <h2>Verified Official Competition &amp; Scientific Data Sources</h2>
-      <ul>
-        <li><strong>DrivenData Competition Portal &amp; Problem Specification:</strong> <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/" target="_blank" rel="noopener">Discovering Hidden Geothermal Systems (DOE GEMS #306)</a> — Distance-Weighted Tversky Index (<code>α = 0.2, β = 0.8, R = 300 m</code> triangular kernel), <code>EPSG:32611</code> 100 m GeoTIFF contract.</li>
-        <li><strong>Live Public Leaderboard (Verified 2026-10-27):</strong> <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/" target="_blank" rel="noopener">DrivenData Leaderboard</a> — Live #1 <code>xiaofanhu = 0.4544</code> (prompt snapshot <code>0.4413</code>), #2 <code>cfld__ = 0.3916</code>, #5 Phase-1 Top-5 prize cutoff <code>No Fault of Our Own = 0.3566</code>.</li>
-        <li><strong>DOE / National Laboratory of the Rockies (NLR) Official Prize Rules (Sept 2026):</strong> <a href="https://docs.nlr.gov/docs/fy26osti/96647.pdf" target="_blank" rel="noopener">NLR-TP-2026-96647 PDF</a> — Phase 1 ($50k: 5 × $10k) &amp; Phase 2 ($250k: $100k/$70k/$40k/$25k/$15k), <strong>3 submissions/week</strong> limit (Sec. 3.2), and generative AI disclosure requirement (Sec. 3.2).</li>
-        <li><strong>USGS GeoDAWN Airborne Magnetic &amp; Radiometric Survey (CC0 1.0 Public Domain):</strong> Glen, J.M.G. &amp; Earney, T.E. (2024), <a href="https://doi.org/10.5066/P93LGLVQ" target="_blank" rel="noopener">doi:10.5066/P93LGLVQ</a> (<a href="https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and" target="_blank" rel="noopener">USGS Data Release</a>).</li>
-        <li><strong>DOE Geothermal Data Repository (GDR) INGENIOUS Great Basin Dataset (CC-BY-4.0):</strong> Ayling, B. et al. (2022), Nevada Bureau of Mines &amp; Geology / UNR, Award <code>DE-EE0009254</code>, <a href="https://gdr.openei.org/submissions/1391" target="_blank" rel="noopener">GDR #1391</a> (<a href="https://doi.org/10.15121/1881483" target="_blank" rel="noopener">doi:10.15121/1881483</a>) &amp; <a href="https://gbcge.org/current-projects/ingenious/" target="_blank" rel="noopener">GBCGE INGENIOUS Project</a>.</li>
-        <li><strong>USGS ScienceBase INGENIOUS Geophysical Releases &amp; Geodetic Strain:</strong> Peacock et al. MT Resistivity (<a href="https://doi.org/10.5066/P9TWT2LU" target="_blank" rel="noopener">doi:10.5066/P9TWT2LU</a>), Erickson et al. Heat Flow (<a href="https://doi.org/10.5066/P9BZPVUC" target="_blank" rel="noopener">doi:10.5066/P9BZPVUC</a>), Gravity/Magnetics (<a href="https://doi.org/10.5066/P9Z6SA1Z" target="_blank" rel="noopener">doi:10.5066/P9Z6SA1Z</a>), Kreemer &amp; Young (2022) Great Basin GPS Strain (<a href="https://doi.org/10.1785/0220220153" target="_blank" rel="noopener">doi:10.1785/0220220153</a>), and <a href="https://epsg.io/32611" target="_blank" rel="noopener">EPSG:32611 (WGS 84 / UTM Zone 11N)</a>.</li>
-      </ul>
-    </section>
+      <section class="section-tight">
+        <div class="wrap">
+          <div class="section-header">
+            <div>
+              <div class="eyebrow">Diagnostic Evidence · 3-Experiment Budget</div>
+              <h2>Dual-Benchmark Pareto &amp; Blind Basin Conduit Reach</h2>
+            </div>
+            <p>
+              <code>EXP-3</code> (Completeness-Calibrated Dual-Horizon Residual Anisotropic
+              CELF) beats the <code>0.2778</code> Champion on both buffered fault-segment
+              hide-and-recover and prevalence-calibrated off-catalogue SGMC basement faults,
+              placing 40.16% of dots &gt; 2 km into blind basins.
+            </p>
+          </div>
+          <div class="analysis-grid">
+            <article class="card">
+              <h3>Dual-Instrument Holdout Pareto &amp; Registry Separation</h3>
+              <p>
+                Comparison of <code>EXP-1</code> (Label-Free XGHF Conduits),
+                <code>EXP-2</code> (SAR-PU + Crack-Tip), and <code>EXP-3</code>
+                (Dual-Horizon Selected) against the <code>0.2778</code> Champion.
+              </p>
+              <img
+                src="assets/sass2_xghf_diagnostics.png"
+                alt="SASS2-XGHF four-panel diagnostic plot showing dual-instrument holdout Pareto, distance-to-catalogue allocation, 429-raster uniqueness histogram, and spatial coverage"
+                style="width: 100%; height: auto; border-radius: 10px; margin-top: 12px"
+              />
+            </article>
+            <article class="card">
+              <h3>Blind Basin Subsurface Conduit Zoom</h3>
+              <p>
+                Stage-A active scarp/crack-tip dots vs Stage-B blind cross-gradient +
+                hydrothermal conduit dots bridging unmapped SGMC structures across
+                Quaternary basin cover.
+              </p>
+              <img
+                src="assets/sass2_xghf_blind_conduit_zoom.png"
+                alt="Zoomed structural map comparing GEMSDOE32 0.2778 scarp hugging against SASS2-XGHF Stage-A and Stage-B blind basin conduits"
+                style="width: 100%; height: auto; border-radius: 10px; margin-top: 12px"
+              />
+            </article>
+          </div>
+        </div>
+      </section>
 
-    <footer class="footer">
-      <div>
-        <strong>GEMSDOESASS2</strong> · Branch <code>arena/ea31206d-gemsdoesass2</code> · Core Values: <em>Maximize P(Win)</em> &amp; <em>Own the Outcome</em>
-      </div>
-      <div>
-        <a href="executive-summary.html">Executive Summary &amp; 9-Site Audit →</a>
+      <section class="section">
+        <div class="wrap">
+          <div class="section-header">
+            <div>
+              <div class="eyebrow">The decision</div>
+              <h2>Why automatic live submission stays fail-closed</h2>
+            </div>
+            <p>
+              Format, genuine-submission novelty, scientific holdout gain, and live
+              weekly-slot authorization are tracked as separate gates.
+            </p>
+          </div>
+          <div class="cards">
+            <article class="card">
+              <span class="num">01 / LITERAL LATTICE BOUND</span>
+              <h3>Genuine-unique (429/429), blocked by one calibration lattice.</h3>
+              <p>
+                <code>SASS2-XGHF</code> clears all 429 genuine rasters (&le;69.11%),
+                but <code>13GEMSDOE</code>'s 206,895-dot uniform lattice leaves only
+                6,649 footprint pixels outside 3 px—forcing &ge;82.34% overlap at
+                37,654 dots. Three earlier parallel candidates also failed it.
+                <a href="parallel-review.html">See all 4 parallel candidates →</a>
+              </p>
+            </article>
+            <article class="card">
+              <span class="num">02 / EVALUATOR &amp; FORMAT REPAIRS</span>
+              <h3>Zero-truth FP accounting &amp; dual-mode GeoTIFF mask fixed.</h3>
+              <p>
+                <code>gems_sass2/metric.py</code> preserves full false-positive mass on
+                zero-truth cells (upstream Issue #41), checks both surface &amp; dot
+                uniqueness (Issue #42), and writes <code>GDAL_TIFF_INTERNAL_MASK</code>
+                over finite <code>[0,1]</code> pixels so <code>strict_local_format_pass=true</code>.
+              </p>
+            </article>
+            <article class="card">
+              <span class="num">03 / SLOT AUTHORIZATION</span>
+              <h3>Separate weekly-slot selector required (Protocol Rule 6).</h3>
+              <p>
+                Historical 9-site scores are user-reported without organizer receipts,
+                mirror inputs are SHA-pinned rather than live portal downloads, and
+                spending one of 3 weekly slots requires explicit owner selector approval.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-tight">
+        <div class="wrap">
+          <div class="proof">
+            <div>
+              <div class="eyebrow">Independent byte-level finding</div>
+              <h2>The calibration lattice sets a mathematical bound.</h2>
+              <p>
+                Only 6,649 pixels of the 5,167,373-pixel footprint are farther than
+                three pixels from the registered <code>r13-lattice-s5</code> grid. At
+                37,654 distinct dots, at least 31,005 must fall within 3 px of it—above
+                the literal 70% stop unless the owner selector exempts non-competitive
+                calibration lattices.
+              </p>
+              <p style="margin-top: 14px">
+                <a class="inline-link" href="executive-summary.html#lattice"
+                  >See the exact Pigeonhole proof and selector protocol →</a
+                >
+              </p>
+            </div>
+            <div class="proof-stat">
+              <strong>82.34%</strong
+              ><span
+                >minimum possible overlap at 37,654 dots<br />Genuine-raster max for
+                SASS2-XGHF is 69.11%.</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="nine-sites">
+        <div class="wrap">
+          <div class="section-header">
+            <div>
+              <div class="eyebrow">The nine-site review</div>
+              <h2>Historical leaders across GEMSDOE24–36</h2>
+            </div>
+            <p>
+              All 9 focus sites share the single <code>H19-5</code> range-front
+              lineage (86.7%–100% mutual 3-px overlap; <code>GEMSDOE25 == GEMSDOE30</code>
+              with 0 XOR pixels), whereas <code>SASS2-XGHF</code> has only
+              <strong>27.00%–29.94%</strong> 3-px overlap with all 9 historical champions.
+            </p>
+          </div>
+          <div class="table-shell">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Site</th>
+                  <th scope="col">Reported best</th>
+                  <th scope="col">File to submit</th>
+                  <th scope="col">Estimated score</th>
+                  <th scope="col">Unique vs peers?</th>
+                </tr>
+              </thead>
+              <tbody data-sites-body>
+                <tr>
+                  <td colspan="5">Loading the pinned audit…</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <noscript
+            ><p class="table-note">
+              JavaScript is needed to render the live source-head table. Full audited
+              JSON is in <a href="data/audit.json">data/audit.json</a> and
+              <a href="data/uniqueness-summary.json">data/uniqueness-summary.json</a>.
+            </p></noscript
+          >
+          <p class="table-note">
+            Historical peer overlap above is the largest directional dot overlap among
+            the nine historical variants (all &gt;70% duplicates of one another; none
+            approved as our submission). Compare with <code>SASS2-XGHF</code>'s
+            27.00%–29.94% overlap in
+            <a href="data/uniqueness-summary.json">uniqueness-summary.json ↗</a> ·
+            <a href="data/audit.json">Open all 72 historical comparisons ↗</a>
+          </p>
+          <div class="refresh">
+            <button type="button" data-refresh>Recheck source heads</button
+            ><span data-freshness aria-live="polite"
+              >Checking source freshness…</span
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="section-tight dark-band">
+        <div class="wrap section-header">
+          <div>
+            <div class="eyebrow" style="color: #c5dc83">
+              PhD Forensic Analysis · Why 0.2778 Ceilinged vs 0.4544 Leader
+            </div>
+            <h2>Why did H33-2-B2 score 0.2778—and how do we beat it?</h2>
+          </div>
+          <p>
+            <code>H33-2-B2</code> equals <code>GEMSDOE25</code> after removing 6,436
+            dots within <code>B=2 px</code> (200 m) of <code>labels.tif</code>, cutting
+            <code>0.2 FP</code> halo waste—but 92.6% of its remaining dots still hug
+            exposed LiDAR scarps (&lt;2 km), missing ~65% of blind basin &amp;
+            hydrothermal faults.
+            <a href="research.html#champion">Read the full PhD analysis &amp; 5 hypotheses →</a>
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="wrap">
+          <div class="section-header">
+            <div>
+              <div class="eyebrow">Documentation &amp; Provenance</div>
+              <h2>Explore every artifact and source</h2>
+            </div>
+          </div>
+          <div class="analysis-grid">
+            <article class="card">
+              <h3>Executive Summary &amp; DrivenData Upload Guide</h3>
+              <p>
+                One-click download, exact submission name &amp; 69-char note, dual
+                outside-footprint encoding proof, and step-by-step DrivenData portal
+                checklist once the owner selector approves a slot.
+              </p>
+              <a class="inline-link" href="executive-summary.html"
+                >Open Executive Summary &amp; Upload Guide →</a
+              >
+            </article>
+            <article class="card">
+              <h3>PhD Champion Autopsy &amp; 5 Ranked Hypotheses</h3>
+              <p>
+                Detailed geophysical breakdown of Gallardo-Meju cross-gradients, Salem
+                tilt-zero depth/sharpness, INGENIOUS GDR #1391 geothermometer plumes,
+                SAR-PU de-censoring, and dual-horizon CELF.
+              </p>
+              <a class="inline-link" href="research.html"
+                >Read Research Brief &amp; Hypotheses →</a
+              >
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <p>
+          <strong>GEMS Field Notes · GEMSDOESASS2</strong> · SASS2-XGHF research
+          GeoTIFF ready to download; live weekly slot held for owner selector.<br />
+          Strictly labeled <code>HOLDOUT-DTI</code> &amp; SHA-256 verified artifacts.
+        </p>
+        <div>
+          <a href="executive-summary.html">Executive summary</a
+          ><a href="parallel-review.html">Parallel review</a
+          ><a href="sources.html">Sources</a
+          ><a href="data/latest-run-card.json">SASS2-XGHF Run card</a
+          ><a href="data/run-card.json">Audit card</a
+          ><a
+            href="https://github.com/sassnarep3-star/GEMSDOESASS2"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Repository ↗</a
+          >
+        </div>
       </div>
     </footer>
-  </main>
-
-  <script>
-    document.querySelectorAll('.copy-btn').forEach((btn) => {
-      btn.addEventListener('click', async () => {
-        const text = btn.getAttribute('data-copy');
-        try {
-          await navigator.clipboard.writeText(text);
-          const orig = btn.textContent;
-          btn.textContent = '✓ Copied!';
-          setTimeout(() => { btn.textContent = orig; }, 1600);
-        } catch (err) {
-          console.error('Clipboard copy failed:', err);
-        }
-      });
-    });
-
-    fetch('data/summary.json')
-      .then((r) => r.json())
-      .then((d) => {
-        const el = document.getElementById('run-card-json');
-        if (el && d && d.run_card) {
-          el.textContent = JSON.stringify(d.run_card, null, 2);
-        }
-      })
-      .catch(() => {
-        const el = document.getElementById('run-card-json');
-        if (el) el.textContent = 'See evidence/run_card.json in repository.';
-      });
-  </script>
-</body>
+  </body>
 </html>

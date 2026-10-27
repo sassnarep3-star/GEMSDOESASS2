@@ -1,0 +1,54 @@
+{
+  "candidate": "gemsdoesass2-scu1-scarpcorridor-uth-37000-20261027T120000Z-nan.tif",
+  "candidate_sha256": "00a357c15a823c06fa9751c29813206a1d4582b1c0b7be1f6d48641e24f38b7d",
+  "reference": "sample_submission.tif",
+  "reference_sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+  "reference_trust": "Caller-supplied; this validator cannot establish organizer provenance.",
+  "shape": [
+    3730,
+    3292
+  ],
+  "crs": "EPSG:32611",
+  "transform": [
+    100.0,
+    0.0,
+    243350.0,
+    0.0,
+    -100.0,
+    4508550.0
+  ],
+  "dtype": [
+    "float32"
+  ],
+  "checks": {
+    "tif_extension": true,
+    "single_band": true,
+    "float32": true,
+    "crs_match": true,
+    "shape_match": true,
+    "transform_match": true,
+    "competition_crs_epsg32611": true,
+    "competition_100m_north_up": true,
+    "whole_array_finite_in_0_1": false,
+    "inside_unmasked_finite_in_0_1": true,
+    "outside_masked_or_nan": true
+  },
+  "counts": {
+    "footprint_pixels": 5167373,
+    "inside_nan": 0,
+    "inside_inf": 0,
+    "inside_masked": 0,
+    "inside_out_of_range_finite": 0,
+    "outside_pixels": 7111787,
+    "outside_unmasked_finite": 0,
+    "inside_min": 0.0,
+    "inside_max": 1.0,
+    "whole_array_nan": 7111787,
+    "whole_array_inf": 0,
+    "whole_array_out_of_range_finite": 0
+  },
+  "strict_local_format_pass": false,
+  "organizer_accepted": null,
+  "ok_to_submit": false,
+  "note": "Format inspection alone cannot establish novelty, scientific performance, or weekly-slot authorization."
+}

@@ -1,0 +1,5 @@
+# Audit tools only; these do not train a model or contain the shared evaluator.
+numpy==2.2.6
+scipy==1.15.3
+rasterio==1.4.3
+pytest==8.4.2

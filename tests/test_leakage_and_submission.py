@@ -116,7 +116,7 @@ def test_gate3_uniqueness_against_registry() -> None:
 
 
 def test_gate4_promoted_geotiff_and_zip_portal_contract() -> None:
-    rc = json.loads((ROOT / "evidence" / "run_card.json").read_text(encoding="utf-8"))
+    rc = json.loads((ROOT / "evidence" / "hvfd_exp3_run_card.json").read_text(encoding="utf-8"))
     tif_path = ROOT / rc["raster_path"]
     zip_path = ROOT / "docs" / "downloads" / rc["zip_filename"]
     assert tif_path.exists(), f"Missing promoted GeoTIFF: {tif_path}"
@@ -162,7 +162,7 @@ def test_gate4_promoted_geotiff_and_zip_portal_contract() -> None:
 
 
 def test_gate5_run_card_and_nine_focus_sites_completeness() -> None:
-    rc = json.loads((ROOT / "evidence" / "run_card.json").read_text(encoding="utf-8"))
+    rc = json.loads((ROOT / "evidence" / "hvfd_exp3_run_card.json").read_text(encoding="utf-8"))
     for key in (
         "hypothesis",
         "mechanism",

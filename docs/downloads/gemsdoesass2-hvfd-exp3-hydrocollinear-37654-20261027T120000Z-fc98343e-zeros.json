@@ -1,14 +1,8 @@
 {
-  "file": "gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif",
-  "sha256": "5435b141398517eb44ea507e6da430c761ea5b670ac338aada5be40ca1fc6750",
-  "bytes": 140692,
-  "submission_name": "GEMSDOESASS2-HVFD-EXP3-HYDROCOLLINEAR-37654-fc98343e",
-  "note": "GEMSDOESASS2 hvfd-exp3-hydrocollinear LOQO B=2 37654px HOLDOUT-DTI=0.1184 blind8km=0.1763 max3pxOv=68.3%",
-  "note_chars": 104,
-  "validator": {
-    "file": "/home/user/GEMSDOESASS2/docs/downloads/gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif",
-    "bytes": 140692,
-    "sha256": "5435b141398517eb44ea507e6da430c761ea5b670ac338aada5be40ca1fc6750",
+  "gems57_validate": {
+    "file": "docs/downloads/gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif",
+    "bytes": 154994,
+    "sha256": "28bb9419d592797dcac1bfb1eb19fcffa7581a51718230f1f4f957a3e3d610d6",
     "meta": {
       "crs": "EPSG:32611",
       "shape": [
@@ -61,27 +55,17 @@
     "in_footprint_positive_pixels": 37654,
     "footprint_fraction": 0.007286874781441169
   },
-  "template_report": {
-    "path": "/home/user/GEMSDOESASS2/docs/downloads/gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif",
-    "bytes": 140692,
-    "sha256": "5435b141398517eb44ea507e6da430c761ea5b670ac338aada5be40ca1fc6750",
-    "bands": 1,
-    "dtype": "float32",
+  "strict_gdal_validate": {
+    "candidate": "gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif",
+    "candidate_sha256": "28bb9419d592797dcac1bfb1eb19fcffa7581a51718230f1f4f957a3e3d610d6",
+    "reference": "sample_submission.tif",
+    "reference_sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+    "reference_trust": "Caller-supplied; this validator cannot establish organizer provenance.",
+    "shape": [
+      3730,
+      3292
+    ],
     "crs": "EPSG:32611",
-    "width": 3292,
-    "height": 3730,
-    "bounds": [
-      243350.0,
-      4135550.0,
-      572550.0,
-      4508550.0
-    ],
-    "ref_bounds": [
-      243350.0,
-      4135550.0,
-      572550.0,
-      4508550.0
-    ],
     "transform": [
       100.0,
       0.0,
@@ -90,48 +74,39 @@
       -100.0,
       4508550.0
     ],
-    "nodata": null,
-    "blocksize": [
-      256,
-      256
+    "dtype": [
+      "float32"
     ],
-    "fixture_grid": false,
-    "has_validity_mask": false,
-    "nan_pixels": 0,
-    "infinity_pixels": 0,
-    "n_nan": 0,
-    "min": 0.0,
-    "max": 1.0,
-    "mean": 0.0030664964579045773,
-    "n_nonzero": 37654,
-    "mass": 37654.0,
-    "mass_outside_footprint": 0,
-    "problems": [],
-    "ok": true,
-    "validation_class": "local on-disk template/range check; not organizer upload acceptance"
-  },
-  "zip_file": "gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.zip",
-  "zip_sha256": "c814db0c69d6e044060ab85e2a4eea5c08cb3ea775ea4903af8bc0082765fc01",
-  "approved_for_weekly_slot": false,
-  "promoted": false,
-  "submission_slots_used": 0,
-  "status": "locally validated within separately recorded inventory scope; not organizer acceptance or slot approval",
-  "metadata": {
-    "selected_experiment": "EXP3_hvfd_collinear_sharpened",
-    "holdout_evaluator": "gems57-pooled-hide-v2",
-    "holdout_dti": 0.11842,
-    "holdout_ci95": [
-      0.10255,
-      0.13426
-    ],
-    "anatomy": {
-      "emitted_dots": 37654,
-      "min_dist_to_existing_fault_px": 2.236,
-      "frac_d_cat_le_10px": 0.5195,
-      "frac_d_cat_10_to_20px": 0.219,
-      "frac_d_cat_gt_20px": 0.2615,
-      "median_d_cat_px": 9.43,
-      "frac_moderate_piedmont_slope_z": 0.8475
-    }
+    "checks": {
+      "tif_extension": true,
+      "single_band": true,
+      "float32": true,
+      "crs_match": true,
+      "shape_match": true,
+      "transform_match": true,
+      "competition_crs_epsg32611": true,
+      "competition_100m_north_up": true,
+      "whole_array_finite_in_0_1": true,
+      "inside_unmasked_finite_in_0_1": true,
+      "outside_masked_or_nan": true
+    },
+    "counts": {
+      "footprint_pixels": 5167373,
+      "inside_nan": 0,
+      "inside_inf": 0,
+      "inside_masked": 0,
+      "inside_out_of_range_finite": 0,
+      "outside_pixels": 7111787,
+      "outside_unmasked_finite": 0,
+      "inside_min": 0.0,
+      "inside_max": 1.0,
+      "whole_array_nan": 0,
+      "whole_array_inf": 0,
+      "whole_array_out_of_range_finite": 0
+    },
+    "strict_local_format_pass": true,
+    "organizer_accepted": null,
+    "ok_to_submit": false,
+    "note": "Format inspection alone cannot establish novelty, scientific performance, or weekly-slot authorization."
   }
 }

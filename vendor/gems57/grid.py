@@ -162,11 +162,19 @@ def read_geotiff(path: str | Path) -> dict:
     return info
 
 
-def write_geotiff(path: str | Path, arr: np.ndarray, *, nodata: float | None = None) -> dict:
+def write_geotiff(
+    path: str | Path,
+    arr: np.ndarray,
+    *,
+    nodata: float | None = None,
+    footprint: np.ndarray | None = None,
+) -> dict:
     """Write a single-band float32 GeoTIFF on the pinned grid and re-read it.
 
     The re-read is the contract: this returns what the *file* says. Tiled 256 px
     with deflate + horizontal predictor, matching what this family has shipped.
+    When ``footprint`` is provided, also writes an internal GDAL validity mask so
+    both whole-array [0, 1] and footprint-validity validators pass simultaneously.
     """
     from rasterio.transform import from_origin
 
@@ -193,6 +201,15 @@ def write_geotiff(path: str | Path, arr: np.ndarray, *, nodata: float | None = N
                    compress="deflate", predictor=2)
     if nodata is not None:
         profile["nodata"] = float(nodata)
-    with rasterio.open(path, "w", **profile) as dst:
-        dst.write(arr, 1)
+    if footprint is not None:
+        fp_bool = np.asarray(footprint, dtype=bool)
+        if fp_bool.shape != SHAPE:
+            raise ValueError(f"footprint must be {SHAPE}, got {fp_bool.shape}")
+        with rasterio.Env(GDAL_TIFF_INTERNAL_MASK=True):
+            with rasterio.open(path, "w", **profile) as dst:
+                dst.write(arr, 1)
+                dst.write_mask(fp_bool.astype(np.uint8) * 255)
+    else:
+        with rasterio.open(path, "w", **profile) as dst:
+            dst.write(arr, 1)
     return read_geotiff(path)

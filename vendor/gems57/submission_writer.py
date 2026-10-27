@@ -77,8 +77,9 @@ def write_submission(path, prediction, sample, footprint, *, note, name,
         tmp_tif = _temp_path(path.parent, path.stem, path.suffix)
         tmp_zip = _temp_path(path.parent, path.stem, '.zip')
         tmp_receipt = _temp_path(path.parent, path.stem, '.json')
-        # grid.write_geotiff itself rejects shape, dtype, NaN/inf, and range drift.
-        grid.write_geotiff(tmp_tif, p.astype(np.float32, copy=False), nodata=None)
+        # grid.write_geotiff itself rejects shape, dtype, NaN/inf, and range drift,
+        # and embeds an internal GDAL validity mask for footprint-aware validators.
+        grid.write_geotiff(tmp_tif, p.astype(np.float32, copy=False), nodata=None, footprint=fp)
         report = gates.format_report(tmp_tif, sample, footprint=fp)
         if not report['ok']:
             raise ValueError(f'on-disk template validator rejected output: {report["problems"]}')

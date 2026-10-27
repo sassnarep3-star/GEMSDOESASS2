@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="GEMS scientific hypotheses, source caveats, and champion analysis."
+    />
+    <title>Research brief — GEMS Field Notes</title>
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="brand" href="index.html"
+          ><span class="brand-mark">G.</span
+          ><span
+            >GEMS Field Notes<small>Decision &amp; discovery</small></span
+          ></a
+        >
+        <nav class="nav" aria-label="Primary">
+          <a href="index.html">Overview</a
+          ><a href="executive-summary.html">Executive summary</a
+          ><a href="research.html" aria-current="page">Research</a
+          ><a href="sources.html">Sources</a
+          ><a
+            class="nav-link"
+            href="https://www.drivendata.org/competitions/306/competition-doe-gems/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Competition ↗</a
+          >
+        </nav>
+      </div>
+    </header>
+    <main id="main">
+      <section class="page-head">
+        <div class="wrap">
+          <div class="breadcrumb">
+            <a href="index.html">Overview</a> / Research
+          </div>
+          <h1>Hypotheses, not predictions.</h1>
+          <p>
+            Physical mechanisms matter. So do their mimics, data provenance, and
+            the distinction between a catalogue proxy and hidden competition
+            truth.
+          </p>
+        </div>
+      </section>
+      <section class="section">
+        <div class="wrap content-grid">
+          <div class="prose">
+            <div class="eyebrow">Forensic finding</div>
+            <h2 id="champion" style="margin-top: 14px">
+              What explains the reported 0.2778?
+            </h2>
+            <p>
+              The source’s owner-report attributes <strong>0.2778</strong> to
+              GEMSDOE32 H33-2-B2; an organizer submission receipt linking the
+              exact file to that number is not available. Our independent
+              comparison of pinned owner-hosted variants shows:
+            </p>
+            <ul>
+              <li>
+                GEMSDOE25 and GEMSDOE30 have exactly the same positive pixels
+                inside the mirror footprint.
+              </li>
+              <li>
+                GEMSDOE32 B2 equals that GEMSDOE25 mask after removing 6,436
+                dots at distance ≤2 pixels from the mirror catalogue; the
+                symmetric difference is zero.
+              </li>
+              <li>
+                GEMSDOE31’s solo mask equals the same parent after removing
+                3,891 dots at distance ≤1 pixel; B2 removes another 2,545 of
+                those dots.
+              </li>
+            </ul>
+            <p>
+              Under the
+              <a
+                href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/#performance-metric"
+                >distance-weighted Tversky metric</a
+              >, a dot far from hidden truth contributes false-positive mass;
+              removing such dots can improve precision. Conversely, it can
+              discard genuine nearby unseen faults.
+              <a
+                href="https://community.drivendata.org/t/scoring-clarification-are-known-usgs-ingenious-faults-masked-when-scoring-and-are-they-in-the-final-round-label-set/11516/4"
+                >DrivenData staff say</a
+              >
+              the known-fault mask is pixel-exact and new faults can be nearby.
+              We cannot infer the hidden TP/FP/FN terms, explain the observed
+              result causally, or assert that a new unique file will beat it.
+              <a href="data/audit.json">Read the calculations ↗</a>
+            </p>
+            <h2 id="other-evidence" style="margin-top: 48px">
+              A reported negative from GEMSDOE24
+            </h2>
+            <p>
+              The owner’s
+              <a
+                href="https://github.com/buffedlizard55-lab/GEMSDOE24/blob/6e4a85a3456dfe6312d25b6d81187c765a10c847/docs/data/tmcg_run_card.json"
+                >TMCG run card</a
+              >
+              reports <strong>HOLDOUT-DTI 0.07157</strong> (95% CI
+              0.06271–0.08168; <code>gems-segment-pooled-v1</code>; 60,988
+              withheld positives) and a negative verdict. This is an
+              owner-reported internal holdout, not independently reproduced here
+              and not an organizer score. Its published raster also fails the
+              literal lattice overlap check.
+            </p>
+            <p>
+              A newer
+              <a
+                href="https://github.com/buffedlizard55-lab/GEMSDOE24/blob/e65cd19b255fd0edd3067142d08467c65ff5f7f7/docs/data/unique_run_card_7.json"
+                >H-UNIQUE-07 report</a
+              >
+              gives HOLDOUT-DTI 0.001124 (95% CI 0.000860–0.001431; same
+              evaluator; 60,988 withheld); that report is likewise not
+              independently reproduced. Its much smaller 1,814-dot raster still
+              has 1,810 dots within the registered lattice halo.
+            </p>
+            <h2 id="estimation" style="margin-top: 48px">
+              Why there is no score estimate yet
+            </h2>
+            <p>
+              A catalogue holdout and the hidden expert-labelled leaderboard are
+              different populations. A defensible projection would require
+              multiple organizer receipts linked to exact raster hashes, the
+              same frozen holdout evaluator for each, and a calibration tested
+              on held-out submission families—not random copies of the same
+              dotted lineage. Compare it against an intercept-only baseline,
+              report calibration error and uncertainty, and reject it under
+              distribution shift. No such calibrated evidence is available here,
+              so the estimate remains unavailable. Even a validated projection
+              would be labeled as a projection, never as a score.
+            </p>
+            <h2 id="hypotheses" style="margin-top: 50px">
+              Four directions to investigate
+            </h2>
+            <p>
+              Rank is a qualitative judgment of potential, not a numeric score
+              forecast. None has been run here. This checkout began empty; these
+              operators are unimplemented here. Similar work exists in sibling
+              projects, and absence from the complete registry has
+              <strong>not</strong> been established. The top proposal is not an
+              assigned parallel-run lane.
+            </p>
+            <article class="hypothesis">
+              <span class="tag">01 · potentially high / medium cost</span>
+              <h3>Sensor-perturbation-stable buried boundaries</h3>
+              <p>
+                <strong>Layers &amp; signature:</strong> the provided
+                reduced-to-pole magnetic field, total magnetic intensity and its
+                gradients, isostatic gravity and basement-depth estimate. Build
+                co-located boundary features that remain stable across fixed,
+                physically justified noise/scale perturbations and
+                whole-modality dropouts; do not use fault labels to set the
+                perturbations.
+              </p>
+              <p>
+                <strong>Why missing faults:</strong> a buried displacement may
+                persist in more than one independent physical response even
+                where no mapped scarp exists. This tests perturbation stability,
+                not merely the displaced-lag and throw-covariance features
+                already reported by
+                <a
+                  href="https://buffedlizard55-lab.github.io/GEMSDOE36/docs/research/csdl36-20261026.md"
+                  >CSDL-36</a
+                >. <strong>Mimic:</strong> a persistent lithologic contact or
+                dike swarm can produce stable anomalies too.
+              </p>
+              <p>
+                <strong>Feasibility:</strong> requires the reusable competition
+                feature cache and matched holdout, neither present here; the
+                official data are login-gated. The underlying data context is
+                described by
+                <a
+                  href="https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and"
+                  >USGS GeoDAWN</a
+                >. Novelty across all parallel work is unverified.
+              </p>
+            </article>
+            <article class="hypothesis">
+              <span class="tag"
+                >02 · potentially medium / medium-high cost</span
+              >
+              <h3>Cover-conditioned radiometric contrast reversals</h3>
+              <p>
+                <strong>Layers &amp; signature:</strong> GeoDAWN K, Th and U
+                grids plus a verified, non-fault lithology/cover layer. Measure
+                whether a cross-strike radiometric contrast changes sign or
+                persists after conditioning on mapped rock units, rather than
+                using a raw K/Th anomaly as direct fault evidence.
+              </p>
+              <p>
+                <strong>Why missing faults:</strong> alteration or offset
+                lithologic packages might betray a permeable or buried structure
+                not in the catalogue. <strong>Mimic:</strong> sediment sorting,
+                lithological boundaries and radon or moisture effects. Prior
+                GEMSDOE32 work already used radiometric ratios; this proposed
+                conditional contrast is not evidence that the family is new.
+              </p>
+              <p>
+                <strong>Feasibility:</strong> the
+                <a
+                  href="https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and"
+                  >USGS release</a
+                >
+                lists radiometric grids, but this checkout has not downloaded or
+                validated them, a lithology layer, coverage or alignment.
+                Research-only until that happens.
+              </p>
+            </article>
+            <article class="hypothesis">
+              <span class="tag">03 · potentially medium / high cost</span>
+              <h3>Absolute-elevation shoreline counterfactual</h3>
+              <p>
+                <strong>Layers &amp; signature:</strong> USGS 3DEP absolute
+                elevation and terrain profiles, combined with 100 m topography.
+                Compare signed scarp-profile persistence inside and outside
+                independently mapped paleoshoreline bands; do not use detrended
+                elevation as absolute elevation.
+              </p>
+              <p>
+                <strong>Why missing faults:</strong> weak basin-margin steps may
+                continue beneath cover where catalogues are incomplete; explicit
+                counterfactual checks may suppress lake-level landforms.
+                <strong>Mimic:</strong> wave-cut benches, fan terraces, and road
+                cuts. This is a shoreline-confound test rather than merely
+                another scarp score.
+              </p>
+              <p>
+                <strong>Feasibility:</strong>
+                <a href="https://www.usgs.gov/3d-elevation-program"
+                  >USGS says 3DEP products are free and unrestricted</a
+                >; the necessary tiles and shoreline coverage have not been
+                retrieved or checked here. Not yet viable for validation.
+              </p>
+            </article>
+            <article class="hypothesis">
+              <span class="tag">04 · uncertain / high cost</span>
+              <h3>Acquisition-level magnetic reproducibility</h3>
+              <p>
+                <strong>Layers &amp; signature:</strong> GeoDAWN magnetic
+                flight-line and tie-line CSVs, flight-path geometry and terrain
+                clearance. Test whether directional profile breaks recur across
+                adjacent flight lines and remain consistent at crossovers,
+                accounting for line levelling and survey geometry.
+              </p>
+              <p>
+                <strong>Why missing faults:</strong> reproducible subsurface
+                breaks might be obscured in gridded maps or lack a surface
+                expression. <strong>Mimic:</strong> line levelling,
+                flight-height changes, dike swarms and ordinary contacts. It
+                uses acquisition-level checks, unlike grid-only models, but
+                other sibling reports have already proposed raw-profile methods.
+              </p>
+              <p>
+                <strong>Feasibility:</strong> the
+                <a
+                  href="https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and"
+                  >official USGS release</a
+                >
+                lists flight-line CSV archives and flight paths. Direct archive
+                access and study-area coverage were not verified from this
+                network-restricted execution environment; not yet viable for a
+                run.
+              </p>
+            </article>
+            <h2 id="science" style="margin-top: 48px">
+              From geothermal system to fault target
+            </h2>
+            <p>
+              The competition predicts <strong>fault locations</strong>, not
+              vents directly. The USGS
+              <a
+                href="https://www.usgs.gov/publications/discovering-blind-geothermal-systems-great-basin-region-integrated-geologic-and"
+                >Great Basin play-fairway report</a
+              >
+              describes integrating geology, geophysics and geochemistry,
+              including a blind system with no surface hot springs, fumaroles or
+              paleogeothermal deposits. It motivates multimodal hypotheses; it
+              does not establish their performance on this challenge. The
+              <a
+                href="https://www.usgs.gov/publications/a-geophysical-characterization-structure-and-geology-northern-granite-springs-valley"
+                >Granite Springs study</a
+              >
+              illustrates that magnetic highs can also reflect an inferred dike
+              swarm or lithologic contact.
+            </p>
+          </div>
+          <aside class="sidebar" aria-label="On this page">
+            <h3>On this page</h3>
+            <a href="#champion">Champion forensics</a
+            ><a href="#other-evidence">GEMSDOE24 report</a
+            ><a href="#estimation">Score estimation</a
+            ><a href="#hypotheses">Ranked hypotheses</a
+            ><a href="#science">Scientific context</a>
+            <hr />
+            <a href="sources.html">Source catalogue →</a
+            ><a href="executive-summary.html">Submission decision →</a>
+          </aside>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <p>
+          <strong>GEMS Field Notes</strong> · No geological experiment was run
+          in this session.
+        </p>
+        <div>
+          <a href="sources.html">Sources</a
+          ><a href="data/run-card.json">Run card</a
+          ><a href="https://github.com/sassnarep3-star/GEMSDOESASS2"
+            >Repository ↗</a
+          >
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

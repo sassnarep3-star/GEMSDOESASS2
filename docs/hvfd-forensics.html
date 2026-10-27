@@ -4,9 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>PhD Forensics of 0.2778 &amp; HVFD Methodology — GEMSDOESASS2</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="hvfd-styles.css" />
 </head>
 <body>
+  <a class="skip" href="#main">Skip to content</a>
   <header class="topbar">
     <div class="topbar-inner">
       <a class="brand" href="index.html">
@@ -14,15 +15,16 @@
         <span>GEMSDOESASS2 · DOE GEMS Subsurface Fault Discovery</span>
       </a>
       <nav class="nav-links" aria-label="Primary Navigation">
-        <a href="index.html">1. Download &amp; Run Card</a>
-        <a href="executive-summary.html">2. Executive Summary &amp; 9-Site Audit</a>
-        <a class="active" href="forensics-and-methodology.html">3. 0.2778 Forensics &amp; HVFD Methodology</a>
+        <a href="index.html">Overview Desk</a>
+        <a href="hvfd-exp3.html">HVFD-EXP3 Download &amp; Run Card</a>
+        <a class="active" href="hvfd-forensics.html">0.2778 Forensics &amp; HVFD Method</a>
+        <a href="executive-summary.html">Executive Summary &amp; Upload Guide</a>
         <a href="https://github.com/sassnarep3-star/GEMSDOESASS2" target="_blank" rel="noopener">GitHub Repo ↗</a>
       </nav>
     </div>
   </header>
 
-  <main class="container">
+  <main id="main" class="container">
     <section class="hero-submit">
       <div class="status-pill-row">
         <span class="badge badge-sky">PHD GEOSCIENCE &amp; METRIC FORENSICS</span>
@@ -186,7 +188,7 @@ DTI  = TP_w / ( TP_w + 0.2 * FP_w + 0.8 * FN_w ) = TP_w / ( 0.8 * |G| + 0.2 * TP
 .venv/bin/python scripts/fetch_data.py
 
 # 2. Build 48-channel multi-scale static feature memmap (strictly zero catalogue inputs)
-.venv/bin/python scripts/prepare_data.py
+.venv/bin/python scripts/prepare_hvfd_data.py
 
 # 3. Audit all 9 focus repositories (GEMSDOE24..36) &amp; reconstruct 0.2778 forensics
 .venv/bin/python scripts/audit_nine_focus_sites.py
@@ -214,7 +216,7 @@ DTI  = TP_w / ( TP_w + 0.2 * FP_w + 0.8 * FN_w ) = TP_w / ( 0.8 * |G| + 0.2 * TP
 
     <footer class="footer">
       <div><a href="executive-summary.html">← Back to Executive Summary &amp; 9-Site Audit</a></div>
-      <div><a href="index.html">Return to Top Submission Download Hub ↑</a></div>
+      <div><a href="hvfd-exp3.html">Return to HVFD-EXP3 Download Hub ↑</a></div>
     </footer>
   </main>
 </body>

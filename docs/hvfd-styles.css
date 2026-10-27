@@ -44,6 +44,22 @@ a:hover {
   text-decoration: underline;
 }
 
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: 0.5rem;
+  z-index: 999;
+  padding: 0.5rem 1rem;
+  background: var(--emerald);
+  color: #032217;
+  font-weight: 700;
+  border-radius: 6px;
+}
+
+.skip:focus {
+  left: 0.75rem;
+}
+
 .topbar {
   position: sticky;
   top: 0;

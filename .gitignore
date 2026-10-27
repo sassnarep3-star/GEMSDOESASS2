@@ -1,14 +1,17 @@
 .venv/
-.cache/
 __pycache__/
-*.pyc
-*.pyo
+*.py[cod]
 .pytest_cache/
-data/raw/
-data/bridge/
-data/external/
-data/scored/
-*.part-*
+.cache/
+data/*.tif
+data/*.tiff
+data/*.npy
+data/*.npz
+*.partial
+
+node_modules/
+
+# Additional existing project data caches (root only; docs/data holds receipts)
+/data/
+/data_cache/
 *.npy
-*.npz
-*.mmap

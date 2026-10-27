@@ -11,17 +11,19 @@ DOCS = ROOT / "docs"
 
 def test_github_pages_files_and_local_links_exist() -> None:
     assert (DOCS / ".nojekyll").exists()
-    assert (DOCS / "styles.css").stat().st_size > 1000
     html_pages = [
         DOCS / "index.html",
         DOCS / "executive-summary.html",
-        DOCS / "forensics-and-methodology.html",
+        DOCS / "hvfd-exp3.html",
+        DOCS / "hvfd-forensics.html",
     ]
     for page in html_pages:
         assert page.exists(), f"Missing page: {page}"
         text = page.read_text(encoding="utf-8")
+        assert "localhost" not in text
+        assert "127.0.0.1" not in text
         for attr_val in re.findall(r'(?:href|src)="([^"]+)"', text):
-            if attr_val.startswith(("http://", "https://", "#", "mailto:")):
+            if attr_val.startswith(("http://", "https://", "#", "mailto:", "${")):
                 continue
             clean = attr_val.split("#")[0].split("?")[0]
             if not clean:
@@ -33,14 +35,14 @@ def test_github_pages_files_and_local_links_exist() -> None:
 
 
 def test_index_top_download_and_copy_metadata_match_run_card() -> None:
-    rc = json.loads((ROOT / "evidence" / "run_card.json").read_text(encoding="utf-8"))
-    idx = (DOCS / "index.html").read_text(encoding="utf-8")
-
-    assert f'downloads/{rc["raster_filename"]}' in idx
-    assert f'downloads/{rc["zip_filename"]}' in idx
-    assert f'data-copy="{rc["submission_name"]}"' in idx
-    assert f'data-copy="{rc["submission_note"]}"' in idx
-    assert f'data-copy="{rc["raster_sha256"]}"' in idx
+    rc = json.loads((ROOT / "evidence" / "hvfd_exp3_run_card.json").read_text(encoding="utf-8"))
+    for page_name in ("index.html", "hvfd-exp3.html"):
+        txt = (DOCS / page_name).read_text(encoding="utf-8")
+        assert f'downloads/{rc["raster_filename"]}' in txt
+        assert f'downloads/{rc["zip_filename"]}' in txt
+        assert f'data-copy="{rc["submission_name"]}"' in txt
+        assert f'data-copy="{rc["submission_note"]}"' in txt
+        assert f'data-copy="{rc["raster_sha256"]}"' in txt
     assert len(rc["submission_note"]) <= 140
 
 
@@ -62,7 +64,6 @@ def test_nine_focus_sites_and_readme_links() -> None:
         assert site in exec_html, f"Missing {site} in executive-summary.html"
         assert site in readme, f"Missing {site} in README.md"
 
-    # Check all relative markdown links in README.md exist on disk
     for md_link in re.findall(r"\]\(([^)]+)\)", readme):
         if md_link.startswith(("http://", "https://", "#", "mailto:")):
             continue

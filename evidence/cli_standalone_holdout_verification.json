@@ -1,0 +1,162 @@
+{
+  "candidate_id": "SASS2_XGHF_CLI_VERIFY",
+  "hide_and_recover_v3": {
+    "candidate_id": "SASS2_XGHF_CLI_VERIFY",
+    "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+    "score_label": "HOLDOUT-DTI",
+    "mode": "fold_local_visible_only_oof",
+    "b_visible_px": 2.0,
+    "n_withheld_positives": 22232,
+    "n_spatial_clusters": 140,
+    "n_bootstrap_reps": 1000,
+    "pooled_dti": 0.13113429625126585,
+    "ci95_cluster_bootstrap": [
+      0.11800927247324561,
+      0.14292982826414363
+    ],
+    "fold_mean_dti": 0.132116767899234,
+    "per_quadrant_dti": {
+      "NW": 0.13136983614499698,
+      "NE": 0.13477957813876076,
+      "SW": 0.10772013172749846,
+      "SE": 0.15459752558567988
+    },
+    "detached_600m": {
+      "n_withheld_positives": 15504,
+      "pooled_dti": 0.09648262570885083,
+      "ci95_cluster_bootstrap": [
+        0.08476680693955357,
+        0.10753392903158167
+      ],
+      "paired_delta_vs_02778_champion": {
+        "mean_delta": 0.002426923798582606,
+        "ci95": [
+          -0.0060094467602078636,
+          0.010948775120202628
+        ],
+        "prob_gt_zero": 0.708,
+        "statistically_positive_95": false
+      }
+    },
+    "folds": {
+      "draw20_fold0": {
+        "dti": 0.12520651099629668,
+        "coverage": 0.2103253590505451,
+        "tp": 401.93176114559174,
+        "fp": 8004.8214284181595,
+        "fn": 1509.0682388544083,
+        "n_truth": 1911,
+        "emitted": 8188
+      },
+      "draw20_fold1": {
+        "dti": 0.14446628926866253,
+        "coverage": 0.24424194280566788,
+        "tp": 574.2128075361252,
+        "fp": 9895.378825604916,
+        "fn": 1776.7871924638748,
+        "n_truth": 2351,
+        "emitted": 10161
+      },
+      "draw20_fold2": {
+        "dti": 0.11565030096394284,
+        "coverage": 0.1562299281965279,
+        "tp": 575.7072854042053,
+        "fp": 9574.296484827995,
+        "fn": 3109.2927145957947,
+        "n_truth": 3685,
+        "emitted": 9811
+      },
+      "draw20_fold3": {
+        "dti": 0.16805875580776694,
+        "coverage": 0.22144350604493487,
+        "tp": 714.155306994915,
+        "fp": 7633.035997092724,
+        "fn": 2510.844693005085,
+        "n_truth": 3225,
+        "emitted": 7904
+      },
+      "draw21_fold0": {
+        "dti": 0.13753316129369725,
+        "coverage": 0.22010143093450665,
+        "tp": 464.63412070274353,
+        "fp": 7983.078260958195,
+        "fn": 1646.3658792972565,
+        "n_truth": 2111,
+        "emitted": 8195
+      },
+      "draw21_fold1": {
+        "dti": 0.125092867008859,
+        "coverage": 0.2152327182277149,
+        "tp": 487.50210678577423,
+        "fp": 9938.105603814125,
+        "fn": 1777.4978932142258,
+        "n_truth": 2265,
+        "emitted": 10156
+      },
+      "draw21_fold2": {
+        "dti": 0.09978996249105408,
+        "coverage": 0.13605111767537892,
+        "tp": 487.60720574855804,
+        "fp": 9608.068765282631,
+        "fn": 3096.392794251442,
+        "n_truth": 3584,
+        "emitted": 9806
+      },
+      "draw21_fold3": {
+        "dti": 0.14113629536359282,
+        "coverage": 0.1879689133551813,
+        "tp": 582.703631401062,
+        "fp": 7660.59120285511,
+        "fn": 2517.296368598938,
+        "n_truth": 3100,
+        "emitted": 7898
+      }
+    },
+    "paired_delta_vs_02778_champion": {
+      "mean_delta": 0.03204815832649315,
+      "ci95": [
+        0.02165221486997298,
+        0.042292565477704235
+      ],
+      "prob_gt_zero": 1.0,
+      "statistically_positive_95": true
+    }
+  },
+  "sgmc_off_catalogue_v3": {
+    "candidate_id": "SASS2_XGHF_CLI_VERIFY",
+    "evaluator_version": "GEMSDOE32-SGMC-CAL-v3.0",
+    "score_label": "HOLDOUT-DTI",
+    "n_withheld_positives": 62703,
+    "n_emitted_off_catalogue": 37654,
+    "n_spatial_clusters": 140,
+    "n_bootstrap_reps": 1000,
+    "sgmc_raw_pooled_dti": 0.09988459395680711,
+    "sgmc_raw_ci95": [
+      0.0903107295382852,
+      0.10910972096249422
+    ],
+    "sgmc_prevalence_calibrated_dti": 0.06679273951862633,
+    "sgmc_calibrated_ci95": [
+      0.060405869698972374,
+      0.0723382831912707
+    ],
+    "paired_raw_delta_vs_02778_champion": {
+      "mean_delta": 0.0036514454554506122,
+      "ci95": [
+        -0.011404157701495943,
+        0.01798515340203971
+      ],
+      "prob_gt_zero": 0.676,
+      "statistically_positive_95": false
+    },
+    "paired_cal_delta_vs_02778_champion": {
+      "mean_delta": 0.0025687155121628127,
+      "ci95": [
+        -0.006434051867774332,
+        0.011655805267869296
+      ],
+      "prob_gt_zero": 0.703,
+      "statistically_positive_95": false
+    }
+  }
+}

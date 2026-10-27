@@ -1,0 +1,12 @@
+{
+  "name": "gems-field-notes",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Tests for the static GEMS evidence site",
+  "scripts": {
+    "test:site": "node tests/site.test.cjs"
+  },
+  "devDependencies": {
+    "jsdom": "26.1.0"
+  }
+}
