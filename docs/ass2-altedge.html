@@ -1,0 +1,25 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GEMSDOESASS2 — executive summary &amp; unique TIF</title>
+<style>body{font-family:system-ui,Arial,sans-serif;max-width:1000px;margin:2rem auto;padding:0 1rem;line-height:1.55}table{border-collapse:collapse;width:100%;font-size:.9rem}td,th{border:1px solid #bbb;padding:.4rem;text-align:left}.no{background:#ffe3e3;border:2px solid #b00020;padding:1rem}.dl{background:#eef;border:2px solid #2456a6;padding:1rem}code{word-break:break-all}</style></head><body>
+<h1>GEMSDOESASS2 — DOE GEMS Prize (DrivenData #306)</h1>
+<div class="no"><h2>🚦 Submission status: ✅ OK TO DOWNLOAD: YES · 🛑 OK TO SUBMIT: NO</h2>
+<p><b>Unique new TIF generated, machine-validated, but the promotion gate FAILED</b> (paired SGMC bootstrap 95% CI vs the 0.2778 champion crosses zero). Do not spend a weekly DrivenData slot on it. Negative results are deliverables. No human inspection was used — all gates are automated (<code>scripts/validate_submission.py</code>, <code>scripts/check_uniqueness_sgmc.py</code>).</p></div>
+<div class="dl"><h2>⬇ One-click download (research only — DO NOT SUBMIT)</h2>
+<p><a href="downloads/gemsass2-ass2-altedge-hgb-44090-20261027-cc854482215e-zeros.tif"><b>gemsass2-ass2-altedge-hgb-44090-20261027-cc854482215e-zeros.tif</b></a> · <a href="downloads/gemsass2-ass2-altedge-hgb-44090-20261027-cc854482215e-zeros.zip">single-TIFF .zip</a> · <a href="downloads/validator-gemsass2-ass2-altedge-hgb-44090-20261027-cc854482215e-zeros.json">validator receipt (PASS)</a></p>
+<p>Unique name: <code>gemsass2-ass2-altedge-hgb-44090-20261027-cc854482215e-zeros</code><br>Note (≤140, do NOT use): <code>ASS2 altedge radiometric-mag HGB 44090d | HOLDOUT-DTI 0.1089 SGMC 0.1301 | cc854482215e</code><br>
+SHA-256: <code>cc854482215ec665a17175447474066e3418692c9604f150cc4f5459dc459707</code> · 44,090 dots · single-band float32 · EPSG:32611 · 3730×3292 · all values finite in [0,1] (cannot trigger “Predicted values must be in range [0, 1]” on value grounds)</p></div>
+<h2>Executive table — what to download, estimated score, unique?</h2>
+<table><tr><th>File</th><th>Estimated score</th><th>Unique vs 9 focus sites?</th><th>Submit?</th></tr>
+<tr><td><code>gemsass2-ass2-altedge-hgb-44090-20261027-cc854482215e-zeros.tif</code> (NEW)</td><td><b>NOT ESTIMABLE</b> as an organiser score. HOLDOUT-DTI 0.10886 (GEMSDOESASS2-HIDE-RECOVER-v1, 60,988 withheld positives); SGMC off-catalogue 0.13007 vs champion 0.10758 (MODEL PROJECTION only, paired CI crosses zero)</td><td><b>YES</b> vs 9 focus champions: max |Spearman| 0.1031 ≤0.90, max 39.13% dots within 3px ≤70% (COMPUTED)</td><td><b>NO</b></td></tr>
+<tr><td>GEMSDOE32 h33-h33-2-b2 …e5eb6e7e (best historical, 0.2778 USER-REPORTED)</td><td>0.2778 USER-REPORTED (no organiser receipt found)</td><td>— benchmark; its family overlaps 86.7–97.4% (3px) with the other 8</td><td>NO — already submitted</td></tr>
+</table>
+<p>Best historical by site: GEMSDOE32 0.2778 · GEMSDOE36 0.2750 · GEMSDOE28 0.2710 · GEMSDOE31 0.2708 · GEMSDOE33 0.2632 · GEMSDOE25 0.2600 · GEMSDOE30 0.2600 (dot-identical to GEMSDOE25) · GEMSDOE24 0.2477 · GEMSDOE27 0.2449 — all USER-REPORTED, all one H19-5 dotted-ridge clone family, all already submitted. Full per-site autopsy, why 0.2778 won, ranked new hypotheses and irregularities IR-1…IR-6: <a href="executive-summary.html">Executive summary subpage</a> / <code>knowledge/EXECUTIVE_SUMMARY.md</code> in the repo. Submission steps: see the subpage §How to submit.</p>
+<h2>Validation gates (automated, zero human intervention)</h2>
+<table><tr><th>Gate</th><th>Result</th></tr>
+<tr><td>Format/range [0,1], CRS/shape/transform vs sample</td><td>PASS</td></tr>
+<tr><td>Leakage canary (max single-feature AUC ≤0.90)</td><td>PASS — 0.6613</td></tr>
+<tr><td>Uniqueness vs 9 focus champions (ρ≤0.90, ≤70% within 3px)</td><td>PASS — 0.1031 / 39.13% (scoped; full-registry lattice caveat in summary IR-4)</td></tr>
+<tr><td>Holdout efficacy + paired blind-instrument CI &gt; 0</td><td><b>FAIL</b> — SGMC Δ +0.0228, 95% CI [−0.0084, +0.0547]</td></tr>
+<tr><td>Weekly-slot selector approval</td><td>Not sought (gate failed)</td></tr></table>
+<p>Run card: <code>registry/run_card.json</code>. Sources: <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/">DrivenData #306 problem/metric</a> · <a href="https://github.com/drivendataorg/gems-prize-reference-solution">reference solution</a> · <a href="https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and">USGS GeoDAWN (DOI 10.5066/P93LGLVQ)</a> · <a href="https://epsg.io/32611">EPSG:32611</a> · <a href="https://en.wikipedia.org/wiki/Tversky_index">Tversky index</a></p>
+</body></html>

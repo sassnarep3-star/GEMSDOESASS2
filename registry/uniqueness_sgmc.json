@@ -1,0 +1,79 @@
+{
+ "candidate_sgmc_offcat_DTI": 0.13007,
+ "dots": 44090,
+ "registry": [
+  {
+   "file": "champ_GEMSDOE24.tif",
+   "dots": 60069,
+   "our_dot_overlap_3px": 0.3866,
+   "surface_spearman": 0.1031,
+   "sgmc_offcat_DTI": 0.12052
+  },
+  {
+   "file": "champ_GEMSDOE25.tif",
+   "dots": 44090,
+   "our_dot_overlap_3px": 0.3726,
+   "surface_spearman": 0.086,
+   "sgmc_offcat_DTI": 0.10853
+  },
+  {
+   "file": "champ_GEMSDOE27.tif",
+   "dots": 61328,
+   "our_dot_overlap_3px": 0.3913,
+   "surface_spearman": 0.1029,
+   "sgmc_offcat_DTI": 0.12247
+  },
+  {
+   "file": "champ_GEMSDOE28.tif",
+   "dots": 37660,
+   "our_dot_overlap_3px": 0.3566,
+   "surface_spearman": 0.0764,
+   "sgmc_offcat_DTI": 0.10538
+  },
+  {
+   "file": "champ_GEMSDOE30.tif",
+   "dots": 44090,
+   "our_dot_overlap_3px": 0.3726,
+   "surface_spearman": 0.086,
+   "sgmc_offcat_DTI": 0.10853
+  },
+  {
+   "file": "champ_GEMSDOE31.tif",
+   "dots": 40199,
+   "our_dot_overlap_3px": 0.3619,
+   "surface_spearman": 0.0795,
+   "sgmc_offcat_DTI": 0.10838
+  },
+  {
+   "file": "champ_GEMSDOE33.tif",
+   "dots": 41865,
+   "our_dot_overlap_3px": 0.3682,
+   "surface_spearman": 0.0816,
+   "sgmc_offcat_DTI": 0.10943
+  },
+  {
+   "file": "champ_GEMSDOE36.tif",
+   "dots": 38854,
+   "our_dot_overlap_3px": 0.3535,
+   "surface_spearman": 0.076,
+   "sgmc_offcat_DTI": 0.10955
+  },
+  {
+   "file": "champion32.tif",
+   "dots": 37654,
+   "our_dot_overlap_3px": 0.3487,
+   "surface_spearman": 0.0756,
+   "sgmc_offcat_DTI": 0.10758
+  },
+  {
+   "file": "champion32.tif",
+   "dots": 37654,
+   "our_dot_overlap_3px": 0.3487,
+   "surface_spearman": 0.0756,
+   "sgmc_offcat_DTI": 0.10758
+  }
+ ],
+ "max_overlap": 0.3913,
+ "max_abs_spearman": 0.1031,
+ "unique_pass_le70_rho90": true
+}

@@ -120,3 +120,17 @@ Every claim above links to a verified official source: DrivenData page 967 metri
 
 ```
 
+
+---
+
+## ASS2-ALEDGE parallel candidate (2026-10-27, this session — verdict: negative)
+
+Unique TIF `docs/downloads/gemsass2-ass2-altedge-hgb-44090-20261027-cc854482215e-zeros.tif`
+(radiometric–magnetic alteration-edge HGB, 44,090 dots, validator PASS, SHA-256
+cc854482215e…). HOLDOUT-DTI 0.10886 (GEMSDOESASS2-HIDE-RECOVER-v1, 60,988 withheld);
+SGMC off-catalogue 0.13007 vs GEMSDOE32 champion 0.10758, but paired 95% CI
+[−0.0084, +0.0547] crosses zero → **DOWNLOAD YES · SUBMIT NO** (do not spend a slot;
+distinct from the TTC-A1 candidate above, whose evaluator/instruments differ — do not
+pool numbers). Full 9-site autopsy with COMPUTED dot overlaps (incl. GEMSDOE25≡GEMSDOE30
+dot-identical, IR-1): `knowledge/EXECUTIVE_SUMMARY.md`, page `docs/ass2-altedge.html`,
+run card `registry/run_card.json`.
