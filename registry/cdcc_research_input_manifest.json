@@ -1,0 +1,42 @@
+{
+  "schema": "gemsdoesass2-cdcc-research-input-v1",
+  "purpose": "Reproducibility pins for a peer-hosted research mirror. This is not organizer authentication and may never substitute for official competition data.",
+  "repository": "buffedlizard55-lab/GEMSDOE24",
+  "commit": "cf093c8c5e9fa77294ecf4c59b79cdade92cbc06",
+  "inputs": [
+    {
+      "role": "template",
+      "path": "data/bridge/sample_submission.tif",
+      "git_blob_sha": "7d865a9921a40ed2ea4c742a6a25b1fa2f357c5a",
+      "sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+      "local_filename": "sample_submission.tif"
+    },
+    {
+      "role": "public_catalogue_proxy",
+      "path": "data/bridge/labels.tif",
+      "git_blob_sha": "4ad3c1f3f19823e40924589bee7e51e44ae3a2e7",
+      "sha256": "7ba308ccdc4418b31a178f4f1ef21aaa6e152e4028f2f6f64b01f7eb25ae4093",
+      "local_filename": "labels.tif"
+    },
+    {
+      "role": "geodawn_extensions_u8",
+      "path": "data/external/geodawn_extensions_u8.tif",
+      "git_blob_sha": "2fb1d57fdd33b0bdea51f2abef58fb5cddf53aa5",
+      "sha256": "a35a9c6d2a14786f4dab85481ee59769213072f5dab5b2535ea82ae4d9bb7d9b",
+      "local_filename": "geodawn_extensions_u8.tif"
+    },
+    {
+      "role": "geodawn_radiometric_u8",
+      "path": "data/external/geodawn_rad_u8.tif",
+      "git_blob_sha": "80704748f974ea9dbc002924ddf971a957186ae6",
+      "sha256": "c22420f75999030d7cc65c9e31e50d232ea6158423bca051613a18a8b20ba682",
+      "local_filename": "geodawn_rad_u8.tif"
+    }
+  ],
+  "original_source_claimed_by_mirror": {
+    "provider": "U.S. Geological Survey GeoDAWN data release",
+    "doi": "https://doi.org/10.5066/P93LGLVQ",
+    "landing_page": "https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and",
+    "verification_status": "link recorded from public mirror metadata; raw USGS asset was not fetched in this environment"
+  }
+}

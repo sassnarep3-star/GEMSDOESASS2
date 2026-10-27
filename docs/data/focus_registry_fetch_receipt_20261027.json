@@ -1,0 +1,60 @@
+{
+  "entries": [
+    {
+      "id": "GEMSDOE24-H25-1-D1.5",
+      "path": "/tmp/gems_registry_expected/GEMSDOE24-H25-1-D1.5.tif",
+      "reused_existing_verified_file": false,
+      "sha256": "68d0e2e4fcc594f9a23f56c44b885fee733d026d39be55e18ad2a07289525310"
+    },
+    {
+      "id": "GEMSDOE25-D2.8",
+      "path": "/tmp/gems_registry_expected/GEMSDOE25-D2.8.tif",
+      "reused_existing_verified_file": false,
+      "sha256": "91eae1ca42ec845eaa8c2ba32da49806e24751743459b8a10017c479bbe639b8"
+    },
+    {
+      "id": "GEMSDOE27-TOPO-GAP",
+      "path": "/tmp/gems_registry_expected/GEMSDOE27-TOPO-GAP.tif",
+      "reused_existing_verified_file": false,
+      "sha256": "33003374335d84bf885f2d8f5e9dd4c57044c8ec58fa6a0d7fa581e8bc41c11d"
+    },
+    {
+      "id": "GEMSDOE28-H36-1",
+      "path": "/tmp/gems_registry_expected/GEMSDOE28-H36-1.tif",
+      "reused_existing_verified_file": false,
+      "sha256": "5556aa1438fd67376b60d5ffc99228ec09dcc11a8408298a743ccb88d6163641"
+    },
+    {
+      "id": "GEMSDOE30-D28",
+      "path": "/tmp/gems_registry_expected/GEMSDOE30-D28.tif",
+      "reused_existing_verified_file": false,
+      "sha256": "8cf893ead5667df21d3288a9968c35fd5385c425b029d82ee71d311715b129fd"
+    },
+    {
+      "id": "GEMSDOE31-H27-4-SOLO",
+      "path": "/tmp/gems_registry_expected/GEMSDOE31-H27-4-SOLO.tif",
+      "reused_existing_verified_file": false,
+      "sha256": "07b6db440535404bb41ec8ddc797713e200d308e3da35937393efde5eb84bc40"
+    },
+    {
+      "id": "GEMSDOE32-H33-B2",
+      "path": "/tmp/gems_registry_expected/GEMSDOE32-H33-B2.tif",
+      "reused_existing_verified_file": false,
+      "sha256": "c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9"
+    },
+    {
+      "id": "GEMSDOE33-H33D",
+      "path": "/tmp/gems_registry_expected/GEMSDOE33-H33D.tif",
+      "reused_existing_verified_file": false,
+      "sha256": "87f857d505e23247e991ccfab2cbe9f49a04df4f9c8028dce7ea261554690757"
+    },
+    {
+      "id": "GEMSDOE36-ANDERSON",
+      "path": "/tmp/gems_registry_expected/GEMSDOE36-ANDERSON.tif",
+      "reused_existing_verified_file": false,
+      "sha256": "e15891020b9c57056ac7fa874a5e506fbd6ed9314a4ea8e73af0753887a3708a"
+    }
+  ],
+  "manifest": "/home/user/GEMSDOESASS2/registry/focus_registry.json",
+  "pass": true
+}

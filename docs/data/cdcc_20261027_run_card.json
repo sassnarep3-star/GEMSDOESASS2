@@ -1,0 +1,744 @@
+{
+  "correlation_overlap_vs_registry": {
+    "final_dot_max_directed_overlap_within_3px": 0.24515323737185957,
+    "final_dot_pass": true,
+    "surface_max_abs_rank_correlation": 0.017019295529053867,
+    "surface_pass": true
+  },
+  "final_dot_novelty": {
+    "comparisons": [
+      {
+        "candidate_dot_count": 37654,
+        "candidate_dot_overlap_within_3px": 0.24186009454506827,
+        "dot_overlap_pass": true,
+        "file": "gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan.tif",
+        "id": "GEMSDOE24-H25-1-D1.5",
+        "peer_dot_count": 60069,
+        "site": "GEMSDOE24"
+      },
+      {
+        "candidate_dot_count": 37654,
+        "candidate_dot_overlap_within_3px": 0.22956392415148458,
+        "dot_overlap_pass": true,
+        "file": "gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif",
+        "id": "GEMSDOE25-D2.8",
+        "peer_dot_count": 44090,
+        "site": "GEMSDOE25"
+      },
+      {
+        "candidate_dot_count": 37654,
+        "candidate_dot_overlap_within_3px": 0.24515323737185957,
+        "dot_overlap_pass": true,
+        "file": "gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif",
+        "id": "GEMSDOE27-TOPO-GAP",
+        "peer_dot_count": 61328,
+        "site": "GEMSDOE27"
+      },
+      {
+        "candidate_dot_count": 37654,
+        "candidate_dot_overlap_within_3px": 0.21147819620757421,
+        "dot_overlap_pass": true,
+        "file": "gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan.tif",
+        "id": "GEMSDOE28-H36-1",
+        "peer_dot_count": 37660,
+        "site": "GEMSDOE28"
+      },
+      {
+        "candidate_dot_count": 37654,
+        "candidate_dot_overlap_within_3px": 0.22956392415148458,
+        "dot_overlap_pass": true,
+        "file": "gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca.tif",
+        "id": "GEMSDOE30-D28",
+        "peer_dot_count": 44090,
+        "site": "GEMSDOE30"
+      },
+      {
+        "candidate_dot_count": 37654,
+        "candidate_dot_overlap_within_3px": 0.21506347267222606,
+        "dot_overlap_pass": true,
+        "file": "gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif",
+        "id": "GEMSDOE31-H27-4-SOLO",
+        "peer_dot_count": 40199,
+        "site": "GEMSDOE31"
+      },
+      {
+        "candidate_dot_count": 37654,
+        "candidate_dot_overlap_within_3px": 0.20359058798534022,
+        "dot_overlap_pass": true,
+        "file": "gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
+        "id": "GEMSDOE32-H33-B2",
+        "peer_dot_count": 37654,
+        "site": "GEMSDOE32"
+      },
+      {
+        "candidate_dot_count": 37654,
+        "candidate_dot_overlap_within_3px": 0.2223136984118553,
+        "dot_overlap_pass": true,
+        "file": "GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e.tif",
+        "id": "GEMSDOE33-H33D",
+        "peer_dot_count": 41865,
+        "site": "GEMSDOE33"
+      },
+      {
+        "candidate_dot_count": 37654,
+        "candidate_dot_overlap_within_3px": 0.22167631592925055,
+        "dot_overlap_pass": true,
+        "file": "gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif",
+        "id": "GEMSDOE36-ANDERSON",
+        "peer_dot_count": 38854,
+        "site": "GEMSDOE36"
+      }
+    ],
+    "limit_directed_dot_overlap_within_3px": 0.7,
+    "max_directed_dot_overlap_within_3px": 0.24515323737185957,
+    "missing_or_invalid_entries": [],
+    "offenders": [],
+    "pass": true,
+    "scope": "Nine pinned peer artifacts only; not global competition uniqueness.",
+    "verdict": "final_dot_overlap_pass"
+  },
+  "gates": {
+    "final_dot_novelty": true,
+    "holdout_promotion": false,
+    "input_provenance_and_integrity": false,
+    "leakage_canary": true,
+    "portal_safe_format": true,
+    "surface_novelty": true
+  },
+  "holdout": {
+    "cdcc_consensus": {
+      "budget_dots_per_fold": 37654,
+      "buffer_px": 3,
+      "ci95": {
+        "draws": 2000,
+        "high": 0.08277365583357824,
+        "low": 0.023148550519252863,
+        "method": "spatial-block bootstrap"
+      },
+      "evaluator_version": "gemsdoesass2-segment-pooled-v1",
+      "folds": [
+        {
+          "dti": {
+            "coverage": 0.06210904308621811,
+            "dti": 0.04031090305415149,
+            "false_negative_weight": 9627.450672719971,
+            "false_positive_weight": 37381.46887575793,
+            "n_prediction_pixels": 37654,
+            "n_truth_pixels": 10265,
+            "prediction_mass": 37654.0,
+            "true_positive_weight": 637.5493272800289
+          },
+          "emitted_dots": 37654,
+          "fold": "NW",
+          "visible_catalogue_pixels": 50705,
+          "withheld_positive_pixels": 10265,
+          "withheld_segment_count": 651
+        },
+        {
+          "dti": {
+            "coverage": 0.02025916971900357,
+            "dti": 0.01441825979452712,
+            "false_negative_weight": 12240.881933530769,
+            "false_positive_weight": 37547.79470816016,
+            "n_prediction_pixels": 37654,
+            "n_truth_pixels": 12494,
+            "prediction_mass": 37654.0,
+            "true_positive_weight": 253.1180664692306
+          },
+          "emitted_dots": 37654,
+          "fold": "NE",
+          "visible_catalogue_pixels": 48487,
+          "withheld_positive_pixels": 12494,
+          "withheld_segment_count": 689
+        },
+        {
+          "dti": {
+            "coverage": 0.11156072535288983,
+            "dti": 0.09443731684438945,
+            "false_negative_weight": 18154.36813813905,
+            "false_positive_weight": 36679.86955826354,
+            "n_prediction_pixels": 37654,
+            "n_truth_pixels": 20434,
+            "prediction_mass": 37654.0,
+            "true_positive_weight": 2279.6318618609507
+          },
+          "emitted_dots": 37654,
+          "fold": "SW",
+          "visible_catalogue_pixels": 40472,
+          "withheld_positive_pixels": 20434,
+          "withheld_segment_count": 1116
+        },
+        {
+          "dti": {
+            "coverage": 0.0542973097617359,
+            "dti": 0.0441652622677436,
+            "false_negative_weight": 16828.779372789908,
+            "false_positive_weight": 37240.72485865156,
+            "n_prediction_pixels": 37654,
+            "n_truth_pixels": 17795,
+            "prediction_mass": 37654.0,
+            "true_positive_weight": 966.2206272100904
+          },
+          "emitted_dots": 37654,
+          "fold": "SE",
+          "visible_catalogue_pixels": 43141,
+          "withheld_positive_pixels": 17795,
+          "withheld_segment_count": 743
+        }
+      ],
+      "kernel": {
+        "alpha": 0.2,
+        "beta": 0.8,
+        "radius_m": 300.0,
+        "shape": "triangular"
+      },
+      "label": "HOLDOUT-DTI",
+      "n_spatial_blocks": 4,
+      "n_whole_segments": 3199,
+      "n_withheld_positive_pixels": 60988,
+      "nms_size_px": 3,
+      "pooled_dti": 0.0521053155010468
+    },
+    "magnetic_edge_control": {
+      "budget_dots_per_fold": 37654,
+      "buffer_px": 3,
+      "ci95": {
+        "draws": 2000,
+        "high": 0.04770941858147938,
+        "low": 0.00795801326286918,
+        "method": "spatial-block bootstrap"
+      },
+      "evaluator_version": "gemsdoesass2-segment-pooled-v1",
+      "folds": [
+        {
+          "dti": {
+            "coverage": 0.030911195606762983,
+            "dti": 0.020146388117194516,
+            "false_negative_weight": 9947.696577096578,
+            "false_positive_weight": 37372.153069650245,
+            "n_prediction_pixels": 37654,
+            "n_truth_pixels": 10265,
+            "prediction_mass": 37654.0,
+            "true_positive_weight": 317.303422903422
+          },
+          "emitted_dots": 37654,
+          "fold": "NW",
+          "visible_catalogue_pixels": 50705,
+          "withheld_positive_pixels": 10265,
+          "withheld_segment_count": 651
+        },
+        {
+          "dti": {
+            "coverage": 0.005234381277660594,
+            "dti": 0.003730183713436436,
+            "false_negative_weight": 12428.601640316909,
+            "false_positive_weight": 37619.645582363315,
+            "n_prediction_pixels": 37654,
+            "n_truth_pixels": 12494,
+            "prediction_mass": 37654.0,
+            "true_positive_weight": 65.39835968309146
+          },
+          "emitted_dots": 37654,
+          "fold": "NE",
+          "visible_catalogue_pixels": 48487,
+          "withheld_positive_pixels": 12494,
+          "withheld_segment_count": 689
+        },
+        {
+          "dti": {
+            "coverage": 0.06636614959911785,
+            "dti": 0.05666930131790536,
+            "false_negative_weight": 19077.874099091627,
+            "false_positive_weight": 36560.478716601654,
+            "n_prediction_pixels": 37654,
+            "n_truth_pixels": 20434,
+            "prediction_mass": 37654.0,
+            "true_positive_weight": 1356.1259009083742
+          },
+          "emitted_dots": 37654,
+          "fold": "SW",
+          "visible_catalogue_pixels": 40472,
+          "withheld_positive_pixels": 20434,
+          "withheld_segment_count": 1116
+        },
+        {
+          "dti": {
+            "coverage": 0.022234372350959843,
+            "dti": 0.01816984844241272,
+            "false_negative_weight": 17399.33934401467,
+            "false_positive_weight": 37302.69824704353,
+            "n_prediction_pixels": 37654,
+            "n_truth_pixels": 17795,
+            "prediction_mass": 37654.0,
+            "true_positive_weight": 395.66065598533044
+          },
+          "emitted_dots": 37654,
+          "fold": "SE",
+          "visible_catalogue_pixels": 43141,
+          "withheld_positive_pixels": 17795,
+          "withheld_segment_count": 743
+        }
+      ],
+      "kernel": {
+        "alpha": 0.2,
+        "beta": 0.8,
+        "radius_m": 300.0,
+        "shape": "triangular"
+      },
+      "label": "HOLDOUT-DTI",
+      "n_spatial_blocks": 4,
+      "n_whole_segments": 3199,
+      "n_withheld_positive_pixels": 60988,
+      "nms_size_px": 3,
+      "pooled_dti": 0.027022844323616933
+    },
+    "radiometric_edge_control": {
+      "budget_dots_per_fold": 37654,
+      "buffer_px": 3,
+      "ci95": {
+        "draws": 2000,
+        "high": 0.03841578173592177,
+        "low": 0.02306023435301117,
+        "method": "spatial-block bootstrap"
+      },
+      "evaluator_version": "gemsdoesass2-segment-pooled-v1",
+      "folds": [
+        {
+          "dti": {
+            "coverage": 0.029450661570187105,
+            "dti": 0.0191681957295385,
+            "false_negative_weight": 9962.68895898203,
+            "false_positive_weight": 37495.14776302177,
+            "n_prediction_pixels": 37654,
+            "n_truth_pixels": 10265,
+            "prediction_mass": 37654.0,
+            "true_positive_weight": 302.31104101797064
+          },
+          "emitted_dots": 37654,
+          "fold": "NW",
+          "visible_catalogue_pixels": 50705,
+          "withheld_positive_pixels": 10265,
+          "withheld_segment_count": 651
+        },
+        {
+          "dti": {
+            "coverage": 0.04716339053515095,
+            "dti": 0.033542672597604635,
+            "false_negative_weight": 11904.740598653823,
+            "false_positive_weight": 37272.01707558197,
+            "n_prediction_pixels": 37654,
+            "n_truth_pixels": 12494,
+            "prediction_mass": 37654.0,
+            "true_positive_weight": 589.259401346176
+          },
+          "emitted_dots": 37654,
+          "fold": "NE",
+          "visible_catalogue_pixels": 48487,
+          "withheld_positive_pixels": 12494,
+          "withheld_segment_count": 689
+        },
+        {
+          "dti": {
+            "coverage": 0.034963376492916504,
+            "dti": 0.02985123500281011,
+            "false_negative_weight": 19719.558364743745,
+            "false_positive_weight": 37216.57301070401,
+            "n_prediction_pixels": 37654,
+            "n_truth_pixels": 20434,
+            "prediction_mass": 37654.0,
+            "true_positive_weight": 714.4416352562558
+          },
+          "emitted_dots": 37654,
+          "fold": "SW",
+          "visible_catalogue_pixels": 40472,
+          "withheld_positive_pixels": 20434,
+          "withheld_segment_count": 1116
+        },
+        {
+          "dti": {
+            "coverage": 0.05099893188868537,
+            "dti": 0.04154353087949884,
+            "false_negative_weight": 16887.474007040844,
+            "false_positive_weight": 37138.38400389761,
+            "n_prediction_pixels": 37654,
+            "n_truth_pixels": 17795,
+            "prediction_mass": 37654.0,
+            "true_positive_weight": 907.5259929591562
+          },
+          "emitted_dots": 37654,
+          "fold": "SE",
+          "visible_catalogue_pixels": 43141,
+          "withheld_positive_pixels": 17795,
+          "withheld_segment_count": 743
+        }
+      ],
+      "kernel": {
+        "alpha": 0.2,
+        "beta": 0.8,
+        "radius_m": 300.0,
+        "shape": "triangular"
+      },
+      "label": "HOLDOUT-DTI",
+      "n_spatial_blocks": 4,
+      "n_whole_segments": 3199,
+      "n_withheld_positive_pixels": 60988,
+      "nms_size_px": 3,
+      "pooled_dti": 0.03176967237885813
+    }
+  },
+  "holdout_dti": {
+    "budget_dots_per_fold": 37654,
+    "buffer_px": 3,
+    "ci95": {
+      "draws": 2000,
+      "high": 0.08277365583357824,
+      "low": 0.023148550519252863,
+      "method": "spatial-block bootstrap"
+    },
+    "evaluator_version": "gemsdoesass2-segment-pooled-v1",
+    "folds": [
+      {
+        "dti": {
+          "coverage": 0.06210904308621811,
+          "dti": 0.04031090305415149,
+          "false_negative_weight": 9627.450672719971,
+          "false_positive_weight": 37381.46887575793,
+          "n_prediction_pixels": 37654,
+          "n_truth_pixels": 10265,
+          "prediction_mass": 37654.0,
+          "true_positive_weight": 637.5493272800289
+        },
+        "emitted_dots": 37654,
+        "fold": "NW",
+        "visible_catalogue_pixels": 50705,
+        "withheld_positive_pixels": 10265,
+        "withheld_segment_count": 651
+      },
+      {
+        "dti": {
+          "coverage": 0.02025916971900357,
+          "dti": 0.01441825979452712,
+          "false_negative_weight": 12240.881933530769,
+          "false_positive_weight": 37547.79470816016,
+          "n_prediction_pixels": 37654,
+          "n_truth_pixels": 12494,
+          "prediction_mass": 37654.0,
+          "true_positive_weight": 253.1180664692306
+        },
+        "emitted_dots": 37654,
+        "fold": "NE",
+        "visible_catalogue_pixels": 48487,
+        "withheld_positive_pixels": 12494,
+        "withheld_segment_count": 689
+      },
+      {
+        "dti": {
+          "coverage": 0.11156072535288983,
+          "dti": 0.09443731684438945,
+          "false_negative_weight": 18154.36813813905,
+          "false_positive_weight": 36679.86955826354,
+          "n_prediction_pixels": 37654,
+          "n_truth_pixels": 20434,
+          "prediction_mass": 37654.0,
+          "true_positive_weight": 2279.6318618609507
+        },
+        "emitted_dots": 37654,
+        "fold": "SW",
+        "visible_catalogue_pixels": 40472,
+        "withheld_positive_pixels": 20434,
+        "withheld_segment_count": 1116
+      },
+      {
+        "dti": {
+          "coverage": 0.0542973097617359,
+          "dti": 0.0441652622677436,
+          "false_negative_weight": 16828.779372789908,
+          "false_positive_weight": 37240.72485865156,
+          "n_prediction_pixels": 37654,
+          "n_truth_pixels": 17795,
+          "prediction_mass": 37654.0,
+          "true_positive_weight": 966.2206272100904
+        },
+        "emitted_dots": 37654,
+        "fold": "SE",
+        "visible_catalogue_pixels": 43141,
+        "withheld_positive_pixels": 17795,
+        "withheld_segment_count": 743
+      }
+    ],
+    "kernel": {
+      "alpha": 0.2,
+      "beta": 0.8,
+      "radius_m": 300.0,
+      "shape": "triangular"
+    },
+    "label": "HOLDOUT-DTI",
+    "n_spatial_blocks": 4,
+    "n_whole_segments": 3199,
+    "n_withheld_positive_pixels": 60988,
+    "nms_size_px": 3,
+    "pooled_dti": 0.0521053155010468
+  },
+  "holdout_gate": {
+    "candidate_point_beats_best_feature_alone_control": true,
+    "paired_ci95_lower_bound_above_zero": false,
+    "paired_delta": {
+      "ci95_high": 0.050194893834827975,
+      "ci95_low": -0.009833691820186403,
+      "point_delta": 0.02033564312218867,
+      "probability_candidate_greater": 0.8565
+    },
+    "pass": false,
+    "selected_control": "radiometric_edge_control"
+  },
+  "hypothesis": {
+    "id": "CDCC-01",
+    "mechanism": "Cross-domain gradient concordance is used as a static structural-boundary proxy; no catalogue or registry raster enters the surface.",
+    "non_fault_process_that_can_mimic_it": "Lithologic contacts, intrusive margins, acquisition/processing seams, and alteration fronts can co-locate magnetic and radiometric gradients without a fault.",
+    "statement": "Uncatalogued faults may coincide with both TMI-up150 and U/Th contact edges."
+  },
+  "input_provenance": {
+    "declared_status": "peer_mirror_unverified",
+    "promotion_gate_pass": false,
+    "source": {
+      "extensions": {
+        "band": 4,
+        "path": "/tmp/GEMSDOE24/data/external/geodawn_extensions_u8.tif",
+        "sha256": "a35a9c6d2a14786f4dab85481ee59769213072f5dab5b2535ea82ae4d9bb7d9b"
+      },
+      "parameters": {
+        "fusion": "geometric_mean",
+        "normalization_quantiles": [
+          0.05,
+          0.995
+        ],
+        "short_scale_px": 0.8
+      },
+      "radiometric": {
+        "band": 3,
+        "path": "/tmp/GEMSDOE24/data/external/geodawn_rad_u8.tif",
+        "sha256": "c22420f75999030d7cc65c9e31e50d232ea6158423bca051613a18a8b20ba682"
+      },
+      "supported_pixels": 5164300,
+      "template": {
+        "path": "/tmp/GEMSDOE24/data/bridge/sample_submission.tif",
+        "sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc"
+      }
+    },
+    "template_label_integrity": {
+      "exact_public_label_pattern_detected": true,
+      "finite_footprint_matches_nonnegative_label_extent": true,
+      "label_positive_pixels": 60988,
+      "labels_sha256": "7ba308ccdc4418b31a178f4f1ef21aaa6e152e4028f2f6f64b01f7eb25ae4093",
+      "policy": "A detected template/label identity blocks promotion. Template values are used only to define the grid/footprint; they are never used as a target or feature.",
+      "promotion_gate_pass": false,
+      "template_finite_pixels": 5167373,
+      "template_ones_inside_footprint": 60988,
+      "template_sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+      "template_values_match_binary_labels_inside_footprint": true
+    }
+  },
+  "leakage_canary": {
+    "features": {
+      "cdcc_consensus": {
+        "fold_auc": {
+          "NE": 0.3850763846076243,
+          "NW": 0.5191056866396555,
+          "SE": 0.5184849146341435,
+          "SW": 0.607366869862613
+        },
+        "max_auc": 0.607366869862613,
+        "pass": true
+      },
+      "magnetic_up150_edge": {
+        "fold_auc": {
+          "NE": 0.3429495269302821,
+          "NW": 0.529582037999824,
+          "SE": 0.5056439132542022,
+          "SW": 0.6540312602739597
+        },
+        "max_auc": 0.6540312602739597,
+        "pass": true
+      },
+      "radiometric_u_th_edge": {
+        "fold_auc": {
+          "NE": 0.5085490210905524,
+          "NW": 0.4856221385120892,
+          "SE": 0.5169609128218011,
+          "SW": 0.4795614738332247
+        },
+        "max_auc": 0.5169609128218011,
+        "pass": true
+      }
+    },
+    "pass": true,
+    "threshold_auc": 0.9
+  },
+  "ok_to_download_for_research": true,
+  "ok_to_submit": false,
+  "protocol": {
+    "budget_dots": 37654,
+    "evaluator_version": "gemsdoesass2-segment-pooled-v1",
+    "experiment_number": 1,
+    "holdout": "whole 8-connected public-catalogue segments, quadrant blocks, 3-pixel buffer, visible faults masked pixel-exactly",
+    "maximum_experiments": 3,
+    "metric": "pooled DTI alpha=0.2 beta=0.8 300m triangular kernel",
+    "submission_slot_spent": false
+  },
+  "raster_sha256": "e3e797424e2ac3dc1f1be1106d549c88fd3382eea75f13b8398cce1768494b19",
+  "schema": "gemsdoesass2-run-card-v1",
+  "submission": {
+    "dot_count": 37654,
+    "file": "gemsdoesass2-cdcc-geodawn-contact-concordance-20261027-b0a765b2c644-RESEARCH-DO-NOT-SUBMIT-zeros.tif",
+    "format": "portal-safe all-finite [0,1] zero-outside GeoTIFF",
+    "note": "CDCC-01 | GeoDAWN magnetic-U/Th edge concordance; research only, no slot | id b0a765b2c644",
+    "note_characters": 90,
+    "zip": "gemsdoesass2-cdcc-geodawn-contact-concordance-20261027-b0a765b2c644-RESEARCH-DO-NOT-SUBMIT-zeros.zip"
+  },
+  "submission_authorization": "No: fail-closed research artifact; see failed gates.",
+  "surface_novelty": {
+    "comparisons": [
+      {
+        "file": "gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan.tif",
+        "id": "GEMSDOE24-H25-1-D1.5",
+        "site": "GEMSDOE24",
+        "surface_abs_rank_correlation": 0.016919442852625526,
+        "surface_comparison_pixels": 250000,
+        "surface_correlation_mode": "deterministic_sampled_spearman",
+        "surface_pass": true
+      },
+      {
+        "file": "gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif",
+        "id": "GEMSDOE25-D2.8",
+        "site": "GEMSDOE25",
+        "surface_abs_rank_correlation": 0.013673445485394608,
+        "surface_comparison_pixels": 250000,
+        "surface_correlation_mode": "deterministic_sampled_spearman",
+        "surface_pass": true
+      },
+      {
+        "file": "gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif",
+        "id": "GEMSDOE27-TOPO-GAP",
+        "site": "GEMSDOE27",
+        "surface_abs_rank_correlation": 0.015951031576480038,
+        "surface_comparison_pixels": 250000,
+        "surface_correlation_mode": "deterministic_sampled_spearman",
+        "surface_pass": true
+      },
+      {
+        "file": "gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan.tif",
+        "id": "GEMSDOE28-H36-1",
+        "site": "GEMSDOE28",
+        "surface_abs_rank_correlation": 0.011787694050435818,
+        "surface_comparison_pixels": 250000,
+        "surface_correlation_mode": "deterministic_sampled_spearman",
+        "surface_pass": true
+      },
+      {
+        "file": "gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca.tif",
+        "id": "GEMSDOE30-D28",
+        "site": "GEMSDOE30",
+        "surface_abs_rank_correlation": 0.013673445485394608,
+        "surface_comparison_pixels": 250000,
+        "surface_correlation_mode": "deterministic_sampled_spearman",
+        "surface_pass": true
+      },
+      {
+        "file": "gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-nan.tif",
+        "id": "GEMSDOE31-H27-4-SOLO",
+        "site": "GEMSDOE31",
+        "surface_abs_rank_correlation": 0.014415885872394958,
+        "surface_comparison_pixels": 250000,
+        "surface_correlation_mode": "deterministic_sampled_spearman",
+        "surface_pass": true
+      },
+      {
+        "file": "gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
+        "id": "GEMSDOE32-H33-B2",
+        "site": "GEMSDOE32",
+        "surface_abs_rank_correlation": 0.014746415682087972,
+        "surface_comparison_pixels": 250000,
+        "surface_correlation_mode": "deterministic_sampled_spearman",
+        "surface_pass": true
+      },
+      {
+        "file": "GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e.tif",
+        "id": "GEMSDOE33-H33D",
+        "site": "GEMSDOE33",
+        "surface_abs_rank_correlation": 0.013505964078254502,
+        "surface_comparison_pixels": 250000,
+        "surface_correlation_mode": "deterministic_sampled_spearman",
+        "surface_pass": true
+      },
+      {
+        "file": "gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif",
+        "id": "GEMSDOE36-ANDERSON",
+        "site": "GEMSDOE36",
+        "surface_abs_rank_correlation": 0.017019295529053867,
+        "surface_comparison_pixels": 250000,
+        "surface_correlation_mode": "deterministic_sampled_spearman",
+        "surface_pass": true
+      }
+    ],
+    "limit_abs_rank_correlation": 0.9,
+    "max_abs_rank_correlation": 0.017019295529053867,
+    "missing_or_invalid_entries": [],
+    "offenders": [],
+    "pass": true,
+    "scope": "Nine pinned peer artifacts only; not global competition uniqueness.",
+    "verdict": "surface_pass"
+  },
+  "validator_output": {
+    "bytes": 825650,
+    "checks": {
+      "all_values_finite": {
+        "detail": "nonfinite=0",
+        "pass": true
+      },
+      "all_values_in_range_0_1": {
+        "detail": "min=0.0, max=1.0",
+        "pass": true
+      },
+      "crs_matches_template": {
+        "detail": "exact WKT comparison",
+        "pass": true
+      },
+      "float32": {
+        "detail": "dtype=float32",
+        "pass": true
+      },
+      "footprint_finite_in_range": {
+        "detail": "footprint pixels=5167373",
+        "pass": true
+      },
+      "gtiff_driver": {
+        "detail": "driver=GTiff",
+        "pass": true
+      },
+      "portal_safe_zero_outside": {
+        "detail": "nodata=None; finite zeros are required outside",
+        "pass": true
+      },
+      "shape_matches_template": {
+        "detail": "(3730, 3292)",
+        "pass": true
+      },
+      "single_band": {
+        "detail": "band count=1",
+        "pass": true
+      },
+      "transform_matches_template": {
+        "detail": "transform=(100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0)",
+        "pass": true
+      }
+    },
+    "errors": [],
+    "file": "gemsdoesass2-cdcc-geodawn-contact-concordance-20261027-b0a765b2c644-RESEARCH-DO-NOT-SUBMIT-zeros.tif",
+    "format_valid": true,
+    "portal_safe": true,
+    "scope": "format-only validation; scientific, provenance, uniqueness, and weekly-slot gates are separate",
+    "sha256": "e3e797424e2ac3dc1f1be1106d549c88fd3382eea75f13b8398cce1768494b19",
+    "submission_authorized": false
+  },
+  "verdict": "negative"
+}

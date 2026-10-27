@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Fail-closed GeoTIFF submission guide for the GEMS Prize Challenge.">
+  <title>Submission Guide | GEMS Evidence First</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<header class="site-header"><nav class="wrap nav" aria-label="Primary navigation">
+  <a class="brand" href="index.html">GEMS / Evidence First<small>Automated preflight before a contest slot</small></a>
+  <div class="nav-links"><a href="index.html">Status</a><a href="executive-summary.html">Executive summary</a><a href="#release">Release path</a><a href="#current">Current file</a></div>
+</nav></header>
+<div class="hero"><div class="wrap grid-2">
+  <div><div class="eyebrow">Submission guide</div><h1>One page that says exactly when a TIFF may be uploaded.</h1><p class="lede">The writer prevents out-of-range values. The release gates prevent a technically valid but scientifically unsupported submission.</p></div>
+  <aside class="status-card"><div class="status-label">Today’s answer</div><strong>DO NOT UPLOAD CDCC-01</strong><p>The site deliberately withholds a “ready to submit” button. Its only TIFF link is marked research/audit because two hard gates failed.</p></aside>
+</div></div>
+<main class="wrap">
+<section id="release">
+  <div class="section-kicker">Required machine decision</div><h2>A future release must have every green gate.</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Gate</th><th>Automated evidence</th><th>Required state</th></tr></thead>
+    <tbody>
+      <tr><td>Input trust</td><td>Hashes, exact-grid check, source provenance, template/label anomaly check</td><td><span class="badge yes">PASS</span></td></tr>
+      <tr><td>Leakage</td><td>Every standalone source/transformed feature has spatial-holdout AUC ≤ 0.90</td><td><span class="badge yes">PASS</span></td></tr>
+      <tr><td>Surface novelty</td><td>Each pinned registry comparison has abs(Spearman ρ) ≤ 0.90 before dot placement</td><td><span class="badge yes">PASS</span></td></tr>
+      <tr><td>Scientific promotion</td><td>Candidate beats comparable control and paired spatial-block CI lower bound is above zero</td><td><span class="badge yes">PASS</span></td></tr>
+      <tr><td>Final-dot novelty</td><td>Directed 3-pixel overlap with every pinned registry raster is ≤70%</td><td><span class="badge yes">PASS</span></td></tr>
+      <tr><td>Portal-safe TIFF</td><td>One band; exact template CRS/shape/transform; all values finite and [0,1]</td><td><span class="badge yes">PASS</span></td></tr>
+      <tr><td>Separate weekly-slot selector</td><td>Explicit competition-cap and run-card review</td><td><span class="badge yes">PASS</span></td></tr>
+    </tbody>
+  </table></div>
+  <div class="notice danger"><strong>Fail closed</strong> If any row is missing, unknown, or false, there is no submission file. A green format check alone never changes this decision.</div>
+</section>
+
+<section class="grid-2">
+  <div class="prose"><div class="section-kicker">What the pipeline does automatically</div><h2>Preflight commands</h2>
+    <pre class="card mono">python scripts/prepare_data.py --data-dir data/raw
+python scripts/fetch_focus_registry.py
+python scripts/run_cdcc_experiment.py \
+  --template data/raw/sample_submission.tif \
+  --labels data/raw/labels.tif \
+  --extensions path/to/official_extensions.tif \
+  --radiometric path/to/official_radiometric.tif \
+  --registry-dir data/registry_rasters \
+  --input-provenance organizer_authenticated_local \
+  --output-dir artifacts/cdcc</pre>
+    <p>The run writes a run card, strict validator report, TIFF checksum, optional single-TIFF ZIP, and a ≤140-character note. It does not upload anything or spend a slot.</p>
+  </div>
+  <aside class="card"><h3>Fix for the observed range error</h3><p>The submission writer rejects NaN/Inf or values outside [0,1] inside the template footprint. It then writes finite <code>0.0</code> outside the footprint too, so the whole array satisfies the conservative portal check.</p><p>It preserves the template’s CRS, shape, and affine transform.</p></aside>
+</section>
+
+<section id="current">
+  <div class="section-kicker">Current artifact</div><h2>CDCC-01 was generated, validated, and quarantined.</h2>
+  <div class="cards">
+    <article class="card"><h3>Valid GeoTIFF</h3><span class="metric small">YES</span><p>One-band float32; values 0–1; exact local grid; SHA-256 recorded in the run card.</p></article>
+    <article class="card"><h3>Unique vs nine pins</h3><span class="metric small">YES</span><p>Pre-placement surface and post-placement dot checks both pass, scoped only to nine immutable peers.</p></article>
+    <article class="card"><h3>Approved to submit</h3><span class="metric small" style="color:#a52828">NO</span><p>Paired CI crosses zero; the peer-mirror template/label integrity gate fails.</p></article>
+  </div>
+  <div class="actions"><span class="button disabled" aria-disabled="true">No approved contest file</span><a class="button quarantine" href="downloads/gemsdoesass2-cdcc-geodawn-contact-concordance-20261027-b0a765b2c644-RESEARCH-DO-NOT-SUBMIT-zeros.tif">Research TIFF · not for submission</a><a class="button secondary" href="downloads/gemsdoesass2-cdcc-geodawn-contact-concordance-20261027-b0a765b2c644-RESEARCH-DO-NOT-SUBMIT-zeros.run-card.json">Run card</a></div>
+</section>
+
+<section class="prose"><div class="section-kicker">If a future file is approved</div><h2>Official portal sequence</h2><ol><li>Choose only the exact `.tif` or matching one-file `.zip` named in a <code>verdict: promote</code>, <code>ok_to_submit: true</code> run card.</li><li>Paste that run card’s bounded note into the portal’s optional note field.</li><li>Use the official <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/">DrivenData competition page</a> under the authorized account and within the weekly cap.</li><li>Save the submission-page receipt alongside the uploaded file SHA-256. Only that receipt can support the label <strong>ORGANIZER-CONFIRMED</strong>.</li></ol><p>This final portal interaction cannot be automated here because no competition authentication or weekly-slot authority is available. The lack of authentication is not a substitute for manual scientific inspection: all scientific gates run programmatically first.</p></section>
+</main>
+<footer class="footer"><div class="wrap"><p>More detail: <a href="SUBMISSION_GUIDE.md">full Markdown guide</a> · <a href="METHODS.md">methods</a> · <a href="DATA_ACCESS.md">data access limits</a>.</p></div></footer>
+</body></html>

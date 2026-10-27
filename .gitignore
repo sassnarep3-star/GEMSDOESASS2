@@ -1,0 +1,19 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# Competition / cached source data: never commit login-gated rasters or peer mirrors.
+data/raw/*
+data/cache/*
+data/registry_rasters/*
+artifacts/
+
+# Keep directory markers and manifests only.
+!data/.gitkeep
+!data/raw/.gitkeep
+!data/cache/.gitkeep
+!data/registry_rasters/.gitkeep

@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Auditable GEMS geothermal-fault submission research with fail-closed validation.">
+  <title>GEMS | Evidence before a leaderboard slot</title>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<header class="site-header">
+  <nav class="wrap nav" aria-label="Primary navigation">
+    <a class="brand" href="index.html">GEMS / Evidence First<small>GEMSDOESASS2 · automated research gates</small></a>
+    <div class="nav-links">
+      <a href="executive-summary.html">Executive summary</a>
+      <a href="submission-guide.html">Submission guide</a>
+      <a href="hypotheses.html">Research queue</a>
+      <a href="data-access.html">Data access</a>
+    </div>
+  </nav>
+</header>
+
+<div class="hero">
+  <div class="wrap grid-2">
+    <div>
+      <div class="eyebrow">GEMS Prize Challenge · fail-closed research</div>
+      <h1>Do not confuse a valid TIFF with a valid submission.</h1>
+      <p class="lede">This project audits the nine specified high-scoring peer artifacts, builds original geological hypotheses, and will only release a submission after automated scientific, uniqueness, provenance, and format gates agree.</p>
+      <div class="actions">
+        <a class="button" href="executive-summary.html">Read the decision</a>
+        <a class="button secondary" href="submission-guide.html">Open submission guide</a>
+      </div>
+    </div>
+    <aside class="status-card" aria-label="Current release status">
+      <div class="status-label">Current release decision</div>
+      <strong>NO FILE IS APPROVED TO SUBMIT</strong>
+      <p>CDCC-01 is an original, format-valid research GeoTIFF. It is not approved because the paired local holdout interval crosses zero and the source mirror has an input-integrity anomaly.</p>
+      <div class="actions">
+        <span class="button disabled" aria-disabled="true">Submit download unavailable</span>
+        <a class="button quarantine" href="downloads/gemsdoesass2-cdcc-geodawn-contact-concordance-20261027-b0a765b2c644-RESEARCH-DO-NOT-SUBMIT-zeros.tif">Audit TIFF · DO NOT SUBMIT</a>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<main class="wrap">
+  <section>
+    <div class="section-kicker">Automated result · experiment 1 of 3</div>
+    <h2>CDCC-01: Geophysical contact concordance</h2>
+    <div class="cards">
+      <article class="card">
+        <h3>Local screening result</h3>
+        <span class="metric">0.05211</span>
+        <p><strong>HOLDOUT-DTI</strong>, 95% CI [0.02315, 0.08277]. Evaluator <span class="mono">gemsdoesass2-segment-pooled-v1</span>; 60,988 withheld public-catalogue proxy positives. This is not a leaderboard score.</p>
+      </article>
+      <article class="card">
+        <h3>Novelty against pinned peers</h3>
+        <span class="metric">PASS</span>
+        <p>Maximum surface |ρ| = 0.01702; maximum directed 3-pixel dot overlap = 24.52%. Scope is only the nine immutable focus-site artifacts.</p>
+      </article>
+      <article class="card">
+        <h3>Portal format</h3>
+        <span class="metric">PASS</span>
+        <p>One-band, float32, exact local grid, finite values in [0,1] everywhere. This fixes the observed NaN/range failure but does not authorize a slot.</p>
+      </article>
+    </div>
+    <div class="notice danger">
+      <strong>Why the status remains NO</strong>
+      The paired CDCC-versus-best-control 95% interval is [-0.00983, +0.05019], so it does not demonstrate a robust improvement. The rerun also uses an untrusted peer mirror whose submission template exactly matches its label raster. Both gates fail closed.
+    </div>
+    <div class="actions">
+      <a class="button quarantine" href="downloads/gemsdoesass2-cdcc-geodawn-contact-concordance-20261027-b0a765b2c644-RESEARCH-DO-NOT-SUBMIT-zeros.tif">Download research TIFF (not for contest)</a>
+      <a class="button secondary" href="downloads/gemsdoesass2-cdcc-geodawn-contact-concordance-20261027-b0a765b2c644-RESEARCH-DO-NOT-SUBMIT-zeros.run-card.json">Inspect run card</a>
+      <a class="button secondary" href="data/cdcc_20261027_run_card.json">Machine-readable result</a>
+    </div>
+  </section>
+
+  <section class="grid-2">
+    <div class="prose">
+      <div class="section-kicker">Historical forensic result</div>
+      <h2>H33-B2 was not an independent new raster family.</h2>
+      <p>The pinned GEMSDOE32 H33-B2 mask has 37,654 dots and is an exact binary subset of the 44,090-dot D2.8 mask. It removes 6,436 D2.8 dots, all within two pixels of the public catalogue proxy. That is consistent with metric-aware false-positive pruning—not proof of a causal hidden-label mechanism.</p>
+      <blockquote>Its reported 0.2778 is OWNER-REPORTED, not ORGANIZER-CONFIRMED. The hidden truth and an upload receipt are unavailable here.</blockquote>
+      <a href="executive-summary.html#b2">Read the complete bounded explanation →</a>
+    </div>
+    <aside class="card">
+      <h3>Focus-site answer</h3>
+      <p><strong>Best historical reported value:</strong> GEMSDOE32 H33-B2 at 0.2778, owner-reported.</p>
+      <p><strong>Best file to submit now:</strong> none. Every historical high artifact fails the literal uniqueness rule; CDCC-01 is a negative research result.</p>
+      <div class="actions"><a class="button secondary" href="executive-summary.html#nine-sites">See all nine sites</a></div>
+    </aside>
+  </section>
+
+  <section>
+    <div class="section-kicker">Gate chain</div>
+    <h2>What must pass before a file is released</h2>
+    <ul class="list-checks">
+      <li><strong>1. Input trust</strong> Organizer-authenticated files plus no template/label leakage anomaly.</li>
+      <li><strong>2. Feature canary</strong> Every feature-alone holdout AUC must be ≤ 0.90.</li>
+      <li><strong>3. Surface novelty</strong> No pinned peer raster may have |rank correlation| > 0.90.</li>
+      <li><strong>4. Spatial holdout</strong> Pooled segment HOLDOUT-DTI must beat the comparable control with a positive paired CI.</li>
+      <li><strong>5. Final-dot novelty</strong> No peer raster may cover &gt;70% of candidate dots within 3 pixels.</li>
+      <li><strong>6. Strict GeoTIFF</strong> One band, template grid, finite [0,1] values, checksum, note, and release selector.</li>
+    </ul>
+    <div class="notice info"><strong>No manual-inspection loophole.</strong> An automated failure remains a failure. A weekly DrivenData slot is a separate selector action and is never spent by this site.</div>
+  </section>
+
+  <section class="grid-2">
+    <div class="prose">
+      <div class="section-kicker">Research queue</div>
+      <h2>Contrarian, evidence-limited hypotheses</h2>
+      <p>Five ranked hypotheses identify physical signatures, confounds, data requirements, and implementation cost. Only CDCC-01 had enough locally pinned inputs to run, and its negative result is preserved rather than retuned after the fact.</p>
+      <a class="button" href="hypotheses.html">View hypothesis queue</a>
+    </div>
+    <div class="card">
+      <h3>Current blocker</h3>
+      <p>The competition data tab is authenticated. This checkout has no authorized DrivenData data download, no organizer receipt, and no authenticated live leaderboard feed. The system records these limitations instead of fabricating them.</p>
+      <div class="actions"><a class="button secondary" href="data-access.html">Data access &amp; source register</a></div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer"><div class="wrap"><p><strong>Evidence status:</strong> historical peer values are owner-reported; CDCC values are HOLDOUT-DTI; no number on this page is an organizer-confirmed score. Read <a href="operating-brief.html">the operating brief</a> before starting another experiment.</p></div></footer>
+</body>
+</html>

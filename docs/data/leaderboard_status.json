@@ -1,0 +1,8 @@
+{
+  "schema": "gemsdoesass2-leaderboard-status-v1",
+  "checked_utc": "2026-10-27T00:00:00Z",
+  "status": "UNAVAILABLE_NOT_INFERRED",
+  "organizer_confirmed_leaderboard_value": null,
+  "reason": "This checkout has no DrivenData authentication, no submission-page receipt, and no permitted authenticated live-leaderboard feed. Conflicting values in the project request are intentionally not promoted to a current status.",
+  "next_automated_update_requirement": "Ingest a primary organizer receipt or an authorized public endpoint with timestamp and source URL; otherwise preserve unavailable status."
+}
