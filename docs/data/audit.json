@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "audited_utc": "2026-10-27T12:00:47Z",
-  "scope": "This independent audit only: pinned owner mirrors, 9 historical variants and 9 existing candidate-file witnesses; no new model experiment or authenticated score receipt. Parallel branches produced research TIFFs and reported separate experiments.",
+  "audited_utc": "2026-10-27T12:06:47Z",
+  "scope": "This independent audit only: pinned owner mirrors, 9 historical variants and 10 existing candidate-file witnesses; no new model experiment or authenticated score receipt. Parallel branches produced research TIFFs and reported separate experiments.",
   "important_limit": "The complete current registry and pre-placement surfaces were not audited. Passing this snapshot cannot establish uniqueness or authorize submission.",
   "inputs": {
     "template": {
@@ -23,7 +23,7 @@
       "sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2"
     }
   },
-  "main_refs_observed_utc": "2026-10-27T11:47:17Z",
+  "main_refs_observed_utc": "2026-10-27T12:06:34Z",
   "grid": {
     "shape": [
       3730,
@@ -62,7 +62,7 @@
       "path": "docs/downloads/gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-allfinite.tif",
       "site_url": "https://buffedlizard55-lab.github.io/GEMSDOE24/",
       "sha256": "3e0730e8d4f7db095dd80246a98cba3bc0fc9a28f436b91db27ca34df4d0d1ce",
-      "observed_main_ref": "6e4a85a3456dfe6312d25b6d81187c765a10c847",
+      "observed_main_ref": "e65cd19b255fd0edd3067142d08467c65ff5f7f7",
       "artifact_url": "https://github.com/buffedlizard55-lab/GEMSDOE24/blob/a433b430b74b813a9118ebd4ec438b12cbc69f46/docs/downloads/gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-allfinite.tif",
       "dot_count": 60069,
       "max_overlap_peer": "GEMSDOE25",
@@ -697,6 +697,20 @@
       "fraction": 0.9985135135135135,
       "fails_literal_overlap_rule": true,
       "artifact_url": "https://github.com/sassnarep3-star/GEMSDOESASS2/blob/4a88f3750933e3e147312bf2a6d220f777103574/docs/downloads/gemsdoesass2-scu1-scarpcorridor-uth-37000-20261027T120000Z-nan.tif"
+    },
+    {
+      "id": "candidate24small",
+      "site": "GEMSDOE24 H-UNIQUE-07",
+      "repo": "GEMSDOE24",
+      "ref": "e65cd19b255fd0edd3067142d08467c65ff5f7f7",
+      "path": "docs/downloads/24gems-catalogue-offset-geothermal-proximity-20261027T114303Z-578c30176163-zeros.tif",
+      "sha256": "fe6d637fad5b8fb435988b3ab31af8ae777380f78046577c505275e2e725a795",
+      "claim": "Owner reports negative holdout and a literal lattice stop; not independently rerun.",
+      "candidate_dots": 1814,
+      "dots_within_3px": 1810,
+      "fraction": 0.9977949283351709,
+      "fails_literal_overlap_rule": true,
+      "artifact_url": "https://github.com/buffedlizard55-lab/GEMSDOE24/blob/e65cd19b255fd0edd3067142d08467c65ff5f7f7/docs/downloads/24gems-catalogue-offset-geothermal-proximity-20261027T114303Z-578c30176163-zeros.tif"
     }
   ],
   "new_experiments": 0,
