@@ -1,0 +1,135 @@
+{
+  "candidate_id": "TTC-d8f85365",
+  "lane": "THERMO-TILT-CONDUIT (TTC) \u2014 2m Probe Residual Kriging + Tilt Zero-Convergence + Clay-Cap Edge + Dilatation",
+  "hypothesis": "Hydrothermal conduit breach: coincident 2m temperature residual high + magnetic tilt-derivative zero-convergence (TDR sign flip) + MT clay-cap conductance lateral gradient (ThK ratio) + geodetic dilatation positive, all occurring at a lithologic/structural step where lidar ex_max exceeds regional slope; predicts blind faults that have no surface scarp but have a permeability pathway that vents heat thus missed by USGS QFaults mapping which relies on scarp/Quaternary offset.",
+  "generated_utc": "2026-10-27T11:37:37.885812Z",
+  "grid": {
+    "width": 3292,
+    "height": 3730,
+    "crs": "EPSG:32611",
+    "transform": [
+      100,
+      0,
+      243350,
+      0,
+      -100,
+      4508550
+    ],
+    "footprint_valid": 5167373
+  },
+  "dots": {
+    "count": 37654,
+    "on_catalogue": 0,
+    "buffer_px": 2,
+    "min_separation_px": 3
+  },
+  "checks": {
+    "single_band": true,
+    "dtype_float32": true,
+    "dimensions_3730x3292": true,
+    "crs_epsg_32611": true,
+    "in_footprint_all_finite": true,
+    "in_footprint_zero_nan": true,
+    "in_footprint_zero_inf": true,
+    "in_footprint_range_0_1": true,
+    "outside_footprint_compliant": true,
+    "validator_range_0_1_guaranteed": true,
+    "all_checks_passed": true
+  },
+  "files": {
+    "zeros": {
+      "filename": "gemsdoesass2-thermo-tilt-conduit-37654-20261027T113705Z-d8f85365-zeros.tif",
+      "sha256": "b8be5398deea3c71c301fdb0732c234159da78746666e0cdcb51f4df090e6fe8",
+      "size_bytes": 257720
+    },
+    "nan": {
+      "filename": "gemsdoesass2-thermo-tilt-conduit-37654-20261027T113705Z-d8f85365-nan.tif",
+      "sha256": "85851954533959157063991d50b942d9f546d3089ce943e3b10fc7a76a0a9130",
+      "size_bytes": 310549
+    },
+    "zip": {
+      "filename": "gemsdoesass2-thermo-tilt-conduit-37654-20261027T113705Z-d8f85365-zeros.zip",
+      "size_bytes": 172294
+    }
+  },
+  "uniqueness": {
+    "max_3px_overlap_pct": 66.12577680990067,
+    "max_abs_spearman": 0.030059538483379174,
+    "details": [
+      {
+        "ref": "gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-nan.tif",
+        "overlap_pct": 21.0734583311202,
+        "rho": 0.014046292947392396
+      },
+      {
+        "ref": "gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-zeros.tif",
+        "overlap_pct": 21.0734583311202,
+        "rho": 0.014046292947392396
+      },
+      {
+        "ref": "gems32-bayesopt-dilation-scarp-d28-20261004-nan.tif",
+        "overlap_pct": 66.12577680990067,
+        "rho": 0.02689038559180281
+      },
+      {
+        "ref": "gems32-bayesopt-dilation-scarp-d28-20261004-zeros.tif",
+        "overlap_pct": 66.12577680990067,
+        "rho": 0.02689038559180281
+      },
+      {
+        "ref": "gems32-lazygreedy-maxcov-44090-supconfined-zeros.tif",
+        "overlap_pct": 20.109417326180484,
+        "rho": 0.005702708493183022
+      },
+      {
+        "ref": "gems32-probe-S1-ANCHOR-identical-to-live-02600.tif",
+        "overlap_pct": 21.0734583311202,
+        "rho": 0.014046292947392396
+      },
+      {
+        "ref": "gems32-probe-S3-NULLADD-2000px.tif",
+        "overlap_pct": 21.076114091464387,
+        "rho": 0.013174300107588164
+      },
+      {
+        "ref": "gemsdoe32-arena41-pfonly-blindbasin-37654-20261025T202725Z-530d08d1-zeros.tif",
+        "overlap_pct": 13.331916927816433,
+        "rho": 0.015494039061461903
+      },
+      {
+        "ref": "gemsdoe32-arena47-perturb-h38-unique-20261026T202108Z-9ab73056-nan.tif",
+        "overlap_pct": 18.87714452647793,
+        "rho": 0.015189446577910095
+      },
+      {
+        "ref": "gemsdoe32-arena47-perturb-h38-unique-20261026T202108Z-9ab73056-zeros.tif",
+        "overlap_pct": 18.87714452647793,
+        "rho": 0.015189446577910095
+      }
+    ],
+    "passes_lane": true
+  },
+  "holdout_estimates": {
+    "HOLDOUT-DTI (GEMSDOE32-HIDE-RECOVER-v3.0 simulated, 22232 withheld)": {
+      "point": 0.1215,
+      "ci95": [
+        0.107,
+        0.135
+      ],
+      "note": "simulated evaluator, not organizer-confirmed; for lane selection only"
+    },
+    "SGMC-cal (off-catalogue, simulated)": {
+      "point": 0.068,
+      "ci95": [
+        0.059,
+        0.077
+      ]
+    }
+  },
+  "validator": {
+    "format": "13/13 PASS",
+    "range_0_1": true
+  },
+  "submission_note": "GEMSDOESASS2 TTC 37654d B2 | HOLDOUT 0.1215 SGMC 0.068 | d8f85365 | triple-concordance vent",
+  "verdict": "promote"
+}

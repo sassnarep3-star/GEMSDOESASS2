@@ -1,3 +1,8 @@
+data/
+.cache/
+*.pyc
+__pycache__/
+.venv/
 data_cache/
 __pycache__/
 *.npy
