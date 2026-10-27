@@ -1,0 +1,77 @@
+{
+  "hypothesis": "Prospective H1: multi-sensor boundary stability under modality-specific perturbations; no method lane was assigned and this hypothesis was not tested.",
+  "mechanism": "Anomaly edges stable under realistic perturbations across magnetic and gravity channels may indicate buried structure beneath cover; test only with a restored fold-safe feature cache.",
+  "named_non_fault_process": "A persistent lithologic contact or dike swarm can produce similarly stable magnetic and gravity gradients.",
+  "holdout_dti": {
+    "label": "HOLDOUT-DTI",
+    "evaluator_version": null,
+    "n_withheld_positives": null,
+    "dti": null,
+    "ci95": null,
+    "status": "NOT RUN: no assigned method lane, no reusable cache or current same-protocol control; shared evaluator and surface gate fail synthetic probes."
+  },
+  "correlation_overlap_vs_registry": {
+    "new_surface_rank_correlation": null,
+    "new_surface_overlap": null,
+    "new_final_dot_overlap": null,
+    "status": "No new surface or dots were created. The complete current registry was not checked.",
+    "lattice_sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+    "historical_budget_bound": {
+      "dots": 37654,
+      "minimum_overlapping_dots": 31005,
+      "minimum_overlap_fraction": 0.8234184947150369,
+      "necessarily_exceeds_limit": true,
+      "first_failing_dot_count": 22164
+    },
+    "existing_witnesses": [
+      {
+        "site": "GEMSDOE27",
+        "sha256": "2c002b02792419864bd3b29a218e543cb41e3f07b3b57c29ef35c6e39e184bfe",
+        "within_3px_fraction": 0.9961491475009295,
+        "fails_literal_rule": true
+      },
+      {
+        "site": "GEMSDOE28",
+        "sha256": "77934be607d48a4daec5b046009cdabf61d3fdee210aadc75be82ac70f3beb2e",
+        "within_3px_fraction": 0.9961757051043714,
+        "fails_literal_rule": true
+      },
+      {
+        "site": "GEMSDOE36",
+        "sha256": "86fc8243ad573bcdbfac8b432daf0ec5b6800b991b2c3278706358be7eb9922d",
+        "within_3px_fraction": 0.9916874701226961,
+        "fails_literal_rule": true
+      },
+      {
+        "site": "GEMSDOE24",
+        "sha256": "9df52a41c34d4f508b57128c1bc6c2dd716c6149d22dd8717137baa463ed0336",
+        "within_3px_fraction": 1.0,
+        "fails_literal_rule": true
+      }
+    ]
+  },
+  "raster_sha256": null,
+  "validator_output": {
+    "new_raster": null,
+    "inside_nan": null,
+    "inside_range_0_1": null,
+    "crs_shape_transform_match": null,
+    "status": "No new TIFF exists to validate. Existing witness format inspection is in docs/data/format-witness36.json."
+  },
+  "submission_name": null,
+  "note": "No assigned lane; uniqueness and shared-tool preflight failed. DO NOT SUBMIT.",
+  "verdict": "negative",
+  "ok_to_submit": false,
+  "selector_approved": false,
+  "new_experiments": 0,
+  "weekly_slots_spent": 0,
+  "blockers": [
+    "No single geological method lane was supplied for this parallel session.",
+    "Reusable prepared features, frozen comparator, and the complete current registry are absent from this checkout.",
+    "At the usual 37,654-dot budget the literal all-entry lattice rule forces overlap above 70%.",
+    "Two upstream shared-tool synthetic checks fail; upstream is read-only and existing issues are open.",
+    "Official sample and current account quota/receipt are inaccessible without DrivenData authorization."
+  ],
+  "audit_receipt": "docs/data/audit.json",
+  "shared_tool_receipt": "docs/data/upstream-check.json"
+}

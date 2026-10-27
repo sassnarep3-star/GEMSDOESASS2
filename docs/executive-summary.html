@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="GEMS Prize submission decision, format, uniqueness checks and step-by-step guide."
+    />
+    <title>Executive summary — GEMS Field Notes</title>
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="brand" href="index.html"
+          ><span class="brand-mark">G.</span
+          ><span
+            >GEMS Field Notes<small>Decision &amp; discovery</small></span
+          ></a
+        >
+        <nav class="nav" aria-label="Primary">
+          <a href="index.html">Overview</a
+          ><a href="executive-summary.html" aria-current="page"
+            >Executive summary</a
+          ><a href="research.html">Research</a><a href="sources.html">Sources</a
+          ><a
+            class="nav-link"
+            href="https://www.drivendata.org/competitions/306/competition-doe-gems/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Competition ↗</a
+          >
+        </nav>
+      </div>
+    </header>
+    <main id="main">
+      <section class="page-head">
+        <div class="wrap">
+          <div class="breadcrumb">
+            <a href="index.html">Overview</a> / Executive summary
+          </div>
+          <h1>A clear answer before a submission.</h1>
+          <p>
+            Current decision, exact limitations, and the upload process for a
+            future candidate that passes all gates.
+          </p>
+        </div>
+      </section>
+      <section class="section">
+        <div class="wrap content-grid">
+          <div class="prose">
+            <span class="status-tag">Do not submit</span>
+            <h2 style="margin-top: 16px">
+              No approved TIFF exists in this checkout.
+            </h2>
+            <p>
+              There is no new candidate, estimated competition score, submission
+              name, or submission-ready download. No upload or weekly slot was
+              used. Archived files from the nine sites are historical
+              evidence—not substitutes for a new unique entry.
+            </p>
+            <p>
+              Among the supplied historical reports, GEMSDOE32’s
+              <strong>0.2778</strong> is the largest. It is
+              <strong>USER-REPORTED / UNVERIFIED</strong>; we found no organizer
+              receipt tying that value to the archived bytes. The public
+              leaderboard leader was <strong>0.4544</strong> when viewed on 27
+              October 2026; it is an official public observation, not this
+              project’s score, and can change.
+              <a
+                href="https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/"
+                >View the live leaderboard ↗</a
+              >
+            </p>
+            <div class="callout">
+              <strong
+                >Do not mistake a format pass, a newer hash, or a high holdout
+                value for approval.</strong
+              >
+              The required lane, complete registry, correct shared evaluator,
+              paired holdout win, byte-bound format checks and separate slot
+              selector must all be resolved.
+            </div>
+            <h2 id="lattice" style="margin-top: 42px">
+              Why the literal uniqueness rule stops us
+            </h2>
+            <p>
+              We independently read the SHA-pinned owner-mirror footprint and
+              the registered <code>r13-lattice-s5</code> raster. Of 5,167,373
+              footprint pixels, only 6,649 are more than three pixels away from
+              a lattice dot. For any set of 37,654 distinct dots, at least
+              <code>37,654 − 6,649 = 31,005</code> must be within the lattice
+              neighborhood: <strong>82.34%</strong>. The requested stop is
+              strictly greater than 70%.
+            </p>
+            <p>
+              The counting bound first forces a stop at 22,164 dots. It does
+              <em>not</em> prove every smaller candidate is unique, or that
+              lattice proximity represents geological similarity. The literal
+              protocol allows no density exception. Moving dots into uncovered
+              holes solely to evade a guard would not establish geological
+              merit.
+            </p>
+            <p>
+              We also checked four existing research files, including three with
+              narrower site-level claims. All fail the literal all-entry stop
+              against this one registered raster:
+            </p>
+            <div class="table-shell">
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">Existing artifact</th>
+                    <th scope="col">Dots within 3 px</th>
+                    <th scope="col">Literal decision</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>GEMSDOE24 TMCG</td>
+                    <td>37,722 / 37,722 (100.00%)</td>
+                    <td><strong>FAIL</strong></td>
+                  </tr>
+                  <tr>
+                    <td>GEMSDOE27 H31</td>
+                    <td>37,509 / 37,654 (99.61%)</td>
+                    <td><strong>FAIL</strong></td>
+                  </tr>
+                  <tr>
+                    <td>GEMSDOE28 S22C</td>
+                    <td>37,510 / 37,654 (99.62%)</td>
+                    <td><strong>FAIL</strong></td>
+                  </tr>
+                  <tr>
+                    <td>GEMSDOE36 KPL-36</td>
+                    <td>37,341 / 37,654 (99.17%)</td>
+                    <td><strong>FAIL</strong></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="table-note">
+              <a href="data/audit.json"
+                >Exact filenames, pins, hashes and all comparisons ↗</a
+              >
+              ·
+              <a
+                href="https://github.com/buffedlizard55-lab/GEMSDOE32/blob/1398109a23f04a2ace71c1bd2f527cfba87860b5/registry/focus_registry_manifest.json"
+                >Registry manifest containing lattice ↗</a
+              >
+            </p>
+            <h2 id="format" style="margin-top: 44px">About the range error</h2>
+            <p>
+              The
+              <a
+                href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/#submission-format"
+                >official problem description</a
+              >
+              specifies one float32 layer, probabilities in [0,1], the same CRS,
+              resolution and bounds as the training data, and null or NaN
+              outside the bounds. The submission form additionally requires the
+              same shape and geotransform as the example.
+            </p>
+            <p>
+              We do not have the rejected file or organizer diagnosis. An
+              all-finite zero-outside raster may satisfy a whole-array range
+              check but does not mask the owner-mirror’s outside footprint. A
+              NaN-outside raster may satisfy the null convention but fail an
+              indiscriminate whole-array range check. The public wording refers
+              to <em>bounds</em>; whether the platform treats the irregular
+              mirror footprint as “outside” is not established. We do not claim
+              either encoding guarantees acceptance.
+            </p>
+            <p>
+              The local inspector reports both conditions separately, detects
+              NaN, infinity, masks and out-of-range values, and compares the
+              reopened file with a supplied sample. Its conservative combined
+              policy is stricter than the confirmed portal behavior; it
+              <strong>does not authorize an upload</strong>. An internal mask
+              with finite underlying pixels can pass both local checks in
+              synthetic tests, but portal acceptance remains unverified.
+              <a href="data/format-witness36.json"
+                >See the exact KPL-36 format inspection ↗</a
+              >
+            </p>
+            <h2 id="how-to" style="margin-top: 44px">
+              How to submit, once a file is approved
+            </h2>
+            <ol class="steps">
+              <li>
+                <strong
+                  >Wait for a new candidate to pass the scientific
+                  gates.</strong
+                >
+                It needs an assigned lane, feature-alone leakage canaries, a
+                buffered whole-segment visible-only holdout, a paired confidence
+                interval beating the same-evaluator incumbent, and surface plus
+                final-dot checks against the complete current registry.
+              </li>
+              <li>
+                <strong>Run the saved-byte format inspection.</strong> Compare
+                the exact TIFF against the authenticated organizer example.
+                Check one float32 band, CRS, shape, affine transform,
+                in-footprint finite [0,1] values, and the outside encoding.
+                Record the TIFF’s SHA-256 and the machine receipt. Local checks
+                do not establish organizer acceptance.
+              </li>
+              <li>
+                <strong>Run the separate slot selector.</strong> The research
+                protocol forbids a scientific run from selecting a real slot.
+                Check the availability shown on your competition submission
+                page. The rules mention three per week, but
+                <a
+                  href="https://community.drivendata.org/t/submission-amount-question/11553/2"
+                  >DrivenData staff clarified</a
+                >
+                that the website limit prevails. We cannot see this account’s
+                remaining allowance.
+              </li>
+              <li>
+                <strong>Upload the exact approved file.</strong> Enroll/sign in
+                to DrivenData, open the competition’s Submit page, choose “Make
+                new submission,” select the approved single-band TIFF (or a ZIP
+                containing one TIFF), and enter its short identifying note. No
+                valid filename or note can be supplied yet for this run.
+              </li>
+              <li>
+                <strong
+                  >Retain the receipt and finish prize requirements.</strong
+                >
+                Save the organizer’s result alongside the exact file hash. The
+                <a href="https://docs.nlr.gov/docs/fy26osti/96647.pdf"
+                  >official rules</a
+                >
+                require selecting one final prediction for both prize rounds,
+                reproducible code/documentation for finalists, and disclosure of
+                generative-AI use in the narrative where applicable.
+              </li>
+            </ol>
+            <h2 id="tools">Automated checks &amp; blockers</h2>
+            <p>
+              Use
+              <code
+                >python scripts/validate_tif.py candidate.tif --sample
+                /path/to/official_sample.tif --out receipt.json</code
+              >
+              to inspect a saved file. Use
+              <code>python scripts/audit_snapshot.py</code> to reproduce the
+              pinned historical audit after installing the audit dependencies.
+              These utilities are not a training pipeline or a submission
+              selector.
+            </p>
+            <p>
+              The shared upstream
+              <a
+                href="https://github.com/buffedlizard55-lab/GEMSDOE32/issues/42"
+                >surface gate</a
+              >
+              and
+              <a
+                href="https://github.com/buffedlizard55-lab/GEMSDOE32/issues/41"
+                >holdout pooled-FP accounting</a
+              >
+              failed synthetic tests at the reviewed source hashes. The upstream
+              owner has already been notified; this account has read-only
+              access. No private evaluator fork was made. The shared CLI also
+              <a
+                href="https://github.com/buffedlizard55-lab/GEMSDOE32/issues/37"
+                >binarizes probability fields</a
+              >.
+            </p>
+            <p>
+              Additional blockers: no single assigned method paragraph, no
+              reusable prepared cache or matched incumbent in this checkout,
+              incomplete live registry, no authenticated sample or account
+              receipt, and no portal quota access. Resolving only data placement
+              will not resolve these.
+            </p>
+          </div>
+          <aside class="sidebar" aria-label="On this page">
+            <h3>On this page</h3>
+            <a href="#lattice">The uniqueness stop</a
+            ><a href="#format">The range-error caveat</a
+            ><a href="#how-to">Future submission steps</a
+            ><a href="#tools">Tools &amp; blockers</a>
+            <hr />
+            <a href="data/run-card.json">Download JSON run card ↗</a
+            ><a href="data/audit.json">Download audit evidence ↗</a
+            ><a href="index.html#nine-sites">Nine-site table →</a>
+          </aside>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <p>
+          <strong>GEMS Field Notes</strong> · Evidence does not spend a slot.
+        </p>
+        <div>
+          <a href="sources.html">Sources</a
+          ><a href="data/run-card.json">Run card</a
+          ><a href="https://github.com/sassnarep3-star/GEMSDOESASS2"
+            >Repository ↗</a
+          >
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
