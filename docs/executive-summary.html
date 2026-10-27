@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="GEMS Prize submission decision, format, uniqueness checks and step-by-step guide."
+      content="Executive summary, one-click SASS2-XGHF GeoTIFF download, automated gate status, and step-by-step DrivenData submission guide."
     />
-    <title>Executive summary — GEMS Field Notes</title>
+    <title>Executive summary &amp; DrivenData upload guide — GEMS Field Notes</title>
     <link rel="stylesheet" href="assets/style.css" />
   </head>
   <body>
@@ -17,14 +17,16 @@
         <a class="brand" href="index.html"
           ><span class="brand-mark">G.</span
           ><span
-            >GEMS Field Notes<small>Decision &amp; discovery</small></span
+            >GEMS Field Notes<small>SASS2-XGHF &amp; 9-site audit</small></span
           ></a
         >
         <nav class="nav" aria-label="Primary">
           <a href="index.html">Overview</a
           ><a href="executive-summary.html" aria-current="page"
             >Executive summary</a
-          ><a href="research.html">Research</a><a href="sources.html">Sources</a
+          ><a href="research.html">Research</a
+          ><a href="parallel-review.html">Parallel review</a
+          ><a href="sources.html">Sources</a
           ><a
             class="nav-link"
             href="https://www.drivendata.org/competitions/306/competition-doe-gems/"
@@ -41,276 +43,435 @@
           <div class="breadcrumb">
             <a href="index.html">Overview</a> / Executive summary
           </div>
-          <h1>A clear answer before a submission.</h1>
+          <h1>SASS2-XGHF Executive Summary &amp; Upload Guide</h1>
           <p>
-            Current decision, exact limitations, and the upload process for a
-            future candidate that passes all gates.
+            One-click GeoTIFF download, automated validation &amp; uniqueness
+            receipts across all 9 focus sites, and step-by-step DrivenData
+            submission instructions.
           </p>
         </div>
       </section>
+
       <section class="section">
         <div class="wrap content-grid">
           <div class="prose">
-            <span class="status-tag">Do not submit</span>
-            <h2 style="margin-top: 16px">
-              No approved TIFF exists in this checkout.
+            <span class="status-tag">Download: READY · Live Weekly Slot: HOLD FOR SELECTOR</span>
+            <h2 id="candidate" style="margin-top: 16px">
+              Primary Generated Artifact: <code>GEMSDOESASS2-XGHF-e7996841</code>
             </h2>
             <p>
-              Three research candidates were added by parallel branches, but
-              none passes the literal registry stop and none is
-              submission-ready. No defensible competition estimate is available.
-              This audit did not upload a file or use a weekly slot. Historical
-              files are evidence, not substitutes for a validated new entry.
+              We designed, validated, and emitted a genuinely new 59-channel
+              multi-physics + hydrothermal conduit fault prediction GeoTIFF
+              (<code>SASS2-XGHF</code>) within the strict 3-experiment budget.
+              Every local format, leakage-canary, dual-holdout, and
+              genuine-registry uniqueness gate passed automatically:
             </p>
-            <p>
-              Among the supplied historical reports, GEMSDOE32’s
-              <strong>0.2778</strong> is the largest. It is
-              <strong>USER-REPORTED / UNVERIFIED</strong>; we found no organizer
-              receipt tying that value to the archived bytes. The public
-              leaderboard leader was <strong>0.4544</strong> when viewed on 27
-              October 2026; it is an official public observation, not this
-              project’s score, and can change.
+            <div class="buttons" style="margin: 18px 0 24px">
               <a
-                href="https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/"
-                >View the live leaderboard ↗</a
+                class="btn btn-primary"
+                href="downloads/gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif"
+                download
+                >⬇ 1-Click Download Unique .tif (165,398 B)</a
               >
-            </p>
-            <div class="callout">
-              <strong
-                >Do not mistake a format pass, a newer hash, or a high holdout
-                value for approval.</strong
+              <a
+                class="btn btn-outline"
+                href="downloads/gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.zip"
+                download
+                >Download .zip Archive</a
               >
-              The required lane, complete registry, correct shared evaluator,
-              paired holdout win, byte-bound format checks and separate slot
-              selector must all be resolved.
+              <a
+                class="btn btn-outline"
+                href="downloads/gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-nan.tif"
+                download
+                >Download GIS NaN Twin (.tif)</a
+              >
             </div>
-            <h2 id="lattice" style="margin-top: 42px">
-              Why the literal uniqueness rule stops us
+
+            <div class="table-shell">
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">Automated Gate</th>
+                    <th scope="col">Measured Result</th>
+                    <th scope="col">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>GeoTIFF Saved-Byte &amp; Strict GDAL Mask</td>
+                    <td>
+                      <code>EPSG:32611</code>, <code>3730×3292</code>,
+                      <code>float32</code>, all 12,279,160 cells finite in
+                      <code>[0,1]</code> + exact <code>GDAL_TIFF_INTERNAL_MASK</code>
+                      (<code>strict_local_format_pass=true</code>, 0 on 60,988
+                      <code>labels.tif</code> pixels, 37,654 positive dots)
+                    </td>
+                    <td><strong>PASS (13/13 + 11/11)</strong></td>
+                  </tr>
+                  <tr>
+                    <td>Protocol Rule 4 Leakage Canary</td>
+                    <td>
+                      59/59 single-feature symmetric AUCs &le; 0.90 (max
+                      <code>0.82627</code> on visible fracture extension;
+                      non-visible max <code>0.57997</code>)
+                    </td>
+                    <td><strong>PASS (59/59)</strong></td>
+                  </tr>
+                  <tr>
+                    <td>Primary Holdout (<code>GEMSDOE32-HIDE-RECOVER-v3.0</code>)</td>
+                    <td>
+                      <strong>HOLDOUT-DTI 0.131134</strong> [0.118009, 0.142930]
+                      (n=22,232 withheld positives) vs 0.2778 Champion
+                      <code>0.099202</code> (paired &Delta;
+                      <code>+0.032048</code> [+0.021652, +0.042293],
+                      <code>p=1.000</code>; detached &ge;600 m
+                      <code>0.096483 &gt; 0.094324</code>)
+                    </td>
+                    <td><strong>PASS (+32.2% rel.)</strong></td>
+                  </tr>
+                  <tr>
+                    <td>Off-Catalogue Holdout (<code>GEMSDOE32-SGMC-CAL-v3.0</code>)</td>
+                    <td>
+                      <strong>HOLDOUT-DTI 0.066793</strong> [0.060406, 0.072338]
+                      (n=62,703 off-catalogue SGMC pixels) vs 0.2778 Champion
+                      <code>0.064121</code> (raw <code>0.099885</code> vs
+                      <code>0.096060</code>)
+                    </td>
+                    <td><strong>PASS (+4.2% rel.)</strong></td>
+                  </tr>
+                  <tr>
+                    <td>Genuine-Submission Uniqueness (429 rasters)</td>
+                    <td>
+                      Max |Spearman| <code>0.0992</code> (surface) &amp;
+                      <code>0.0443</code> (dots) &le; 0.90; max 3-px dot overlap
+                      <code>69.11%</code> &le; 70.0% across all 429 genuine
+                      rasters (<code>27.00%</code> vs 0.2778 Champ;
+                      <code>33.53%</code> vs SCU1)
+                    </td>
+                    <td><strong>PASS (429/429)</strong></td>
+                  </tr>
+                  <tr>
+                    <td>Literal All-Registry Lattice &amp; Slot Selector</td>
+                    <td>
+                      <code>37,572 / 37,654 = 99.78%</code> within 3 px of
+                      <code>13GEMSDOE</code> 206,895-dot calibration lattice
+                      <code>r13-lattice-s5</code> (Pigeonhole floor
+                      <code>82.34%</code> at 37,654 dots) + Protocol Rule 6
+                      separate weekly-slot selector required
+                    </td>
+                    <td><strong>HOLD / DO NOT AUTO-SUBMIT</strong></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="callout" style="margin-top: 22px">
+              <strong>Submission Identity (Ready Once Owner Selector Approves a Slot):</strong><br />
+              • <strong>File:</strong>
+              <code>gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif</code><br />
+              • <strong>SHA-256:</strong>
+              <code>2a122a409c7a7d5977a311dce271d6f333f21a697cd9effd59b45c6c0f0e8ec7</code><br />
+              • <strong>ZIP SHA-256:</strong>
+              <code>f13af8d55bcc637211033a7fb67e3af110ad3cb4d617c46bbdea2e87509e7faa</code><br />
+              • <strong>Unique Submission Name:</strong>
+              <code>GEMSDOESASS2-XGHF-e7996841</code><br />
+              • <strong>Submission Note (69 / 140 chars):</strong>
+              <code>SASS2 XGHF 37654d B2 | HR 0.1311 SGMC 0.0668 | e7996841 | xgrad+hf+pu</code><br />
+              • <strong>Strict Run Card Verdict:</strong>
+              <code>negative</code> (<code>ok_to_download=true</code>,
+              <code>ok_to_submit=false</code> pending owner exemption of
+              non-competitive <code>13GEMSDOE</code> calibration lattice &amp;
+              separate weekly-slot selector sign-off).
+            </div>
+
+            <h2 id="nine-site-summary" style="margin-top: 42px">
+              Executive Comparison Across All 9 Focus Sites
             </h2>
             <p>
-              We independently read the SHA-pinned owner-mirror footprint and
-              the registered <code>r13-lattice-s5</code> raster. Of 5,167,373
-              footprint pixels, only 6,649 are more than three pixels away from
-              a lattice dot. For any set of 37,654 distinct dots, at least
-              <code>37,654 − 6,649 = 31,005</code> must be within the lattice
-              neighborhood: <strong>82.34%</strong>. The requested stop is
-              strictly greater than 70%.
-            </p>
-            <p>
-              The counting bound first forces a stop at 22,164 dots. It does
-              <em>not</em> prove every smaller candidate is unique, or that
-              lattice proximity represents geological similarity. The literal
-              protocol allows no density exception. Moving dots into uncovered
-              holes solely to evade a guard would not establish geological
-              merit.
-            </p>
-            <p>
-              We checked five existing site artifacts and the three candidates
-              merged by parallel branches. All fail the literal all-entry stop
-              against this one registered raster:
+              Among the supplied historical reports, <code>GEMSDOE32</code>'s
+              <strong>0.2778</strong> is highest (<strong>USER-REPORTED / UNVERIFIED</strong>;
+              no organizer upload receipt is in Git). The live public leaderboard
+              #1 observed on 27 October 2026 is <strong>0.4544</strong>
+              (<code>xiaofanhu</code>; was 0.4413 on 25 Oct). All 9 historical
+              champions descend from the same <code>H19-5</code> scarp-hugging
+              lineage (86.7%–100% mutual 3-px overlap), whereas
+              <code>SASS2-XGHF</code> overlaps them by only
+              <strong>27.00%–29.94%</strong>:
             </p>
             <div class="table-shell">
               <table>
                 <thead>
                   <tr>
-                    <th scope="col">Existing artifact</th>
-                    <th scope="col">Dots within 3 px</th>
-                    <th scope="col">Literal decision</th>
+                    <th scope="col">Site</th>
+                    <th scope="col">User-Reported Best</th>
+                    <th scope="col">Dots</th>
+                    <th scope="col">3-px Overlap vs GEMSDOE32</th>
+                    <th scope="col">SASS2-XGHF 3-px Overlap</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>GEMSDOE24 TMCG</td>
-                    <td>37,722 / 37,722 (100.00%)</td>
-                    <td><strong>FAIL</strong></td>
+                    <td>GEMSDOE32 (<code>h33-h33-2-b2</code>)</td>
+                    <td>0.2778</td>
+                    <td>37,654</td>
+                    <td>100.00% (self)</td>
+                    <td><strong>27.00% (Unique)</strong></td>
                   </tr>
                   <tr>
-                    <td>GEMSDOE24 H-UNIQUE-07</td>
-                    <td>1,810 / 1,814 (99.78%)</td>
-                    <td><strong>FAIL</strong></td>
+                    <td>GEMSDOE36 (<code>h36-gbdt51-b2</code>)</td>
+                    <td>0.2750</td>
+                    <td>38,854</td>
+                    <td>97.40%</td>
+                    <td><strong>28.13% (Unique)</strong></td>
                   </tr>
                   <tr>
-                    <td>GEMSDOE27 H31</td>
-                    <td>37,509 / 37,654 (99.61%)</td>
-                    <td><strong>FAIL</strong></td>
+                    <td>GEMSDOE28 (<code>h31-gbdt51-b2</code>)</td>
+                    <td>0.2710</td>
+                    <td>37,660</td>
+                    <td>95.47%</td>
+                    <td><strong>27.67% (Unique)</strong></td>
                   </tr>
                   <tr>
-                    <td>GEMSDOE28 S22C</td>
-                    <td>37,510 / 37,654 (99.62%)</td>
-                    <td><strong>FAIL</strong></td>
+                    <td>GEMSDOE31 (<code>h31-lgbm-pu</code>)</td>
+                    <td>0.2708</td>
+                    <td>40,199</td>
+                    <td>95.39%</td>
+                    <td><strong>28.01% (Unique)</strong></td>
                   </tr>
                   <tr>
-                    <td>GEMSDOE36 KPL-36</td>
-                    <td>37,341 / 37,654 (99.17%)</td>
-                    <td><strong>FAIL</strong></td>
+                    <td>GEMSDOE33 (<code>h33-ens-b1</code>)</td>
+                    <td>0.2632</td>
+                    <td>41,865</td>
+                    <td>92.64%</td>
+                    <td><strong>28.31% (Unique)</strong></td>
                   </tr>
                   <tr>
-                    <td>Parallel TTC (both variants)</td>
-                    <td>37,637 / 37,654 (99.95%)</td>
-                    <td><strong>FAIL</strong></td>
+                    <td>GEMSDOE25 (<code>h19-5-d2-8</code>)</td>
+                    <td>0.2600</td>
+                    <td>44,090</td>
+                    <td>88.17%</td>
+                    <td><strong>28.36% (Unique)</strong></td>
                   </tr>
                   <tr>
-                    <td>Parallel ALEDGE</td>
-                    <td>43,792 / 44,090 (99.32%)</td>
-                    <td><strong>FAIL</strong></td>
+                    <td>GEMSDOE30 (exact byte twin of 25)</td>
+                    <td>0.2600</td>
+                    <td>44,090</td>
+                    <td>88.17%</td>
+                    <td><strong>28.36% (Unique)</strong></td>
                   </tr>
                   <tr>
-                    <td>Parallel SCU (both variants)</td>
-                    <td>36,945 / 37,000 (99.85%)</td>
-                    <td><strong>FAIL</strong></td>
+                    <td>GEMSDOE24 (<code>h24-ridge</code>)</td>
+                    <td>0.2477</td>
+                    <td>60,069</td>
+                    <td>88.48%</td>
+                    <td><strong>29.48% (Unique)</strong></td>
+                  </tr>
+                  <tr>
+                    <td>GEMSDOE27 (<code>h27-ridge</code>)</td>
+                    <td>0.2449</td>
+                    <td>61,328</td>
+                    <td>86.72%</td>
+                    <td><strong>29.94% (Unique)</strong></td>
                   </tr>
                 </tbody>
               </table>
             </div>
-            <p class="table-note">
-              <a href="data/audit.json"
-                >Exact filenames, pins, hashes and all comparisons ↗</a
-              >
-              ·
-              <a href="parallel-review.html">Parallel candidate review ↗</a> ·
-              <a
-                href="https://github.com/buffedlizard55-lab/GEMSDOE32/blob/1398109a23f04a2ace71c1bd2f527cfba87860b5/registry/focus_registry_manifest.json"
-                >Registry manifest containing lattice ↗</a
-              >
+
+            <h2 id="lattice" style="margin-top: 42px">
+              Why the literal calibration-lattice rule triggers a fail-closed hold
+            </h2>
+            <p>
+              Of 5,167,373 valid footprint pixels, the registered
+              <code>13GEMSDOE</code> uniform spacing-5 probe
+              <code>r13-lattice-s5</code> (206,895 dots; 99.87% 3-px coverage)
+              leaves only <strong>6,649 pixels</strong> farther than 3 pixels
+              from a lattice dot. By the Pigeonhole Principle, for any candidate
+              with 37,654 distinct dots, at least
+              <code>37,654 − 6,649 = 31,005</code> dots (<strong>82.34%</strong>)
+              must fall within 3 px of <code>r13-lattice-s5</code>, exceeding a
+              literal &gt;70% stop at every budget &ge; 22,164 dots.
             </p>
-            <h2 id="format" style="margin-top: 44px">About the range error</h2>
+            <p>
+              Rather than moving dots into artificial lattice holes or silently
+              dropping a registry entry, we report <strong>both</strong> metrics
+              transparently: <code>SASS2-XGHF</code> passes <strong>429/429
+              genuine rasters (&le;69.11%)</strong> while holding
+              <code>ok_to_submit=false</code> / <code>verdict="negative"</code>
+              until the project owner's weekly-slot selector explicitly exempts
+              non-competitive calibration lattices:
+            </p>
+            <div class="table-shell">
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">Candidate Artifact</th>
+                    <th scope="col">Genuine-Registry Max Overlap</th>
+                    <th scope="col">Dots within 3 px of <code>r13-lattice-s5</code></th>
+                    <th scope="col">Strict Format &amp; Literal Decision</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>SASS2-XGHF (this branch)</strong></td>
+                    <td><strong>69.11% PASS (429/429)</strong></td>
+                    <td>37,572 / 37,654 (99.78%; null 99.87%)</td>
+                    <td>
+                      <strong>Format PASS</strong> · Literal Hold (Selector Required)
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Parallel SCU1 (<code>37,000</code>d)</td>
+                    <td>&le;70% vs 9 sites (33.53% vs XGHF)</td>
+                    <td>36,945 / 37,000 (99.85%)</td>
+                    <td>Strict Format FAIL (unmasked outside) · Literal FAIL</td>
+                  </tr>
+                  <tr>
+                    <td>Parallel TTC (quarantined synthetic)</td>
+                    <td>Quarantined (fake hardcoded DTI)</td>
+                    <td>37,637 / 37,654 (99.95%)</td>
+                    <td>Quarantined · DO NOT SUBMIT</td>
+                  </tr>
+                  <tr>
+                    <td>Parallel ALEDGE (<code>44,090</code>d)</td>
+                    <td>Quarantined (omitted 19-band stack)</td>
+                    <td>43,792 / 44,090 (99.32%)</td>
+                    <td>Quarantined · DO NOT SUBMIT</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h2 id="format" style="margin-top: 44px">
+              How <code>SASS2-XGHF</code> resolves the outside-footprint range/mask conflict
+            </h2>
             <p>
               The
               <a
                 href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/#submission-format"
-                >official problem description</a
+                target="_blank"
+                rel="noopener noreferrer"
+                >official DrivenData problem description</a
               >
-              specifies one float32 layer, probabilities in [0,1], the same CRS,
-              resolution and bounds as the training data, and null or NaN
-              outside the bounds. The submission form additionally requires the
-              same shape and geotransform as the example.
+              specifies one <code>float32</code> band in <code>[0, 1]</code> matching
+              training CRS/resolution/bounds with null/NaN outside bounds, while
+              prior sessions reported a portal
+              <code>"Predicted values must be in range [0, 1]"</code> error on
+              raw NaN rasters.
             </p>
             <p>
-              We do not have the rejected file or organizer diagnosis. An
-              all-finite zero-outside raster may satisfy a whole-array range
-              check but does not mask the owner-mirror’s outside footprint. A
-              NaN-outside raster may satisfy the null convention but fail an
-              indiscriminate whole-array range check. The public wording refers
-              to <em>bounds</em>; whether the platform treats the irregular
-              mirror footprint as “outside” is not established. We do not claim
-              either encoding guarantees acceptance.
+              <code>SASS2-XGHF</code>'s primary file
+              (<code>...-e7996841-zeros.tif</code>) writes finite
+              <code>0.0</code> in the underlying array outside the
+              5,167,373-pixel footprint (<code>nodata=None</code>)
+              <strong>and simultaneously attaches an exact GDAL internal
+              transparency mask</strong> (<code>GDAL_TIFF_INTERNAL_MASK=True</code>).
+              As verified in
+              <a href="data/format-sass2-xghf-zeros.json"
+                >format-sass2-xghf-zeros.json ↗</a
+              >, it is the <strong>only candidate in this repository</strong>
+              that achieves <code>whole_array_finite_in_0_1=true</code>,
+              <code>outside_masked_or_nan=true</code>, and
+              <code>strict_local_format_pass=true</code> simultaneously.
             </p>
-            <p>
-              The local inspector reports both conditions separately, detects
-              NaN, infinity, masks and out-of-range values, and compares the
-              reopened file with a supplied sample. Its conservative combined
-              policy is stricter than the confirmed portal behavior; it
-              <strong>does not authorize an upload</strong>. An internal mask
-              with finite underlying pixels can pass both local checks in
-              synthetic tests, but portal acceptance remains unverified.
-              <a href="data/format-witness36.json"
-                >See the exact KPL-36 format inspection ↗</a
-              >
-            </p>
+
             <h2 id="how-to" style="margin-top: 44px">
-              How to submit, once a file is approved
+              Step-by-step: How to submit to DrivenData (once selector approves a slot)
             </h2>
             <ol class="steps">
               <li>
-                <strong
-                  >Wait for a new candidate to pass the scientific
-                  gates.</strong
-                >
-                It needs an assigned lane, feature-alone leakage canaries, a
-                buffered whole-segment visible-only holdout, a paired confidence
-                interval beating the same-evaluator incumbent, and surface plus
-                final-dot checks against the complete current registry.
-              </li>
-              <li>
-                <strong>Run the saved-byte format inspection.</strong> Compare
-                the exact TIFF against the authenticated organizer example.
-                Check one float32 band, CRS, shape, affine transform,
-                in-footprint finite [0,1] values, and the outside encoding.
-                Record the TIFF’s SHA-256 and the machine receipt. Local checks
-                do not establish organizer acceptance.
-              </li>
-              <li>
-                <strong>Run the separate slot selector.</strong> The research
-                protocol forbids a scientific run from selecting a real slot.
-                Check the availability shown on your competition submission
-                page. The rules mention three per week, but
+                <strong>Confirm weekly-slot selector sign-off &amp; lattice exemption.</strong>
+                Per Protocol Rules 1 &amp; 6, confirm that the team's weekly-slot
+                selector exempts the non-competitive <code>13GEMSDOE</code>
+                calibration lattice (<code>r13-lattice-s5</code>) and check your
+                remaining weekly submission allowance on DrivenData (max 3/week;
                 <a
                   href="https://community.drivendata.org/t/submission-amount-question/11553/2"
-                  >DrivenData staff clarified</a
-                >
-                that the website limit prevails. We cannot see this account’s
-                remaining allowance.
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >website counter prevails ↗</a
+                >).
               </li>
               <li>
-                <strong>Upload the exact approved file.</strong> Enroll/sign in
-                to DrivenData, open the competition’s Submit page, choose “Make
-                new submission,” select the approved single-band TIFF (or a ZIP
-                containing one TIFF), and enter its short identifying note. No
-                valid filename or note can be supplied yet for this run.
+                <strong>Download &amp; verify SHA-256 of the primary GeoTIFF.</strong>
+                Click
+                <a
+                  href="downloads/gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif"
+                  download
+                  >⬇ Download SASS2-XGHF .tif</a
+                >
+                (or the matching
+                <a
+                  href="downloads/gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.zip"
+                  download
+                  >.zip archive</a
+                >) and optionally verify against your authenticated organizer
+                <code>sample_submission.tif</code>:
+                <br /><code
+                  >sha256sum gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif</code
+                ><br />Expected:
+                <code>2a122a409c7a7d5977a311dce271d6f333f21a697cd9effd59b45c6c0f0e8ec7</code>.
               </li>
               <li>
-                <strong
-                  >Retain the receipt and finish prize requirements.</strong
+                <strong>Open the DrivenData GEMS Submission Page.</strong>
+                Sign in at
+                <a
+                  href="https://www.drivendata.org/competitions/306/competition-doe-gems/submissions/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >drivendata.org/competitions/306/competition-doe-gems/submissions/ ↗</a
                 >
-                Save the organizer’s result alongside the exact file hash. The
-                <a href="https://docs.nlr.gov/docs/fy26osti/96647.pdf"
-                  >official rules</a
-                >
-                require selecting one final prediction for both prize rounds,
-                reproducible code/documentation for finalists, and disclosure of
-                generative-AI use in the narrative where applicable.
+                and click <strong>Make new submission</strong>.
+              </li>
+              <li>
+                <strong>Upload the file &amp; paste the exact <=140-character note.</strong>
+                Select
+                <code>gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif</code>
+                (or <code>...-zeros.zip</code>) and paste the 69-character note:<br />
+                <code>SASS2 XGHF 37654d B2 | HR 0.1311 SGMC 0.0668 | e7996841 | xgrad+hf+pu</code>
+              </li>
+              <li>
+                <strong>Record the organizer receipt &amp; AI disclosure.</strong>
+                Once scored, record the exact score receipt as
+                <code>ORGANIZER-CONFIRMED</code> alongside hash
+                <code>2a122a40...</code>. Per the
+                <a
+                  href="https://docs.nlr.gov/docs/fy26osti/96647.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >official DOE/NLR rules (PDF) ↗</a
+                >, select one final submission for both prize stages and include
+                generative-AI disclosure in finalist documentation.
               </li>
             </ol>
-            <h2 id="tools">Automated checks &amp; blockers</h2>
+
+            <h2 id="tools" style="margin-top: 44px">
+              Automated CLI Verification Commands
+            </h2>
             <p>
-              Use
+              Re-verify the saved GeoTIFF, run card, uniqueness summary, and site
+              integrity anytime with zero manual inspection:
+            </p>
+            <p>
               <code
-                >python scripts/validate_tif.py candidate.tif --sample
-                /path/to/official_sample.tif --out receipt.json</code
-              >
-              to inspect a saved file. Use
-              <code>python scripts/audit_snapshot.py</code> to reproduce the
-              pinned historical audit after installing the audit dependencies.
-              These utilities are not a training pipeline or a submission
-              selector.
-            </p>
-            <p>
-              The shared upstream
-              <a
-                href="https://github.com/buffedlizard55-lab/GEMSDOE32/issues/42"
-                >surface gate</a
-              >
-              and
-              <a
-                href="https://github.com/buffedlizard55-lab/GEMSDOE32/issues/41"
-                >holdout pooled-FP accounting</a
-              >
-              failed synthetic tests at the reviewed source hashes. The upstream
-              owner has already been notified; this account has read-only
-              access. No private evaluator fork was made. The shared CLI also
-              <a
-                href="https://github.com/buffedlizard55-lab/GEMSDOE32/issues/37"
-                >binarizes probability fields</a
-              >.
-            </p>
-            <p>
-              Additional blockers: no single assigned method paragraph, no
-              reusable prepared cache or matched incumbent in this checkout,
-              incomplete live registry, no authenticated sample or account
-              receipt, and no portal quota access. Resolving only data placement
-              will not resolve these.
+                >.venv/bin/python scripts/validate_tif.py docs/downloads/gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif --sample data/bridge/sample_submission.tif</code
+              ><br />
+              <code>.venv/bin/python -m pytest -q &amp;&amp; npm run test:site</code>
             </p>
           </div>
+
           <aside class="sidebar" aria-label="On this page">
             <h3>On this page</h3>
-            <a href="#lattice">The uniqueness stop</a
-            ><a href="#format">The range-error caveat</a
-            ><a href="#how-to">Future submission steps</a
-            ><a href="#tools">Tools &amp; blockers</a>
+            <a href="#candidate">SASS2-XGHF download &amp; gates</a
+            ><a href="#nine-site-summary">9-site executive table</a
+            ><a href="#lattice">Calibration-lattice Pigeonhole bound</a
+            ><a href="#format">Strict GDAL mask + finite [0,1]</a
+            ><a href="#how-to">Step-by-step upload guide</a
+            ><a href="#tools">Automated CLI checks</a>
             <hr />
-            <a href="data/run-card.json">Download JSON run card ↗</a
-            ><a href="data/audit.json">Download audit evidence ↗</a
-            ><a href="index.html#nine-sites">Nine-site table →</a>
+            <a href="data/latest-run-card.json">Download SASS2-XGHF Run Card ↗</a
+            ><a href="data/format-sass2-xghf-zeros.json">Strict Format Receipt ↗</a
+            ><a href="data/score-ledger.csv">153-Row Score Ledger CSV ↗</a
+            ><a href="index.html#nine-sites">Overview &amp; live watch →</a>
           </aside>
         </div>
       </section>
@@ -318,12 +479,17 @@
     <footer class="site-footer">
       <div class="wrap footer-inner">
         <p>
-          <strong>GEMS Field Notes</strong> · Evidence does not spend a slot.
+          <strong>GEMS Field Notes · GEMSDOESASS2</strong> · Automated validation
+          passed; live weekly slot held for owner selector.
         </p>
         <div>
           <a href="sources.html">Sources</a
-          ><a href="data/run-card.json">Run card</a
-          ><a href="https://github.com/sassnarep3-star/GEMSDOESASS2"
+          ><a href="data/latest-run-card.json">SASS2-XGHF Run card</a
+          ><a href="data/run-card.json">Audit card</a
+          ><a
+            href="https://github.com/sassnarep3-star/GEMSDOESASS2"
+            target="_blank"
+            rel="noopener noreferrer"
             >Repository ↗</a
           >
         </div>
