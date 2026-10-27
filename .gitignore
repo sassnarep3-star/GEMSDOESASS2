@@ -10,3 +10,8 @@ data/*.npz
 *.partial
 
 node_modules/
+
+# Additional existing project data caches
+data/
+data_cache/
+*.npy
