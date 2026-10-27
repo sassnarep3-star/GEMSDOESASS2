@@ -1,0 +1,444 @@
+{
+  "n_features_tested": 54,
+  "n_withheld_positives": 11321,
+  "n_sampled_negatives": 241474,
+  "auc_limit": 0.9,
+  "max_symmetric_auc": 0.78508,
+  "max_auc_feature": "m01_xcomp_dist",
+  "n_leaking_features": 0,
+  "canary_passed": true,
+  "features": [
+    {
+      "index": 0,
+      "feature": "f01_det_elev_slope",
+      "group": "static_physical_hydro",
+      "raw_roc_auc": 0.56368,
+      "symmetric_roc_auc": 0.56368,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 1,
+      "feature": "f02_piedmont_break_inflection",
+      "group": "static_physical_hydro",
+      "raw_roc_auc": 0.60687,
+      "symmetric_roc_auc": 0.60687,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 2,
+      "feature": "f03_height_above_basin_floor",
+      "group": "static_physical_hydro",
+      "raw_roc_auc": 0.54877,
+      "symmetric_roc_auc": 0.54877,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 3,
+      "feature": "f04_ridge_crest_convexity_deconf",
+      "group": "static_physical_hydro",
+      "raw_roc_auc": 0.43261,
+      "symmetric_roc_auc": 0.56739,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 4,
+      "feature": "f05_lrm_openness_100m",
+      "group": "static_physical_hydro",
+      "raw_roc_auc": 0.5335,
+      "symmetric_roc_auc": 0.5335,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 5,
+      "feature": "f06_topo10_slope_std",
+      "group": "static_physical_hydro",
+      "raw_roc_auc": 0.58875,
+      "symmetric_roc_auc": 0.58875,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 6,
+      "feature": "f07_topo10_curv_prof",
+      "group": "static_physical_hydro",
+      "raw_roc_auc": 0.5859,
+      "symmetric_roc_auc": 0.5859,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 7,
+      "feature": "f08_topo10_lineament_coh",
+      "group": "static_physical_hydro",
+      "raw_roc_auc": 0.58005,
+      "symmetric_roc_auc": 0.58005,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 8,
+      "feature": "f09_chi_knick_step",
+      "group": "static_physical_hydro",
+      "raw_roc_auc": 0.49974,
+      "symmetric_roc_auc": 0.50026,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 9,
+      "feature": "f10_chi_ksn",
+      "group": "static_physical_hydro",
+      "raw_roc_auc": 0.50223,
+      "symmetric_roc_auc": 0.50223,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 10,
+      "feature": "f11_lidar_scarp_step",
+      "group": "static_physical_hydro",
+      "raw_roc_auc": 0.58625,
+      "symmetric_roc_auc": 0.58625,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 11,
+      "feature": "f12_lidar_polarity_coh",
+      "group": "static_physical_hydro",
+      "raw_roc_auc": 0.57571,
+      "symmetric_roc_auc": 0.57571,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 12,
+      "feature": "f13_road_safe_weight",
+      "group": "static_physical_hydro",
+      "raw_roc_auc": 0.50326,
+      "symmetric_roc_auc": 0.50326,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 13,
+      "feature": "f14_hydro_temp_near",
+      "group": "static_physical_hydro",
+      "raw_roc_auc": 0.49823,
+      "symmetric_roc_auc": 0.50177,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 14,
+      "feature": "f15_hydro_geotherm_reservoir",
+      "group": "static_physical_hydro",
+      "raw_roc_auc": 0.49687,
+      "symmetric_roc_auc": 0.50313,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 15,
+      "feature": "f16_probe_2m_f2mdab",
+      "group": "static_physical_hydro",
+      "raw_roc_auc": 0.51722,
+      "symmetric_roc_auc": 0.51722,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 16,
+      "feature": "f17_paleo_sinter_tufa",
+      "group": "static_physical_hydro",
+      "raw_roc_auc": 0.46634,
+      "symmetric_roc_auc": 0.53366,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 17,
+      "feature": "f18_mt_cond_surf",
+      "group": "static_physical_hydro",
+      "raw_roc_auc": 0.47809,
+      "symmetric_roc_auc": 0.52191,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 18,
+      "feature": "f19_mt_cond_grad",
+      "group": "static_physical_hydro",
+      "raw_roc_auc": 0.52361,
+      "symmetric_roc_auc": 0.52361,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 19,
+      "feature": "f20_rad_k_th_ratio",
+      "group": "static_physical_hydro",
+      "raw_roc_auc": 0.46787,
+      "symmetric_roc_auc": 0.53213,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 20,
+      "feature": "f21_rad_alteration_edge",
+      "group": "static_physical_hydro",
+      "raw_roc_auc": 0.50135,
+      "symmetric_roc_auc": 0.50135,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 21,
+      "feature": "f22_hydro_demag_trough",
+      "group": "static_physical_hydro",
+      "raw_roc_auc": 0.51296,
+      "symmetric_roc_auc": 0.51296,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 22,
+      "feature": "f23_vent_conduit_bridge",
+      "group": "static_physical_hydro",
+      "raw_roc_auc": 0.50782,
+      "symmetric_roc_auc": 0.50782,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 23,
+      "feature": "f24_iso_grav_hg",
+      "group": "static_physical_hydro",
+      "raw_roc_auc": 0.49246,
+      "symmetric_roc_auc": 0.50754,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 24,
+      "feature": "f25_iso_grav_vg",
+      "group": "static_physical_hydro",
+      "raw_roc_auc": 0.51411,
+      "symmetric_roc_auc": 0.51411,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 25,
+      "feature": "f26_grav_tilt_grad",
+      "group": "static_physical_hydro",
+      "raw_roc_auc": 0.50633,
+      "symmetric_roc_auc": 0.50633,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 26,
+      "feature": "f27_rtp_hp",
+      "group": "static_physical_hydro",
+      "raw_roc_auc": 0.49651,
+      "symmetric_roc_auc": 0.50349,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 27,
+      "feature": "f28_tmi_hg",
+      "group": "static_physical_hydro",
+      "raw_roc_auc": 0.5287,
+      "symmetric_roc_auc": 0.5287,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 28,
+      "feature": "f29_mag_tilt_edge",
+      "group": "static_physical_hydro",
+      "raw_roc_auc": 0.52386,
+      "symmetric_roc_auc": 0.52386,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 29,
+      "feature": "f30_depth_to_base",
+      "group": "static_physical_hydro",
+      "raw_roc_auc": 0.52434,
+      "symmetric_roc_auc": 0.52434,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 30,
+      "feature": "f31_basement_step_grad",
+      "group": "static_physical_hydro",
+      "raw_roc_auc": 0.53867,
+      "symmetric_roc_auc": 0.53867,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 31,
+      "feature": "f32_gallardo_meju_coupling",
+      "group": "static_physical_hydro",
+      "raw_roc_auc": 0.5237,
+      "symmetric_roc_auc": 0.5237,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 32,
+      "feature": "f33_multiphysics_strike_consensus",
+      "group": "static_physical_hydro",
+      "raw_roc_auc": 0.53364,
+      "symmetric_roc_auc": 0.53364,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 33,
+      "feature": "f34_anderson_transtension_fav",
+      "group": "static_physical_hydro",
+      "raw_roc_auc": 0.53248,
+      "symmetric_roc_auc": 0.53248,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 34,
+      "feature": "f35_geod_strain_2ndinv",
+      "group": "static_physical_hydro",
+      "raw_roc_auc": 0.5681,
+      "symmetric_roc_auc": 0.5681,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 35,
+      "feature": "f36_geod_dilatation_seis",
+      "group": "static_physical_hydro",
+      "raw_roc_auc": 0.52845,
+      "symmetric_roc_auc": 0.52845,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 36,
+      "feature": "f37_ctx_slope_s3",
+      "group": "static_physical_hydro",
+      "raw_roc_auc": 0.55606,
+      "symmetric_roc_auc": 0.55606,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 37,
+      "feature": "f38_ctx_slope_s9",
+      "group": "static_physical_hydro",
+      "raw_roc_auc": 0.54923,
+      "symmetric_roc_auc": 0.54923,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 38,
+      "feature": "f39_ctx_break_s4",
+      "group": "static_physical_hydro",
+      "raw_roc_auc": 0.58603,
+      "symmetric_roc_auc": 0.58603,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 39,
+      "feature": "f40_ctx_topo10_s3",
+      "group": "static_physical_hydro",
+      "raw_roc_auc": 0.57176,
+      "symmetric_roc_auc": 0.57176,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 40,
+      "feature": "f41_ctx_topo10_s9",
+      "group": "static_physical_hydro",
+      "raw_roc_auc": 0.56147,
+      "symmetric_roc_auc": 0.56147,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 41,
+      "feature": "f42_ctx_lidar_s4",
+      "group": "static_physical_hydro",
+      "raw_roc_auc": 0.59137,
+      "symmetric_roc_auc": 0.59137,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 42,
+      "feature": "f43_ctx_chi_s5",
+      "group": "static_physical_hydro",
+      "raw_roc_auc": 0.53503,
+      "symmetric_roc_auc": 0.53503,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 43,
+      "feature": "f44_ctx_grav_hg_s5",
+      "group": "static_physical_hydro",
+      "raw_roc_auc": 0.49521,
+      "symmetric_roc_auc": 0.50479,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 44,
+      "feature": "f45_ctx_tmi_hg_s5",
+      "group": "static_physical_hydro",
+      "raw_roc_auc": 0.52713,
+      "symmetric_roc_auc": 0.52713,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 45,
+      "feature": "f46_ctx_base_step_s6",
+      "group": "static_physical_hydro",
+      "raw_roc_auc": 0.53797,
+      "symmetric_roc_auc": 0.53797,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 46,
+      "feature": "f47_ctx_mp_order_s4",
+      "group": "static_physical_hydro",
+      "raw_roc_auc": 0.53296,
+      "symmetric_roc_auc": 0.53296,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 47,
+      "feature": "f48_ctx_demag_s5",
+      "group": "static_physical_hydro",
+      "raw_roc_auc": 0.53307,
+      "symmetric_roc_auc": 0.53307,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 48,
+      "feature": "m01_xcomp_dist",
+      "group": "fold_visible_mechanics",
+      "raw_roc_auc": 0.78508,
+      "symmetric_roc_auc": 0.78508,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 49,
+      "feature": "m02_tip_strike_lobe",
+      "group": "fold_visible_mechanics",
+      "raw_roc_auc": 0.73001,
+      "symmetric_roc_auc": 0.73001,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 50,
+      "feature": "m03_wingcrack_dilational",
+      "group": "fold_visible_mechanics",
+      "raw_roc_auc": 0.72328,
+      "symmetric_roc_auc": 0.72328,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 51,
+      "feature": "m04_relay_stepover_bridge",
+      "group": "fold_visible_mechanics",
+      "raw_roc_auc": 0.64919,
+      "symmetric_roc_auc": 0.64919,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 52,
+      "feature": "m05_regional_fault_density",
+      "group": "fold_visible_mechanics",
+      "raw_roc_auc": 0.7449,
+      "symmetric_roc_auc": 0.7449,
+      "leaks_gt_0p90": false
+    },
+    {
+      "index": 53,
+      "feature": "m06_hydro_orphan_conduit_boost",
+      "group": "fold_visible_mechanics",
+      "raw_roc_auc": 0.44016,
+      "symmetric_roc_auc": 0.55984,
+      "leaks_gt_0p90": false
+    }
+  ]
+}

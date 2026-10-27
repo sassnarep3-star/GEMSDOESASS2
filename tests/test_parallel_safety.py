@@ -67,7 +67,7 @@ def test_research_archives_contain_one_matching_tiff():
     from hashlib import sha256
     from zipfile import ZipFile
     archives = list((ROOT / 'docs/downloads').glob('*.zip'))
-    assert len(archives) == 5
+    assert len(archives) == 6
     for archive in archives:
         with ZipFile(archive) as z:
             names = z.namelist()

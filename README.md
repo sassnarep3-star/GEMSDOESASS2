@@ -27,6 +27,27 @@
 
 ---
 
+## NEW EXECUTIVE LANE (2026-10-27 UTC) — `HVFD-EXP3-HYDROCOLLINEAR` GENERATED & DUAL-VALIDATED
+
+### `OK TO DOWNLOAD: YES` · `DUAL FORMAT + GDAL MASK / 54-CANARY / HOLDOUT (+0.02234) / 451-GENUINE-UNIQUE (68.27%): PASS`
+
+- **One-Click Validated `.tif` (`zeros` + `GDAL_TIFF_INTERNAL_MASK`):** **[`docs/downloads/gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif`](docs/downloads/gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif)** (`154,994 B`) · [`.zip`](docs/downloads/gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.zip) · [Dual Validator Receipt JSON](docs/downloads/gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.json) · [HVFD-EXP3 Run Card JSON](evidence/hvfd_exp3_run_card.json)
+- **Dedicated HVFD-EXP3 Pages:** [`docs/hvfd-exp3.html`](docs/hvfd-exp3.html) · [`docs/hvfd-forensics.html`](docs/hvfd-forensics.html) · [`HYPOTHESES.md`](HYPOTHESES.md) · [`IRREGULARITIES.md`](IRREGULARITIES.md)
+- **Unique DrivenData Submission Name (`52` chars):** `GEMSDOESASS2-HVFD-EXP3-HYDROCOLLINEAR-37654-fc98343e`
+- **DrivenData Submission Note (`104 / 140` chars):** `GEMSDOESASS2 hvfd-exp3-hydrocollinear LOQO B=2 37654px HOLDOUT-DTI=0.1184 blind8km=0.1763 max3pxOv=68.3%`
+- **SHA-256 (`-zeros.tif` / `.zip`):** `28bb9419d592797dcac1bfb1eb19fcffa7581a51718230f1f4f957a3e3d610d6` / `b5f0f1f7469155c05f9b2275f00e4b8325bd3eaca24624fe90aa947c7b92e98d`
+- **Primary Buffered Holdout (`HOLDOUT-DTI`):** **`0.11842 [0.10255, 0.13426]`** (`gems57-pooled-hide-v2`, `N = 11,321` withheld px) — beats `fair_h33 = 0.09609` by **`+0.02234` (95% CI `[+0.01030, +0.03477]`)**, monotonically beating `EXP-2 (0.11639)`, `EXP-1 (0.09918)`, `random_37654 (0.04860)`, and `single_slope (0.02818)`.
+- **Zero-Context Blind 8 km Quadrants (`HOLDOUT-DTI`):** **`0.17630 [0.15434, 0.19659]`** (`spatial.folds` `buffer_px=80`, `N = 60,988`) — **`10.14x`** `random_37654 = 0.01738` and **`4.30x`** `single_slope_blind = 0.04104`.
+- **Gate-1 Canary (`54` features) & Gate-3 Genuine Uniqueness (`451` unique rasters):** `max_single_feature_symmetric_auc = 0.78508 <= 0.90` (`dist_known_fault_px` stripped); `max_pre_placement_spearman = 0.21786 <= 0.90`; `max_discrete_3px_dot_overlap = 68.27% <= 70.0%` (**`49.34%`** vs `GEMSDOE32 B2`; **`47.80%`** vs sibling `SASS2-XGHF`, giving two mutually independent `<48%`-overlap lanes in `GEMSDOESASS2`!; note Pigeonhole bound `>=82.34%` against non-submission 206,895-dot probe `r13-lattice-s5`).
+- **Gate-4 Dual Format & Range Validation:** **PASS** on both `vendor/gems57/validate.py` (`15/15`, `12,279,160` finite `[0.0, 1.0]` `float32` pixels, `0` NaN, `0` Inf, `0` on-catalogue) AND `scripts/validate_tif.py` (`strict_local_format_pass = true`).
+- **Generative AI Disclosure ([DOE/NLR Sec. 3.2](https://docs.nlr.gov/docs/fy26osti/96647.pdf)):** Deterministic numerical Python pipeline implemented with AI agent assistance on Arena.ai Agent Mode; zero generative raster synthesis was used to fabricate pixel predictions.
+
+![HVFD-EXP3 Holdout Progression](docs/assets/fig1_holdout_progression.png)
+
+![HVFD-EXP3 Nevada Fault Discovery Map](docs/assets/fig3_nevada_fault_discovery_map.png)
+
+---
+
 ## EXECUTIVE STATUS (2026-10-27 UTC) — `SASS2-XGHF` GENERATED & VERIFIED
 
 ### `OK TO DOWNLOAD: YES` · `FORMAT / CANARY / HOLDOUT / 429-GENUINE-UNIQUE: PASS` · `LIVE AUTO-SUBMIT: HOLD (verdict = "negative" on literal calibration lattice & separate selector gate)`

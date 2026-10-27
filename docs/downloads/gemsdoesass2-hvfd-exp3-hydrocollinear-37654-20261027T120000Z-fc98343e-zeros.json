@@ -1,0 +1,112 @@
+{
+  "gems57_validate": {
+    "file": "docs/downloads/gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif",
+    "bytes": 154994,
+    "sha256": "28bb9419d592797dcac1bfb1eb19fcffa7581a51718230f1f4f957a3e3d610d6",
+    "meta": {
+      "crs": "EPSG:32611",
+      "shape": [
+        3730,
+        3292
+      ],
+      "dtype": "float32",
+      "count": 1,
+      "nodata": null,
+      "transform": [
+        100.0,
+        0.0,
+        243350.0,
+        0.0,
+        -100.0,
+        4508550.0
+      ],
+      "profile_compress": "deflate"
+    },
+    "band_description": [
+      null
+    ],
+    "n_finite": 12279160,
+    "n_nan": 0,
+    "n_infinite": 0,
+    "min": 0.0,
+    "max": 1.0,
+    "mean": 0.0030664964579045773,
+    "emitted_positive_pixels": 37654,
+    "checks": {
+      "single_band": true,
+      "dtype_float32": true,
+      "dimensions_3730x3292": true,
+      "crs_epsg_32611": true,
+      "transform_matches_sample_submission": true,
+      "no_nan_anywhere": true,
+      "no_inf_anywhere": true,
+      "no_sentinel_values": true,
+      "range_0_1_guaranteed": true,
+      "min_ge_0": true,
+      "max_le_1": true,
+      "in_footprint_all_finite": true,
+      "in_footprint_range_0_1": true,
+      "outside_footprint_zero": true,
+      "zero_dots_on_mapped_catalogue": true
+    },
+    "all_checks_passed": true,
+    "validation_class": "local format/range preflight; not organizer acceptance or uniqueness clearance",
+    "on_catalogue_positive_pixels": 0,
+    "in_footprint_positive_pixels": 37654,
+    "footprint_fraction": 0.007286874781441169
+  },
+  "strict_gdal_validate": {
+    "candidate": "gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif",
+    "candidate_sha256": "28bb9419d592797dcac1bfb1eb19fcffa7581a51718230f1f4f957a3e3d610d6",
+    "reference": "sample_submission.tif",
+    "reference_sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+    "reference_trust": "Caller-supplied; this validator cannot establish organizer provenance.",
+    "shape": [
+      3730,
+      3292
+    ],
+    "crs": "EPSG:32611",
+    "transform": [
+      100.0,
+      0.0,
+      243350.0,
+      0.0,
+      -100.0,
+      4508550.0
+    ],
+    "dtype": [
+      "float32"
+    ],
+    "checks": {
+      "tif_extension": true,
+      "single_band": true,
+      "float32": true,
+      "crs_match": true,
+      "shape_match": true,
+      "transform_match": true,
+      "competition_crs_epsg32611": true,
+      "competition_100m_north_up": true,
+      "whole_array_finite_in_0_1": true,
+      "inside_unmasked_finite_in_0_1": true,
+      "outside_masked_or_nan": true
+    },
+    "counts": {
+      "footprint_pixels": 5167373,
+      "inside_nan": 0,
+      "inside_inf": 0,
+      "inside_masked": 0,
+      "inside_out_of_range_finite": 0,
+      "outside_pixels": 7111787,
+      "outside_unmasked_finite": 0,
+      "inside_min": 0.0,
+      "inside_max": 1.0,
+      "whole_array_nan": 0,
+      "whole_array_inf": 0,
+      "whole_array_out_of_range_finite": 0
+    },
+    "strict_local_format_pass": true,
+    "organizer_accepted": null,
+    "ok_to_submit": false,
+    "note": "Format inspection alone cannot establish novelty, scientific performance, or weekly-slot authorization."
+  }
+}

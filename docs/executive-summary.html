@@ -22,6 +22,7 @@
         >
         <nav class="nav" aria-label="Primary">
           <a href="index.html">Overview</a
+          ><a href="hvfd-exp3.html">HVFD-EXP3 (.tif)</a
           ><a href="executive-summary.html" aria-current="page"
             >Executive summary</a
           ><a href="research.html">Research</a
@@ -55,6 +56,50 @@
       <section class="section">
         <div class="wrap content-grid">
           <div class="prose">
+            <span class="status-tag">New Validated Lane · HVFD-EXP3-HydroCollinear (47.80% Cross-Overlap vs SASS2-XGHF)</span>
+            <h2 id="hvfd-exp3-candidate" style="margin-top: 16px">
+              New Independent Validated Artifact: <code>GEMSDOESASS2-HVFD-EXP3-HYDROCOLLINEAR-37654-fc98343e</code>
+            </h2>
+            <p>
+              Alongside <code>SASS2-XGHF</code> below, branch <code>arena/ea31206d-gemsdoesass2</code>
+              independently trained from scratch our 54-channel Dual-Population
+              <strong>Hydrothermal Vent-Fault Coupled + Bit-Plane Cross-Component Fracture Mechanics</strong>
+              LOQO ensemble (<code>HVFD-EXP3-HydroCollinear</code>, 500 m 8-azimuth strike-collinearity +
+              hydrothermal corridor sharpening, exact <em>R</em> = 300 m peak spacing, 37,654 dots):
+              <strong><code>HOLDOUT-DTI = 0.11842</code></strong> on buffered <code>gems57-pooled-hide-v2</code>
+              (<code>+0.02234</code> over <code>fair_h33</code>, 95% CI <code>[+0.01030, +0.03477]</code>),
+              <strong><code>HOLDOUT-DTI = 0.17630</code></strong> on 8 km zero-context blind quadrants (10.14× random),
+              <strong>68.27% ≤ 70.0%</strong> max genuine-registry 3-px overlap (only <strong>49.34%</strong> vs
+              <code>GEMSDOE32 B2</code> and <strong>47.80%</strong> vs <code>SASS2-XGHF</code>), and
+              <strong>PASS</strong> on both <code>vendor/gems57/validate.py</code> and
+              <code>scripts/validate_tif.py</code> (<code>strict_local_format_pass = true</code>).
+              <strong>Name:</strong> <code>GEMSDOESASS2-HVFD-EXP3-HYDROCOLLINEAR-37654-fc98343e</code> ·
+              <strong>Note (104/140):</strong>
+              <code>GEMSDOESASS2 hvfd-exp3-hydrocollinear LOQO B=2 37654px HOLDOUT-DTI=0.1184 blind8km=0.1763 max3pxOv=68.3%</code> ·
+              <strong>SHA-256:</strong>
+              <code>28bb9419d592797dcac1bfb1eb19fcffa7581a51718230f1f4f957a3e3d610d6</code>.
+            </p>
+            <div class="buttons" style="margin: 14px 0 28px">
+              <a
+                class="btn btn-primary"
+                href="downloads/gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif"
+                download
+                >⬇ 1-Click Download HVFD-EXP3 .tif (154,994 B)</a
+              >
+              <a
+                class="btn btn-outline"
+                href="downloads/gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.zip"
+                download
+                >Download HVFD-EXP3 .zip</a
+              >
+              <a class="btn btn-outline" href="hvfd-exp3.html"
+                >Full HVFD-EXP3 Figures &amp; Run Card →</a
+              >
+              <a class="btn btn-outline" href="hvfd-forensics.html"
+                >0.2778 PhD Forensics &amp; Hypotheses →</a
+              >
+            </div>
+
             <span class="status-tag">Download: READY · Live Weekly Slot: HOLD FOR SELECTOR</span>
             <h2 id="candidate" style="margin-top: 16px">
               Primary Generated Artifact: <code>GEMSDOESASS2-XGHF-e7996841</code>
