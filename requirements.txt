@@ -1,4 +1,3 @@
-numpy
-rasterio
-scipy
-scikit-learn
+rasterio>=1.3
+numpy>=1.26
+scipy>=1.11
