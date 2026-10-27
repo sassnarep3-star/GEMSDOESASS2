@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Independent review of three parallel GEMS candidate files."
+    />
+    <title>Parallel candidate review — GEMS Field Notes</title>
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="wrap header-inner">
+        <a class="brand" href="index.html"
+          ><span class="brand-mark">G.</span
+          ><span
+            >GEMS Field Notes<small>Decision &amp; discovery</small></span
+          ></a
+        >
+        <nav class="nav" aria-label="Primary">
+          <a href="index.html">Overview</a
+          ><a href="executive-summary.html">Executive summary</a
+          ><a href="research.html">Research</a
+          ><a href="sources.html">Sources</a>
+        </nav>
+      </div>
+    </header>
+    <main id="main">
+      <section class="page-hero">
+        <div class="wrap">
+          <div class="breadcrumb">
+            <a href="index.html">Overview</a> / Parallel review
+          </div>
+          <h1>Three candidates. One clear stop.</h1>
+          <p>
+            An independent saved-byte review of work merged while this audit was
+            in progress.
+          </p>
+        </div>
+      </section>
+      <section class="section">
+        <div class="wrap content-grid">
+          <div class="prose">
+            <span class="status-tag">Do not submit</span>
+            <h2 style="margin-top: 16px">
+              All three fail the literal registry rule.
+            </h2>
+            <p>
+              The files were produced by separate parallel branches. Their
+              earlier narrow comparisons did not include the registered
+              13GEMSDOE lattice. We independently reopened their saved bytes,
+              checked their hashes and measured each dot within 3 pixels of that
+              lattice. The full live registry was not audited.
+            </p>
+            <div class="table-shell">
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">Parallel candidate</th>
+                    <th scope="col">Dots within 3 px</th>
+                    <th scope="col">Decision</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>TTC-A1</td>
+                    <td>37,637 / 37,654 (99.95%)</td>
+                    <td><strong>FAIL</strong></td>
+                  </tr>
+                  <tr>
+                    <td>ALEDGE</td>
+                    <td>43,792 / 44,090 (99.32%)</td>
+                    <td><strong>FAIL</strong></td>
+                  </tr>
+                  <tr>
+                    <td>SCU1</td>
+                    <td>36,945 / 37,000 (99.85%)</td>
+                    <td><strong>FAIL</strong></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <strong>SASS2-XGHF</strong> (429/429 genuine &le;69.11%;
+                      33.53% vs SCU1)
+                    </td>
+                    <td>37,572 / 37,654 (99.78% vs lattice)</td>
+                    <td>
+                      <strong
+                        >HOLD (Genuine PASS · Literal Lattice Stop)</strong
+                      >
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="table-note">
+              <a href="data/audit.json">Open hash-pinned measurements ↗</a> ·
+              <a
+                href="https://github.com/sassnarep3-star/GEMSDOESASS2/blob/main/research/parallel-integration.md"
+                >Full integration review ↗</a
+              >
+            </p>
+            <h2>What changed in the earlier reports?</h2>
+            <p>
+              The TTC generator inserted fixed purported holdout and
+              confidence-interval numbers without running that holdout. Those
+              numbers are withdrawn. The other branches reported
+              private-evaluator results that this audit did not independently
+              reproduce; the SCU leaderboard projection is not defensibly
+              calibrated. Previous TTC and SCU promotion recommendations are
+              withdrawn.
+            </p>
+            <p>
+              The legacy generators and site/card rebuilders now stop rather
+              than regenerate unsupported approvals. Their code and earlier
+              reports remain available in Git history for research.
+            </p>
+            <h2>Saved-byte format checks</h2>
+            <p>
+              All three zero-outside files are single-band float32, match the
+              owner-mirror grid, and have finite values in [0,1]; their unmasked
+              outside footprint fails the conservative local policy. TTC and SCU
+              NaN twins satisfy the outside-null check but fail the
+              whole-array-finite check. This is not an organizer acceptance
+              decision, and it does not diagnose the earlier portal error.
+            </p>
+            <ul>
+              <li>
+                <a href="data/format-parallel-ttc-zeros.json"
+                  >TTC zeros inspection ↗</a
+                >
+                · <a href="data/format-parallel-ttc-nan.json">NaN twin ↗</a>
+              </li>
+              <li>
+                <a href="data/format-parallel-altedge.json"
+                  >ALEDGE inspection ↗</a
+                >
+              </li>
+              <li>
+                <a href="data/format-parallel-scu-zeros.json"
+                  >SCU zeros inspection ↗</a
+                >
+                · <a href="data/format-parallel-scu-nan.json">NaN twin ↗</a>
+              </li>
+              <li>
+                <a href="data/format-sass2-xghf-zeros.json"
+                  >SASS2-XGHF zeros + GDAL mask inspection (<code>strict_local_format_pass=true</code>) ↗</a
+                >
+                · <a href="data/format-sass2-xghf-nan.json">NaN twin ↗</a>
+              </li>
+            </ul>
+            <p>
+              <strong
+                >Do not spend a submission slot on any of these files.</strong
+              >
+              A future candidate still needs an assigned lane, fixed shared
+              tools, an authenticated sample, comparable holdout, complete
+              novelty checks and separate selector approval.
+            </p>
+          </div>
+          <aside class="sidebar" aria-label="Related information">
+            <h3>Review evidence</h3>
+            <a href="executive-summary.html#lattice">Lattice bound</a
+            ><a href="executive-summary.html#format">Format limitations</a
+            ><a href="data/run-card.json">Negative run card</a>
+          </aside>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <p>
+          <strong>GEMS Field Notes</strong> · No candidate approved for upload.
+        </p>
+        <div>
+          <a href="sources.html">Sources</a
+          ><a href="data/run-card.json">Run card</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

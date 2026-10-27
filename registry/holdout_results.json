@@ -1,71 +1,72 @@
 {
- "evaluator": "GEMSDOESASS2-HIDE-RECOVER-v1 alpha=0.2 beta=0.8 R=3px whole-component quadrant folds",
- "canary": {
-  "lidar_ex_max": 0.5207,
-  "lidar_ex_mean": 0.5246,
-  "lidar_step_max": 0.5106,
-  "lidar_lapneg_max": 0.5086,
-  "lidar_lappos_max": 0.5015,
-  "lidar_downface_max": 0.5181,
-  "lidar_upface_max": 0.5224,
-  "lidar_cross_max": 0.5208,
-  "lidar_relief": 0.5094,
-  "lidar_coh100": 0.5458,
-  "lidar_strike": 0.5349,
-  "lidar_valid": 0.5497,
-  "rad_K": 0.6613,
-  "rad_Th": 0.5711,
-  "rad_U": 0.5181,
-  "rad_TC": 0.6104,
-  "ext_ThK": 0.5482,
-  "ext_UK": 0.6415,
-  "ext_UTh": 0.563,
-  "ext_TMI_up150": 0.5106,
-  "grad_rad_K": 0.5165,
-  "grad_rad_Th": 0.5118,
-  "grad_rad_U": 0.5104,
-  "grad_ext_ThK": 0.5335,
-  "grad_ext_UK": 0.5147,
-  "grad_ext_UTh": 0.5286,
-  "grad_ext_TMI_up150": 0.5853
- },
- "folds": [
-  {
-   "fold": 0,
-   "withheld_pos": 13303,
-   "model20000": 0.06288,
-   "model37654": 0.09974,
-   "model44090": 0.11385,
-   "champion": 0.0078
+  "evaluator": "GEMSDOESASS2-HIDE-RECOVER-v1 alpha=0.2 beta=0.8 R=3px whole-component quadrant folds",
+  "canary": {
+    "lidar_ex_max": 0.5207,
+    "lidar_ex_mean": 0.5246,
+    "lidar_step_max": 0.5106,
+    "lidar_lapneg_max": 0.5086,
+    "lidar_lappos_max": 0.5015,
+    "lidar_downface_max": 0.5181,
+    "lidar_upface_max": 0.5224,
+    "lidar_cross_max": 0.5208,
+    "lidar_relief": 0.5094,
+    "lidar_coh100": 0.5458,
+    "lidar_strike": 0.5349,
+    "lidar_valid": 0.5497,
+    "rad_K": 0.6613,
+    "rad_Th": 0.5711,
+    "rad_U": 0.5181,
+    "rad_TC": 0.6104,
+    "ext_ThK": 0.5482,
+    "ext_UK": 0.6415,
+    "ext_UTh": 0.563,
+    "ext_TMI_up150": 0.5106,
+    "grad_rad_K": 0.5165,
+    "grad_rad_Th": 0.5118,
+    "grad_rad_U": 0.5104,
+    "grad_ext_ThK": 0.5335,
+    "grad_ext_UK": 0.5147,
+    "grad_ext_UTh": 0.5286,
+    "grad_ext_TMI_up150": 0.5853
   },
-  {
-   "fold": 1,
-   "withheld_pos": 13709,
-   "model20000": 0.0466,
-   "model37654": 0.07516,
-   "model44090": 0.08824,
-   "champion": 0.01042
-  },
-  {
-   "fold": 2,
-   "withheld_pos": 14287,
-   "model20000": 0.04125,
-   "model37654": 0.07532,
-   "model44090": 0.0908,
-   "champion": 0.00682
-  },
-  {
-   "fold": 3,
-   "withheld_pos": 19689,
-   "model20000": 0.06236,
-   "model37654": 0.11296,
-   "model44090": 0.13265,
-   "champion": 0.00646
-  }
- ],
- "model20000_pooled_DTI": 0.05401,
- "model37654_pooled_DTI": 0.09284,
- "model44090_pooled_DTI": 0.10886,
- "champion_pooled_DTI": 0.00773,
- "withheld_pos_total": 60988
+  "folds": [
+    {
+      "fold": 0,
+      "withheld_pos": 13303,
+      "model20000": 0.06288,
+      "model37654": 0.09974,
+      "model44090": 0.11385,
+      "champion": 0.0078
+    },
+    {
+      "fold": 1,
+      "withheld_pos": 13709,
+      "model20000": 0.0466,
+      "model37654": 0.07516,
+      "model44090": 0.08824,
+      "champion": 0.01042
+    },
+    {
+      "fold": 2,
+      "withheld_pos": 14287,
+      "model20000": 0.04125,
+      "model37654": 0.07532,
+      "model44090": 0.0908,
+      "champion": 0.00682
+    },
+    {
+      "fold": 3,
+      "withheld_pos": 19689,
+      "model20000": 0.06236,
+      "model37654": 0.11296,
+      "model44090": 0.13265,
+      "champion": 0.00646
+    }
+  ],
+  "model20000_pooled_DTI": 0.05401,
+  "model37654_pooled_DTI": 0.09284,
+  "model44090_pooled_DTI": 0.10886,
+  "champion_pooled_DTI": 0.00773,
+  "withheld_pos_total": 60988,
+  "audit_correction": "Parallel-run research report; not independently reproduced here and not a valid shared-template promotion or calibrated leaderboard prediction."
 }

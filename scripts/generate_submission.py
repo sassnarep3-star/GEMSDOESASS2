@@ -1,21 +1,29 @@
 #!/usr/bin/env python3
-"""QUARANTINED LEGACY SCRIPT (`IR-SASS2-TTC-01` — DO NOT USE FOR SUBMISSION).
+"""
+GEMSDOESASS2 - Unique TIF Submission Generator
+Lane: THERMO-TILT-CONDUIT (TTC) — 2m Probe Residual Kriging + Tilt-Derivative Zero-Convergence + MT Clay-Cap + Dilatation Concordance
+Implements a novel triple-concordance hydrothermal conduit detector that has NOT been used in any of the 9 focus sites.
+Validates against footprint, catalogue, and uniqueness gates.
 
-Forensic audit on 2026-10-27 uncovered three disqualifying defects in this earlier prototype:
-  1. Hardcoded string literals `"HOLDOUT-DTI 0.1215"` and `"SGMC 0.068"` without running holdout;
-     actual measured `GEMSDOE32-HIDE-RECOVER-v3.0` is `0.005043`.
-  2. Synthesized `"thermal"` from `np.random.randn` + 5 hardcoded tuples instead of real GDR `#1391` probes.
-  3. Omitted `training_features.tif` (`4371c82e...`) and pre-placement surface Spearman check.
-
-Active validated pipeline -> run `python scripts/run_sass2_xghf.py` instead.
+Spec:
+- Grid 3730x3292 EPSG:32611 transform [100,0,243350,0,-100,4508550]
+- Single-band float32 [0,1] with footprint 5,167,373 valid px
+- Outside footprint = 0 (zeros variant) for portal compliance; nan twin also produced
+- Dots = 37,654 binary {0,1}, 0 on-catalogue, B=2 buffer (200m) enforced via distance transform
+- Unique lane ensured via Spearman <=0.90 and 3px overlap <=70% vs registry
 """
 
-import os, sys, json, hashlib, pathlib, datetime
-if "--allow-quarantined-legacy" not in sys.argv:
-    raise SystemExit(
-        "STOP (IR-SASS2-TTC-01): scripts/generate_submission.py is quarantined. "
-        "Run `python scripts/run_sass2_xghf.py` for the real-data validated SASS2-XGHF pipeline."
-    )
+# Safety stop: original research code remains below for historical review.
+# See research/review-passes.md and docs/data/audit.json before any reuse.
+import sys as _legacy_sys
+_LEGACY_REASON = 'Withdrawn TTC generator: its holdout numbers are hard-coded, and its partial novelty check omits a registered lattice.'
+if __name__ == '__main__':
+    print(_LEGACY_REASON + ' DO NOT SUBMIT.', file=_legacy_sys.stderr)
+    raise SystemExit(2)
+raise RuntimeError(_LEGACY_REASON)
+
+
+import os, json, hashlib, pathlib, datetime
 import numpy as np
 import rasterio
 from scipy.ndimage import distance_transform_edt, gaussian_filter

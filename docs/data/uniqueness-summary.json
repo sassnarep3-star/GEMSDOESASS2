@@ -1,6 +1,6 @@
 {
-  "n_unique_sha256_rasters_scanned": 429,
-  "n_genuine_rasters_scanned": 427,
+  "n_unique_sha256_rasters_scanned": 431,
+  "n_genuine_rasters_scanned": 429,
   "n_space_filling_probes_scanned": 2,
   "n_skipped_nonconforming": 0,
   "thresholds": {
@@ -15,7 +15,9 @@
     "surface_spearman_gate_pass": true,
     "dots_spearman_gate_pass": true,
     "genuine_3px_overlap_gate_pass": true,
-    "all_uniqueness_gates_passed": true
+    "all_uniqueness_gates_passed": true,
+    "max_3px_overlap_all_including_lattices": 0.999522,
+    "literal_all_registry_3px_pass": false
   },
   "top_genuine_by_3px_overlap": [
     {
@@ -432,5 +434,16 @@
       "is_space_filling_probe": true
     }
   ],
-  "skipped": []
+  "skipped": [],
+  "vs_scu1": {
+    "name": "local_sass2:gemsdoesass2-scu1-scarpcorridor-uth-37000-20261027T120000Z-nan.tif",
+    "sha256": "00a357c15a823c06fa9751c29813206a1d4582b1c0b7be1f6d48641e24f38b7d",
+    "other_positive_pixels": 37000,
+    "other_3px_footprint_coverage": 0.143539,
+    "surface_spearman": 0.082278,
+    "dots_spearman": 0.020169,
+    "within_3px_overlap": 0.335343,
+    "excess_3px_over_uniform_null": 0.191804,
+    "is_space_filling_probe": false
+  }
 }

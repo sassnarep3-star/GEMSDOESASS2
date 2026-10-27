@@ -1,3 +1,13 @@
+
+# Safety stop: original research code remains below for historical review.
+# See research/review-passes.md and docs/data/audit.json before any reuse.
+import sys as _legacy_sys
+_LEGACY_REASON = 'Withdrawn scoped uniqueness check: nine focus rasters cannot establish full-registry uniqueness.'
+if __name__ == '__main__':
+    print(_LEGACY_REASON + ' DO NOT SUBMIT.', file=_legacy_sys.stderr)
+    raise SystemExit(2)
+raise RuntimeError(_LEGACY_REASON)
+
 import numpy as np, rasterio, json, glob
 from scipy import ndimage
 import sys; sys.path.insert(0,"src")

@@ -57,6 +57,7 @@ def validate_geotiff(
 
     with rasterio.open(tif_path) as ds:
         arr = ds.read(1)
+        mask_arr = ds.dataset_mask() > 0
         crs = str(ds.crs)
         shape = ds.shape
         count = ds.count
@@ -76,6 +77,7 @@ def validate_geotiff(
     all_max = float(np.nanmax(arr))
     out_ok_zeros = bool(np.isfinite(out_vals).all() and np.all(out_vals == 0.0))
     out_ok_nan = bool(np.isnan(out_vals).all())
+    mask_exact_foot = bool(mask_arr.shape == foot.shape and np.array_equal(mask_arr, foot))
     on_cat_pos = int((np.isfinite(cat_vals) & (cat_vals > 0.0)).sum())
     n_pos_in_foot = int((np.isfinite(in_vals) & (in_vals > 0.0)).sum())
 
@@ -91,7 +93,7 @@ def validate_geotiff(
         "08_catalogue_60988_match": int(known.sum()) == EXPECTED_CATALOGUE_POSITIVES,
         "09_no_nan_or_inf_inside_footprint": finite_in,
         "10_values_in_0_1_inside_footprint": finite_in and (in_min >= 0.0) and (in_max <= 1.0),
-        "11_outside_footprint_clean": out_ok_zeros if strict_all_finite else (out_ok_zeros or out_ok_nan),
+        "11_outside_footprint_clean": (out_ok_zeros and mask_exact_foot) if strict_all_finite else (out_ok_zeros or out_ok_nan),
         "12_zero_on_known_catalogue": on_cat_pos == 0,
         "13_nontrivial_positive_predictions": n_pos_in_foot > 0,
     }
@@ -166,8 +168,10 @@ def write_submission_pair(
         "blockxsize": 256,
         "blockysize": 256,
     }
-    with rasterio.open(zeros_path, "w", **prof_zeros) as dst:
-        dst.write(zeros_arr, 1)
+    with rasterio.Env(GDAL_TIFF_INTERNAL_MASK=True):
+        with rasterio.open(zeros_path, "w", **prof_zeros) as dst:
+            dst.write(zeros_arr, 1)
+            dst.write_mask(foot.astype(np.uint8) * 255)
 
     prof_nan = dict(prof_zeros, nodata=np.nan, predictor=1)
     with rasterio.open(nan_path, "w", **prof_nan) as dst:

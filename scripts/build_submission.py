@@ -1,6 +1,16 @@
 #!/usr/bin/env python3
 """LANE: radiometric-magnetic alteration-edge + LiDAR-scarp HGB surface (see README/docs).
 Non-fault mimic: unfaulted lithologic contacts / playa & caldera margins."""
+
+# Safety stop: original research code remains below for historical review.
+# See research/review-passes.md and docs/data/audit.json before any reuse.
+import sys as _legacy_sys
+_LEGACY_REASON = 'Withdrawn ALEDGE pipeline: its private evaluator and partial registry cannot meet the required shared-template protocol.'
+if __name__ == '__main__':
+    print(_LEGACY_REASON + ' DO NOT SUBMIT.', file=_legacy_sys.stderr)
+    raise SystemExit(2)
+raise RuntimeError(_LEGACY_REASON)
+
 import os, sys, json, time
 import numpy as np, rasterio
 from scipy import ndimage

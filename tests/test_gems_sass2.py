@@ -13,7 +13,12 @@ from __future__ import annotations
 
 import hashlib
 import json
+import sys
 from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT / "src") not in sys.path:
+    sys.path.insert(0, str(ROOT / "src"))
 
 import numpy as np
 import pytest
@@ -24,8 +29,6 @@ from gems_sass2.fracture_mechanics import compute_visible_fracture_fields
 from gems_sass2.metric import ALPHA, BETA, RADIUS_PX, dti_binary_fast, kernel
 from gems_sass2.paths import EXPECTED_CRS, EXPECTED_SHAPE, EXPECTED_TRANSFORM, data_dir
 from gems_sass2.submission import validate_geotiff
-
-ROOT = Path(__file__).resolve().parents[1]
 
 
 def test_triangular_kernel_and_metric_algebra() -> None:
@@ -159,7 +162,11 @@ def test_run_card_and_saved_geotiff_bytes() -> None:
     assert rc["holdout_dti"]["secondary_sgmc_off_catalogue"]["sgmc_prevalence_calibrated_dti"] > rc["holdout_dti"]["secondary_sgmc_off_catalogue"]["incumbent_02778_sgmc_cal"]
     assert len(rc["submission"]["note"]) <= 140
     assert rc["experiments_used"] <= 3
-    assert rc["verdict"] == "promote"
+    assert rc["scientific_and_genuine_uniqueness_gate"] is True
+    assert rc["validator"]["strict_local_format_pass"] is True
+    assert rc["ok_to_download"] is True
+    assert rc["ok_to_submit"] is False
+    assert rc["verdict"] == "negative"
 
     tif_path = ROOT / rc["files"]["primary_zeros_tif"]
     nan_path = ROOT / rc["files"]["archive_nan_tif"]
@@ -172,9 +179,14 @@ def test_run_card_and_saved_geotiff_bytes() -> None:
     assert actual_sha == rc["raster_sha256"]
 
     ddir = data_dir()
-    if (ddir / "sample_submission.tif").exists() and (ddir / "labels.tif").exists():
+    sample_p = ddir / "sample_submission.tif"
+    labels_p = ddir / "labels.tif"
+    if not (sample_p.exists() and labels_p.exists()):
+        sample_p = ROOT / "data" / "bridge" / "sample_submission.tif"
+        labels_p = ROOT / "data" / "bridge" / "labels.tif"
+    if sample_p.exists() and labels_p.exists():
         audit_z = validate_geotiff(
-            tif_path, ddir / "sample_submission.tif", ddir / "labels.tif", strict_all_finite=True
+            tif_path, sample_p, labels_p, strict_all_finite=True
         )
         assert audit_z["all_passed"] is True
         assert audit_z["checks_passed"] == 13
@@ -183,7 +195,7 @@ def test_run_card_and_saved_geotiff_bytes() -> None:
         assert audit_z["positive_on_catalogue"] == 0
 
         audit_n = validate_geotiff(
-            nan_path, ddir / "sample_submission.tif", ddir / "labels.tif", strict_all_finite=False
+            nan_path, sample_p, labels_p, strict_all_finite=False
         )
         assert audit_n["all_passed"] is True
         assert audit_n["outside_mode"] == "nan"

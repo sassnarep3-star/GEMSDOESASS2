@@ -170,11 +170,13 @@ def audit_uniqueness_full_registry(
     max_surf_rho = max((abs(r["surface_spearman"]) for r in genuine_rows + space_filling_rows), default=0.0)
     max_dots_rho = max((abs(r["dots_spearman"]) for r in genuine_rows + space_filling_rows), default=0.0)
     max_gen_ov3 = max((r["within_3px_overlap"] for r in genuine_rows), default=0.0)
+    max_all_ov3 = max((r["within_3px_overlap"] for r in genuine_rows + space_filling_rows), default=0.0)
     max_sf_excess = max((r["excess_3px_over_uniform_null"] for r in space_filling_rows), default=0.0)
 
     surf_pass = max_surf_rho <= spearman_limit
     dots_rho_pass = max_dots_rho <= spearman_limit
     gen_ov_pass = max_gen_ov3 <= overlap_limit
+    lit_ov_pass = max_all_ov3 <= overlap_limit
     all_pass = bool(surf_pass and dots_rho_pass and gen_ov_pass)
 
     return {
@@ -190,10 +192,12 @@ def audit_uniqueness_full_registry(
             "max_abs_surface_spearman_all": round(max_surf_rho, 6),
             "max_abs_dots_spearman_all": round(max_dots_rho, 6),
             "max_3px_overlap_genuine": round(max_gen_ov3, 6),
+            "max_3px_overlap_all_including_lattices": round(max_all_ov3, 6),
             "max_excess_overlap_space_filling": round(max_sf_excess, 6),
             "surface_spearman_gate_pass": surf_pass,
             "dots_spearman_gate_pass": dots_rho_pass,
             "genuine_3px_overlap_gate_pass": gen_ov_pass,
+            "literal_all_registry_3px_pass": lit_ov_pass,
             "all_uniqueness_gates_passed": all_pass,
         },
         "top_genuine_by_3px_overlap": top_ov3,
