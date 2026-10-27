@@ -1,0 +1,370 @@
+{
+  "hypothesis": "SCU: lidar scarp evidence (step/slope-excess/crest-convexity) in the 200m-3km catalogue flank corridor, corroborated by GeoDAWN U/Th, marks unmapped fault strands; strike-resonance sub-hypothesis tested NEGATIVE (EXP3) and removed",
+  "mechanism": "Basin-and-Range normal faults grow clustered sub-parallel strand arrays; young scarps preserve 2-10 m wavelength topographic steps; hydrothermal fluids moving on faults deposit U relative to Th",
+  "non_fault_mimic": "late-Pleistocene Lake Lahontan shoreline benches locally parallel to range fronts (partially suppressed by UTh + corridor gating, not eliminated)",
+  "holdout_dti": {
+    "label": "HOLDOUT-DTI",
+    "evaluator": "GEMSDOESASS2-HRv1",
+    "ours_visible_only": {
+      "evaluator": "GEMSDOESASS2-HRv1",
+      "n_folds": 4,
+      "fold_dti": [
+        0.014872146236761502,
+        0.011191289064072171,
+        0.015290870057395206,
+        0.023929311445432446
+      ],
+      "mean_dti": 0.01632090420091533,
+      "ci95": [
+        0.010756432748553415,
+        0.022712172832431106
+      ],
+      "withheld_positives": 60289
+    },
+    "ours_as_submitted": {
+      "evaluator": "GEMSDOESASS2-HRv1",
+      "n_folds": 4,
+      "fold_dti": [
+        0.00011036453307111323,
+        0.00010214547281737043,
+        0.0001243005736766591,
+        8.552558459389341e-05
+      ],
+      "mean_dti": 0.00010558404103975903,
+      "ci95": [
+        6.936589987128862e-05,
+        0.00014647614284956127
+      ],
+      "withheld_positives": 60289
+    },
+    "champion_0.2778_as_submitted": {
+      "evaluator": "GEMSDOESASS2-HRv1",
+      "n_folds": 4,
+      "fold_dti": [
+        0.0047981284859409945,
+        0.004655894313103959,
+        0.0052252338019633535,
+        0.004258127492031421
+      ],
+      "mean_dti": 0.0047343460232599326,
+      "ci95": [
+        0.004006887450069309,
+        0.005534511956712715
+      ],
+      "withheld_positives": 60289
+    }
+  },
+  "estimated_live_score": {
+    "label": "ESTIMATE \u2014 never a score. Band spans two leak-free methods on the SGMC off-catalogue instrument.",
+    "point": 0.2715,
+    "range": [
+      0.1437,
+      0.3993
+    ],
+    "method_low": "within-family regression (extrapolated): 0.1437",
+    "method_high": "champion-ratio 0.2778 x (ours 0.13506 / champ 0.09397): 0.3993",
+    "irregularities": [
+      "IR-SASS2-01: as-submitted hide-and-recover ratio (0.0062) withdrawn \u2014 instrument structurally punishes B=2-pruned rasters (withheld truth IS catalogue); mirrors GEMSDOE32 IR-45-EVAL-02.",
+      "IR-SASS2-02: EXP2 N-sweep selection not transferable (FP break-even at holdout DTI is ~14x looser than at live 0.2778); N kept at pre-registered 37,000.",
+      "IR-SASS2-03: all 12 calibration points are one raster family in a 0.2449-0.2778 band; extrapolation to a unique raster is the main uncertainty."
+    ],
+    "withdrawn_for_release": true,
+    "withdrawal_reason": "Not an organizer receipt; extrapolated proxy and failed uniqueness gate."
+  },
+  "leakage_canary": {
+    "step_max": 0.5702,
+    "ex_max": 0.5686,
+    "lapneg_max": 0.5787,
+    "coh100": 0.5159,
+    "UTh": 0.5408,
+    "TMI_up150": 0.4895,
+    "SCU_surface": 0.293,
+    "max_auc": 0.5787,
+    "pass_leq_0.90": true
+  },
+  "uniqueness": {
+    "all_pass": false,
+    "worst_overlap": {
+      "name": "GEMSDOE27:topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1",
+      "owner_reported": 0.2449,
+      "dot_overlap_3px": 0.245,
+      "spearman_final": -0.0001,
+      "spearman_surface": 0.0103,
+      "sha256_equal": false,
+      "passes": true
+    },
+    "rows": [
+      {
+        "name": "GEMSDOE24:h25-1-dotted-h19-5-d1-5-20261002-989f59505db1",
+        "owner_reported": 0.2477,
+        "dot_overlap_3px": 0.2416,
+        "spearman_final": -0.0005,
+        "spearman_surface": 0.009,
+        "sha256_equal": false,
+        "passes": true
+      },
+      {
+        "name": "GEMSDOE25:dotted-h19-5-d2-8-20261002-e56ea318af89",
+        "owner_reported": 0.26,
+        "dot_overlap_3px": 0.2291,
+        "spearman_final": 0.0019,
+        "spearman_surface": 0.0101,
+        "sha256_equal": false,
+        "passes": true
+      },
+      {
+        "name": "GEMSDOE27:topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1",
+        "owner_reported": 0.2449,
+        "dot_overlap_3px": 0.245,
+        "spearman_final": -0.0001,
+        "spearman_surface": 0.0103,
+        "sha256_equal": false,
+        "passes": true
+      },
+      {
+        "name": "GEMSDOE28:h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc",
+        "owner_reported": 0.2708,
+        "dot_overlap_3px": 0.2253,
+        "spearman_final": 0.0028,
+        "spearman_surface": 0.0216,
+        "sha256_equal": false,
+        "passes": true
+      },
+      {
+        "name": "GEMSDOE28:h36-1-rung30-blind-r1-20261003-b531dae0a36f",
+        "owner_reported": 0.271,
+        "dot_overlap_3px": 0.222,
+        "spearman_final": 0.0039,
+        "spearman_surface": 0.018,
+        "sha256_equal": false,
+        "passes": true
+      },
+      {
+        "name": "GEMSDOE28:h38-1-hf-euler-r30-r1-20261003-56a9f473edc7",
+        "owner_reported": 0.2707,
+        "dot_overlap_3px": 0.2238,
+        "spearman_final": 0.0039,
+        "spearman_surface": 0.0182,
+        "sha256_equal": false,
+        "passes": true
+      },
+      {
+        "name": "GEMSDOE28:h32-1-prethin-tip-euler-d2-8-20261003-31e35eee884e",
+        "owner_reported": 0.2649,
+        "dot_overlap_3px": 0.2281,
+        "spearman_final": 0.0023,
+        "spearman_surface": 0.0147,
+        "sha256_equal": false,
+        "passes": true
+      },
+      {
+        "name": "GEMSDOE30:d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca",
+        "owner_reported": 0.26,
+        "dot_overlap_3px": 0.2291,
+        "spearman_final": 0.0019,
+        "spearman_surface": 0.0101,
+        "sha256_equal": false,
+        "passes": true
+      },
+      {
+        "name": "GEMSDOE31:h27-4-solo-d28-20261004-8acb75e1",
+        "owner_reported": 0.2708,
+        "dot_overlap_3px": 0.2253,
+        "spearman_final": 0.0028,
+        "spearman_surface": 0.0216,
+        "sha256_equal": false,
+        "passes": true
+      },
+      {
+        "name": "GEMSDOE32:h33-h33-2-b2-20261004T220000Z-e5eb6e7e (CHAMPION 0.2778)",
+        "owner_reported": 0.2778,
+        "dot_overlap_3px": 0.2198,
+        "spearman_final": 0.0033,
+        "spearman_surface": 0.0283,
+        "sha256_equal": false,
+        "passes": true
+      },
+      {
+        "name": "GEMSDOE33:h33d-analog-tip-stepover-r30-20261004-cb490425926e",
+        "owner_reported": 0.2632,
+        "dot_overlap_3px": 0.2283,
+        "spearman_final": 0.0035,
+        "spearman_surface": 0.0166,
+        "sha256_equal": false,
+        "passes": true
+      },
+      {
+        "name": "GEMSDOE36:anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6",
+        "owner_reported": 0.275,
+        "dot_overlap_3px": 0.2295,
+        "spearman_final": 0.0037,
+        "spearman_surface": 0.0306,
+        "sha256_equal": false,
+        "passes": true
+      }
+    ],
+    "gates": {
+      "spearman_max": 0.9,
+      "overlap_max": 0.7,
+      "overlap_px": 3.0
+    },
+    "our_sha256": "0ab88d8ab85c9bbfc690557bca0e8bf6d92dcd7657825306c9eaf294dab3fe6d",
+    "prior_focus_subset_all_pass": true,
+    "scope_correction": "Prior rows cover only a narrow focus subset; registered lattice and dense witness fail."
+  },
+  "raster_sha256": "0ab88d8ab85c9bbfc690557bca0e8bf6d92dcd7657825306c9eaf294dab3fe6d",
+  "validator": {
+    "single_band": true,
+    "dtype_float32": true,
+    "shape_3730x3292": true,
+    "crs_epsg_32611": true,
+    "transform_match": true,
+    "in_footprint_all_finite": true,
+    "in_footprint_range_0_1": true,
+    "all_finite_values_in_0_1": true,
+    "every_cell_finite": true,
+    "zero_on_catalogue_positives": true,
+    "positive_pixels": 37000,
+    "sha256": "0ab88d8ab85c9bbfc690557bca0e8bf6d92dcd7657825306c9eaf294dab3fe6d",
+    "zip_single_tif": true,
+    "ALL_CHECKS_PASSED": true
+  },
+  "submission_name": "GEMSDOESASS2-SCU1-0AB88D8A",
+  "submission_note_140": "SASS2 SCU scarp-corridor-UTh 37000d B2 sep2 | SGMC 0.135 vs champ 0.094 | HR 0.0163 | est 0.14-0.40 | 0ab88d8a",
+  "n_dots": 37000,
+  "params": {
+    "n_dots_target": 37000,
+    "sep_px": 2,
+    "prune_px": 2.0
+  },
+  "verdict": "negative",
+  "generated_utc": "2026-10-27T11:48:13.428483+00:00",
+  "files": {
+    "zeros": {
+      "tif": "/home/user/GEMSDOESASS2/docs/downloads/gemsdoesass2-scu1-scarpcorridor-uth-37000-20261027T120000Z-zeros.tif",
+      "zip": "/home/user/GEMSDOESASS2/docs/downloads/gemsdoesass2-scu1-scarpcorridor-uth-37000-20261027T120000Z-zeros.zip",
+      "sha256": "0ab88d8ab85c9bbfc690557bca0e8bf6d92dcd7657825306c9eaf294dab3fe6d",
+      "size_bytes": 294215
+    },
+    "nan": {
+      "tif": "/home/user/GEMSDOESASS2/docs/downloads/gemsdoesass2-scu1-scarpcorridor-uth-37000-20261027T120000Z-nan.tif",
+      "zip": "/home/user/GEMSDOESASS2/docs/downloads/gemsdoesass2-scu1-scarpcorridor-uth-37000-20261027T120000Z-nan.zip",
+      "sha256": "00a357c15a823c06fa9751c29813206a1d4582b1c0b7be1f6d48641e24f38b7d",
+      "size_bytes": 334740
+    }
+  },
+  "sgmc_diagnostic": {
+    "label": "ESTIMATE (SGMC-off-catalogue calibration). NOT a leaderboard score.",
+    "instrument": "SGMC-DTI: truth=SGMC faults >3px off catalogue; catalogue masked pixel-exact; pooled DTI a=0.2 b=0.8 300m kernel",
+    "candidate_sgmc_dti": 0.13506,
+    "regression": {
+      "intercept": 0.5451,
+      "slope": -2.9717,
+      "resid_std": 0.0077,
+      "n_points": 12,
+      "pearson": -0.695
+    },
+    "estimate_regression": 0.1437,
+    "estimate_band": [
+      0.1282,
+      0.1592
+    ],
+    "estimate_champion_ratio": 0.3993,
+    "caveats": [
+      "All 9 calibration points are OWNER-REPORTED scores of one raster family (live range 0.2449-0.2778); extrapolation outside that band is unreliable.",
+      "SGMC faults are a proxy for the hidden truth, not the hidden truth."
+    ],
+    "points": [
+      {
+        "name": "GEMSDOE24:h25-1-dotted-h19-5-d1-5-20261002-989f59505db1",
+        "live": 0.2477,
+        "sgmc_dti": 0.09839
+      },
+      {
+        "name": "GEMSDOE25:dotted-h19-5-d2-8-20261002-e56ea318af89",
+        "live": 0.26,
+        "sgmc_dti": 0.09274
+      },
+      {
+        "name": "GEMSDOE27:topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1",
+        "live": 0.2449,
+        "sgmc_dti": 0.09962
+      },
+      {
+        "name": "GEMSDOE28:h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc",
+        "live": 0.2708,
+        "sgmc_dti": 0.09385
+      },
+      {
+        "name": "GEMSDOE28:h36-1-rung30-blind-r1-20261003-b531dae0a36f",
+        "live": 0.271,
+        "sgmc_dti": 0.09187
+      },
+      {
+        "name": "GEMSDOE28:h38-1-hf-euler-r30-r1-20261003-56a9f473edc7",
+        "live": 0.2707,
+        "sgmc_dti": 0.09212
+      },
+      {
+        "name": "GEMSDOE28:h32-1-prethin-tip-euler-d2-8-20261003-31e35eee884e",
+        "live": 0.2649,
+        "sgmc_dti": 0.09332
+      },
+      {
+        "name": "GEMSDOE30:d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca",
+        "live": 0.26,
+        "sgmc_dti": 0.09274
+      },
+      {
+        "name": "GEMSDOE31:h27-4-solo-d28-20261004-8acb75e1",
+        "live": 0.2708,
+        "sgmc_dti": 0.09385
+      },
+      {
+        "name": "GEMSDOE32:h33-h33-2-b2-20261004T220000Z-e5eb6e7e (CHAMPION 0.2778)",
+        "live": 0.2778,
+        "sgmc_dti": 0.09397
+      },
+      {
+        "name": "GEMSDOE33:h33d-analog-tip-stepover-r30-20261004-cb490425926e",
+        "live": 0.2632,
+        "sgmc_dti": 0.09425
+      },
+      {
+        "name": "GEMSDOE36:anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6",
+        "live": 0.275,
+        "sgmc_dti": 0.09536
+      }
+    ]
+  },
+  "sibling_lanes_this_repo": {
+    "note": "Parallel-run protocol lane-drift check vs sibling deliverables merged from main (2026-10-27). Gates: overlap<=70%, |rho|<=0.90.",
+    "rows": [
+      {
+        "name": "TTC-A1 gemsdoesass2-thermo-tilt-conduit-37654-d8f85365 (verdict promote, HR 0.1215 per its run card)",
+        "dot_overlap_3px": 0.4138,
+        "spearman_final": 0.0334,
+        "passes": true
+      },
+      {
+        "name": "ALEDGE gemsass2-ass2-altedge-hgb-44090-cc854482 (verdict negative per its validator JSON)",
+        "dot_overlap_3px": 0.4175,
+        "spearman_final": -0.0014,
+        "passes": true
+      }
+    ],
+    "all_pass": true
+  },
+  "prior_session_verdict": "candidate-unique-validated",
+  "ok_to_submit": false,
+  "selector_approval": false,
+  "independent_registry_recheck": {
+    "evidence": "evidence/concurrent-main-audit.json",
+    "candidate_sha256": "0ab88d8ab85c9bbfc690557bca0e8bf6d92dcd7657825306c9eaf294dab3fe6d",
+    "overlap_registered_lattice_3px": 0.9985135135135135,
+    "literal_overlap_dense_surface_3px": 1.0,
+    "full_registry_scan": false,
+    "decision": "STOP: overlap exceeds 70%",
+    "note": "Recheck is a registry measurement, not a new experiment or organizer receipt."
+  }
+}

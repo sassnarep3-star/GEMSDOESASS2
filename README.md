@@ -204,5 +204,22 @@ The GitHub Pages site is static. Its browser-side source watch checks public
 GitHub heads, not scores or file validity; a changed head makes the frozen audit
 potentially stale. A scheduled Pages workflow is supplied for refreshing the
 public leaderboard observation when Pages is configured for Actions; failed
-refreshes retain an explicitly dated snapshot. Account quota and private
-submission receipts cannot be accessed without the appropriate account session.
+refreshes retain an explicitly dated snapshot. The Actions staging script uses
+an explicit allowlist and never publishes unapproved TIFFs. Account quota and
+private submission receipts cannot be accessed without the appropriate account
+session.
+
+## Concurrent-session compatibility and preservation
+
+The main-branch sessions and their original artifacts remain in Git history at
+commit `4a88f375` and their methods/data are retained in this checkout. The
+current copies of their run cards now add the independent negative lattice
+recheck; the earlier verdicts and unmodified original cards remain available at
+that pinned commit. Older release-generating entry points are intentionally
+blocked because their focus-only uniqueness checks and private holdout do not
+satisfy the requested shared protocol. `scripts/check_submission.py` and
+`scripts/validate_submission.py` now delegate their CLI to the stricter saved-
+byte preflight; `scripts/check_uniqueness.py` delegates to the shared-template
+registry diagnostic. No legacy script can grant organizer acceptance or a
+weekly slot. The existing `data/bridge/` sample/labels match the owner-mirror
+hashes; that does not authenticate them as organizer bytes.

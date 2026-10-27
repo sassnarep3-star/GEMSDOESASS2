@@ -1,9 +1,10 @@
 # Proposed hypotheses, ranked before implementation
 
 **Status:** conceptual, unrun; none is an assigned parallel-run lane. Ranking is
-qualitative scientific judgment, **not a score prediction**. This repository
-started empty, so none is implemented here. Similar ideas exist in the wider
-parallel portfolio; the complete, current method registry is unavailable and
+qualitative scientific judgment, **not a score prediction**. This audit did
+not implement these proposals. Concurrent sessions have since added scarp,
+radiometric and thermal-conduit research to main; compare those methods before
+choosing a lane. The complete, current method registry is unavailable and
 novelty against every other session cannot be asserted.
 
 | Rank / expected DTI opportunity | Layers and signature | Why it might find catalogue-missing faults | Difference / competing explanation | Cost and data readiness |

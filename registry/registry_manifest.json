@@ -1,0 +1,104 @@
+{
+  "description": "Nine focus sites (GEMSDOE24/25/27/28/30/31/32/33/36): best previously-submitted raster per site, used as the uniqueness registry. Scores are OWNER-REPORTED (copied from the standing prompt / site READMEs), never ORGANIZER-CONFIRMED receipts.",
+  "source_note": "Files cached locally from the public GitHub repos github.com/buffedlizard55-lab/<site> (fetch with scripts/fetch_registry.sh).",
+  "rasters": [
+    {
+      "site": "GEMSDOE24",
+      "name": "h25-1-dotted-h19-5-d1-5-20261002-989f59505db1",
+      "owner_reported_score": 0.2477,
+      "path": "GEMSDOE24/docs/downloads/gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-allfinite.tif",
+      "family": "dotted-H19-5 lattice (D1.5)",
+      "url": "https://github.com/buffedlizard55-lab/GEMSDOE24"
+    },
+    {
+      "site": "GEMSDOE25",
+      "name": "dotted-h19-5-d2-8-20261002-e56ea318af89",
+      "owner_reported_score": 0.26,
+      "path": "GEMSDOE32/docs/downloads/gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-zeros.tif",
+      "family": "dotted-H19-5 lattice (D2.8); dot-identical to GEMSDOE30 best",
+      "url": "https://github.com/buffedlizard55-lab/GEMSDOE25"
+    },
+    {
+      "site": "GEMSDOE27",
+      "name": "topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1",
+      "owner_reported_score": 0.2449,
+      "path": "GEMSDOE27/docs/downloads/gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-allfinite.tif",
+      "family": "topo-gap closure on D1.5 lattice",
+      "url": "https://github.com/buffedlizard55-lab/GEMSDOE27"
+    },
+    {
+      "site": "GEMSDOE28",
+      "name": "h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc",
+      "owner_reported_score": 0.2708,
+      "path": "GEMSDOE28/docs/downloads/gems28-h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc-allfinite.tif",
+      "family": "H27-4 R1 prune of D2.8; dot-identical to GEMSDOE31 best",
+      "url": "https://github.com/buffedlizard55-lab/GEMSDOE28"
+    },
+    {
+      "site": "GEMSDOE28",
+      "name": "h36-1-rung30-blind-r1-20261003-b531dae0a36f",
+      "owner_reported_score": 0.271,
+      "path": "GEMSDOE28/docs/downloads/gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-allfinite.tif",
+      "family": "rung-30 blind R1 (same lattice family)",
+      "url": "https://github.com/buffedlizard55-lab/GEMSDOE28"
+    },
+    {
+      "site": "GEMSDOE28",
+      "name": "h38-1-hf-euler-r30-r1-20261003-56a9f473edc7",
+      "owner_reported_score": 0.2707,
+      "path": "GEMSDOE28/docs/downloads/gems28-h38-1-hf-euler-r30-r1-20261003-56a9f473edc7-allfinite.tif",
+      "family": "HF-Euler r30 R1 (same lattice family)",
+      "url": "https://github.com/buffedlizard55-lab/GEMSDOE28"
+    },
+    {
+      "site": "GEMSDOE28",
+      "name": "h32-1-prethin-tip-euler-d2-8-20261003-31e35eee884e",
+      "owner_reported_score": 0.2649,
+      "path": "GEMSDOE28/docs/downloads/gems28-h32-1-prethin-tip-euler-d2-8-20261003-31e35eee884e-allfinite.tif",
+      "family": "tip-Euler prethin on D2.8",
+      "url": "https://github.com/buffedlizard55-lab/GEMSDOE28"
+    },
+    {
+      "site": "GEMSDOE30",
+      "name": "d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca",
+      "owner_reported_score": 0.26,
+      "path": "GEMSDOE30/docs/downloads/gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca.tif",
+      "family": "Poisson-300m off-catalogue resample of D2.8",
+      "url": "https://github.com/buffedlizard55-lab/GEMSDOE30"
+    },
+    {
+      "site": "GEMSDOE31",
+      "name": "h27-4-solo-d28-20261004-8acb75e1",
+      "owner_reported_score": 0.2708,
+      "path": "GEMSDOE31/docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-allfinite.tif",
+      "family": "duplicate of GEMSDOE28 h27-4-r1-solo-d2-8",
+      "url": "https://github.com/buffedlizard55-lab/GEMSDOE31"
+    },
+    {
+      "site": "GEMSDOE32",
+      "name": "h33-h33-2-b2-20261004T220000Z-e5eb6e7e (CHAMPION 0.2778)",
+      "owner_reported_score": 0.2778,
+      "path": "GEMSDOE32/docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
+      "family": "0.2708 base with every dot at d(catalogue) <= 2 px deleted (37,654 dots)",
+      "url": "https://github.com/buffedlizard55-lab/GEMSDOE32"
+    },
+    {
+      "site": "GEMSDOE33",
+      "name": "h33d-analog-tip-stepover-r30-20261004-cb490425926e",
+      "owner_reported_score": 0.2632,
+      "path": "GEMSDOE33/docs/downloads/GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e.tif",
+      "family": "analog tip/step-over r30",
+      "url": "https://github.com/buffedlizard55-lab/GEMSDOE33"
+    },
+    {
+      "site": "GEMSDOE36",
+      "name": "anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6",
+      "owner_reported_score": 0.275,
+      "path": "GEMSDOE36/docs/downloads/gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif",
+      "family": "champion + 1,200 extra dots (PINN label)",
+      "url": "https://github.com/buffedlizard55-lab/GEMSDOE36"
+    }
+  ],
+  "scope_correction": "Historical focus-site subset only; not a complete current or organizer registry. See evidence/concurrent-main-audit.json.",
+  "complete_current_registry": false
+}
