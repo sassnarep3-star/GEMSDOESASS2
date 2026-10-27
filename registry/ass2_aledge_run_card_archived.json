@@ -1,0 +1,71 @@
+{
+ "hypothesis": "Faults missing from USGS/INGENIOUS juxtapose lithologies and channel hydrothermal fluids, producing coincident radiometric-ratio (ThK/UK/UTh, K/Th/U) gradient edges + TMI_up150 gradient edges that a LiDAR-scarp-aware HGB can rank above unfaulted contacts.",
+ "mechanism": "27-band surface (12 LiDAR scarp u8 + 4 radiometric + 4 GeoDAWN extensions + 7 derived gradient-edge bands) from GEMSDOE24 public cache (USGS GeoDAWN DOI 10.5066/P93LGLVQ / USGS 3DEP); HistGradientBoosting trained on visible catalogue faults only per fold; binary dots emitted descending-score, >=2.83px separation, >2px from catalogue, inside footprint, budget 44090 chosen from pre-declared {20000,37654,44090} by pooled HOLDOUT-DTI.",
+ "named_non_fault_mimic": "Unfaulted lithologic contacts, playa/caldera margins and lava-flow margins (radiometric+magnetic edges with no throughgoing fault).",
+ "holdout": {
+  "label": "HOLDOUT-DTI",
+  "evaluator": "GEMSDOESASS2-HIDE-RECOVER-v1 alpha=0.2 beta=0.8 R=3px whole-component quadrant folds",
+  "withheld_positives": 60988,
+  "candidate_44090": 0.10886,
+  "candidate_37654": 0.09284,
+  "candidate_20000": 0.05401,
+  "folds_44090": [
+   0.11385,
+   0.08824,
+   0.0908,
+   0.13265
+  ],
+  "direct_champion32_raster_on_same_holdout": 0.00773,
+  "note": "Direct champion raster is off-catalogue by design, so its catalogue-recovery DTI is not a leaderboard comparator; see SGMC instrument."
+ },
+ "sgmc_offcatalogue_instrument": {
+  "candidate": 0.13007,
+  "champion32": 0.10758,
+  "best_of_9_champions_GEMSDOE27": 0.12247,
+  "paired_block_bootstrap_vs_champion32": {
+   "delta_mean": 0.02278,
+   "ci95": [
+    -0.00843,
+    0.05466
+   ],
+   "p_gt0": 0.922
+  },
+  "paired_vs_best_champion": {
+   "delta_mean": 0.00803,
+   "ci95": [
+    -0.02649,
+    0.04059
+   ]
+  }
+ },
+ "leakage_canary": {
+  "max_single_feature_symmetric_AUC": 0.6613,
+  "threshold": 0.9,
+  "pass": true
+ },
+ "correlation_overlap_vs_registry": {
+  "max_abs_surface_spearman": 0.1031,
+  "max_our_dots_within_3px_of_any_focus_champion": 0.3913,
+  "thresholds": {
+   "spearman": 0.9,
+   "overlap": 0.7
+  },
+  "pass_vs_9_focus_champions": true,
+  "caveat": "Not checked against the full ~357-raster registry or the r13 spacing-5 calibration lattice, which covers >99% of the footprint within 3px and would fail any >=22164-dot raster (GEMSDOE36 proof)."
+ },
+ "raster_sha256": "cc854482215ec665a17175447474066e3418692c9604f150cc4f5459dc459707",
+ "validator": {
+  "PASS": true,
+  "no_nan_inside_footprint": "no NaN anywhere (zeros outside)",
+  "values_in_0_1": true,
+  "crs_shape_transform_match_sample": true,
+  "dots": 44090
+ },
+ "submission_name": "gemsass2-ass2-altedge-hgb-44090-20261027-cc854482215e-zeros",
+ "submission_note_le140": "ASS2 altedge radiometric-mag HGB 44090d | HOLDOUT-DTI 0.1089 SGMC 0.1301 | cc854482215e (87 chars)",
+ "estimated_leaderboard_score": "NOT ESTIMABLE as an ORGANIZER-CONFIRMED score. MODEL PROJECTION only: SGMC/holdout proxies rank above the 9 champions on those instruments, but paired 95% CIs cross zero and GEMSDOE31 measured cross-family projection RMSE 0.09-0.196. No numeric leaderboard projection is written as a score.",
+ "verdict": "negative",
+ "ok_to_download": true,
+ "ok_to_submit": false,
+ "reason_not_submit": "Promotion gate failed: paired SGMC bootstrap CI vs champion includes zero; catalogue holdout cannot certify blind-fault performance. Do not spend a weekly slot. Separate selector step + a blind instrument with CI>0 required."
+}

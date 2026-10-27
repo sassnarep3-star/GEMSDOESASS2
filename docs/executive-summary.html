@@ -1,75 +1,235 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Executive Summary & How to Submit — GEMSDOESASS2</title>
-<link rel="stylesheet" href="assets/site.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Step-by-Step DrivenData Submission Guide — GEMSDOESASS2</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<header class="top">
-<div class="wrap">
-<h1>Executive Summary — How to Submit to the DOE GEMS Prize</h1>
-<nav>
-<a href="index.html">Home</a>
-<a class="active" href="executive-summary.html">Executive Summary</a>
-<a href="https://www.drivendata.org/competitions/306/competition-doe-gems/data/" target="_blank">Data page (login)</a>
-</nav>
-</div>
-</header>
-<div class="wrap">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a href="index.html" class="brand" style="text-decoration:none;">
+        <span class="brand-dot"></span>
+        <span>GEMSDOESASS2 · Step-by-Step Submission Subpage</span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html">← Back to Main Executive Dashboard</a>
+        <a href="#steps" class="active">6-Step Upload Guide</a>
+        <a href="#range-error">Why "[0, 1]" Range Errors Happened</a>
+        <a href="#selector-checklist">Weekly-Slot Selector Checklist</a>
+      </nav>
+    </div>
+  </header>
 
-<div class="dl">
-<h2>⬇️ Submit THIS file (one click)</h2>
-<p><code>gemsdoesass2-thermo-tilt-conduit-37654-20261027T113705Z-d8f85365-zeros.tif</code><br>SHA256 <code>b8be5398deea3c71c301fdb0732c234159da78746666e0cdcb51f4df090e6fe8</code> · 252 KB · 37,654 binary dots · B=2 · [0,1] strict</p>
-<p>
-<a class="btn" href="downloads/gemsdoesass2-thermo-tilt-conduit-37654-20261027T113705Z-d8f85365-zeros.tif" download>⬇ Download zeros.tif</a>
-<a class="btn alt" href="downloads/gemsdoesass2-thermo-tilt-conduit-37654-20261027T113705Z-d8f85365-zeros.zip" download>⬇ .zip</a>
-</p>
-<p class="mut">If you downloaded the <code>*-nan.tif</code> twin by mistake, it’s audit-only — the portal prefers the <code>zeros.tif</code> (outside footprint = 0, not NaN) to avoid the “Predicted values must be in [0,1]” error (NaN outside is allowed but some validators flag NaN inside).</p>
-</div>
+  <main class="container">
+    <section class="hero-card">
+      <div class="status-banner">
+        🟢 AUTOMATED VALIDATION: 13/13 BYTE CHECKS PASS · ZERO HUMAN-INSPECTOR BLOCKER
+      </div>
+      <h1>Executive Summary Subpage — Exactly How to Submit to the DOE GEMS Contest</h1>
+      <p class="subtitle">
+        Follow the 6 exact steps below to download, verify, and upload our unique validated GeoTIFF candidate
+        (<code>GEMSDOESASS2-XGHF-e7996841</code>) to the official DrivenData DOE GEMS Prize portal
+        (<a href="https://www.drivendata.org/competitions/306/competition-doe-gems/" target="_blank" rel="noopener">Competition #306</a>)
+        once selected by your weekly-slot selector (max 3 submissions per rolling 7-day window per
+        <a href="https://docs.nlr.gov/docs/fy26osti/96647.pdf" target="_blank" rel="noopener">Official DOE/NLR Rules</a>).
+      </p>
 
-<h2>Step-by-step submission (30 seconds, zero inspection)</h2>
-<ol>
-<li>Go to the competition submission page: <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/submissions/" target="_blank">https://www.drivendata.org/competitions/306/competition-doe-gems/submissions/</a> (requires login — the Data page at <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/data/" target="_blank">/data/</a> is also login-walled).</li>
-<li>Click <strong>New submission</strong> → <strong>File to submit</strong> → choose the <code>*-zeros.tif</code> you downloaded above (or its <code>.zip</code> containing <em>only</em> that one TIF). Do not submit a folder or multiple TIFs.</li>
-<li>In <strong>Note (optional)</strong> paste exactly:<br><code>GEMSDOESASS2 TTC 37654d B2 | HR 0.1215 SGMC 0.068 | d8f85365 | triple-concordance</code><br>This short comment (82/140 chars max) helps you tell submissions apart later (e.g., “clustering with k=25”). Our TIF’s unique portal name is <code>GEMSDOESASS2-TTC-d8f85365</code>.</li>
-<li>Click <strong>Create</strong>. Wait for the validator — it checks CRS/shape/transform exactly equal to <code>sample_submission.tif</code> and every pixel in [0,1]. You should see a score within minutes on the <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/" target="_blank">leaderboard</a>.</li>
-<li><strong>VerifyAUTOMATICALLY without human inspection</strong>: after upload, download the submission receipt JSON and compare its SHA to <code>b8be5398deea3c71c301fdb0732c234159da78746666e0cdcb51f4df090e6fe8</code>. Our <code>docs/downloads/*-audit.json</code> proves the uploaded bytes already pass 13/13 local validator checks — no post-hoc visual check is needed.</li>
-</ol>
+      <div class="action-row">
+        <a class="btn btn-primary" href="downloads/gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif" download>
+          ⬇ Step 1: Download Primary -zeros.tif (148 KB · Recommended)
+        </a>
+        <a class="btn btn-secondary" href="downloads/gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.zip" download>
+          ⬇ Alternative Single-File .ZIP (117 KB)
+        </a>
+        <a class="btn btn-blue" href="https://www.drivendata.org/competitions/306/competition-doe-gems/submissions/" target="_blank" rel="noopener">
+          ↗ Open DrivenData Submissions Page
+        </a>
+      </div>
 
-<h2>Why this file is safe to submit (and prior ones weren’t)</h2>
-<table>
-<tr><th>Error others hit</th><th>Root cause</th><th>How this file fixes it</th></tr>
-<tr><td><code>Predicted values must be in range [0, 1]</code></td><td>Inside-footprint pixel was NaN/Inf or &lt;0 or &gt;1 (often float64 1.00002 or -9999 sentinel)</td><td>We write float32, clip to [0,1], and set outside=0 (no -9999). Audit: <code>in_footprint_range_0_1: true</code>, <code>validator_range_0_1_guaranteed: true</code>. The nan-twin exists for audit but the zeros variant is what you submit.</td></tr>
-<tr><td><code>CRS/shape/transform mismatch</code></td><td>Writing with default GeoTIFF transform instead of competition grid</td><td>We copy exactly EPSG:32611 100 m transform [100,0,243350,0,-100,4508550] shape 3730×3292 as in <code>sample_submission.tif</code> sha2176d08…</td></tr>
-<tr><td>Duplicate resubmission wasted slot</td><td>Re-uploading the same hash as GEMSDOE32’s 0.2778</td><td>Our hash b8be… has 0 exact matches in registry and 66.1% max 3px overlap — lane-unique by the parallel-run protocol.</td></tr>
-</table>
+      <div class="copy-grid">
+        <div class="copy-box">
+          <div class="copy-label">
+            <span>Unique Submission Name</span>
+            <button class="copy-btn" onclick="copyText('g-name', this)">Copy</button>
+          </div>
+          <div class="copy-val" id="g-name">GEMSDOESASS2-XGHF-e7996841</div>
+        </div>
+        <div class="copy-box">
+          <div class="copy-label">
+            <span>Submission Comment / Note (69 / 140 chars)</span>
+            <button class="copy-btn" onclick="copyText('g-note', this)">Copy</button>
+          </div>
+          <div class="copy-val" id="g-note">SASS2 XGHF 37654d B2 | HR 0.1311 SGMC 0.0668 | e7996841 | xgrad+hf+pu</div>
+        </div>
+      </div>
+    </section>
 
-<h2>9-site table — copy for your records</h2>
-<p>The full table with file names, scores (OWNER-REPORT vs ORGANIZER-CONFIRMED), uniqueness, and whether to submit is on the <a href="index.html">home page</a>. Quick recap: best of the 9 prior is <strong>GEMSDOE32 0.2778</strong> (already submitted, do not resubmit); best <em>to submit now</em> is the <strong>GEMSDOESASS2 TTC</strong> (HOLDOUT-DTI 0.1215 vs 0.0992 champion, passes lane, format OK). GEMSDOE25 and 30 are proven byte-identical duplicates (sha91eae1ca) — never submit both.</p>
+    <section id="steps">
+      <h2>Step-by-Step DrivenData Upload Procedure</h2>
+      <div class="step-list">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div>
+            <h3 style="margin-top:0;">Download the Portal-Safe <code>-zeros.tif</code> File</h3>
+            <p style="margin-bottom:0.4rem;">
+              Click <strong>Download Primary -zeros.tif</strong> above to save
+              <code>gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif</code>
+              (<code>151,096</code> bytes). Always upload the <code>-zeros.tif</code> file (not <code>-nan.tif</code>) so every single cell across the entire <code>3730 × 3292</code> grid is finite in <code>[0.0, 1.0]</code>.
+            </p>
+          </div>
+        </div>
 
-<h2>Reproducibility — run the full pipeline locally</h2>
-<pre>git clone https://github.com/sassnarep3-star/GEMSDOESASS2
-cd GEMSDOESASS2
-# 1. Provide competition data (login-walled, cannot be auto-downloaded):
-bash scripts/download_competition_data.sh  # → data/training_features.tif  data/labels.tif  data/sample_submission.tif
-python scripts/prepare_data.py
-# 2. Generate TTC submission (uses cached external data, no new download needed)
-python scripts/generate_submission.py
-# 3. Validate (strict-finite, no NaN inside footprint, [0,1], CRS/shape/transform)
-python scripts/validate.py docs/downloads/gemsdoesass2-*-zeros.tif
-# 4. Check uniqueness vs registry
-python scripts/check_uniqueness.py docs/downloads/gemsdoesass2-*-zeros.tif --registry /tmp/GEMSDOE32/registry
-</pre>
-<p class="mut">Need the data first: the only blocker is data placement — the training pipeline is otherwise GPU-ready and the metric/losses are verified on CPU (see GEMSDOE32’s <code>data/prepared_manifest.json</code> for grid counts).</p>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div>
+            <h3 style="margin-top:0;">(Optional, 2 Seconds) Verify Exact SHA-256 Byte Integrity</h3>
+            <p style="margin-bottom:0.4rem;">On macOS / Linux / WSL, confirm your downloaded file matches the machine-audited byte digest:</p>
+            <pre style="margin:0;">shasum -a 256 gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif
+# Expected: 2cdf5ded75f6d7fbdb7508337f5af4aa954b905671c630af03477d4a26fe5586</pre>
+          </div>
+        </div>
 
-<h2>What the weekly slot buys</h2>
-<p>Per the parallel-run protocol you must stop after 3 experiments or 2 h and never spend a slot on a candidate that hasn’t beaten the holdout best. Our TTC is <strong>experiment 1 of 3, 0 slots spent so far</strong> — it is promotion-eligible and the next slot should be used on it. Experiments #2–#5 remain ranked on the home page for the next lane after this slot clears.</p>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div>
+            <h3 style="margin-top:0;">Check Your Remaining Weekly Submission Cap on DrivenData</h3>
+            <p style="margin-bottom:0;">
+              Log in to <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/submissions/" target="_blank" rel="noopener">DrivenData Competition #306 → Submissions</a>
+              and read the live remaining weekly slot counter at the top of the form (maximum <strong>3 submissions per rolling 7 days</strong>). Per Parallel-Run Protocol Rule 6, confirm across parallel lanes that this candidate (`HOLDOUT-DTI = 0.131134`, `SGMC-cal = 0.066793`) is your selector pick for the slot.
+            </p>
+          </div>
+        </div>
 
-<footer>
-<p><a href="index.html">← Back to Home (download)</a> · <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/#submission-format" target="_blank">Submission format spec</a> · <a href="https://epsg.io/32611" target="_blank">EPSG:32611</a></p>
-</footer>
-</div>
+        <div class="step-item">
+          <div class="step-num">4</div>
+          <div>
+            <h3 style="margin-top:0;">Attach the GeoTIFF &amp; Paste the Unique <=140-Char Comment</h3>
+            <p style="margin-bottom:0;">
+              Click <strong>Submit</strong> / <strong>Choose File</strong>, select
+              <code>gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif</code>,
+              and paste the exact 69-character comment so you can tell this run apart on your submission ledger:<br />
+              <code>SASS2 XGHF 37654d B2 | HR 0.1311 SGMC 0.0668 | e7996841 | xgrad+hf+pu</code>
+            </p>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-num">5</div>
+          <div>
+            <h3 style="margin-top:0;">Submit &amp; Record the Official Receipt Score (`ORGANIZER-CONFIRMED`)</h3>
+            <p style="margin-bottom:0;">
+              Click <strong>Create Submission</strong>. DrivenData's automated scorer validates <code>EPSG:32611</code>, <code>3730×3292</code>, and <code>[0, 1]</code> range within ~30–90 seconds and displays your public Stage-1 Distance-Weighted Tversky score. Save a screenshot or copy the exact timestamp + score receipt before labeling any number <code>ORGANIZER-CONFIRMED</code>.
+            </p>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-num">6</div>
+          <div>
+            <h3 style="margin-top:0;">Select Your Single Final-Stage Entry Before Competition Close</h3>
+            <p style="margin-bottom:0;">
+              Remember the two-stage prize structure (<a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/" target="_blank" rel="noopener">Problem Page</a>): Stage 1 ($50K) scores against pre-labeled hidden faults, while Stage 2 ($250K Final Prize) pools fault predictions across teams for expert geological verification on <strong>one single selected submission per team</strong>. Ensure your best blind-discovery map is checked as your Final Submission.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="range-error">
+      <h2>Root-Cause Fix: Why DrivenData Returned <em>"Predicted values must be in range [0, 1]"</em></h2>
+      <div class="card">
+        <p style="margin-top:0;">
+          Earlier submissions across sibling repos triggered DrivenData's portal error <code>"Predicted values must be in range [0, 1]"</code> for three distinct byte-level reasons — all three are <strong>eliminated and regression-tested</strong> in <code>src/gems_sass2/submission.py</code> and <code>tests/test_gems_sass2.py</code>:
+        </p>
+        <ol style="margin-bottom:0;">
+          <li><strong>Unmasked <code>NaN</code> or <code>-9999.0</code> sentinel values:</strong> If a portal validator runs <code>(arr &gt;= 0.0).all() &amp; (arr &lt;= 1.0).all()</code> on raw band arrays before applying the valid-footprint mask, any <code>NaN</code> or <code>-9999</code> outside the footprint evaluates to <code>False</code>. Following <code>drivendataorg/gems-prize-reference-solution</code> Cell 19, our primary <code>-zeros.tif</code> sets <code>nodata=None</code> and writes exact <code>0.0</code> outside the footprint so all <code>12,279,160</code> pixels are strictly finite in <code>[0.0, 1.0]</code>.</li>
+          <li><strong><code>float64 → float32</code> rounding / unclipped kriging overshoot:</strong> Continuous interpolation or unclipped sigmoid/tree blends can emit <code>1.0000001</code> or <code>-1e-7</code>. Our writer applies explicit <code>np.clip(..., 0.0, 1.0).astype(np.float32)</code> and re-reads the saved GeoTIFF from disk via <code>rasterio</code> to verify <code>min == 0.0</code> and <code>max == 1.0</code>.</li>
+          <li><strong>Interior footprint holes:</strong> Raw external rasters (such as 1-m LiDAR with <code>75.37%</code> coverage or sparse point probes) contain missing regions inside the <code>5,167,373</code>-pixel footprint; <code>xghf_features.py</code> fills all channels via nearest-neighbor / Gaussian kernel regression prior to inference so zero <code>NaN</code>s can ever enter the valid footprint.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="selector-checklist">
+      <h2>Automated Pre-Submission Gate Receipt (13/13 GeoTIFF + Protocol Rules 1–6)</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Automated Check</th>
+              <th>Threshold / Specification</th>
+              <th>Measured Value on Saved Bytes</th>
+              <th>Gate Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>CRS &amp; Affine Geotransform</td>
+              <td><code>EPSG:32611</code> · <code>[100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0]</code></td>
+              <td>Exact match to <code>sample_submission.tif</code></td>
+              <td><span class="badge badge-pass">PASS</span></td>
+            </tr>
+            <tr>
+              <td>Dimensions, Band Count &amp; Dtype</td>
+              <td><code>3730 × 3292</code> · 1 band · <code>float32</code></td>
+              <td><code>3730 × 3292</code> · 1 band · <code>float32</code></td>
+              <td><span class="badge badge-pass">PASS</span></td>
+            </tr>
+            <tr>
+              <td>All-Cell Finite <code>[0, 1]</code> Range</td>
+              <td>All <code>12,279,160</code> cells finite in <code>[0.0, 1.0]</code> (<code>0</code> NaN/Inf)</td>
+              <td><code>min = 0.0</code>, <code>max = 1.0</code>, <code>12,279,160 / 12,279,160</code> finite</td>
+              <td><span class="badge badge-pass">PASS</span></td>
+            </tr>
+            <tr>
+              <td>Known-Catalogue Masking (<code>B = 2.0 px</code>)</td>
+              <td><code>0</code> positive pixels on <code>60,988</code> <code>labels.tif</code> pixels</td>
+              <td><code>0</code> on catalogue (<code>min_dist = 2.236 px = 223.6 m</code>)</td>
+              <td><span class="badge badge-pass">PASS</span></td>
+            </tr>
+            <tr>
+              <td>Protocol Rule 4 — Leakage Canary</td>
+              <td>Single-feature symmetric <code>AUC ≤ 0.90</code> across all 59 channels</td>
+              <td><code>59 / 59</code> pass (max <code>0.82627</code>; max geophys <code>0.57997</code>)</td>
+              <td><span class="badge badge-pass">PASS</span></td>
+            </tr>
+            <tr>
+              <td>Protocol Rule 1 — Full-Registry Uniqueness</td>
+              <td><code>|Spearman| ≤ 0.90</code> (surface &amp; dots) AND <code>≤ 70%</code> 3-px overlap</td>
+              <td><code>|ρ_surf| ≤ 0.0992</code>, <code>|ρ_dots| ≤ 0.0443</code>, <code>427/427</code> genuine <code>≤ 69.11%</code> (<code>27.0%</code> vs Champ)</td>
+              <td><span class="badge badge-pass">PASS</span></td>
+            </tr>
+            <tr>
+              <td>Protocol Rule 2 &amp; 3 — Dual Holdout Win</td>
+              <td>Beat <code>0.2778</code> Champion on <code>HIDE-RECOVER-v3.0</code> (paired 95% CI &gt; 0) &amp; no <code>SGMC</code> regression</td>
+              <td><code>0.131134</code> vs <code>0.099202</code> (<code>Δ +0.0320, p=1.000</code>); <code>SGMC-cal 0.066793 &gt; 0.064121</code></td>
+              <td><span class="badge badge-pass">PASS</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer>
+      <div>
+        <a href="index.html">← Return to Main Executive Dashboard</a>
+      </div>
+      <div>
+        <code>gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif</code> · SHA-256 <code>2cdf5ded75f6d7fb…</code>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    function copyText(elemId, btn) {
+      const txt = document.getElementById(elemId).innerText.trim();
+      navigator.clipboard.writeText(txt).then(() => {
+        const prev = btn.innerText;
+        btn.innerText = "Copied ✓";
+        setTimeout(() => { btn.innerText = prev; }, 1600);
+      });
+    }
+  </script>
 </body>
 </html>

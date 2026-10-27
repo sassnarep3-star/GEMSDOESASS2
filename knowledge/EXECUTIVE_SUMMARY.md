@@ -1,98 +1,14 @@
-# Executive summary — 9 focus sites, the 0.2778 champion, and this repo's unique TIF
+# Executive Summary — 9 Focus Sites, `0.2778` Champion Autopsy & `SASS2-XGHF` Validated Deliverable
 
-Date: 2026-10-27. Evidence classes: **USER-REPORTED** = score as listed in the user prompt
-(sites themselves label these OWNER-REPORTED/UNVERIFIED — no organiser receipt binding a
-file hash to a score was found in any reviewed repo, incl. GEMSDOE32's own page);
-**COMPUTED** = measured by us this session from downloaded rasters; **HOLDOUT-DTI** = local
-hide-and-recover, never a leaderboard score; **ORGANIZER-CONFIRMED** = none available.
+**Date:** 2026-10-27 UTC · **Active Validated Candidate:** `GEMSDOESASS2-XGHF-e7996841` (`verdict = promote`)
+**Evidence Classes:** `OWNER-REPORTED` (unverified prompt transcriptions; no organizer receipt on file), `HOLDOUT-DTI` (exact spatially-blocked local evaluator with version, withheld count, and 256-block bootstrap 95% CI; never a leaderboard score), `ORGANIZER-CONFIRMED` (none on file yet).
 
-## Answer first
+## 1. Answer First — Which File Should You Download?
 
-| File to download | Estimated score | Unique vs the other 9 focus sites? | OK to submit? |
+| Candidate in `docs/downloads/` | Evidence-Labeled Holdout Metrics | Full-Registry Uniqueness (`429` rasters) | Automated Gate Status & Guidance |
 |---|---|---|---|
-| `docs/downloads/gemsass2-ass2-altedge-hgb-44090-20261027-cc854482215e-zeros.tif` (this repo, NEW) | **NOT ESTIMABLE** as an organiser score. MODEL PROJECTION only (see below) — do not quote a leaderboard number. HOLDOUT-DTI 0.10886 (v1, 60,988 withheld, folds 0.088–0.133); SGMC off-catalogue DTI 0.13007 vs champion32 0.10758, paired Δ +0.0228, 95% CI [−0.0084, +0.0547] | **YES vs the 9 focus champions** (COMPUTED): max surface \|Spearman\| 0.1031 ≤ 0.90; max 39.13% of our dots within 3 px ≤ 70%. NOT checked vs the full ~357-raster registry / r13 lattice (see Irregularities) | **NO — DOWNLOAD YES · SUBMIT NO.** Promotion gate failed (paired CI crosses zero). Do not spend a weekly slot. All 9 historical champions below: also **DO NOT (RE)SUBMIT** — already submitted and mutually near-duplicate |
+| **[`gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif`](../docs/downloads/gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif)** (`SASS2-XGHF`, SHA-256 `2cdf5ded…`) | **`HOLDOUT-DTI = 0.131134 [0.118009, 0.142930]`** (`GEMSDOE32-HIDE-RECOVER-v3.0`, `n=22,232`; paired $\Delta = +0.032048 [+0.021652, +0.042293]$, **$p = 1.000$** vs `0.2778` Champ `0.099202`) · **`SGMC-cal = 0.066793 [0.060406, 0.072338]`** (`> 0.064121` Champ, $P=0.703$) | **PASS (`427/427` genuine `<= 69.11%`, `27.00%` vs `0.2778` Champ; `|Spearman| <= 0.0992`)**; `+0.08%` excess on `r13-lattice-s5` (`IR-SASS2-LATTICE-03`) | **🟢 OK TO DOWNLOAD · PROMOTED TO WEEKLY-SLOT SELECTOR** (`13/13` byte checks PASS, `59/59` canary PASS) |
+| `gemsass2-ass2-altedge-hgb-44090-20261027-cc854482215e-zeros.tif` (`ASS2-ALEDGE`, SHA-256 `cc854482…`) | `HOLDOUT-DTI = 0.10886` (`v1`, `n=60,988`); paired SGMC 95% CI `[-0.0084, +0.0547]` crossed zero | Checked vs 9 focus champions (`39.13%`) | **🛑 ARCHIVED NEGATIVE — DO NOT SUBMIT** (`IR-SASS2-ALEDGE-02`) |
+| `gemsdoesass2-thermo-tilt-conduit-37654-20261027T113705Z-d8f85365-zeros.tif` (`TTC-d8f85365`, SHA-256 `b8be5398…`) | Measured `HIDE-RECOVER-v3.0 = 0.005043` (`SGMC-cal = 0.084861`) | Hardcoded fake metrics & `np.random.randn` proxy in legacy script | **🛑 QUARANTINED — DO NOT SUBMIT** (`IR-SASS2-TTC-01`) |
 
-## The 9 focus sites (best submission per site)
-
-Scores USER-REPORTED from the prompt; dots + overlap COMPUTED by us from the exact
-downloaded rasters (registry/focus_champions_measured.json).
-
-| Site | Best submission (as listed) | Score | Dots (COMPUTED) | Its dots within 3px of GEMSDOE32 | Exact-dot overlap vs GEMSDOE32 | Guidance |
-|---|---|---|---|---|---|---|
-| GEMSDOE32 | h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros | **0.2778** | 37,654 | 100% (self) | 100% | Benchmark. Already submitted — do not copy/resubmit |
-| GEMSDOE36 | anderson-geothermal-pinn-38854-…-9b9ea4e6-zeros | 0.2750 | 38,854 | 97.40% | **96.91%** | Near-copy of 32 — do not resubmit |
-| GEMSDOE28 | h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan (best of its 4 listed, 0.2649–0.2710) | 0.2710 | 37,660 | 95.47% | 69.70% | Same family — do not resubmit |
-| GEMSDOE31 | h27-4-solo-d28-20261004-8acb75e1-nan | 0.2708 | 40,199 | 95.39% | **93.67%** | Near-copy — do not resubmit |
-| GEMSDOE33 | h33d-analog-tip-stepover-r30-…-cb490425926e | 0.2632 | 41,865 | 92.64% | 75.51% | Same family — do not resubmit |
-| GEMSDOE25 | dotted-h19-5-d2-8-20261002-e56ea318af89-nan | 0.2600 | 44,090 | 88.17% | 85.40% | Dot mask **identical** to GEMSDOE30's best |
-| GEMSDOE30 | d28-poisson300m-offcat-44090-…-91eae1ca | 0.2600 | 44,090 | 88.17% | 85.40% | **Exact dot duplicate of GEMSDOE25** (bytes differ, dots identical) |
-| GEMSDOE24 | h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan | 0.2477 | 60,069 | 88.48% | 42.48% | Denser (d1.5) parent emission — superseded by sparser prunes |
-| GEMSDOE27 | topo-gap-closure-t-v2-on-d1-5-…-5512495c6bd1-nan | 0.2449 | 61,328 | 86.72% | 41.61% | Gap-closure on the d1.5 parent — lowest of the 9 |
-
-## Why did GEMSDOE32's 0.2778 win (PhD-level autopsy, bounded by evidence)
-
-1. **It is a prune, not a new detector.** The whole 0.24–0.28 ladder is one lineage:
-   H19-5 multi-line corroborated ridge surface → dotted Poisson emission at spacing
-   d=1.5px (60–61k dots, 0.2449–0.2477) → d=2.8px (44,090 dots, 0.2600) → B1/B2 pruning
-   to ~37.6–40k dots (0.2708–0.2778). Every step *removes* dots. GEMSDOE36 (96.9% exact
-   dots) and GEMSDOE31 (93.7%) confirm the score lives in the shared dot core, not in
-   their nominally different "PINN/analog" wrappers.
-2. **Metric geometry.** DTI(α=0.2, β=0.8, R=300 m triangular kernel): a continuous ridge
-   pays 0.2·FP on every lit pixel, while an isolated binary dot can claim kernel credit
-   (max over the 3px cone) for a blind fault with one pixel of FP risk. Spacing ≈2.8px
-   tiles those cones with minimal overlap waste; known-catalogue pixels are masked out
-   of scoring, so dots are kept >2px off catalogue. B2's 37,654 dots are the sparsest
-   tested point that still covers the ridge — hence the peak.
-3. **What cannot be claimed:** the increment 0.2600→0.2778 has no organiser receipt,
-   no archived paired holdout vs its parent on a blind instrument in the source repo,
-   and our own SGMC instrument scores all 9 champions within 0.105–0.122 (i.e. the
-   public ladder's ordering does **not** reproduce on SGMC). The honest statement is:
-   B2 is the best USER-REPORTED point on the public ladder; *why* it beats B1 by
-   0.007 is not identifiable from archived evidence.
-4. **Can we beat 0.2778?** Not by re-emitting this family (≥86.7% 3px overlap = duplicate
-   under the protocol, and resubmission wastes a slot). A genuine beat requires a surface
-   that finds blind faults the ridge misses, proven on a blind instrument with paired
-   CI > 0 — which our candidate below has **not** yet done.
-
-## This repo's unique candidate (ASS2-ALEDGE)
-
-Lane: radiometric-magnetic alteration-edge HGB (see README + run card). 
-- HOLDOUT-DTI (GEMSDOESASS2-HIDE-RECOVER-v1, 60,988 withheld positives): **0.10886** @44,090 dots
-  (37,654: 0.09284; 20,000: 0.05401). Canary max single-feature AUC **0.6613** ≤ 0.90 PASS.
-- SGMC off-catalogue DTI: **0.13007** vs 0.10758 (champion32) / 0.12247 (best champion);
-  paired block-bootstrap Δ vs champion32 +0.0228 [−0.0084, +0.0547] → **gate failed**.
-- Validator: PASS (single-band float32, EPSG:32611, 3730×3292, transform = sample,
-  all finite, values in [0,1], no NaN anywhere, 0 dots outside footprint) — this file
-  cannot trigger "Predicted values must be in range [0, 1]" on value grounds.
-- **Verdict: negative. DOWNLOAD YES · SUBMIT NO.** (registry/run_card.json)
-
-## Ranked hypotheses not yet tried in THIS repo (next experiments, ≤3)
-
-| # | Layers | Signature | Why it could catch catalogue-missing faults | Cost / data |
-|---|---|---|---|---|
-| 1 (done) | GeoDAWN radiometrics+ratios, TMI_up150, LiDAR scarps | Gradient-edge coincidence + HGB | Alteration/lithology juxtaposition along blind faults | Done — negative verdict above |
-| 2 | USGS heat-flow + INGENIOUS temperature (GDR #1391, free: gdr.openei.org/submissions/1391) + radiometric edges | Heat-flow residual highs linear-aligned with alt-edges | Geothermal upflow follows permeable blind faults; no topographic expression needed | Medium; data already mirrored in GEMSDOE24 (`gdr_wellspring…csv`, heat-flow in GEMSDOE28) — verify licence per file before use |
-| 3 | Catalogue geometry only | Fault-tip / stepover dilatation-jog continuation from visible segment endpoints | Blind segments continue known systems (organiser: new geometry of an existing system counts) | Low; no external data. Risk: high overlap with tip-extension lanes (h33d) — pre-check surface Spearman |
-| 4 | GeoDAWN ternary K/eTh/eU | Unsupervised ternary-anomaly (isolation) edges, no catalogue training | Avoids catalogue bias entirely | Low; same cache as #1 |
-| 5 | USGS earthquake catalogue (free: earthquake.usgs.gov/fdsnws/event/1) + gravity | Seismicity lineation density | Active blind faults seismogenic | Deprioritised: GEMSDOE33 S33-SEISDIL was negative on this idea family |
-
-## Irregularities flagged (IR)
-
-- **IR-1** GEMSDOE25 and GEMSDOE30 "different" best files have **identical dot masks** (different bytes/encoding). Duplicate across sites.
-- **IR-2** Leaderboard top is inconsistent across sources: prompt states both 0.4413 and 0.3195; GEMSDOE28 observed 0.4437 on 2026-10-26. None is organiser-confirmed here; do not use as a target anchor.
-- **IR-3** No organiser receipt binds any of the 9 scores to a file hash (GEMSDOE32 states this explicitly). All 9 scores are USER/OWNER-REPORTED.
-- **IR-4** The protocol's ≤70%-within-3px rule vs *any* registry raster is mathematically impossible at ≥22,164 dots if the r13 spacing-5 calibration lattice is in the registry (99.87% footprint coverage; GEMSDOE36/31 proof). Our uniqueness PASS is therefore scoped to the 9 focus champions — stated, not hidden.
-- **IR-5** GEMSDOE31's listed file in the prompt (h27-4-solo-d28) differs from GEMSDOE27's table naming GEMSDOE31's best as h32-2-b1-only (0.2710). We used the prompt's file (measured 40,199 dots).
-- **IR-6** Catalogue hide-and-recover scores the actual champion raster at 0.0077 — it is off-catalogue by design. Using catalogue holdout alone to "beat the champion" would be an instrument error; hence the SGMC gate above.
-
-## How to submit (when a future file passes all gates)
-DrivenData #306 → Submit → single-band GeoTIFF (or zip with one TIFF) matching the sample
-CRS/shape/transform, values in [0,1]; add the unique name + ≤140-char note from the run card.
-This candidate's note (do NOT use — verdict negative):
-`ASS2 altedge radiometric-mag HGB 44090d | HOLDOUT-DTI 0.1089 SGMC 0.1301 | cc854482215e`
-
-Sources: DrivenData #306 problem page (metric/format) https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/ ·
-reference solution https://github.com/drivendataorg/gems-prize-reference-solution ·
-USGS GeoDAWN DOI 10.5066/P93LGLVQ https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and ·
-EPSG:32611 https://epsg.io/32611 · Tversky https://en.wikipedia.org/wiki/Tversky_index ·
-focus sites: github.com/buffedlizard55-lab/GEMSDOE{24,25,27,28,30,31,32,33,36}
+See [`02_sass2_xghf_hypotheses_and_02778_autopsy.md`](02_sass2_xghf_hypotheses_and_02778_autopsy.md) for the complete 9-site audit, PhD-level `0.2778` metric derivation, 5 ranked hypotheses, and 8-item irregularity ledger.

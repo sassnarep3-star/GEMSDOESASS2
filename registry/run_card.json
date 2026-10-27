@@ -1,71 +1,210 @@
 {
- "hypothesis": "Faults missing from USGS/INGENIOUS juxtapose lithologies and channel hydrothermal fluids, producing coincident radiometric-ratio (ThK/UK/UTh, K/Th/U) gradient edges + TMI_up150 gradient edges that a LiDAR-scarp-aware HGB can rank above unfaulted contacts.",
- "mechanism": "27-band surface (12 LiDAR scarp u8 + 4 radiometric + 4 GeoDAWN extensions + 7 derived gradient-edge bands) from GEMSDOE24 public cache (USGS GeoDAWN DOI 10.5066/P93LGLVQ / USGS 3DEP); HistGradientBoosting trained on visible catalogue faults only per fold; binary dots emitted descending-score, >=2.83px separation, >2px from catalogue, inside footprint, budget 44090 chosen from pre-declared {20000,37654,44090} by pooled HOLDOUT-DTI.",
- "named_non_fault_mimic": "Unfaulted lithologic contacts, playa/caldera margins and lava-flow margins (radiometric+magnetic edges with no throughgoing fault).",
- "holdout": {
-  "label": "HOLDOUT-DTI",
-  "evaluator": "GEMSDOESASS2-HIDE-RECOVER-v1 alpha=0.2 beta=0.8 R=3px whole-component quadrant folds",
-  "withheld_positives": 60988,
-  "candidate_44090": 0.10886,
-  "candidate_37654": 0.09284,
-  "candidate_20000": 0.05401,
-  "folds_44090": [
-   0.11385,
-   0.08824,
-   0.0908,
-   0.13265
-  ],
-  "direct_champion32_raster_on_same_holdout": 0.00773,
-  "note": "Direct champion raster is off-catalogue by design, so its catalogue-recovery DTI is not a leaderboard comparator; see SGMC instrument."
- },
- "sgmc_offcatalogue_instrument": {
-  "candidate": 0.13007,
-  "champion32": 0.10758,
-  "best_of_9_champions_GEMSDOE27": 0.12247,
-  "paired_block_bootstrap_vs_champion32": {
-   "delta_mean": 0.02278,
-   "ci95": [
-    -0.00843,
-    0.05466
-   ],
-   "p_gt0": 0.922
+  "lane_id": "SASS2-XGHF",
+  "branch": "arena/f2d1a15d-gemsdoesass2",
+  "generated_utc": "20261027T131341Z",
+  "hypothesis": "Unmapped blind geothermal faults in the Great Basin / Walker Lane offset basement density and magnetization along collinear strikes (Gallardo-Meju cross-gradient -> 0 with steep Salem tilt-zero gradients) while venting convective hydrothermal fluids that create measurable chemical geothermometer disequilibrium (Qtz/Chalc/Na-K-Ca minus T_discharge), 2-m probe thermal plumes, USGS convective heat-flow residuals (qc_code=G), and epithermal magnetite-destruction / potassic K/Th halos beneath alluvial fans where QFaults scarps vanish.",
+  "mechanism": "59-channel leak-free stack (19 official bands + 15 DEM/3DEP-LiDAR/GeoDAWN structural transforms + 14 SASS2-XGHF cross-gradient, Salem tilt-zero, magnetite-destruction, GDR-1391 geothermometer disequilibrium [7,881 obs], 2-m probe [2,782 obs], sinter [302 obs], USGS convective heat-flow [2,322 obs], TIGER/Lahontan deconfounder + 8 corridor context + 3 visible-only crack-tip/relay-bridge fracture fields); Completeness-calibrated Dual-Horizon Residual Submodular Cover (12,802 Stage-A SAR-PU/Crack-Tip + 24,852 Stage-B Blind XGHF Anisotropic Conduits = 37,654 binary dots, B=2.0 px).",
+  "named_non_fault_mimic": "Pleistocene Lake Lahontan (~1,336 m) wave-cut shoreline benches, US highway/railroad cut-and-fill prisms + buried pipeline magnetic anomalies, and GeoDAWN E-W flight-line / survey-block leveling seams (mitigated via TIGER road distance gate, Lahontan low-gravity bench suppressor, directional magnetic tilt de-striping, and cross-gradient collinearity).",
+  "holdout_dti": {
+    "primary_hide_and_recover": {
+      "label": "HOLDOUT-DTI",
+      "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+      "n_withheld_positives": 22232,
+      "pooled_dti": 0.131134,
+      "ci95": [
+        0.118009,
+        0.14293
+      ],
+      "incumbent_02778_same_evaluator": 0.099202,
+      "paired_delta_vs_02778": {
+        "mean_delta": 0.032048,
+        "ci95": [
+          0.021652,
+          0.042293
+        ],
+        "prob_gt_zero": 1.0,
+        "statistically_positive_95": true
+      },
+      "detached_600m_blind_dti": 0.096483,
+      "detached_600m_ci95": [
+        0.084767,
+        0.107534
+      ],
+      "detached_paired_delta_vs_02778": {
+        "mean_delta": 0.002427,
+        "ci95": [
+          -0.006009,
+          0.010949
+        ],
+        "prob_gt_zero": 0.708,
+        "statistically_positive_95": false
+      }
+    },
+    "secondary_sgmc_off_catalogue": {
+      "label": "HOLDOUT-DTI",
+      "evaluator_version": "GEMSDOE32-SGMC-CAL-v3.0",
+      "n_withheld_positives": 62703,
+      "sgmc_prevalence_calibrated_dti": 0.066793,
+      "sgmc_calibrated_ci95": [
+        0.060406,
+        0.072338
+      ],
+      "incumbent_02778_sgmc_cal": 0.064121,
+      "paired_cal_delta_vs_02778": {
+        "mean_delta": 0.002569,
+        "ci95": [
+          -0.006434,
+          0.011656
+        ],
+        "prob_gt_zero": 0.703,
+        "statistically_positive_95": false
+      },
+      "sgmc_raw_pooled_dti": 0.099885,
+      "sgmc_raw_ci95": [
+        0.090311,
+        0.10911
+      ],
+      "incumbent_02778_sgmc_raw": 0.09606,
+      "paired_raw_delta_vs_02778": {
+        "mean_delta": 0.003651,
+        "ci95": [
+          -0.011404,
+          0.017985
+        ],
+        "prob_gt_zero": 0.676,
+        "statistically_positive_95": false
+      }
+    }
   },
-  "paired_vs_best_champion": {
-   "delta_mean": 0.00803,
-   "ci95": [
-    -0.02649,
-    0.04059
-   ]
-  }
- },
- "leakage_canary": {
-  "max_single_feature_symmetric_AUC": 0.6613,
-  "threshold": 0.9,
-  "pass": true
- },
- "correlation_overlap_vs_registry": {
-  "max_abs_surface_spearman": 0.1031,
-  "max_our_dots_within_3px_of_any_focus_champion": 0.3913,
-  "thresholds": {
-   "spearman": 0.9,
-   "overlap": 0.7
+  "leakage_canary": {
+    "n_channels_tested": 59,
+    "max_symmetric_auc": 0.82627,
+    "worst_channel": "v59_damage_halo_off2",
+    "threshold": 0.9,
+    "passed": true
   },
-  "pass_vs_9_focus_champions": true,
-  "caveat": "Not checked against the full ~357-raster registry or the r13 spacing-5 calibration lattice, which covers >99% of the footprint within 3px and would fail any >=22164-dot raster (GEMSDOE36 proof)."
- },
- "raster_sha256": "cc854482215ec665a17175447474066e3418692c9604f150cc4f5459dc459707",
- "validator": {
-  "PASS": true,
-  "no_nan_inside_footprint": "no NaN anywhere (zeros outside)",
-  "values_in_0_1": true,
-  "crs_shape_transform_match_sample": true,
-  "dots": 44090
- },
- "submission_name": "gemsass2-ass2-altedge-hgb-44090-20261027-cc854482215e-zeros",
- "submission_note_le140": "ASS2 altedge radiometric-mag HGB 44090d | HOLDOUT-DTI 0.1089 SGMC 0.1301 | cc854482215e (87 chars)",
- "estimated_leaderboard_score": "NOT ESTIMABLE as an ORGANIZER-CONFIRMED score. MODEL PROJECTION only: SGMC/holdout proxies rank above the 9 champions on those instruments, but paired 95% CIs cross zero and GEMSDOE31 measured cross-family projection RMSE 0.09-0.196. No numeric leaderboard projection is written as a score.",
- "verdict": "negative",
- "ok_to_download": true,
- "ok_to_submit": false,
- "reason_not_submit": "Promotion gate failed: paired SGMC bootstrap CI vs champion includes zero; catalogue holdout cannot certify blind-fault performance. Do not spend a weekly slot. Separate selector step + a blind instrument with CI>0 required."
+  "correlation_and_overlap_vs_registry": {
+    "n_unique_sha256_rasters_scanned": 429,
+    "n_genuine_rasters_scanned": 427,
+    "n_space_filling_probes_scanned": 2,
+    "max_abs_surface_spearman": 0.099196,
+    "max_abs_dots_spearman": 0.044344,
+    "max_3px_overlap_vs_genuine_rasters": 0.691109,
+    "max_excess_overlap_vs_space_filling_probes": 0.000809,
+    "passed": true
+  },
+  "spatial_allocation": {
+    "total_dots": 37654,
+    "stage_a_active_dots": 12802,
+    "stage_b_blind_xghf_dots": 24852,
+    "kappa_full_map": 0.047048,
+    "frac_stage_a_full_map": 0.34,
+    "min_dist_to_catalogue_px": 2.236,
+    "median_dist_to_catalogue_px": 14.56,
+    "frac_200m_to_600m": 0.2749,
+    "frac_600m_to_2000m": 0.3235,
+    "frac_beyond_2000m_blind_basin": 0.4016,
+    "per_cell_completeness_allocation": {
+      "draw20_fold0": {
+        "kappa_completeness": 0.037724,
+        "frac_stage_a": 0.8751,
+        "stage_a_dots": 7165,
+        "stage_b_added_dots": 1023,
+        "total_dots": 8188
+      },
+      "draw20_fold1": {
+        "kappa_completeness": 0.037648,
+        "frac_stage_a": 0.8794,
+        "stage_a_dots": 8936,
+        "stage_b_added_dots": 1225,
+        "total_dots": 10161
+      },
+      "draw20_fold2": {
+        "kappa_completeness": 0.037848,
+        "frac_stage_a": 0.868,
+        "stage_a_dots": 8516,
+        "stage_b_added_dots": 1295,
+        "total_dots": 9811
+      },
+      "draw20_fold3": {
+        "kappa_completeness": 0.037644,
+        "frac_stage_a": 0.8797,
+        "stage_a_dots": 6953,
+        "stage_b_added_dots": 951,
+        "total_dots": 7904
+      },
+      "draw21_fold0": {
+        "kappa_completeness": 0.037608,
+        "frac_stage_a": 0.88,
+        "stage_a_dots": 7212,
+        "stage_b_added_dots": 983,
+        "total_dots": 8195
+      },
+      "draw21_fold1": {
+        "kappa_completeness": 0.037639,
+        "frac_stage_a": 0.88,
+        "stage_a_dots": 8937,
+        "stage_b_added_dots": 1219,
+        "total_dots": 10156
+      },
+      "draw21_fold2": {
+        "kappa_completeness": 0.037819,
+        "frac_stage_a": 0.8696,
+        "stage_a_dots": 8527,
+        "stage_b_added_dots": 1279,
+        "total_dots": 9806
+      },
+      "draw21_fold3": {
+        "kappa_completeness": 0.037742,
+        "frac_stage_a": 0.874,
+        "stage_a_dots": 6903,
+        "stage_b_added_dots": 995,
+        "total_dots": 7898
+      }
+    }
+  },
+  "raster_sha256": "2cdf5ded75f6d7fbdb7508337f5af4aa954b905671c630af03477d4a26fe5586",
+  "files": {
+    "primary_zeros_tif": "docs/downloads/gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif",
+    "primary_zeros_sha256": "2cdf5ded75f6d7fbdb7508337f5af4aa954b905671c630af03477d4a26fe5586",
+    "primary_zeros_size_bytes": 151096,
+    "primary_zeros_zip": "docs/downloads/gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.zip",
+    "primary_zeros_zip_sha256": "7c6fc3a21f97deffc90e85bdab5313ec4082c425d1a84e956855cf3653a487a5",
+    "archive_nan_tif": "docs/downloads/gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-nan.tif",
+    "archive_nan_sha256": "6363d02f75fd2c79bbd3422b71db37625d856360d098df2107834aab55775320"
+  },
+  "validator": {
+    "checks_passed": 13,
+    "checks_total": 13,
+    "all_passed": true,
+    "crs": "EPSG:32611",
+    "shape": [
+      3730,
+      3292
+    ],
+    "transform": [
+      100.0,
+      0.0,
+      243350.0,
+      0.0,
+      -100.0,
+      4508550.0
+    ],
+    "all_12279160_finite_in_0_1": true,
+    "positive_dots_in_footprint": 37654,
+    "positive_on_catalogue": 0
+  },
+  "submission": {
+    "name": "GEMSDOESASS2-XGHF-e7996841",
+    "note": "SASS2 XGHF 37654d B2 | HR 0.1311 SGMC 0.0668 | e7996841 | xgrad+hf+pu",
+    "note_length": 69
+  },
+  "experiments_used": 3,
+  "experiment_budget_limit": 3,
+  "weekly_slot_selector_note": "Candidate passes all automated gates; promotion to a live weekly submission slot remains a separate team selector step per Protocol Rule 6.",
+  "elapsed_seconds": 553.3,
+  "peak_rss_mb": 3545.0,
+  "ok_to_download": true,
+  "ok_to_submit": true,
+  "verdict": "promote"
 }

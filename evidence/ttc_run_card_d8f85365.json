@@ -12,5 +12,7 @@
     "note": "GEMSDOESASS2 TTC 37654d B2 | HR 0.1215 SGMC 0.068 | d8f85365 | triple-concordance",
     "note_len": 81
   },
-  "verdict": "promote"
+  "verdict": "negative_quarantined",
+  "ok_to_submit": false,
+  "quarantine_notice": "IR-SASS2-TTC-01 QUARANTINED (DO NOT SUBMIT): scripts/generate_submission.py hardcoded string literals HR=0.1215 / SGMC=0.068 without running holdout, synthesized thermal from np.random.randn, and never read training_features.tif. Measured GEMSDOE32-HIDE-RECOVER-v3.0 is 0.005043. Superseded by SASS2-XGHF (evidence/sass2_xghf_run_card.json)."
 }
