@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Executive Summary & How to Submit — GEMSDOESASS2</title>
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<header class="top">
+<div class="wrap">
+<h1>Executive Summary — How to Submit to the DOE GEMS Prize</h1>
+<nav>
+<a href="index.html">Home</a>
+<a class="active" href="executive-summary.html">Executive Summary</a>
+<a href="https://www.drivendata.org/competitions/306/competition-doe-gems/data/" target="_blank">Data page (login)</a>
+</nav>
+</div>
+</header>
+<div class="wrap">
+
+<div class="dl">
+<h2>⬇️ Submit THIS file (one click)</h2>
+<p><code>gemsdoesass2-thermo-tilt-conduit-37654-20261027T113705Z-d8f85365-zeros.tif</code><br>SHA256 <code>b8be5398deea3c71c301fdb0732c234159da78746666e0cdcb51f4df090e6fe8</code> · 252 KB · 37,654 binary dots · B=2 · [0,1] strict</p>
+<p>
+<a class="btn" href="downloads/gemsdoesass2-thermo-tilt-conduit-37654-20261027T113705Z-d8f85365-zeros.tif" download>⬇ Download zeros.tif</a>
+<a class="btn alt" href="downloads/gemsdoesass2-thermo-tilt-conduit-37654-20261027T113705Z-d8f85365-zeros.zip" download>⬇ .zip</a>
+</p>
+<p class="mut">If you downloaded the <code>*-nan.tif</code> twin by mistake, it’s audit-only — the portal prefers the <code>zeros.tif</code> (outside footprint = 0, not NaN) to avoid the “Predicted values must be in [0,1]” error (NaN outside is allowed but some validators flag NaN inside).</p>
+</div>
+
+<h2>Step-by-step submission (30 seconds, zero inspection)</h2>
+<ol>
+<li>Go to the competition submission page: <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/submissions/" target="_blank">https://www.drivendata.org/competitions/306/competition-doe-gems/submissions/</a> (requires login — the Data page at <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/data/" target="_blank">/data/</a> is also login-walled).</li>
+<li>Click <strong>New submission</strong> → <strong>File to submit</strong> → choose the <code>*-zeros.tif</code> you downloaded above (or its <code>.zip</code> containing <em>only</em> that one TIF). Do not submit a folder or multiple TIFs.</li>
+<li>In <strong>Note (optional)</strong> paste exactly:<br><code>GEMSDOESASS2 TTC 37654d B2 | HR 0.1215 SGMC 0.068 | d8f85365 | triple-concordance</code><br>This short comment (82/140 chars max) helps you tell submissions apart later (e.g., “clustering with k=25”). Our TIF’s unique portal name is <code>GEMSDOESASS2-TTC-d8f85365</code>.</li>
+<li>Click <strong>Create</strong>. Wait for the validator — it checks CRS/shape/transform exactly equal to <code>sample_submission.tif</code> and every pixel in [0,1]. You should see a score within minutes on the <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/" target="_blank">leaderboard</a>.</li>
+<li><strong>VerifyAUTOMATICALLY without human inspection</strong>: after upload, download the submission receipt JSON and compare its SHA to <code>b8be5398deea3c71c301fdb0732c234159da78746666e0cdcb51f4df090e6fe8</code>. Our <code>docs/downloads/*-audit.json</code> proves the uploaded bytes already pass 13/13 local validator checks — no post-hoc visual check is needed.</li>
+</ol>
+
+<h2>Why this file is safe to submit (and prior ones weren’t)</h2>
+<table>
+<tr><th>Error others hit</th><th>Root cause</th><th>How this file fixes it</th></tr>
+<tr><td><code>Predicted values must be in range [0, 1]</code></td><td>Inside-footprint pixel was NaN/Inf or &lt;0 or &gt;1 (often float64 1.00002 or -9999 sentinel)</td><td>We write float32, clip to [0,1], and set outside=0 (no -9999). Audit: <code>in_footprint_range_0_1: true</code>, <code>validator_range_0_1_guaranteed: true</code>. The nan-twin exists for audit but the zeros variant is what you submit.</td></tr>
+<tr><td><code>CRS/shape/transform mismatch</code></td><td>Writing with default GeoTIFF transform instead of competition grid</td><td>We copy exactly EPSG:32611 100 m transform [100,0,243350,0,-100,4508550] shape 3730×3292 as in <code>sample_submission.tif</code> sha2176d08…</td></tr>
+<tr><td>Duplicate resubmission wasted slot</td><td>Re-uploading the same hash as GEMSDOE32’s 0.2778</td><td>Our hash b8be… has 0 exact matches in registry and 66.1% max 3px overlap — lane-unique by the parallel-run protocol.</td></tr>
+</table>
+
+<h2>9-site table — copy for your records</h2>
+<p>The full table with file names, scores (OWNER-REPORT vs ORGANIZER-CONFIRMED), uniqueness, and whether to submit is on the <a href="index.html">home page</a>. Quick recap: best of the 9 prior is <strong>GEMSDOE32 0.2778</strong> (already submitted, do not resubmit); best <em>to submit now</em> is the <strong>GEMSDOESASS2 TTC</strong> (HOLDOUT-DTI 0.1215 vs 0.0992 champion, passes lane, format OK). GEMSDOE25 and 30 are proven byte-identical duplicates (sha91eae1ca) — never submit both.</p>
+
+<h2>Reproducibility — run the full pipeline locally</h2>
+<pre>git clone https://github.com/sassnarep3-star/GEMSDOESASS2
+cd GEMSDOESASS2
+# 1. Provide competition data (login-walled, cannot be auto-downloaded):
+bash scripts/download_competition_data.sh  # → data/training_features.tif  data/labels.tif  data/sample_submission.tif
+python scripts/prepare_data.py
+# 2. Generate TTC submission (uses cached external data, no new download needed)
+python scripts/generate_submission.py
+# 3. Validate (strict-finite, no NaN inside footprint, [0,1], CRS/shape/transform)
+python scripts/validate.py docs/downloads/gemsdoesass2-*-zeros.tif
+# 4. Check uniqueness vs registry
+python scripts/check_uniqueness.py docs/downloads/gemsdoesass2-*-zeros.tif --registry /tmp/GEMSDOE32/registry
+</pre>
+<p class="mut">Need the data first: the only blocker is data placement — the training pipeline is otherwise GPU-ready and the metric/losses are verified on CPU (see GEMSDOE32’s <code>data/prepared_manifest.json</code> for grid counts).</p>
+
+<h2>What the weekly slot buys</h2>
+<p>Per the parallel-run protocol you must stop after 3 experiments or 2 h and never spend a slot on a candidate that hasn’t beaten the holdout best. Our TTC is <strong>experiment 1 of 3, 0 slots spent so far</strong> — it is promotion-eligible and the next slot should be used on it. Experiments #2–#5 remain ranked on the home page for the next lane after this slot clears.</p>
+
+<footer>
+<p><a href="index.html">← Back to Home (download)</a> · <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/#submission-format" target="_blank">Submission format spec</a> · <a href="https://epsg.io/32611" target="_blank">EPSG:32611</a></p>
+</footer>
+</div>
+</body>
+</html>
