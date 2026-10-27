@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GEMSDOESASS2 — Promoted Unique GeoTIFF Submission &amp; Research Hub (DOE GEMS #306)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-dot"></span>
+        <span>GEMSDOESASS2 · DOE GEMS Subsurface Fault Discovery</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary Navigation">
+        <a class="active" href="index.html">1. Download &amp; Run Card</a>
+        <a href="executive-summary.html">2. Executive Summary &amp; 9-Site Audit</a>
+        <a href="forensics-and-methodology.html">3. 0.2778 Forensics &amp; HVFD Methodology</a>
+        <a href="https://github.com/sassnarep3-star/GEMSDOESASS2" target="_blank" rel="noopener">GitHub Repo ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- TOP-OF-PAGE UNMISTAKABLE SUBMISSION & DOWNLOAD PANEL -->
+    <section class="hero-submit" aria-labelledby="submit-heading">
+      <div class="status-pill-row">
+        <span class="badge badge-promote">✓ VERDICT: PROMOTE · OK TO SUBMIT</span>
+        <span class="badge badge-sky">100% UNIQUE LANE (MAX 3-PX OVERLAP 68.27% ≤ 70.0% · 49.34% VS GEMSDOE32)</span>
+        <span class="badge badge-sky">PORTAL-SAFE [0, 1] · 0 NaN · EPSG:32611 · 37,654 DOTS</span>
+      </div>
+
+      <h1 id="submit-heading" class="hero-title">
+        Ready-to-Submit Unique GeoTIFF: <code>HVFD-EXP3-HydroCollinear</code>
+      </h1>
+      <p class="hero-subtitle">
+        Trained completely from scratch with <strong>zero prior submission inputs</strong> using our Dual-Population
+        <strong>Hydrothermal Vent-Fault Coupled + Cross-Component Fracture Mechanics</strong> LOQO ensemble, 500 m
+        8-azimuth strike-collinearity + hydrothermal/geophysical corridor sharpening, and exact
+        <em>R</em> = 300 m (<code>3.05 px</code>) Tversky support spacing outside the <em>B</em> = 200 m (<code>2 px</code>)
+        catalogue collar. Machine-validated across all 12,279,160 pixels with zero manual intervention.
+      </p>
+
+      <div class="cta-row">
+        <a class="btn btn-primary"
+           href="downloads/gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif"
+           download="gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif">
+          ⬇ Download Validated .TIF (137.4 KB)
+        </a>
+        <a class="btn btn-secondary"
+           href="downloads/gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.zip"
+           download="gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.zip">
+          ⬇ Download .ZIP Archive
+        </a>
+        <a class="btn btn-secondary"
+           href="downloads/gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.json"
+           target="_blank" rel="noopener">
+          View Machine Validator Receipt (.JSON)
+        </a>
+        <a class="btn btn-secondary"
+           href="https://www.drivendata.org/competitions/306/competition-doe-gems/submissions/"
+           target="_blank" rel="noopener">
+          Open DrivenData Upload Portal ↗
+        </a>
+      </div>
+
+      <div class="copy-grid">
+        <div class="copy-box">
+          <div class="copy-box-header">
+            <span>Unique Submission Name (52 chars)</span>
+            <button class="copy-btn" type="button" data-copy="GEMSDOESASS2-HVFD-EXP3-HYDROCOLLINEAR-37654-fc98343e">Copy Name</button>
+          </div>
+          <div class="copy-val" id="sub-name">GEMSDOESASS2-HVFD-EXP3-HYDROCOLLINEAR-37654-fc98343e</div>
+        </div>
+
+        <div class="copy-box">
+          <div class="copy-box-header">
+            <span>DrivenData Note (104 / 140 chars max)</span>
+            <button class="copy-btn" type="button" data-copy="GEMSDOESASS2 hvfd-exp3-hydrocollinear LOQO B=2 37654px HOLDOUT-DTI=0.1184 blind8km=0.1763 max3pxOv=68.3%">Copy Note</button>
+          </div>
+          <div class="copy-val" id="sub-note">GEMSDOESASS2 hvfd-exp3-hydrocollinear LOQO B=2 37654px HOLDOUT-DTI=0.1184 blind8km=0.1763 max3pxOv=68.3%</div>
+        </div>
+
+        <div class="copy-box">
+          <div class="copy-box-header">
+            <span>GeoTIFF SHA-256 Checksum (140,692 bytes)</span>
+            <button class="copy-btn" type="button" data-copy="5435b141398517eb44ea507e6da430c761ea5b670ac338aada5be40ca1fc6750">Copy SHA-256</button>
+          </div>
+          <div class="copy-val" id="sub-sha">5435b141398517eb44ea507e6da430c761ea5b670ac338aada5be40ca1fc6750</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOUR PROTOCOL GATES SUMMARY -->
+    <section class="kpi-grid" aria-label="Protocol Gate Results">
+      <div class="kpi-card">
+        <div class="kpi-label">Gate 1 · Leakage Canary (54 Features)</div>
+        <div class="kpi-value emerald">0.7851 ≤ 0.90</div>
+        <div class="kpi-note">
+          PASS across all 48 static + 6 fold-mechanical features. <code>dist_known_fault_px</code> and ScienceBase fault-vertex slip polylines stripped.
+        </div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-label">Gate 2A · Primary Buffered Holdout DTI</div>
+        <div class="kpi-value emerald">0.11842</div>
+        <div class="kpi-note">
+          <code>HOLDOUT-DTI (gems57-pooled-hide-v2, N=11321, 95% CI [0.10255, 0.13426])</code> — beats <code>fair_h33</code> (0.09609) by <strong>+0.02234</strong> [95% CI +0.01030, +0.03477].
+        </div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-label">Gate 2B · Zero-Context Blind 8 km Quadrants</div>
+        <div class="kpi-value sky">0.17630</div>
+        <div class="kpi-note">
+          <code>HOLDOUT-DTI (spatial.folds buffer_px=80, N=60988, 95% CI [0.15434, 0.19659])</code> — <strong>10.14×</strong> random (0.01738) &amp; highest blind OOF across all audited repos.
+        </div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-label">Gate 3 &amp; 4 · Registry Uniqueness &amp; Portal Check</div>
+        <div class="kpi-value emerald">68.27% ≤ 70%</div>
+        <div class="kpi-note">
+          Audited vs <strong>451 unique</strong> (542 scanned) rasters: pre-placement |ρ| = 0.2179 ≤ 0.90, <strong>49.34%</strong> vs <code>GEMSDOE32 B2</code>; 0 NaN, 0 Inf, [0.0, 1.0].
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP-BY-STEP DRIVENDATA SUBMISSION GUIDE -->
+    <section class="section">
+      <h2>30-Second DrivenData Upload Checklist (DOE/NLR 3-per-Week Slot Policy)</h2>
+      <div class="callout emerald">
+        <strong>Weekly Slot Discipline (<a href="https://docs.nlr.gov/docs/fy26osti/96647.pdf" target="_blank" rel="noopener">DOE/NLR Official Rules Sec. 3.2</a>):</strong>
+        Teams are capped at <strong>3 submissions per week</strong>. Do <strong>not</strong> re-submit any historic <code>H19-5</code>/<code>H33</code> variant from <code>GEMSDOE24..36</code> (97.8%–100.0% duplicate lineage). Submit <code>gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif</code> as <strong>Primary Slot #1</strong>. See the <a href="executive-summary.html">9-Site Executive Summary</a> for the full portfolio table.
+      </div>
+      <ol>
+        <li>Click <strong>⬇ Download Validated .TIF</strong> above to save <code>gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif</code> (<code>140,692</code> bytes).</li>
+        <li>Open the <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/submissions/" target="_blank" rel="noopener">DrivenData Competition #306 Submission Page</a> and upload the <code>.tif</code> directly (single-band <code>EPSG:32611</code> <code>float32</code>, <code>3730 × 3292</code>, <code>nodata=None</code>, 100% finite values in <code>[0.0, 1.0]</code> — engineered specifically to prevent DrivenData's <em>"Predicted values must be in range [0, 1]"</em> NaN error).</li>
+        <li>Paste the copyable <strong>Submission Name</strong> (<code>GEMSDOESASS2-HVFD-EXP3-HYDROCOLLINEAR-37654-fc98343e</code>) and <strong>104-character Note</strong> above so the live score can be logged cleanly as <code>ORGANIZER-CONFIRMED</code>.</li>
+      </ol>
+    </section>
+
+    <!-- KEY DIAGNOSTIC VISUALIZATIONS -->
+    <section class="section">
+      <h2>Validated Holdout Progression &amp; Spatial Fault Discovery Maps</h2>
+      <p>
+        Every metric below is strictly labeled as <code>HOLDOUT-DTI (evaluator version, N withheld positives, 95% CI)</code> or
+        <code>ORGANIZER-CONFIRMED</code>. No leaderboard projection is ever reported as a score.
+      </p>
+
+      <div class="figure-card">
+        <img src="assets/fig1_holdout_progression.png" alt="Holdout DTI progression across baselines and pre-registered experiments EXP-1, EXP-2, and EXP-3" />
+        <div class="figure-caption">
+          <strong>Figure 1.</strong> Monotonic out-of-fold progression across our 3-experiment budget on (A) the canonical buffered component holdout (<code>gems57-pooled-hide-v2</code>, <em>N</em> = 11,321, 1,000-draw 20 km spatial block bootstrap) and (B) zero-context 8 km dead-band blind quadrants (<code>spatial.folds</code>, <em>N</em> = 60,988). <code>EXP-2</code> was properly halted under Protocol Rule 1 at 72.08% 3-px overlap against dense ridge lattice <code>gems10-h28</code>; <code>EXP-3</code> resolved scarp crowding via 500 m strike-collinearity + blind hydrothermal/geophysical corridor sharpening and <em>R</em> = 300 m spacing, rising to <strong>0.11842</strong> (+23.2% over <code>fair_h33</code>) while dropping max overlap to <strong>68.27% ≤ 70.0%</strong>.
+        </div>
+      </div>
+
+      <div class="figure-card">
+        <img src="assets/fig3_nevada_fault_discovery_map.png" alt="Full Nevada study area fault discovery map and 60 km hydrothermal belt zoom comparing GEMSDOESASS2 vs GEMSDOE32 B2" />
+        <div class="figure-caption">
+          <strong>Figure 2.</strong> (A) Full 373 km × 329 km Great Basin study area (<code>EPSG:32611</code>, 5,167,373 footprint pixels) showing mapped USGS/INGENIOUS faults (cyan, 60,988 px) and our 37,654 off-catalogue <code>GEMSDOESASS2 HVFD-EXP3</code> fault/vent discoveries (amber, 0 on-catalogue pixels, min catalogue clearance 223.6 m). (B) 60 km × 60 km zoom across the central hydrothermal/piedmont corridor comparing prior champion <code>GEMSDOE32 B2</code> (grey crosses, 0.2778) against new <code>GEMSDOESASS2</code> discoveries (emerald): <strong>over 50.6% of our dots occupy newly illuminated range-front, intrabasin potential-field, and hydrothermal upflow corridors</strong> outside 300 m of <code>GEMSDOE32</code>.
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="figure-card">
+          <img src="assets/fig2_gemsdoe32_forensics.png" alt="Forensic algebraic proof of GEMSDOE32 0.2778 and reciprocal DTI linear fit" />
+          <div class="figure-caption">
+            <strong>Figure 3.</strong> Exact forensic reconstruction of <code>GEMSDOE32</code> (0.2778) and reciprocal-DTI proof (<em>R</em>² = 0.9996) showing pure <code>H19-5</code> collar pruning asymptotes below ~0.295; surpassing 0.3195 toward 0.4413 / 0.4544 requires blind piedmont &amp; hydrothermal corridor recall.
+          </div>
+        </div>
+        <div class="figure-card">
+          <img src="assets/fig4_canary_and_uniqueness.png" alt="Gate-1 single-feature leakage canary AUCs and Gate-3 3-px dot overlap uniqueness audit" />
+          <div class="figure-caption">
+            <strong>Figure 4.</strong> (A) Gate-1 Leakage Canary across all 54 features (max single-feature symmetric ROC-AUC = 0.7851 ≤ 0.90). (B) Gate-3 3-px dot overlap across all 435 discrete registry submissions (max = 68.27% ≤ 70.0%; only 49.34% vs <code>GEMSDOE32</code>).
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STRICTLY LABELED EXPERIMENT LEDGER TABLE -->
+    <section class="section">
+      <h2>Pre-Registered 3-Experiment Budget Ledger (Rule 3 &amp; Rule 6)</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Arm / Control</th>
+              <th>Primary Buffered Holdout<br/><code>gems57-pooled-hide-v2</code> (<em>N</em> = 11,321)</th>
+              <th>Paired Gain vs <code>fair_h33</code><br/>(95% Block-Bootstrap CI)</th>
+              <th>Blind 8 km Quadrants<br/><code>spatial.folds</code> (<em>N</em> = 60,988)</th>
+              <th>Max Registry<br/>3-px Overlap</th>
+              <th>Protocol Gate Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>single_slope</code><br/><span class="kpi-note">Calibrated <code>det_elev</code> slope</span></td>
+              <td><code>HOLDOUT-DTI (gems57-pooled-hide-v2, N=11321, 95% CI [0.01895, 0.03847]): 0.02818</code></td>
+              <td>−0.06791</td>
+              <td><code>HOLDOUT-DTI (spatial.folds, N=60988, 95% CI [0.03386, 0.04879]): 0.04104</code></td>
+              <td>—</td>
+              <td><span class="badge badge-sky">Control</span></td>
+            </tr>
+            <tr>
+              <td><code>random_37654</code><br/><span class="kpi-note">Uniform off-collar (<em>B</em>=2)</span></td>
+              <td><code>HOLDOUT-DTI (gems57-pooled-hide-v2, N=11321, 95% CI [0.04273, 0.05366]): 0.04860</code></td>
+              <td>−0.04749</td>
+              <td><code>HOLDOUT-DTI (spatial.folds, N=60988, 95% CI [0.01533, 0.01955]): 0.01738</code></td>
+              <td>—</td>
+              <td><span class="badge badge-sky">Control</span></td>
+            </tr>
+            <tr>
+              <td><code>fair_h33</code><br/><span class="kpi-note"><code>d2.8</code> pruned by <code>d_vis &gt; 2 px</code></span></td>
+              <td><code>HOLDOUT-DTI (gems57-pooled-hide-v2, N=11321, 95% CI [0.08334, 0.10934]): 0.09609</code></td>
+              <td>Baseline (0.00000)</td>
+              <td>N/A (uses full-cat H19-5)</td>
+              <td>100.0% (H19-5)</td>
+              <td><span class="badge badge-amber">Incumbent Control</span></td>
+            </tr>
+            <tr>
+              <td><strong>EXP-1</strong><br/><span class="kpi-note">Zero-Cat Hydrothermal + Piedmont Expert A</span></td>
+              <td><code>HOLDOUT-DTI (gems57-pooled-hide-v2, N=11321, 95% CI [0.08268, 0.11493]): 0.09918</code></td>
+              <td>+0.00310 [−0.00912, +0.01540]</td>
+              <td><code>HOLDOUT-DTI (spatial.folds, N=60988, 95% CI [0.14865, 0.19356]): 0.17254</code></td>
+              <td>68.13% ≤ 70%</td>
+              <td><span class="badge badge-sky">Unique · Superseded by EXP-3</span></td>
+            </tr>
+            <tr>
+              <td><strong>EXP-2</strong><br/><span class="kpi-note">Dual-Population HVFD (Expert A + B)</span></td>
+              <td><code>HOLDOUT-DTI (gems57-pooled-hide-v2, N=11321, 95% CI [0.09860, 0.13393]): 0.11639</code></td>
+              <td>+0.02030 [+0.00798, +0.03299]</td>
+              <td>—</td>
+              <td><strong style="color:#fda4af">72.08% &gt; 70%</strong></td>
+              <td><span class="badge badge-rose">Rule 1 Duplicate Stop (Logged)</span></td>
+            </tr>
+            <tr class="highlight-row">
+              <td><strong>EXP-3 (PROMOTED)</strong><br/><span class="kpi-note">500 m Strike-Collinear + Hydro Corridor + <em>R</em>=300 m Spacing</span></td>
+              <td><strong><code>HOLDOUT-DTI (gems57-pooled-hide-v2, N=11321, 95% CI [0.10255, 0.13426]): 0.11842</code></strong></td>
+              <td><strong>+0.02234 [+0.01030, +0.03477]</strong></td>
+              <td><strong><code>HOLDOUT-DTI (spatial.folds, N=60988, 95% CI [0.15434, 0.19659]): 0.17630</code></strong></td>
+              <td><strong>68.27% ≤ 70%</strong><br/><span class="kpi-note">(49.34% vs GEMSDOE32)</span></td>
+              <td><span class="badge badge-promote">✓ PROMOTED DELIVERABLE</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- FINAL PROTOCOL RULE 5 RUN CARD -->
+    <section class="section" id="run-card">
+      <h2>Final Machine-Verified JSON Run Card (Protocol Rule 5)</h2>
+      <p>
+        Generated directly by <code>scripts/run_hvfd_experiments.py</code> and verified by 20 automated <code>pytest</code> checks
+        (<a href="data/summary.json" target="_blank" rel="noopener">download unified site JSON receipt</a>).
+      </p>
+      <pre id="run-card-json">Loading verified evidence/run_card.json...</pre>
+    </section>
+
+    <!-- VERIFIED OFFICIAL EXTERNAL SOURCES -->
+    <section class="section">
+      <h2>Verified Official Competition &amp; Scientific Data Sources</h2>
+      <ul>
+        <li><strong>DrivenData Competition Portal &amp; Problem Specification:</strong> <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/" target="_blank" rel="noopener">Discovering Hidden Geothermal Systems (DOE GEMS #306)</a> — Distance-Weighted Tversky Index (<code>α = 0.2, β = 0.8, R = 300 m</code> triangular kernel), <code>EPSG:32611</code> 100 m GeoTIFF contract.</li>
+        <li><strong>Live Public Leaderboard (Verified 2026-10-27):</strong> <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/" target="_blank" rel="noopener">DrivenData Leaderboard</a> — Live #1 <code>xiaofanhu = 0.4544</code> (prompt snapshot <code>0.4413</code>), #2 <code>cfld__ = 0.3916</code>, #5 Phase-1 Top-5 prize cutoff <code>No Fault of Our Own = 0.3566</code>.</li>
+        <li><strong>DOE / National Laboratory of the Rockies (NLR) Official Prize Rules (Sept 2026):</strong> <a href="https://docs.nlr.gov/docs/fy26osti/96647.pdf" target="_blank" rel="noopener">NLR-TP-2026-96647 PDF</a> — Phase 1 ($50k: 5 × $10k) &amp; Phase 2 ($250k: $100k/$70k/$40k/$25k/$15k), <strong>3 submissions/week</strong> limit (Sec. 3.2), and generative AI disclosure requirement (Sec. 3.2).</li>
+        <li><strong>USGS GeoDAWN Airborne Magnetic &amp; Radiometric Survey (CC0 1.0 Public Domain):</strong> Glen, J.M.G. &amp; Earney, T.E. (2024), <a href="https://doi.org/10.5066/P93LGLVQ" target="_blank" rel="noopener">doi:10.5066/P93LGLVQ</a> (<a href="https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and" target="_blank" rel="noopener">USGS Data Release</a>).</li>
+        <li><strong>DOE Geothermal Data Repository (GDR) INGENIOUS Great Basin Dataset (CC-BY-4.0):</strong> Ayling, B. et al. (2022), Nevada Bureau of Mines &amp; Geology / UNR, Award <code>DE-EE0009254</code>, <a href="https://gdr.openei.org/submissions/1391" target="_blank" rel="noopener">GDR #1391</a> (<a href="https://doi.org/10.15121/1881483" target="_blank" rel="noopener">doi:10.15121/1881483</a>) &amp; <a href="https://gbcge.org/current-projects/ingenious/" target="_blank" rel="noopener">GBCGE INGENIOUS Project</a>.</li>
+        <li><strong>USGS ScienceBase INGENIOUS Geophysical Releases &amp; Geodetic Strain:</strong> Peacock et al. MT Resistivity (<a href="https://doi.org/10.5066/P9TWT2LU" target="_blank" rel="noopener">doi:10.5066/P9TWT2LU</a>), Erickson et al. Heat Flow (<a href="https://doi.org/10.5066/P9BZPVUC" target="_blank" rel="noopener">doi:10.5066/P9BZPVUC</a>), Gravity/Magnetics (<a href="https://doi.org/10.5066/P9Z6SA1Z" target="_blank" rel="noopener">doi:10.5066/P9Z6SA1Z</a>), Kreemer &amp; Young (2022) Great Basin GPS Strain (<a href="https://doi.org/10.1785/0220220153" target="_blank" rel="noopener">doi:10.1785/0220220153</a>), and <a href="https://epsg.io/32611" target="_blank" rel="noopener">EPSG:32611 (WGS 84 / UTM Zone 11N)</a>.</li>
+      </ul>
+    </section>
+
+    <footer class="footer">
+      <div>
+        <strong>GEMSDOESASS2</strong> · Branch <code>arena/ea31206d-gemsdoesass2</code> · Core Values: <em>Maximize P(Win)</em> &amp; <em>Own the Outcome</em>
+      </div>
+      <div>
+        <a href="executive-summary.html">Executive Summary &amp; 9-Site Audit →</a>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    document.querySelectorAll('.copy-btn').forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        const text = btn.getAttribute('data-copy');
+        try {
+          await navigator.clipboard.writeText(text);
+          const orig = btn.textContent;
+          btn.textContent = '✓ Copied!';
+          setTimeout(() => { btn.textContent = orig; }, 1600);
+        } catch (err) {
+          console.error('Clipboard copy failed:', err);
+        }
+      });
+    });
+
+    fetch('data/summary.json')
+      .then((r) => r.json())
+      .then((d) => {
+        const el = document.getElementById('run-card-json');
+        if (el && d && d.run_card) {
+          el.textContent = JSON.stringify(d.run_card, null, 2);
+        }
+      })
+      .catch(() => {
+        const el = document.getElementById('run-card-json');
+        if (el) el.textContent = 'See evidence/run_card.json in repository.';
+      });
+  </script>
+</body>
+</html>

@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Executive Summary &amp; 9-Site Submission Guide — GEMSDOESASS2</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-dot"></span>
+        <span>GEMSDOESASS2 · DOE GEMS Subsurface Fault Discovery</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary Navigation">
+        <a href="index.html">1. Download &amp; Run Card</a>
+        <a class="active" href="executive-summary.html">2. Executive Summary &amp; 9-Site Audit</a>
+        <a href="forensics-and-methodology.html">3. 0.2778 Forensics &amp; HVFD Methodology</a>
+        <a href="https://github.com/sassnarep3-star/GEMSDOESASS2" target="_blank" rel="noopener">GitHub Repo ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero-submit">
+      <div class="status-pill-row">
+        <span class="badge badge-promote">EXECUTIVE SUBMISSION DECISION</span>
+        <span class="badge badge-sky">9 FOCUS REPOS + 451 UNIQUE REGISTRY RASTERS AUDITED</span>
+      </div>
+      <h1 class="hero-title">Executive Summary &amp; Auditable 9-Site Submission Guide</h1>
+      <p class="hero-subtitle">
+        Line-by-line forensic verification across <code>GEMSDOE24</code>, <code>GEMSDOE25</code>, <code>GEMSDOE27</code>,
+        <code>GEMSDOE28</code>, <code>GEMSDOE30</code>, <code>GEMSDOE31</code>, <code>GEMSDOE32</code>, <code>GEMSDOE33</code>,
+        and <code>GEMSDOE36</code> plus our new repository <code>GEMSDOESASS2</code>.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary"
+           href="downloads/gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif"
+           download="gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif">
+          ⬇ Primary Slot #1: Download GEMSDOESASS2 .TIF (OK TO SUBMIT)
+        </a>
+        <a class="btn btn-secondary" href="index.html">
+          ← Copy Submission Name &amp; 104-Char Note
+        </a>
+      </div>
+    </section>
+
+    <!-- EXECUTIVE TAKEAWAYS -->
+    <section class="section">
+      <h2>1. Executive Findings &amp; Weekly 3-Slot Action Plan</h2>
+      <div class="callout emerald">
+        <strong>Bottom-Line Decision (Maximize P(Win) under the <a href="https://docs.nlr.gov/docs/fy26osti/96647.pdf" target="_blank" rel="noopener">3-Submissions/Week Rule</a>):</strong>
+        <ol style="margin:0.45rem 0 0; padding-left:1.25rem;">
+          <li><strong>SUBMIT IMMEDIATELY (Primary Slot #1 — <code>GEMSDOESASS2</code>):</strong>
+            <a href="downloads/gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif" download><code>gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif</code></a>
+            — beats <code>fair_h33</code> by <strong>+0.02234</strong> [95% CI +0.01030, +0.03477] on buffered holdout (<code>0.11842</code>), achieves the <strong>highest zero-context blind-quadrant score across all repos (<code>0.17630</code>, 10.14× random)</strong>, passes all 451 registry uniqueness checks (max 3-px overlap <code>68.27% ≤ 70.0%</code>; only <code>49.34%</code> vs <code>GEMSDOE32 B2</code>), and passes all 15 portal format/range checks (<code>0</code> NaN, <code>[0.0, 1.0]</code>).</li>
+          <li><strong>DO NOT RE-SUBMIT ANY HISTORIC WINNER (<code>0.2449–0.2778</code>):</strong> Every single historic live-scored winner across all 9 focus sites is a post-processed subset/variant of <code>19GEMSDOE H19-5</code> (<strong>97.8%–100.0% 3-px dot overlap</strong>), already scored on the portal, and algebraically capped below <code>~0.295</code> under pure collar/spacing pruning.</li>
+          <li><strong>DO NOT SUBMIT NEGATIVE / FORMAT-FAILING HEAD RASTERS (<code>GEMSDOE24, 25, 27, 30, 31, 32, 33</code>):</strong> Six sibling HEAD Run Cards carry explicit <code>verdict = negative</code>, and <code>GEMSDOE30</code>'s latest <code>.tif</code> lacks a Run Card and contains <code>7,111,787</code> outside-footprint <code>NaN</code> pixels. (If a second distinct weekly exploration slot is desired after observing <code>GEMSDOESASS2</code>'s live score, <code>GEMSDOE36 KPL-36 EXP-3</code> has <code>verdict = promote</code> in its <code>kpl36_run_card</code> at <code>0.1701</code> blind-segment OOF and <code>61.59%</code> overlap vs <code>GEMSDOESASS2</code>, though note an internal <code>docs/index.html</code> mismatch in <code>GEMSDOE36</code>.)</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- TABLE A: CURRENT HEAD CANDIDATES ACROSS GEMSDOESASS2 + ALL 9 FOCUS SITES -->
+    <section class="section">
+      <h2>2. Auditable Table A — Current HEAD Candidates (<code>GEMSDOESASS2</code> + All 9 Focus Sites)</h2>
+      <p>
+        Every score below carries its exact protocol provenance label: <code>HOLDOUT-DTI (evaluator version, N withheld positives, 95% CI)</code>.
+        Uniqueness is audited both pre-placement (continuous Spearman |ρ| ≤ 0.90) and post-placement (directional 3-px / 300 m dot overlap ≤ 70.0%).
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Site &amp; Repo</th>
+              <th>Downloadable HEAD <code>.tif</code> &amp; SHA-12</th>
+              <th>Holdout Score (Strict Label)</th>
+              <th>Format &amp; Range<br/><code>[0, 1]</code> / 0 NaN</th>
+              <th>Uniqueness vs Registry<br/>&amp; vs <code>GEMSDOESASS2</code></th>
+              <th>OK to Submit?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="highlight-row">
+              <td><strong>GEMSDOESASS2</strong><br/><span class="kpi-note">(This Repo · Promoted)</span></td>
+              <td>
+                <a href="downloads/gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif" download><code>gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif</code></a><br/>
+                <code>sha256: 5435b1413985</code> · 37,654 px
+              </td>
+              <td>
+                <strong><code>HOLDOUT-DTI (gems57-pooled-hide-v2, N=11321, 95% CI [0.10255, 0.13426]): 0.11842</code></strong><br/>
+                <strong><code>HOLDOUT-DTI (spatial.folds buffer_px=80, N=60988, 95% CI [0.15434, 0.19659]): 0.17630</code></strong>
+              </td>
+              <td><span class="badge badge-promote">PASS</span><br/><span class="kpi-note">0 NaN · 0 Inf · [0,1]</span></td>
+              <td>
+                <strong>UNIQUE (PASS)</strong><br/>
+                Max 3-px = <code>68.27% ≤ 70%</code> (451 rasters)<br/>
+                Pre-|ρ| = <code>0.2179 ≤ 0.90</code><br/>
+                <code>49.34%</code> vs <code>GEMSDOE32 B2</code>
+              </td>
+              <td><span class="badge badge-promote">✓ YES — PRIMARY SLOT #1</span></td>
+            </tr>
+
+            <tr>
+              <td><a href="https://github.com/buffedlizard55-lab/GEMSDOE24" target="_blank" rel="noopener"><strong>GEMSDOE24</strong></a><br/><span class="kpi-note">@ <code>cf093c8c5e</code></span></td>
+              <td>
+                <a href="https://github.com/buffedlizard55-lab/GEMSDOE24/raw/cf093c8c5e/docs/downloads/gems24-vent-quat-bridge-20261026-a6e191937e80-zeros.tif"><code>gems24-vent-quat-bridge-20261026-a6e191937e80-zeros.tif</code></a><br/>
+                <code>sha256: 1c8399f15fbc</code> · 37,654 px
+              </td>
+              <td><code>HOLDOUT-DTI (gems-segment-pooled-v1, N=60988, 95% CI [0.0178, 0.0305]): 0.0240</code></td>
+              <td><span class="badge badge-sky">PASS</span></td>
+              <td>Unique (<code>14.94%</code> vs SASS2; <code>20.79%</code> vs peers)</td>
+              <td><span class="badge badge-rose">NO — Repo Verdict: negative</span></td>
+            </tr>
+
+            <tr>
+              <td><a href="https://github.com/buffedlizard55-lab/GEMSDOE25" target="_blank" rel="noopener"><strong>GEMSDOE25</strong></a><br/><span class="kpi-note">@ <code>227347d0f1</code></span></td>
+              <td>
+                <a href="https://github.com/buffedlizard55-lab/GEMSDOE25/raw/227347d0f1/docs/downloads/gems25-h73-pm-deapron-sapd2-8-k3p0-20261026-1b7533ebb62b-zeros.tif"><code>gems25-h73-pm-deapron-sapd2-8-k3p0-20261026-1b7533ebb62b-zeros.tif</code></a><br/>
+                <code>sha256: 35e1b1400a5a</code> · 42,997 px
+              </td>
+              <td><code>HOLDOUT-DTI (gems25.dti_binary, N=22290, 95% CI [0.0968, 0.1269]): 0.1134</code> <span class="kpi-note">(lost to in-run H35 0.1524)</span></td>
+              <td><span class="badge badge-sky">PASS</span></td>
+              <td>Unique (<code>44.37%</code> vs SASS2; <code>43.15%</code> vs peers)</td>
+              <td><span class="badge badge-rose">NO — Repo Verdict: negative</span></td>
+            </tr>
+
+            <tr>
+              <td><a href="https://github.com/buffedlizard55-lab/GEMSDOE27" target="_blank" rel="noopener"><strong>GEMSDOE27</strong></a><br/><span class="kpi-note">@ <code>6c34f5b7cb</code></span></td>
+              <td>
+                <a href="https://github.com/buffedlizard55-lab/GEMSDOE27/raw/6c34f5b7cb/docs/downloads/gems27-h31-drcg-wl-celf28-20261026-cf8e1bbef244-allfinite.tif"><code>gems27-h31-drcg-wl-celf28-20261026-cf8e1bbef244-allfinite.tif</code></a><br/>
+                <code>sha256: cf8e1bbef244</code> · 37,654 px
+              </td>
+              <td><code>HOLDOUT-DTI (gems27.metric v1, N=121404): 0.1066</code> <span class="kpi-note">(far-field audit negative)</span></td>
+              <td><span class="badge badge-sky">PASS</span></td>
+              <td>Unique vs focus9 (<code>56.13%</code> vs SASS2)</td>
+              <td><span class="badge badge-rose">NO — Blocked in Repo Registry</span></td>
+            </tr>
+
+            <tr>
+              <td><a href="https://github.com/buffedlizard55-lab/GEMSDOE28" target="_blank" rel="noopener"><strong>GEMSDOE28</strong></a><br/><span class="kpi-note">@ <code>f78c1e8fdc</code></span></td>
+              <td>
+                <a href="https://github.com/buffedlizard55-lab/GEMSDOE28/raw/f78c1e8fdc/docs/downloads/gems28-s22-ctxhgb-20261026-e23dabcec6e2-allfinite.tif"><code>gems28-s22-ctxhgb-20261026-e23dabcec6e2-allfinite.tif</code></a><br/>
+                <code>sha256: 77934be607d4</code> · 37,654 px
+              </td>
+              <td><code>HOLDOUT-DTI (gems27 unbuffered quadrant, N=36596, 95% CI [0.1047, 0.1365]): 0.1202</code> <span class="kpi-note">(<code>buffered: false</code>)</span></td>
+              <td><span class="badge badge-sky">PASS</span></td>
+              <td>Unique (<code>49.28%</code> vs SASS2; <code>46.89%</code> vs peers)</td>
+              <td><span class="badge badge-amber">HOLD — Unbuffered Split · Superseded by SASS2</span></td>
+            </tr>
+
+            <tr>
+              <td><a href="https://github.com/buffedlizard55-lab/GEMSDOE30" target="_blank" rel="noopener"><strong>GEMSDOE30</strong></a><br/><span class="kpi-note">@ <code>3c3d7255fd</code></span></td>
+              <td>
+                <a href="https://github.com/buffedlizard55-lab/GEMSDOE30/raw/3c3d7255fd/docs/downloads/GEMSDOE30-blind-thermal-corridor-h1-annulus-20261026T202136Z.tif"><code>GEMSDOE30-blind-thermal-corridor-h1-annulus-20261026T202136Z.tif</code></a><br/>
+                <code>sha256: 04b0e916f660</code> · 18,766 px
+              </td>
+              <td>No Run Card in repo <span class="kpi-note">(post-masked raster DTI = 0.0289)</span></td>
+              <td><span class="badge badge-rose">FAIL (7.11M NaN)</span></td>
+              <td>Unique (<code>11.32%</code> vs SASS2)</td>
+              <td><span class="badge badge-rose">NO — Outside-Footprint NaNs &amp; No Card</span></td>
+            </tr>
+
+            <tr>
+              <td><a href="https://github.com/buffedlizard55-lab/GEMSDOE31" target="_blank" rel="noopener"><strong>GEMSDOE31</strong></a><br/><span class="kpi-note">@ <code>abd9a45cc7</code></span></td>
+              <td>
+                <a href="https://github.com/buffedlizard55-lab/GEMSDOE31/raw/abd9a45cc7/docs/downloads/gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif"><code>gemsdoe31-h31x-piedmont-junction-37654-20261026-5a956da9-zeros.tif</code></a><br/>
+                <code>sha256: eff2b18e3737</code> · 37,654 px
+              </td>
+              <td><code>HOLDOUT-DTI (gems57-pooled-hide-v2 screen, N=60988, 95% CI [0.1499, 0.1821]): 0.1661</code></td>
+              <td><span class="badge badge-sky">PASS</span></td>
+              <td>Unique vs focus9 (<code>42.69%</code> vs SASS2)</td>
+              <td><span class="badge badge-rose">NO — Repo h31x Run Card Verdict: negative</span></td>
+            </tr>
+
+            <tr>
+              <td><a href="https://github.com/buffedlizard55-lab/GEMSDOE32" target="_blank" rel="noopener"><strong>GEMSDOE32</strong></a><br/><span class="kpi-note">@ <code>1398109a23</code></span></td>
+              <td>
+                <a href="https://github.com/buffedlizard55-lab/GEMSDOE32/raw/1398109a23/docs/downloads/gemsdoe32-h47-ldgi-dualhorizon-corridor-37654-20261026T230609Z-0eb8a25c-zeros.tif"><code>gemsdoe32-h47-ldgi-dualhorizon-corridor-37654-20261026T230609Z-0eb8a25c-zeros.tif</code></a><br/>
+                <code>sha256: d82d63ab9c93</code> · 37,654 px
+              </td>
+              <td><code>HOLDOUT-DTI (GEMSDOE32-HIDE-RECOVER-v3.0, N=22232, 95% CI [0.1057, 0.1329]): 0.1198</code></td>
+              <td><span class="badge badge-sky">PASS</span></td>
+              <td>Unique (<code>40.45%</code> vs SASS2; <code>47.61%</code> vs peers)</td>
+              <td><span class="badge badge-rose">NO — Repo h47 Run Card Verdict: negative</span></td>
+            </tr>
+
+            <tr>
+              <td><a href="https://github.com/buffedlizard55-lab/GEMSDOE33" target="_blank" rel="noopener"><strong>GEMSDOE33</strong></a><br/><span class="kpi-note">@ <code>122e2240a8</code></span></td>
+              <td>
+                <a href="https://github.com/buffedlizard55-lab/GEMSDOE33/raw/122e2240a8/docs/downloads/gemsdoe33-fsml2-cc-37654-20261026-6fd4410bbaee-zeros.tif"><code>gemsdoe33-fsml2-cc-37654-20261026-6fd4410bbaee-zeros.tif</code></a><br/>
+                <code>sha256: be5013aad085</code> · 37,654 px
+              </td>
+              <td><code>HOLDOUT-DTI (gems-segment-pooled-v1, N=60988, 95% CI [0.1009, 0.1203]): 0.1104</code> <span class="kpi-note">(lost to CSHT 0.1357)</span></td>
+              <td><span class="badge badge-sky">PASS</span></td>
+              <td>Unique (<code>31.70%</code> vs SASS2; <code>32.58%</code> vs peers)</td>
+              <td><span class="badge badge-rose">NO — Repo Verdict: negative</span></td>
+            </tr>
+
+            <tr>
+              <td><a href="https://github.com/buffedlizard55-lab/GEMSDOE36" target="_blank" rel="noopener"><strong>GEMSDOE36</strong></a><br/><span class="kpi-note">@ <code>61783525af</code></span></td>
+              <td>
+                <a href="https://github.com/buffedlizard55-lab/GEMSDOE36/raw/61783525af/docs/downloads/gemsdoe36-kpl36-exp3-20261026-fc869911e88c-zeros.tif"><code>gemsdoe36-kpl36-exp3-20261026-fc869911e88c-zeros.tif</code></a><br/>
+                <code>sha256: 86fc8243ad57</code> · 37,654 px
+              </td>
+              <td><code>HOLDOUT-DTI (gems-segment-pooled-v1, N=60988, 95% CI [0.1551, 0.1861]): 0.1701</code></td>
+              <td><span class="badge badge-sky">PASS</span></td>
+              <td>Borderline vs peers (<code>69.94% ≤ 70%</code>; <code>61.59%</code> vs SASS2)</td>
+              <td><span class="badge badge-amber">OPTIONAL BACKUP SLOT #2 (Below SASS2 0.1763; note internal site mismatch)</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- TABLE B: HISTORIC LIVE-SCORED WINNERS ACROSS ALL 9 FOCUS SITES -->
+    <section class="section">
+      <h2>3. Auditable Table B — Historic Live-Scored Rasters Across All 9 Focus Sites (<code>0.2449</code> to <code>0.2778</code>)</h2>
+      <p>
+        All 9 historic winners below are archived for scientific forensics and benchmark comparison. Every single one shares
+        <strong>97.8%–100.0% 3-px dot overlap with <code>19GEMSDOE H19-5</code></strong> and has already been scored on DrivenData.
+        Notice in the rightmost column that our new <code>GEMSDOESASS2</code> submission has only <strong>49.34%–58.14%</strong>
+        3-px dot overlap with any of them — well below the 70.0% duplicate ceiling!
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Focus Site</th>
+              <th>Historic Live-Scored <code>.tif</code> (Download Link)</th>
+              <th>Portal Score (Provenance Label)</th>
+              <th>Emitted Dots</th>
+              <th>3-px Overlap vs <code>H19-5</code></th>
+              <th>3-px Overlap vs <code>GEMSDOESASS2</code></th>
+              <th>Re-Submit Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>GEMSDOE24</strong></td>
+              <td><a href="https://github.com/buffedlizard55-lab/GEMSDOE24/raw/main/docs/downloads/gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan.tif"><code>gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan.tif</code></a></td>
+              <td><code>ORGANIZER-CONFIRMED (0.2477; owner-logged)</code></td>
+              <td>60,069</td>
+              <td><strong style="color:#fda4af">100.00%</strong></td>
+              <td>57.52% (Distinct)</td>
+              <td><span class="badge badge-rose">NO — Already Scored &amp; H19-5 Duplicate</span></td>
+            </tr>
+            <tr>
+              <td><strong>GEMSDOE25</strong></td>
+              <td><a href="https://github.com/buffedlizard55-lab/GEMSDOE25/raw/main/docs/downloads/gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-zeros.tif"><code>gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-zeros.tif</code></a></td>
+              <td><code>ORGANIZER-CONFIRMED (0.2600; owner-logged)</code></td>
+              <td>44,090</td>
+              <td><strong style="color:#fda4af">100.00%</strong></td>
+              <td>55.41% (Distinct)</td>
+              <td><span class="badge badge-rose">NO — Identical Dots to GEMSDOE30</span></td>
+            </tr>
+            <tr>
+              <td><strong>GEMSDOE27</strong></td>
+              <td><a href="https://github.com/buffedlizard55-lab/GEMSDOE27/raw/main/docs/downloads/gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-allfinite.tif"><code>gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-allfinite.tif</code></a></td>
+              <td><code>ORGANIZER-CONFIRMED (0.2449; owner-logged)</code></td>
+              <td>61,328</td>
+              <td><strong style="color:#fda4af">98.06%</strong></td>
+              <td>58.14% (Distinct)</td>
+              <td><span class="badge badge-rose">NO — Already Scored &amp; H19-5 Duplicate</span></td>
+            </tr>
+            <tr>
+              <td><strong>GEMSDOE28</strong></td>
+              <td><a href="https://github.com/buffedlizard55-lab/GEMSDOE28/raw/main/docs/downloads/gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-allfinite.tif"><code>gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-allfinite.tif</code></a></td>
+              <td><code>ORGANIZER-CONFIRMED (0.2710; owner-logged)</code></td>
+              <td>37,660</td>
+              <td><strong style="color:#fda4af">100.00%</strong></td>
+              <td>51.65% (Distinct)</td>
+              <td><span class="badge badge-rose">NO — 98.1% Subset of GEMSDOE32 B2</span></td>
+            </tr>
+            <tr>
+              <td><strong>GEMSDOE30</strong></td>
+              <td><a href="https://github.com/buffedlizard55-lab/GEMSDOE30/raw/main/docs/downloads/gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca.tif"><code>gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca.tif</code></a></td>
+              <td><code>ORGANIZER-CONFIRMED (0.2600; owner-logged)</code></td>
+              <td>44,090</td>
+              <td><strong style="color:#fda4af">100.00%</strong></td>
+              <td>55.41% (Distinct)</td>
+              <td><span class="badge badge-rose">NO — Pixel-Identical to GEMSDOE25</span></td>
+            </tr>
+            <tr>
+              <td><strong>GEMSDOE31</strong></td>
+              <td><a href="https://github.com/buffedlizard55-lab/GEMSDOE31/raw/main/docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-allfinite.tif"><code>gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-allfinite.tif</code></a></td>
+              <td><code>ORGANIZER-CONFIRMED (0.2708; owner-logged)</code></td>
+              <td>40,199</td>
+              <td><strong style="color:#fda4af">100.00%</strong></td>
+              <td>52.27% (Distinct)</td>
+              <td><span class="badge badge-rose">NO — Exact d2.8 &amp; B=1 Subset</span></td>
+            </tr>
+            <tr>
+              <td><strong>GEMSDOE32</strong></td>
+              <td><a href="https://github.com/buffedlizard55-lab/GEMSDOE32/raw/main/docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif"><code>gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif</code></a></td>
+              <td><strong><code>ORGANIZER-CONFIRMED (0.2778; owner-logged)</code></strong></td>
+              <td>37,654</td>
+              <td><strong style="color:#fda4af">100.00%</strong></td>
+              <td><strong>49.34% (Distinct)</strong></td>
+              <td><span class="badge badge-rose">NO — Already Scored (Historic Best)</span></td>
+            </tr>
+            <tr>
+              <td><strong>GEMSDOE33</strong></td>
+              <td><a href="https://github.com/buffedlizard55-lab/GEMSDOE33/raw/main/docs/downloads/GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e.tif"><code>GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e.tif</code></a></td>
+              <td><code>ORGANIZER-CONFIRMED (0.2632; owner-logged)</code></td>
+              <td>41,865</td>
+              <td><strong style="color:#fda4af">99.71%</strong></td>
+              <td>53.97% (Distinct)</td>
+              <td><span class="badge badge-rose">NO — Already Scored &amp; H19-5 Duplicate</span></td>
+            </tr>
+            <tr>
+              <td><strong>GEMSDOE36</strong></td>
+              <td><a href="https://github.com/buffedlizard55-lab/GEMSDOE36/raw/main/docs/downloads/gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif"><code>gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif</code></a></td>
+              <td><code>ORGANIZER-CONFIRMED (0.2750; owner-logged)</code></td>
+              <td>38,854</td>
+              <td><strong style="color:#fda4af">97.75%</strong></td>
+              <td>50.13% (Distinct)</td>
+              <td><span class="badge badge-rose">NO — 97.6% Overlap vs GEMSDOE32 B2</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- TABLE C: FLAGGED IRREGULARITIES -->
+    <section class="section">
+      <h2>4. Flagged Irregularities &amp; Leakage Mitigations (<code>IR-SASS2-01..09</code>)</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Category</th>
+              <th>Verified Finding</th>
+              <th>Active Mitigation in <code>GEMSDOESASS2</code></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>IR-SASS2-01</code></td>
+              <td>Target Leakage</td>
+              <td><code>gdr_wellspring_in_footprint.csv</code> contains precomputed <code>dist_known_fault_px</code> against full <code>labels.tif</code>.</td>
+              <td>Stripped in <code>src/gems_sass2/features.py</code> and locked via <code>pytest</code> unit test.</td>
+            </tr>
+            <tr>
+              <td><code>IR-SASS2-02</code></td>
+              <td>Target Leakage</td>
+              <td><code>sb_slip_tendency_in_footprint.csv</code> vertices lie directly on INGENIOUS fault polylines (84.6% ≤ 300 m).</td>
+              <td>Excluded completely from manifest and feature pipeline.</td>
+            </tr>
+            <tr>
+              <td><code>IR-SASS2-03</code></td>
+              <td>Duplicate Lineage</td>
+              <td>All 9 historic winners (0.2449–0.2778) share 97.8%–100.0% 3-px overlap with <code>H19-5</code>; <code>GEMSDOE25</code> &amp; <code>30</code> are exact in-footprint clones.</td>
+              <td>Trained from scratch with zero prior submission inputs; audited against 451 unique rasters (max 68.27% ≤ 70%).</td>
+            </tr>
+            <tr>
+              <td><code>IR-SASS2-04</code></td>
+              <td><code>d_vis = 0</code> Collapse</td>
+              <td>Training positives sit on <code>visible</code> (<code>d_vis = 0</code>) while evaluation pixels lie at <code>d_vis &gt; 2 px</code>.</td>
+              <td>Exact 6-bit binary bit-plane leave-self-component-out distance + <code>eff_dist ≥ 4.5 px</code> clamp.</td>
+            </tr>
+            <tr>
+              <td><code>IR-SASS2-05</code></td>
+              <td>Domain Shift</td>
+              <td>54.51% of withheld pixels in <code>buffered_component_draw</code> lie ≤ 1 km of visible faults vs 49.2% &gt; 2 km in live <code>0.2778</code>.</td>
+              <td>Dual evaluation on both buffered component holdout (<em>N</em>=11,321) and 8 km blind quadrants (<em>N</em>=60,988).</td>
+            </tr>
+            <tr>
+              <td><code>IR-SASS2-06</code></td>
+              <td>Portal <code>[0, 1]</code> Trap</td>
+              <td><code>training_features.tif</code> uses <code>-3.4e38</code> sentinels; outside-footprint NaNs risk portal range rejection.</td>
+              <td>All-finite <code>float32</code> <code>[0.0, 1.0]</code> export (<code>nodata=None</code>, <code>0.0</code> outside footprint, 12,279,160 finite pixels).</td>
+            </tr>
+            <tr>
+              <td><code>IR-SASS2-07</code></td>
+              <td>Live Leaderboard</td>
+              <td>Prompt cited <code>0.4413</code>; live 2026-10-27 verification shows #1 <code>xiaofanhu = 0.4544</code> and #5 cutoff <code>0.3566</code>.</td>
+              <td>Both benchmarks transparently cited with verification date and URL.</td>
+            </tr>
+            <tr>
+              <td><code>IR-SASS2-08</code></td>
+              <td>Post-Mask Handicap</td>
+              <td>Scoring a full-catalogue <em>B</em>=2 submission <code>.tif</code> retrospectively on holdout zeros 0–200 m around withheld truth.</td>
+              <td>Table A reports fold-proper OOF <code>HOLDOUT-DTI</code> (masked only against <code>visible</code>) from each repo's Run Card.</td>
+            </tr>
+            <tr>
+              <td><code>IR-SASS2-09</code></td>
+              <td>Sibling State Drift</td>
+              <td><code>GEMSDOE30</code> HEAD has 7.11M NaNs &amp; no Run Card; <code>GEMSDOE28</code> S22c is unbuffered; <code>GEMSDOE36</code> splits README vs site card.</td>
+              <td>Documented individually in Table A; <code>GEMSDOESASS2</code> provides a clean, single-source promoted deliverable.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div><a href="index.html">← Back to Submission Hub &amp; Download</a></div>
+      <div><a href="forensics-and-methodology.html">Continue to 0.2778 PhD Forensics &amp; HVFD Methodology →</a></div>
+    </footer>
+  </main>
+</body>
+</html>

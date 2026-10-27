@@ -1,0 +1,164 @@
+{
+  "protocol_version": "GEMSDOESASS2-PARALLEL-RUN-v2.0",
+  "generated_at_utc": "2026-10-27T13:50:44Z",
+  "repository": "sassnarep3-star/GEMSDOESASS2",
+  "branch": "arena/ea31206d-gemsdoesass2",
+  "experiments_used": 3,
+  "experiments_budget_max": 3,
+  "runtime_seconds": 506.01,
+  "hypothesis_id": "H-SASS2-1 (incorporating H-SASS2-2 & H-SASS2-3)",
+  "hypothesis": "Hydrothermal Vent-Fault Coupled Dual-Population Synthesis (HVFD-HydroCollinear): fusing a 48-channel zero-catalogue hydrothermal/piedmont/potential-field multi-scale spatial pyramid LOQO detector (Expert A) with an exact bit-plane leave-self-component-out fracture-tip, dilational wing-crack, en-echelon relay-bridge, and orphan-vent LOQO detector (Expert B), sharpened by a 500 m 8-azimuth line-integral strike-collinearity + hydrothermal/geophysical corridor prior and exact R=300 m (3.05 px) kernel-spaced allocation outside the B=2 px zero-credit catalogue collar.",
+  "mechanism": "Permeable unmapped Quaternary/active geothermal faults express via two complementary physical regimes: (1) blind range-front/intrabasin upflow corridors exhibiting magnetite-destruction demagnetization troughs (TMI_up150 - RTP_HP on gravity edges), K/Th metasomatism, MT shallow clay-cap gradients, GDR thermal springs/geothermometers/2m-probes/paleo-sinter mounds, and piedmont break-in-slope + fluvial chi-knickzones; and (2) off-catalogue along-strike crack-tip propagation lobes and multi-component relay step-overs.",
+  "named_non_fault_process_mimic": "Convex erosional mountain ridge crests (-Laplacian(det_elev) at high Height-Above-Basin-Floor), highway/railroad cut-and-fill embankments (US Census TIGER/Line road prisms), felsic volcanic tuffs, and non-tectonic evaporitic playa brines.",
+  "leakage_canary": {
+    "n_features_tested": 54,
+    "auc_limit": 0.9,
+    "max_single_feature_symmetric_auc": 0.78508,
+    "max_auc_feature": "m01_xcomp_dist",
+    "dist_known_fault_px_stripped": true,
+    "passed": true
+  },
+  "holdout_dti": {
+    "primary_label": "HOLDOUT-DTI (gems57-pooled-hide-v2, N=11321, 95% CI [0.10255, 0.13426]): 0.11842",
+    "evaluator_version": "gems57-pooled-hide-v2",
+    "n_withheld_positives": 11321,
+    "dti": 0.11842,
+    "ci95": [
+      0.10255,
+      0.13426
+    ],
+    "comparators": {
+      "random_37654": {
+        "dti": 0.0486,
+        "ci95": [
+          0.04273,
+          0.05366
+        ]
+      },
+      "single_slope": {
+        "dti": 0.02818,
+        "ci95": [
+          0.01895,
+          0.03847
+        ]
+      },
+      "fair_h33": {
+        "dti": 0.09609,
+        "ci95": [
+          0.08334,
+          0.10934
+        ]
+      },
+      "EXP1_zero_cat_hydro_piedmont": {
+        "dti": 0.09918,
+        "ci95": [
+          0.08268,
+          0.11493
+        ]
+      },
+      "EXP2_hvfd_dual_population": {
+        "dti": 0.11639,
+        "ci95": [
+          0.0986,
+          0.13393
+        ]
+      }
+    },
+    "paired_gain_vs_fair_h33": {
+      "delta": 0.02234,
+      "ci95": [
+        0.0103,
+        0.03477
+      ]
+    },
+    "zero_context_blind_quadrant_8km": {
+      "label": "HOLDOUT-DTI (gems57-pooled-hide-v2 on spatial.folds buffer_px=80, N=60988, 95% CI [0.15434, 0.19659]): 0.17630",
+      "dti": 0.1763,
+      "ci95": [
+        0.15434,
+        0.19659
+      ],
+      "single_slope_blind_dti": 0.04104,
+      "random_37654_blind_dti": 0.01738
+    }
+  },
+  "correlation_and_overlap_vs_registry": {
+    "unique_registry_rasters_checked": 451,
+    "total_registry_tif_files_scanned": 542,
+    "max_pre_placement_spearman": 0.21786,
+    "max_pre_placement_spearman_file": "gems76-geophys-cataloguefree-rank-gate1-20261021.tif",
+    "max_post_placement_spearman": 0.0654,
+    "max_discrete_3px_dot_overlap": 0.68266,
+    "max_discrete_3px_overlap_file": "gems10-h28-dotted-ridge-20260928T020256236880Z-6452ae1d00.tif",
+    "max_symmetric_3px_overlap_all": 0.55211,
+    "byte_and_pixel_unique": true,
+    "all_uniqueness_gates_passed": true
+  },
+  "raster_filename": "gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif",
+  "raster_path": "docs/downloads/gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif",
+  "zip_filename": "gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.zip",
+  "raster_sha256": "5435b141398517eb44ea507e6da430c761ea5b670ac338aada5be40ca1fc6750",
+  "zip_sha256": "c814db0c69d6e044060ab85e2a4eea5c08cb3ea775ea4903af8bc0082765fc01",
+  "raster_bytes": 140692,
+  "emitted_positive_pixels": 37654,
+  "validator_output": {
+    "file": "/home/user/GEMSDOESASS2/docs/downloads/gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif",
+    "bytes": 140692,
+    "sha256": "5435b141398517eb44ea507e6da430c761ea5b670ac338aada5be40ca1fc6750",
+    "meta": {
+      "crs": "EPSG:32611",
+      "shape": [
+        3730,
+        3292
+      ],
+      "dtype": "float32",
+      "count": 1,
+      "nodata": null,
+      "transform": [
+        100.0,
+        0.0,
+        243350.0,
+        0.0,
+        -100.0,
+        4508550.0
+      ],
+      "profile_compress": "deflate"
+    },
+    "band_description": [
+      null
+    ],
+    "n_finite": 12279160,
+    "n_nan": 0,
+    "n_infinite": 0,
+    "min": 0.0,
+    "max": 1.0,
+    "mean": 0.0030664964579045773,
+    "emitted_positive_pixels": 37654,
+    "checks": {
+      "single_band": true,
+      "dtype_float32": true,
+      "dimensions_3730x3292": true,
+      "crs_epsg_32611": true,
+      "transform_matches_sample_submission": true,
+      "no_nan_anywhere": true,
+      "no_inf_anywhere": true,
+      "no_sentinel_values": true,
+      "range_0_1_guaranteed": true,
+      "min_ge_0": true,
+      "max_le_1": true,
+      "in_footprint_all_finite": true,
+      "in_footprint_range_0_1": true,
+      "outside_footprint_zero": true,
+      "zero_dots_on_mapped_catalogue": true
+    },
+    "all_checks_passed": true,
+    "validation_class": "local format/range preflight; not organizer acceptance or uniqueness clearance",
+    "on_catalogue_positive_pixels": 0,
+    "in_footprint_positive_pixels": 37654,
+    "footprint_fraction": 0.007286874781441169
+  },
+  "submission_name": "GEMSDOESASS2-HVFD-EXP3-HYDROCOLLINEAR-37654-fc98343e",
+  "submission_note": "GEMSDOESASS2 hvfd-exp3-hydrocollinear LOQO B=2 37654px HOLDOUT-DTI=0.1184 blind8km=0.1763 max3pxOv=68.3%",
+  "submission_note_chars": 104,
+  "verdict": "promote"
+}

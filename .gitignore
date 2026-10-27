@@ -1,0 +1,14 @@
+.venv/
+.cache/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+data/raw/
+data/bridge/
+data/external/
+data/scored/
+*.part-*
+*.npy
+*.npz
+*.mmap

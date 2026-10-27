@@ -1,0 +1,402 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-10-27T12:46:36Z",
+  "elapsed_sec": 149.36,
+  "grid_shape": [
+    3730,
+    3292
+  ],
+  "footprint_pixels": 5167373,
+  "outside_footprint_pixels": 7111787,
+  "existing_fault_pixels": 60988,
+  "n_static_features": 48,
+  "catalogue_inputs_used": 0,
+  "dist_known_fault_px_stripped": true,
+  "all_finite": true,
+  "features": [
+    {
+      "index": 0,
+      "name": "f01_det_elev_slope",
+      "mean": 0.47028,
+      "std": 1.07001,
+      "min": -0.4817,
+      "max": 7.5691
+    },
+    {
+      "index": 1,
+      "name": "f02_piedmont_break_inflection",
+      "mean": 0.42579,
+      "std": 1.08621,
+      "min": -0.5166,
+      "max": 8.0
+    },
+    {
+      "index": 2,
+      "name": "f03_height_above_basin_floor",
+      "mean": -0.1761,
+      "std": 0.90655,
+      "min": -2.8489,
+      "max": 1.9273
+    },
+    {
+      "index": 3,
+      "name": "f04_ridge_crest_convexity_deconf",
+      "mean": -0.0264,
+      "std": 3.08243,
+      "min": -8.0,
+      "max": 8.0
+    },
+    {
+      "index": 4,
+      "name": "f05_lrm_openness_100m",
+      "mean": 0.64453,
+      "std": 1.58484,
+      "min": -0.484,
+      "max": 8.0
+    },
+    {
+      "index": 5,
+      "name": "f06_topo10_slope_std",
+      "mean": 0.35142,
+      "std": 0.96473,
+      "min": -0.568,
+      "max": 3.9405
+    },
+    {
+      "index": 6,
+      "name": "f07_topo10_curv_prof",
+      "mean": 0.44381,
+      "std": 1.17152,
+      "min": -0.5917,
+      "max": 5.4197
+    },
+    {
+      "index": 7,
+      "name": "f08_topo10_lineament_coh",
+      "mean": 0.40394,
+      "std": 1.02287,
+      "min": -0.561,
+      "max": 5.4944
+    },
+    {
+      "index": 8,
+      "name": "f09_chi_knick_step",
+      "mean": 0.72431,
+      "std": 2.29562,
+      "min": 0.0,
+      "max": 8.0
+    },
+    {
+      "index": 9,
+      "name": "f10_chi_ksn",
+      "mean": 1.18052,
+      "std": 2.83734,
+      "min": 0.0,
+      "max": 8.0
+    },
+    {
+      "index": 10,
+      "name": "f11_lidar_scarp_step",
+      "mean": 0.16452,
+      "std": 1.08473,
+      "min": -1.8996,
+      "max": 5.1207
+    },
+    {
+      "index": 11,
+      "name": "f12_lidar_polarity_coh",
+      "mean": 0.6557,
+      "std": 1.94063,
+      "min": -0.8379,
+      "max": 8.0
+    },
+    {
+      "index": 12,
+      "name": "f13_road_safe_weight",
+      "mean": -1.58517,
+      "std": 2.94207,
+      "min": -8.0,
+      "max": 0.0
+    },
+    {
+      "index": 13,
+      "name": "f14_hydro_temp_near",
+      "mean": 1.80497,
+      "std": 3.20203,
+      "min": 0.0,
+      "max": 8.0
+    },
+    {
+      "index": 14,
+      "name": "f15_hydro_geotherm_reservoir",
+      "mean": 1.85614,
+      "std": 3.27351,
+      "min": 0.0,
+      "max": 8.0
+    },
+    {
+      "index": 15,
+      "name": "f16_probe_2m_f2mdab",
+      "mean": 1.37385,
+      "std": 2.94831,
+      "min": 0.0,
+      "max": 8.0
+    },
+    {
+      "index": 16,
+      "name": "f17_paleo_sinter_tufa",
+      "mean": 0.89581,
+      "std": 2.43568,
+      "min": 0.0,
+      "max": 8.0
+    },
+    {
+      "index": 17,
+      "name": "f18_mt_cond_surf",
+      "mean": -0.05701,
+      "std": 1.14522,
+      "min": -4.9464,
+      "max": 3.8279
+    },
+    {
+      "index": 18,
+      "name": "f19_mt_cond_grad",
+      "mean": 1.22464,
+      "std": 2.26159,
+      "min": -0.0213,
+      "max": 8.0
+    },
+    {
+      "index": 19,
+      "name": "f20_rad_k_th_ratio",
+      "mean": 0.0005,
+      "std": 0.98136,
+      "min": -5.7928,
+      "max": 5.3277
+    },
+    {
+      "index": 20,
+      "name": "f21_rad_alteration_edge",
+      "mean": 0.22541,
+      "std": 1.20271,
+      "min": -1.9723,
+      "max": 8.0
+    },
+    {
+      "index": 21,
+      "name": "f22_hydro_demag_trough",
+      "mean": 1.10073,
+      "std": 1.95369,
+      "min": 0.0,
+      "max": 8.0
+    },
+    {
+      "index": 22,
+      "name": "f23_vent_conduit_bridge",
+      "mean": 0.39836,
+      "std": 1.06018,
+      "min": -0.4909,
+      "max": 4.2534
+    },
+    {
+      "index": 23,
+      "name": "f24_iso_grav_hg",
+      "mean": -0.02108,
+      "std": 1.1771,
+      "min": -8.0,
+      "max": 7.4056
+    },
+    {
+      "index": 24,
+      "name": "f25_iso_grav_vg",
+      "mean": 0.00906,
+      "std": 1.20235,
+      "min": -8.0,
+      "max": 8.0
+    },
+    {
+      "index": 25,
+      "name": "f26_grav_tilt_grad",
+      "mean": 0.78572,
+      "std": 2.08681,
+      "min": -0.4672,
+      "max": 8.0
+    },
+    {
+      "index": 26,
+      "name": "f27_rtp_hp",
+      "mean": 0.0449,
+      "std": 2.29472,
+      "min": -8.0,
+      "max": 8.0
+    },
+    {
+      "index": 27,
+      "name": "f28_tmi_hg",
+      "mean": 0.63842,
+      "std": 1.68545,
+      "min": -0.6954,
+      "max": 8.0
+    },
+    {
+      "index": 28,
+      "name": "f29_mag_tilt_edge",
+      "mean": 0.5255,
+      "std": 1.508,
+      "min": -0.7673,
+      "max": 8.0
+    },
+    {
+      "index": 29,
+      "name": "f30_depth_to_base",
+      "mean": 0.46516,
+      "std": 1.45728,
+      "min": -0.7354,
+      "max": 8.0
+    },
+    {
+      "index": 30,
+      "name": "f31_basement_step_grad",
+      "mean": 0.58649,
+      "std": 1.71398,
+      "min": -0.8464,
+      "max": 8.0
+    },
+    {
+      "index": 31,
+      "name": "f32_gallardo_meju_coupling",
+      "mean": 0.45103,
+      "std": 1.33572,
+      "min": -0.6456,
+      "max": 8.0
+    },
+    {
+      "index": 32,
+      "name": "f33_multiphysics_strike_consensus",
+      "mean": 0.03644,
+      "std": 0.87617,
+      "min": -1.8948,
+      "max": 1.8675
+    },
+    {
+      "index": 33,
+      "name": "f34_anderson_transtension_fav",
+      "mean": 0.22922,
+      "std": 0.92664,
+      "min": -1.2016,
+      "max": 2.7229
+    },
+    {
+      "index": 34,
+      "name": "f35_geod_strain_2ndinv",
+      "mean": 0.07614,
+      "std": 0.76368,
+      "min": -0.8627,
+      "max": 3.4521
+    },
+    {
+      "index": 35,
+      "name": "f36_geod_dilatation_seis",
+      "mean": 0.2949,
+      "std": 1.26763,
+      "min": -3.1849,
+      "max": 6.1371
+    },
+    {
+      "index": 36,
+      "name": "f37_ctx_slope_s3",
+      "mean": 0.33739,
+      "std": 0.89218,
+      "min": -0.5748,
+      "max": 4.192
+    },
+    {
+      "index": 37,
+      "name": "f38_ctx_slope_s9",
+      "mean": 0.23669,
+      "std": 0.86533,
+      "min": -0.74,
+      "max": 3.5383
+    },
+    {
+      "index": 38,
+      "name": "f39_ctx_break_s4",
+      "mean": 0.09052,
+      "std": 0.76269,
+      "min": -0.8147,
+      "max": 5.0079
+    },
+    {
+      "index": 39,
+      "name": "f40_ctx_topo10_s3",
+      "mean": 0.14949,
+      "std": 0.7588,
+      "min": -0.7853,
+      "max": 3.506
+    },
+    {
+      "index": 40,
+      "name": "f41_ctx_topo10_s9",
+      "mean": 0.08773,
+      "std": 0.76354,
+      "min": -0.9798,
+      "max": 2.887
+    },
+    {
+      "index": 41,
+      "name": "f42_ctx_lidar_s4",
+      "mean": 0.19335,
+      "std": 1.03898,
+      "min": -2.2106,
+      "max": 5.4186
+    },
+    {
+      "index": 42,
+      "name": "f43_ctx_chi_s5",
+      "mean": 0.24513,
+      "std": 1.03606,
+      "min": -0.8739,
+      "max": 7.8921
+    },
+    {
+      "index": 43,
+      "name": "f44_ctx_grav_hg_s5",
+      "mean": -0.02318,
+      "std": 1.16405,
+      "min": -5.5615,
+      "max": 6.571
+    },
+    {
+      "index": 44,
+      "name": "f45_ctx_tmi_hg_s5",
+      "mean": 0.45708,
+      "std": 1.27155,
+      "min": -0.7777,
+      "max": 7.3259
+    },
+    {
+      "index": 45,
+      "name": "f46_ctx_base_step_s6",
+      "mean": 0.56347,
+      "std": 1.66735,
+      "min": -0.9124,
+      "max": 8.0
+    },
+    {
+      "index": 46,
+      "name": "f47_ctx_mp_order_s4",
+      "mean": 0.06281,
+      "std": 0.89357,
+      "min": -2.1501,
+      "max": 2.5277
+    },
+    {
+      "index": 47,
+      "name": "f48_ctx_demag_s5",
+      "mean": 0.48751,
+      "std": 1.24918,
+      "min": -0.4965,
+      "max": 6.6884
+    }
+  ]
+}
