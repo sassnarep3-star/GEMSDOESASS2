@@ -1,0 +1,41 @@
+name: Verify pinned audit
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Install numerical and raster dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Fetch hash-pinned public inputs and shared modules
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/fetch_inputs.py
+      - name: Recompute and compare published evidence
+        run: |
+          python scripts/verify_evidence.py
+          python scripts/audit_concurrent.py --verify
+      - name: Check saved-byte preflight on two historical encodings
+        run: |
+          python scripts/check_geotiff.py .cache/inputs/kpl36.tif > /dev/null
+          python scripts/check_geotiff.py .cache/inputs/gemsdoe31.tif > /dev/null
+      - name: Test edge cases
+        run: python -m pytest -q
+      - name: Check generated HTML is up to date
+        run: |
+          python scripts/build_site.py
+          git diff --exit-code -- index.html docs/executive-summary.html docs/research.html docs/sources.html docs/research/audit.html docs/research/hypotheses.html docs/research/sources.html docs/research/concurrent-main.html

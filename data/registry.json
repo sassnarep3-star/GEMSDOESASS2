@@ -1,0 +1,8 @@
+{
+  "schema": "gems-registry-snapshot-v1",
+  "repo": "buffedlizard55-lab/57GEMSDOE",
+  "ref": "822a0ce5546c7b6749cdd82eb145b6b3e616603d",
+  "path": "evidence/registry_refreshed.json",
+  "sha256": "846eddb9459f0e5b67f33da519bbd62c966bf5f539545ba3dad262fbfbc308c2",
+  "note": "Historical accessible-owner inventory, not a complete or current organizer registry. Used only to verify witness membership."
+}

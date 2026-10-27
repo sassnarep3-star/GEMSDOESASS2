@@ -1,0 +1,96 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Concurrent candidate recheck — source and audit details."><title>Concurrent candidate recheck · GEMS Fieldnote</title><link rel="stylesheet" href="../../assets/site.css">
+    <script defer src="../../assets/site.js"></script></head><body><a class="skip" href="#main">Skip to content</a><header class="site-header"><div class="wrap nav">
+      <a class="brand" href="../../index.html"><span class="brand-mark">G</span><span>GEMS FIELDNOTE<small>DISCOVERY RESEARCH</small></span></a>
+      <nav class="nav-links" aria-label="Main navigation"><a href="../../index.html">Overview</a><a href="../../docs/executive-summary.html">Executive summary</a><a href="../../docs/research.html" aria-current="page">Research</a><a href="../../docs/sources.html">Sources</a></nav><div class="nav-end">Evidence first</div></div></header><main id="main"><div class="subhero"><div class="wrap"><div class="section-label">Evidence / Parallel sessions</div>
+      <h1>Concurrent candidate recheck</h1><p>Auditable detail from the pinned research record.</p></div></div>
+      <div class="wrap article prose"><p><a href="../research.html">← Back to research overview</a></p><p><strong>Decision: DO NOT SUBMIT any of these files under the unchanged literal
+parallel-run protocol.</strong> Another session merged three candidate families into
+<code>main</code> while this audit was underway. We did not generate, train, rescore or
+submit them. We reopened their exact zero-filled TIFF bytes from immutable
+commit <a href="https://github.com/sassnarep3-star/GEMSDOESASS2/tree/4a88f3750933e3e147312bf2a6d220f777103574"><code>4a88f375</code></a>,
+then compared their positive pixels against the registered witnesses using the
+unchanged shared-template geometry. The evidence and hashes are in
+<a href="../../evidence/concurrent-main-audit.json"><code>evidence/concurrent-main-audit.json</code></a>.</p>
+<div class="table-box" tabindex="0" role="region" aria-label="Evidence table; scroll horizontally"><table>
+<thead>
+<tr>
+<th>Prior-session candidate</th>
+<th style="text-align: right;">Positive pixels</th>
+<th style="text-align: right;">Within 3 px of the registered lattice</th>
+<th style="text-align: right;">Literal dense-surface overlap</th>
+<th>Decision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SCU1 (<code>0ab88d8a…</code>)</td>
+<td style="text-align: right;">37,000</td>
+<td style="text-align: right;">99.8514%</td>
+<td style="text-align: right;">100%</td>
+<td>STOP</td>
+</tr>
+<tr>
+<td>TTC-A1 (<code>b8be5398…</code>)</td>
+<td style="text-align: right;">37,654</td>
+<td style="text-align: right;">99.9549%</td>
+<td style="text-align: right;">100%</td>
+<td>STOP</td>
+</tr>
+<tr>
+<td>ASS2-ALEDGE (<code>cc854482…</code>)</td>
+<td style="text-align: right;">44,090</td>
+<td style="text-align: right;">99.3241%</td>
+<td style="text-align: right;">100%</td>
+<td>STOP</td>
+</tr>
+</tbody>
+</table></div>
+<p>The strict stop is <strong>greater than 70%</strong> of candidate dots within three pixels
+of <em>any</em> registered raster. The lattice is a genuine dot pattern. The separate
+dense-surface result is conditional on the shared template's literal
+finite-positive support definition; whether a continuous raster should count
+as “dots” is a protocol question, not an exemption we can invent. Pairwise
+comparison of only these three or the nine highlighted sites does not satisfy
+the all-registry rule. Neither their surfaces nor a complete current registry
+were independently checked in this audit; the positive witness suffices to
+stop, not to certify the remaining comparisons.</p>
+<p>All three zero-filled files reopened as single-band float32 on the
+<strong>owner-mirrored</strong> sample grid and their stored values were finite in [0,1].
+The zero-filled outside-footprint cells are not marked null. These are local
+format observations, not organizer acceptance and not a diagnosis of the
+previous range error. Their NaN-outside variants were not rechecked here.</p>
+<h2>Why the earlier green release claims are not sufficient</h2>
+<ul>
+<li>The <a href="https://github.com/sassnarep3-star/GEMSDOESASS2/blob/4a88f3750933e3e147312bf2a6d220f777103574/evidence/run_card.json">SCU1 prior card</a>
+  reports a maximum overlap against its <strong>12 listed focus comparisons</strong>, not
+  the registered lattice and dense witness above. Its “unique” and “OK to
+  submit” wording is therefore too broad. The related
+  <a href="https://github.com/sassnarep3-star/GEMSDOESASS2/blob/4a88f3750933e3e147312bf2a6d220f777103574/registry/registry_manifest.json">registry manifest</a>
+  does not establish a complete current registry.</li>
+<li>The prior SCU1 card reports <strong>OWNER-REPORTED HOLDOUT-DTI</strong> on evaluator
+  <code>GEMSDOESASS2-HRv1</code>, 60,289 withheld positives: visible-only mean 0.01632,
+  stated 95% interval [0.01076, 0.02271], versus a fixed submitted champion
+  mean 0.00473, stated interval [0.00401, 0.00553]. We did not rerun these
+  numbers. The <a href="https://github.com/sassnarep3-star/GEMSDOESASS2/blob/4a88f3750933e3e147312bf2a6d220f777103574/scripts/run_pipeline.py#L107-L121">code</a>
+  rebuilds the candidate from visible faults but keeps the champion fixed,
+  and the <a href="https://github.com/sassnarep3-star/GEMSDOESASS2/blob/4a88f3750933e3e147312bf2a6d220f777103574/src/gems/holdout.py#L58-L80">evaluator</a>
+  averages per-fold DTI values and interval endpoints. This is not the
+  requested pooled-component, paired shared-template comparison. These
+  intervals are prior author claims, not independently validated CIs or
+  evidence of a leaderboard improvement.</li>
+<li>The <a href="https://github.com/sassnarep3-star/GEMSDOESASS2/blob/4a88f3750933e3e147312bf2a6d220f777103574/evidence/ttc_run_card_d8f85365.json">TTC-A1 card</a>
+  describes its cited holdout as <strong>simulated</strong>. It cannot be treated as an
+  actual holdout result or organizer receipt.</li>
+<li>The <a href="https://github.com/sassnarep3-star/GEMSDOESASS2/blob/4a88f3750933e3e147312bf2a6d220f777103574/registry/run_card.json">ASS2-ALEDGE card</a>
+  itself records a negative decision and a paired proxy interval crossing
+  zero, and explicitly acknowledges that its comparison was limited to the
+  focus champions. Our lattice recheck supplies an independent stop as well.</li>
+</ul>
+<p>The prior work, byte files, methods and records remain in Git history and the
+repository; this audit corrects the present release status, not the past
+experimental record. It does not establish that a future, scientifically
+validated candidate is impossible if the ambiguous registry protocol is
+explicitly resolved.</p></div></main><footer class="footer"><div class="wrap footer-inner"><p>GEMS FIELDNOTE · Independent research, not an organizer website.</p>
+      <div><a href="../../evidence/run-card.json">Run card</a><a href="../../evidence/portfolio-audit.json">Audit JSON</a>
+      <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/">DrivenData ↗</a></div></div></footer></body></html>

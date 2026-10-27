@@ -1,0 +1,96 @@
+{
+  "file": ".cache/inputs/gemsdoe31.tif",
+  "sha256": "07b6db440535404bb41ec8ddc797713e200d308e3da35937393efde5eb84bc40",
+  "candidate_dataset_files": [
+    ".cache/inputs/gemsdoe31.tif"
+  ],
+  "sample_sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+  "reference_dataset_files": [
+    {
+      "path": "/home/user/GEMSDOESASS2/.cache/inputs/sample.tif",
+      "sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc"
+    }
+  ],
+  "reference_footprint_cells": 5167373,
+  "reference_outside_cells": 7111787,
+  "grid_authority": "matches supplied reference only; official origin must be established separately",
+  "checks": {
+    "driver_is_geotiff": true,
+    "standalone_geotiff": true,
+    "one_band": true,
+    "float32": true,
+    "identity_scale_offset": true,
+    "crs_matches_reference": true,
+    "shape_matches_reference": true,
+    "transform_matches_reference": true,
+    "epsg_32611": true,
+    "finite_values_in_0_1": true,
+    "no_infinity_anywhere": true,
+    "no_nan_anywhere": false,
+    "inside_finite_and_in_0_1": true,
+    "inside_valid_mask": true,
+    "candidate_bytes_stable_during_validation": true,
+    "reference_files_stable_during_validation": true
+  },
+  "outside_footprint_marked_null_or_nan": true,
+  "outside_note": "The public spec says null/NaN outside bounds; whether the irregular footprint is intended as bounds and how the portal handles masks are unverified.",
+  "finite_min": 0.0,
+  "finite_max": 1.0,
+  "nan_count": 7111787,
+  "inf_count": 0,
+  "scientific_or_novelty_approval": false,
+  "weekly_slot_authorized": false,
+  "organizer_acceptance": "unknown",
+  "shared_template_local_format": {
+    "path": ".cache/inputs/gemsdoe31.tif",
+    "bytes": 199214,
+    "sha256": "07b6db440535404bb41ec8ddc797713e200d308e3da35937393efde5eb84bc40",
+    "bands": 1,
+    "dtype": "float32",
+    "crs": "EPSG:32611",
+    "width": 3292,
+    "height": 3730,
+    "bounds": [
+      243350.0,
+      4135550.0,
+      572550.0,
+      4508550.0
+    ],
+    "ref_bounds": [
+      243350.0,
+      4135550.0,
+      572550.0,
+      4508550.0
+    ],
+    "transform": [
+      100.0,
+      0.0,
+      243350.0,
+      0.0,
+      -100.0,
+      4508550.0
+    ],
+    "nodata": "nan",
+    "blocksize": [
+      256,
+      256
+    ],
+    "fixture_grid": false,
+    "has_validity_mask": true,
+    "nan_pixels": 7111787,
+    "infinity_pixels": 0,
+    "n_nan": 7111787,
+    "min": 0.0,
+    "max": 1.0,
+    "mean": 0.007779388222843409,
+    "n_nonzero": 40199,
+    "mass": 40199.0,
+    "mass_outside_footprint": 0,
+    "problems": [
+      "7111787 NaN/infinite pixels: fail our all-finite export policy (public spec permits outside-footprint NaN)",
+      "nodata tag outside all-finite [0,1] export policy"
+    ],
+    "ok": false,
+    "validation_class": "local on-disk template/range check; not organizer upload acceptance"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "schema": "gems-owner-mirror-v1",
+  "repo": "buffedlizard55-lab/GEMSDOE",
+  "ref": "c0c06ac82178f26b94fce3397036ef8f12a2f3a0",
+  "parts": [
+    "data/bridge/gems-geodawn-numerical-features.tif.part-000",
+    "data/bridge/gems-geodawn-numerical-features.tif.part-001",
+    "data/bridge/gems-geodawn-numerical-features.tif.part-002",
+    "data/bridge/gems-geodawn-numerical-features.tif.part-003",
+    "data/bridge/gems-geodawn-numerical-features.tif.part-004"
+  ],
+  "bytes": 418912844,
+  "sha256": "4371c82e3b8339b807bdffcf4ef59a225520fe2988d521be208ae33743123bc5",
+  "provenance": "Public owner mirror, not an organizer-authenticated download. This is raw input, NOT the required shared prepared feature cache."
+}

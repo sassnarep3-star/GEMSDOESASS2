@@ -1,0 +1,78 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Proposed hypotheses, ranked — source and audit details."><title>Proposed hypotheses, ranked · GEMS Fieldnote</title><link rel="stylesheet" href="../../assets/site.css">
+    <script defer src="../../assets/site.js"></script></head><body><a class="skip" href="#main">Skip to content</a><header class="site-header"><div class="wrap nav">
+      <a class="brand" href="../../index.html"><span class="brand-mark">G</span><span>GEMS FIELDNOTE<small>DISCOVERY RESEARCH</small></span></a>
+      <nav class="nav-links" aria-label="Main navigation"><a href="../../index.html">Overview</a><a href="../../docs/executive-summary.html">Executive summary</a><a href="../../docs/research.html" aria-current="page">Research</a><a href="../../docs/sources.html">Sources</a></nav><div class="nav-end">Evidence first</div></div></header><main id="main"><div class="subhero"><div class="wrap"><div class="section-label">Research / Hypothesis details</div>
+      <h1>Proposed hypotheses, ranked</h1><p>Auditable detail from the pinned research record.</p></div></div>
+      <div class="wrap article prose"><p><a href="../research.html">← Back to research overview</a></p><p><strong>Status:</strong> conceptual, unrun; none is an assigned parallel-run lane. Ranking is
+qualitative scientific judgment, <strong>not a score prediction</strong>. This repository
+started empty, so none is implemented here. Similar ideas exist in the wider
+parallel portfolio; the complete, current method registry is unavailable and
+novelty against every other session cannot be asserted.</p>
+<div class="table-box" tabindex="0" role="region" aria-label="Evidence table; scroll horizontally"><table>
+<thead>
+<tr>
+<th>Rank / expected DTI opportunity</th>
+<th>Layers and signature</th>
+<th>Why it might find catalogue-missing faults</th>
+<th>Difference / competing explanation</th>
+<th>Cost and data readiness</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 · relatively promising, uncertain</td>
+<td>Provided reduced-to-pole magnetics, isostatic gravity anomaly and detrended elevation. Compare oriented, normalized <strong>two-sided magnetic texture matches</strong> at several cross-strike offsets, require the inferred offset sign to persist with scale and be consistent with a gravity-side contrast; use elevation only as an independent, nonmandatory corroborator.</td>
+<td>A fault can displace magnetically contrasting strata even when young cover conceals its surface trace. The candidate must be derived without the withheld catalogue; the visible catalogue is used only as permitted by the fold.</td>
+<td>More specific than a single magnetic-edge or crest detector: tests a repeated, signed correspondence across the suspected trace, with a scale-stability negative control. Displaced-lag/marker work exists in sibling sites; distinction from every implementation is <strong>unverified</strong>. Mimics: a meandering depositional/lithological boundary, intrusive contact, survey leveling seam.</td>
+<td>Medium/high CPU. Layers are described by the <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/">official competition page</a>; the required prepared shared cache is not available here. Not currently runnable under the protocol. <a href="https://www.usgs.gov/publications/aeromagnetic-anomalies-over-faulted-strata">USGS magnetic-strata study</a> and <a href="https://www.usgs.gov/publications/preliminary-results-a-high-resolution-aeromagnetic-survey-identify-buried-faults-dixie">Dixie Valley case</a> motivate, but do not validate, the test.</td>
+</tr>
+<tr>
+<td>2 · moderate, uncertain</td>
+<td>GeoDAWN potassium, equivalent thorium and magnetics: robust centered log-ratio contrasts on <strong>both sides</strong> of a magnetic lineament, after conditioning on mapped lithology/cover and measurement coverage.</td>
+<td>Fault displacement or alteration could generate a compositional boundary under modest cover without a catalogue trace; a field is considered only where all inputs exist.</td>
+<td>Distinct from a bare radiometric edge by testing flank asymmetry and conditioning on composition and coverage. Other sites have tested radiometric/magnetic fusion; full method exclusivity is not known. Mimics: unfaulted bedrock contacts, sediment sorting, radon disequilibrium and survey seams.</td>
+<td>Medium/high. <a href="https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and">USGS GeoDAWN release</a> publicly lists radiometric products and CC0, and <a href="https://www.sciencebase.gov/catalog/item/657e1d85d34e23d3533209f7">ScienceBase</a> lists grids. Listing was accessed; binary files, coverage and units were <strong>not</strong> fetched or validated in this sandbox. Lithology source and licenses still need checking; <strong>data-blocked, not yet viable</strong>.</td>
+</tr>
+<tr>
+<td>3 · moderate/low, uncertain</td>
+<td>USGS 3DEP bare-earth elevation plus mapped drainage: seek repeated, similarly oriented <strong>cross-valley profile steps or stream offsets</strong>; reject steps following contours or mapped infrastructure.</td>
+<td>Small tectonic scarps on alluvial surfaces may be absent from a coarse or older fault catalogue.</td>
+<td>Requires multiple independently displaced profiles rather than thresholding one scarp or drainage line; sibling 3DEP/scarp work is extensive and exhaustive novelty is unverified. Mimics: alluvial terraces, shorelines, landslides and roads.</td>
+<td>High: tile acquisition, co-registration and negative-control masks. <a href="https://www.usgs.gov/3d-elevation-program">USGS 3DEP</a> states its products are free; coverage for the specific area has not been verified, and no binary tiles were retrieved here. <strong>Data-blocked.</strong></td>
+</tr>
+<tr>
+<td>4 · exploratory, high uncertainty</td>
+<td>GDR INGENIOUS two-metre temperature probes and spring/well geochemistry, with magnetic/gravity lineaments. Test <strong>along-line thermal/geochemical concordance</strong> against matched sampling-density and hydrogeology controls.</td>
+<td>A permeable concealed structural corridor might influence heat and fluid transport where no mapped surface trace exists.</td>
+<td>Tests a directional multi-site contrast instead of distance to a single vent; prior hydrothermal-conduit approaches exist. Mimics: groundwater mixing and lateral flow, shallow solar heating, and biased survey placement. The target remains a <em>fault</em>, not an automatically discovered vent.</td>
+<td>High; sparse and biased measurements. <a href="https://gdr.openei.org/submissions/1391">GDR 1391</a> publicly lists downloadable probes, wells and springs under CC BY 4.0; the landing page was verified, but binary packages, applicability and license for each linked dataset were not independently checked. <strong>Data-blocked.</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h2>Frozen validation plan once blockers are resolved</h2>
+<ol>
+<li>Receive one explicit method lane; verify it does not conflict with a concurrent
+   registry lane. Freeze the candidate, nuisance controls, dot budget and seeds.</li>
+<li>Restore the <strong>shared prepared feature cache</strong>, not an independently rebuilt
+   one, and use the unmodified shared <code>evaluate_holdout.py</code> and
+   <code>submission_writer.py</code>. Authenticate the official template and labels.</li>
+<li>Before placing dots, measure rank correlation and literal support overlap
+   against the complete current registry. Stop at the prescribed threshold.</li>
+<li>Hide buffered whole fault segments, rebuild every catalogue-derived feature
+   from the visible catalogue in each fold, mask visible faults pixel-exactly,
+   and evaluate each feature independently for leakage. AUC above 0.90 is a
+   leak alarm, not evidence of performance.</li>
+<li>Use pooled distance-weighted Tversky (α 0.2, β 0.8, 300 m triangular kernel)
+   and a paired spatial-block 95% confidence interval against the <strong>same
+   evaluator's</strong> frozen current best. Catalogue holdout is only a proxy for
+   newly expert-mapped faults; it is not a leaderboard score or guarantee.</li>
+<li>If and only if the pre-placement checks pass, place dots, repeat the literal
+   uniqueness test on the final saved raster, run the shared writer and
+   saved-byte validation, and emit an immutable run card. Stop at three
+   experiments or two hours; a later separate selector decides about a slot.</li>
+</ol>
+<p>No step above was executed in this preflight. Reinterpreting the dense-surface
+or lattice witnesses without a protocol change would silently weaken the rule.</p></div></main><footer class="footer"><div class="wrap footer-inner"><p>GEMS FIELDNOTE · Independent research, not an organizer website.</p>
+      <div><a href="../../evidence/run-card.json">Run card</a><a href="../../evidence/portfolio-audit.json">Audit JSON</a>
+      <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/">DrivenData ↗</a></div></div></footer></body></html>

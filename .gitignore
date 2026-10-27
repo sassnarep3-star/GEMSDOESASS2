@@ -1,0 +1,10 @@
+# Large/reproducible data and local environments never belong in the repository.
+.cache/
+.venv/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+*.egg-info/
+data/raw/
+data/prepared/
+_site/

@@ -1,0 +1,22 @@
+# Official source ledger
+
+Reviewed 2026-10-27 UTC. “Page accessed” means the page text was retrieved;
+it does not imply binary download, license verification for all linked files,
+or official authentication of an owner-mirrored asset. Links are for review.
+
+| Source | What the source supports | Access / limitations |
+|---|---|---|
+| [DrivenData problem description](https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/) | Fault prediction task; public/private splits; 100 m features; official DTI and TIFF format. | Public page accessed. Private test labels remain hidden. |
+| [DrivenData submission/known-fault clarification](https://community.drivendata.org/t/scoring-clarification-are-known-usgs-ingenious-faults-masked-when-scoring-and-are-they-in-the-final-round-label-set/11516/4) | Staff say exact known USGS/INGENIOUS fault pixels are excluded in both rounds. | Public staff post accessed; it does not say a surrounding 200 m buffer is masked. |
+| [DOE/NLR GEMS official rules, §3](https://docs.nlr.gov/docs/fy26osti/96647.pdf) | Competition format, up to three weekly feedback submissions and one final choice across both prize rounds. | Public PDF text accessed. Individual account's remaining quota is unknown; read complete current rules. |
+| [DrivenData public leaderboard](https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/) | Official public ranking; not a receipt for any file in these sites. | Public page accessed 2026-10-27. Changes over time; see the live page. |
+| [DrivenData data tab](https://www.drivendata.org/competitions/306/competition-doe-gems/data/) | Organizer-provided training features, labels and sample. | Redirected to login in this session. No account access or organizer-authenticated download. |
+| [DrivenData reference solution](https://github.com/drivendataorg/gems-prize-reference-solution) | Organizer's code baseline. | Public GitHub repository accessible. Not used as a hidden-label oracle. |
+| [USGS GeoDAWN data release](https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and) / [ScienceBase catalog](https://www.sciencebase.gov/catalog/item/657e1d85d34e23d3533209f7) | GeoDAWN acquisition and available magnetic/radiometric grids and line data. | Public pages accessed; USGS release states CC0. Specific file bytes and provenance were not downloaded/verified here. |
+| [USGS Dixie Valley aeromagnetic report](https://pubs.usgs.gov/of/2002/ofr-02-0384/ofr-02-0384_508.pdf) | High-resolution magnetics can help image concealed, poorly exposed basin faults, with interpretation limitations. | Public PDF accessed; marked preliminary by the report. Motivation, not proof for this candidate. |
+| [USGS magnetic faulted strata](https://www.usgs.gov/publications/aeromagnetic-anomalies-over-faulted-strata) | In studied basins, fault juxtaposition of magnetically differing strata can produce anomalies. | Public abstract accessed; no assertion of identical physical causes across the competition. |
+| [USGS Southern Gabbs Valley blind system](https://www.usgs.gov/publications/discovery-a-blind-geothermal-system-southern-gabbs-valley-western-nevada-through) | Multi-scale structural and geophysical evidence helped find a blind geothermal system without surface springs. | Public publication summary accessed; a single case does not calibrate competition predictions. |
+| [GDR INGENIOUS compilation](https://gdr.openei.org/submissions/1391) | Public listing of two-metre temperature probes, faults, vents, springs/wells and other regional datasets. | Landing page accessed, CC BY 4.0 attribution stated. Individual file bytes and linked dataset licenses not checked here. |
+| [USGS 3DEP](https://www.usgs.gov/3d-elevation-program) | Elevation products; page says 3DEP products are free and unrestricted. | Page accessed; geographic tile coverage and pixel data not fetched. |
+| [Shared 57GEMSDOE template, pinned](https://github.com/buffedlizard55-lab/57GEMSDOE/tree/822a0ce5546c7b6749cdd82eb145b6b3e616603d) | Owner-authored tools, not official scorer. | Retrieved unmodified code at runtime, hash-checked; reusable feature cache absent. No GitHub license was detected; check redistribution rights. |
+| [Owner-mirror input manifest](../../data/inputs.json) | Specific public bytes used in this independent audit. | Pinned hash consistency verified; **not** organizer origin, score receipt or full registry. |

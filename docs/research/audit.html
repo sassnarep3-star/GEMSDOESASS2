@@ -1,0 +1,141 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Nine-site forensic audit — source and audit details."><title>Nine-site forensic audit · GEMS Fieldnote</title><link rel="stylesheet" href="../../assets/site.css">
+    <script defer src="../../assets/site.js"></script></head><body><a class="skip" href="#main">Skip to content</a><header class="site-header"><div class="wrap nav">
+      <a class="brand" href="../../index.html"><span class="brand-mark">G</span><span>GEMS FIELDNOTE<small>DISCOVERY RESEARCH</small></span></a>
+      <nav class="nav-links" aria-label="Main navigation"><a href="../../index.html">Overview</a><a href="../../docs/executive-summary.html">Executive summary</a><a href="../../docs/research.html" aria-current="page">Research</a><a href="../../docs/sources.html">Sources</a></nav><div class="nav-end">Evidence first</div></div></header><main id="main"><div class="subhero"><div class="wrap"><div class="section-label">Evidence / Audit details</div>
+      <h1>Nine-site forensic audit</h1><p>Auditable detail from the pinned research record.</p></div></div>
+      <div class="wrap article prose"><p><a href="../research.html">← Back to research overview</a></p><p><strong>Decision: NO new submission file is approved or generated in this session.</strong>
+This review ran no geological experiments and spent no competition slots. See
+<a href="../../evidence/run-card.json"><code>evidence/run-card.json</code></a> for nulls rather than
+invented holdout scores, a raster hash, or a submission note.</p>
+<h2>Evidence and provenance</h2>
+<p>The nine history rows are the highest <em>user-listed</em> scores for each focus site,
+not a complete leaderboard scrape. They are <strong>USER/OWNER-REPORTED, UNVERIFIED</strong>:
+there is no organizer submission-page receipt binding these scores to the
+corresponding raster hashes. The byte-pinned files are owner-mirrored variants;
+a sibling variant's decoded support can be audited, but exact identity with an
+uploaded file has not been established. The reference sample/labels are also
+owner mirrors, not independently authenticated organizer files.</p>
+<p>Reproduce the measurements with <code>python scripts/fetch_inputs.py</code> followed by
+<code>python scripts/audit_portfolio.py</code>. The <a href="../../evidence/portfolio-audit.json">JSON receipt</a>
+records the pinned sources, SHA-256 hashes, grid, sample-based footprint, nine
+by nine <strong>directional</strong> dot overlaps, bounds and validator observations.
+It does <strong>not</strong> claim to enumerate the entire current registry. Individual
+witnesses are sufficient to establish a failure, not a universal uniqueness pass.
+Concurrent sessions subsequently merged additional TIFFs to main. Their exact
+bytes were independently rechecked and also fail the lattice stop; see the
+<a href="concurrent-main.html">concurrent-session review</a> and its <a href="../../evidence/concurrent-main-audit.json">machine evidence</a>.</p>
+<h2>The reported GEMSDOE32 result</h2>
+<p>The user-reported historical value <strong>0.2778</strong> is the highest among the nine
+listed claims, not an authenticated score. Reopening the pinned rasters shows:</p>
+<ul>
+<li>GEMSDOE32 H33-B2's active support is a subset of GEMSDOE31's B1 support;
+  B1 has 2,545 additional positive pixels and B2 has none outside it.</li>
+<li>GEMSDOE36's Anderson raster contains B2 and 1,200 additional positive pixels.</li>
+<li>GEMSDOE25 and GEMSDOE30 contain identical active support in this sample
+  footprint, although their TIFF bytes are different.</li>
+<li>Each selected site file exceeds the 70% directional overlap threshold against
+  at least one of the other eight selected files. They should not be presented
+  as a new independent entry.</li>
+</ul>
+<p>The <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/#performance-metric">official metric</a>
+uses a 300 m triangular distance kernel and weights false negatives more heavily
+than false positives. Removing spatially redundant predictions can lower
+false-positive mass while retaining nearby true-positive coverage. That is a
+plausible reason thinning and B2 pruning performed well, <strong>not proof</strong>: the
+hidden expert labels and score-to-file receipts are unavailable. Known-fault
+pixels, not an entire near-fault buffer, are masked according to <a href="https://community.drivendata.org/t/scoring-clarification-are-known-usgs-ingenious-faults-masked-when-scoring-and-are-they-in-the-final-round-label-set/11516/4">DrivenData
+staff</a>.
+Do not infer that all unknown faults within 200 m of a mapped fault have zero
+credit. An improvement over the reported historical value is possible, but
+no local evidence supports a numeric prediction or a claim it will happen.</p>
+<h2>Independent literal-registry stop</h2>
+<p>The shared-template gate defines support as <strong>finite prediction &gt; 0</strong>. The
+<a href="https://github.com/buffedlizard55-lab/57GEMSDOE/blob/822a0ce5546c7b6749cdd82eb145b6b3e616603d/evidence/registry_refreshed.json">pinned template's own registry</a>
+includes the <a href="https://github.com/buffedlizard55-lab/17GEMSDOE/blob/6fc71d19d49dca4960d5434bd81b6dd06fcc030a/docs/downloads/17GEMSDOE_E-proba-multiscale_20260930T044527Z.tif">17GEMSDOE continuous surface</a>.
+We re-read it on the pinned sample grid: it is positive at <strong>every</strong> finite
+footprint pixel. Under the literal support rule, any nonempty in-footprint
+dot set has 100% directional overlap within three pixels, and must stop.
+Whether continuous surfaces should be treated as dot sets is a real protocol
+ambiguity; silently exempting this entry would change the shared rule.</p>
+<p>Even if that ambiguity were explicitly resolved, the separately registered
+<a href="https://github.com/buffedlizard55-lab/GEMSDOE24/blob/07345ea0604953d7efb858d9cfbc21e20c7aca0b/inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif">pinned spacing-five lattice</a>
+leaves only 6,649 of 5,167,373 sample-footprint cells outside its three-pixel
+halo. For any N-dot set, at least <code>(N − 6649) / N</code> dots lie inside the halo
+(when N &gt; 6649). At the historically common 37,654-dot budget the lower
+bound is <strong>82.34%</strong>, so the requested <strong>&gt;70%</strong> stop is unavoidable. This bound
+by itself does not prove every smaller candidate fails. Rearranging dots solely
+to dodge the check would not establish geological discovery or a high score.</p>
+<p>Two site claims were rechecked against the actual saved bytes, not adopted as
+our release policy:</p>
+<ul>
+<li>GEMSDOE28 S22C: <strong>99.62%</strong> overlap against the lattice. Its own run card
+  notes the reported holdout was not buffered; it is not our protocol-cleared
+  candidate.</li>
+<li>GEMSDOE36 KPL-36: <strong>99.17%</strong> overlap against the lattice. Its site promotes
+  it against the nine-site subset; that is not a pass against the literal
+  expanded registry. Its own receipt also separates format from upload approval.</li>
+</ul>
+<p>These are overlap measurements, not scores. Their pre-placement surfaces
+were not retrieved or checked, and no claim of full registry coverage is made.
+The universal positive-surface witness additionally blocks each under the
+unchanged literal implementation. See the full hashes and values in the JSON.</p>
+<h2>Format and the reported range error</h2>
+<p>The official problem description requests a single-band <code>float32</code> GeoTIFF,
+EPSG:32611, 100 m resolution, the same bounds/grid as the training data, and
+probabilities in [0,1], with null/NaN outside the stated bounds. Exact
+shape/transform must be verified against the participant's organizer-provided
+sample. The error message alone does <strong>not</strong> identify which file, pixel,
+metadata or outside-footprint encoding caused the rejection.</p>
+<p><code>python scripts/check_geotiff.py FILE --sample SAMPLE</code> reopens bytes, compares
+the grid, checks finite values, NaN/Inf and [0,1] inside the reference
+footprint, reports the dataset mask, and invokes the unchanged shared-template
+validator. That validator imposes a stricter all-finite policy; an official-
+style NaN-outside file may fail that local policy. Conversely, zero-filled
+outside-footprint pixels can be all finite but are not marked null by a dataset
+mask. The official words “outside the bounds” and a nonrectangular footprint,
+and the portal's treatment of masks/NaN, have not been reconciled. Neither
+local encoding alone proves portal acceptance. No clipping or silent repair.</p>
+<p>The owner-mirrored sample has 60,988 positive pixels, all on the owner-mirrored
+catalogue, whereas the official page describes a total-absence sample. This is
+a provenance discrepancy; those bytes must not be called organizer-authenticated.</p>
+<h2>Next steps</h2>
+<p>Resolve the literal registry/surface definition explicitly; identify the one
+assigned method; obtain the intact shared prepared feature stack, a complete
+versioned current registry, and the official sample and labels; rerun the same-
+protocol best with stored paired bootstrap draws; then execute the frozen
+canaries and buffered holdout. Format validation, novelty, independent positive
+paired holdout evidence and a separate account-aware selector are all necessary.
+The <a href="https://docs.nlr.gov/docs/fy26osti/96647.pdf">rules PDF §3.4</a> describes up
+to three feedback submissions per week, but the current account quota is not
+available here. The official private test set is unavailable, as expected.</p>
+<h2>Three review passes (2026-10-27)</h2>
+<ol>
+<li><strong>Build and verify:</strong> pinned fifteen owner TIFFs, the shared template and
+   historical registry snapshot; recomputed mask geometry, directional
+   overlaps, the lattice lower bound and dense-surface witness. The registry
+   snapshot's exact membership is verified by SHA-256 and source path, but its
+   695 entries are a dated accessible-owner inventory, not the current or
+   organizer registry. Ranked four unrun, sourced hypotheses and restored the
+   optional hash-checked 19-band raw mirror without creating a prepared cache.</li>
+<li><strong>Edge-case review:</strong> fixed reference masks with finite nodata, invalid
+   in-footprint candidate masks, non-GeoTIFF/nonidentity encodings and external
+   sidecars; verify every shared-template source hash on each use. Added
+   strict-threshold, metric oracle, missing-registry, duplicate, bad-value,
+   stale-feed and no-repair tests. The novelty diagnostic stops on the first
+   failure and never confers slot approval. Improved small-text contrast and
+   keyboard access to horizontally scrollable tables.</li>
+<li><strong>Requirements re-check:</strong> retained explicit negative release and null
+   score/hash instead of presenting old files as new; distinguished the public
+   leaderboard from organizer receipts and score projections; rechecked the
+   official format, exact known-fault masking and challenge deadline. The
+   desktop (1440 px) and mobile (390 px) pages loaded without runtime errors,
+   horizontal document overflow, or automated axe WCAG 2/2.1 A/AA violations;
+   these automated checks are not a substitute for human accessibility review.
+   Recomputed the published evidence and ran the tests. No scientific holdout,
+   experiment, complete-current-registry clearance, upload or selection was
+   performed. Scheduled deployment and live-source availability must be
+   confirmed separately after GitHub Pages configuration.</li>
+</ol></div></main><footer class="footer"><div class="wrap footer-inner"><p>GEMS FIELDNOTE · Independent research, not an organizer website.</p>
+      <div><a href="../../evidence/run-card.json">Run card</a><a href="../../evidence/portfolio-audit.json">Audit JSON</a>
+      <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/">DrivenData ↗</a></div></div></footer></body></html>
