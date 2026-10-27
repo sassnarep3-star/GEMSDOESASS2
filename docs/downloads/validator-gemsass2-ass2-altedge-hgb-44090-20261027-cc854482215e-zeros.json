@@ -1,0 +1,16 @@
+{
+  "single_band": true,
+  "float32": true,
+  "shape_match": true,
+  "crs_epsg32611": true,
+  "transform_match": true,
+  "all_finite_no_nan": true,
+  "values_in_0_1": true,
+  "nodata_none": true,
+  "no_positive_outside_footprint": true,
+  "dots_inside_footprint": 44090,
+  "dots_total": 44090,
+  "min": 0.0,
+  "max": 1.0,
+  "PASS": true
+}
