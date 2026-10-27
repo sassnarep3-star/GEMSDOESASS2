@@ -80,5 +80,7 @@
       "live": 0.275,
       "sgmc_dti": 0.09536
     }
-  ]
+  ],
+  "audit_correction": "Parallel-run research report; not independently reproduced here and not a valid shared-template promotion or calibrated leaderboard prediction.",
+  "usable_for_leaderboard_projection": false
 }

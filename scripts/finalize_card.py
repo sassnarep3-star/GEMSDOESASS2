@@ -9,6 +9,16 @@ estimate is therefore the band spanned by the two leak-free methods:
   high = champion-ratio on the SGMC off-catalogue instrument
 Point = mean of the two methods.  Always labeled ESTIMATE.
 """
+
+# Safety stop: original research code remains below for historical review.
+# See research/review-passes.md and docs/data/audit.json before any reuse.
+import sys as _legacy_sys
+_LEGACY_REASON = 'Withdrawn card finalizer: it can overwrite multiple receipts and report an unvalidated projection.'
+if __name__ == '__main__':
+    print(_LEGACY_REASON + ' DO NOT SUBMIT.', file=_legacy_sys.stderr)
+    raise SystemExit(2)
+raise RuntimeError(_LEGACY_REASON)
+
 import glob
 import json
 import os

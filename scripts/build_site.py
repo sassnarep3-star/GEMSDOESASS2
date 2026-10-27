@@ -3,6 +3,16 @@
 No manual input: everything comes from run_card.json, sgmc_calibration.json,
 experiments.json and registry/registry_manifest.json.
 """
+
+# Safety stop: original research code remains below for historical review.
+# See research/review-passes.md and docs/data/audit.json before any reuse.
+import sys as _legacy_sys
+_LEGACY_REASON = 'Withdrawn site builder: it can replace the audited decision site with an unsupported approval.'
+if __name__ == '__main__':
+    print(_LEGACY_REASON + ' DO NOT SUBMIT.', file=_legacy_sys.stderr)
+    raise SystemExit(2)
+raise RuntimeError(_LEGACY_REASON)
+
 import html
 import json
 import os

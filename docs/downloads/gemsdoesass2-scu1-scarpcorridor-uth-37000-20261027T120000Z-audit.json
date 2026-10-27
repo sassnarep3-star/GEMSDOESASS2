@@ -52,22 +52,13 @@
         0.005534511956712715
       ],
       "withheld_positives": 60289
-    }
+    },
+    "evidence_status": "Parallel-run report, not independently reproduced here; private HRv1 rather than the required shared evaluator. No promotion inference."
   },
   "estimated_live_score": {
-    "label": "ESTIMATE \u2014 never a score. Band spans two leak-free methods on the SGMC off-catalogue instrument.",
-    "point": 0.2715,
-    "range": [
-      0.1437,
-      0.3993
-    ],
-    "method_low": "within-family regression (extrapolated): 0.1437",
-    "method_high": "champion-ratio 0.2778 x (ours 0.13506 / champ 0.09397): 0.3993",
-    "irregularities": [
-      "IR-SASS2-01: as-submitted hide-and-recover ratio (0.0062) withdrawn \u2014 instrument structurally punishes B=2-pruned rasters (withheld truth IS catalogue); mirrors GEMSDOE32 IR-45-EVAL-02.",
-      "IR-SASS2-02: EXP2 N-sweep selection not transferable (FP break-even at holdout DTI is ~14x looser than at live 0.2778); N kept at pre-registered 37,000.",
-      "IR-SASS2-03: all 12 calibration points are one raster family in a 0.2449-0.2778 band; extrapolation to a unique raster is the main uncertainty."
-    ]
+    "status": "WITHDRAWN: same-family, unverified reports do not establish out-of-family leaderboard calibration.",
+    "point": null,
+    "range": null
   },
   "leakage_canary": {
     "step_max": 0.5702,
@@ -81,7 +72,7 @@
     "pass_leq_0.90": true
   },
   "uniqueness": {
-    "all_pass": true,
+    "all_pass": false,
     "worst_overlap": {
       "name": "GEMSDOE27:topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1",
       "owner_reported": 0.2449,
@@ -206,7 +197,17 @@
       "overlap_max": 0.7,
       "overlap_px": 3.0
     },
-    "our_sha256": "0ab88d8ab85c9bbfc690557bca0e8bf6d92dcd7657825306c9eaf294dab3fe6d"
+    "our_sha256": "0ab88d8ab85c9bbfc690557bca0e8bf6d92dcd7657825306c9eaf294dab3fe6d",
+    "focus_subset_previously_passed": true,
+    "registered_lattice": {
+      "reference_sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+      "candidate_dots": 37000,
+      "dots_within_3px": 36945,
+      "fraction": 0.9985135135135135,
+      "fails_literal_gt_70_percent_rule": true,
+      "receipt": "docs/data/audit.json"
+    },
+    "scope_note": "Prior rows cover a subset only. Complete current registry and pre-placement surfaces were not audited."
   },
   "raster_sha256": "0ab88d8ab85c9bbfc690557bca0e8bf6d92dcd7657825306c9eaf294dab3fe6d",
   "validator": {
@@ -223,17 +224,18 @@
     "positive_pixels": 37000,
     "sha256": "0ab88d8ab85c9bbfc690557bca0e8bf6d92dcd7657825306c9eaf294dab3fe6d",
     "zip_single_tif": true,
-    "ALL_CHECKS_PASSED": true
+    "ALL_CHECKS_PASSED": false,
+    "correction": "Legacy partial checks do not establish organizer acceptance; conservative saved-byte report: docs/data/format-parallel-scu-zeros.json."
   },
   "submission_name": "GEMSDOESASS2-SCU1-0AB88D8A",
-  "submission_note_140": "SASS2 SCU scarp-corridor-UTh 37000d B2 sep2 | SGMC 0.135 vs champ 0.094 | HR 0.0163 | est 0.14-0.40 | 0ab88d8a",
+  "submission_note_140": "Research artifact only; registry stop. DO NOT SUBMIT.",
   "n_dots": 37000,
   "params": {
     "n_dots_target": 37000,
     "sep_px": 2,
     "prune_px": 2.0
   },
-  "verdict": "candidate-unique-validated",
+  "verdict": "negative",
   "generated_utc": "2026-10-27T11:48:13.428483+00:00",
   "files": {
     "zeros": {
@@ -331,24 +333,29 @@
         "live": 0.275,
         "sgmc_dti": 0.09536
       }
-    ]
+    ],
+    "audit_correction": "Parallel-run diagnostic not independently reproduced; user-reported labels and same-family extrapolation cannot justify a live-score projection."
   },
   "sibling_lanes_this_repo": {
     "note": "Parallel-run protocol lane-drift check vs sibling deliverables merged from main (2026-10-27). Gates: overlap<=70%, |rho|<=0.90.",
     "rows": [
       {
-        "name": "TTC-A1 gemsdoesass2-thermo-tilt-conduit-37654-d8f85365 (verdict promote, HR 0.1215 per its run card)",
+        "name": "TTC-A1 gemsdoesass2-thermo-tilt-conduit-37654-d8f85365",
         "dot_overlap_3px": 0.4138,
         "spearman_final": 0.0334,
         "passes": true
       },
       {
-        "name": "ALEDGE gemsass2-ass2-altedge-hgb-44090-cc854482 (verdict negative per its validator JSON)",
+        "name": "ALEDGE gemsass2-ass2-altedge-hgb-44090-cc854482",
         "dot_overlap_3px": 0.4175,
         "spearman_final": -0.0014,
         "passes": true
       }
     ],
-    "all_pass": true
-  }
+    "all_pass": false,
+    "scope_note": "Only sibling comparison; not the complete registry. Both prior promotion claims are withdrawn."
+  },
+  "audit_correction": "2026-10-27: parallel-run claims are superseded. The full literal rule fails; no submission is approved.",
+  "ok_to_submit": false,
+  "selector_approved": false
 }

@@ -1,3 +1,5 @@
+> **Current audit note (2026-10-27):** This is a parallel branch’s deduplicated transcription, not an authenticated source for reported scores or current leaderboard position. Interpret its retrospective claims about all raster families as unverified. No parallel candidate is approved; see [the current review](../research/parallel-integration.md).
+
 # Standing prompt (recorded 2026-10-27, deduplicated — the original message contains the full text twice)
 
 Read this every session before working. It is the project's base specification.

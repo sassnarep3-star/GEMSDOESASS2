@@ -32,9 +32,9 @@
     "in_footprint_zero_nan": true,
     "in_footprint_zero_inf": true,
     "in_footprint_range_0_1": true,
-    "outside_footprint_compliant": true,
+    "outside_footprint_compliant": false,
     "validator_range_0_1_guaranteed": true,
-    "all_checks_passed": true
+    "all_checks_passed": false
   },
   "files": {
     "zeros": {
@@ -107,29 +107,26 @@
         "rho": 0.015189446577910095
       }
     ],
-    "passes_lane": true
+    "passes_lane": false,
+    "registered_lattice": {
+      "reference_sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+      "candidate_dots": 37654,
+      "dots_within_3px": 37637,
+      "fraction": 0.9995485207414883,
+      "fails_literal_gt_70_percent_rule": true,
+      "receipt": "docs/data/audit.json"
+    },
+    "scope_note": "Old comparison omitted the registered lattice and used binary-dot correlation, not pre-placement surface correlation."
   },
   "holdout_estimates": {
-    "HOLDOUT-DTI (GEMSDOE32-HIDE-RECOVER-v3.0 simulated, 22232 withheld)": {
-      "point": 0.1215,
-      "ci95": [
-        0.107,
-        0.135
-      ],
-      "note": "simulated evaluator, not organizer-confirmed; for lane selection only"
-    },
-    "SGMC-cal (off-catalogue, simulated)": {
-      "point": 0.068,
-      "ci95": [
-        0.059,
-        0.077
-      ]
-    }
+    "status": "WITHDRAWN: not an independently measured holdout or valid projection."
   },
   "validator": {
-    "format": "13/13 PASS",
+    "format": "Legacy partial check only; independent conservative report: docs/data/format-parallel-ttc-zeros.json.",
     "range_0_1": true
   },
-  "submission_note": "GEMSDOESASS2 TTC 37654d B2 | HOLDOUT 0.1215 SGMC 0.068 | d8f85365 | triple-concordance vent",
-  "verdict": "promote"
+  "submission_note": "Research artifact only; registry stop. DO NOT SUBMIT.",
+  "verdict": "negative",
+  "audit_correction": "Prior holdout/CI claims are withdrawn: the source hard-codes them without the stated holdout; see research/parallel-integration.md.",
+  "ok_to_submit": false
 }

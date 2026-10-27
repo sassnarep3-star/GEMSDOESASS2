@@ -7,6 +7,16 @@ holdout (candidate rebuilt from visible faults only, per fold) -> champion
 comparison on the same instrument -> uniqueness audit vs the 9-site
 registry -> run card + audit JSON.  Fully automated, fail-closed.
 """
+
+# Safety stop: original research code remains below for historical review.
+# See research/review-passes.md and docs/data/audit.json before any reuse.
+import sys as _legacy_sys
+_LEGACY_REASON = 'Withdrawn SCU pipeline: the declared lane was not assigned and the partial registry misses a failing lattice witness.'
+if __name__ == '__main__':
+    print(_LEGACY_REASON + ' DO NOT SUBMIT.', file=_legacy_sys.stderr)
+    raise SystemExit(2)
+raise RuntimeError(_LEGACY_REASON)
+
 import datetime
 import json
 import os

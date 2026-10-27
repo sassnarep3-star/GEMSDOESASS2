@@ -24,7 +24,7 @@ def block_stats(pred, g, nb=8):
     return stats
 def boot(a,b,g,rng,n=2000):
     A=block_stats(a,g); B=block_stats(b,g); keys=list(A)
-    da=[]; 
+    da=[];
     for _ in range(n):
         sel=rng.choice(len(keys),size=len(keys),replace=True)
         def dti(S):

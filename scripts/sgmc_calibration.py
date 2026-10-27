@@ -13,6 +13,16 @@ Calibration: regress OWNER-REPORTED live scores of the 9-site registry
 rasters on their SGMC-DTI; map our candidate's SGMC-DTI through the fit.
 Output is an ESTIMATE with explicit extrapolation caveats, never a score.
 """
+
+# Safety stop: original research code remains below for historical review.
+# See research/review-passes.md and docs/data/audit.json before any reuse.
+import sys as _legacy_sys
+_LEGACY_REASON = 'Withdrawn calibration: unverified, same-family scores do not establish an out-of-family leaderboard estimate.'
+if __name__ == '__main__':
+    print(_LEGACY_REASON + ' DO NOT SUBMIT.', file=_legacy_sys.stderr)
+    raise SystemExit(2)
+raise RuntimeError(_LEGACY_REASON)
+
 import json
 import os
 import sys

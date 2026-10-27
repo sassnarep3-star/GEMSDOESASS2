@@ -12,5 +12,7 @@
   "dots_total": 44090,
   "min": 0.0,
   "max": 1.0,
-  "PASS": true
+  "PASS": false,
+  "legacy_partial_check_pass": true,
+  "correction": "Not organizer acceptance; strict local saved-byte report is docs/data/format-parallel-altedge.json."
 }

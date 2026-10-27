@@ -1,7 +1,9 @@
+> **Historical snapshot:** This document describes an earlier empty checkout. Three parallel branches later added research candidates, all of which fail the literal registry rule. See the [current executive summary](executive-summary.html) and [parallel review](parallel-review.html); none is approved for submission.
+
 # Executive summary: site review, evidence, and next actions
 
-**Review date:** 2026-10-27 (UTC)  
-**Checkout reviewed:** `arena/16c827db-gemsdoesass2`, base `25172e6`  
+**Review date:** 2026-10-27 (UTC)
+**Checkout reviewed:** `arena/16c827db-gemsdoesass2`, base `25172e6`
 **Decision:** **NO-GO — no locally generated TIFF exists, no validated candidate exists, and no file is approved for submission.** This is a repository capability finding, not a claim that no candidate elsewhere exists.
 
 ## What is verifiable now

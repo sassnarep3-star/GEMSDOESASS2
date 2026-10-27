@@ -1,3 +1,5 @@
+> **Superseded parallel report (2026-10-27):** ALEDGE fails the literal lattice rule (99.32%) and remains **DO NOT SUBMIT**. Its reported private-evaluator results were not independently reproduced by this audit. See [the independent review](../research/parallel-integration.md). Earlier narrower uniqueness wording and file guidance below are historical, not authorization.
+
 # Executive summary — 9 focus sites, the 0.2778 champion, and this repo's unique TIF
 
 Date: 2026-10-27. Evidence classes: **USER-REPORTED** = score as listed in the user prompt
@@ -56,7 +58,7 @@ downloaded rasters (registry/focus_champions_measured.json).
 
 ## This repo's unique candidate (ASS2-ALEDGE)
 
-Lane: radiometric-magnetic alteration-edge HGB (see README + run card). 
+Lane: radiometric-magnetic alteration-edge HGB (see README + run card).
 - HOLDOUT-DTI (GEMSDOESASS2-HIDE-RECOVER-v1, 60,988 withheld positives): **0.10886** @44,090 dots
   (37,654: 0.09284; 20,000: 0.05401). Canary max single-feature AUC **0.6613** ≤ 0.90 PASS.
 - SGMC off-catalogue DTI: **0.13007** vs 0.10758 (champion32) / 0.12247 (best champion);

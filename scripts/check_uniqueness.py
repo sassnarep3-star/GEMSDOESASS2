@@ -1,12 +1,22 @@
 #!/usr/bin/env python3
 """Check lane uniqueness vs 40 registry rasters. Usage: python scripts/check_uniqueness.py docs/downloads/your.tif"""
+
+# Safety stop: original research code remains below for historical review.
+# See research/review-passes.md and docs/data/audit.json before any reuse.
+import sys as _legacy_sys
+_LEGACY_REASON = 'Withdrawn legacy uniqueness check: the partial registry and binary-dot correlation do not meet the surface and all-entry requirements.'
+if __name__ == '__main__':
+    print(_LEGACY_REASON + ' DO NOT SUBMIT.', file=_legacy_sys.stderr)
+    raise SystemExit(2)
+raise RuntimeError(_LEGACY_REASON)
+
 import sys, pathlib, glob, numpy as np, rasterio
 from scipy.ndimage import distance_transform_edt
 import scipy.stats as stats
 
 FOOTPRINT = np.load("/tmp/footprint_mask.npy")
 
-def overlap_with Reference(candidate_path, registry_paths):
+def overlap_with_reference(candidate_path, registry_paths):
     with rasterio.open(candidate_path) as src:
         cand = src.read(1) > 0.5
         cand_ys, cand_xs = np.where(cand)
@@ -52,4 +62,4 @@ if __name__=="__main__":
         sys.exit(1)
     candidate = sys.argv[1]
     regs = glob.glob("/tmp/GEMSDOE32/docs/downloads/*.tif")[:40]
-    overlap_with Reference(candidate, regs)
+    overlap_with_reference(candidate, regs)

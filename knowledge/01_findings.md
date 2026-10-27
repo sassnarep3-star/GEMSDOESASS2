@@ -1,3 +1,5 @@
+> **Superseded parallel report (2026-10-27):** Claims below about SCU uniqueness, promotion, causal score attribution and calibration are not established. SCU fails the literal lattice rule (99.85%); see [the independent review](../research/parallel-integration.md). Parallel holdout reports were not independently reproduced and used a private evaluator. Preserve this text as research history, not as submission guidance.
+
 # Findings, hypotheses and research notes (2026-10-27 session)
 
 ## 1. Why 0.2778 won — the complete causal chain (verified against cached artifacts)

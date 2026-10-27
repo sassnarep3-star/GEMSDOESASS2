@@ -8,6 +8,16 @@ scarp x corridor).  If the ablation wins, the SRAC hypothesis is negative
 and is reported as such.
 Selection uses ONLY this instrument; SGMC stays a confirmation diagnostic.
 """
+
+# Safety stop: original research code remains below for historical review.
+# See research/review-passes.md and docs/data/audit.json before any reuse.
+import sys as _legacy_sys
+_LEGACY_REASON = 'Withdrawn SCU experiment runner: a compliant shared evaluator, assigned lane and experiment budget are not established.'
+if __name__ == '__main__':
+    print(_LEGACY_REASON + ' DO NOT SUBMIT.', file=_legacy_sys.stderr)
+    raise SystemExit(2)
+raise RuntimeError(_LEGACY_REASON)
+
 import json
 import os
 import sys
