@@ -11,7 +11,7 @@ data/*.npz
 
 node_modules/
 
-# Additional existing project data caches
-data/
-data_cache/
+# Additional existing project data caches (root only; docs/data holds receipts)
+/data/
+/data_cache/
 *.npy

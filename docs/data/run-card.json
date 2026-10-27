@@ -47,6 +47,36 @@
         "sha256": "9df52a41c34d4f508b57128c1bc6c2dd716c6149d22dd8717137baa463ed0336",
         "within_3px_fraction": 1.0,
         "fails_literal_rule": true
+      },
+      {
+        "site": "GEMSDOESASS2 TTC zeros",
+        "sha256": "b8be5398deea3c71c301fdb0732c234159da78746666e0cdcb51f4df090e6fe8",
+        "within_3px_fraction": 0.9995485207414883,
+        "fails_literal_rule": true
+      },
+      {
+        "site": "GEMSDOESASS2 TTC nan twin",
+        "sha256": "85851954533959157063991d50b942d9f546d3089ce943e3b10fc7a76a0a9130",
+        "within_3px_fraction": 0.9995485207414883,
+        "fails_literal_rule": true
+      },
+      {
+        "site": "GEMSDOESASS2 ALEDGE",
+        "sha256": "cc854482215ec665a17175447474066e3418692c9604f150cc4f5459dc459707",
+        "within_3px_fraction": 0.9932410977545929,
+        "fails_literal_rule": true
+      },
+      {
+        "site": "GEMSDOESASS2 SCU zeros",
+        "sha256": "0ab88d8ab85c9bbfc690557bca0e8bf6d92dcd7657825306c9eaf294dab3fe6d",
+        "within_3px_fraction": 0.9985135135135135,
+        "fails_literal_rule": true
+      },
+      {
+        "site": "GEMSDOESASS2 SCU nan twin",
+        "sha256": "00a357c15a823c06fa9751c29813206a1d4582b1c0b7be1f6d48641e24f38b7d",
+        "within_3px_fraction": 0.9985135135135135,
+        "fails_literal_rule": true
       }
     ]
   },
@@ -56,13 +86,14 @@
     "inside_nan": null,
     "inside_range_0_1": null,
     "crs_shape_transform_match": null,
-    "status": "No new TIFF exists to validate. Existing witness format inspection is in docs/data/format-witness36.json."
+    "status": "This audit generated no TIFF. Parallel-branch research files were inspected separately; see docs/data/format-parallel-*.json and research/parallel-integration.md."
   },
   "submission_name": null,
   "note": "No assigned lane; uniqueness and shared-tool preflight failed. DO NOT SUBMIT.",
   "verdict": "negative",
   "ok_to_submit": false,
   "selector_approved": false,
+  "scope": "This independent audit session only; other merged branches reported separate experiments and produced research TIFFs.",
   "new_experiments": 0,
   "weekly_slots_spent": 0,
   "blockers": [

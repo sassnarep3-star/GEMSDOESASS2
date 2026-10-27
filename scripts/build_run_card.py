@@ -42,12 +42,13 @@ def main() -> None:
         "validator_output": {
             "new_raster": None, "inside_nan": None, "inside_range_0_1": None,
             "crs_shape_transform_match": None,
-            "status": "No new TIFF exists to validate. Existing witness format inspection is in docs/data/format-witness36.json.",
+            "status": "This audit generated no TIFF. Parallel-branch research files were inspected separately; see docs/data/format-parallel-*.json and research/parallel-integration.md.",
         },
         "submission_name": None,
         "note": "No assigned lane; uniqueness and shared-tool preflight failed. DO NOT SUBMIT.",
         "verdict": "negative", "ok_to_submit": False,
         "selector_approved": False,
+        "scope": "This independent audit session only; other merged branches reported separate experiments and produced research TIFFs.",
         "new_experiments": audit["new_experiments"], "weekly_slots_spent": audit["weekly_slots_spent"],
         "blockers": [
             "No single geological method lane was supplied for this parallel session.",

@@ -1,0 +1,29 @@
+{
+  "hypothesis": "Permeability breach via 2m thermal residual + tilt zero-convergence + clay-cap gradient triple-concordance at lidar steps",
+  "mechanism": "Blind hydrothermal conduit creates coincident magnetic tilt derivative polarity flip, radiometric K-depletion halo, and 2m temperature positive residual; all three must co-occur with a LiDAR micro-scarp (ex_max/step_max) to be called a conduit, suppressing non-fault scarps/forest edges",
+  "non_fault_mimic": "Paleo-shorelines / channel banks / terrace risers (cross-gradient steps) + vegetation moisture modulating K (false-radiometric) + south-facing solar warming mimicking geothermal; mitigated by requiring triple concordance and B=2 catalogue exclusion",
+  "holdout_DTI": null,
+  "sgmc_DTI": null,
+  "correlation_overlap": {
+    "registered_lattice": {
+      "reference_sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+      "candidate_dots": 37654,
+      "dots_within_3px": 37637,
+      "fraction": 0.9995485207414883,
+      "fails_literal_gt_70_percent_rule": true,
+      "receipt": "docs/data/audit.json"
+    },
+    "surface_rank_correlation": null,
+    "full_registry_status": "Not audited"
+  },
+  "raster_sha256": "b8be5398deea3c71c301fdb0732c234159da78746666e0cdcb51f4df090e6fe8",
+  "validator": "Conservative saved-byte report: docs/data/format-parallel-ttc-zeros.json; organizer acceptance unknown.",
+  "submission": {
+    "name": "GEMSDOESASS2-TTC-d8f85365",
+    "note": "Research artifact only; registry stop. DO NOT SUBMIT.",
+    "note_len": 53
+  },
+  "verdict": "negative",
+  "audit_correction": "Prior holdout/CI and selector claims are withdrawn: the source hard-codes values without running that holdout; see research/parallel-integration.md.",
+  "ok_to_submit": false
+}

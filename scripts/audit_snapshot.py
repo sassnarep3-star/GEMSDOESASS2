@@ -45,8 +45,9 @@ def fetch_pinned(spec: dict, cache_file: Path, fetch: bool) -> Path:
     cache_file.parent.mkdir(parents=True, exist_ok=True)
     tmp = cache_file.with_suffix(cache_file.suffix + ".partial")
     repo = spec.get("repo") or spec["site"]
+    owner = spec.get("owner", "buffedlizard55-lab")
     endpoint = (
-        f"repos/buffedlizard55-lab/{repo}/contents/{quote(spec['path'], safe='/')}"
+        f"repos/{owner}/{repo}/contents/{quote(spec['path'], safe='/')}"
         f"?ref={quote(spec['ref'], safe='')}"
     )
     try:
@@ -172,7 +173,7 @@ def audit(config: dict, cache: Path, fetch: bool = True) -> dict:
         result = overlap_fraction(witnesses[w["id"]], lattice_near)
         witness_results.append({
             **w, **result, "fails_literal_overlap_rule": result["fraction"] > 0.70,
-            "artifact_url": f"https://github.com/buffedlizard55-lab/{w['site']}/blob/{w['ref']}/{w['path']}",
+            "artifact_url": f"https://github.com/{w.get('owner', 'buffedlizard55-lab')}/{w.get('repo', w['site'])}/blob/{w['ref']}/{w['path']}",
         })
 
     d28, b2, solo = masks["GEMSDOE25"], masks["GEMSDOE32"], masks["GEMSDOE31"]
@@ -191,7 +192,7 @@ def audit(config: dict, cache: Path, fetch: bool = True) -> dict:
     return {
         "schema_version": 1,
         "audited_utc": datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z"),
-        "scope": f"Pinned owner mirrors; {len(historical)} historical variants and {len(witness_results)} existing candidate witnesses; no new model experiment or authenticated score receipt.",
+        "scope": f"This independent audit only: pinned owner mirrors, {len(historical)} historical variants and {len(witness_results)} existing candidate-file witnesses; no new model experiment or authenticated score receipt. Parallel branches produced research TIFFs and reported separate experiments.",
         "important_limit": "The complete current registry and pre-placement surfaces were not audited. Passing this snapshot cannot establish uniqueness or authorize submission.",
         "inputs": config["inputs"], "main_refs_observed_utc": config["main_refs_observed_utc"],
         "grid": grid,

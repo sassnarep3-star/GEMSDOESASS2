@@ -146,6 +146,56 @@
       "path": "docs/downloads/gems24-tmcg-b-decoupled-basin-20261027T113937Z-6f8d042d5ee4-zeros.tif",
       "sha256": "9df52a41c34d4f508b57128c1bc6c2dd716c6149d22dd8717137baa463ed0336",
       "source_claim": "Negative HOLDOUT-DTI; not approved for submission"
+    },
+    {
+      "id": "parallel_ttc_zeros",
+      "site": "GEMSDOESASS2 TTC zeros",
+      "owner": "sassnarep3-star",
+      "repo": "GEMSDOESASS2",
+      "ref": "4a88f3750933e3e147312bf2a6d220f777103574",
+      "path": "docs/downloads/gemsdoesass2-thermo-tilt-conduit-37654-20261027T113705Z-d8f85365-zeros.tif",
+      "sha256": "b8be5398deea3c71c301fdb0732c234159da78746666e0cdcb51f4df090e6fe8",
+      "claim": "Parallel-branch research artifact; not approved for submission."
+    },
+    {
+      "id": "parallel_ttc_nan",
+      "site": "GEMSDOESASS2 TTC nan twin",
+      "owner": "sassnarep3-star",
+      "repo": "GEMSDOESASS2",
+      "ref": "4a88f3750933e3e147312bf2a6d220f777103574",
+      "path": "docs/downloads/gemsdoesass2-thermo-tilt-conduit-37654-20261027T113705Z-d8f85365-nan.tif",
+      "sha256": "85851954533959157063991d50b942d9f546d3089ce943e3b10fc7a76a0a9130",
+      "claim": "Parallel-branch research artifact; not approved for submission."
+    },
+    {
+      "id": "parallel_altedge",
+      "site": "GEMSDOESASS2 ALEDGE",
+      "owner": "sassnarep3-star",
+      "repo": "GEMSDOESASS2",
+      "ref": "4a88f3750933e3e147312bf2a6d220f777103574",
+      "path": "docs/downloads/gemsass2-ass2-altedge-hgb-44090-20261027-cc854482215e-zeros.tif",
+      "sha256": "cc854482215ec665a17175447474066e3418692c9604f150cc4f5459dc459707",
+      "claim": "Parallel-branch research artifact; not approved for submission."
+    },
+    {
+      "id": "parallel_scu_zeros",
+      "site": "GEMSDOESASS2 SCU zeros",
+      "owner": "sassnarep3-star",
+      "repo": "GEMSDOESASS2",
+      "ref": "4a88f3750933e3e147312bf2a6d220f777103574",
+      "path": "docs/downloads/gemsdoesass2-scu1-scarpcorridor-uth-37000-20261027T120000Z-zeros.tif",
+      "sha256": "0ab88d8ab85c9bbfc690557bca0e8bf6d92dcd7657825306c9eaf294dab3fe6d",
+      "claim": "Parallel-branch research artifact; not approved for submission."
+    },
+    {
+      "id": "parallel_scu_nan",
+      "site": "GEMSDOESASS2 SCU nan twin",
+      "owner": "sassnarep3-star",
+      "repo": "GEMSDOESASS2",
+      "ref": "4a88f3750933e3e147312bf2a6d220f777103574",
+      "path": "docs/downloads/gemsdoesass2-scu1-scarpcorridor-uth-37000-20261027T120000Z-nan.tif",
+      "sha256": "00a357c15a823c06fa9751c29813206a1d4582b1c0b7be1f6d48641e24f38b7d",
+      "claim": "Parallel-branch research artifact; not approved for submission."
     }
   ]
 }

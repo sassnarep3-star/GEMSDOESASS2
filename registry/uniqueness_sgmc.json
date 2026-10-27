@@ -1,0 +1,89 @@
+{
+  "candidate_sgmc_offcat_DTI": 0.13007,
+  "dots": 44090,
+  "registry": [
+    {
+      "file": "champ_GEMSDOE24.tif",
+      "dots": 60069,
+      "our_dot_overlap_3px": 0.3866,
+      "surface_spearman": 0.1031,
+      "sgmc_offcat_DTI": 0.12052
+    },
+    {
+      "file": "champ_GEMSDOE25.tif",
+      "dots": 44090,
+      "our_dot_overlap_3px": 0.3726,
+      "surface_spearman": 0.086,
+      "sgmc_offcat_DTI": 0.10853
+    },
+    {
+      "file": "champ_GEMSDOE27.tif",
+      "dots": 61328,
+      "our_dot_overlap_3px": 0.3913,
+      "surface_spearman": 0.1029,
+      "sgmc_offcat_DTI": 0.12247
+    },
+    {
+      "file": "champ_GEMSDOE28.tif",
+      "dots": 37660,
+      "our_dot_overlap_3px": 0.3566,
+      "surface_spearman": 0.0764,
+      "sgmc_offcat_DTI": 0.10538
+    },
+    {
+      "file": "champ_GEMSDOE30.tif",
+      "dots": 44090,
+      "our_dot_overlap_3px": 0.3726,
+      "surface_spearman": 0.086,
+      "sgmc_offcat_DTI": 0.10853
+    },
+    {
+      "file": "champ_GEMSDOE31.tif",
+      "dots": 40199,
+      "our_dot_overlap_3px": 0.3619,
+      "surface_spearman": 0.0795,
+      "sgmc_offcat_DTI": 0.10838
+    },
+    {
+      "file": "champ_GEMSDOE33.tif",
+      "dots": 41865,
+      "our_dot_overlap_3px": 0.3682,
+      "surface_spearman": 0.0816,
+      "sgmc_offcat_DTI": 0.10943
+    },
+    {
+      "file": "champ_GEMSDOE36.tif",
+      "dots": 38854,
+      "our_dot_overlap_3px": 0.3535,
+      "surface_spearman": 0.076,
+      "sgmc_offcat_DTI": 0.10955
+    },
+    {
+      "file": "champion32.tif",
+      "dots": 37654,
+      "our_dot_overlap_3px": 0.3487,
+      "surface_spearman": 0.0756,
+      "sgmc_offcat_DTI": 0.10758
+    },
+    {
+      "file": "champion32.tif",
+      "dots": 37654,
+      "our_dot_overlap_3px": 0.3487,
+      "surface_spearman": 0.0756,
+      "sgmc_offcat_DTI": 0.10758
+    }
+  ],
+  "max_overlap": 0.3913,
+  "max_abs_spearman": 0.1031,
+  "unique_pass_le70_rho90": false,
+  "focus_nine_scoped_pass": true,
+  "registered_lattice": {
+    "reference_sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+    "candidate_dots": 44090,
+    "dots_within_3px": 43792,
+    "fraction": 0.9932410977545929,
+    "fails_literal_gt_70_percent_rule": true,
+    "receipt": "docs/data/audit.json"
+  },
+  "scope_note": "Prior rows are a subset and do not certify the complete registry or a valid surface comparison."
+}
