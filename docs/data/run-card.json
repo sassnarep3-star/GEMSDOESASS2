@@ -77,6 +77,12 @@
         "sha256": "00a357c15a823c06fa9751c29813206a1d4582b1c0b7be1f6d48641e24f38b7d",
         "within_3px_fraction": 0.9985135135135135,
         "fails_literal_rule": true
+      },
+      {
+        "site": "GEMSDOE24 H-UNIQUE-07",
+        "sha256": "fe6d637fad5b8fb435988b3ab31af8ae777380f78046577c505275e2e725a795",
+        "within_3px_fraction": 0.9977949283351709,
+        "fails_literal_rule": true
       }
     ]
   },

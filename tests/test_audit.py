@@ -67,3 +67,15 @@ def test_user_ledger_keeps_nine_supplied_claims_unverified():
         matches = [r for r in rows if r['site'] == site['site'] and r['submission_identifier_as_supplied'] == site['reported_id']]
         assert len(matches) == 1
         assert Decimal(matches[0]['value_as_supplied']) == Decimal(str(site['reported']))
+
+
+def test_new_small_gems24_witness_fails_the_literal_rule():
+    x = json.loads((ROOT / 'docs/data/audit.json').read_text())
+    item = next(w for w in x['existing_candidate_witnesses'] if w['id'] == 'candidate24small')
+    assert item['candidate_dots'] == 1814
+    assert item['dots_within_3px'] == 1810
+    assert item['fails_literal_overlap_rule']
+    receipt = json.loads((ROOT / 'docs/data/format-witness24small.json').read_text())
+    assert receipt['candidate_sha256'] == item['sha256']
+    assert receipt['checks']['inside_unmasked_finite_in_0_1']
+    assert not receipt['strict_local_format_pass'] and receipt['organizer_accepted'] is None
