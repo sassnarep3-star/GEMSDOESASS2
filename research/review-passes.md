@@ -1,3 +1,5 @@
+> **Later update (2026-10-28):** This is chronological review history. The 19-band owner-mirror feature cache was subsequently restored, and the current cards and tests supersede prior statements about downloadability or promotion; see [the latest independent review](2026-10-28-review.md).
+
 # Review passes and handoff — 27 October 2026
 
 ## Pass 1 — implement and measure
@@ -32,3 +34,30 @@
 ## Source-watch follow-up
 
 After the first PR merged, the site correctly flagged a new GEMSDOE24 source head. At pinned ref `e65cd19b255fd0edd3067142d08467c65ff5f7f7`, we independently reopened its H-UNIQUE-07 raster: 1,810 of 1,814 dots (99.7795%) are within the lattice halo. Its owner-reported negative HOLDOUT-DTI is 0.001124 (95% CI 0.000860–0.001431; `gems-segment-pooled-v1`, 60,988 withheld); that holdout was not independently rerun. The [owner run card](https://github.com/buffedlizard55-lab/GEMSDOE24/blob/e65cd19b255fd0edd3067142d08467c65ff5f7f7/docs/data/unique_run_card_7.json) also reports a negative verdict. This is concrete evidence that a smaller dot count does not automatically pass novelty.
+
+## Repository review — 28 October 2026
+
+### Pass 1 — establish the current state
+
+- Confirmed the active worktree is `arena/bf7b1641-gemsdoesass2`, clean at start, based on the recorded main commit. The required standing prompt is transcribed in `README.md` and `knowledge/00_standing_prompt.md`.
+- Verified that current XGHF evidence is explicitly `ok_to_download=true`, `ok_to_submit=false`, `verdict=negative`. The local GeoTIFF preflight passes against the repository bridge sample (EPSG:32611, 3730×3292, 100 m grid, all finite and in `[0,1]`), but that does not establish organizer acceptance.
+- Found two actionable correctness/UI issues: the Python audit lockfile omitted `scikit-image` (test collection failed on a clean audit install), and the old HVFD-EXP3 page still used a green `PROMOTE` badge and displayed an upload-portal button despite the literal calibration-lattice overlap failing the protocol.
+
+### Pass 2 — fix and exercise
+
+- Added the missing direct audit/test dependencies (`scikit-image`, `scikit-learn`, `pyproj`) to `requirements-audit.txt`; updated the second GitHub Actions workflow to install that same file, avoiding drift from the test environment.
+- Rewrote the HVFD-EXP3 page to make its negative decision prominent, remove the upload CTA, label its downloads research-only, and state the measured calibration-lattice failure. Updated the home page and README wording to distinguish artifact downloadability from submission clearance.
+- Added browser-test assertions that the HVFD page says “DO NOT SUBMIT,” has a negative verdict, and has no “VERDICT: PROMOTE” claim.
+
+### Pass 3 — recheck
+
+- `.venv/bin/python -m pytest -q`: **69 passed** (27 Rasterio deprecation warnings only).
+- `npm run test:site`: **4 site scenarios passed**; `node --check docs/assets/app.js`: passed.
+- `scripts/validate_tif.py` on the XGHF artifact against `data/bridge/sample_submission.tif`: strict local format pass; its own output retains `organizer_accepted: null` and `ok_to_submit: false`.
+- Recomputed SHA-256 for the HVFD and XGHF GeoTIFFs; both agree with their recorded run cards. No new experiment was run and no submission slot was used. The current candidate remains **not cleared for competition submission** because the literal all-registry calibration-lattice test fails and selector authorization is absent.
+
+### Remaining review flags
+
+1. The official authenticated submission sample and account-specific slot allowance/receipt are not available in this checkout; the bridge sample is an owner mirror. Do not describe local preflight as organizer validation.
+2. A private/offline current full registry cannot be proven exhaustive solely from pinned repository refs. Retain fail-closed uniqueness until an authorized complete registry and written protocol treatment of calibration probes are supplied.
+3. Historical run cards are immutable evidence records and may contain their original `promote` text; the current site must treat those records as superseded where they conflict with the final negative literal gate.

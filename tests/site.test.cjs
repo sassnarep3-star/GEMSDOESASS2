@@ -6,6 +6,20 @@ const { JSDOM } = require("jsdom");
 const root = path.join(__dirname, "..", "docs");
 const html = fs.readFileSync(path.join(root, "index.html"), "utf8");
 const app = fs.readFileSync(path.join(root, "assets/app.js"), "utf8");
+const hvfdHtml = fs.readFileSync(path.join(root, "hvfd-exp3.html"), "utf8");
+const execSummary = fs.readFileSync(path.join(root, "executive-summary.html"), "utf8");
+const currentRunCard = JSON.parse(
+  fs.readFileSync(path.join(root, "data/run-card.json"), "utf8"),
+);
+assert.equal(currentRunCard.verdict, "negative");
+assert.equal(currentRunCard.ok_to_submit, false);
+assert.match(html, /DO NOT SUBMIT/i);
+assert.match(execSummary, /Do not submit/i);
+assert.match(execSummary, /research only/i);
+assert.doesNotMatch(execSummary, /1-Click Download Unique/i);
+assert.match(hvfdHtml, /DO NOT SUBMIT/i);
+assert.match(hvfdHtml, /research only/i);
+assert.doesNotMatch(hvfdHtml, /VERDICT: PROMOTE/i);
 const data = JSON.parse(
   fs.readFileSync(path.join(root, "data/audit.json"), "utf8"),
 );
