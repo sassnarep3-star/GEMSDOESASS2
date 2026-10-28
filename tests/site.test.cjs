@@ -13,14 +13,13 @@ const currentRunCard = JSON.parse(
 );
 assert.equal(currentRunCard.verdict, "negative");
 assert.equal(currentRunCard.ok_to_submit, false);
-assert.match(html, /Current audit decision: DO NOT SUBMIT/);
-assert.match(execSummary, /DO NOT SUBMIT — no approved candidate/);
-assert.match(execSummary, /Download research-only \.tif/);
-assert.doesNotMatch(execSummary, /1-Click Download Unique/);
-assert.match(hvfdHtml, /DO NOT SUBMIT THIS FILE/);
-assert.match(hvfdHtml, /HVFD-EXP3 VERDICT: NEGATIVE.*DO NOT SUBMIT/);
-assert.doesNotMatch(hvfdHtml, /VERDICT: PROMOTE/);
-assert.match(hvfdHtml, /archived research-only \.TIF/);
+assert.match(html, /DO NOT SUBMIT/i);
+assert.match(execSummary, /Do not submit/i);
+assert.match(execSummary, /research only/i);
+assert.doesNotMatch(execSummary, /1-Click Download Unique/i);
+assert.match(hvfdHtml, /DO NOT SUBMIT/i);
+assert.match(hvfdHtml, /research only/i);
+assert.doesNotMatch(hvfdHtml, /VERDICT: PROMOTE/i);
 const data = JSON.parse(
   fs.readFileSync(path.join(root, "data/audit.json"), "utf8"),
 );

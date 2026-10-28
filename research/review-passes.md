@@ -1,3 +1,5 @@
+> **Later update (2026-10-28):** This is chronological review history. The 19-band owner-mirror feature cache was subsequently restored, and the current cards and tests supersede prior statements about downloadability or promotion; see [the latest independent review](2026-10-28-review.md).
+
 # Review passes and handoff — 27 October 2026
 
 ## Pass 1 — implement and measure

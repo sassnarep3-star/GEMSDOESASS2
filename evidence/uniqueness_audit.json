@@ -164,9 +164,10 @@
     "post_placement_spearman_le_0p90": true,
     "post_placement_discrete_3px_overlap_le_0p70": true,
     "post_placement_symmetric_3px_overlap_all_le_0p70": true,
-    "byte_and_pixel_unique": true
+    "byte_and_pixel_unique": true,
+    "literal_all_registry_overlap_le_0p70": false
   },
-  "all_uniqueness_gates_passed": true,
+  "all_uniqueness_gates_passed": false,
   "total_registry_tif_files_scanned": 542,
   "per_experiment_gate_summary": {
     "EXP3_hvfd_collinear_sharpened": {
@@ -175,7 +176,7 @@
       "max_pre_spearman": 0.21786,
       "max_discrete_3px_overlap": 0.68266,
       "max_discrete_3px_file": "gems10-h28-dotted-ridge-20260928T020256236880Z-6452ae1d00.tif",
-      "all_uniqueness_gates_passed": true
+      "all_uniqueness_gates_passed": false
     },
     "EXP2_hvfd_dual_population": {
       "holdout_dti": 0.11639,
@@ -191,7 +192,18 @@
       "max_pre_spearman": 0.20389,
       "max_discrete_3px_overlap": 0.68134,
       "max_discrete_3px_file": "gemsdoe63-cvarlw-thin-s3p17-54864-20261011T220606Z-c58f60c4-nan.tif",
-      "all_uniqueness_gates_passed": true
+      "all_uniqueness_gates_passed": null,
+      "prior_scoped_all_uniqueness_gates_passed": true,
+      "status": "Unknown: this historical intermediate was not independently checked against the lattice."
     }
+  },
+  "prior_scoped_all_uniqueness_gates_passed": true,
+  "audit_correction": "Prior focused/scoped counts excluded covering or research surfaces from the forward dot gate. The protocol has no such exemption; see literal_lattice_check.",
+  "literal_lattice_check": {
+    "sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+    "candidate_dots": 37654,
+    "within_3px": 37617,
+    "fraction": 0.999017368672651,
+    "passes": false
   }
 }

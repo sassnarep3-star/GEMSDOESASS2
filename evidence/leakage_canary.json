@@ -440,5 +440,6 @@
       "symmetric_roc_auc": 0.55984,
       "leaks_gt_0p90": false
     }
-  ]
+  ],
+  "audit_status": "ARCHIVED HISTORICAL REPORT: measurements were not independently reproduced in the 2026-10-28 review and cannot support promotion; see IRREGULARITIES.md."
 }

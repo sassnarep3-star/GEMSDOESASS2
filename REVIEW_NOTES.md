@@ -1,3 +1,5 @@
+> **Later independent review (2026-10-28):** This is a historical parallel report. The 19-band owner-mirror cache was subsequently restored and the referenced XGHF lane was not supplied as a user assignment. Current status, corrections and tests are in [the latest review](research/2026-10-28-review.md); no TIFF is approved.
+
 # Repository review — 2026-10-28
 
 ## Decision

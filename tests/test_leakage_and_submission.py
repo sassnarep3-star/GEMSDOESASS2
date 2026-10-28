@@ -35,47 +35,20 @@ def test_feature_stack_excludes_catalogue_distance_leakage() -> None:
         assert "dist_known_fault" not in name.lower()
 
 
-def test_gate1_single_feature_leakage_canary() -> None:
-    canary = json.loads((ROOT / "evidence" / "leakage_canary.json").read_text(encoding="utf-8"))
+def test_prior_canary_is_archival_not_a_new_pass() -> None:
+    canary = json.loads((ROOT / "evidence/leakage_canary.json").read_text())
     assert canary["n_features_tested"] == 54
-    assert canary["canary_passed"] is True
-    assert canary["auc_limit"] == 0.90
-    assert 0.50 <= canary["max_symmetric_auc"] <= 0.90
-    assert canary["n_leaking_features"] == 0
-    assert len(canary["features"]) == 54
-    for feat in canary["features"]:
-        assert feat["leaks_gt_0p90"] is False
-        assert feat["symmetric_roc_auc"] <= 0.90
+    assert "not independently reproduced" in canary["audit_status"]
+    assert json.loads((ROOT / "docs/data/run-card.json").read_text())["leakage_canary"]["max_auc"] is None
 
 
-def test_gate2_holdout_monotonic_progression_and_strict_labels() -> None:
-    hvfd = json.loads((ROOT / "evidence" / "hvfd_experiments.json").read_text(encoding="utf-8"))
-    prim = hvfd["primary_holdout_buffered_loqo"]
-    sec = hvfd["secondary_holdout_blind_quadrants_8km"]
-
-    assert prim["evidence_class"] == "HOLDOUT-DTI"
-    assert sec["evidence_class"] == "HOLDOUT-DTI"
-    b = prim["scores"]
-    for arm_val in b.values():
-        assert arm_val["evidence_class"] == "HOLDOUT-DTI"
-        assert arm_val["withheld_positive_pixels"] == 11_321
-
-    d_slope = b["single_slope"]["dti"]
-    d_rand = b["random_37654"]["dti"]
-    d_fair = b["fair_h33"]["dti"]
-    d_exp1 = b["EXP1_zero_cat_hydro_piedmont"]["dti"]
-    d_exp2 = b["EXP2_hvfd_dual_population"]["dti"]
-    d_exp3 = b["EXP3_hvfd_collinear_sharpened"]["dti"]
-
-    assert d_slope < d_rand < d_fair < d_exp1 < d_exp2 < d_exp3
-    paired = prim["paired_differences"]["fair_h33"]
-    assert paired["delta"] > 0.020
-    assert paired["ci95"][0] > 0.010
-
-    blind = sec["scores"]
-    assert blind["EXP3_blind_collinear"]["dti"] > blind["EXP1_blind_quadrant"]["dti"]
-    assert blind["EXP3_blind_collinear"]["dti"] > 4.0 * blind["single_slope_blind"]["dti"]
-    assert blind["EXP3_blind_collinear"]["dti"] > 9.5 * blind["random_37654"]["dti"]
+def test_prior_holdout_is_not_treated_as_a_current_score() -> None:
+    historical = json.loads((ROOT / "evidence/hvfd_experiments.json").read_text())
+    assert "not independently reproduced" in historical["audit_status"]
+    card = json.loads((ROOT / "evidence/hvfd_exp3_run_card.json").read_text())
+    assert card["holdout_dti"]["dti"] is None
+    assert card["holdout_dti"]["ci95"] is None
+    assert card["verdict"] == "negative"
 
 
 def test_disk3_fast_offset_equivalence_with_binary_dilation() -> None:
@@ -100,103 +73,45 @@ def test_disk3_fast_offset_equivalence_with_binary_dilation() -> None:
     assert int(any_hit.sum()) == expected_hits
 
 
-def test_gate3_uniqueness_against_registry() -> None:
-    uniq = json.loads((ROOT / "evidence" / "uniqueness_audit.json").read_text(encoding="utf-8"))
-    assert uniq["n_unique_registry_rasters_checked"] >= 400
-    assert uniq["all_uniqueness_gates_passed"] is True
-    assert abs(uniq["worst_pre_placement_spearman"]["pre_placement_spearman"]) <= 0.90
-    assert abs(uniq["worst_post_placement_spearman"]["post_placement_spearman"]) <= 0.90
-    assert uniq["worst_discrete_3px_overlap"]["forward_3px_overlap"] <= 0.70
-
-    # Verify EXP-2 duplicate stop was logged per Rule 1
-    per_exp = uniq["per_experiment_gate_summary"]
-    assert per_exp["EXP2_hvfd_dual_population"]["all_uniqueness_gates_passed"] is False
-    assert per_exp["EXP2_hvfd_dual_population"]["max_discrete_3px_overlap"] > 0.70
-    assert per_exp["EXP3_hvfd_collinear_sharpened"]["all_uniqueness_gates_passed"] is True
+def test_literal_registry_stop_is_not_exempted() -> None:
+    uniq = json.loads((ROOT / "evidence/uniqueness_audit.json").read_text())
+    assert uniq["prior_scoped_all_uniqueness_gates_passed"] is True
+    assert uniq["all_uniqueness_gates_passed"] is False
+    witness = uniq["literal_lattice_check"]
+    assert (witness["candidate_dots"], witness["within_3px"]) == (37654, 37617)
+    assert witness["fraction"] > .70
+    assert uniq["per_experiment_gate_summary"]["EXP3_hvfd_collinear_sharpened"]["all_uniqueness_gates_passed"] is False
+    assert uniq["per_experiment_gate_summary"]["EXP2_hvfd_dual_population"]["all_uniqueness_gates_passed"] is False
 
 
-def test_gate4_promoted_geotiff_and_zip_portal_contract() -> None:
-    rc = json.loads((ROOT / "evidence" / "hvfd_exp3_run_card.json").read_text(encoding="utf-8"))
+def test_historical_tiff_and_zip_integrity_is_not_approval() -> None:
+    from scripts.validate_tif import validate
+    rc = json.loads((ROOT / "evidence/hvfd_exp3_run_card.json").read_text())
     tif_path = ROOT / rc["raster_path"]
-    zip_path = ROOT / "docs" / "downloads" / rc["zip_filename"]
-    assert tif_path.exists(), f"Missing promoted GeoTIFF: {tif_path}"
-    assert zip_path.exists(), f"Missing promoted ZIP: {zip_path}"
-
-    # Cryptographic integrity
+    zip_path = ROOT / "docs/downloads" / rc["zip_filename"]
     assert _sha256(tif_path) == rc["raster_sha256"]
     assert _sha256(zip_path) == rc["zip_sha256"]
-
-    # Direct rasterio inspection for DrivenData portal safety
-    with rasterio.open(tif_path) as ds:
-        assert ds.count == 1
-        assert ds.dtypes[0] == "float32"
-        assert (ds.height, ds.width) == (3730, 3292)
-        assert str(ds.crs) == "EPSG:32611"
-        assert ds.nodata is None
-        arr = ds.read(1)
-
-    assert arr.size == 12_279_160
-    assert int(np.isnan(arr).sum()) == 0, "Zero NaNs permitted anywhere in zeros-mode portal GeoTIFF"
-    assert int(np.isinf(arr).sum()) == 0, "Zero Infs permitted"
-    assert float(arr.min()) >= 0.0
-    assert float(arr.max()) <= 1.0
-
-    # Shared template validator check against footprint & catalogue
-    data_dir = ROOT / ".cache" / "gems_data"
-    if (data_dir / "example_submission.tif").exists():
-        grid_obj = load_grid(data_dir)
-        val = v57.validate(tif_path, footprint=grid_obj.footprint, catalogue=grid_obj.catalogue)
-        assert val["all_checks_passed"] is True
-        assert val["n_nan"] == 0
-        assert val["n_infinite"] == 0
-        assert val["checks"]["outside_footprint_zero"] is True
-        assert val["on_catalogue_positive_pixels"] == 0
-        assert val["emitted_positive_pixels"] == 37_654
-
-    # ZIP integrity
-    with zipfile.ZipFile(zip_path, "r") as zf:
-        assert zf.testzip() is None
-        names = zf.namelist()
-        assert names == [tif_path.name]
+    with zipfile.ZipFile(zip_path) as zf:
+        assert zf.testzip() is None and zf.namelist() == [tif_path.name]
         assert hashlib.sha256(zf.read(tif_path.name)).hexdigest() == rc["raster_sha256"]
+    result = validate(tif_path, ROOT / "data/bridge/sample_submission.tif")
+    assert result["strict_local_format_pass"] is True
+    assert result["organizer_accepted"] is None and result["ok_to_submit"] is False
 
 
-def test_gate5_run_card_and_nine_focus_sites_completeness() -> None:
-    rc = json.loads((ROOT / "evidence" / "hvfd_exp3_run_card.json").read_text(encoding="utf-8"))
-    for key in (
-        "hypothesis",
-        "mechanism",
-        "named_non_fault_process_mimic",
-        "holdout_dti",
-        "correlation_and_overlap_vs_registry",
-        "raster_sha256",
-        "validator_output",
-        "submission_name",
-        "submission_note",
-        "verdict",
-    ):
-        assert key in rc, f"Missing required Run Card key: {key}"
-
-    assert rc["verdict"] == "negative"
-    assert rc["ok_to_submit"] is False
-    note = rc["submission_note"]
-    assert 1 <= len(note) <= 140
-    assert rc["submission_note_chars"] == len(note)
-
-    nine = json.loads((ROOT / "evidence" / "nine_sites_audit.json").read_text(encoding="utf-8"))
-    expected_sites = [
-        "GEMSDOE24",
-        "GEMSDOE25",
-        "GEMSDOE27",
-        "GEMSDOE28",
-        "GEMSDOE30",
-        "GEMSDOE31",
-        "GEMSDOE32",
-        "GEMSDOE33",
-        "GEMSDOE36",
-    ]
-    assert [row["site"] for row in nine["sites"]] == expected_sites
-    for row in nine["sites"]:
-        hb = row["historic_best"]
-        assert hb["overlap_3px_with_gemsdoesass2"] < 0.70
-        assert "USER-REPORTED / UNVERIFIED" in hb["score_label"]
+def test_negative_run_card_and_nine_focus_sites() -> None:
+    rc = json.loads((ROOT / "docs/data/run-card.json").read_text())
+    for key in ("hypothesis", "mechanism", "named_non_fault_process", "holdout_dti",
+                "correlation_overlap_vs_registry", "raster_sha256", "validator_output",
+                "submission_name", "note", "verdict"):
+        assert key in rc
+    assert rc["verdict"] == "negative" and rc["ok_to_submit"] is False
+    assert rc["raster_sha256"] is None and rc["submission_name"] is None
+    assert rc["holdout_dti"]["dti"] is None and len(rc["note"]) <= 140
+    audit = json.loads((ROOT / "docs/data/audit.json").read_text())
+    expected = {"GEMSDOE24", "GEMSDOE25", "GEMSDOE27", "GEMSDOE28", "GEMSDOE30",
+                "GEMSDOE31", "GEMSDOE32", "GEMSDOE33", "GEMSDOE36"}
+    assert {r["site"] for r in audit["historical_sites"]} == expected
+    for row in audit["historical_sites"]:
+        assert not row["unique_against_nine_under_dot_rule"]
+        assert row["historical_score_evidence"].startswith("USER-REPORTED")

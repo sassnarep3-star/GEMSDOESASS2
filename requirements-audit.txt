@@ -1,8 +1,8 @@
-# Pinned dependencies required to execute the audit/test suite; no model training.
+# Pinned dependencies for all audit, format, evidence and site-adjacent Python tests.
 numpy==2.2.6
 scipy==1.15.3
 rasterio==1.4.3
 scikit-image==0.25.2
-scikit-learn==1.7.2
-pyproj==3.7.2
+scikit-learn==1.6.1
+pyproj==3.7.1
 pytest==8.4.2

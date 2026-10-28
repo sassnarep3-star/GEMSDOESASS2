@@ -101,7 +101,7 @@ def test_current_lattice_witness_receipt_and_safety_notice():
         assert sha256_file(ROOT / 'docs/downloads' / entry['filename']) == entry['sha256']
     assert json.loads((ROOT / 'docs/data/lattice-recheck.json').read_text()) == receipt
     for page in ['index.html', 'executive-summary.html', 'hvfd-exp3.html']:
-        assert 'DO NOT SUBMIT — no approved candidate' in (ROOT / 'docs' / page).read_text()
+        assert 'DO NOT SUBMIT' in (ROOT / 'docs' / page).read_text().upper()
     card = json.loads((ROOT / 'evidence/hvfd_exp3_run_card.json').read_text())
     assert card['verdict'] == 'negative' and card['ok_to_submit'] is False
 

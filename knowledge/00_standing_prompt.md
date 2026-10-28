@@ -75,7 +75,7 @@ Read this every session before working. It is the project's base specification.
 | GEMSDOE38 | D-step-3p0: 0.0763 |
 | GEMSDOE39–GEMSDOE92 etc. | all ≤ 0.2478 (notable: GEMSDOE49 gate_ortho 0.2376 · GEMSDOE48 h59-cover-ds 0.2296 · GEMSDOE63 cvarlw 0.2303 · GEMSDOE70 p5-dual-submod 0.2478 · GEMSDOE76 ptcf-tiltworm 0.2343 · GEMSDOE73 mcsc-blakely 0.1917 · GEMSDOE82 submodular-punoisyor 0.1886 · GEMSDOE91 lftg 0.1823 · 62GEMSDOE datum-lahontan: 0.0000) |
 
-**Read of the ledger (verified against the cached repos):** every score ≥0.24 is one dotted-lattice family descended from 19GEMSDOE `h19-5` (0.1922) → dotting (D1.5/D2.8) → off-catalogue prunes; every out-of-family "unique" attempt scored ≤0.2478. The champion = D2.8 base + B=2 catalogue prune.
+**Audit correction (2026-10-28):** the score ledger is user-supplied and has no organizer receipts. Only the nine selected pinned variants were measured in the independent audit; no claim is made about every raster or score in the broader list. The pinned GEMSDOE32 B2 mask equals the pinned d2.8 mask after a two-cell catalogue prune. See [current findings](../research/2026-10-28-hypotheses-and-review.md).
 
 ## Arena core values
 - **Maximize P(Win)** — weigh tradeoffs/risk, put the outcome first; weekly slots are scarce information capital.

@@ -22,12 +22,13 @@ Enforces ALL Parallel-Run Protocol Rules automatically (zero human-inspector fal
 
 from __future__ import annotations
 
-# Safety stop: these historical runners omit the literal lattice witness and can
-# overwrite reports with promotion claims. See research/current-recheck.md.
+# Fail closed: historical source is retained below for forensic review.
+import sys as _legacy_sys
+_LEGACY_REASON = 'Legacy XGHF runner uses a private holdout and excludes registered rasters; shared probes fail.'
 if __name__ == "__main__":
-    import sys as _guard_sys
-    print("Historical runner disabled: registry overlap gate failed. DO NOT SUBMIT.", file=_guard_sys.stderr)
+    print(_LEGACY_REASON + " DO NOT SUBMIT.", file=_legacy_sys.stderr)
     raise SystemExit(2)
+raise RuntimeError(_LEGACY_REASON)
 
 import gc
 import hashlib

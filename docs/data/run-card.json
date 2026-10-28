@@ -1,90 +1,46 @@
 {
-  "hypothesis": "Prospective H1: multi-sensor boundary stability under modality-specific perturbations; no method lane was assigned and this hypothesis was not tested.",
-  "mechanism": "Anomaly edges stable under realistic perturbations across magnetic and gravity channels may indicate buried structure beneath cover; test only with a restored fold-safe feature cache.",
-  "named_non_fault_process": "A persistent lithologic contact or dike swarm can produce similarly stable magnetic and gravity gradients.",
+  "hypothesis": "Within the previously described XGHF family, magnetic and gravity boundaries that remain aligned under scale and modality perturbations may better identify buried faults. This proposal is not an assigned lane and has not been tested.",
+  "mechanism": "Compare multiscale, cross-gradient boundary stability using the restored owner-mirror competition features; any catalogue-derived field must use only fold-visible faults.",
+  "named_non_fault_process": "Lithologic contacts and dike swarms can produce similarly stable magnetic and gravity boundaries.",
   "holdout_dti": {
     "label": "HOLDOUT-DTI",
     "evaluator_version": null,
-    "n_withheld_positives": null,
+    "withheld_positive_pixels": null,
     "dti": null,
     "ci95": null,
-    "status": "NOT RUN: no assigned method lane, no reusable cache or current same-protocol control; shared evaluator and surface gate fail synthetic probes."
+    "status": "NOT RUN: literal duplicate budget stop and unresolved shared-tool defects; no qualified comparable baseline."
+  },
+  "leakage_canary": {
+    "status": "NOT RUN: no feature or geological experiment executed in this session.",
+    "max_auc": null
   },
   "correlation_overlap_vs_registry": {
-    "new_surface_rank_correlation": null,
-    "new_surface_overlap": null,
+    "new_surface_spearman": null,
+    "new_surface_preview_overlap": null,
     "new_final_dot_overlap": null,
-    "status": "No new surface or dots were created. The complete current registry was not checked.",
-    "lattice_sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
-    "historical_budget_bound": {
+    "status": "No new surface or dots produced. Full current registry and surfaces unavailable.",
+    "lattice_reference_sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+    "previous_hvfd": {
+      "sha256": "28bb9419d592797dcac1bfb1eb19fcffa7581a51718230f1f4f957a3e3d610d6",
+      "dots": 37654,
+      "within_3px": 37617,
+      "fraction": 0.999017368672651,
+      "duplicate_stop": true
+    },
+    "previous_xghf": {
+      "sha256": "2a122a409c7a7d5977a311dce271d6f333f21a697cd9effd59b45c6c0f0e8ec7",
+      "dots": 37654,
+      "within_3px": 37636,
+      "fraction": 0.9995219631380464,
+      "duplicate_stop": true
+    },
+    "bound_at_37654": {
       "dots": 37654,
       "minimum_overlapping_dots": 31005,
       "minimum_overlap_fraction": 0.8234184947150369,
       "necessarily_exceeds_limit": true,
       "first_failing_dot_count": 22164
-    },
-    "existing_witnesses": [
-      {
-        "site": "GEMSDOE27",
-        "sha256": "2c002b02792419864bd3b29a218e543cb41e3f07b3b57c29ef35c6e39e184bfe",
-        "within_3px_fraction": 0.9961491475009295,
-        "fails_literal_rule": true
-      },
-      {
-        "site": "GEMSDOE28",
-        "sha256": "77934be607d48a4daec5b046009cdabf61d3fdee210aadc75be82ac70f3beb2e",
-        "within_3px_fraction": 0.9961757051043714,
-        "fails_literal_rule": true
-      },
-      {
-        "site": "GEMSDOE36",
-        "sha256": "86fc8243ad573bcdbfac8b432daf0ec5b6800b991b2c3278706358be7eb9922d",
-        "within_3px_fraction": 0.9916874701226961,
-        "fails_literal_rule": true
-      },
-      {
-        "site": "GEMSDOE24",
-        "sha256": "9df52a41c34d4f508b57128c1bc6c2dd716c6149d22dd8717137baa463ed0336",
-        "within_3px_fraction": 1.0,
-        "fails_literal_rule": true
-      },
-      {
-        "site": "GEMSDOESASS2 TTC zeros",
-        "sha256": "b8be5398deea3c71c301fdb0732c234159da78746666e0cdcb51f4df090e6fe8",
-        "within_3px_fraction": 0.9995485207414883,
-        "fails_literal_rule": true
-      },
-      {
-        "site": "GEMSDOESASS2 TTC nan twin",
-        "sha256": "85851954533959157063991d50b942d9f546d3089ce943e3b10fc7a76a0a9130",
-        "within_3px_fraction": 0.9995485207414883,
-        "fails_literal_rule": true
-      },
-      {
-        "site": "GEMSDOESASS2 ALEDGE",
-        "sha256": "cc854482215ec665a17175447474066e3418692c9604f150cc4f5459dc459707",
-        "within_3px_fraction": 0.9932410977545929,
-        "fails_literal_rule": true
-      },
-      {
-        "site": "GEMSDOESASS2 SCU zeros",
-        "sha256": "0ab88d8ab85c9bbfc690557bca0e8bf6d92dcd7657825306c9eaf294dab3fe6d",
-        "within_3px_fraction": 0.9985135135135135,
-        "fails_literal_rule": true
-      },
-      {
-        "site": "GEMSDOESASS2 SCU nan twin",
-        "sha256": "00a357c15a823c06fa9751c29813206a1d4582b1c0b7be1f6d48641e24f38b7d",
-        "within_3px_fraction": 0.9985135135135135,
-        "fails_literal_rule": true
-      },
-      {
-        "site": "GEMSDOE24 H-UNIQUE-07",
-        "sha256": "fe6d637fad5b8fb435988b3ab31af8ae777380f78046577c505275e2e725a795",
-        "within_3px_fraction": 0.9977949283351709,
-        "fails_literal_rule": true
-      }
-    ]
+    }
   },
   "raster_sha256": null,
   "validator_output": {
@@ -92,23 +48,23 @@
     "inside_nan": null,
     "inside_range_0_1": null,
     "crs_shape_transform_match": null,
-    "status": "This audit generated no TIFF. Parallel-branch research files were inspected separately; see docs/data/format-parallel-*.json and research/parallel-integration.md."
+    "status": "No new raster generated. Previously inspected TIFFs pass local format checks only; no organizer receipt."
   },
   "submission_name": null,
-  "note": "No assigned lane; uniqueness and shared-tool preflight failed. DO NOT SUBMIT.",
+  "note": "No qualifying new file. Duplicate and shared-tool stops apply; DO NOT SUBMIT.",
   "verdict": "negative",
   "ok_to_submit": false,
   "selector_approved": false,
-  "scope": "This independent audit session only; other merged branches reported separate experiments and produced research TIFFs.",
   "new_experiments": 0,
   "weekly_slots_spent": 0,
+  "cache_provenance": "19-band owner mirror restored and SHA-pinned locally; ignored cache is not an authenticated organizer download.",
   "blockers": [
-    "No single geological method lane was supplied for this parallel session.",
-    "Reusable prepared features, frozen comparator, and the complete current registry are absent from this checkout.",
-    "At the usual 37,654-dot budget the literal all-entry lattice rule forces overlap above 70%.",
-    "Two upstream shared-tool synthetic checks fail; upstream is read-only and existing issues are open.",
-    "Official sample and current account quota/receipt are inaccessible without DrivenData authorization."
+    "User prompt supplies no single explicit lane paragraph; repo lane is a prior proposal.",
+    "The literal lattice stop is unavoidable at 37,654 distinct dots.",
+    "Shared GEMSDOE32 evaluator and pre-placement gate still fail synthetic probes; upstream issues are open.",
+    "Current complete registry, fold-local comparator, authenticated organizer sample, and account quota are unavailable."
   ],
   "audit_receipt": "docs/data/audit.json",
-  "shared_tool_receipt": "docs/data/upstream-check.json"
+  "shared_tool_receipt": "docs/data/upstream-check.json",
+  "data_receipt": "evidence/data_restoration_20261028.json"
 }

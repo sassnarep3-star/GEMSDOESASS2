@@ -1,3 +1,5 @@
+> **Subsequent update (2026-10-28):** This is an earlier parallel review. A 19-band cache was later restored from a hash-pinned owner mirror, not authenticated organizer data. The separate comparator, full registry and both shared-tool blockers remain unresolved. See [the latest review](2026-10-28-review.md).
+
 # Current independent recheck — 2026-10-28
 
 **Decision: no candidate approved; no new geological experiment or competition submission was run.** The prompt does not identify the promised single method paragraph. The prepared cached stack and complete, current registry are absent, and the shared template's documented holdout defects remain unresolved ([issue 41](https://github.com/buffedlizard55-lab/GEMSDOE32/issues/41), [issue 42](https://github.com/buffedlizard55-lab/GEMSDOE32/issues/42)). Running a new lane or claiming a clean holdout under those circumstances would violate the protocol.

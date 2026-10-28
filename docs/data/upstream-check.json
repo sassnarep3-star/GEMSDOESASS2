@@ -1,8 +1,9 @@
 {
+  "checked_utc": "2026-10-28T23:04:22Z",
   "probe_type": "synthetic unit checks; no geological holdout performed",
   "files": {
-    "release_gate_sha256": "ebf5bd483e84234ceb885070a1e717892f921d52112c0af52ffcd41f392ebebd",
-    "holdout_sha256": "c476410a3fe27e9c2d6b97e206633ec252929df1c0c0e4c620da0c2f311fd538"
+    "release_gate_sha256": "4273aa0bb4fa6b1cd327ee9d48983550cb531ff77e694f829d6361897a3e120f",
+    "holdout_sha256": "9ce9cf359f4d7b7fa844dd8f208ec00c3e6c15afef5d724d9014320b944d318d"
   },
   "surface_duplicate": {
     "within_3px_fraction": 1.0,
@@ -20,5 +21,7 @@
     "issue": "https://github.com/buffedlizard55-lab/GEMSDOE32/issues/41"
   },
   "ready_for_shared_holdout": false,
-  "action": "Fix upstream once and rerun these probes; do not maintain a private evaluator fork."
+  "action": "Fix upstream once and rerun these probes; do not maintain a private evaluator fork.",
+  "source_repo": "buffedlizard55-lab/GEMSDOE32",
+  "source_ref": "97597a066d1c61d2c226fdba349716f41b30c1c6"
 }
