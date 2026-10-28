@@ -300,5 +300,6 @@
       "symmetric_auc": 0.82627,
       "passed": true
     }
-  }
+  },
+  "audit_status": "ARCHIVED HISTORICAL REPORT: measurements were not independently reproduced in the 2026-10-28 review and cannot support promotion; see IRREGULARITIES.md."
 }

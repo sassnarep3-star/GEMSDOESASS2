@@ -82,36 +82,34 @@ def main() -> int:
 
     rows = []
     problems = []
-    for s in audit["sites"]:
-        site = s["site"]
-        hb = s["historic_best"]
-        fname = os.path.basename(hb["filename"])
+    for s_ in audit["sites"]:
+        site = s_["site"]
+        hb = s_["historic_best"]
+        fname = os.path.basename(hb["artifact_url"])
         path = find_historic(site, fname)
         if path is None:
             problems.append(f"{site}: historic raster {fname} not found in registry cache")
             rows.append({"site": site, "error": "raster not found"})
             continue
         sha = sha256_file(path)
-        if sha != hb["sha256"]:
-            problems.append(f"{site}: sha256 mismatch ({sha} != {hb['sha256']})")
+        if sha != hb["artifact_sha256"]:
+            problems.append(f"{site}: sha256 mismatch ({sha} != {hb['artifact_sha256']})")
         coords = dot_coords(path, footprint)
         overlaps = {label: round(overlap(cand_coords[label], coords), 4) for label in OUR_CANDIDATES}
-        # Overlap of the historic best with the H19-5 / GEMSDOE32 lineage, from the audit.
         rows.append({
             "site": site,
             "historic_best_file": fname,
             "historic_best_sha256": sha,
-            "dots": int(hb["emitted_dots"]),
-            "live_score": hb.get("live_score"),
+            "artifact_url": hb["artifact_url"],
+            "dots": int(len(coords)),
+            "live_score": hb.get("reported_score"),
             "live_score_label": hb.get("score_label"),
-            "lineage_overlap_3px_vs_GEMSDOE32_B2": hb.get("overlap_3px_vs_gemsdoe32_b2"),
-            "lineage_status": hb.get("uniqueness_status"),
-            "holdout_retrospective_dti": hb.get("holdout_dti"),
-            "holdout_retrospective_note": hb.get("holdout_dti_note"),
+            "audit_max_overlap_peer": hb.get("max_overlap_peer"),
+            "audit_max_overlap_fraction": hb.get("max_overlap_fraction"),
+            "audit_unique_against_nine": hb.get("unique_against_nine"),
             "our_candidate_3px_overlap_with_this_historic_best": overlaps,
             "may_resubmit": False,
-            "resubmit_reason": "Already scored; in the H19-5 / GEMSDOE32 duplicate family.",
-            "recommended_action": "Do not resubmit. Use the unique SASS2-XGHF file instead.",
+            "recommended_action": "Do not resubmit: already scored, and it duplicates another focus variant (audit).",
             "estimated_leaderboard_score": "NOT ESTIMABLE",
         })
 
@@ -167,10 +165,10 @@ def render_html(summary: dict) -> str:
         site_rows.append(
             "<tr>"
             f"<td><b>{esc(r['site'])}</b></td>"
-            f"<td><code>{esc(r['historic_best_file'])}</code><br><span class='small'>sha256 {esc(r['historic_best_sha256'][:16])}…</span></td>"
+            f"<td><code>{esc(r['historic_best_file'])}</code><br><span class='small'>sha256 {esc(r['historic_best_sha256'][:16])}… · {r['dots']:,} dots</span></td>"
             f"<td>{fmt(r['live_score'])}<br><span class='small'>{esc(r['live_score_label'])}</span></td>"
-            f"<td>{fmt(r['lineage_overlap_3px_vs_GEMSDOE32_B2'])}</td>"
-            f"<td><span class='no'>NO — do not resubmit</span><br><span class='small'>{esc(r['lineage_status'])}</span></td>"
+            f"<td>{fmt(r['audit_max_overlap_fraction'])}<br><span class='small'>vs {esc(str(r['audit_max_overlap_peer']))}</span></td>"
+            f"<td><span class='no'>NO — do not resubmit</span><br><span class='small'>unique against nine (audit): {esc(str(r['audit_unique_against_nine']))}</span></td>"
             f"<td>{esc(r['estimated_leaderboard_score'])}</td>"
             f"<td>{esc(r['recommended_action'])}</td>"
             "</tr>"
@@ -215,14 +213,13 @@ a{{color:#0969da}}
 <p>Focus sites: GEMSDOE24, 25, 27, 28, 30, 31, 32, 33, 36. Generated {esc(summary['generated_utc'])} from
 <code>evidence/nine_sites_audit.json</code> and <code>evidence/focus_uniqueness_downloads.json</code>.</p>
 
-<div class="banner good"><b>BEST FILE TO DOWNLOAD (unique, format-valid, passes every genuine gate):</b><br>
-<a href="downloads/gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif" download><b>gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif</b></a><br>
-Worst genuine 3-px overlap vs any submission raster: <b>{fmt(summary['our_candidates']['SASS2-XGHF (zeros.tif)']['genuine_worst_overlap_3px'])}</b> (limit 0.70).
-Submission name: <code>GEMSDOESASS2-XGHF-e7996841</code>. Note: <code>SASS2 XGHF 37654d B2 | HR 0.1311 SGMC 0.0668 | e7996841 | xgrad+hf+pu</code>.<br>
-<b>Estimated leaderboard score: NOT ESTIMABLE.</b> No proxy here predicts the leaderboard (see below). Only the organizer receipt after a submission is a score.</div>
+<div class="banner bad"><b>NO FILE IS CLEARED FOR SUBMISSION (fail-closed; consistent with the repo decision in README.md).</b><br>
+Every current candidate fails the literal rule “more than 70% of dots within 3 px of any registry raster”, because the <code>13GEMSDOE r13-lattice-s5</code> probe covers about 99.9% of the footprint. Ignoring that probe (see §4), the genuine receipts give the picture below. An owner decision on the probe exemption is required before any slot is used.</div>
 
-<div class="banner bad"><b>DO NOT SUBMIT the HVFD-EXP3 file.</b> Its worst genuine overlap is {fmt(summary['our_candidates']['HVFD-EXP3 (zeros.tif)']['genuine_worst_overlap_3px'])} against the
-<code>8GEMSDOE Hedge-v2_submission</code> raster, above the 0.70 limit. The site previously labelled it “OK TO DOWNLOAD AND SUBMIT”; that label was wrong.</div>
+<div class="banner bad"><b>HVFD-EXP3 is not unique even among genuine submissions:</b> {fmt(summary['our_candidates']['HVFD-EXP3 (zeros.tif)']['genuine_worst_overlap_3px'])} of its dots lie within 3 px of the registered <code>8GEMSDOE Hedge-v2_submission</code> raster (limit 70%). Do not submit it.</div>
+
+<div class="banner good"><b>Research-only candidate with the best genuine receipts:</b> SASS2-XGHF <code>…e7996841-zeros.tif</code>, worst genuine overlap <b>{fmt(summary['our_candidates']['SASS2-XGHF (zeros.tif)']['genuine_worst_overlap_3px'])}</b>, worst |Spearman| {fmt(summary['our_candidates']['SASS2-XGHF (zeros.tif)']['genuine_worst_abs_spearman'])}. It still fails the literal lattice rule, so it is <b>not cleared</b>.<br>
+<b>Estimated leaderboard score: NOT ESTIMABLE.</b> No proxy here predicts the leaderboard (see §3). Only an organizer receipt after a submission is a score.</div>
 
 <div class="card"><h2>1. Our candidates against the genuine submission rasters</h2>
 <p class="small">Genuine = every unique-SHA256 3730×3292 submission GeoTIFF in the local registry cache (452 rasters after the feature-stack exclusion). The space-filling probe <code>r13-lattice-s5</code> is reported separately (see §4).</p>
@@ -230,14 +227,15 @@ Submission name: <code>GEMSDOESASS2-XGHF-e7996841</code>. Note: <code>SASS2 XGHF
 {''.join(cand_rows)}</table></div>
 
 <div class="card"><h2>2. Per-site: best historic submission and what to do</h2>
-<p class="small">Each site’s historic best is re-hashed against the audit and matched. All nine sit in the H19-5 / GEMSDOE32 duplicate family.</p>
-<table><tr><th>Site</th><th>Historic best file</th><th>Live score (label)</th><th>3-px overlap vs GEMSDOE32 B2</th><th>Resubmit?</th><th>Estimated leaderboard score</th><th>Action</th></tr>
+<p class="small">Each historic best is re-hashed against <code>evidence/nine_sites_audit.json</code> and matched. Main’s audit verdict is <b>negative</b>: no focus variant is unique against the nine.</p>
+<table><tr><th>Site</th><th>Historic best file</th><th>Reported score (label)</th><th>Audit max 3-px overlap vs another focus variant</th><th>Resubmit?</th><th>Estimated leaderboard score</th><th>Action</th></tr>
 {''.join(site_rows)}</table></div>
 
 <div class="card"><h2>3. Why no leaderboard estimate is written</h2>
 <ul>
-<li>Our holdout (<code>gems57-pooled-hide-v2</code>) gives the H19-5-family historic bests near-zero scores (retrospective DTI about 0.003–0.09), while their live scores are 0.2449–0.2778. The proxy does not reproduce the leaderboard ordering, so it cannot estimate a leaderboard score.</li>
-<li>SASS2-XGHF’s repo-reported holdout is <b>{x['dti']:.6f} [{x['ci95'][0]:.6f}, {x['ci95'][1]:.6f}]</b>, n={x['n_withheld']:,} (label: {esc(x['label'])}). Not re-run here: the 19-band training features are unavailable offline.</li>
+<li>The audit states that current scores are USER-REPORTED / UNVERIFIED: no organizer receipt ties a reported score to the pinned raster bytes.</li>
+<li>Earlier retrospective holdout figures (about 0.003–0.09 for the H19-5 family, live scores 0.2449–0.2778) do not reproduce the leaderboard ordering, so no holdout proxy here estimates a leaderboard score.</li>
+<li>SASS2-XGHF’s repo-reported holdout (older run card; not re-run here) is <b>{x['dti']:.6f} [{x['ci95'][0]:.6f}, {x['ci95'][1]:.6f}]</b>, n={x['n_withheld']:,} (label: {esc(x['label'])}). The 19-band feature cache is now restored from an owner mirror (see <code>evidence/feature_cache.json</code>), but no model was retrained in this session.</li>
 </ul></div>
 
 <div class="card"><h2>4. Space-filling probe exception (owner decision required)</h2>

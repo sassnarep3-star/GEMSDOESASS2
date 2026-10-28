@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "audited_utc": "2026-10-27T12:06:47Z",
-  "scope": "This independent audit only: pinned owner mirrors, 9 historical variants and 10 existing candidate-file witnesses; no new model experiment or authenticated score receipt. Parallel branches produced research TIFFs and reported separate experiments.",
+  "audited_utc": "2026-10-28T22:55:18Z",
+  "scope": "This independent audit only: pinned owner mirrors, 9 historical variants and 12 existing candidate-file witnesses; no new model experiment or authenticated score receipt. Parallel branches produced research TIFFs and reported separate experiments.",
   "important_limit": "The complete current registry and pre-placement surfaces were not audited. Passing this snapshot cannot establish uniqueness or authorize submission.",
   "inputs": {
     "template": {
@@ -711,6 +711,36 @@
       "fraction": 0.9977949283351709,
       "fails_literal_overlap_rule": true,
       "artifact_url": "https://github.com/buffedlizard55-lab/GEMSDOE24/blob/e65cd19b255fd0edd3067142d08467c65ff5f7f7/docs/downloads/24gems-catalogue-offset-geothermal-proximity-20261027T114303Z-578c30176163-zeros.tif"
+    },
+    {
+      "id": "parallel_hvfd_zeros",
+      "site": "GEMSDOESASS2 HVFD-EXP3",
+      "owner": "sassnarep3-star",
+      "repo": "GEMSDOESASS2",
+      "ref": "3b21e4e9bf70458c91ae9e6c41dbfb6688f3f957",
+      "path": "docs/downloads/gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif",
+      "sha256": "28bb9419d592797dcac1bfb1eb19fcffa7581a51718230f1f4f957a3e3d610d6",
+      "claim": "Previous promote claim withdrawn: original scan excluded the registered lattice.",
+      "candidate_dots": 37654,
+      "dots_within_3px": 37617,
+      "fraction": 0.999017368672651,
+      "fails_literal_overlap_rule": true,
+      "artifact_url": "https://github.com/sassnarep3-star/GEMSDOESASS2/blob/3b21e4e9bf70458c91ae9e6c41dbfb6688f3f957/docs/downloads/gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif"
+    },
+    {
+      "id": "parallel_xghf_zeros",
+      "site": "GEMSDOESASS2 XGHF",
+      "owner": "sassnarep3-star",
+      "repo": "GEMSDOESASS2",
+      "ref": "3b21e4e9bf70458c91ae9e6c41dbfb6688f3f957",
+      "path": "docs/downloads/gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif",
+      "sha256": "2a122a409c7a7d5977a311dce271d6f333f21a697cd9effd59b45c6c0f0e8ec7",
+      "claim": "Previous focused uniqueness pass does not satisfy the literal all-registry rule.",
+      "candidate_dots": 37654,
+      "dots_within_3px": 37636,
+      "fraction": 0.9995219631380464,
+      "fails_literal_overlap_rule": true,
+      "artifact_url": "https://github.com/sassnarep3-star/GEMSDOESASS2/blob/3b21e4e9bf70458c91ae9e6c41dbfb6688f3f957/docs/downloads/gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif"
     }
   ],
   "new_experiments": 0,

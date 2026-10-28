@@ -164,94 +164,34 @@
     "surface_spearman_gate_pass": true,
     "dots_spearman_gate_pass": true,
     "genuine_3px_overlap_gate_pass": true,
-    "all_uniqueness_gates_passed": true,
+    "all_uniqueness_gates_passed": false,
     "max_3px_overlap_all_including_lattices": 0.999522,
-    "literal_all_registry_3px_pass": false
+    "literal_all_registry_3px_pass": false,
+    "prior_scoped_all_uniqueness_gates_passed": true
   },
   "run_card": {
     "lane_id": "SASS2-XGHF",
     "branch": "arena/f2d1a15d-gemsdoesass2",
     "generated_utc": "20261027T131341Z",
-    "hypothesis": "Unmapped blind geothermal faults in the Great Basin / Walker Lane offset basement density and magnetization along collinear strikes (Gallardo-Meju cross-gradient -> 0 with steep Salem tilt-zero gradients) while venting convective hydrothermal fluids that create measurable chemical geothermometer disequilibrium (Qtz/Chalc/Na-K-Ca minus T_discharge), 2-m probe thermal plumes, USGS convective heat-flow residuals (qc_code=G), and epithermal magnetite-destruction / potassic K/Th halos beneath alluvial fans where QFaults scarps vanish.",
-    "mechanism": "59-channel leak-free stack (19 official bands + 15 DEM/3DEP-LiDAR/GeoDAWN structural transforms + 14 SASS2-XGHF cross-gradient, Salem tilt-zero, magnetite-destruction, GDR-1391 geothermometer disequilibrium [7,881 obs], 2-m probe [2,782 obs], sinter [302 obs], USGS convective heat-flow [2,322 obs], TIGER/Lahontan deconfounder + 8 corridor context + 3 visible-only crack-tip/relay-bridge fracture fields); Completeness-calibrated Dual-Horizon Residual Submodular Cover (12,802 Stage-A SAR-PU/Crack-Tip + 24,852 Stage-B Blind XGHF Anisotropic Conduits = 37,654 binary dots, B=2.0 px).",
+    "hypothesis": "Historical XGHF research combined magnetic and gravity boundary alignment, hydrothermal proxies and visible fault-tip fields.",
+    "mechanism": "Such contrasts may identify buried structure, but lithologic contacts, survey artifacts and sampling bias are plausible alternatives; the claimed performance was not independently established.",
     "named_non_fault_mimic": "Pleistocene Lake Lahontan (~1,336 m) wave-cut shoreline benches, US highway/railroad cut-and-fill prisms + buried pipeline magnetic anomalies, and GeoDAWN E-W flight-line / survey-block leveling seams (mitigated via TIGER road distance gate, Lahontan low-gravity bench suppressor, directional magnetic tilt de-striping, and cross-gradient collinearity).",
     "holdout_dti": {
-      "primary_hide_and_recover": {
-        "label": "HOLDOUT-DTI",
-        "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
-        "n_withheld_positives": 22232,
-        "pooled_dti": 0.131134,
-        "ci95": [
-          0.118009,
-          0.14293
-        ],
-        "incumbent_02778_same_evaluator": 0.099202,
-        "paired_delta_vs_02778": {
-          "mean_delta": 0.032048,
-          "ci95": [
-            0.021652,
-            0.042293
-          ],
-          "prob_gt_zero": 1.0,
-          "statistically_positive_95": true
-        },
-        "detached_600m_blind_dti": 0.096483,
-        "detached_600m_ci95": [
-          0.084767,
-          0.107534
-        ],
-        "detached_paired_delta_vs_02778": {
-          "mean_delta": 0.002427,
-          "ci95": [
-            -0.006009,
-            0.010949
-          ],
-          "prob_gt_zero": 0.708,
-          "statistically_positive_95": false
-        }
-      },
-      "secondary_sgmc_off_catalogue": {
-        "label": "HOLDOUT-DTI",
-        "evaluator_version": "GEMSDOE32-SGMC-CAL-v3.0",
-        "n_withheld_positives": 62703,
-        "sgmc_prevalence_calibrated_dti": 0.066793,
-        "sgmc_calibrated_ci95": [
-          0.060406,
-          0.072338
-        ],
-        "incumbent_02778_sgmc_cal": 0.064121,
-        "paired_cal_delta_vs_02778": {
-          "mean_delta": 0.002569,
-          "ci95": [
-            -0.006434,
-            0.011656
-          ],
-          "prob_gt_zero": 0.703,
-          "statistically_positive_95": false
-        },
-        "sgmc_raw_pooled_dti": 0.099885,
-        "sgmc_raw_ci95": [
-          0.090311,
-          0.10911
-        ],
-        "incumbent_02778_sgmc_raw": 0.09606,
-        "paired_raw_delta_vs_02778": {
-          "mean_delta": 0.003651,
-          "ci95": [
-            -0.011404,
-            0.017985
-          ],
-          "prob_gt_zero": 0.676,
-          "statistically_positive_95": false
-        }
-      }
+      "label": "HOLDOUT-DTI",
+      "evaluator_version": null,
+      "withheld_positive_pixels": null,
+      "dti": null,
+      "ci95": null,
+      "status": "NOT INDEPENDENTLY REPRODUCED; previous private/fold-comparator claims are archived in Git history and do not support promotion."
     },
     "leakage_canary": {
       "n_channels_tested": 59,
       "max_symmetric_auc": 0.82627,
       "worst_channel": "v59_damage_halo_off2",
       "threshold": 0.9,
-      "passed": true
+      "passed": null,
+      "historical_reported_passed": true,
+      "status": "Historical report, not independently reproduced in this review."
     },
     "correlation_and_overlap_vs_registry": {
       "n_unique_sha256_rasters_scanned": 431,
@@ -268,7 +208,14 @@
       "genuine_rasters_passed": true,
       "literal_all_registry_including_calibration_lattice_passed": false,
       "pigeonhole_minimum_overlap_on_r13_lattice_s5_at_37654_dots": 0.823418,
-      "passed": false
+      "passed": false,
+      "independent_lattice_witness": {
+        "sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+        "candidate_dots": 37654,
+        "within_3px": 37636,
+        "fraction": 0.9995219631380464,
+        "passes": false
+      }
     },
     "spatial_allocation": {
       "total_dots": 37654,
@@ -375,18 +322,23 @@
     },
     "submission": {
       "name": "GEMSDOESASS2-XGHF-e7996841",
-      "note": "SASS2 XGHF 37654d B2 | HR 0.1311 SGMC 0.0668 | e7996841 | xgrad+hf+pu",
-      "note_length": 69
+      "note": "Research only; registered-lattice duplicate stop. Do not submit.",
+      "note_length": 64
     },
     "experiments_used": 3,
     "experiment_budget_limit": 3,
-    "weekly_slot_selector_note": "PASSES all 13/13 + strict GDAL-mask GeoTIFF checks, 59/59 leakage canaries, dual-benchmark holdout (HR +0.0320 vs 0.2778 Champion, p=1.000; SGMC-cal +0.0026), and 100% genuine-registry uniqueness across all 429 genuine rasters (<=69.11%, including SCU1 at 33.53%). FAIL-CLOSED for automatic live submission (`verdict=negative`, `ok_to_submit=false`) solely because 13GEMSDOE uniform calibration lattice `r13-lattice-s5` (206,895 dots, 6,649 uncovered px) mathematically forces >=82.34% literal 3-px overlap at N=37,654 (measured 99.78%) and Protocol Rule 6 reserves live weekly-slot selection to the separate owner selector step.",
+    "weekly_slot_selector_note": "Not selector-ready: literal lattice overlap 37,636/37,654 (99.9522%). No exception was granted; holdout and canary reports were not independently reproduced.",
     "elapsed_seconds": 553.3,
     "peak_rss_mb": 3545.0,
-    "ok_to_download": true,
+    "ok_to_download": false,
     "ok_to_submit": false,
     "verdict": "negative",
-    "scientific_and_genuine_uniqueness_gate": true,
-    "selector_ready_if_calibration_lattice_exempted": true
-  }
+    "scientific_and_genuine_uniqueness_gate": false,
+    "selector_ready_if_calibration_lattice_exempted": false,
+    "audit_correction": "2026-10-28: independent lattice audit confirms 37,636 of 37,654 dots within 3 px (99.9522%); literal rule fails. The private holdout was not independently reproduced and its comparator is not an independent fold-trained champion.",
+    "research_download_available": true
+  },
+  "audit_correction": "RESEARCH ONLY; historic scoped uniqueness and promotion claims withdrawn. Literal lattice overlap is 37,636/37,654; DO NOT SUBMIT.",
+  "verdict": "negative",
+  "ok_to_submit": false
 }

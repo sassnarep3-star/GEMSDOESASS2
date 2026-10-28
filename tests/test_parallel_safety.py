@@ -88,3 +88,26 @@ def test_validator_compatibility_does_not_approve_parallel_tiff(entry, positiona
     receipt = json.loads(result.stdout)
     assert receipt['checks']['whole_array_finite_in_0_1']
     assert not receipt['strict_local_format_pass'] and not receipt['ok_to_submit']
+
+
+def test_current_lattice_witness_receipt_and_safety_notice():
+    receipt = json.loads((ROOT / 'evidence/lattice_recheck_20261028.json').read_text())
+    for key, expected in [('HVFD', 37617), ('XGHF', 37636)]:
+        entry = receipt['candidates'][key]
+        assert entry['dots_within_3px'] == expected
+        assert entry['candidate_dots'] == 37654
+        assert entry['fraction'] == expected / 37654
+        assert entry['exceeds_70_percent']
+        assert sha256_file(ROOT / 'docs/downloads' / entry['filename']) == entry['sha256']
+    assert json.loads((ROOT / 'docs/data/lattice-recheck.json').read_text()) == receipt
+    for page in ['index.html', 'executive-summary.html', 'hvfd-exp3.html']:
+        assert 'DO NOT SUBMIT' in (ROOT / 'docs' / page).read_text().upper()
+    card = json.loads((ROOT / 'evidence/hvfd_exp3_run_card.json').read_text())
+    assert card['verdict'] == 'negative' and card['ok_to_submit'] is False
+
+
+@pytest.mark.parametrize('script', ['run_hvfd_experiments.py', 'run_sass2_xghf.py'])
+def test_superseded_research_runners_do_not_republish_promotions(script):
+    result = subprocess.run([sys.executable, str(ROOT / 'scripts' / script)],
+                            cwd=ROOT, capture_output=True, text=True, timeout=10)
+    assert result.returncode == 2 and 'DO NOT SUBMIT' in result.stderr

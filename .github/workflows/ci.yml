@@ -16,10 +16,20 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - name: Install dependencies
+      - name: Install audit dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install numpy scipy scikit-learn scikit-image rasterio pytest
-      - name: Run 69 automated protocol, GeoTIFF format/range, and Run Card checks
+          pip install -r requirements-audit.txt
+      - name: Run automated protocol, GeoTIFF format/range, and Run Card checks
         run: |
           python -m pytest -v
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+      - name: Verify decision site behavior
+        run: |
+          npm ci
+          node --check docs/assets/app.js
+          npm run test:site

@@ -34,46 +34,30 @@ def test_github_pages_files_and_local_links_exist() -> None:
                 assert target.stat().st_size > 0, f"Empty asset '{attr_val}' in {page.name}"
 
 
-def test_index_top_download_and_copy_metadata_match_run_card() -> None:
-    # Landing page = SASS2-XGHF (the only file passing every genuine gate).
-    rc = json.loads((ROOT / "evidence" / "sass2_xghf_run_card.json").read_text(encoding="utf-8"))
-    txt = (DOCS / "index.html").read_text(encoding="utf-8")
-    sub = rc["submission"]
-    assert f'data-copy="{sub["name"]}"' in txt
-    assert f'data-copy="{sub["note"]}"' in txt
-    assert f'data-copy="{rc["raster_sha256"]}"' in txt
-    assert len(sub["note"]) <= 140
-    assert "downloads/gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif" in txt
-    # The HVFD page keeps its audit copy buttons, but must be labelled do-not-submit.
-    hv = json.loads((ROOT / "evidence" / "hvfd_exp3_run_card.json").read_text(encoding="utf-8"))
-    hv_txt = (DOCS / "hvfd-exp3.html").read_text(encoding="utf-8")
-    assert f'data-copy="{hv["submission_name"]}"' in hv_txt
-    assert "DO NOT SUBMIT THIS FILE" in hv_txt
+def test_no_submission_download_is_advertised() -> None:
+    card = json.loads((DOCS / "data/run-card.json").read_text())
+    index = (DOCS / "index.html").read_text()
+    assert card["verdict"] == "negative" and card["submission_name"] is None
+    assert 'aria-disabled="true"' in index and "Submission download unavailable" in index
+    assert 'download>' not in index and 'data-copy=' not in index
+    artifacts = (DOCS / "hvfd-exp3.html").read_text()
+    assert "Research only" in artifacts and "DO NOT SUBMIT" in artifacts
+    for key in ("previous_hvfd", "previous_xghf"):
+        assert card["correlation_overlap_vs_registry"][key]["sha256"] in artifacts
 
 
 def test_nine_focus_sites_and_readme_links() -> None:
-    exec_html = (DOCS / "executive-summary.html").read_text(encoding="utf-8")
-    readme = (ROOT / "README.md").read_text(encoding="utf-8")
-
-    for site in (
-        "GEMSDOE24",
-        "GEMSDOE25",
-        "GEMSDOE27",
-        "GEMSDOE28",
-        "GEMSDOE30",
-        "GEMSDOE31",
-        "GEMSDOE32",
-        "GEMSDOE33",
-        "GEMSDOE36",
-    ):
-        assert site in exec_html, f"Missing {site} in executive-summary.html"
-        assert site in readme, f"Missing {site} in README.md"
-
+    exec_html = (DOCS / "executive-summary.html").read_text()
+    readme = (ROOT / "README.md").read_text()
+    audit = json.loads((DOCS / "data/audit.json").read_text())
+    for row in audit["historical_sites"]:
+        assert row["site"] in exec_html
+        assert f'{row["reported"]:.4f}' in exec_html
+        assert row["artifact_url"] in exec_html
+    assert "USER-REPORTED" in exec_html and "No file approved" in exec_html
     for md_link in re.findall(r"\]\(([^)]+)\)", readme):
         if md_link.startswith(("http://", "https://", "#", "mailto:")):
             continue
         clean = md_link.split("#")[0].strip()
-        if not clean:
-            continue
-        target = (ROOT / clean).resolve()
-        assert target.exists(), f"Broken relative link in README.md: {md_link} -> {target}"
+        if clean:
+            assert (ROOT / clean).resolve().exists(), f"Broken README link: {md_link}"

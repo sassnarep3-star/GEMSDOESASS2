@@ -14,6 +14,7 @@ import json
 import math
 import os
 import subprocess
+import tempfile
 from datetime import datetime, timezone
 from fractions import Fraction
 from pathlib import Path
@@ -43,7 +44,10 @@ def fetch_pinned(spec: dict, cache_file: Path, fetch: bool) -> Path:
     if not fetch:
         raise ValueError(f"Missing or wrong-hash input: {cache_file}")
     cache_file.parent.mkdir(parents=True, exist_ok=True)
-    tmp = cache_file.with_suffix(cache_file.suffix + ".partial")
+    if cache_file.is_symlink() or (cache_file.exists() and not cache_file.is_file()):
+        raise ValueError(f"Refusing to replace non-regular cache destination: {cache_file}")
+    with tempfile.NamedTemporaryFile(dir=cache_file.parent, prefix=f".{cache_file.name}.", delete=False) as stream:
+        tmp = Path(stream.name)
     repo = spec.get("repo") or spec["site"]
     owner = spec.get("owner", "buffedlizard55-lab")
     endpoint = (

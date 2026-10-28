@@ -205,6 +205,26 @@
       "path": "docs/downloads/24gems-catalogue-offset-geothermal-proximity-20261027T114303Z-578c30176163-zeros.tif",
       "sha256": "fe6d637fad5b8fb435988b3ab31af8ae777380f78046577c505275e2e725a795",
       "claim": "Owner reports negative holdout and a literal lattice stop; not independently rerun."
+    },
+    {
+      "id": "parallel_hvfd_zeros",
+      "site": "GEMSDOESASS2 HVFD-EXP3",
+      "owner": "sassnarep3-star",
+      "repo": "GEMSDOESASS2",
+      "ref": "3b21e4e9bf70458c91ae9e6c41dbfb6688f3f957",
+      "path": "docs/downloads/gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif",
+      "sha256": "28bb9419d592797dcac1bfb1eb19fcffa7581a51718230f1f4f957a3e3d610d6",
+      "claim": "Previous promote claim withdrawn: original scan excluded the registered lattice."
+    },
+    {
+      "id": "parallel_xghf_zeros",
+      "site": "GEMSDOESASS2 XGHF",
+      "owner": "sassnarep3-star",
+      "repo": "GEMSDOESASS2",
+      "ref": "3b21e4e9bf70458c91ae9e6c41dbfb6688f3f957",
+      "path": "docs/downloads/gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif",
+      "sha256": "2a122a409c7a7d5977a311dce271d6f333f21a697cd9effd59b45c6c0f0e8ec7",
+      "claim": "Previous focused uniqueness pass does not satisfy the literal all-registry rule."
     }
   ]
 }
