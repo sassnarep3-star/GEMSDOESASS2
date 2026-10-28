@@ -1,5 +1,7 @@
 # GEMSDOESASS2 — DOE GEMS Prize Blind Geothermal Fault Discovery & Fail-Closed Audit System
 
+> **CURRENT REVIEW DECISION (2026-10-28): DO NOT SUBMIT ANY FILE FROM THIS REPOSITORY.** The latest root audit card (`docs/data/run-card.json`) records no new raster, no holdout result, a failed literal registered-lattice overlap gate, and `verdict: negative`. Historical candidate files and older pages/cards remain in the repository for audit/reproducibility only; their prior `promote` or “OK to download” labels are superseded and do not authorize upload. A format-valid GeoTIFF is not proof of uniqueness, a holdout win, organizer acceptance, or selector approval. See [`REVIEW_NOTES.md`](REVIEW_NOTES.md), `research/review-passes.md`, and `IRREGULARITIES.md`.
+
 > ### 📋 STANDING PROJECT PROMPT (Permanent Starting Brief — Read Every Session)
 >
 > Review the repo.
@@ -29,7 +31,7 @@
 
 ## NEW EXECUTIVE LANE (2026-10-27 UTC) — `HVFD-EXP3-HYDROCOLLINEAR` GENERATED & DUAL-VALIDATED
 
-### `OK TO DOWNLOAD: YES` · `DUAL FORMAT + GDAL MASK / 54-CANARY / HOLDOUT (+0.02234) / 451-GENUINE-UNIQUE (68.27%): PASS`
+### `ARCHIVED RESEARCH ARTIFACT — NOT APPROVED FOR SUBMISSION` · Historical HVFD-EXP3 receipt (superseded; see current review decision above)
 
 - **One-Click Validated `.tif` (`zeros` + `GDAL_TIFF_INTERNAL_MASK`):** **[`docs/downloads/gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif`](docs/downloads/gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif)** (`154,994 B`) · [`.zip`](docs/downloads/gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.zip) · [Dual Validator Receipt JSON](docs/downloads/gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.json) · [HVFD-EXP3 Run Card JSON](evidence/hvfd_exp3_run_card.json)
 - **Dedicated HVFD-EXP3 Pages:** [`docs/hvfd-exp3.html`](docs/hvfd-exp3.html) · [`docs/hvfd-forensics.html`](docs/hvfd-forensics.html) · [`HYPOTHESES.md`](HYPOTHESES.md) · [`IRREGULARITIES.md`](IRREGULARITIES.md)
@@ -50,7 +52,7 @@
 
 ## EXECUTIVE STATUS (2026-10-27 UTC) — `SASS2-XGHF` GENERATED & VERIFIED
 
-### `OK TO DOWNLOAD: YES` · `FORMAT / CANARY / HOLDOUT / 429-GENUINE-UNIQUE: PASS` · `LIVE AUTO-SUBMIT: HOLD (verdict = "negative" on literal calibration lattice & separate selector gate)`
+### `ARCHIVED RESEARCH ARTIFACT — NOT APPROVED FOR SUBMISSION` · Historical SASS2-XGHF receipt (superseded; see current review decision above)
 
 - **Live GitHub Pages Decision Desk:** <https://sassnarep3-star.github.io/GEMSDOESASS2/> ([`docs/index.html`](docs/index.html))
 - **Executive Summary & Step-by-Step DrivenData Upload Guide:** [`docs/executive-summary.html`](docs/executive-summary.html) · [`docs/executive-summary.md`](docs/executive-summary.md)
