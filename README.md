@@ -1,5 +1,8 @@
 # GEMSDOESASS2 — DOE GEMS Prize Blind Geothermal Fault Discovery & Fail-Closed Audit System
 
+> **2026-10-28 CORRECTION — NO FILE APPROVED FOR SUBMISSION.** Independent saved-byte checks against the pinned 13GEMSDOE lattice find 37,617/37,654 HVFD dots and 37,636/37,654 XGHF dots within 3 pixels, both over the literal 70% limit. Earlier claims below of promotion or full-registry uniqueness are superseded. These are historical research downloads only, not contest-ready files. The previous XGHF 99.78% figure is not reproduced by this check. Holdout and canary claims from parallel branches have not been independently rerun. See [recheck](research/current-recheck.md) and [machine receipt](evidence/lattice_recheck_20261028.json). No leaderboard score is estimated.
+
+
 > ### 📋 STANDING PROJECT PROMPT (Permanent Starting Brief — Read Every Session)
 >
 > Review the repo.

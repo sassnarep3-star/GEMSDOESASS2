@@ -177,7 +177,8 @@ def test_gate5_run_card_and_nine_focus_sites_completeness() -> None:
     ):
         assert key in rc, f"Missing required Run Card key: {key}"
 
-    assert rc["verdict"] == "promote"
+    assert rc["verdict"] == "negative"
+    assert rc["ok_to_submit"] is False
     note = rc["submission_note"]
     assert 1 <= len(note) <= 140
     assert rc["submission_note_chars"] == len(note)
@@ -198,4 +199,4 @@ def test_gate5_run_card_and_nine_focus_sites_completeness() -> None:
     for row in nine["sites"]:
         hb = row["historic_best"]
         assert hb["overlap_3px_with_gemsdoesass2"] < 0.70
-        assert "ORGANIZER-CONFIRMED" in hb["score_label"]
+        assert "USER-REPORTED / UNVERIFIED" in hb["score_label"]
