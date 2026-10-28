@@ -1,6 +1,6 @@
 # GEMSDOESASS2 — DOE GEMS Prize Blind Geothermal Fault Discovery & Fail-Closed Audit System
 
-> **CURRENT REVIEW DECISION (2026-10-28): DO NOT SUBMIT ANY FILE FROM THIS REPOSITORY.** The latest root audit card (`docs/data/run-card.json`) records no new raster, no holdout result, a failed literal registered-lattice overlap gate, and `verdict: negative`. Historical candidate files and older pages/cards remain in the repository for audit/reproducibility only; their prior `promote` or “OK to download” labels are superseded and do not authorize upload. A format-valid GeoTIFF is not proof of uniqueness, a holdout win, organizer acceptance, or selector approval. See [`REVIEW_NOTES.md`](REVIEW_NOTES.md), `research/review-passes.md`, and `IRREGULARITIES.md`.
+> **CURRENT REVIEW DECISION (2026-10-28): DO NOT SUBMIT ANY FILE FROM THIS REPOSITORY.** A newer saved-byte audit against the pinned 13GEMSDOE lattice finds 37,617/37,654 HVFD dots and 37,636/37,654 XGHF dots within 3 pixels, both exceeding the literal 70% overlap limit. Older “promote” or “OK to download” claims are superseded; these TIFFs are historical research artifacts only. Holdout and canary reports have not been independently rerun in the current audit, and no live-score estimate is justified. See [current recheck](research/current-recheck.md), [machine receipt](evidence/lattice_recheck_20261028.json), and [`REVIEW_NOTES.md`](REVIEW_NOTES.md).
 
 > ### 📋 STANDING PROJECT PROMPT (Permanent Starting Brief — Read Every Session)
 >
