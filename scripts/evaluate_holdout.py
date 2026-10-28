@@ -12,6 +12,14 @@ Usage:
 
 from __future__ import annotations
 
+# Fail closed: historical source is retained below for forensic review.
+import sys as _legacy_sys
+_LEGACY_REASON = 'Legacy evaluator is a private fork with known pooled-accounting issues; use the shared template after its upstream fix.'
+if __name__ == "__main__":
+    print(_LEGACY_REASON + " DO NOT SUBMIT.", file=_legacy_sys.stderr)
+    raise SystemExit(2)
+raise RuntimeError(_LEGACY_REASON)
+
 import argparse
 import json
 import pathlib

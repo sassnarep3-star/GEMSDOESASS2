@@ -46,12 +46,12 @@
           <div class="prose">
             <span class="status-tag">Do not submit</span>
             <h2 style="margin-top: 16px">
-              All three fail the literal registry rule.
+              All five fail the literal registry rule.
             </h2>
             <p>
               The files were produced by separate parallel branches. Their
-              earlier narrow comparisons did not include the registered
-              13GEMSDOE lattice. We independently reopened their saved bytes,
+              earlier narrow or scoped comparisons did not apply the registered
+              13GEMSDOE lattice to the literal forward-overlap gate. We independently reopened their saved bytes,
               checked their hashes and measured each dot within 3 pixels of that
               lattice. The full live registry was not audited.
             </p>
@@ -81,17 +81,13 @@
                     <td><strong>FAIL</strong></td>
                   </tr>
                   <tr>
-                    <td>
-                      <strong>SASS2-XGHF</strong> (429/429 genuine &le;69.11%;
-                      33.53% vs SCU1)
-                    </td>
-                    <td>37,572 / 37,654 (99.78% vs lattice)</td>
-                    <td>
-                      <strong
-                        >HOLD (Genuine PASS · Literal Lattice Stop)</strong
-                      >
-                    </td>
+                    <td><strong>SASS2-XGHF</strong></td>
+                    <td>37,636 / 37,654 (99.9522%)</td>
+                    <td><strong>FAIL</strong></td>
                   </tr>
+                  <tr><td><strong>HVFD-EXP3</strong></td>
+                    <td>37,617 / 37,654 (99.9017%)</td>
+                    <td><strong>FAIL</strong></td></tr>
                 </tbody>
               </table>
             </div>
@@ -109,8 +105,7 @@
               numbers are withdrawn. The other branches reported
               private-evaluator results that this audit did not independently
               reproduce; the SCU leaderboard projection is not defensibly
-              calibrated. Previous TTC and SCU promotion recommendations are
-              withdrawn.
+              calibrated. Previous TTC, SCU, HVFD and XGHF promotion or uniqueness recommendations are withdrawn.
             </p>
             <p>
               The legacy generators and site/card rebuilders now stop rather
@@ -119,7 +114,7 @@
             </p>
             <h2>Saved-byte format checks</h2>
             <p>
-              All three zero-outside files are single-band float32, match the
+              The three original TTC, ALEDGE and SCU zero-outside files are single-band float32, match the
               owner-mirror grid, and have finite values in [0,1]; their unmasked
               outside footprint fails the conservative local policy. TTC and SCU
               NaN twins satisfy the outside-null check but fail the

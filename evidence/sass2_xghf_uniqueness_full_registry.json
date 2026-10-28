@@ -15,9 +15,10 @@
     "surface_spearman_gate_pass": true,
     "dots_spearman_gate_pass": true,
     "genuine_3px_overlap_gate_pass": true,
-    "all_uniqueness_gates_passed": true,
+    "all_uniqueness_gates_passed": false,
     "max_3px_overlap_all_including_lattices": 0.999522,
-    "literal_all_registry_3px_pass": false
+    "literal_all_registry_3px_pass": false,
+    "prior_scoped_all_uniqueness_gates_passed": true
   },
   "top_genuine_by_3px_overlap": [
     {
@@ -434,5 +435,6 @@
       "is_space_filling_probe": true
     }
   ],
-  "skipped": []
+  "skipped": [],
+  "audit_correction": "Earlier scoped pass excluded covering rasters from forward overlap. Literal registered lattice measured 37,636/37,654 (99.9522%); DO NOT SUBMIT."
 }

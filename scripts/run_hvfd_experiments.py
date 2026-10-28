@@ -13,6 +13,14 @@ Strict Parallel-Run Protocol enforcement:
 """
 from __future__ import annotations
 
+# Fail closed: historical source is retained below for forensic review.
+import sys as _legacy_sys
+_LEGACY_REASON = 'Legacy HVFD runner excludes registered rasters, continues after a duplicate, and can overwrite promotion claims.'
+if __name__ == "__main__":
+    print(_LEGACY_REASON + " DO NOT SUBMIT.", file=_legacy_sys.stderr)
+    raise SystemExit(2)
+raise RuntimeError(_LEGACY_REASON)
+
 import gc
 import hashlib
 import json

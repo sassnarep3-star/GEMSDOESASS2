@@ -113,102 +113,37 @@ def test_anisotropic_residual_celf_respects_initial_mask_and_collar() -> None:
     assert int(s2.sum()) == 27
 
 
-def test_leakage_canary_59_channels_all_pass() -> None:
-    canary_path = ROOT / "evidence" / "sass2_xghf_leakage_canary.json"
-    assert canary_path.exists()
-    canary = json.loads(canary_path.read_text())
+def test_historical_canary_is_not_new_evidence() -> None:
+    canary = json.loads((ROOT / "evidence/sass2_xghf_leakage_canary.json").read_text())
     assert canary["n_channels_tested"] == 59
-    assert canary["all_passed"] is True
-    assert canary["max_symmetric_auc"] <= 0.90
-    for ch_name, rec in canary["channels"].items():
-        assert 0.50 <= rec["symmetric_auc"] <= 0.90, f"Channel {ch_name} failed canary: {rec}"
+    assert "not independently reproduced" in canary["audit_status"]
+    assert json.loads((ROOT / "docs/data/run-card.json").read_text())["leakage_canary"]["max_auc"] is None
 
 
-def test_uniqueness_gate_full_registry_passes() -> None:
-    uniq_path = ROOT / "evidence" / "sass2_xghf_uniqueness_full_registry.json"
-    assert uniq_path.exists()
-    uniq = json.loads(uniq_path.read_text())
-    assert uniq["n_unique_sha256_rasters_scanned"] >= 400
-    assert uniq["n_genuine_rasters_scanned"] >= 400
+def test_historical_xghf_uniqueness_claim_is_withdrawn() -> None:
+    uniq = json.loads((ROOT / "evidence/sass2_xghf_uniqueness_full_registry.json").read_text())
     s = uniq["summary"]
-    assert s["max_abs_surface_spearman_all"] <= 0.90
-    assert s["max_abs_dots_spearman_all"] <= 0.90
-    assert s["max_3px_overlap_genuine"] <= 0.70
-    assert s["all_uniqueness_gates_passed"] is True
+    assert s["prior_scoped_all_uniqueness_gates_passed"] is True
+    assert s["all_uniqueness_gates_passed"] is False
+    assert s["literal_all_registry_3px_pass"] is False
+    assert s["max_3px_overlap_all_including_lattices"] > 0.99
 
 
-def test_run_card_and_saved_geotiff_bytes() -> None:
-    rc_path = ROOT / "evidence" / "sass2_xghf_run_card.json"
-    assert rc_path.exists()
-    rc = json.loads(rc_path.read_text())
-
-    # Required Protocol Rule 5 Run Card fields
-    for key in [
-        "hypothesis",
-        "mechanism",
-        "named_non_fault_mimic",
-        "holdout_dti",
-        "correlation_and_overlap_vs_registry",
-        "raster_sha256",
-        "validator",
-        "submission",
-        "verdict",
-    ]:
-        assert key in rc
-
-    assert rc["holdout_dti"]["primary_hide_and_recover"]["label"] == "HOLDOUT-DTI"
-    assert rc["holdout_dti"]["secondary_sgmc_off_catalogue"]["label"] == "HOLDOUT-DTI"
-    assert rc["holdout_dti"]["primary_hide_and_recover"]["paired_delta_vs_02778"]["statistically_positive_95"] is True
-    assert rc["holdout_dti"]["secondary_sgmc_off_catalogue"]["sgmc_prevalence_calibrated_dti"] > rc["holdout_dti"]["secondary_sgmc_off_catalogue"]["incumbent_02778_sgmc_cal"]
-    assert len(rc["submission"]["note"]) <= 140
-    assert rc["experiments_used"] <= 3
-    assert rc["scientific_and_genuine_uniqueness_gate"] is True
-    assert rc["validator"]["strict_local_format_pass"] is True
-    assert rc["ok_to_download"] is True
-    assert rc["ok_to_submit"] is False
+def test_historical_run_card_and_saved_geotiff_bytes() -> None:
+    rc = json.loads((ROOT / "evidence/sass2_xghf_run_card.json").read_text())
     assert rc["verdict"] == "negative"
-
+    assert rc["ok_to_download"] is False and rc["ok_to_submit"] is False
+    assert rc["scientific_and_genuine_uniqueness_gate"] is False
+    assert rc["holdout_dti"]["dti"] is None
+    assert rc["leakage_canary"]["passed"] is None
+    assert len(rc["submission"]["note"]) <= 140
+    assert rc["validator"]["strict_local_format_pass"] is True
     tif_path = ROOT / rc["files"]["primary_zeros_tif"]
-    nan_path = ROOT / rc["files"]["archive_nan_tif"]
-    zip_path = ROOT / rc["files"]["primary_zeros_zip"]
-    assert tif_path.exists()
-    assert nan_path.exists()
-    assert zip_path.exists()
-
-    actual_sha = hashlib.sha256(tif_path.read_bytes()).hexdigest()
-    assert actual_sha == rc["raster_sha256"]
-
-    ddir = data_dir()
-    sample_p = ddir / "sample_submission.tif"
-    labels_p = ddir / "labels.tif"
-    if not (sample_p.exists() and labels_p.exists()):
-        sample_p = ROOT / "data" / "bridge" / "sample_submission.tif"
-        labels_p = ROOT / "data" / "bridge" / "labels.tif"
-    if sample_p.exists() and labels_p.exists():
-        audit_z = validate_geotiff(
-            tif_path, sample_p, labels_p, strict_all_finite=True
-        )
-        assert audit_z["all_passed"] is True
-        assert audit_z["checks_passed"] == 13
-        assert audit_z["all_12279160_finite"] is True
-        assert audit_z["positive_dots_in_footprint"] == 37_654
-        assert audit_z["positive_on_catalogue"] == 0
-
-        audit_n = validate_geotiff(
-            nan_path, sample_p, labels_p, strict_all_finite=False
-        )
-        assert audit_n["all_passed"] is True
-        assert audit_n["outside_mode"] == "nan"
-    else:
-        with rasterio.open(tif_path) as ds:
-            assert str(ds.crs) == EXPECTED_CRS
-            assert ds.shape == EXPECTED_SHAPE
-            assert list(ds.transform)[:6] == EXPECTED_TRANSFORM
-            arr = ds.read(1)
-            assert arr.dtype == np.float32
-            assert np.isfinite(arr).all()
-            assert float(arr.min()) >= 0.0 and float(arr.max()) <= 1.0
-            assert int((arr > 0).sum()) == 37_654
+    assert hashlib.sha256(tif_path.read_bytes()).hexdigest() == rc["raster_sha256"]
+    from scripts.validate_tif import validate
+    result = validate(tif_path, ROOT / "data/bridge/sample_submission.tif")
+    assert result["strict_local_format_pass"] is True
+    assert result["organizer_accepted"] is None and result["ok_to_submit"] is False
 
 
 def test_quarantined_legacy_ttc_marked_negative() -> None:
@@ -219,36 +154,15 @@ def test_quarantined_legacy_ttc_marked_negative() -> None:
         assert ttc.get("ok_to_submit") is False
 
 
-def test_docs_portal_links_and_sha256_consistency() -> None:
-    import re
-
-    rc = json.loads((ROOT / "evidence" / "sass2_xghf_run_card.json").read_text())
-    expected_sha = rc["raster_sha256"]
-    expected_note = rc["submission"]["note"]
-    assert len(expected_note) <= 140
-
-    docs_dir = ROOT / "docs"
-    for html_name in ("index.html", "executive-summary.html"):
-        html_path = docs_dir / html_name
-        assert html_path.exists()
-        txt = html_path.read_text(encoding="utf-8")
-        # Never call localhost/127.0.0.1 in browser-facing code
-        assert "localhost" not in txt
-        assert "127.0.0.1" not in txt
-        assert expected_note in txt
-
-        for attr_val in re.findall(r'(?:href|src)="([^"]+)"', txt):
-            if attr_val.startswith(("http://", "https://", "#", "mailto:", "${")):
-                continue
-            target = (docs_dir / attr_val.split("#")[0]).resolve()
-            assert target.exists(), f"Missing local asset in {html_name}: {attr_val}"
-            assert target.stat().st_size > 0, f"Empty local asset in {html_name}: {attr_val}"
-
-    assert expected_sha in (docs_dir / "index.html").read_text(encoding="utf-8")
-    assert expected_sha in (docs_dir / "executive-summary.html").read_text(encoding="utf-8")
-
-    readme_txt = (ROOT / "README.md").read_text(encoding="utf-8")
-    assert "STANDING PROJECT PROMPT" in readme_txt
-    assert expected_sha in readme_txt
-    assert expected_note in readme_txt
+def test_docs_warn_research_artifacts_are_not_submissions() -> None:
+    rc = json.loads((ROOT / "evidence/sass2_xghf_run_card.json").read_text())
+    artifact = (ROOT / "docs/hvfd-exp3.html").read_text()
+    assert rc["raster_sha256"] in artifact
+    assert "DO NOT SUBMIT" in artifact and "Research only" in artifact
+    for page in ("index.html", "executive-summary.html"):
+        text = (ROOT / "docs" / page).read_text()
+        assert "DO NOT SUBMIT" in text or "Do not submit" in text
+        assert rc["submission"]["note"] not in text
+        assert "localhost" not in text and "127.0.0.1" not in text
+    assert "STANDING PROJECT PROMPT" in (ROOT / "README.md").read_text()
 

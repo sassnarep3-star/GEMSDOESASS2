@@ -1,105 +1,120 @@
 #!/usr/bin/env python3
-"""Fetch and SHA-256 verify all 33 hash-pinned core, external, and scored competition datasets.
+"""Fetch owner-mirror data to an ignored cache, verifying before replacement.
 
-Uses GitHub REST/raw streaming against immutable SHA-256 pins in ``registry/data_manifest.json``
-so the entire pipeline runs autonomously without manual login walls, while keeping large binaries
-inside ``.cache/gems_data`` (git-ignored) and writing an auditable receipt to ``data/restore_receipt.json``.
+SHA-256 pins establish byte consistency, not DrivenData provenance. Downloads
+and multipart assembly are staged on the destination filesystem; a failed fetch,
+size check or digest check leaves any existing destination intact.
 """
 from __future__ import annotations
 
 import argparse
 import hashlib
 import json
+import os
 import subprocess
-import sys
+import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.parse import quote
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST_PATH = ROOT / "registry" / "data_manifest.json"
 
 
 def sha256_file(path: Path) -> str:
-    h = hashlib.sha256()
-    with path.open("rb") as fh:
-        for chunk in iter(lambda: fh.read(1 << 20), b""):
-            h.update(chunk)
-    return h.hexdigest()
+    digest = hashlib.sha256()
+    with path.open("rb") as stream:
+        for chunk in iter(lambda: stream.read(1 << 20), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
 
 
-def gh_raw(repo: str, ref: str, path: str, dest: Path, want_sha: str | None = None) -> Path:
-    dest = Path(dest)
-    if want_sha and dest.exists() and sha256_file(dest) == want_sha:
-        return dest
-    dest.parent.mkdir(parents=True, exist_ok=True)
-    tmp = dest.with_suffix(dest.suffix + ".tmp")
-    with tmp.open("wb") as fh:
+def _download(repo: str, ref: str, path: str, dest: Path) -> None:
+    endpoint = f"repos/{repo}/contents/{quote(path, safe='/')}?ref={quote(ref, safe='')}"
+    with dest.open("wb") as stream:
         subprocess.run(
-            ["gh", "api", f"repos/{repo}/contents/{path}?ref={ref}", "-H", "Accept: application/vnd.github.raw"],
-            stdout=fh,
-            check=True,
+            ["gh", "api", endpoint, "-H", "Accept: application/vnd.github.raw+json"],
+            stdout=stream, check=True, timeout=180,
         )
-    tmp.replace(dest)
-    return dest
+
+
+def fetch_entry(entry: dict, dest: Path) -> dict:
+    """Verify a cached entry or safely stage, verify, and atomically replace it."""
+    dest = Path(dest)
+    expected_sha = entry["sha256"]
+    expected_bytes = entry["bytes"]
+    if dest.is_symlink() or (dest.exists() and not dest.is_file()):
+        raise ValueError(f"Refusing to replace non-regular destination: {dest}")
+    if dest.is_file() and dest.stat().st_size == expected_bytes and sha256_file(dest) == expected_sha:
+        return {"id": entry["id"], "dest": entry["dest"], "group": entry["group"],
+                "status": "verified", "bytes": expected_bytes, "sha256": expected_sha, "cached": True}
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    with tempfile.TemporaryDirectory(prefix=f".{dest.name}.", dir=dest.parent) as staging:
+        stage = Path(staging)
+        candidate = stage / "candidate"
+        if "parts" in entry:
+            with candidate.open("wb") as assembled:
+                for index, source in enumerate(entry["parts"]):
+                    part = stage / f"part-{index:03d}"
+                    _download(entry["repo"], entry["ref"], source, part)
+                    with part.open("rb") as src:
+                        for block in iter(lambda: src.read(1 << 20), b""):
+                            assembled.write(block)
+        else:
+            _download(entry["repo"], entry["ref"], entry["path"], candidate)
+        size = candidate.stat().st_size
+        digest = sha256_file(candidate)
+        if size != expected_bytes or digest != expected_sha:
+            raise ValueError(f"Pinned data mismatch for {entry['id']}: size={size}, sha256={digest}; destination not replaced")
+        os.replace(candidate, dest)
+    return {"id": entry["id"], "dest": entry["dest"], "group": entry["group"],
+            "status": "verified", "bytes": size, "sha256": digest, "cached": False}
 
 
 def main() -> int:
-    ap = argparse.ArgumentParser(description="Fetch and SHA-256 verify GEMS competition datasets.")
-    ap.add_argument("--dest", default=str(ROOT / ".cache" / "gems_data"), help="Destination directory for cached data")
-    ap.add_argument("--receipt", default=str(ROOT / "data" / "restore_receipt.json"), help="JSON verification receipt")
-    args = ap.parse_args()
-
-    dest = Path(args.dest)
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--dest", default=str(ROOT / ".cache/gems_data"), help="Directory for cached owner-mirror data")
+    parser.add_argument("--receipt", default=str(ROOT / "data/restore_receipt.json"), help="JSON verification receipt")
+    args = parser.parse_args()
+    dest = Path(args.dest).resolve()
     manifest = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
-    ok_rows, bad_rows = [], []
-
+    rows = []
     for entry in manifest["files"]:
         target = dest / entry["dest"]
-        if not (target.exists() and sha256_file(target) == entry["sha256"]):
-            if "parts" in entry:
-                chunks = []
-                for idx, part_path in enumerate(entry["parts"]):
-                    cpath = dest / f".part-{entry['id']}-{idx:03d}"
-                    chunks.append(gh_raw(entry["repo"], entry["ref"], part_path, cpath))
-                target.parent.mkdir(parents=True, exist_ok=True)
-                tmp = target.with_suffix(target.suffix + ".tmp")
-                with tmp.open("wb") as out:
-                    for cpath in chunks:
-                        with cpath.open("rb") as cfh:
-                            for block in iter(lambda: cfh.read(1 << 20), b""):
-                                out.write(block)
-                        cpath.unlink(missing_ok=True)
-                tmp.replace(target)
-            else:
-                gh_raw(entry["repo"], entry["ref"], entry["path"], target, want_sha=entry["sha256"])
-
-        digest = sha256_file(target)
-        size = target.stat().st_size
-        matched = digest == entry["sha256"] and size == entry["bytes"]
-        row = {
-            "id": entry["id"],
-            "dest": entry["dest"],
-            "group": entry["group"],
-            "status": "verified" if matched else "mismatch",
-            "bytes": size,
-            "sha256": digest,
-        }
-        (ok_rows if matched else bad_rows).append(row)
-        print(f"{'OK  ' if matched else 'FAIL'} {entry['id']:35s} {size:11,d} B  {digest[:16]}...")
-
+        if not target.parent.resolve().is_relative_to(dest):
+            raise ValueError(f"Destination escapes cache root: {entry['dest']}")
+        try:
+            row = fetch_entry(entry, target)
+        except (OSError, ValueError, subprocess.SubprocessError) as error:
+            row = {"id": entry["id"], "dest": entry["dest"], "group": entry["group"],
+                   "status": "failed", "error": str(error)}
+        rows.append(row)
+        print(f"{row['status'].upper():8s} {entry['id']}")
+    failed = sum(row["status"] != "verified" for row in rows)
     receipt = {
-        "schema_version": 2,
-        "verified_at_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "storage_root": ".cache/gems_data",
-        "verified_files_count": len(ok_rows),
-        "failed_files_count": len(bad_rows),
-        "files": ok_rows + bad_rows,
+        "schema_version": 3,
+        "verified_at_utc": datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z"),
+        "storage_root": str(dest),
+        "provenance": "Owner-mirror hash integrity only; not an authenticated organizer download.",
+        "verified_files_count": len(rows) - failed, "failed_files_count": failed, "files": rows,
     }
     receipt_path = Path(args.receipt)
     receipt_path.parent.mkdir(parents=True, exist_ok=True)
-    receipt_path.write_text(json.dumps(receipt, indent=2) + "\n", encoding="utf-8")
-    print(f"Receipt written to {receipt_path}: {len(ok_rows)} verified, {len(bad_rows)} failed.")
-    return 1 if bad_rows else 0
+    with tempfile.NamedTemporaryFile("w", encoding="utf-8", dir=receipt_path.parent,
+                                     prefix=f".{receipt_path.name}.", delete=False) as stream:
+        temporary = Path(stream.name)
+        try:
+            json.dump(receipt, stream, indent=2, allow_nan=False)
+            stream.write("\n")
+        except BaseException:
+            temporary.unlink(missing_ok=True)
+            raise
+    try:
+        os.replace(temporary, receipt_path)
+    finally:
+        temporary.unlink(missing_ok=True)
+    print(f"Receipt written to {receipt_path}: {len(rows) - failed} verified, {failed} failed.")
+    return 1 if failed else 0
 
 
 if __name__ == "__main__":

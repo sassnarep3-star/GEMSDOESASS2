@@ -7,6 +7,7 @@ Specify a trusted local template checkout; unknown interfaces fail closed.
 from __future__ import annotations
 
 import argparse
+from datetime import datetime, timezone
 import hashlib
 import json
 import sys
@@ -21,8 +22,18 @@ def digest(path: Path) -> str:
 
 
 def probe(root: Path) -> dict:
-    sys.path.insert(0, str(root / "src"))
-    from gems32 import holdout, release_gate  # type: ignore[import-not-found]
+    # Never hash one checkout while executing an earlier cached import.
+    if any(name == "gems32" or name.startswith("gems32.") for name in sys.modules):
+        raise RuntimeError("gems32 is already imported; run each probe in a fresh process")
+    source = str(root / "src")
+    sys.path.insert(0, source)
+    try:
+        from gems32 import holdout, release_gate  # type: ignore[import-not-found]
+    finally:
+        sys.path.remove(source)
+    for module, name in ((holdout, "holdout"), (release_gate, "release_gate")):
+        if Path(module.__file__).resolve() != (root / f"src/gems32/{name}.py").resolve():
+            raise RuntimeError(f"Imported {name} does not come from the requested template root")
 
     rng = np.random.default_rng(27)
     surface, peer = rng.random((16, 16)), rng.random((16, 16))
@@ -55,6 +66,7 @@ def probe(root: Path) -> dict:
     surface_pass_correct = comparison["within_3px_fraction"] == 1.0 and result["passed"] is False
     fp_accounting_correct = recorded_fold_fp == pooled_fp == 1.0
     return {
+        "checked_utc": datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z"),
         "probe_type": "synthetic unit checks; no geological holdout performed",
         "files": {"release_gate_sha256": digest(root / "src/gems32/release_gate.py"),
                   "holdout_sha256": digest(root / "src/gems32/holdout.py")},
@@ -80,8 +92,14 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--template-root", type=Path, required=True)
     parser.add_argument("--out", type=Path)
+    parser.add_argument("--source-repo", help="Source repository for the checked files (caller-supplied)")
+    parser.add_argument("--source-ref", help="Immutable source commit for the checked files (caller-supplied)")
     args = parser.parse_args()
     result = probe(args.template_root.resolve())
+    if args.source_repo:
+        result["source_repo"] = args.source_repo
+    if args.source_ref:
+        result["source_ref"] = args.source_ref
     text = json.dumps(result, indent=2, allow_nan=False) + "\n"
     if args.out:
         args.out.parent.mkdir(parents=True, exist_ok=True)
