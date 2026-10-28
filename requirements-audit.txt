@@ -1,5 +1,8 @@
-# Audit tools only; these do not train a model or contain the shared evaluator.
+# Dependencies required to run the repository's audit/test suite; no model training.
 numpy==2.2.6
 scipy==1.15.3
 rasterio==1.4.3
+scikit-image==0.25.2
+scikit-learn==1.7.2
+pyproj==3.7.2
 pytest==8.4.2

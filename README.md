@@ -29,9 +29,9 @@
 
 ## NEW EXECUTIVE LANE (2026-10-27 UTC) — `HVFD-EXP3-HYDROCOLLINEAR` GENERATED & DUAL-VALIDATED
 
-### `OK TO DOWNLOAD: YES` · `DUAL FORMAT + GDAL MASK / 54-CANARY / HOLDOUT (+0.02234) / 451-GENUINE-UNIQUE (68.27%): PASS`
+### `RESEARCH ARTIFACT DOWNLOAD: YES` · `COMPETITION SUBMISSION: NO` · `NEGATIVE: literal calibration-lattice overlap / selector gate`
 
-- **One-Click Validated `.tif` (`zeros` + `GDAL_TIFF_INTERNAL_MASK`):** **[`docs/downloads/gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif`](docs/downloads/gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif)** (`154,994 B`) · [`.zip`](docs/downloads/gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.zip) · [Dual Validator Receipt JSON](docs/downloads/gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.json) · [HVFD-EXP3 Run Card JSON](evidence/hvfd_exp3_run_card.json)
+- **Research-only `.tif` (`zeros` + `GDAL_TIFF_INTERNAL_MASK`; do not submit):** **[`docs/downloads/gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif`](docs/downloads/gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif)** (`154,994 B`) · [`.zip`](docs/downloads/gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.zip) · [Dual Validator Receipt JSON](docs/downloads/gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.json) · [HVFD-EXP3 Run Card JSON](evidence/hvfd_exp3_run_card.json)
 - **Dedicated HVFD-EXP3 Pages:** [`docs/hvfd-exp3.html`](docs/hvfd-exp3.html) · [`docs/hvfd-forensics.html`](docs/hvfd-forensics.html) · [`HYPOTHESES.md`](HYPOTHESES.md) · [`IRREGULARITIES.md`](IRREGULARITIES.md)
 - **Unique DrivenData Submission Name (`52` chars):** `GEMSDOESASS2-HVFD-EXP3-HYDROCOLLINEAR-37654-fc98343e`
 - **DrivenData Submission Note (`104 / 140` chars):** `GEMSDOESASS2 hvfd-exp3-hydrocollinear LOQO B=2 37654px HOLDOUT-DTI=0.1184 blind8km=0.1763 max3pxOv=68.3%`
@@ -50,7 +50,7 @@
 
 ## EXECUTIVE STATUS (2026-10-27 UTC) — `SASS2-XGHF` GENERATED & VERIFIED
 
-### `OK TO DOWNLOAD: YES` · `FORMAT / CANARY / HOLDOUT / 429-GENUINE-UNIQUE: PASS` · `LIVE AUTO-SUBMIT: HOLD (verdict = "negative" on literal calibration lattice & separate selector gate)`
+### `RESEARCH ARTIFACT DOWNLOAD: YES` · `COMPETITION SUBMISSION: NO` · `FORMAT / CANARY / HOLDOUT / GENUINE-REGISTRY CHECKS PASS; literal calibration-lattice and selector gates fail`
 
 - **Live GitHub Pages Decision Desk:** <https://sassnarep3-star.github.io/GEMSDOESASS2/> ([`docs/index.html`](docs/index.html))
 - **Executive Summary & Step-by-Step DrivenData Upload Guide:** [`docs/executive-summary.html`](docs/executive-summary.html) · [`docs/executive-summary.md`](docs/executive-summary.md)
