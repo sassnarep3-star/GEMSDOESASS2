@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>HVFD-EXP3-HydroCollinear — Unique Validated GeoTIFF &amp; Run Card (GEMSDOESASS2)</title>
+  <title>HVFD-EXP3-HydroCollinear — Research-Only GeoTIFF &amp; Negative Run Card (GEMSDOESASS2)</title>
   <link rel="stylesheet" href="hvfd-styles.css" />
 </head>
 <body>
@@ -28,7 +28,7 @@
   <main id="main" class="container">
     <section class="hero-submit" aria-labelledby="submit-heading">
       <div class="status-pill-row">
-        <span class="badge badge-promote">HVFD-EXP3 VERDICT: NEGATIVE — DO NOT SUBMIT</span>
+        <span class="badge badge-rose">HVFD-EXP3 VERDICT: NEGATIVE · RESEARCH-ONLY · DO NOT SUBMIT</span>
         <span class="badge badge-sky">451 UNIQUE RASTERS AUDITED · MAX GENUINE 3-PX 68.27% ≤ 70.0% · 47.80% VS SASS2-XGHF</span>
         <span class="badge badge-sky">DUAL-VALIDATOR PASS · [0, 1] + GDAL MASK · 37,654 DOTS</span>
       </div>
@@ -36,7 +36,9 @@
       <h1 id="submit-heading" class="hero-title">
         Research-only GeoTIFF: <code>HVFD-EXP3-HydroCollinear</code>
       </h1>
-      <p role="alert"><strong>DO NOT SUBMIT.</strong> This historical candidate's older run card is not current authorization. The current audit has no approved raster and records a negative verdict; see <a href="data/run-card.json">current run card</a> and <a href="parallel-review.html">review notes</a>. Download links below are retained for reproducibility only.</p>
+      <div class="notice notice-danger" role="alert">
+        <strong>DO NOT SUBMIT THIS FILE.</strong> This is a historical research artifact. The pinned 13GEMSDOE calibration witness places 37,617 of 37,654 dots (99.9017%) within 3 px, above the literal 70% limit. The current audit has no approved raster and records a negative verdict; see the <a href="data/run-card.json">current run card</a> and <a href="parallel-review.html">review notes</a>. Older holdout results were not independently rerun. The download is retained for reproducibility only; no organizer acceptance is implied.
+      </div>
       <p class="hero-subtitle">
         Trained completely from scratch with <strong>zero prior submission inputs</strong> using our Dual-Population
         <strong>Hydrothermal Vent-Fault Coupled + Bit-Plane Cross-Component Fracture Mechanics</strong> LOQO ensemble,
@@ -50,12 +52,12 @@
         <a class="btn btn-primary"
            href="downloads/gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif"
            download="gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif">
-          ⬇ Download archived research .TIF (not approved for submission)
+          ⬇ Download archived research-only .TIF (not approved for submission)
         </a>
         <a class="btn btn-secondary"
            href="downloads/gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.zip"
            download="gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.zip">
-          ⬇ Download .ZIP Archive
+          ⬇ Download Research-Only .ZIP
         </a>
         <a class="btn btn-secondary"
            href="downloads/gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.json"
@@ -63,16 +65,15 @@
           Dual Machine Validator Receipt (.JSON)
         </a>
         <a class="btn btn-secondary"
-           href="https://www.drivendata.org/competitions/306/competition-doe-gems/submissions/"
-           target="_blank" rel="noopener">
-          Portal link for reference only — DO NOT UPLOAD ↗
+           href="executive-summary.html">
+          Read the no-submit decision &amp; upload guide →
         </a>
       </div>
 
       <div class="copy-grid">
         <div class="copy-box">
           <div class="copy-box-header">
-            <span>Unique Submission Name (52 chars)</span>
+            <span>Historical candidate name (52 chars; DO NOT USE)</span>
             <button class="copy-btn" type="button" data-copy="GEMSDOESASS2-HVFD-EXP3-HYDROCOLLINEAR-37654-fc98343e">Copy Name</button>
           </div>
           <div class="copy-val" id="sub-name">GEMSDOESASS2-HVFD-EXP3-HYDROCOLLINEAR-37654-fc98343e</div>
@@ -80,7 +81,7 @@
 
         <div class="copy-box">
           <div class="copy-box-header">
-            <span>DrivenData Note (104 / 140 chars max)</span>
+            <span>Historical note (not for submission)</span>
             <button class="copy-btn" type="button" data-copy="GEMSDOESASS2 hvfd-exp3-hydrocollinear LOQO B=2 37654px HOLDOUT-DTI=0.1184 blind8km=0.1763 max3pxOv=68.3%">Copy Note</button>
           </div>
           <div class="copy-val" id="sub-note">GEMSDOESASS2 hvfd-exp3-hydrocollinear LOQO B=2 37654px HOLDOUT-DTI=0.1184 blind8km=0.1763 max3pxOv=68.3%</div>

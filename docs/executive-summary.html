@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Executive summary, one-click SASS2-XGHF GeoTIFF download, automated gate status, and step-by-step DrivenData submission guide."
+      content="Executive summary, research-only GeoTIFF artifacts, the current no-submit decision, and step-by-step DrivenData upload guidance for a future approved file."
     />
     <title>Executive summary &amp; DrivenData upload guide — GEMS Field Notes</title>
     <link rel="stylesheet" href="assets/style.css" />
@@ -47,9 +47,9 @@
           </div>
           <h1>SASS2-XGHF Executive Summary &amp; Upload Guide</h1>
           <p>
-            One-click GeoTIFF download, automated validation &amp; uniqueness
-            receipts across all 9 focus sites, and step-by-step DrivenData
-            submission instructions.
+            Research-only GeoTIFF artifacts, the automated current no-submit decision,
+            historical nine-site score context, and step-by-step DrivenData upload
+            instructions for a future file that passes every gate.
           </p>
         </div>
       </section>
@@ -62,22 +62,14 @@
               Historical Research Artifact (DO NOT SUBMIT): <code>GEMSDOESASS2-HVFD-EXP3-HYDROCOLLINEAR-37654-fc98343e</code>
             </h2>
             <p>
-              Alongside <code>SASS2-XGHF</code> below, branch <code>arena/ea31206d-gemsdoesass2</code>
-              independently trained from scratch our 54-channel Dual-Population
-              <strong>Hydrothermal Vent-Fault Coupled + Bit-Plane Cross-Component Fracture Mechanics</strong>
-              LOQO ensemble (<code>HVFD-EXP3-HydroCollinear</code>, 500 m 8-azimuth strike-collinearity +
-              hydrothermal corridor sharpening, exact <em>R</em> = 300 m peak spacing, 37,654 dots):
-              <strong><code>HOLDOUT-DTI = 0.11842</code></strong> on buffered <code>gems57-pooled-hide-v2</code>
-              (<code>+0.02234</code> over <code>fair_h33</code>, 95% CI <code>[+0.01030, +0.03477]</code>),
-              <strong><code>HOLDOUT-DTI = 0.17630</code></strong> on 8 km zero-context blind quadrants (10.14× random),
-              <strong>68.27% ≤ 70.0%</strong> max genuine-registry 3-px overlap (only <strong>49.34%</strong> vs
-              <code>GEMSDOE32 B2</code> and <strong>47.80%</strong> vs <code>SASS2-XGHF</code>), and
-              <strong>PASS</strong> on both <code>vendor/gems57/validate.py</code> and
-              <code>scripts/validate_tif.py</code> (<code>strict_local_format_pass = true</code>).
-              <strong>Name:</strong> <code>GEMSDOESASS2-HVFD-EXP3-HYDROCOLLINEAR-37654-fc98343e</code> ·
-              <strong>Note (104/140):</strong>
-              <code>GEMSDOESASS2 hvfd-exp3-hydrocollinear LOQO B=2 37654px HOLDOUT-DTI=0.1184 blind8km=0.1763 max3pxOv=68.3%</code> ·
-              <strong>SHA-256:</strong>
+              HVFD-EXP3 (<code>arena/ea31206d-gemsdoesass2</code>) is retained as a
+              historical research artifact only. Its old run card reported HOLDOUT-DTI
+              values, but this audit did not reproduce them. The saved-byte recheck
+              against the pinned 13GEMSDOE calibration raster found 37,617 of 37,654
+              dots (99.9017%) within 3 px, above the protocol's 70% limit. This file
+              therefore has a <strong>negative</strong> uniqueness verdict and must not
+              be submitted. Format validity does not override that failure.
+              <strong>Artifact SHA-256:</strong>
               <code>28bb9419d592797dcac1bfb1eb19fcffa7581a51718230f1f4f957a3e3d610d6</code>.
             </p>
             <div class="buttons" style="margin: 14px 0 28px">
@@ -85,13 +77,13 @@
                 class="btn btn-primary"
                 href="downloads/gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif"
                 download
-                >⬇ 1-Click Download HVFD-EXP3 .tif (154,994 B)</a
+                >⬇ Download HVFD-EXP3 research-only .tif (154,994 B)</a
               >
               <a
                 class="btn btn-outline"
                 href="downloads/gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.zip"
                 download
-                >Download HVFD-EXP3 .zip</a
+                >Download HVFD-EXP3 research-only .zip</a
               >
               <a class="btn btn-outline" href="hvfd-exp3.html"
                 >Full HVFD-EXP3 Figures &amp; Run Card →</a
@@ -101,29 +93,29 @@
               >
             </div>
 
-            <span class="status-tag">Download: READY · Live Weekly Slot: HOLD FOR SELECTOR</span>
+            <span class="status-tag">Research download: available · Competition submission: DO NOT SUBMIT</span>
             <h2 id="candidate" style="margin-top: 16px">
-              Primary Generated Artifact: <code>GEMSDOESASS2-XGHF-e7996841</code>
+              Historical Research Artifact: <code>GEMSDOESASS2-XGHF-e7996841</code>
             </h2>
             <p>
-              We designed, validated, and emitted a genuinely new 59-channel
-              multi-physics + hydrothermal conduit fault prediction GeoTIFF
-              (<code>SASS2-XGHF</code>) within the strict 3-experiment budget.
-              Every local format, leakage-canary, dual-holdout, and
-              genuine-registry uniqueness gate passed automatically:
+              This saved raster passed local format preflight against an owner-mirror
+              sample, but its literal calibration-lattice overlap is 37,636 of 37,654
+              dots (99.9522%), above the protocol limit. Earlier holdout, canary and
+              genuine-registry claims were not independently rerun in the current audit.
+              <strong>No candidate is cleared for submission and no leaderboard score is estimated.</strong>
             </p>
             <div class="buttons" style="margin: 18px 0 24px">
               <a
                 class="btn btn-primary"
                 href="downloads/gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif"
                 download
-                >⬇ 1-Click Download Unique .tif (165,398 B)</a
+                >⬇ Download research-only .tif (165,398 B)</a
               >
               <a
                 class="btn btn-outline"
                 href="downloads/gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.zip"
                 download
-                >Download .zip Archive</a
+                >Download research-only .zip</a
               >
               <a
                 class="btn btn-outline"
@@ -138,7 +130,7 @@
                 <thead>
                   <tr>
                     <th scope="col">Automated Gate</th>
-                    <th scope="col">Measured Result</th>
+                    <th scope="col">Historical branch-reported result (not independently rerun)</th>
                     <th scope="col">Status</th>
                   </tr>
                 </thead>
@@ -152,7 +144,7 @@
                       (<code>strict_local_format_pass=true</code>, 0 on 60,988
                       <code>labels.tif</code> pixels, 37,654 positive dots)
                     </td>
-                    <td><strong>PASS (13/13 + 11/11)</strong></td>
+                    <td><strong>Local format only; current lattice gate fails</strong></td>
                   </tr>
                   <tr>
                     <td>Protocol Rule 4 Leakage Canary</td>
@@ -161,7 +153,7 @@
                       <code>0.82627</code> on visible fracture extension;
                       non-visible max <code>0.57997</code>)
                     </td>
-                    <td><strong>PASS (59/59)</strong></td>
+                    <td><strong>Historical branch claim; not rerun</strong></td>
                   </tr>
                   <tr>
                     <td>Primary Holdout (<code>GEMSDOE32-HIDE-RECOVER-v3.0</code>)</td>
@@ -173,7 +165,7 @@
                       <code>p=1.000</code>; detached &ge;600 m
                       <code>0.096483 &gt; 0.094324</code>)
                     </td>
-                    <td><strong>PASS (+32.2% rel.)</strong></td>
+                    <td><strong>Historical HOLDOUT-DTI claim; not rerun</strong></td>
                   </tr>
                   <tr>
                     <td>Off-Catalogue Holdout (<code>GEMSDOE32-SGMC-CAL-v3.0</code>)</td>
@@ -183,23 +175,23 @@
                       <code>0.064121</code> (raw <code>0.099885</code> vs
                       <code>0.096060</code>)
                     </td>
-                    <td><strong>PASS (+4.2% rel.)</strong></td>
+                    <td><strong>Historical HOLDOUT-DTI claim; not rerun</strong></td>
                   </tr>
                   <tr>
                     <td>Genuine-Submission Uniqueness (429 rasters)</td>
                     <td>
                       Max |Spearman| <code>0.0992</code> (surface) &amp;
                       <code>0.0443</code> (dots) &le; 0.90; max 3-px dot overlap
-                      <code>69.11%</code> &le; 70.0% across all 429 genuine
+                      Prior branch report: <code>69.11%</code> across 429 genuine
                       rasters (<code>27.00%</code> vs 0.2778 Champ;
-                      <code>33.53%</code> vs SCU1)
+                      <code>33.53%</code> vs SCU1); not independently rerun and not full-registry clearance.
                     </td>
-                    <td><strong>PASS (429/429)</strong></td>
+                    <td><strong>Preliminary historical scan; failed by pinned lattice witness</strong></td>
                   </tr>
                   <tr>
                     <td>Literal All-Registry Lattice &amp; Slot Selector</td>
                     <td>
-                      <code>37,572 / 37,654 = 99.78%</code> within 3 px of
+                      <code>37,636 / 37,654 = 99.9522%</code> within 3 px of
                       <code>13GEMSDOE</code> 206,895-dot calibration lattice
                       <code>r13-lattice-s5</code> (Pigeonhole floor
                       <code>82.34%</code> at 37,654 dots) + Protocol Rule 6
@@ -212,7 +204,7 @@
             </div>
 
             <div class="callout" style="margin-top: 22px">
-              <strong>Submission Identity (Ready Once Owner Selector Approves a Slot):</strong><br />
+              <strong>Historical submission metadata (NOT CLEARED; do not upload):</strong><br />
               • <strong>File:</strong>
               <code>gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif</code><br />
               • <strong>SHA-256:</strong>
@@ -224,10 +216,8 @@
               • <strong>Submission Note (69 / 140 chars):</strong>
               <code>SASS2 XGHF 37654d B2 | HR 0.1311 SGMC 0.0668 | e7996841 | xgrad+hf+pu</code><br />
               • <strong>Strict Run Card Verdict:</strong>
-              <code>negative</code> (<code>ok_to_download=true</code>,
-              <code>ok_to_submit=false</code> pending owner exemption of
-              non-competitive <code>13GEMSDOE</code> calibration lattice &amp;
-              separate weekly-slot selector sign-off).
+              <code>negative</code> (<code>ok_to_download=true</code> means research artifact access only;
+              <code>ok_to_submit=false</code> because it exceeds the literal 70% registry-overlap rule and no selector authorization exists).
             </div>
 
             <h2 id="nine-site-summary" style="margin-top: 42px">
@@ -252,7 +242,7 @@
                     <th scope="col">User-Reported Best</th>
                     <th scope="col">Dots</th>
                     <th scope="col">3-px Overlap vs GEMSDOE32</th>
-                    <th scope="col">SASS2-XGHF 3-px Overlap</th>
+                    <th scope="col">Historical XGHF 3-px overlap (9-site comparison only; not clearance)</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -261,63 +251,63 @@
                     <td>0.2778</td>
                     <td>37,654</td>
                     <td>100.00% (self)</td>
-                    <td><strong>27.00% (Unique)</strong></td>
+                    <td><strong>27.00% (9-site comparison only)</strong></td>
                   </tr>
                   <tr>
                     <td>GEMSDOE36 (<code>h36-gbdt51-b2</code>)</td>
                     <td>0.2750</td>
                     <td>38,854</td>
                     <td>97.40%</td>
-                    <td><strong>28.13% (Unique)</strong></td>
+                    <td><strong>28.13% (9-site comparison only)</strong></td>
                   </tr>
                   <tr>
                     <td>GEMSDOE28 (<code>h31-gbdt51-b2</code>)</td>
                     <td>0.2710</td>
                     <td>37,660</td>
                     <td>95.47%</td>
-                    <td><strong>27.67% (Unique)</strong></td>
+                    <td><strong>27.67% (9-site comparison only)</strong></td>
                   </tr>
                   <tr>
                     <td>GEMSDOE31 (<code>h31-lgbm-pu</code>)</td>
                     <td>0.2708</td>
                     <td>40,199</td>
                     <td>95.39%</td>
-                    <td><strong>28.01% (Unique)</strong></td>
+                    <td><strong>28.01% (9-site comparison only)</strong></td>
                   </tr>
                   <tr>
                     <td>GEMSDOE33 (<code>h33-ens-b1</code>)</td>
                     <td>0.2632</td>
                     <td>41,865</td>
                     <td>92.64%</td>
-                    <td><strong>28.31% (Unique)</strong></td>
+                    <td><strong>28.31% (9-site comparison only)</strong></td>
                   </tr>
                   <tr>
                     <td>GEMSDOE25 (<code>h19-5-d2-8</code>)</td>
                     <td>0.2600</td>
                     <td>44,090</td>
                     <td>88.17%</td>
-                    <td><strong>28.36% (Unique)</strong></td>
+                    <td><strong>28.36% (9-site comparison only)</strong></td>
                   </tr>
                   <tr>
                     <td>GEMSDOE30 (exact byte twin of 25)</td>
                     <td>0.2600</td>
                     <td>44,090</td>
                     <td>88.17%</td>
-                    <td><strong>28.36% (Unique)</strong></td>
+                    <td><strong>28.36% (9-site comparison only)</strong></td>
                   </tr>
                   <tr>
                     <td>GEMSDOE24 (<code>h24-ridge</code>)</td>
                     <td>0.2477</td>
                     <td>60,069</td>
                     <td>88.48%</td>
-                    <td><strong>29.48% (Unique)</strong></td>
+                    <td><strong>29.48% (9-site comparison only)</strong></td>
                   </tr>
                   <tr>
                     <td>GEMSDOE27 (<code>h27-ridge</code>)</td>
                     <td>0.2449</td>
                     <td>61,328</td>
                     <td>86.72%</td>
-                    <td><strong>29.94% (Unique)</strong></td>
+                    <td><strong>29.94% (9-site comparison only)</strong></td>
                   </tr>
                 </tbody>
               </table>
@@ -338,13 +328,12 @@
               literal &gt;70% stop at every budget &ge; 22,164 dots.
             </p>
             <p>
-              Rather than moving dots into artificial lattice holes or silently
-              dropping a registry entry, we report <strong>both</strong> metrics
-              transparently: <code>SASS2-XGHF</code> passes <strong>429/429
-              genuine rasters (&le;69.11%)</strong> while holding
-              <code>ok_to_submit=false</code> / <code>verdict="negative"</code>
-              until the project owner's weekly-slot selector explicitly exempts
-              non-competitive calibration lattices:
+              The earlier 429-raster genuine-only result is a historical branch
+              claim and was not independently rerun in the 28 Oct audit. It cannot
+              override the literal rule: this independent pinned-witness check alone
+              is sufficient to fail. Do not silently exempt or remove registry
+              rasters; no candidate is approved, and the slot selector cannot waive
+              this scientific/novelty gate.
             </p>
             <div class="table-shell">
               <table>
@@ -359,10 +348,10 @@
                 <tbody>
                   <tr>
                     <td><strong>SASS2-XGHF (this branch)</strong></td>
-                    <td><strong>69.11% PASS (429/429)</strong></td>
-                    <td>37,572 / 37,654 (99.78%; null 99.87%)</td>
+                    <td>Prior branch-reported 69.11% (429/429), not rerun</td>
+                    <td>37,636 / 37,654 (99.9522%; pinned witness, 2026-10-28)</td>
                     <td>
-                      <strong>Format PASS</strong> · Literal Hold (Selector Required)
+                      <strong>Local format PASS</strong> · Literal novelty FAIL · DO NOT SUBMIT
                     </td>
                   </tr>
                   <tr>

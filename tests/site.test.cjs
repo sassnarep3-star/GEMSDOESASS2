@@ -7,14 +7,20 @@ const root = path.join(__dirname, "..", "docs");
 const html = fs.readFileSync(path.join(root, "index.html"), "utf8");
 const app = fs.readFileSync(path.join(root, "assets/app.js"), "utf8");
 const hvfdHtml = fs.readFileSync(path.join(root, "hvfd-exp3.html"), "utf8");
+const execSummary = fs.readFileSync(path.join(root, "executive-summary.html"), "utf8");
 const currentRunCard = JSON.parse(
   fs.readFileSync(path.join(root, "data/run-card.json"), "utf8"),
 );
 assert.equal(currentRunCard.verdict, "negative");
 assert.equal(currentRunCard.ok_to_submit, false);
 assert.match(html, /Current audit decision: DO NOT SUBMIT/);
-assert.match(hvfdHtml, /DO NOT SUBMIT/);
-assert.doesNotMatch(hvfdHtml, /HVFD-EXP3 VERDICT: PROMOTE/);
+assert.match(execSummary, /DO NOT SUBMIT — no approved candidate/);
+assert.match(execSummary, /Download research-only \.tif/);
+assert.doesNotMatch(execSummary, /1-Click Download Unique/);
+assert.match(hvfdHtml, /DO NOT SUBMIT THIS FILE/);
+assert.match(hvfdHtml, /HVFD-EXP3 VERDICT: NEGATIVE.*DO NOT SUBMIT/);
+assert.doesNotMatch(hvfdHtml, /VERDICT: PROMOTE/);
+assert.match(hvfdHtml, /archived research-only \.TIF/);
 const data = JSON.parse(
   fs.readFileSync(path.join(root, "data/audit.json"), "utf8"),
 );
