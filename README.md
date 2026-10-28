@@ -17,6 +17,15 @@ The owner-supplied 0.2778 for the GEMSDOE32 champion is **USER-REPORTED / UNVERI
 
 ---
 
+## Review addendum — 2026-10-28 (branch `arena/6c861f74-gemsdoesass2`)
+
+- **Verdict unchanged: nothing is cleared for submission.** No slot was used. No holdout proxy here estimates a leaderboard score (**Estimated leaderboard score: NOT ESTIMABLE**).
+- **Genuine-raster check, no lattice probe** ([evidence/focus_uniqueness_downloads.json](evidence/focus_uniqueness_downloads.json)): SASS2-XGHF **49.84%** (worst |ρ| 0.0443); HVFD-EXP3 **70.58%** against `8GEMSDOE Hedge-v2` (fails, limit 70%); ass2-altedge 49.96% but fails strict format (7,111,787 unmasked values outside the footprint); thermo-tilt 72.52% and scu1 76.50% (both fail).
+- **The real decision is an owner ruling on the lattice probe.** The `r13-lattice-s5` probe leaves only 6,649 footprint pixels uncovered. For any candidate with *n* dots, overlap is at least (n − 6,649)/n, which is about 82.3% at n = 37,654. The literal rule can be met only by a file of at most ~22,163 dots placed in those lattice holes, which is not a scientifically meaningful placement. Until the owner rules, SASS2-XGHF stays **research-only, not cleared**.
+- **Per-site audit** (main, [evidence/nine_sites_audit.json](evidence/nine_sites_audit.json), verdict *negative*): no focus variant is unique against the nine. Per-site table with receipts: [docs/focus-sites.html](docs/focus-sites.html) (built by `scripts/build_focus_summary.py`).
+- **Feature stack:** the 19-band cache is restored from an owner mirror ([evidence/feature_cache.json](evidence/feature_cache.json), [receipt](evidence/data_restoration_20261028.json)). This supersedes the earlier "features unavailable" blocker. No model has been retrained, and no hypothesis has been run.
+- **Not done in this session:** leakage canary review of SASS2-XGHF, a 3–5 hypothesis run with holdout validation, and any new candidate TIF. Those need the owner's go-ahead, and they count against the 3-experiment / 2-hour budget.
+
 ## 📋 STANDING PROJECT PROMPT — read at the start of every session
 
 Review the repository. Focus on GEMSDOE24, 25, 27, 28, 30, 31, 32, 33 and 36; maintain an executive summary showing each site's historical best, file, score evidence and novelty. The highest urgency is to **generate an original, validated competition GeoTIFF, not copy an old submission**; make its download, unique name, ≤140-character note and eligibility unambiguous. Estimate performance only with evidence, distinguish a holdout from an organizer score, and never invent a projection. A local format pass alone is not submission approval. Study the reported 0.2778 GEMSDOE32 file, use official sources, propose 3–5 materially distinct geological hypotheses before implementation, check feature leakage and validate the best on a buffered spatial holdout before spending a slot. Maintain a simple GitHub Pages site and step-by-step submission guide; diagnose the user's range-error report only if its rejected bytes and response are actually available.

@@ -108,8 +108,11 @@ ol li, ul li{margin:6px 0}
 footer{color:#57606a;font-size:13px;margin:40px 0 20px}
 """
 
-verdict_txt = ("✅ OK TO DOWNLOAD AND SUBMIT — unique, fully validated, not a copy of any prior GEMSDOE submission"
-               if ok else "🔴 DO NOT SUBMIT — a gate failed (see run card)")
+# 2026-10-28 review: the hard-coded "OK TO DOWNLOAD AND SUBMIT" approval was removed
+# (it was not supported by the genuine uniqueness receipts). Approval must come from
+# evidence/focus_uniqueness_downloads.json and an owner decision; see IRREGULARITIES.md IR-REVIEW-05.
+verdict_txt = ("⚠️ REVIEW REQUIRED — no automatic approval. Check evidence/focus_uniqueness_downloads.json "
+               "and IRREGULARITIES.md before any download or submission.")
 
 index = f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">

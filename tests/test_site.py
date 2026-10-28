@@ -52,8 +52,28 @@ def test_pages_root_redirects_to_docs_with_fallback():
 
 
 def test_homepage_does_not_advertise_a_nonexistent_submission():
+    # Fail-closed verdict (main, 2026-10-28): nothing is cleared for submission.
+    # The homepage must say so, must not carry the removed hard-coded
+    # "OK TO DOWNLOAD AND SUBMIT" approval, and must not estimate a score.
     text = (DOCS / 'index.html').read_text()
-    assert 'No submission file is approved.' in text
-    assert 'Submission download unavailable' in text
-    assert 'aria-disabled="true"' in text
-    assert 'USER-REPORTED · unverified' in ' '.join(text.split())
+    flat = ' '.join(text.split())
+    assert 'DO NOT SUBMIT' in flat
+    assert 'Nothing is cleared today' in flat
+    assert 'OK TO DOWNLOAD AND SUBMIT' not in flat
+    assert 'focus-sites.html' in text
+
+
+def test_hvfd_candidate_is_marked_do_not_submit():
+    text = ' '.join((DOCS / 'hvfd-exp3.html').read_text().split())
+    assert 'DO NOT SUBMIT THIS FILE' in text
+    assert '70.58%' in text
+    assert 'Hedge-v2' in text
+
+
+def test_focus_sites_page_has_every_site_and_a_main_landmark():
+    text = (DOCS / 'focus-sites.html').read_text()
+    for site in ('GEMSDOE24', 'GEMSDOE25', 'GEMSDOE27', 'GEMSDOE28', 'GEMSDOE30',
+                 'GEMSDOE31', 'GEMSDOE32', 'GEMSDOE33', 'GEMSDOE36'):
+        assert f'<b>{site}</b>' in text, site
+    assert '<main id="main">' in text
+    assert 'NOT ESTIMABLE' in text

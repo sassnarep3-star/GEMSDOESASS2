@@ -16,3 +16,19 @@ Latest review: **2026-10-28 UTC**. Older versions remain in Git history; prior c
 | IR-10 | The prompt references an assigned method paragraph but does not supply one. Different prior branches self-declared lanes. | The previous XGHF description is a repo proposal only. The [current hypotheses](research/2026-10-28-hypotheses-and-review.md) are untested and do not override lane assignment or the duplicate stop. |
 | IR-11 | The audit dependency file and second CI workflow omitted scikit-image, causing test collection to fail on a clean machine. | Dependencies are now installed consistently from `requirements-audit.txt`; coverage tests verify the corrected decisions instead of requiring historical promotion. |
 | IR-12 | The public leaderboard and other repositories change during parallel work. | Dated snapshots and a GitHub head-change warning are not a complete live registry, do not guarantee freshness, and cannot authorize a slot. The public leaderboard observation is distinct from a submission-page receipt. |
+
+## Review pass — 2026-10-28 (branch `arena/6c861f74-gemsdoesass2`)
+
+| ID | Finding | Resolution / evidence |
+|---|---|---|
+| IR-RV-01 | HVFD-EXP3 “68.27%” uniqueness receipt is contradicted: the genuine-raster check measures 70.58% against `8GEMSDOE Hedge-v2`. | Fails the 70% rule. [evidence/focus_uniqueness_downloads.json](evidence/focus_uniqueness_downloads.json). Earlier PASS claims withdrawn. |
+| IR-RV-02 | `docs/data/uniqueness-summary.json` describes a different candidate, not HVFD-EXP3. | Do not use it as evidence for HVFD-EXP3. |
+| IR-RV-03 | SASS2-XGHF overlap: 49.84% (genuine rasters, new receipt) vs 69.11% (older summary, scope unrecorded). | Unreconciled, but both are under 70%. The lattice-probe ruling is the real blocker. |
+| IR-RV-04 | The lattice-probe exemption is unruled, so the literal rule fails for every candidate with ≥ ~82% overlap by arithmetic. | Owner ruling needed (README addendum). |
+| IR-RV-05 | `check_uniqueness.py` and `check_uniqueness_sgmc.py` are withdrawn stubs (exit 2). | Not used as gates. The gate is `scripts/focus_uniqueness_check.py`. |
+| IR-RV-06 | `scripts/audit_nine_focus_sites.py` and `src/gems_sass2/registry_gate.py` depend on hard-coded `/tmp` paths. | Not reproducible here; not run. |
+| IR-RV-07 | `scripts/build_site.py` contained a hard-coded “OK TO DOWNLOAD AND SUBMIT” verdict. | Removed. The generator is non-approving. Running it overwrites `docs/index.html`. |
+| IR-RV-08 | GEMSDOE25 and GEMSDOE30 are pixel-exact clones per audit (same score, different sha256). | Recorded in the nine-site audit. Not counted as two independent sites. |
+| IR-RV-09 | Earlier blocker “19-band features unavailable” is **superseded** by the owner-mirror restore (see IR-08). | Restored receipt: [evidence/feature_cache.json](evidence/feature_cache.json). |
+| IR-RV-10 | Per-site scores are USER-REPORTED. No organizer receipt ties a score to the pinned raster bytes. | Labelled USER-REPORTED / UNVERIFIED throughout. |
+
