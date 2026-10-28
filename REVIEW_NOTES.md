@@ -25,6 +25,7 @@ These are historical page/prompt observations, not estimates of a new submission
 1. The README previously opened with an old HVFD-EXP3 “OK TO DOWNLOAD: YES” headline even though the latest root audit card is negative and records no new raster. Added an explicit current decision at the top.
 2. The site homepage showed older “OK to Download: YES” language and its HVFD detail page said `VERDICT: PROMOTE`, directly conflicting with the root audit and fail-closed decision. Reworded these as archived research artifacts and placed an explicit **DO NOT SUBMIT** warning on the HVFD page. Historical files were not deleted.
 3. The README and audit record had potentially confusing distinction between downloadability, format validity, and submission authorization. The current notice states these are separate gates.
+4. The existing CI installs omitted `scikit-image`, although `src/gems_sass2/features.py` imports `skimage.morphology.skeletonize`. Added the missing package to project/runtime/audit dependencies and both relevant CI installs; the first CI run failed at test collection on this missing dependency.
 
 ## Hypothesis shortlist — not tested or promoted
 
@@ -43,8 +44,9 @@ No candidate above has been tested in this review. Given the explicit “one lan
 ## Verification
 
 - `npm ci && npm run test:site`: **PASS**, including site behavior states `ok`, `changed`, `limited`, and `missing`.
-- `pytest -q`: **NOT RUN**; `pytest` executable is absent.
-- `python -m unittest discover -s tests -v`: **BLOCKED**; test imports fail because `pytest` and `numpy` are not installed.
+- `.venv/bin/python -m pytest -q` after installing `requirements-audit.txt` plus the now-declared `scikit-image==0.25.2`: **PASS**, `69 passed` (27 Rasterio pending-deprecation warnings).
+- The first GitHub CI run failed at test collection because CI did not install `scikit-image`; dependency manifests and CI install steps now declare it. A rerun is required before merge.
+- `npm run test:site`: **PASS**, all 4 site states; also now asserts current negative run-card and DO NOT SUBMIT messaging.
 - No new TIF was generated, no organizer portal was accessed, and no competition slot was used.
 
 ## Next work (ordered)
