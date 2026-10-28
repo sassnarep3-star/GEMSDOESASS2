@@ -27,7 +27,23 @@
 
 ---
 
-## NEW EXECUTIVE LANE (2026-10-27 UTC) — `HVFD-EXP3-HYDROCOLLINEAR` GENERATED & DUAL-VALIDATED
+## CURRENT STATUS (2026-10-28 UTC review) — READ THIS FIRST
+
+| File | Download? | Submit? | Why |
+| :--- | :--- | :--- | :--- |
+| **`docs/downloads/gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif`** | **YES** | **Owner decision** (lattice exemption and weekly slot) | Format strict PASS; worst genuine 3-px overlap **49.84%** (limit 70%); worst \|Spearman\| 0.044. Re-checked against 452 local submission rasters. |
+| `…fc98343e-zeros.tif` (HVFD-EXP3) | Reference only | **NO — do not submit** | Worst genuine overlap **70.58%** with `8GEMSDOE Hedge-v2_submission` (above the 70% duplicate limit). The earlier “OK TO DOWNLOAD AND SUBMIT” label was wrong. |
+| `…cc854482215e-zeros.tif` (ass2-altedge) | No | No | Genuine overlap 49.96%, but unmasked zeros outside the footprint fail the strict format policy. |
+
+- **Estimated leaderboard score: NOT ESTIMABLE.** No proxy here reproduces the leaderboard. Nine focus-site historic bests score 0.2449–0.2778 live but near zero on our holdout (see [`docs/focus-sites.html`](docs/focus-sites.html)).
+- **Nine-focus-site executive summary:** [`docs/focus-sites.html`](docs/focus-sites.html) · receipts [`evidence/focus_sites_summary.json`](evidence/focus_sites_summary.json), [`evidence/focus_uniqueness_downloads.json`](evidence/focus_uniqueness_downloads.json).
+- **Open owner decision:** the literal “any registry raster ≤ 70%” rule cannot be met by any 37,654-dot file because `13GEMSDOE r13-lattice-s5` covers about 99.9% of the footprint. See [`IRREGULARITIES.md`](IRREGULARITIES.md) `IR-REVIEW-03`.
+- **Blocker for new models:** the 19-band `training_features.tif` is not in the repo and cannot be fetched from this sandbox (Dropbox and DrivenData unreachable). See `IR-REVIEW-09`.
+- **Reproduce:** `pip install -r requirements.txt` · `python -m pytest` (69 tests) · `python scripts/focus_uniqueness_check.py --sample data/bridge/sample_submission.tif --registry ~/.cache/registry --out evidence/focus_uniqueness_downloads.json <tifs>` · `python scripts/build_focus_summary.py`. Registry cache: `scripts/fetch_registry.sh`.
+
+> The sections below are the earlier session logs, kept for audit. Where they conflict with this block, this block wins.
+
+## (SUPERSEDED) NEW EXECUTIVE LANE (2026-10-27 UTC) — `HVFD-EXP3-HYDROCOLLINEAR` GENERATED & DUAL-VALIDATED
 
 ### `OK TO DOWNLOAD: YES` · `DUAL FORMAT + GDAL MASK / 54-CANARY / HOLDOUT (+0.02234) / 451-GENUINE-UNIQUE (68.27%): PASS`
 

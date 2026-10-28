@@ -35,15 +35,20 @@ def test_github_pages_files_and_local_links_exist() -> None:
 
 
 def test_index_top_download_and_copy_metadata_match_run_card() -> None:
-    rc = json.loads((ROOT / "evidence" / "hvfd_exp3_run_card.json").read_text(encoding="utf-8"))
-    for page_name in ("index.html", "hvfd-exp3.html"):
-        txt = (DOCS / page_name).read_text(encoding="utf-8")
-        assert f'downloads/{rc["raster_filename"]}' in txt
-        assert f'downloads/{rc["zip_filename"]}' in txt
-        assert f'data-copy="{rc["submission_name"]}"' in txt
-        assert f'data-copy="{rc["submission_note"]}"' in txt
-        assert f'data-copy="{rc["raster_sha256"]}"' in txt
-    assert len(rc["submission_note"]) <= 140
+    # Landing page = SASS2-XGHF (the only file passing every genuine gate).
+    rc = json.loads((ROOT / "evidence" / "sass2_xghf_run_card.json").read_text(encoding="utf-8"))
+    txt = (DOCS / "index.html").read_text(encoding="utf-8")
+    sub = rc["submission"]
+    assert f'data-copy="{sub["name"]}"' in txt
+    assert f'data-copy="{sub["note"]}"' in txt
+    assert f'data-copy="{rc["raster_sha256"]}"' in txt
+    assert len(sub["note"]) <= 140
+    assert "downloads/gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif" in txt
+    # The HVFD page keeps its audit copy buttons, but must be labelled do-not-submit.
+    hv = json.loads((ROOT / "evidence" / "hvfd_exp3_run_card.json").read_text(encoding="utf-8"))
+    hv_txt = (DOCS / "hvfd-exp3.html").read_text(encoding="utf-8")
+    assert f'data-copy="{hv["submission_name"]}"' in hv_txt
+    assert "DO NOT SUBMIT THIS FILE" in hv_txt
 
 
 def test_nine_focus_sites_and_readme_links() -> None:

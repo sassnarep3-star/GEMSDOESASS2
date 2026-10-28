@@ -2,6 +2,9 @@
 
 ## 1. Candidate Summary & Unmistakable Gate Status
 
+> **Review correction (2026-10-28):** Re-measured from the local registry cache with `scripts/focus_uniqueness_check.py`, this file’s worst genuine 3-px overlap is **49.84%** (limit 70%; receipt `evidence/focus_uniqueness_downloads.json`). An older receipt reports `69.11%` for the same file. The scope and direction of that older scan are not recorded, so the two numbers are unreconciled (`IRREGULARITIES.md` `IR-REVIEW-02`). Both are under 70%. The HVFD-EXP3 file is **not** unique (`70.58%` vs `8GEMSDOE Hedge-v2`) and must not be submitted.
+
+
 - **Generated Unique GeoTIFF:** [`downloads/gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif`](downloads/gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif) (`165,398` bytes)
 - **SHA-256 (`-zeros.tif`):** `2a122a409c7a7d5977a311dce271d6f333f21a697cd9effd59b45c6c0f0e8ec7`
 - **SHA-256 (`-zeros.zip`):** `f13af8d55bcc637211033a7fb67e3af110ad3cb4d617c46bbdea2e87509e7faa`

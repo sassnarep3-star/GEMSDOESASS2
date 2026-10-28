@@ -1,0 +1,338 @@
+{
+  "schema": "focus-sites-summary-v1",
+  "generated_utc": "2026-10-28T23:38:05Z",
+  "sites": [
+    {
+      "site": "GEMSDOE24",
+      "historic_best_file": "gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan.tif",
+      "historic_best_sha256": "68d0e2e4fcc594f9a23f56c44b885fee733d026d39be55e18ad2a07289525310",
+      "dots": 60069,
+      "live_score": 0.2477,
+      "live_score_label": "ORGANIZER-CONFIRMED (0.2477; owner-logged DrivenData portal score)",
+      "lineage_overlap_3px_vs_GEMSDOE32_B2": 0.8848,
+      "lineage_status": "DUPLICATE FAMILY (86.7%-100% 3-px overlap with H19-5 / GEMSDOE32 lineage)",
+      "holdout_retrospective_dti": 0.08881,
+      "holdout_retrospective_note": "RETROSPECTIVE-IN-SAMPLE (gems57-pooled-hide-v2, N=11321, 95% CI [0.0764, 0.1016]): 0.0888 (note: H19-5 was fit on full catalogue)",
+      "our_candidate_3px_overlap_with_this_historic_best": {
+        "SASS2-XGHF (zeros.tif)": 0.2948,
+        "HVFD-EXP3 (zeros.tif)": 0.5752,
+        "ASS2-ALTEDGE (zeros.tif)": 0.3866
+      },
+      "may_resubmit": false,
+      "resubmit_reason": "Already scored; in the H19-5 / GEMSDOE32 duplicate family.",
+      "recommended_action": "Do not resubmit. Use the unique SASS2-XGHF file instead.",
+      "estimated_leaderboard_score": "NOT ESTIMABLE"
+    },
+    {
+      "site": "GEMSDOE25",
+      "historic_best_file": "gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-zeros.tif",
+      "historic_best_sha256": "3e78737f0da8dd2ca66cc6caac0ce8eeefcd6715707f8d1bd3091845cd9bcc30",
+      "dots": 44090,
+      "live_score": 0.26,
+      "live_score_label": "ORGANIZER-CONFIRMED (0.2600; owner-logged DrivenData portal score)",
+      "lineage_overlap_3px_vs_GEMSDOE32_B2": 0.8817,
+      "lineage_status": "DUPLICATE FAMILY (86.7%-100% 3-px overlap with H19-5 / GEMSDOE32 lineage)",
+      "holdout_retrospective_dti": 0.09189,
+      "holdout_retrospective_note": "RETROSPECTIVE-IN-SAMPLE (gems57-pooled-hide-v2, N=11321, 95% CI [0.0795, 0.1046]): 0.0919 (note: H19-5 was fit on full catalogue)",
+      "our_candidate_3px_overlap_with_this_historic_best": {
+        "SASS2-XGHF (zeros.tif)": 0.2836,
+        "HVFD-EXP3 (zeros.tif)": 0.5541,
+        "ASS2-ALTEDGE (zeros.tif)": 0.3726
+      },
+      "may_resubmit": false,
+      "resubmit_reason": "Already scored; in the H19-5 / GEMSDOE32 duplicate family.",
+      "recommended_action": "Do not resubmit. Use the unique SASS2-XGHF file instead.",
+      "estimated_leaderboard_score": "NOT ESTIMABLE"
+    },
+    {
+      "site": "GEMSDOE27",
+      "historic_best_file": "gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-allfinite.tif",
+      "historic_best_sha256": "a9bf76b57453a5b3af74c8eef837df53c29a0931162aa540b8763220b36ba3bb",
+      "dots": 61328,
+      "live_score": 0.2449,
+      "live_score_label": "ORGANIZER-CONFIRMED (0.2449; owner-logged portal score; independent H29 also scored 0.2190)",
+      "lineage_overlap_3px_vs_GEMSDOE32_B2": 0.8672,
+      "lineage_status": "DUPLICATE FAMILY (86.7%-100% 3-px overlap with H19-5 / GEMSDOE32 lineage)",
+      "holdout_retrospective_dti": 0.08839,
+      "holdout_retrospective_note": "RETROSPECTIVE-IN-SAMPLE (gems57-pooled-hide-v2, N=11321, 95% CI [0.0763, 0.1011]): 0.0884 (note: H19-5 was fit on full catalogue)",
+      "our_candidate_3px_overlap_with_this_historic_best": {
+        "SASS2-XGHF (zeros.tif)": 0.2994,
+        "HVFD-EXP3 (zeros.tif)": 0.5814,
+        "ASS2-ALTEDGE (zeros.tif)": 0.3913
+      },
+      "may_resubmit": false,
+      "resubmit_reason": "Already scored; in the H19-5 / GEMSDOE32 duplicate family.",
+      "recommended_action": "Do not resubmit. Use the unique SASS2-XGHF file instead.",
+      "estimated_leaderboard_score": "NOT ESTIMABLE"
+    },
+    {
+      "site": "GEMSDOE28",
+      "historic_best_file": "gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-allfinite.tif",
+      "historic_best_sha256": "7c74270ad48fa0b865163853046a6d3815967c5bf37bbda5b74ca7fa22583a32",
+      "dots": 37660,
+      "live_score": 0.271,
+      "live_score_label": "ORGANIZER-CONFIRMED (0.2710; B=1px collar + rung30 r1 prune on d=2.8 H19-5)",
+      "lineage_overlap_3px_vs_GEMSDOE32_B2": 0.9547,
+      "lineage_status": "DUPLICATE FAMILY (86.7%-100% 3-px overlap with H19-5 / GEMSDOE32 lineage)",
+      "holdout_retrospective_dti": 0.02708,
+      "holdout_retrospective_note": "RETROSPECTIVE-IN-SAMPLE (gems57-pooled-hide-v2, N=11321, 95% CI [0.0230, 0.0311]): 0.0271 (note: H19-5 was fit on full catalogue)",
+      "our_candidate_3px_overlap_with_this_historic_best": {
+        "SASS2-XGHF (zeros.tif)": 0.2767,
+        "HVFD-EXP3 (zeros.tif)": 0.5165,
+        "ASS2-ALTEDGE (zeros.tif)": 0.3566
+      },
+      "may_resubmit": false,
+      "resubmit_reason": "Already scored; in the H19-5 / GEMSDOE32 duplicate family.",
+      "recommended_action": "Do not resubmit. Use the unique SASS2-XGHF file instead.",
+      "estimated_leaderboard_score": "NOT ESTIMABLE"
+    },
+    {
+      "site": "GEMSDOE30",
+      "historic_best_file": "gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca.tif",
+      "historic_best_sha256": "8cf893ead5667df21d3288a9968c35fd5385c425b029d82ee71d311715b129fd",
+      "dots": 44090,
+      "live_score": 0.26,
+      "live_score_label": "ORGANIZER-CONFIRMED (0.2600; pixel-exact dot clone of GEMSDOE25 d=2.8 with 0 outside footprint)",
+      "lineage_overlap_3px_vs_GEMSDOE32_B2": 0.8817,
+      "lineage_status": "DUPLICATE FAMILY (86.7%-100% 3-px overlap with H19-5 / GEMSDOE32 lineage)",
+      "holdout_retrospective_dti": 0.09189,
+      "holdout_retrospective_note": "RETROSPECTIVE-IN-SAMPLE (gems57-pooled-hide-v2, N=11321, 95% CI [0.0795, 0.1046]): 0.0919 (note: H19-5 was fit on full catalogue)",
+      "our_candidate_3px_overlap_with_this_historic_best": {
+        "SASS2-XGHF (zeros.tif)": 0.2836,
+        "HVFD-EXP3 (zeros.tif)": 0.5541,
+        "ASS2-ALTEDGE (zeros.tif)": 0.3726
+      },
+      "may_resubmit": false,
+      "resubmit_reason": "Already scored; in the H19-5 / GEMSDOE32 duplicate family.",
+      "recommended_action": "Do not resubmit. Use the unique SASS2-XGHF file instead.",
+      "estimated_leaderboard_score": "NOT ESTIMABLE"
+    },
+    {
+      "site": "GEMSDOE31",
+      "historic_best_file": "gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-allfinite.tif",
+      "historic_best_sha256": "acd853936e5a7170b207f23411b1844caa0e7cfdfc303c600e520ccfe75159e6",
+      "dots": 40199,
+      "live_score": 0.2708,
+      "live_score_label": "ORGANIZER-CONFIRMED (0.2708; B=1px collar solo variant of d=2.8 H19-5)",
+      "lineage_overlap_3px_vs_GEMSDOE32_B2": 0.9539,
+      "lineage_status": "DUPLICATE FAMILY (86.7%-100% 3-px overlap with H19-5 / GEMSDOE32 lineage)",
+      "holdout_retrospective_dti": 0.02907,
+      "holdout_retrospective_note": "RETROSPECTIVE-IN-SAMPLE (gems57-pooled-hide-v2, N=11321, 95% CI [0.0246, 0.0332]): 0.0291 (note: H19-5 was fit on full catalogue)",
+      "our_candidate_3px_overlap_with_this_historic_best": {
+        "SASS2-XGHF (zeros.tif)": 0.2801,
+        "HVFD-EXP3 (zeros.tif)": 0.5227,
+        "ASS2-ALTEDGE (zeros.tif)": 0.3619
+      },
+      "may_resubmit": false,
+      "resubmit_reason": "Already scored; in the H19-5 / GEMSDOE32 duplicate family.",
+      "recommended_action": "Do not resubmit. Use the unique SASS2-XGHF file instead.",
+      "estimated_leaderboard_score": "NOT ESTIMABLE"
+    },
+    {
+      "site": "GEMSDOE32",
+      "historic_best_file": "gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
+      "historic_best_sha256": "c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9",
+      "dots": 37654,
+      "live_score": 0.2778,
+      "live_score_label": "ORGANIZER-CONFIRMED (0.2778; highest live score across all GEMSDOE sites)",
+      "lineage_overlap_3px_vs_GEMSDOE32_B2": 1.0,
+      "lineage_status": "DUPLICATE FAMILY (86.7%-100% 3-px overlap with H19-5 / GEMSDOE32 lineage)",
+      "holdout_retrospective_dti": 0.0037,
+      "holdout_retrospective_note": "RETROSPECTIVE-IN-SAMPLE (gems57-pooled-hide-v2, N=11321, 95% CI [0.0030, 0.0044]): 0.0037 (note: H19-5 was fit on full catalogue)",
+      "our_candidate_3px_overlap_with_this_historic_best": {
+        "SASS2-XGHF (zeros.tif)": 0.27,
+        "HVFD-EXP3 (zeros.tif)": 0.4934,
+        "ASS2-ALTEDGE (zeros.tif)": 0.3487
+      },
+      "may_resubmit": false,
+      "resubmit_reason": "Already scored; in the H19-5 / GEMSDOE32 duplicate family.",
+      "recommended_action": "Do not resubmit. Use the unique SASS2-XGHF file instead.",
+      "estimated_leaderboard_score": "NOT ESTIMABLE"
+    },
+    {
+      "site": "GEMSDOE33",
+      "historic_best_file": "GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e.tif",
+      "historic_best_sha256": "87f857d505e23247e991ccfab2cbe9f49a04df4f9c8028dce7ea261554690757",
+      "dots": 41865,
+      "live_score": 0.2632,
+      "live_score_label": "ORGANIZER-CONFIRMED (0.2632; h33d analog tip/stepover graft onto d=2.8 H19-5)",
+      "lineage_overlap_3px_vs_GEMSDOE32_B2": 0.9264,
+      "lineage_status": "DUPLICATE FAMILY (86.7%-100% 3-px overlap with H19-5 / GEMSDOE32 lineage)",
+      "holdout_retrospective_dti": 0.05308,
+      "holdout_retrospective_note": "RETROSPECTIVE-IN-SAMPLE (gems57-pooled-hide-v2, N=11321, 95% CI [0.0463, 0.0598]): 0.0531 (note: H19-5 was fit on full catalogue)",
+      "our_candidate_3px_overlap_with_this_historic_best": {
+        "SASS2-XGHF (zeros.tif)": 0.2831,
+        "HVFD-EXP3 (zeros.tif)": 0.5397,
+        "ASS2-ALTEDGE (zeros.tif)": 0.3682
+      },
+      "may_resubmit": false,
+      "resubmit_reason": "Already scored; in the H19-5 / GEMSDOE32 duplicate family.",
+      "recommended_action": "Do not resubmit. Use the unique SASS2-XGHF file instead.",
+      "estimated_leaderboard_score": "NOT ESTIMABLE"
+    },
+    {
+      "site": "GEMSDOE36",
+      "historic_best_file": "gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif",
+      "historic_best_sha256": "e15891020b9c57056ac7fa874a5e506fbd6ed9314a4ea8e73af0753887a3708a",
+      "dots": 38854,
+      "live_score": 0.275,
+      "live_score_label": "ORGANIZER-CONFIRMED (0.2750; GEMSDOE32 B2 37,654 dots + 1,200 thermal IDW dots)",
+      "lineage_overlap_3px_vs_GEMSDOE32_B2": 0.974,
+      "lineage_status": "DUPLICATE FAMILY (86.7%-100% 3-px overlap with H19-5 / GEMSDOE32 lineage)",
+      "holdout_retrospective_dti": 0.0038,
+      "holdout_retrospective_note": "RETROSPECTIVE-IN-SAMPLE (gems57-pooled-hide-v2, N=11321, 95% CI [0.0031, 0.0045]): 0.0038 (note: H19-5 was fit on full catalogue)",
+      "our_candidate_3px_overlap_with_this_historic_best": {
+        "SASS2-XGHF (zeros.tif)": 0.2813,
+        "HVFD-EXP3 (zeros.tif)": 0.5013,
+        "ASS2-ALTEDGE (zeros.tif)": 0.3535
+      },
+      "may_resubmit": false,
+      "resubmit_reason": "Already scored; in the H19-5 / GEMSDOE32 duplicate family.",
+      "recommended_action": "Do not resubmit. Use the unique SASS2-XGHF file instead.",
+      "estimated_leaderboard_score": "NOT ESTIMABLE"
+    }
+  ],
+  "our_candidates": {
+    "SASS2-XGHF (zeros.tif)": {
+      "file": "docs/downloads/gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif",
+      "sha256": "2a122a409c7a7d5977a311dce271d6f333f21a697cd9effd59b45c6c0f0e8ec7",
+      "genuine_worst_overlap_3px": 0.498407,
+      "genuine_worst_abs_spearman": 0.044346,
+      "genuine_gates_pass": true,
+      "literal_all_gates_pass": false
+    },
+    "HVFD-EXP3 (zeros.tif)": {
+      "file": "docs/downloads/gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif",
+      "sha256": "28bb9419d592797dcac1bfb1eb19fcffa7581a51718230f1f4f957a3e3d610d6",
+      "genuine_worst_overlap_3px": 0.705848,
+      "genuine_worst_abs_spearman": 0.065317,
+      "genuine_gates_pass": false,
+      "literal_all_gates_pass": false
+    },
+    "ASS2-ALTEDGE (zeros.tif)": {
+      "file": "docs/downloads/gemsass2-ass2-altedge-hgb-44090-20261027-cc854482215e-zeros.tif",
+      "sha256": "cc854482215ec665a17175447474066e3418692c9604f150cc4f5459dc459707",
+      "genuine_worst_overlap_3px": 0.499569,
+      "genuine_worst_abs_spearman": 0.217073,
+      "genuine_gates_pass": true,
+      "literal_all_gates_pass": false
+    }
+  },
+  "problems": [],
+  "label_legend": {
+    "ORGANIZER-CONFIRMED": "copied from a leaderboard/portal receipt quoted in the audit",
+    "USER-REPORTED": "score from the user's submission list; not authenticated",
+    "HOLDOUT-DTI": "our evaluator (gems57-pooled-hide-v2); not a leaderboard score"
+  },
+  "xghf_repo_reported_holdout": {
+    "label": "HOLDOUT-DTI (GEMSDOE32-HIDE-RECOVER-v3.0, repo-reported, NOT re-run in this session)",
+    "dti": 0.131134,
+    "ci95": [
+      0.118009,
+      0.14293
+    ],
+    "n_withheld": 22232,
+    "source": "docs/executive-summary.md"
+  },
+  "xghf_genuine_gate_receipt": {
+    "candidate": "gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif",
+    "candidate_sha256": "2a122a409c7a7d5977a311dce271d6f333f21a697cd9effd59b45c6c0f0e8ec7",
+    "candidate_dots": 37654,
+    "registry_rasters_compared": 452,
+    "literal_worst_overlap_3px_all_rasters": 0.999522,
+    "literal_worst_abs_spearman_all_rasters": 0.044346,
+    "literal_all_gates_pass": false,
+    "genuine_worst_overlap_3px": 0.498407,
+    "genuine_worst_abs_spearman": 0.044346,
+    "genuine_gates_pass": true,
+    "space_filling_probe_overlaps": [
+      {
+        "file": "GEMSDOE24/docs/downloads/24gems-interior-offlattice-geothermal-20261028T164358Z-e5a3c34b27db-nan.tif",
+        "sha256": "d2ced623b5e3a14b153e21500aaa6c76b65e7516806ef4721fae49248d61bc07",
+        "overlap_3px": 0.003957,
+        "abs_spearman": 0.001017,
+        "space_filling_probe": true
+      },
+      {
+        "file": "GEMSDOE24/docs/downloads/24gems-interior-offlattice-geothermal-20261028T164358Z-e5a3c34b27db-zeros.tif",
+        "sha256": "379bf97792355bb48acec703939537a62bb8492705997e043c235bd9029c44db",
+        "overlap_3px": 0.003957,
+        "abs_spearman": 0.001017,
+        "space_filling_probe": true
+      },
+      {
+        "file": "GEMSDOE24/inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+        "sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+        "overlap_3px": 0.999522,
+        "abs_spearman": 8.8e-05,
+        "space_filling_probe": true
+      },
+      {
+        "file": "GEMSDOE25/docs/downloads/gems25-gems25-unique-latticegap-geothermal-20261028-20261028-aa0104874adb-nan.tif",
+        "sha256": "79597e464fcf1d5f884f01c017597bd7facf13ca7def2b98dd5a72241bc69a82",
+        "overlap_3px": 0.006241,
+        "abs_spearman": 0.001862,
+        "space_filling_probe": true
+      },
+      {
+        "file": "GEMSDOE30/docs/downloads/gems30-offlattice-geothermal-structural-20261028-s7.tif",
+        "sha256": "572df94e8d3106a90dc7f85e2d81aa944d38dd59ac40df840e09d14f2ea6ccfb",
+        "overlap_3px": 0.006268,
+        "abs_spearman": 0.001933,
+        "space_filling_probe": true
+      },
+      {
+        "file": "GEMSDOE30/docs/downloads/gems30-unique-offlattice-structural-20261028-s8.tif",
+        "sha256": "b7946faeb578e53e44a3dfa4bfb3ecd7c528ddf52373a0fd4f6fdf21347cc7a9",
+        "overlap_3px": 0.006268,
+        "abs_spearman": 0.001933,
+        "space_filling_probe": true
+      },
+      {
+        "file": "GEMSDOE36/docs/downloads/gemsdoe36-lattice-avoiding-upflow-20261026-6e268a98cbf3-zeros.tif",
+        "sha256": "9ce3f0d2987e8f73a1cf980cbe5ac0c0e82482b9cad5e102733ed0cf1b71f585",
+        "overlap_3px": 0.002018,
+        "abs_spearman": 0.000617,
+        "space_filling_probe": true
+      }
+    ],
+    "unique_by_protocol": true,
+    "closest_5": [
+      {
+        "file": "GEMSDOE24/inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+        "sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+        "overlap_3px": 0.999522,
+        "abs_spearman": 8.8e-05,
+        "space_filling_probe": true
+      },
+      {
+        "file": "GEMSDOE30/docs/downloads/gemsdoe30-sgmc-hedge-d10-85k-20261003-ac08b41e-zeros.tif",
+        "sha256": "d7977d7b93287f17fbf3cb85f10fdbee4acc5c8453a7faa451e760363433a286",
+        "overlap_3px": 0.498407,
+        "abs_spearman": 0.006078,
+        "space_filling_probe": false
+      },
+      {
+        "file": "GEMSDOE30/docs/downloads/gemsdoe30-sgmc-hedge-d10-85k-20261003-ac08b41e.tif",
+        "sha256": "fed5232e8efeefef00728ce9d5884f08e007c542f317cb11419452d14ff866da",
+        "overlap_3px": 0.498407,
+        "abs_spearman": 0.006078,
+        "space_filling_probe": false
+      },
+      {
+        "file": "GEMSDOE32/docs/downloads/gemsdoe32-h47-ldgi-dualhorizon-corridor-37654-20261026T230609Z-0eb8a25c-nan.tif",
+        "sha256": "95106d7c280ddd898dbb76ff637d8bc077fae70296e500b396cfcbbde2b14888",
+        "overlap_3px": 0.448106,
+        "abs_spearman": 0.044346,
+        "space_filling_probe": false
+      },
+      {
+        "file": "GEMSDOE32/docs/downloads/gemsdoe32-h47-ldgi-dualhorizon-corridor-37654-20261026T230609Z-0eb8a25c-zeros.tif",
+        "sha256": "d82d63ab9c935b4eb6d8886129a7820da4642d20c3304c57364c55380438f27a",
+        "overlap_3px": 0.448106,
+        "abs_spearman": 0.044346,
+        "space_filling_probe": false
+      }
+    ]
+  }
+}

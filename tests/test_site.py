@@ -52,8 +52,28 @@ def test_pages_root_redirects_to_docs_with_fallback():
 
 
 def test_homepage_does_not_advertise_a_nonexistent_submission():
+    # 2026-10-28 review: the homepage must name the one file that passes every
+    # genuine gate, must NOT present HVFD-EXP3 as submittable, and must not
+    # carry the removed hard-coded "OK TO DOWNLOAD AND SUBMIT" approval.
     text = (DOCS / 'index.html').read_text()
-    assert 'No submission file is approved.' in text
-    assert 'Submission download unavailable' in text
-    assert 'aria-disabled="true"' in text
-    assert 'USER-REPORTED · unverified' in ' '.join(text.split())
+    flat = ' '.join(text.split())
+    assert 'gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif' in text
+    assert 'Do not submit HVFD-EXP3' in flat
+    assert 'Estimated leaderboard score: <strong>not estimable</strong>' in flat
+    assert 'OK TO DOWNLOAD AND SUBMIT' not in flat
+    assert 'USER-REPORTED · unverified' in flat or 'Submit: owner decision required' in flat
+
+
+def test_hvfd_candidate_is_marked_do_not_submit():
+    text = ' '.join((DOCS / 'hvfd-exp3.html').read_text().split())
+    assert 'DO NOT SUBMIT THIS FILE' in text
+    assert '70.58%' in text
+
+
+def test_focus_sites_page_has_every_site_and_a_main_landmark():
+    text = (DOCS / 'focus-sites.html').read_text()
+    for site in ('GEMSDOE24', 'GEMSDOE25', 'GEMSDOE27', 'GEMSDOE28', 'GEMSDOE30',
+                 'GEMSDOE31', 'GEMSDOE32', 'GEMSDOE33', 'GEMSDOE36'):
+        assert f'<b>{site}</b>' in text, site
+    assert '<main id="main">' in text
+    assert 'NOT ESTIMABLE' in text
