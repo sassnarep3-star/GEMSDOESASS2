@@ -1,0 +1,28 @@
+{
+  "scope": "One pinned lattice witness; not complete uniqueness or an organizer receipt",
+  "reference": {
+    "repo": "GEMSDOE24",
+    "ref": "07345ea0604953d7efb858d9cfbc21e20c7aca0b",
+    "path": "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+    "sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2"
+  },
+  "sample_sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+  "candidates": {
+    "HVFD": {
+      "candidate_dots": 37654,
+      "dots_within_3px": 37617,
+      "fraction": 0.999017368672651,
+      "filename": "gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif",
+      "sha256": "28bb9419d592797dcac1bfb1eb19fcffa7581a51718230f1f4f957a3e3d610d6",
+      "exceeds_70_percent": true
+    },
+    "XGHF": {
+      "candidate_dots": 37654,
+      "dots_within_3px": 37636,
+      "fraction": 0.9995219631380464,
+      "filename": "gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif",
+      "sha256": "2a122a409c7a7d5977a311dce271d6f333f21a697cd9effd59b45c6c0f0e8ec7",
+      "exceeds_70_percent": true
+    }
+  }
+}

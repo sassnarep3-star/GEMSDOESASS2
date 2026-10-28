@@ -166,7 +166,7 @@
   "submission_name": "GEMSDOESASS2-HVFD-EXP3-HYDROCOLLINEAR-37654-fc98343e",
   "submission_note": "GEMSDOESASS2 hvfd-exp3-hydrocollinear LOQO B=2 37654px HOLDOUT-DTI=0.1184 blind8km=0.1763 max3pxOv=68.3%",
   "submission_note_chars": 104,
-  "verdict": "promote",
+  "verdict": "negative",
   "strict_gdal_validator_output": {
     "candidate": "gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif",
     "candidate_sha256": "28bb9419d592797dcac1bfb1eb19fcffa7581a51718230f1f4f957a3e3d610d6",
@@ -220,5 +220,7 @@
     "organizer_accepted": null,
     "ok_to_submit": false,
     "note": "Format inspection alone cannot establish novelty, scientific performance, or weekly-slot authorization."
-  }
+  },
+  "ok_to_submit": false,
+  "review_correction": "2026-10-28: independent pinned-lattice recheck fails literal 70% dot-overlap rule; reported holdout and canary were not independently rerun. See evidence/lattice_recheck_20261028.json."
 }

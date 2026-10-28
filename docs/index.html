@@ -12,6 +12,7 @@
     <script src="assets/app.js" defer></script>
   </head>
   <body>
+<aside role="alert" style="background:#fff2d4;color:#451900;border:3px solid #a44b00;padding:1rem;line-height:1.5"><strong>DO NOT SUBMIT — no approved candidate.</strong> A 2026-10-28 independent recheck found both HVFD and XGHF exceed the literal 70% registry overlap limit. Earlier promotion, uniqueness and submission claims on this page are superseded; holdout results remain unreproduced. Downloads are research artifacts only. <a href="parallel-review.html">Audit details</a> · <a href="data/lattice-recheck.json">Machine receipt</a>.</aside>
     <a class="skip" href="#main">Skip to content</a>
     <header class="site-header">
       <div class="wrap header-inner">
@@ -48,8 +49,8 @@
               Executive decision &amp; research desk for <strong>GEMSDOESASS2</strong>:
               research-only download of our newly generated 59-channel cross-gradient
               &amp; hydrothermal conduit GeoTIFF (<code>SASS2-XGHF</code>; <strong>not cleared to submit</strong>), paired
-              spatially-blocked holdout results across all 9 focus sites, and fail-closed
-              uniqueness &amp; slot-selector verification.
+              historical score comparisons for the 9 focus sites, and a fail-closed
+              uniqueness &amp; slot-selector audit.
             </p>
             <p class="meta">
               Automated validation &amp; pinned 9-site audit ·
@@ -57,14 +58,10 @@
             </p>
           </div>
           <div class="status-card">
-            <span class="status-tag">Research .tif ready · Live slot held for selector</span>
+            <span class="status-tag">Research artifacts only · DO NOT SUBMIT</span>
             <h2>No submission file is approved.</h2>
             <p>
-              <strong>SASS2-XGHF Research Artifact: PASSES</strong> 13/13 + strict
-              GDAL mask, 59/59 canaries, paired holdout win (<code>p=1.000</code>),
-              and 429/429 genuine rasters (&le;69.11%). <strong>Live Weekly Slot:
-              DO NOT AUTO-SUBMIT</strong> pending owner exemption of the
-              <code>13GEMSDOE</code> calibration lattice (99.95% measured 3-px overlap &gt; 70%; 82.34% pigeonhole lower bound) &amp; separate weekly-slot selector sign-off.
+              <strong>Local GeoTIFF format preflight: PASS</strong> for XGHF against the owner-mirror sample. The earlier 59-channel canary, holdout, and genuine-registry results are historical branch claims, not independently rerun in the 28 Oct audit. The pinned calibration raster is a literal registry witness: XGHF overlap is 99.9522% (37,636/37,654) and HVFD overlap is 99.9017% (37,617/37,654), both above the 70% limit. <strong>DO NOT SUBMIT</strong>; no organizer acceptance, current score estimate, or slot authorization is established.
             </p>
             <div class="buttons">
               <a
@@ -128,8 +125,7 @@
           <div class="metric">
             <strong>0.1311</strong
             ><span
-              >SASS2-XGHF HOLDOUT-DTI (<code>HIDE-RECOVER-v3.0</code>, n=22,232)<br />vs
-              0.2778 Champ 0.0992 (<code>+0.0320</code>, p=1.000)</span
+              >Historical branch-reported HOLDOUT-DTI (<code>HIDE-RECOVER-v3.0</code>, n=22,232; CI [0.118009, 0.142930]); not independently rerun. Not a leaderboard estimate.</span
             >
           </div>
           <div class="metric">
@@ -176,7 +172,7 @@
                 <tr>
                   <th scope="col">Candidate / Artifact</th>
                   <th scope="col">One-Click Download &amp; SHA-256</th>
-                  <th scope="col">Measured HOLDOUT-DTI (95% CI)</th>
+                  <th scope="col">Historical branch-reported HOLDOUT-DTI (not rerun)</th>
                   <th scope="col">Uniqueness Status</th>
                   <th scope="col">Automated Gate &amp; Upload Decision</th>
                 </tr>
@@ -206,17 +202,16 @@
                     >
                   </td>
                   <td>
-                    <strong>HOLDOUT-DTI 0.131134</strong><br />
-                    <small>[0.118009, 0.142930] · <code>GEMSDOE32-HIDE-RECOVER-v3.0</code> (n=22,232; +0.032048 vs 0.2778 Champ, p=1.000)</small
+                    <strong>Historical HOLDOUT-DTI 0.131134</strong><br />
+                    <small>[0.118009, 0.142930] · <code>GEMSDOE32-HIDE-RECOVER-v3.0</code> (n=22,232; parallel-branch claim; not independently rerun)</small
                     ><br />
-                    <strong>HOLDOUT-DTI 0.066793</strong><br />
-                    <small>[0.060406, 0.072338] · <code>GEMSDOE32-SGMC-CAL-v3.0</code> (n=62,703; +0.002569 vs Champ)</small>
+                    <strong>Historical HOLDOUT-DTI 0.066793</strong><br />
+                    <small>[0.060406, 0.072338] · <code>GEMSDOE32-SGMC-CAL-v3.0</code> (n=62,703; parallel-branch claim; not independently rerun)</small>
                   </td>
                   <td>
-                    <strong>429/429 Genuine PASS</strong><br />
+                    <strong>Historical 429-raster genuine-only scan: PASS (not rerun)</strong><br />
                     <small
-                      >Max 3-px overlap vs genuine rasters: <strong>69.11%</strong> (&le;70%);
-                      27.00% vs 0.2778 Champ; 33.53% vs SCU1; max |Spearman| 0.0992 (&le;0.90).</small
+                      >Prior branch reported max 3-px overlap <strong>69.11%</strong> vs genuine rasters; the literal calibration witness below fails. This single-witness recheck does not certify completeness.</small
                     ><br />
                     <small
                       ><strong>Literal calibration lattice: 99.95%</strong> vs
@@ -226,8 +221,8 @@
                   <td>
                     <strong>13/13 + Strict GDAL Mask PASS</strong><br />
                     <small
-                      ><code>strict_local_format_pass=true</code> (all 12,279,160 cells finite
-                      <code>[0,1]</code> + exact internal footprint mask; 59/59 canary AUC &le; 0.8263).</small
+                      ><code>strict_local_format_pass=true</code> in a local preflight (all 12,279,160 cells finite
+                      <code>[0,1]</code> + exact internal footprint mask). Historical canary claims were not independently rerun.</small
                     ><br />
                     <small
                       ><strong>Research download: YES; competition submission: NO</strong> ·

@@ -7,8 +7,12 @@ const root = path.join(__dirname, "..", "docs");
 const html = fs.readFileSync(path.join(root, "index.html"), "utf8");
 const app = fs.readFileSync(path.join(root, "assets/app.js"), "utf8");
 const hvfdPage = fs.readFileSync(path.join(root, "hvfd-exp3.html"), "utf8");
+const execSummary = fs.readFileSync(path.join(root, "executive-summary.html"), "utf8");
+assert.match(execSummary, /DO NOT SUBMIT — no approved candidate/);
+assert.match(execSummary, /Download research-only \.tif/);
+assert.doesNotMatch(execSummary, /1-Click Download Unique/);
 assert.match(hvfdPage, /DO NOT SUBMIT THIS FILE/);
-assert.match(hvfdPage, /RESEARCH ARTIFACT ONLY.*FINAL VERDICT: NEGATIVE/);
+assert.match(hvfdPage, /HVFD-EXP3 VERDICT: NEGATIVE.*DO NOT SUBMIT/);
 assert.doesNotMatch(hvfdPage, /VERDICT: PROMOTE/);
 assert.match(hvfdPage, /Download Research-Only \.TIF/);
 const data = JSON.parse(

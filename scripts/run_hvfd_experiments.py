@@ -13,6 +13,13 @@ Strict Parallel-Run Protocol enforcement:
 """
 from __future__ import annotations
 
+# Safety stop: these historical runners omit the literal lattice witness and can
+# overwrite reports with promotion claims. See research/current-recheck.md.
+if __name__ == "__main__":
+    import sys as _guard_sys
+    print("Historical runner disabled: registry overlap gate failed. DO NOT SUBMIT.", file=_guard_sys.stderr)
+    raise SystemExit(2)
+
 import gc
 import hashlib
 import json

@@ -1,5 +1,8 @@
 # GEMSDOESASS2 — DOE GEMS Prize Blind Geothermal Fault Discovery & Fail-Closed Audit System
 
+> **2026-10-28 CORRECTION — NO FILE APPROVED FOR SUBMISSION.** Independent saved-byte checks against the pinned 13GEMSDOE lattice find 37,617/37,654 HVFD dots and 37,636/37,654 XGHF dots within 3 pixels, both over the literal 70% limit. Earlier claims below of promotion or full-registry uniqueness are superseded. These are historical research downloads only, not contest-ready files. The previous XGHF 99.78% figure is not reproduced by this check. Holdout and canary claims from parallel branches have not been independently rerun. See [recheck](research/current-recheck.md) and [machine receipt](evidence/lattice_recheck_20261028.json). No leaderboard score is estimated.
+
+
 > ### 📋 STANDING PROJECT PROMPT (Permanent Starting Brief — Read Every Session)
 >
 > Review the repo.
@@ -92,7 +95,7 @@ Historical values supplied in the prompt are strictly labeled **`USER-REPORTED (
 | **[GEMSDOE30](https://buffedlizard55-lab.github.io/GEMSDOE30/)** | `d28-poisson300m-offcat-44090-20261003-91eae1ca` | `0.2600` `USER-REPORTED` \| `SGMC-cal`: `0.0606` | `44,090` | `88.17%` | **`28.36%`** ✅ | Exact twin of `GEMSDOE25` (`0` XOR) |
 | **[GEMSDOE24](https://buffedlizard55-lab.github.io/GEMSDOE24/)** | `h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan` | `0.2477` `USER-REPORTED` \| `SGMC-cal`: `0.0579` | `60,069` | `88.48%` | **`29.48%`** ✅ | Over-dense `d=1.5` parent |
 | **[GEMSDOE27](https://buffedlizard55-lab.github.io/GEMSDOE27/)** | `topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan` | `0.2449` `USER-REPORTED` \| `SGMC-cal`: `0.0583` | `61,328` | `86.72%` | **`29.94%`** ✅ | Over-dense `d=1.5` parent |
-| **[GEMSDOESASS2](https://sassnarep3-star.github.io/GEMSDOESASS2/) (`SASS2-XGHF`)** | **[`gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif`](docs/downloads/gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif)** | **`HOLDOUT-DTI = 0.131134 [0.118009, 0.142930]`** (`HIDE-RECOVER-v3.0`, `n=22,232`, `p=1.000`) · **`SGMC-cal = 0.066793 [0.060406, 0.072338]`** | `37,654` | **`27.00%`** | `100.00%` | **1-Click Download Ready · Hold Live Slot for Selector** |
+| **[GEMSDOESASS2](https://sassnarep3-star.github.io/GEMSDOESASS2/) (`SASS2-XGHF`)** | **[`gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif`](docs/downloads/gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif)** | **`HOLDOUT-DTI = 0.131134 [0.118009, 0.142930]`** (`HIDE-RECOVER-v3.0`, `n=22,232`, `p=1.000`) · **`SGMC-cal = 0.066793 [0.060406, 0.072338]`** | `37,654` | **`27.00%`** | `100.00%` | **Research-only artifact · DO NOT SUBMIT (literal lattice gate fails)** |
 
 ![SASS2-XGHF Diagnostics](docs/assets/sass2_xghf_diagnostics.png)
 ![SASS2-XGHF Blind Conduit Zoom](docs/assets/sass2_xghf_blind_conduit_zoom.png)
