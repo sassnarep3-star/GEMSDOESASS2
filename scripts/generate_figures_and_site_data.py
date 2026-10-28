@@ -212,9 +212,9 @@ def main() -> int:
         ax1.text(i, v + 0.005, f"{v:.4f}", ha="center", fontsize=8.5, fontweight="bold")
     ax1.axhline(0.295, color="#ef4444", ls=":", lw=1.4, label="Pure H19-5 Pruning Asymptote (~0.295)")
     ax1.set_xticks(range(len(stages)), stages, fontsize=8)
-    ax1.set_ylabel("ORGANIZER-CONFIRMED Live DTI", fontsize=9.5)
+    ax1.set_ylabel("USER-REPORTED Live DTI (historical; unverified)", fontsize=9.5)
     ax1.set_ylim(0.175, 0.315)
-    ax1.set_title("A. How GEMSDOE32 Reached 0.2778 (+0.0856 DTI)\nKernel Self-Overlap Removal + B=2 Zero-Credit Collar", fontsize=10, fontweight="bold")
+    ax1.set_title("A. Historical owner report: GEMSDOE32 0.2778 (+0.0856 DTI)\nKernel Self-Overlap Removal + B=2 Zero-Credit Collar", fontsize=10, fontweight="bold")
     ax1.legend(loc="lower right", frameon=True, facecolor="#1e293b", edgecolor="#475569", fontsize=8.5)
     ax1.grid(alpha=0.45)
 

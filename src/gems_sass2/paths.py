@@ -21,13 +21,47 @@ NODATA_SENTINEL_F32 = np.float32(-3.4028234663852886e38)
 
 
 def data_dir() -> Path:
+    """Return the canonical full-data cache without silently using a bridge mirror.
+
+    ``scripts/fetch_data.py`` writes to ``.cache/gems_data``.  Older sessions used
+    ``.cache/data`` and the previous implementation fell back to ``/tmp/gems_data``;
+    that made an otherwise valid checkout fail with a confusing ``file not found``
+    error and made a machine-specific path look canonical.  The fallback is now a
+    deterministic repository-local path so callers can report the real missing-data
+    blocker.  The tracked ``data/bridge`` files are deliberately *not* returned here:
+    they contain only the grid/label bridge, not the authenticated training stack.
+    """
     env = os.environ.get("GEMS_DATA_DIR")
     if env:
-        return Path(env)
-    cand = REPO_ROOT / ".cache" / "data"
-    if cand.exists():
-        return cand
-    return Path("/tmp/gems_data")
+        return Path(env).expanduser()
+
+    # Prefer the path used by the hash-pinned restore script, but keep the legacy
+    # cache location readable for existing local workspaces.
+    for candidate in (
+        REPO_ROOT / ".cache" / "gems_data",
+        REPO_ROOT / ".cache" / "data",
+    ):
+        if candidate.exists():
+            return candidate
+    return REPO_ROOT / ".cache" / "gems_data"
+
+
+def grid_data_dir() -> Path:
+    """Return a directory containing ``sample_submission.tif`` and ``labels.tif``.
+
+    This is for format inspection and packaging only.  If the full competition
+    cache is absent, the tracked ``data/bridge`` mirror is a usable geometry
+    witness, but it is not asserted to be organizer-authenticated.  Model and
+    holdout code must continue to call :func:`data_dir` so a bridge cannot be
+    mistaken for the complete feature stack.
+    """
+    full = data_dir()
+    if (full / "sample_submission.tif").exists() and (full / "labels.tif").exists():
+        return full
+    bridge = REPO_ROOT / "data" / "bridge"
+    if (bridge / "sample_submission.tif").exists() and (bridge / "labels.tif").exists():
+        return bridge
+    return full
 
 
 def work_dir() -> Path:

@@ -222,9 +222,9 @@ def test_quarantined_legacy_ttc_marked_negative() -> None:
 def test_docs_portal_links_and_sha256_consistency() -> None:
     import re
 
-    rc = json.loads((ROOT / "evidence" / "sass2_xghf_run_card.json").read_text())
+    rc = json.loads((ROOT / "evidence" / "hvfd_exp3_run_card.json").read_text())
     expected_sha = rc["raster_sha256"]
-    expected_note = rc["submission"]["note"]
+    expected_note = rc["submission_note"]
     assert len(expected_note) <= 140
 
     docs_dir = ROOT / "docs"

@@ -27,6 +27,7 @@ import hashlib
 import json
 import os
 import resource
+import subprocess
 import sys
 import time
 from datetime import datetime, timezone
@@ -46,6 +47,12 @@ from scipy.ndimage import binary_dilation, binary_erosion, distance_transform_ed
 from sklearn.metrics import roc_auc_score
 
 ROOT = Path(__file__).resolve().parents[1]
+try:
+    CURRENT_BRANCH = subprocess.check_output(
+        ["git", "branch", "--show-current"], cwd=ROOT, text=True, stderr=subprocess.DEVNULL
+    ).strip() or "detached"
+except (OSError, subprocess.SubprocessError):
+    CURRENT_BRANCH = "unknown"
 sys.path.insert(0, str(ROOT / "src"))
 
 from gems_sass2.emitter import (  # noqa: E402
@@ -923,7 +930,7 @@ def main() -> int:
 
     run_card = {
         "lane_id": "SASS2-XGHF",
-        "branch": "arena/f2d1a15d-gemsdoesass2",
+        "branch": CURRENT_BRANCH,
         "generated_utc": ts_utc,
         "hypothesis": (
             "Unmapped blind geothermal faults in the Great Basin / Walker Lane offset basement density "

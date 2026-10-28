@@ -143,7 +143,20 @@ def write_submission_pair(
     arr = np.asarray(pred_values, dtype=np.float32)
     if arr.shape != EXPECTED_SHAPE:
         raise ValueError(f"Expected shape {EXPECTED_SHAPE}, got {arr.shape}")
-    arr = np.where(np.isfinite(arr), np.clip(arr, 0.0, 1.0), 0.0).astype(np.float32)
+    # Do not silently repair model output here.  Clipping NaN, Inf, or a value
+    # just above one can hide the exact bug that later triggers the portal's
+    # ``Predicted values must be in range [0, 1]`` rejection.  Probability
+    # calibration belongs upstream; the packaging boundary is fail-closed.
+    if not np.isfinite(arr).all():
+        raise ValueError("Prediction array contains NaN or Inf; nothing was written")
+    arr_min = float(arr.min())
+    arr_max = float(arr.max())
+    if arr_min < 0.0 or arr_max > 1.0:
+        raise ValueError(
+            f"Prediction array is outside [0, 1] (min={arr_min:.9g}, max={arr_max:.9g}); "
+            "calibrate it before packaging"
+        )
+    arr = arr.astype(np.float32, copy=True)
     arr[known] = np.float32(0.0)
 
     zeros_arr = np.where(foot, arr, np.float32(0.0)).astype(np.float32)

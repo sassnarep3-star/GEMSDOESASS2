@@ -32,3 +32,36 @@
 ## Source-watch follow-up
 
 After the first PR merged, the site correctly flagged a new GEMSDOE24 source head. At pinned ref `e65cd19b255fd0edd3067142d08467c65ff5f7f7`, we independently reopened its H-UNIQUE-07 raster: 1,810 of 1,814 dots (99.7795%) are within the lattice halo. Its owner-reported negative HOLDOUT-DTI is 0.001124 (95% CI 0.000860–0.001431; `gems-segment-pooled-v1`, 60,988 withheld); that holdout was not independently rerun. The [owner run card](https://github.com/buffedlizard55-lab/GEMSDOE24/blob/e65cd19b255fd0edd3067142d08467c65ff5f7f7/docs/data/unique_run_card_7.json) also reports a negative verdict. This is concrete evidence that a smaller dot count does not automatically pass novelty.
+
+---
+
+# Review passes — 28 October 2026 (this session)
+
+## Pass 1 — repository and protocol review
+
+- Read the standing brief in `README.md` before touching code and inspected the tracked artifacts, tests, workflows, evidence cards, and the nine-site ledger.
+- Re-ran the baseline suite. The first clean audit install failed during test collection because `src/gems_sass2/features.py` imports `skimage.morphology.skeletonize`, while `requirements-audit.txt` and `.github/workflows/ci.yml` did not install `scikit-image`.
+- Found a second reproducibility defect: `scripts/submission_writer.py` resolved the default sample to `/tmp/gems_data`, even though this checkout carries the geometry witness in `data/bridge`. The full feature cache and the bridge mirror were also inconsistently named (`.cache/data` versus `.cache/gems_data`).
+- Found a provenance defect in `evidence/nine_sites_audit.json` and its site-summary mirror: historical numbers supplied by the prompt/site reports were labeled `ORGANIZER-CONFIRMED` without a bundled submission-page receipt. They are now labeled `USER-REPORTED / UNVERIFIED`; measured values remain `HOLDOUT-DTI`.
+
+## Pass 2 — fail-closed fixes
+
+- Added the missing pinned audit dependency and CI install entry; added `scikit-image` to both project dependency sets.
+- Made `.cache/gems_data` the canonical restored-data location, retained `.cache/data` for compatibility, and added a separate `grid_data_dir()` that may use `data/bridge` only for format inspection/packaging. Model code still cannot mistake the bridge for a training stack.
+- Changed `write_submission_pair` to reject NaN, Inf, negative, and greater-than-one predictions instead of silently clipping them. This directly protects against the portal error `Predicted values must be in range [0, 1]`.
+- Added `scripts/submission_preflight.py`, which emits JSON with separate `ok_to_download` and `ok_to_submit` fields. It verifies saved bytes, the run-card hash, note length, and one-file ZIP contents, and returns a non-zero code when selector authorization is absent.
+- Replaced the no-op `scripts/prepare_data.py` with a geometry/hash receipt that fails closed when core files are absent or misaligned. Updated the download helper to distinguish the official login-walled source from explicitly non-authenticated public owner mirrors.
+- Corrected the HVFD run card and Pages copy so `promote` means research-artifact promotion only; the current selector decision remains `OK TO DOWNLOAD: YES` and `OK TO SUBMIT: NO`.
+
+## Pass 3 — automated verification and handoff
+
+- `python -m pytest -q` with the audit environment: **77 passed**, 27 known Rasterio deprecation warnings.
+- `node --check docs/assets/app.js && npm run test:site`: **all site scenarios passed** (`ok`, `changed`, `limited`, `missing`). `git diff --check` and Python compilation also pass.
+- Revalidated the committed HVFD-EXP3 `-zeros.tif` against the tracked bridge: **13/13 local checks**, all 12,279,160 cells finite float32 in `[0,1]`, exact geometry, zero mapped-catalogue positives, 37,654 positive dots. This is local format evidence, not organizer acceptance.
+- Ran the new preflight: `OK TO DOWNLOAD; DO NOT SUBMIT`; the only blocking reason is the absent explicit weekly-slot selector authorization. No experiment beyond the recorded three, no new external data claim, and no weekly submission slot was spent in this review pass.
+
+## Outstanding, independently verified blockers
+
+1. The full `training_features.tif`/external cache is absent from this checkout; the prior HVFD/XGHF experiment receipts are saved artifacts and cannot be honestly re-run here.
+2. The current registry is not provably complete, and the literal space-filling calibration-lattice rule mathematically blocks the 37,654-dot candidates. A selector may not be inferred from a holdout win.
+3. No DrivenData submission-page receipt or current account quota is available. Any future live number must be copied from the portal and labeled `ORGANIZER-CONFIRMED`; every projection remains a projection.

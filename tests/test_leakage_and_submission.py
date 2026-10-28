@@ -198,4 +198,7 @@ def test_gate5_run_card_and_nine_focus_sites_completeness() -> None:
     for row in nine["sites"]:
         hb = row["historic_best"]
         assert hb["overlap_3px_with_gemsdoesass2"] < 0.70
-        assert "ORGANIZER-CONFIRMED" in hb["score_label"]
+        # These values came from the user prompt/site reports, not a bundled
+        # submission-page receipt.  Do not upgrade provenance by wording alone.
+        assert hb["score_label"].startswith("USER-REPORTED / UNVERIFIED")
+        assert "ORGANIZER-CONFIRMED" not in hb["score_label"]

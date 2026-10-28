@@ -1,17 +1,31 @@
 #!/usr/bin/env bash
 set -euo pipefail
-# Download competition data from DrivenData (requires login) into data/
-# Verified sources: https://www.drivendata.org/competitions/306/competition-doe-gems/data/
-# Due to login wall, this script must be run on an unrestricted machine with DrivenData credentials.
-# It will place training_features.tif, labels.tif, sample_submission.tif, 1m_DEM_links.csv into data/
-# Alternative free mirrors (official, verified):
-# - GDR 1391 https://gdr.openei.org/submissions/1391  (free, CC-BY-4.0, DOI 10.15121/1881483)
-# - USGS GeoDAWN https://doi.org/10.5066/P93LGLVQ
-# - USGS SGMC https://doi.org/10.3133/ds1052
-echo "This environment cannot auto-download login-walled DrivenData data."
-echo "On a machine with credentials, run:"
-echo "  curl -O https://www.drivendata.org/competitions/306/competition-doe-gems/data/training_features.tif"
-echo "  # or use the official GDR/USGS mirrors listed in docs/index.html"
-echo "Place files into data/ then run python scripts/prepare_data.py"
-echo "Current cache verification (if you have GEMSDOE32 cache):"
-ls -lh /tmp/GEMSDOE24/data/bridge/ 2>/dev/null || echo "no cache"
+# The official DrivenData data tab requires an authenticated account.  This
+# repository cannot mint or store those credentials and must not treat an HTML
+# login response as a GeoTIFF.  Fail closed with reproducible alternatives.
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$ROOT"
+
+if [[ -f data/training_features.tif && -f data/labels.tif && -f data/sample_submission.tif ]]; then
+  echo "Found authenticated-looking core files in data/. Verifying placement..."
+  exec python scripts/prepare_data.py --data-dir data
+fi
+
+cat >&2 <<'MSG'
+Competition data is not present in data/.
+
+Official source (requires the user's own DrivenData login):
+  https://www.drivendata.org/competitions/306/competition-doe-gems/data/
+
+This script does not ask for, store, or automate credentials.  On an
+unrestricted machine, place training_features.tif, labels.tif, and
+sample_submission.tif in data/ (and 1m_DEM_links.csv if available), then run:
+  python scripts/prepare_data.py --data-dir data
+
+For the owner-mirror audit lane only, use the hash-pinned public GitHub restore
+(which is explicitly NOT organizer-authenticated and may download hundreds of
+MB):
+  python scripts/fetch_data.py --dest .cache/gems_data
+  python scripts/prepare_data.py --data-dir .cache/gems_data
+MSG
+exit 2

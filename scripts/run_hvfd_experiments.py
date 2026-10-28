@@ -16,6 +16,7 @@ from __future__ import annotations
 import gc
 import hashlib
 import json
+import subprocess
 import sys
 import time
 from datetime import datetime, timezone
@@ -26,6 +27,12 @@ import rasterio
 from scipy import ndimage as ndi
 
 ROOT = Path(__file__).resolve().parents[1]
+try:
+    CURRENT_BRANCH = subprocess.check_output(
+        ["git", "branch", "--show-current"], cwd=ROOT, text=True, stderr=subprocess.DEVNULL
+    ).strip() or "detached"
+except (OSError, subprocess.SubprocessError):
+    CURRENT_BRANCH = "unknown"
 sys.path.insert(0, str(ROOT / "src"))
 sys.path.insert(0, str(ROOT / "vendor"))
 
@@ -454,7 +461,7 @@ def main() -> int:
         "protocol_version": "GEMSDOESASS2-PARALLEL-RUN-v2.0",
         "generated_at_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "repository": "sassnarep3-star/GEMSDOESASS2",
-        "branch": "arena/ea31206d-gemsdoesass2",
+        "branch": CURRENT_BRANCH,
         "experiments_used": 3,
         "experiments_budget_max": 3,
         "runtime_seconds": total_elapsed,

@@ -5,7 +5,6 @@
     "filename": "gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
     "sha256": "c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9",
     "emitted_dots": 37654,
-    "organizer_confirmed_score": 0.2778,
     "exact_boolean_identity_champ_equals_d28_and_d_cat_gt_2px": true,
     "step_by_step_ablation_chain": [
       {
@@ -61,7 +60,8 @@
       "weighted_tp_required_at_37654_for_0p3195": 5906.5,
       "weighted_tp_required_at_37654_for_0p4413": 8279.4,
       "weighted_tp_required_at_37654_for_0p4544_live_top": 8642.0
-    }
+    },
+    "user_reported_score": 0.2778
   },
   "live_public_leaderboard_verified_20261027": {
     "source_url": "https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/",
