@@ -3,3 +3,7 @@ numpy==2.2.6
 scipy==1.15.3
 rasterio==1.4.3
 pytest==8.4.2
+
+# Imports exercised by the repository test suite
+scikit-image>=0.24
+scikit-learn>=1.5
