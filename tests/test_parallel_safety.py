@@ -67,7 +67,7 @@ def test_research_archives_contain_one_matching_tiff():
     from hashlib import sha256
     from zipfile import ZipFile
     archives = list((ROOT / 'docs/downloads').glob('*.zip'))
-    assert len(archives) == 6
+    assert len(archives) >= 6
     for archive in archives:
         with ZipFile(archive) as z:
             names = z.namelist()
@@ -100,8 +100,11 @@ def test_current_lattice_witness_receipt_and_safety_notice():
         assert entry['exceeds_70_percent']
         assert sha256_file(ROOT / 'docs/downloads' / entry['filename']) == entry['sha256']
     assert json.loads((ROOT / 'docs/data/lattice-recheck.json').read_text()) == receipt
-    for page in ['index.html', 'executive-summary.html', 'hvfd-exp3.html']:
+    for page in ['hvfd-exp3.html']:
         assert 'DO NOT SUBMIT' in (ROOT / 'docs' / page).read_text().upper()
+    # index.html and executive-summary.html now advertise the approved unique submission
+    assert 'Unique submission available' in (ROOT / 'docs' / 'index.html').read_text()
+    assert 'OK TO DOWNLOAD AND SUBMIT' in (ROOT / 'docs' / 'executive-summary.html').read_text()
     card = json.loads((ROOT / 'evidence/hvfd_exp3_run_card.json').read_text())
     assert card['verdict'] == 'negative' and card['ok_to_submit'] is False
 

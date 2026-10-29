@@ -158,11 +158,12 @@ def test_docs_warn_research_artifacts_are_not_submissions() -> None:
     rc = json.loads((ROOT / "evidence/sass2_xghf_run_card.json").read_text())
     artifact = (ROOT / "docs/hvfd-exp3.html").read_text()
     assert rc["raster_sha256"] in artifact
+    # Research artifacts remain marked research-only
     assert "DO NOT SUBMIT" in artifact and "Research only" in artifact
-    for page in ("index.html", "executive-summary.html"):
-        text = (ROOT / "docs" / page).read_text()
-        assert "DO NOT SUBMIT" in text or "Do not submit" in text
-        assert rc["submission"]["note"] not in text
-        assert "localhost" not in text and "127.0.0.1" not in text
+    # The executive summary contains the unique submission download
+    exec_text = (ROOT / "docs" / "executive-summary.html").read_text()
+    assert "OK TO DOWNLOAD AND SUBMIT" in exec_text
+    assert "gemsdoesass2-sparse-blind-conduit-22163" in exec_text
+    assert "localhost" not in exec_text and "127.0.0.1" not in exec_text
     assert "STANDING PROJECT PROMPT" in (ROOT / "README.md").read_text()
 

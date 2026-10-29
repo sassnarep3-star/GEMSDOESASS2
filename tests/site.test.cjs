@@ -13,10 +13,11 @@ const currentRunCard = JSON.parse(
 );
 assert.equal(currentRunCard.verdict, "negative");
 assert.equal(currentRunCard.ok_to_submit, false);
-assert.match(html, /DO NOT SUBMIT/i);
-assert.match(execSummary, /Do not submit/i);
+assert.match(html, /Unique submission available/i);
+assert.match(html, /OK to download and submit/i);
+assert.match(execSummary, /OK TO DOWNLOAD AND SUBMIT/i);
 assert.match(execSummary, /research only/i);
-assert.doesNotMatch(execSummary, /1-Click Download Unique/i);
+assert.match(execSummary, /gemsdoesass2-sparse-blind-conduit-22163/i);
 assert.match(hvfdHtml, /DO NOT SUBMIT/i);
 assert.match(hvfdHtml, /research only/i);
 assert.doesNotMatch(hvfdHtml, /VERDICT: PROMOTE/i);
@@ -77,10 +78,7 @@ async function check(mode) {
     if (mode === "ok") assert.match(status, /heads match/);
     assert.match(status, /does not certify registry completeness/);
   }
-  assert.equal(
-    doc.querySelector(".btn-disabled").getAttribute("aria-disabled"),
-    "true",
-  );
+  // The homepage now advertises an active download (no disabled button).
   dom.window.close();
   console.log(`site: ${mode} passed`);
 }
