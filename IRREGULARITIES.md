@@ -17,6 +17,17 @@ Latest review: **2026-10-28 UTC**. Older versions remain in Git history; prior c
 | IR-11 | The audit dependency file and second CI workflow omitted scikit-image, causing test collection to fail on a clean machine. | Dependencies are now installed consistently from `requirements-audit.txt`; coverage tests verify the corrected decisions instead of requiring historical promotion. |
 | IR-12 | The public leaderboard and other repositories change during parallel work. | Dated snapshots and a GitHub head-change warning are not a complete live registry, do not guarantee freshness, and cannot authorize a slot. The public leaderboard observation is distinct from a submission-page receipt. |
 
+## Review pass 3 — 2026-10-28 (branch `arena/99eabcc5-gemsdoesass2`)
+
+| ID | Finding | Resolution / evidence |
+|---|---|---|
+| IR-RV3-01 | Earlier review addenda cited branch `arena/6c861f74-gemsdoesass2`, which is already merged (PR #17). | Relabelled as historical. [Review 3](research/2026-10-28-repo-review-3.md). |
+| IR-RV3-02 | Open PR #15 (`arena/a3ca86a7-gemsdoesass2`) from another session remains OPEN with unknown merge state. | Not touched; owner to decide. |
+| IR-RV3-03 | Leaderboard top: 0.4544 on the live page vs 0.4413 / 0.3195 in the brief. | Dated snapshots differ; the live page is the reference. Not a file score. |
+| IR-RV3-04 | Range error "Predicted values must be in range [0, 1]" is unexplained; no rejected bytes or portal text are in the repo. | Not diagnosed (see IR-09). |
+| IR-RV3-05 | All `docs/downloads/*.tif` pass the local [0,1] check. | The error is not reproducible from repo files alone. |
+| IR-RV3-06 | Pinned sample, labels and lattice SHA-256 values were independently re-downloaded from `GEMSDOE24@07345ea` and match the pins. | Verified. [Review 3](research/2026-10-28-repo-review-3.md). |
+
 ## Review pass — 2026-10-28 (branch `arena/6c861f74-gemsdoesass2`)
 
 | ID | Finding | Resolution / evidence |
@@ -32,3 +43,18 @@ Latest review: **2026-10-28 UTC**. Older versions remain in Git history; prior c
 | IR-RV-09 | Earlier blocker “19-band features unavailable” is **superseded** by the owner-mirror restore (see IR-08). | Restored receipt: [evidence/feature_cache.json](evidence/feature_cache.json). |
 | IR-RV-10 | Per-site scores are USER-REPORTED. No organizer receipt ties a score to the pinned raster bytes. | Labelled USER-REPORTED / UNVERIFIED throughout. |
 
+
+## Review pass — 2026-10-28, session 3 (branch `arena/58a08d6e-gemsdoesass2`)
+
+| ID | Finding | Resolution / evidence |
+|---|---|---|
+| IR-S-01 | The literal 70% lattice rule is saturated. Every nine-site top file (99.91–99.92%) and seeded random placements with the same dot counts (99.82–99.91%) exceed the limit. It blocks the 0.2778 champion as strongly as noise. | Not a usable uniqueness gate until the owner rules. [evidence/lattice_saturation_check.json](evidence/lattice_saturation_check.json), [script](scripts/lattice_saturation_check.py). Options in the executive summary. |
+| IR-S-02 | The reported "Predicted values must be in range [0, 1]" error cannot be reproduced. The official spec allows null/NaN outside the bounds, and no local top file or the organizer sample has a finite in-footprint value outside [0,1]. | Cause unknown without the rejected bytes and the portal's response. Do not attribute it to NaN. |
+| IR-S-03 | The repository's metric functions were binary-only, but the official metric is probabilistic (p ∈ [0,1]). | Added `dti_probabilistic` in `src/gems/metric.py`; seven new tests in `tests/test_metric.py` cover binary equivalence, the official definitions, the range and NaN rules and the page's worked arithmetic. Not yet run on a real soft raster or validated against an organizer score. The official ε is unpublished and is omitted. |
+| IR-S-04 | The 0.2778 file is GEMSDOE25's 44,090-dot parent minus 6,436 dots within 2 px of the catalogue. Its sister GEMSDOE31 is the 1 px version. All nine top files descend from one parent lineage, so "unique against the nine" is a lineage question. | Verified by XOR = 0 on the pinned files ([audit lineage](docs/data/audit.json)). Autopsy: [knowledge/04](knowledge/04_gemsdoe32_0-2778_autopsy_verified.md). |
+| IR-S-05 | `data/bridge/labels.tif` and `data/bridge/existing_faults.tif` are byte-identical (SHA-256 `7ba308cc…4093`). | Flagged for review. Either the competition supplies identical rasters or one was copied; the repo uses them only as the catalogue reference. |
+| IR-S-06 | GEMSDOE36's repository carries contradictory verdicts: an earlier source line says "OK TO SUBMIT" for KPL-36, while its README says "NOT OK TO SUBMIT (superseded)" and records the lattice overlap of 0.9917. | Treated as not clearable. The repo's witness note is stale and is noted here. |
+| IR-S-07 | The official reference notebook writes float64 (`np.zeros` default, `dtype=y_final.dtype`). The problem page specifies float32. | Flagged for review against the organizer's own sample (float32). Not a repository file; the repo's writers emit float32. |
+| IR-S-08 | Leaderboard values conflict across the user's messages: 0.3195, 0.4413 and 0.4544 are each called the top score. The live page on 2026-10-28 shows #1 = 0.4544 and #22 = 0.3262. | Live page is authoritative for that date only. [Leaderboard](https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/). |
+| IR-S-09 | Two older pages linked to `../evidence/` and `../IRREGULARITIES.md`, which GitHub Pages (publishing `docs/` only) does not serve. | Links changed to GitHub blob URLs on `main`. |
+| IR-S-10 | The repo's strict validator (`scripts/validate_tif.py`, check `whole_array_finite_in_0_1`) rejects NaN outside the footprint. That is deliberate (tested in `tests/test_validation.py`), but the spec allows null or NaN outside and the organizer's sample uses NaN. Result: the organizer's own sample `data/bridge/sample_submission.tif` returns `strict_local_format_pass: false`. | Not changed in this pass. Stricter than the spec, and a plausible but unproven candidate for the portal's "[0, 1]" rejection. Owner decision: keep the strict gate (outside = finite masked zeros) or align it to the spec. |
