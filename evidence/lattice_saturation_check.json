@@ -1,0 +1,215 @@
+{
+  "scope": "Rule audit against one pinned registry witness. Not an organizer receipt, not a complete registry check, not a holdout score, no candidate generated.",
+  "audited_utc": "2026-10-29T00:02:53Z",
+  "lattice": {
+    "path": "inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+    "repo": "GEMSDOE24",
+    "ref": "07345ea0604953d7efb858d9cfbc21e20c7aca0b",
+    "sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+    "positive_pixels": 206895
+  },
+  "footprint_pixels": 5167373,
+  "footprint_pixels_within_3px_of_lattice": 5160724,
+  "footprint_pixels_uncovered": 6649,
+  "limit": 0.7,
+  "historical_top_files": [
+    {
+      "site": "GEMSDOE24",
+      "reported_id": "h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan",
+      "reported_score_user_unverified": 0.2477,
+      "sha256": "3e0730e8d4f7db095dd80246a98cba3bc0fc9a28f436b91db27ca34df4d0d1ce",
+      "dots": 60069,
+      "dots_within_3px_of_lattice": 60022,
+      "fraction": 0.999218,
+      "fails_literal_70pct_rule": true
+    },
+    {
+      "site": "GEMSDOE25",
+      "reported_id": "dotted-h19-5-d2-8-20261002-e56ea318af89-nan",
+      "reported_score_user_unverified": 0.26,
+      "sha256": "3e78737f0da8dd2ca66cc6caac0ce8eeefcd6715707f8d1bd3091845cd9bcc30",
+      "dots": 44090,
+      "dots_within_3px_of_lattice": 44053,
+      "fraction": 0.999161,
+      "fails_literal_70pct_rule": true
+    },
+    {
+      "site": "GEMSDOE27",
+      "reported_id": "topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan",
+      "reported_score_user_unverified": 0.2449,
+      "sha256": "a9bf76b57453a5b3af74c8eef837df53c29a0931162aa540b8763220b36ba3bb",
+      "dots": 61328,
+      "dots_within_3px_of_lattice": 61281,
+      "fraction": 0.999234,
+      "fails_literal_70pct_rule": true
+    },
+    {
+      "site": "GEMSDOE28",
+      "reported_id": "h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan",
+      "reported_score_user_unverified": 0.271,
+      "sha256": "7c74270ad48fa0b865163853046a6d3815967c5bf37bbda5b74ca7fa22583a32",
+      "dots": 37660,
+      "dots_within_3px_of_lattice": 37626,
+      "fraction": 0.999097,
+      "fails_literal_70pct_rule": true
+    },
+    {
+      "site": "GEMSDOE30",
+      "reported_id": "d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca",
+      "reported_score_user_unverified": 0.26,
+      "sha256": "8cf893ead5667df21d3288a9968c35fd5385c425b029d82ee71d311715b129fd",
+      "dots": 44090,
+      "dots_within_3px_of_lattice": 44053,
+      "fraction": 0.999161,
+      "fails_literal_70pct_rule": true
+    },
+    {
+      "site": "GEMSDOE31",
+      "reported_id": "h27-4-solo-d28-20261004-8acb75e1-nan",
+      "reported_score_user_unverified": 0.2708,
+      "sha256": "acd853936e5a7170b207f23411b1844caa0e7cfdfc303c600e520ccfe75159e6",
+      "dots": 40199,
+      "dots_within_3px_of_lattice": 40166,
+      "fraction": 0.999179,
+      "fails_literal_70pct_rule": true
+    },
+    {
+      "site": "GEMSDOE32",
+      "reported_id": "h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros",
+      "reported_score_user_unverified": 0.2778,
+      "sha256": "c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9",
+      "dots": 37654,
+      "dots_within_3px_of_lattice": 37622,
+      "fraction": 0.99915,
+      "fails_literal_70pct_rule": true
+    },
+    {
+      "site": "GEMSDOE33",
+      "reported_id": "h33d-analog-tip-stepover-r30-20261004-cb490425926e",
+      "reported_score_user_unverified": 0.2632,
+      "sha256": "87f857d505e23247e991ccfab2cbe9f49a04df4f9c8028dce7ea261554690757",
+      "dots": 41865,
+      "dots_within_3px_of_lattice": 41829,
+      "fraction": 0.99914,
+      "fails_literal_70pct_rule": true
+    },
+    {
+      "site": "GEMSDOE36",
+      "reported_id": "anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros",
+      "reported_score_user_unverified": 0.275,
+      "sha256": "e15891020b9c57056ac7fa874a5e506fbd6ed9314a4ea8e73af0753887a3708a",
+      "dots": 38854,
+      "dots_within_3px_of_lattice": 38822,
+      "fraction": 0.999176,
+      "fails_literal_70pct_rule": true
+    }
+  ],
+  "random_placement_controls": [
+    {
+      "dots": 37654,
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "fraction_min": 0.998247,
+      "fraction_max": 0.998778,
+      "all_exceed_70pct": true
+    },
+    {
+      "dots": 37660,
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "fraction_min": 0.998327,
+      "fraction_max": 0.999071,
+      "all_exceed_70pct": true
+    },
+    {
+      "dots": 38854,
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "fraction_min": 0.998636,
+      "fraction_max": 0.998893,
+      "all_exceed_70pct": true
+    },
+    {
+      "dots": 40199,
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "fraction_min": 0.998632,
+      "fraction_max": 0.998856,
+      "all_exceed_70pct": true
+    },
+    {
+      "dots": 41865,
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "fraction_min": 0.998424,
+      "fraction_max": 0.998997,
+      "all_exceed_70pct": true
+    },
+    {
+      "dots": 44090,
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "fraction_min": 0.998435,
+      "fraction_max": 0.998957,
+      "all_exceed_70pct": true
+    },
+    {
+      "dots": 60069,
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "fraction_min": 0.998652,
+      "fraction_max": 0.998868,
+      "all_exceed_70pct": true
+    },
+    {
+      "dots": 61328,
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "fraction_min": 0.998712,
+      "fraction_max": 0.999022,
+      "all_exceed_70pct": true
+    }
+  ],
+  "new_tiff_created": false,
+  "weekly_slots_spent": 0
+}

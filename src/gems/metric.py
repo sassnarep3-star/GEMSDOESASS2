@@ -1,5 +1,8 @@
 """Pooled Distance-weighted Tversky Index (DTI).
 
+See ``dti_probabilistic`` for the official continuous-probability form; ``dti_binary``
+is its binary special case used for dot-set diagnostics.
+
 Competition metric reconstruction (alpha=0.2, beta=0.8, 300 m triangular
 kernel = 3 px at 100 m/px).  Identity (verified against GEMSDOE32
 src/gems32/metric.py and the audit JSON of the 0.2778 champion):
@@ -62,6 +65,72 @@ def dti_binary(pred_mask: np.ndarray, truth_mask: np.ndarray,
     dti = T / (T + ALPHA * FP + BETA * FN) if T > 0 else 0.0
     return dict(dti=float(dti), T=T, FP=float(FP), FN=float(FN),
                 n_pred=n_pred, n_truth=n_truth)
+
+
+def dti_probabilistic(pred_prob: np.ndarray, truth_mask: np.ndarray,
+                      score_mask: np.ndarray | None = None) -> dict:
+    """Distance-weighted Tversky index for continuous probabilities p(x) in [0, 1].
+
+    Implements the official definition on the DrivenData problem page (page/967,
+    "Performance metric"), for alpha=0.2, beta=0.8 and R=3 px (300 m):
+
+        TP_w = sum_{g in G} max_{x: d(x,g)<=R} p(x) k(d(x,g))
+        FP_w = sum_{x: p(x)>0} p(x) [1 - max_{g in G} k(d(x,g))]
+        FN_w = sum_{g in G} [1 - max_{x: d(x,g)<=R} p(x) k(d(x,g))]
+        DTI  = TP_w / (TP_w + alpha*FP_w + beta*FN_w)
+
+    with k(d) = max(1 - d/R, 0). The official epsilon is not published; it is
+    omitted here (a zero denominator returns 0.0).
+
+    Binary masks are a special case: for p in {0, 1} this equals ``dti_binary``.
+    Outside ``score_mask`` the prediction is ignored and the truth is removed,
+    matching the pixel-exact masking used elsewhere in this module. Non-finite
+    values inside the scored area raise ValueError (the portal requires [0, 1]).
+    """
+    p = np.asarray(pred_prob, dtype=np.float64)
+    truth = np.asarray(truth_mask).astype(bool).copy()
+    if p.shape != truth.shape:
+        raise ValueError("prediction and truth must share a shape")
+    if score_mask is not None:
+        scored = np.asarray(score_mask).astype(bool)
+        truth &= scored
+        p = np.where(scored, p, 0.0)
+    if not np.all(np.isfinite(p[score_mask.astype(bool)] if score_mask is not None else p)):
+        raise ValueError("non-finite prediction inside the scored area")
+    if p.min(initial=0.0) < 0.0 or p.max(initial=0.0) > 1.0:
+        raise ValueError("predicted probabilities must lie in [0, 1]")
+
+    R = int(KERNEL_RADIUS_PX)
+    rows, cols = np.nonzero(truth)
+    n_truth = int(rows.size)
+    sum_p = float(p.sum())
+
+    # TP_w: per truth pixel, the best kernel-weighted probability within R.
+    best = np.zeros(n_truth)
+    H, W = p.shape
+    for dy in range(-R, R + 1):
+        for dx in range(-R, R + 1):
+            dist = float(np.hypot(dy, dx))
+            if dist > KERNEL_RADIUS_PX:
+                continue
+            r2, c2 = rows + dy, cols + dx
+            inside = (r2 >= 0) & (r2 < H) & (c2 >= 0) & (c2 < W)
+            vals = np.zeros(n_truth)
+            vals[inside] = p[r2[inside], c2[inside]] * float(tri_kernel(np.array([dist]))[0])
+            np.maximum(best, vals, out=best)
+    TP = float(best.sum())
+    FN = float(n_truth - TP)
+
+    # FP_w: each predicted mass is penalised by its distance to the nearest truth.
+    if n_truth:
+        k_nearest = tri_kernel(distance_transform_edt(~truth))
+    else:
+        k_nearest = np.zeros_like(p)
+    FP = float(np.sum(p * (1.0 - k_nearest)))  # p == 0 contributes nothing by construction
+
+    denom = TP + ALPHA * FP + BETA * FN
+    dti = TP / denom if denom > 0 else 0.0
+    return dict(dti=float(dti), TP=TP, FP=FP, FN=FN, n_truth=n_truth, sum_p=sum_p)
 
 
 def per_component_terms(pred_mask: np.ndarray, truth_mask: np.ndarray,
