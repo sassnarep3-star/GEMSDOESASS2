@@ -17,6 +17,17 @@ Latest review: **2026-10-28 UTC**. Older versions remain in Git history; prior c
 | IR-11 | The audit dependency file and second CI workflow omitted scikit-image, causing test collection to fail on a clean machine. | Dependencies are now installed consistently from `requirements-audit.txt`; coverage tests verify the corrected decisions instead of requiring historical promotion. |
 | IR-12 | The public leaderboard and other repositories change during parallel work. | Dated snapshots and a GitHub head-change warning are not a complete live registry, do not guarantee freshness, and cannot authorize a slot. The public leaderboard observation is distinct from a submission-page receipt. |
 
+## Review pass 3 — 2026-10-28 (branch `arena/99eabcc5-gemsdoesass2`)
+
+| ID | Finding | Resolution / evidence |
+|---|---|---|
+| IR-RV3-01 | Earlier review addenda cited branch `arena/6c861f74-gemsdoesass2`, which is already merged (PR #17). | Relabelled as historical. [Review 3](research/2026-10-28-repo-review-3.md). |
+| IR-RV3-02 | Open PR #15 (`arena/a3ca86a7-gemsdoesass2`) from another session remains OPEN with unknown merge state. | Not touched; owner to decide. |
+| IR-RV3-03 | Leaderboard top: 0.4544 on the live page vs 0.4413 / 0.3195 in the brief. | Dated snapshots differ; the live page is the reference. Not a file score. |
+| IR-RV3-04 | Range error "Predicted values must be in range [0, 1]" is unexplained; no rejected bytes or portal text are in the repo. | Not diagnosed (see IR-09). |
+| IR-RV3-05 | All `docs/downloads/*.tif` pass the local [0,1] check. | The error is not reproducible from repo files alone. |
+| IR-RV3-06 | Pinned sample, labels and lattice SHA-256 values were independently re-downloaded from `GEMSDOE24@07345ea` and match the pins. | Verified. [Review 3](research/2026-10-28-repo-review-3.md). |
+
 ## Review pass — 2026-10-28 (branch `arena/6c861f74-gemsdoesass2`)
 
 | ID | Finding | Resolution / evidence |
@@ -46,4 +57,4 @@ Latest review: **2026-10-28 UTC**. Older versions remain in Git history; prior c
 | IR-S-07 | The official reference notebook writes float64 (`np.zeros` default, `dtype=y_final.dtype`). The problem page specifies float32. | Flagged for review against the organizer's own sample (float32). Not a repository file; the repo's writers emit float32. |
 | IR-S-08 | Leaderboard values conflict across the user's messages: 0.3195, 0.4413 and 0.4544 are each called the top score. The live page on 2026-10-28 shows #1 = 0.4544 and #22 = 0.3262. | Live page is authoritative for that date only. [Leaderboard](https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/). |
 | IR-S-09 | Two older pages linked to `../evidence/` and `../IRREGULARITIES.md`, which GitHub Pages (publishing `docs/` only) does not serve. | Links changed to GitHub blob URLs on `main`. |
-| IR-S-11 | The repo's strict validator (`scripts/validate_tif.py`, check `whole_array_finite_in_0_1`) rejects NaN outside the footprint. That is deliberate (tested in `tests/test_validation.py`), but the spec allows null or NaN outside and the organizer's sample uses NaN. Result: the organizer's own sample `data/bridge/sample_submission.tif` returns `strict_local_format_pass: false`. | Not changed in this pass. Stricter than the spec, and a plausible but unproven candidate for the portal's "[0, 1]" rejection. Owner decision: keep the strict gate (outside = finite masked zeros) or align it to the spec. |
+| IR-S-10 | The repo's strict validator (`scripts/validate_tif.py`, check `whole_array_finite_in_0_1`) rejects NaN outside the footprint. That is deliberate (tested in `tests/test_validation.py`), but the spec allows null or NaN outside and the organizer's sample uses NaN. Result: the organizer's own sample `data/bridge/sample_submission.tif` returns `strict_local_format_pass: false`. | Not changed in this pass. Stricter than the spec, and a plausible but unproven candidate for the portal's "[0, 1]" rejection. Owner decision: keep the strict gate (outside = finite masked zeros) or align it to the spec. |

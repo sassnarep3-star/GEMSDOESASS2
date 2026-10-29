@@ -77,3 +77,9 @@ def test_focus_sites_page_has_every_site_and_a_main_landmark():
         assert f'<b>{site}</b>' in text, site
     assert '<main id="main">' in text
     assert 'NOT ESTIMABLE' in text
+    # A candidate that fails the literal lattice gate must not be presented in green
+    # or described as eligible even if its restricted genuine-raster comparison is best.
+    assert 'Research-only comparison leader — NOT approved for download or submission' in text
+    assert '<div class="banner good"><b>Research-only' not in text
+    assert 'No checksum mismatches were recorded' in text
+    assert 'not a general clean bill' in text

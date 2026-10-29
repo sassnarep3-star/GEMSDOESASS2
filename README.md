@@ -11,7 +11,7 @@
 
 The stop threshold is **more than 70%** within 3 pixels of any registry raster. The registered lattice itself is [pinned by SHA-256](research/priority_sources.json), and [the independently reproduced receipt](docs/data/audit.json) reports the exact counts; a concurrent review independently recorded the [same two witness counts](evidence/lattice_recheck_20261028.json). With only 6,649 footprint cells outside its halo, any 37,654-distinct-dot candidate must have at least 31,005 overlapping dots (82.34%); therefore, the prior proposed budget cannot pass the literal rule. This is a lower bound, not a claim that a smaller candidate would be unique. Do not silently exempt the lattice.
 
-**[Open the executive dashboard](docs/index.html)** · **[Submission instructions and nine-site table](docs/executive-summary.html)** · **[Research, 3-pass review and next steps](research/2026-10-28-review.md)** · **[Current negative JSON run card](docs/data/run-card.json)**
+**[Open the executive dashboard](docs/index.html)** · **[Submission instructions and nine-site table](docs/executive-summary.html)** · **[Latest repository review (3 passes)](research/2026-10-28-repository-review.md)** · **[Research and next steps](research/2026-10-28-review.md)** · **[Current negative JSON run card](docs/data/run-card.json)**
 
 The owner-supplied 0.2778 for the GEMSDOE32 champion is **USER-REPORTED / UNVERIFIED**, not a receipt-linked organizer score. No reliable leaderboard estimate for a new candidate is available. The official public leaderboard showed **0.4544** at #1 when checked on 2026-10-28 UTC; that dynamic public observation is not an organizer receipt for any of our files. See the [official leaderboard](https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/).
 
@@ -26,13 +26,15 @@ The owner-supplied 0.2778 for the GEMSDOE32 champion is **USER-REPORTED / UNVERI
 3. **The official metric is probabilistic.** The page defines the distance-weighted Tversky index on values in [0,1]. NaN outside the bounds is allowed. The repository's functions were binary-only. [`dti_probabilistic`](src/gems/metric.py) now implements the official form, with seven new tests, including binary equivalence. Sources: [knowledge/03](knowledge/03_official_metric_and_submission_format.md).
 4. **Why 0.2778 won (verified lineage, user-reported score).** It is GEMSDOE25's 44,090-dot parent minus the 6,436 dots within 2 px of a known fault (XOR = 0). The gain comes from precision on new faults, not from a new method. Autopsy and the named mimic: [knowledge/04](knowledge/04_gemsdoe32_0-2778_autopsy_verified.md).
 5. **Can we beat 0.2778?** Not established. Three directions are untested and distinct from the family: continuous probabilities, a 3–4 px collar sweep (holdout first), and a different parent. None has a holdout score.
-6. **The "[0, 1]" upload error cannot be reproduced.** The nine top files and the organizer sample are finite and in range inside the footprint. The rejected bytes and the portal's response would settle it. They were not supplied. Our strict validator also rejects NaN outside the footprint, which the spec allows and the organizer's own sample uses (IR-S-11). That is a separate, owner-level choice.
+6. **The "[0, 1]" upload error cannot be reproduced.** The nine top files and the organizer sample are finite and in range inside the footprint. The rejected bytes and the portal's response would settle it. They were not supplied. Our strict validator also rejects NaN outside the footprint, which the spec allows and the organizer's own sample uses (IR-S-10). That is a separate, owner-level choice.
 7. **Live leaderboard (checked 2026-10-28):** #1 xiaofanhu 0.4544; #22 0.3262. The 0.2778 family is below rank 22. The "highest score" figures in the messages (0.3195, 0.4413, 0.4544) come from different snapshots.
-8. **Irregularities** (IR-S-01 to IR-S-09) are in [IRREGULARITIES.md](IRREGULARITIES.md).
+8. **Irregularities** (IR-S-01 to IR-S-10) are in [IRREGULARITIES.md](IRREGULARITIES.md).
 
 **Next session, in order:** (a) the owner ruling on the lattice rule; (b) the rejected bytes or portal response for the range error; (c) only if (a) is settled, a holdout test of one continuous candidate and one collar-sweep candidate, within the three-experiment budget, using `dti_probabilistic`.
 
-## Review addendum — 2026-10-28 (branch `arena/6c861f74-gemsdoesass2`)
+**Latest review:** [research/2026-10-28-repo-review-3.md](research/2026-10-28-repo-review-3.md) (branch `arena/99eabcc5-gemsdoesass2`). Verified: 111 Python tests pass; the pinned sample, labels and lattice SHA-256 values match the owner repo at the pinned commit; the official leaderboard top is 0.4544. Still **DO NOT SUBMIT** pending an owner ruling on the lattice probe.
+
+## Review addendum — 2026-10-28 (historical branch `arena/6c861f74-gemsdoesass2`, merged)
 
 - **Verdict unchanged: nothing is cleared for submission.** No slot was used. No holdout proxy here estimates a leaderboard score (**Estimated leaderboard score: NOT ESTIMABLE**).
 - **Genuine-raster check, no lattice probe** ([evidence/focus_uniqueness_downloads.json](evidence/focus_uniqueness_downloads.json)): SASS2-XGHF **49.84%** (worst |ρ| 0.0443); HVFD-EXP3 **70.58%** against `8GEMSDOE Hedge-v2` (fails, limit 70%); ass2-altedge 49.96% but fails strict format (7,111,787 unmasked values outside the footprint); thermo-tilt 72.52% and scu1 76.50% (both fail).
