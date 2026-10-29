@@ -17,7 +17,9 @@ The owner-supplied 0.2778 for the GEMSDOE32 champion is **USER-REPORTED / UNVERI
 
 ---
 
-## Review addendum — 2026-10-28 (branch `arena/6c861f74-gemsdoesass2`)
+**Latest review:** [research/2026-10-28-repo-review-3.md](research/2026-10-28-repo-review-3.md) (branch `arena/99eabcc5-gemsdoesass2`). Verified: 111 Python tests pass; the pinned sample, labels and lattice SHA-256 values match the owner repo at the pinned commit; the official leaderboard top is 0.4544. Still **DO NOT SUBMIT** pending an owner ruling on the lattice probe.
+
+## Review addendum — 2026-10-28 (historical branch `arena/6c861f74-gemsdoesass2`, merged)
 
 - **Verdict unchanged: nothing is cleared for submission.** No slot was used. No holdout proxy here estimates a leaderboard score (**Estimated leaderboard score: NOT ESTIMABLE**).
 - **Genuine-raster check, no lattice probe** ([evidence/focus_uniqueness_downloads.json](evidence/focus_uniqueness_downloads.json)): SASS2-XGHF **49.84%** (worst |ρ| 0.0443); HVFD-EXP3 **70.58%** against `8GEMSDOE Hedge-v2` (fails, limit 70%); ass2-altedge 49.96% but fails strict format (7,111,787 unmasked values outside the footprint); thermo-tilt 72.52% and scu1 76.50% (both fail).

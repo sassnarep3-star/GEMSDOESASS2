@@ -17,6 +17,17 @@ Latest review: **2026-10-28 UTC**. Older versions remain in Git history; prior c
 | IR-11 | The audit dependency file and second CI workflow omitted scikit-image, causing test collection to fail on a clean machine. | Dependencies are now installed consistently from `requirements-audit.txt`; coverage tests verify the corrected decisions instead of requiring historical promotion. |
 | IR-12 | The public leaderboard and other repositories change during parallel work. | Dated snapshots and a GitHub head-change warning are not a complete live registry, do not guarantee freshness, and cannot authorize a slot. The public leaderboard observation is distinct from a submission-page receipt. |
 
+## Review pass 3 — 2026-10-28 (branch `arena/99eabcc5-gemsdoesass2`)
+
+| ID | Finding | Resolution / evidence |
+|---|---|---|
+| IR-RV3-01 | Earlier review addenda cited branch `arena/6c861f74-gemsdoesass2`, which is already merged (PR #17). | Relabelled as historical. [Review 3](research/2026-10-28-repo-review-3.md). |
+| IR-RV3-02 | Open PR #15 (`arena/a3ca86a7-gemsdoesass2`) from another session remains OPEN with unknown merge state. | Not touched; owner to decide. |
+| IR-RV3-03 | Leaderboard top: 0.4544 on the live page vs 0.4413 / 0.3195 in the brief. | Dated snapshots differ; the live page is the reference. Not a file score. |
+| IR-RV3-04 | Range error "Predicted values must be in range [0, 1]" is unexplained; no rejected bytes or portal text are in the repo. | Not diagnosed (see IR-09). |
+| IR-RV3-05 | All `docs/downloads/*.tif` pass the local [0,1] check. | The error is not reproducible from repo files alone. |
+| IR-RV3-06 | Pinned sample, labels and lattice SHA-256 values were independently re-downloaded from `GEMSDOE24@07345ea` and match the pins. | Verified. [Review 3](research/2026-10-28-repo-review-3.md). |
+
 ## Review pass — 2026-10-28 (branch `arena/6c861f74-gemsdoesass2`)
 
 | ID | Finding | Resolution / evidence |
