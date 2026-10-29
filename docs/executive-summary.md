@@ -4,6 +4,12 @@
 
 The nine historical site-best values shown in the [HTML table](executive-summary.html) are **USER-REPORTED / UNVERIFIED**. The linked raster variants are research-only, not files to re-upload.
 
+## Verified 2026-10-28: why the duplicate rule cannot clear any file
+
+- Against the pinned registry lattice (`r13-lattice-s5`, from GEMSDOE24 @ 07345ea0, sha256 `b4570b40…`), every nine-site top file has 99.91%–99.92% of its dots within 3 px. This includes the 0.2778 GEMSDOE32 file. Random placements with the same dot counts score 99.82%–99.91%. The 70% rule therefore cannot distinguish a good file from noise. Receipt: [data/lattice_saturation_check.json](data/lattice_saturation_check.json).
+- **Owner decision needed** (no file is cleared until one option is chosen): (1) waive the lattice rule for footprint-wide rasters and use the protocol's rank-correlation test instead; (2) keep the literal rule, which permits only sparse placements with no geological meaning; (3) define "dots" for probability maps first; (4) keep submissions stopped.
+- The official metric is probabilistic and the format allows NaN outside the bounds. See [knowledge/03](https://github.com/sassnarep3-star/GEMSDOESASS2/blob/main/knowledge/03_official_metric_and_submission_format.md). Why 0.2778 won, and what would be needed to beat it: [knowledge/04](https://github.com/sassnarep3-star/GEMSDOESASS2/blob/main/knowledge/04_gemsdoe32_0-2778_autopsy_verified.md).
+
 ## Once a future candidate is approved by the separate selector
 
 1. Verify that its run card records a passed pre-placement and final uniqueness check against the complete registry; individual-feature canaries; a comparable buffered holdout with 95% CI; a valid saved-byte GeoTIFF; and separate selector approval. Do not reuse today's negative artifacts.

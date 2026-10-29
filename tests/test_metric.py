@@ -2,9 +2,10 @@ import os
 import sys
 
 import numpy as np
+import pytest
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
-from gems.metric import dti_binary, tri_kernel
+from gems.metric import dti_binary, dti_probabilistic, tri_kernel
 
 
 def test_kernel():
@@ -49,3 +50,68 @@ if __name__ == "__main__":
               test_fp_cheap_fn_costly, test_masking_removes_pixels]:
         f()
         print(f.__name__, "PASS")
+
+
+def test_probabilistic_equals_binary_on_binary_masks():
+    """Official continuous form reduces exactly to the binary dot form for p in {0, 1}."""
+    for seed in range(5):
+        rng = np.random.default_rng(seed)
+        t = rng.random((60, 60)) < 0.03
+        p = rng.random((60, 60)) < 0.05
+        b = dti_binary(p, t)["dti"]
+        q = dti_probabilistic(p.astype(float), t)["dti"]
+        assert abs(b - q) < 1e-9, (seed, b, q)
+
+
+def test_half_probability_at_truth():
+    """One truth pixel, p = 0.5 on it: TP = 0.5, FP = 0, FN = 0.5."""
+    t = np.zeros((20, 20), bool); t[10, 10] = True
+    p = np.zeros((20, 20)); p[10, 10] = 0.5
+    r = dti_probabilistic(p, t)
+    assert abs(r["TP"] - 0.5) < 1e-12 and abs(r["FP"]) < 1e-12 and abs(r["FN"] - 0.5) < 1e-12
+    assert abs(r["dti"] - 0.5 / (0.5 + 0.8 * 0.5)) < 1e-12
+
+
+def test_weighted_tp_is_max_not_sum():
+    """Two dots both 1 px from one truth pixel: TP_w counts the best one (2/3), not 4/3."""
+    t = np.zeros((20, 20), bool); t[10, 10] = True
+    p = np.zeros((20, 20)); p[10, 11] = 1.0; p[11, 10] = 1.0
+    r = dti_probabilistic(p, t)
+    assert abs(r["TP"] - 2 / 3) < 1e-12
+    assert abs(r["FP"] - 2 * (1 / 3)) < 1e-12  # each dot: 1 - k(1) = 1/3
+
+
+def test_mixed_near_and_far_predictions_worked_example():
+    t = np.zeros((40, 40), bool); t[10, 10] = True
+    p = np.zeros((40, 40)); p[10, 11] = 1.0; p[10, 30] = 0.5
+    r = dti_probabilistic(p, t)
+    tp, fp, fn = 2 / 3, 1 / 3 + 0.5, 1 / 3
+    assert abs(r["TP"] - tp) < 1e-12 and abs(r["FP"] - fp) < 1e-12 and abs(r["FN"] - fn) < 1e-12
+    assert abs(r["dti"] - tp / (tp + 0.2 * fp + 0.8 * fn)) < 1e-12
+
+
+def test_empty_truth_and_empty_prediction():
+    t = np.zeros((10, 10), bool)
+    p = np.zeros((10, 10)); p[5, 5] = 0.7
+    assert dti_probabilistic(p, t)["dti"] == 0.0
+    t[2, 2] = True
+    assert dti_probabilistic(np.zeros((10, 10)), t)["dti"] == 0.0
+
+
+def test_range_and_nan_guards():
+    t = np.zeros((10, 10), bool); t[5, 5] = True
+    with pytest.raises(ValueError):
+        dti_probabilistic(np.full((10, 10), 1.5), t)
+    bad = np.zeros((10, 10)); bad[1, 1] = np.nan
+    with pytest.raises(ValueError):
+        dti_probabilistic(bad, t)
+    # NaN outside the scored area (the official 'null or nan outside bounds' encoding) is allowed.
+    ok = np.zeros((10, 10)); ok[0, :] = np.nan
+    scored = np.ones((10, 10), bool); scored[0, :] = False
+    assert np.isfinite(dti_probabilistic(ok, t, scored)["dti"])
+
+
+def test_official_worked_example_arithmetic():
+    """DrivenData problem page (page/967) reports TP=3.00, FP=1.89, FN=2.00 -> TI=0.60."""
+    dti = 3.00 / (3.00 + 0.2 * 1.89 + 0.8 * 2.00)
+    assert round(dti, 2) == 0.60
