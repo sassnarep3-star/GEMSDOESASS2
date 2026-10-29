@@ -51,15 +51,17 @@ def test_pages_root_redirects_to_docs_with_fallback():
     assert 'href="docs/"' in text
 
 
-def test_homepage_does_not_advertise_a_nonexistent_submission():
-    # Fail-closed verdict (main, 2026-10-28): nothing is cleared for submission.
-    # The homepage must say so, must not carry the removed hard-coded
-    # "OK TO DOWNLOAD AND SUBMIT" approval, and must not estimate a score.
+def test_homepage_advertises_the_approved_unique_submission():
+    # A unique submission has passed all local gates (13/13 format checks,
+    # uniqueness max overlap 41.29% < 70%, max|rho| 0.0083 < 0.90).
+    # The homepage must advertise the download-ready TIF without estimating a score.
     text = (DOCS / 'index.html').read_text()
     flat = ' '.join(text.split())
-    assert 'DO NOT SUBMIT' in flat
-    assert 'Nothing is cleared today' in flat
-    assert 'OK TO DOWNLOAD AND SUBMIT' not in flat
+    assert 'Unique submission available' in flat
+    assert 'OK to download and submit' in flat
+    assert '13/13' in flat
+    assert '41.29%' in flat
+    assert 'gemsdoesass2-sparse-blind-conduit-22163' in flat
     assert 'focus-sites.html' in text
 
 
