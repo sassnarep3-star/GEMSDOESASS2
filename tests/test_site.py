@@ -51,13 +51,17 @@ def test_pages_root_redirects_to_docs_with_fallback():
     assert 'href="docs/"' in text
 
 
-def test_homepage_fails_closed_without_submission_clearance():
-    # A local format pass does not clear the incomplete full-registry/holdout gates.
+def test_homepage_advertises_the_download_and_blocks_submission():
+    # The TIF is downloadable, but the lattice gate fails (99.74% > 70%).
+    # The homepage must say BLOCKED and must not say OK to submit.
     text = (DOCS / 'index.html').read_text()
     flat = ' '.join(text.split())
-    assert 'Submission blocked' in flat
-    assert 'DO NOT SUBMIT' in flat
-    assert 'NOT CLEARED' in flat
+    assert 'BLOCKED — DO NOT SUBMIT YET' in flat
+    assert 'Submission blocked' in flat and 'NOT CLEARED' in flat and 'DO NOT SUBMIT' in flat
+    assert 'OK to download and submit' not in flat
+    assert 'Download the TIF' in flat
+    assert '99.74%' in flat
+    assert '30.3%' in flat and '41.3%' in flat
     assert 'gemsdoesass2-sparse-blind-conduit-22163' in flat
     assert 'focus-sites.html' in text
 

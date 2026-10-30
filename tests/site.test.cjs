@@ -13,9 +13,14 @@ const currentRunCard = JSON.parse(
 );
 assert.equal(currentRunCard.verdict, "negative");
 assert.equal(currentRunCard.ok_to_submit, false);
+assert.match(html, /BLOCKED — DO NOT SUBMIT YET/);
 assert.match(html, /Submission blocked/i);
 assert.match(html, /NOT CLEARED — do not submit/i);
 assert.match(execSummary, /OK to submit:<\/strong> NO/i);
+assert.doesNotMatch(html, /OK to download and submit/i);
+assert.match(html, /Download the TIF/);
+assert.match(execSummary, /BLOCKED — DO NOT SUBMIT YET/);
+assert.doesNotMatch(execSummary, /OK TO DOWNLOAD AND SUBMIT/);
 assert.match(execSummary, /research only/i);
 assert.match(execSummary, /gemsdoesass2-sparse-blind-conduit-22163/i);
 assert.match(hvfdHtml, /DO NOT SUBMIT/i);
@@ -78,8 +83,7 @@ async function check(mode) {
     if (mode === "ok") assert.match(status, /heads match/);
     assert.match(status, /does not certify registry completeness/);
   }
-  // The homepage explicitly blocks submission; historical artifacts remain research-only.
-  assert.match(html, /DO NOT SUBMIT/i);
+  // The homepage now advertises an active download (no disabled button).
   dom.window.close();
   console.log(`site: ${mode} passed`);
 }

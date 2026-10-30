@@ -1,0 +1,17 @@
+label,kind,dots,sha256_matches_pin,official_format_pass,range_guard_pass,outside_finite_count,user_reported_score,max_overlap_peer,max_overlap_3px,max_abs_spearman,sha256
+GEMSDOE24,focus-site-best,60069,True,False,True,7111787,0.2477,GEMSDOE25,1.0,0.577324,3e0730e8d4f7db095dd80246a98cba3bc0fc9a28f436b91db27ca34df4d0d1ce
+GEMSDOE25,focus-site-best,44090,True,False,True,7111787,0.26,GEMSDOE24,1.0,0.577324,3e78737f0da8dd2ca66cc6caac0ce8eeefcd6715707f8d1bd3091845cd9bcc30
+GEMSDOE27,focus-site-best,61328,True,False,True,7111787,0.2449,GEMSDOE24,0.980188,0.989133,a9bf76b57453a5b3af74c8eef837df53c29a0931162aa540b8763220b36ba3bb
+GEMSDOE28,focus-site-best,37660,True,False,True,7111787,0.271,GEMSDOE24,1.0,0.534822,7c74270ad48fa0b865163853046a6d3815967c5bf37bbda5b74ca7fa22583a32
+GEMSDOE30,focus-site-best,44090,True,False,True,7111787,0.26,GEMSDOE24,1.0,0.577324,8cf893ead5667df21d3288a9968c35fd5385c425b029d82ee71d311715b129fd
+GEMSDOE31,focus-site-best,40199,True,False,True,7111787,0.2708,GEMSDOE24,1.0,0.54984,acd853936e5a7170b207f23411b1844caa0e7cfdfc303c600e520ccfe75159e6
+GEMSDOE32,focus-site-best,37654,True,False,True,7111787,0.2778,GEMSDOE24,1.0,0.537661,c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9
+GEMSDOE33,focus-site-best,41865,True,False,True,7111787,0.2632,GEMSDOE27,0.997086,0.560374,87f857d505e23247e991ccfab2cbe9f49a04df4f9c8028dce7ea261554690757
+GEMSDOE36,focus-site-best,38854,True,False,True,7111787,0.275,GEMSDOE27,0.975781,0.523384,e15891020b9c57056ac7fa874a5e506fbd6ed9314a4ea8e73af0753887a3708a
+gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif,repo-candidate-local,37654,True,True,True,7111787,,gemsass2-ass2-altedge-hgb-44090-20261027-cc854482215e-zeros.tif,0.359829,0.008208,2a122a409c7a7d5977a311dce271d6f333f21a697cd9effd59b45c6c0f0e8ec7
+gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif,repo-candidate-local,37654,True,True,True,7111787,,GEMSDOE27,0.581399,0.037614,28bb9419d592797dcac1bfb1eb19fcffa7581a51718230f1f4f957a3e3d610d6
+gemsass2-ass2-altedge-hgb-44090-20261027-cc854482215e-zeros.tif,repo-candidate-local,44090,True,False,True,7111787,,GEMSDOE27,0.391313,0.027267,cc854482215ec665a17175447474066e3418692c9604f150cc4f5459dc459707
+gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.tif,repo-candidate-local,22163,,True,True,7111787,,gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-nan.tif,1.0,1.0,65e3a775ad8b3fd3f3c55a501c84d48d05554219065cad69fa9ebfb54d572661
+gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-nan.tif,repo-candidate-local,22163,,True,False,0,,gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.tif,1.0,1.0,ea9fca4c9b66df4a7ce6335e5d221c6a9f9702404379402ae19d4b0a76578585
+gemsdoesass2-thermo-tilt-conduit-37654-20261027T113705Z-d8f85365-zeros.tif,repo-candidate-local,37654,,False,True,7111787,,gemsdoesass2-scu1-scarpcorridor-uth-37000-20261027T120000Z-zeros.tif,0.528788,0.033492,b8be5398deea3c71c301fdb0732c234159da78746666e0cdcb51f4df090e6fe8
+gemsdoesass2-scu1-scarpcorridor-uth-37000-20261027T120000Z-zeros.tif,repo-candidate-local,37000,,False,True,7111787,,gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif,0.436946,0.021585,0ab88d8ab85c9bbfc690557bca0e8bf6d92dcd7657825306c9eaf294dab3fe6d

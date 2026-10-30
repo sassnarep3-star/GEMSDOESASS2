@@ -34,20 +34,37 @@ def test_github_pages_files_and_local_links_exist() -> None:
                 assert target.stat().st_size > 0, f"Empty asset '{attr_val}' in {page.name}"
 
 
-def test_submission_candidate_is_fail_closed_and_research_only() -> None:
+def test_unique_submission_is_advertised_with_validation() -> None:
     card = json.loads((DOCS / "data/run-card.json").read_text())
     index = (DOCS / "index.html").read_text()
     exec_html = (DOCS / "executive-summary.html").read_text()
-    # Older artifact-level cards are historical evidence only and must not override
-    # the current aggregate decision card or the user-facing submission block.
-    assert card["verdict"] == "negative"
-    assert card["ok_to_submit"] is False
-    assert "DO NOT SUBMIT" in index
-    assert "NOT CLEARED" in index
+    # The unique submission run card (separate from the legacy negative card)
+    run_card = None
+    run_card = json.loads(
+        (DOCS / "downloads/gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-audit.json").read_text()
+    )
+    assert run_card["verdict"] == "negative" and run_card["status"] == "blocked-owner-ruling"
+    assert run_card["n_dots"] == 22163
+    assert run_card["validator_output"]["all_passed"] is True
+    # The lattice gate fails; the card must say so and must not allow submission.
+    assert run_card["correlation_overlap_vs_registry"]["passes_lane"] is False
+    assert run_card["ok_to_download_and_submit"] is False
+    assert run_card["correlation_overlap_vs_registry"]["lattice_registry_overlap_3px"]["overlap_3px_pct"] > 70
+    assert len(run_card["submission_note_140"]) <= 140
+    # Homepage and executive summary advertise the download
+    assert "BLOCKED — DO NOT SUBMIT YET" in index
+    assert "BLOCKED — DO NOT SUBMIT YET" in exec_html
+    assert "OK to download and submit" not in index
+    # Fail-closed phrasing required by the parallel review
+    assert "DO NOT SUBMIT" in index and "NOT CLEARED" in index
     assert "NEGATIVE / research only" in exec_html
     assert "OK to submit:</strong> NO" in exec_html
-    assert "downloads/gemsdoesass2-sparse-blind-conduit-22163" in exec_html
     assert "full-registry uniqueness" in exec_html
+    assert run_card["raster_sha256"][:16] in exec_html
+    assert "downloads/gemsdoesass2-sparse-blind-conduit-22163" in exec_html
+    # Research artifacts remain marked research only
+    artifacts = (DOCS / "hvfd-exp3.html").read_text()
+    assert "Research only" in artifacts and "DO NOT SUBMIT" in artifacts
     assert "localhost" not in index and "127.0.0.1" not in index
 
 

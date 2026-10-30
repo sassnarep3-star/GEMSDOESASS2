@@ -160,8 +160,9 @@ def test_docs_warn_research_artifacts_are_not_submissions() -> None:
     assert rc["raster_sha256"] in artifact
     # Research artifacts remain marked research-only
     assert "DO NOT SUBMIT" in artifact and "Research only" in artifact
-    # The executive summary explicitly blocks submission until all gates pass.
+    # The executive summary contains the unique submission download
     exec_text = (ROOT / "docs" / "executive-summary.html").read_text()
+    assert "BLOCKED — DO NOT SUBMIT YET" in exec_text
     assert "DO NOT SUBMIT" in exec_text
     assert "OK to submit:</strong> NO" in exec_text
     assert "gemsdoesass2-sparse-blind-conduit-22163" in exec_text
