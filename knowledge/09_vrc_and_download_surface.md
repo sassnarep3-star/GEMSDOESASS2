@@ -80,7 +80,10 @@ Readings:
 ## 4. Verdict
 
 `promote = NO` for VRC. Recorded in `docs/data/vrc-run-card.json` (the repo's tested `docs/data/run-card.json` stays the build_card() negative contract)
-with `ok_to_download_and_submit: false`. Format and duplicate gates **pass**; the scientific gate does not.
+with `ok_to_download_and_submit: false`, `ok_to_submit: false` and `status: "blocked-owner-ruling"`.
+Format and per-raster duplicate gates **pass**; the scientific gate does not, and the literal lattice gate blocks
+the file for the arithmetically forced reason documented in IR-S-15/IR-S-16. Both reasons must be stated: a
+reader who sees only "negative" may wrongly conclude the file would be submittable if the science improved.
 
 Uniqueness (protocol rule 1, measured): max 3-px dot overlap vs the 40 scanned registry rasters
 **0.3999** (limit 0.70); max |Spearman| over the whole footprint vs the nine focus-site champions
@@ -97,9 +100,9 @@ arithmetically forced; a raster that *didn't* trip it would be a 6,649-dot toy).
 
 | file | dots | local format check vs organizer-example mirror | status |
 |---|---|---|---|
-| `…sparse-blind-conduit-22163…-zeros.tif` (+ .zip) | 22,163 | all checks pass, `strict_local_format_pass: true` (`docs/data/format-sparse-blind-zeros.json`) | the only file this repo endorses; run card `evidence/unique_run_card_cc522684.json`; **its holdout has never been run** |
+| `…sparse-blind-conduit-22163…-zeros.tif` (+ .zip) | 22,163 | all 11 validator checks true, `strict_local_format_pass: true` against the organizer-example mirror (`docs/data/format-sparse-blind-zeros.json`) | **downloadable, NOT submittable**: 99.74% of its dots lie within 3 px of the pinned lattice, so it is `blocked-owner-ruling` (IR-S-15); its own holdout has never been run (IR-S-26) |
 | `…sparse-blind-conduit-22163…-nan.tif` (+ .zip) | 22,163 | fails only `whole_array_finite_in_0_1`, which is mutually exclusive with `outside_masked_or_nan` | GIS twin, identical inside footprint |
-| `…vrc-ventridge-44090…-nan.tif` (+ .zip) | 44,090 | fails only `whole_array_finite_in_0_1` | research only, negative run card |
+| `…vrc-ventridge-44090…-nan.tif` (+ .zip) | 44,090 | fails only `whole_array_finite_in_0_1` | research only; `blocked-owner-ruling` (lattice 1.000) and negative on both instruments |
 | `…vrc-ventridge-44090…-zeros.tif` (+ .zip) | 44,090 | fails only `outside_masked_or_nan` (0 outside ≠ NaN reference) | research only, byte-identical inside footprint (max abs diff 0.0) |
 
 **Score estimation, stated honestly.** There is *no* defensible point estimate of the organizer score for

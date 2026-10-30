@@ -92,6 +92,11 @@ def main() -> int:
     }
     if holdout:
         final["holdout"]["variant_table"] = holdout
+    # The repo-wide submission policy (IR-S-15/IR-S-16): any footprint-wide dot set fails the literal lattice
+    # rule, so a candidate that trips the probe is recorded as blocked-owner-ruling even when its verdict is
+    # already negative. Keep both fields so a reader cannot mistake "negative" for "cleared but unused".
+    final["status"] = "blocked-owner-ruling"
+    final["ok_to_submit"] = False
     final["submission_name"] = name
     final["submission_note_140"] = note
     final["note_length"] = len(note)

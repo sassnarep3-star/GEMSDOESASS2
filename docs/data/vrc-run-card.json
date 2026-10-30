@@ -268,7 +268,8 @@
     }
   },
   "score_evidence": "No organizer receipt exists in this environment; no organizer score is claimed. USER-REPORTED portfolio statistics are used for the estimate band, labelled as such.",
-  "assembled_utc": "2026-10-30T03:04:46.584996+00:00",
+  "SUPERSEDED_BY": "the emission guard was added after this card; the final measured card is docs/data/vrc-run-card.json (numbers re-verified and agree)",
+  "assembled_utc": "2026-10-30T03:10:53.846258+00:00",
   "validator_output": {
     "nan_variant": {
       "file": "gemsdoesass2-vrc-ventridge-44090-20261030T024740Z-nan.tif",
@@ -377,6 +378,8 @@
       "precedent": "the reported 0.2778 champion also fails it (IR-S-01); owner ruling pending"
     }
   },
+  "status": "blocked-owner-ruling",
+  "ok_to_submit": false,
   "submission_name": "GEMSDOESASS2-VRC-44090-20261030",
   "submission_note_140": "GEMSDOESASS2 VRC vent-ridge 44090d B=2 sep2.8 | HOLDOUT-DTI 0.0086 | research lane | 20261030",
   "note_length": 93,

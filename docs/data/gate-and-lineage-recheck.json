@@ -1,0 +1,115 @@
+{
+  "schema": "gate-and-lineage-recheck-v1",
+  "lattice_registry_raster": {
+    "source": "https://github.com/buffedlizard55-lab/GEMSDOE24/blob/a433b430b74b813a9118ebd4ec438b12cbc69f46/inputs/calibration/13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+    "sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+    "sha256_pin_matches": true,
+    "positive_pixels_in_footprint": 206895
+  },
+  "footprint_cells": 5167373,
+  "footprint_cells_uncovered_by_lattice_3px": 6649,
+  "uncovered_cells_median_distance_to_footprint_edge_cells": 1.0,
+  "lattice_rule": "FAIL if >70% of dots within 3 px of lattice; literal rule from the protocol",
+  "lattice_gate_rows": [
+    {
+      "subject": "GEMSDOE24",
+      "dots": 60069,
+      "lattice_overlap_3px": 0.999218,
+      "dots_on_lattice_uncovered_cells": 47,
+      "lattice_gate_pass_le_0_70": false
+    },
+    {
+      "subject": "GEMSDOE25",
+      "dots": 44090,
+      "lattice_overlap_3px": 0.999161,
+      "dots_on_lattice_uncovered_cells": 37,
+      "lattice_gate_pass_le_0_70": false
+    },
+    {
+      "subject": "GEMSDOE27",
+      "dots": 61328,
+      "lattice_overlap_3px": 0.999234,
+      "dots_on_lattice_uncovered_cells": 47,
+      "lattice_gate_pass_le_0_70": false
+    },
+    {
+      "subject": "GEMSDOE28",
+      "dots": 37660,
+      "lattice_overlap_3px": 0.999097,
+      "dots_on_lattice_uncovered_cells": 34,
+      "lattice_gate_pass_le_0_70": false
+    },
+    {
+      "subject": "GEMSDOE30",
+      "dots": 44090,
+      "lattice_overlap_3px": 0.999161,
+      "dots_on_lattice_uncovered_cells": 37,
+      "lattice_gate_pass_le_0_70": false
+    },
+    {
+      "subject": "GEMSDOE31",
+      "dots": 40199,
+      "lattice_overlap_3px": 0.999179,
+      "dots_on_lattice_uncovered_cells": 33,
+      "lattice_gate_pass_le_0_70": false
+    },
+    {
+      "subject": "GEMSDOE32",
+      "dots": 37654,
+      "lattice_overlap_3px": 0.99915,
+      "dots_on_lattice_uncovered_cells": 32,
+      "lattice_gate_pass_le_0_70": false
+    },
+    {
+      "subject": "GEMSDOE33",
+      "dots": 41865,
+      "lattice_overlap_3px": 0.99914,
+      "dots_on_lattice_uncovered_cells": 36,
+      "lattice_gate_pass_le_0_70": false
+    },
+    {
+      "subject": "GEMSDOE36",
+      "dots": 38854,
+      "lattice_overlap_3px": 0.999176,
+      "dots_on_lattice_uncovered_cells": 32,
+      "lattice_gate_pass_le_0_70": false
+    },
+    {
+      "subject": "gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.tif",
+      "dots": 22163,
+      "lattice_overlap_3px": 0.997428,
+      "dots_on_lattice_uncovered_cells": 57,
+      "lattice_gate_pass_le_0_70": false
+    },
+    {
+      "subject": "gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-nan.tif",
+      "dots": 22163,
+      "lattice_overlap_3px": 0.997428,
+      "dots_on_lattice_uncovered_cells": 57,
+      "lattice_gate_pass_le_0_70": false
+    },
+    {
+      "subject": "gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif",
+      "dots": 37654,
+      "lattice_overlap_3px": 0.999522,
+      "dots_on_lattice_uncovered_cells": 18,
+      "lattice_gate_pass_le_0_70": false
+    }
+  ],
+  "lineage_0_2778": {
+    "gemsdoe25_dots": 44090,
+    "gemsdoe32_dots": 37654,
+    "gemsdoe32_pixels_not_in_gemsdoe25": 0,
+    "removed_dots": 6436,
+    "removed_all_within_2px_of_catalogue": true,
+    "gemsdoe25_minus_catalogue_2px_equals_gemsdoe32": true
+  },
+  "marginal_identity": {
+    "statement": "For alpha+beta=1, removing a dot with expected hit probability q raises DTI iff q < alpha*DTI.",
+    "trials": 20000,
+    "violations": 0,
+    "threshold_at_user_reported_0_2600": 0.052,
+    "threshold_at_user_reported_0_2778": 0.0556
+  },
+  "scores": "none computed; user-reported values are labels only"
+}

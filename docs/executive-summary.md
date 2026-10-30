@@ -1,27 +1,38 @@
-# Executive summary and submission instructions
+# Executive summary (2026-10-30)
 
-**Decision 2026-10-30:** one file is endorsed for download — `gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.tif` — and its endorsement rests on **saved-byte format plus registry uniqueness only**; its buffered holdout has never been run (IR-S-12). The session's new hypothesis, **VRC (vent-ridge continuation)**, is recorded as a **negative** result with full measurements and is published as a research artifact, not promoted. **No weekly slot was used.** [Dashboard](index.html) · [Download manifest](data/download-hashes.json) · [Negative run card](data/run-card.json) · [VRC run card](data/vrc-run-card.json) · [Irregularities](../knowledge/IRREGULARITIES.md).
+**Status: download ready, submission BLOCKED.** Do not submit yet.
 
-This page previously contradicted the README ("DO NOT SUBMIT: no qualifying new GeoTIFF is available" vs "OK TO DOWNLOAD AND SUBMIT"); both statements were true of different files at different times and nothing reconciled them — logged as IR-S-13, fixed here.
+- Downloadable file: `gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.tif` (SHA-256 `65e3a775ad8b3fd3f3c55a501c84d48d05554219065cad69fa9ebfb54d572661`). Format-valid, and unique by every measured gate except one.
+- Blocking gate: 99.74% of its dots lie within 3 px of the 13GEMSDOE registry lattice (protocol limit 70%). The lattice rule is saturated for interior geology, so the owner must rule (see `index.html` options A/B/C).
+- Estimated score: NOT ESTIMABLE. No organizer receipt and no runnable holdout (`scripts/evaluate_holdout.py` is a fail-closed stub).
+- Nine focus sites: all pinned files verified; each duplicates another site's file by 97.6–100% of dots; reported scores are USER-REPORTED. The highest reported is GEMSDOE32 at 0.2778, which is GEMSDOE25 minus 6,436 near-catalogue dots.
 
-The nine historical focus-site values in the table below are **USER-REPORTED · UNVERIFIED** (no organizer receipt exists in this environment). The linked owner-hosted rasters are research-only, never files to re-upload.
+Full detail: [front page](index.html) · [how to submit](executive-summary.html) · [research and hypotheses](../research/2026-10-30-review.md) · [irregularities IR-S-15 to IR-S-24](../IRREGULARITIES.md).
 
-## Download, verify, submit — the one-click path
+## Added later on 2026-10-30 (second pass, PR #27) — negative result + download surface
 
-1. **Download** [`docs/downloads/gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.tif`](downloads/gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.tif) (123,328 bytes) or the [`.zip`](downloads/gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.zip) (77,137 bytes). Pick **one** encoding: `-zeros` (0.0 outside the footprint) or `-nan` (NaN outside, matching the organizer example exactly). They are byte-identical inside the footprint.
-2. **Verify the hash** against [`data/download-hashes.json`](data/download-hashes.json): `65e3a775ad8b3fd3f3c55a501c84d48d05554219065cad69fa9ebfb54d572661`.
-3. **Read the machine receipts, not prose.** [`data/format-sparse-blind-zeros.json`](data/format-sparse-blind-zeros.json) → `strict_local_format_pass: true` with the footprint, CRS, 100 m north-up, range and catalogue checks each individually true. [`data/format-sparse-blind-nan.json`](data/format-sparse-blind-nan.json) → every check true **except** `whole_array_finite_in_0_1`, which cannot be satisfied together with `outside_masked_or_nan` (IR-S-10). Values are finite in [0,1] in both encodings, so a range error is not attributable to these files.
-4. **Understand the score evidence before spending a slot.** HOLDOUT-DTI numbers bound relative skill on our instruments; organizer scores do not exist for these files here. No projection is offered because a geometry-only estimator failed leave-one-out (R² = −0.379). See [../knowledge/EXECUTIVE_SUMMARY.md](../knowledge/EXECUTIVE_SUMMARY.md) §2.
-5. **Confirm the live allowance** on your [DrivenData submission page](https://www.drivendata.org/competitions/306/competition-doe-gems/) — account-specific limits are not readable from this environment.
-6. **Submit** with name `GEMSDOESASS2-SPARSE-BLIND-CC522684` and note `GEMSDOESASS2 sparse-blind-conduit 22163d B=2 sep3 | off-catalogue blind faults | cc522684 | research` (93 chars, ≤140). Keep the receipt with the exact file hash; disclose generative-AI assistance per the [official rules](https://docs.nlr.gov/docs/fy26osti/96647.pdf).
+- **VRC (vent-ridge continuation) — NEGATIVE, research only.** Emitted at 44,090 dots through the shared
+  stack. HOLDOUT-DTI 0.0086294568 vs the hash-pinned focus-lineage parent 0.09674 (Δ −0.087807630, 95% CI
+  [−0.1003465, −0.0757916], p(Δ>0) = 0.0); off-catalogue SGMC 0.04438 vs 0.09528 (Δ −0.05119, CI [−0.0672,
+  −0.0338]). Format and per-raster uniqueness pass (max 3-px overlap 39.99% of 40 scanned registry rasters,
+  limit 70%; max |Spearman| 0.0162, limit 0.90), and it fails the lattice rule at 1.000 like every other
+  interior raster — so it is neither promoted nor submittable. Card:
+  [`data/vrc-run-card.json`](data/vrc-run-card.json); write-up:
+  [`../knowledge/09_vrc_and_download_surface.md`](https://github.com/sassnarep3-star/GEMSDOESASS2/blob/main/knowledge/09_vrc_and_download_surface.md).
+- **Emitter bug fixed** (`IR-VRC-01`, alias of IR-S-25): a `np.lexsort` position was used as a pixel index, so
+  the first VRC pass emitted 12,572 invalid-fill dots and wrote 15,300 against a 22,163 budget. Both call sites
+  now remap through the candidate array and a hard guard refuses any emission whose count ≠ budget or whose dots
+  leave the allowed footprint. The defective raster was deleted, not patched.
+- **Download surface:** `.zip` for both encodings of both files, manifest
+  [`data/download-hashes.json`](data/download-hashes.json), per-check receipts
+  [`data/format-sparse-blind-zeros.json`](data/format-sparse-blind-zeros.json) (all checks true,
+  `strict_local_format_pass: true` against the organizer-example mirror),
+  [`data/format-sparse-blind-nan.json`](data/format-sparse-blind-nan.json),
+  [`data/format-vrc-zeros.json`](data/format-vrc-zeros.json),
+  [`data/format-vrc-nan.json`](data/format-vrc-nan.json).
+- **Score estimate: NOT ESTIMABLE** stays true, now for two independent measured reasons — the geometry-only
+  estimator fails leave-one-out (R² = −0.379) and no organizer receipt exists in this environment. The
+  available labels are HOLDOUT-DTI (from `src/gems_sass2/holdout.py`) and USER-REPORTED · UNVERIFIED anchors
+  ([`../evidence/org_ledger_measured.json`](https://github.com/sassnarep3-star/GEMSDOESASS2/blob/main/evidence/org_ledger_measured.json)).
+- **Ledger:** IR-S-25…IR-S-33 added to [`../IRREGULARITIES.md`](https://github.com/sassnarep3-star/GEMSDOESASS2/blob/main/IRREGULARITIES.md).
 
-Local validation is not portal acceptance, and a holdout DTI is not a leaderboard score.
-
-## What the VRC experiment added (and why the file is not promoted)
-
-Hypothesis, mechanism, named mimics and both instruments are in [../knowledge/09_vrc_and_download_surface.md](../knowledge/09_vrc_and_download_surface.md). In one paragraph: the vent-ridge continuation surface passes the format and duplicate gates (max per-raster 3-px overlap **39.99%** vs the 40 scanned registry rasters, limit 70%; max |Spearman| over the whole footprint **0.0162**, limit 0.90) but is **behind** the hash-pinned focus-lineage parent on the public-catalogue instrument (HOLDOUT-DTI 0.008629 vs 0.09674, paired Δ −0.087808, 95% CI [−0.100347, −0.075792], p(Δ>0) = 0.000) and also behind it off catalogue (SGMC 0.04438 vs 0.09528, Δ −0.05119, CI [−0.0672, −0.0338]). An uncollared variant is the only emission ahead of the parent on the public instrument (0.10471, Δ +0.00798) and its CI crosses zero, so nothing here earns a slot. Its artifact pair (`…vrc-ventridge-44090…-nan.tif/.zip`, `…-zeros.tif/.zip`) stays downloadable for research.
-
-## Verified 2026-10-28: why the duplicate rule cannot clear any file
-
-- Against the pinned registry lattice (`r13-lattice-s5`, from GEMSDOE24 @ `07345ea0`, sha256 `b4570b40…7dc9b2`), every one of the nine site-best files has 99.91%–99.92% of its dots within 3 px — including the reported 0.2778 file. Only **6,649** of 5,167,373 footprint cells sit farther than 3 px from that lattice, so at 44,090 dots an overlap of ≥82.34% is arithmetically forced. The 70% rule cannot distinguish a good file from noise; it is recorded as IR-S-01 and our own VRC file trips it at 1.000 for the same reason. Receipt: [data/lattice_saturation_check.json](data/lattice_saturation_check.json).
-- **Owner decision needed** (no file is cleared until one option is chosen): (1) waive the lattice rule for footprint-wide rasters and use the protocol's rank-correlation test instead (VRC: 0.0162 → passes); (2) keep the literal rule, which permits only sparse placements with no geological meaning; (3) define "dots" for probability maps first; (4) keep submissions stopped.

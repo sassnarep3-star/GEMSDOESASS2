@@ -1,12 +1,12 @@
 # Candidate geological hypotheses — ranked by expected DTI improvement vs implementation cost
 
-**Status:** Hypothesis H1 (SPARSE-BLIND-CONDUIT) was implemented as Experiment 1 of 3 and PASSED all local gates (13/13 format checks; uniqueness max overlap 41.29% < 70%, max\|ρ\| 0.0083 < 0.90; verdict: PROMOTE; OK to download and submit). Hypotheses H2–H5 are untested proposals for future sessions within the 3-experiment / 2-hour budget.
+**Status correction (2026-10-30):** H1 (SPARSE-BLIND-CONDUIT) was generated and passed local format checks. Its historical PROMOTE/submit-ready claim is superseded: full-registry uniqueness, assigned lane, compliant holdout, and selector approval were not established. Verdict is **NEGATIVE / NOT CLEARED TO SUBMIT**; do not submit. H2–H5 remain untested proposals with qualitative rankings only. No new experiment or slot was used in this review.
 
 Ranks are qualitative scientific judgments, **not numerical DTI forecasts**. Source descriptions support data availability or mechanisms, not predicted score gains. All features and preprocessing would be audited for leakage, including those derived from catalogues or external map products.
 
 ---
 
-## H1 · SPARSE-BLIND-CONDUIT — IMPLEMENTED (Experiment 1 of 3) · PASSED
+## H1 · SPARSE-BLIND-CONDUIT — ARCHIVED RESEARCH ARTIFACT · NEGATIVE / NOT SUBMISSION-CLEARED
 
 **Layers:** Local bridge data only — `sample_submission.tif` (footprint/transform/CRS), `labels.tif` (catalogue mask). No external download required.
 
@@ -16,9 +16,9 @@ Ranks are qualitative scientific judgments, **not numerical DTI forecasts**. Sou
 
 **Differs from repo:** All prior implementations use dense lattice-family dot placement (37,000–61,000 dots) on/near catalogue faults. H1 is the first sparse off-catalogue placement in this repo.
 
-**Validation:** Implemented in `scripts/generate_unique_submission.py`. Output: `gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.tif`. 13/13 format checks passed; uniqueness vs local registry passes; verdict PROMOTE; ok_to_download_and_submit: true.
+**Validation:** Archived output `gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.tif` passes 13/13 local format checks only. HOLDOUT-DTI and leakage canary are not run; lane assignment was missing; measured registry comparison was incomplete. Current verdict is **negative**, `ok_to_download_and_submit: false`; do not submit. See corrected `evidence/unique_run_card_cc522684.json`; superseded earlier card claims are not current evidence.
 
-**Run card:** `evidence/unique_run_card_cc522684.json` · Audit: `docs/downloads/gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-audit.json`
+**Run card:** `evidence/unique_run_card_cc522684.json` · Saved-byte local audit: `docs/downloads/gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-audit.json`
 
 ---
 

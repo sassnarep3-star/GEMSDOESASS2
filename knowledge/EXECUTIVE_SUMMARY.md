@@ -6,10 +6,17 @@ receipt — there are none in this environment) or **USER-REPORTED · UNVERIFIED
 
 ## 1. Files available for one-click download (updated 2026-10-30)
 
+**Policy after PR #26 merged: every file below is `blocked-owner-ruling` — downloadable for research, NOT
+submittable** — because the literal 70% lattice rule is arithmetically unsatisfiable for any footprint-wide
+dot set (only 6,649 of 5,167,373 cells lie >3 px from the pinned lattice; IR-S-15/IR-S-16). Nothing in this
+table should be read as "cleared for upload"; "verdict" below separates *format/uniqueness status* from the
+*scientific* result, both of which must fail or pass independently.
+
 | file (in `docs/downloads/`) | dots | local format check vs organizer-example mirror | uniqueness vs registry | scientific gate | verdict |
 |---|---|---|---|---|---|
-| `gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.tif` (+ `.zip`) | 22,163 | **all checks pass** (`strict_local_format_pass: true`, `docs/data/format-sparse-blind-zeros.json`) | max 3-px overlap 41.29%, max \|ρ\| 0.0083 → pass | **NOT RUN** (IR-S-12) | PROMOTE on format+uniqueness only; holdout pending |
-| `…cc522684-nan.tif` (+ `.zip`) | 22,163 | fails only `whole_array_finite_in_0_1` — the check that is mutually exclusive with `outside_masked_or_nan` (IR-S-10) | identical dots | not run | GIS twin, byte-identical inside footprint |
+| `gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.tif` (+ `.zip`) | 22,163 | **all checks pass** (`strict_local_format_pass: true`, `docs/data/format-sparse-blind-zeros.json`) | max 3-px overlap 41.29%, max \|ρ\| 0.0083 → pass | **NOT RUN** (IR-S-26) | PROMOTE on format+uniqueness only; holdout pending |
+| `…cc522684-nan.tif` (+ `.zip`) | 22,163 | fails only `whole_array_finite_in_0_1` — the check that is mutually exclusive with `outside_masked_or_nan` (IR-S-10) | identical dots | not run | GIS twin, byte-identical inside footprint; same lattice block |
+
 | `gemsdoesass2-vrc-ventridge-44090-20261030T024740Z-nan.tif` (+ `.zip`) | 44,090 | fails only `whole_array_finite_in_0_1` | max per-raster overlap 39.99%, max \|ρ\| 0.0162 → pass | loses both instruments | **negative — research only** (`docs/data/vrc-run-card.json`; generator receipt `evidence/vrc_run_card.json`) |
 | `…44090-…-zeros.tif` (+ `.zip`) | 44,090 | fails only `outside_masked_or_nan` | same | same | negative — research only |
 
