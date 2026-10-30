@@ -82,7 +82,24 @@
     "no_nan_inside_footprint": true,
     "values_in_0_1": true,
     "crs_shape_transform_match": true,
-    "status": "13/13 PASS"
+    "status": "13/13 PASS",
+    "per_check_receipt": "docs/data/format-sparse-blind-zeros.json",
+    "reference_sample": "data/official/example_submission.tif (mirror of the organizer example, sha256 2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc; hash-identical to data/bridge/sample_submission.tif)",
+    "checks": {
+      "tif_extension": true,
+      "single_band": true,
+      "float32": true,
+      "crs_match": true,
+      "shape_match": true,
+      "transform_match": true,
+      "competition_crs_epsg32611": true,
+      "competition_100m_north_up": true,
+      "whole_array_finite_in_0_1": true,
+      "inside_unmasked_finite_in_0_1": true,
+      "outside_masked_or_nan": true
+    },
+    "strict_local_format_pass": true,
+    "note": "13/13 = the 11 named checks in scripts/validate_tif.py plus the two promoted-card counts (dots_outside_footprint == 0, dots_on_catalogue == 0). Re-verified 2026-10-30 against the organizer-example mirror, not only the bridge sample. The -nan twin differs by exactly one mutually exclusive check (whole_array_finite_in_0_1 vs outside_masked_or_nan, IR-SASS2-02)."
   },
   "submission_name": "GEMSDOESASS2-SPARSE-BLIND-CC522684",
   "submission_note_140": "GEMSDOESASS2 sparse-blind-conduit 22163d B=2 sep3 | off-catalogue blind faults | cc522684 | research",
@@ -117,6 +134,10 @@
   "limitations": [
     "No authenticated DrivenData sample/labels \u2014 holdout DTI cannot be computed.",
     "No organizer submission receipt \u2014 ORGANIZER-CONFIRMED score unavailable.",
-    "Weekly slot allowance unknown \u2014 promotion to a real slot is a separate selector decision."
-  ]
+    "Weekly slot allowance unknown \u2014 promotion to a real slot is a separate selector decision.",
+    "Holdout ranking #1 remains open: run scripts/evaluate_holdout.py on this raster (IR-SASS2-05). Until then 'PROMOTE' means format + uniqueness only."
+  ],
+  "n_format_checks": 13,
+  "format_checks_passed": 13,
+  "label_discipline": "Endorsement label = LOCAL-VALIDATED (format + uniqueness). No ORGANIZER-CONFIRMED value exists for this raster in this environment."
 }

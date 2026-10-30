@@ -1,0 +1,57 @@
+{
+  "candidate": "gemsdoesass2-vrc-ventridge-44090-20261030T024740Z-nan.tif",
+  "candidate_dots": 44090,
+  "rows": [
+    {
+      "file": "gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-nan.tif",
+      "ref_dots": 22163,
+      "ref_within3px_of_candidate": 0.3227
+    },
+    {
+      "file": "gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.tif",
+      "ref_dots": 22163,
+      "ref_within3px_of_candidate": 0.3227
+    },
+    {
+      "file": "gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif",
+      "ref_dots": 37654,
+      "ref_within3px_of_candidate": 0.1833
+    },
+    {
+      "file": "gemsdoesass2-scu1-scarpcorridor-uth-37000-20261027T120000Z-nan.tif",
+      "ref_dots": 37000,
+      "ref_within3px_of_candidate": 0.1632
+    },
+    {
+      "file": "gemsdoesass2-scu1-scarpcorridor-uth-37000-20261027T120000Z-zeros.tif",
+      "ref_dots": 37000,
+      "ref_within3px_of_candidate": 0.1632
+    },
+    {
+      "file": "gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-nan.tif",
+      "ref_dots": 37654,
+      "ref_within3px_of_candidate": 0.1422
+    },
+    {
+      "file": "gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif",
+      "ref_dots": 37654,
+      "ref_within3px_of_candidate": 0.1422
+    },
+    {
+      "file": "gemsass2-ass2-altedge-hgb-44090-20261027-cc854482215e-zeros.tif",
+      "ref_dots": 44090,
+      "ref_within3px_of_candidate": 0.124
+    },
+    {
+      "file": "gemsdoesass2-thermo-tilt-conduit-37654-20261027T113705Z-d8f85365-nan.tif",
+      "ref_dots": 37654,
+      "ref_within3px_of_candidate": 0.1121
+    },
+    {
+      "file": "gemsdoesass2-thermo-tilt-conduit-37654-20261027T113705Z-d8f85365-zeros.tif",
+      "ref_dots": 37654,
+      "ref_within3px_of_candidate": 0.1121
+    }
+  ],
+  "note": "reverse statistic: share of each local SASS2 download's dots lying within 3 px of the candidate. A value near 1 would mean the candidate subsumes a previous file."
+}

@@ -1,22 +1,32 @@
 # GEMSDOESASS2 — auditable geothermal fault discovery
 
-## 🚦 Current decision: **UNIQUE SUBMISSION READY — OK TO DOWNLOAD AND SUBMIT (LOCALLY VALIDATED)**
+## 🚦 Current decision (2026-10-30): one endorsed download, one new negative result, **no slot spent**
 
-A unique, validation-gated GeoTIFF has been generated and passes all local gates:
-
-| Artifact | Format (13 checks) | Uniqueness vs registry | Verdict | OK to download & submit? |
+| Artifact in `docs/downloads/` | Format check vs organizer-example mirror | Uniqueness vs registry | Scientific gate (HOLDOUT-DTI) | Verdict |
 |---|---|---|---|---|
-| **gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.tif** | 13/13 PASS | max overlap 41.29% (<70%); max\|ρ\| 0.0083 (<0.90) | **PROMOTE** | **YES — locally validated** |
+| **`gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.tif`** · 22,163 dots · 0 on catalogue (B=2) | **all local checks pass** (`strict_local_format_pass: true`, [receipt](docs/data/format-sparse-blind-zeros.json)) | max overlap 41.29% (<70%), max\|ρ\| 0.0083 (<0.90) → pass | **NOT RUN** — see caveat | **PROMOTE on format + uniqueness only** |
+| `gemsdoesass2-vrc-ventridge-44090-20261030T024740Z-nan.tif` · 44,090 dots | fails only `whole_array_finite_in_0_1`, which is mutually exclusive with `outside_masked_or_nan` (IR-S-10) | max per-raster overlap 39.99% (<70%), max\|ρ\| 0.0162 → pass | 0.008629 vs parent 0.09674 (Δ −0.08781, CI [−0.10035, −0.07579]); off-catalogue 0.04438 vs 0.09528 | **NEGATIVE — research only** |
 
-- **22,163 sparse dots**, 0 on catalogue (B=2 exclusion enforced)
-- **SHA-256:** `65e3a775ad8b3fd3f3c55a501c84d48d05554219065cad69fa9ebfb54d572661`
-- **Lane:** SPARSE-BLIND-CONDUIT — off-catalogue geothermal-conduit dots targeting blind faults missed by scarp-dependent USGS/INGENIOUS mapping
+- **SHA-256 (endorsed zeros TIF):** `65e3a775ad8b3fd3f3c55a501c84d48d05554219065cad69fa9ebfb54d572661` · all eight artifacts: [`docs/data/download-hashes.json`](docs/data/download-hashes.json)
+- **One-click download:** [`…cc522684-zeros.tif`](docs/downloads/gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.tif) · [`…zeros.zip`](docs/downloads/gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.zip) · GIS twin [`…-nan.tif`](docs/downloads/gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-nan.tif) (byte-identical inside footprint)
 - **Submission name:** `GEMSDOESASS2-SPARSE-BLIND-CC522684`
 - **Note (≤140 chars):** `GEMSDOESASS2 sparse-blind-conduit 22163d B=2 sep3 | off-catalogue blind faults | cc522684 | research`
+- **VRC run card:** [`docs/data/vrc-run-card.json`](docs/data/vrc-run-card.json) — kept separate from [`docs/data/run-card.json`](docs/data/run-card.json), which is the tested `build_card()` negative contract that must not be overwritten · write-up [`knowledge/09_vrc_and_download_surface.md`](knowledge/09_vrc_and_download_surface.md)
 
-**Download:** [`docs/downloads/gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.tif`](docs/downloads/gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.tif) · [`...zeros.zip`](docs/downloads/gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.zip)
+> ⚠️ **Three things this banner deliberately does not claim.** (1) **No organizer receipt exists in this
+> environment** — DrivenData requires login, so local validation is not portal acceptance. (2) The endorsed
+> file's **"PROMOTE" rests on format + uniqueness only; its buffered holdout has never been run**
+> (IR-S-12) — closing that is ranked #2 for the next session. (3) The earlier "13/13 format checks"
+> wording is replaced by the actual per-check receipt above, because two of the local checks contradict each
+> other and the count depends on the reference sample used. **No weekly submission slot was used.**
 
-⚠️ **No organizer receipt is available in this environment** (DrivenData requires login). Local validation is not a guarantee of portal acceptance. Verify against the live DrivenData submission page before uploading. No weekly submission slot was used.
+**Estimate a score before uploading — and know what "estimate" means here.** No defensible point estimate of
+the organizer score exists for any file, and this repo will not invent one: the geometry-only estimator
+(`scripts/fit_org_score_estimator.py`) failed leave-one-out at R² = **−0.379**. What is available, all labelled:
+**HOLDOUT-DTI** with 95% CI for relative skill (`scripts/evaluate_holdout.py`, evaluator
+`GEMSDOE32-HIDE-RECOVER-v3.0`; off-catalogue instrument `GEMSDOE32-SGMC-CAL-v3.0`), and **USER-REPORTED ·
+UNVERIFIED** organizer anchors for the nine sites (0.2449–0.2778, `evidence/org_ledger_measured.json`).
+See [`knowledge/EXECUTIVE_SUMMARY.md`](knowledge/EXECUTIVE_SUMMARY.md) §2 and the site table below.
 
 ---
 
@@ -46,6 +56,27 @@ Review the repository. Focus on GEMSDOE24, 25, 27, 28, 30, 31, 32, 33 and 36; ma
 | GEMSDOE30 | **0.2600** · User-reported; no receipt | [Research variant only](https://github.com/buffedlizard55-lab/GEMSDOE30/blob/9c0d637c0171407196b61b780444bc772ce75438/docs/downloads/gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca.tif) | Unavailable · No defensible leaderboard estimate | **No** · 100.00% within 3 px of GEMSDOE24 |
 | GEMSDOE24 | **0.2477** · User-reported; no receipt | [Research variant only](https://github.com/buffedlizard55-lab/GEMSDOE24/blob/a433b430b74b813a9118ebd4ec438b12cbc69f46/docs/downloads/gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-allfinite.tif) | Unavailable · No defensible leaderboard estimate | **No** · 100.00% within 3 px of GEMSDOE25 |
 | GEMSDOE27 | **0.2449** · User-reported; no receipt | [Research variant only](https://github.com/buffedlizard55-lab/GEMSDOE27/blob/bef7ae8e8f63b69d299c9214c75988c8f5055f9c/docs/downloads/gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-allfinite.tif) | Unavailable · No defensible leaderboard estimate | **No** · 98.02% within 3 px of GEMSDOE24 |
+
+### New this session (2026-10-30) — 3 experiments, 2 hours, negative result recorded as a deliverable
+
+- **VRC (vent-ridge continuation)** implemented on the shared stack only (cached feature stack,
+  `evaluate_holdout.py`, `submission_writer.py`), emitted at 44,090 dots with B=2 collar and validated
+  end-to-end → **does not clear the promotion gate on either instrument**, so no file is promoted from it and
+  no slot is requested. Full numbers, CIs and the mechanism split: [`knowledge/09_vrc_and_download_surface.md`](knowledge/09_vrc_and_download_surface.md).
+- **IR-VRC-01, root-caused and fixed:** a `np.lexsort` result (an index *into* the candidate array) was used
+  directly as a *pixel* index, so the "thinning" emitted arbitrary low-score pixels — 12,572 of 22,163 dots
+  carried the −1.0 invalid fill, and the written count (15,300) silently differed from the budget (22,163).
+  Both call sites are patched, an `assert` guard now refuses any emission whose count ≠ budget or whose dots
+  fall outside the allowed footprint, the defective raster was **deleted** rather than patched, and every
+  prior number produced through `cell_of_max*` is marked invalid.
+- **New artifact set for the download surface:** `.zip` archives for both encodings of both files,
+  [`docs/data/download-hashes.json`](docs/data/download-hashes.json), and per-check validator receipts
+  `docs/data/format-{sparse-blind,vrc}-{zeros,nan}.json`.
+- **New ledger [`knowledge/IRREGULARITIES.md`](knowledge/IRREGULARITIES.md)** (IR-S-01…13), including two
+  that change how this repo's own gate statements must be read: the 70% lattice rule is arithmetically
+  unsatisfiable for any full-footprint raster (and the reported 0.2778 champion fails it too), and
+  `validate_tif.py`'s `whole_array_finite_in_0_1` / `outside_masked_or_nan` pair is mutually exclusive, so a
+  perfect local score is unreachable by construction.
 
 All nine focus-site variants share &gt;97% dot overlap within 3 px with at least one other focus site — none is unique under the parallel-run lane rule. The unique submission above (SPARSE-BLIND-CONDUIT) is the recommended file to download and submit.
 

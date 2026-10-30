@@ -1,0 +1,386 @@
+{
+  "generated_utc": "2026-10-30T02:47:51.802537+00:00",
+  "lane": "VENT-RIDGE CONTINUATION (VRC)",
+  "hypothesis": "Blind geothermal conduits and their bounding structures reactivate as short, linear, vent-proximal scarps that the scarp-dependent USGS/INGENIOUS catalogue never traced; they are recoverable from LiDAR scarp linearity, not from catalogue proximity.",
+  "mechanism": "fold-aware logistic propensity (out-of-fold, visible catalogue only) + 21 documented vents/wells proximity prior (1.5 km decay) + scarp ridge-continuity term; cell-of-max thinning at 2.8 px, B=2.0 px catalogue collar, LiDAR-valid pixels only, budget 44090 dots.",
+  "named_non_fault_process": "alluvial-fan toes, paleo-shoreline benches, terrace risers, lava-flow margins and road cuts all produce linear scarp-like steps; mitigated by requiring ridge continuity AND a vent-proximity term AND catalogue detachment, but not eliminated.",
+  "holdout": {
+    "label": "HOLDOUT-DTI",
+    "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+    "withheld_positive_pixels": 22232,
+    "pooled_dti": 0.008629456799515822,
+    "ci95": [
+      0.00706343350633273,
+      0.010105329955198578
+    ],
+    "detached_600m_dti": 0.006029018415940903,
+    "detached_ci95": [
+      0.004231980446914477,
+      0.00781394501371476
+    ],
+    "n_dots": 44090,
+    "public_catalogue_proxy_only": true,
+    "paired_vs_parent": {
+      "parent_holdout_dti": 0.0967432973841192,
+      "delta_mean": -0.08780762987515028,
+      "delta_ci95": [
+        -0.10034652909747276,
+        -0.07579163560771866
+      ],
+      "p_gt_zero": 0.0,
+      "note": "The public-catalogue proxy rewards catalogue adjacency; the parent is catalogue-derived and the candidate is off-catalogue by construction, so this paired delta is reported as a measurement, not as a leaderboard signal (see knowledge/04 \u00a74)."
+    },
+    "sgmc_offcatalogue_instrument": {
+      "candidate": "gemsdoesass2-vrc-ventridge-44090-20261030T024740Z-nan.tif",
+      "instrument": "off-catalogue USGS SGMC holdout (62,703 fault px >300 m outside labels.tif)",
+      "evaluator_version": "GEMSDOE32-SGMC-CAL-v3.0",
+      "n_dots": 44090,
+      "sgmc_raw_pooled_dti": 0.04438,
+      "sgmc_raw_ci95": [
+        0.03432,
+        0.05512
+      ],
+      "parent_sgmc_raw_pooled_dti": 0.09528,
+      "parent_sgmc_ci95": [
+        0.08501,
+        0.10605
+      ],
+      "paired_delta_vs_parent": {
+        "mean": -0.05119,
+        "ci95": [
+          -0.0672,
+          -0.03384
+        ],
+        "p_gt_zero": 0.0
+      }
+    },
+    "variant_table": {
+      "generated_utc": "2026-10-30T02:55:00+00:00",
+      "label": "HOLDOUT-DTI (public-catalogue hide-and-recover) and off-catalogue SGMC instrument; NOT organizer scores",
+      "delta_definition": "paired 256-block bootstrap delta vs the hash-pinned focus-lineage parent d2-8 (44,090 dots)",
+      "rows": [
+        {
+          "surf": "learned",
+          "collar": "b2",
+          "rule": "thin",
+          "budget": 37654,
+          "dots": 37654,
+          "holdout": 0.00798,
+          "holdout_delta": -0.08845,
+          "holdout_delta_ci": [
+            -0.10109,
+            -0.07644
+          ],
+          "sgmc": 0.04177,
+          "sgmc_delta": -0.05378,
+          "sgmc_delta_ci": [
+            -0.06965,
+            -0.03635
+          ],
+          "sgmc_p_gt0": 0.0
+        },
+        {
+          "surf": "learned",
+          "collar": "b2",
+          "rule": "thin",
+          "budget": 44090,
+          "dots": 44090,
+          "holdout": 0.00862,
+          "holdout_delta": -0.08782,
+          "holdout_delta_ci": [
+            -0.10022,
+            -0.07573
+          ],
+          "sgmc": 0.04447,
+          "sgmc_delta": -0.0511,
+          "sgmc_delta_ci": [
+            -0.06707,
+            -0.03367
+          ],
+          "sgmc_p_gt0": 0.0
+        },
+        {
+          "surf": "learned",
+          "collar": "b2",
+          "rule": "topk",
+          "budget": 37654,
+          "dots": 37654,
+          "holdout": 0.00798,
+          "holdout_delta": -0.08845,
+          "holdout_delta_ci": [
+            -0.10109,
+            -0.07644
+          ],
+          "sgmc": 0.04177,
+          "sgmc_delta": -0.05378,
+          "sgmc_delta_ci": [
+            -0.06965,
+            -0.03635
+          ],
+          "sgmc_p_gt0": 0.0
+        },
+        {
+          "surf": "learned",
+          "collar": "b2",
+          "rule": "topk",
+          "budget": 44090,
+          "dots": 44090,
+          "holdout": 0.00862,
+          "holdout_delta": -0.08782,
+          "holdout_delta_ci": [
+            -0.10022,
+            -0.07573
+          ],
+          "sgmc": 0.04447,
+          "sgmc_delta": -0.0511,
+          "sgmc_delta_ci": [
+            -0.06707,
+            -0.03367
+          ],
+          "sgmc_p_gt0": 0.0
+        },
+        {
+          "surf": "amp",
+          "collar": "b2",
+          "rule": "thin",
+          "budget": 37654,
+          "dots": 37654,
+          "holdout": 0.00185,
+          "holdout_delta": -0.09456,
+          "holdout_delta_ci": [
+            -0.10702,
+            -0.08269
+          ],
+          "sgmc": 0.09941,
+          "sgmc_delta": 0.00268,
+          "sgmc_delta_ci": [
+            -0.02819,
+            0.03747
+          ],
+          "sgmc_p_gt0": 0.546
+        },
+        {
+          "surf": "amp",
+          "collar": "b2",
+          "rule": "thin",
+          "budget": 44090,
+          "dots": 44090,
+          "holdout": 0.00209,
+          "holdout_delta": -0.09432,
+          "holdout_delta_ci": [
+            -0.10679,
+            -0.08243
+          ],
+          "sgmc": 0.10684,
+          "sgmc_delta": 0.01002,
+          "sgmc_delta_ci": [
+            -0.02227,
+            0.04601
+          ],
+          "sgmc_p_gt0": 0.727
+        },
+        {
+          "surf": "amp",
+          "collar": "b2",
+          "rule": "topk",
+          "budget": 37654,
+          "dots": 37654,
+          "holdout": 0.00138,
+          "holdout_delta": -0.09503,
+          "holdout_delta_ci": [
+            -0.10769,
+            -0.08304
+          ],
+          "sgmc": 0.08566,
+          "sgmc_delta": -0.01097,
+          "sgmc_delta_ci": [
+            -0.04081,
+            0.02185
+          ],
+          "sgmc_p_gt0": 0.233
+        },
+        {
+          "surf": "amp",
+          "collar": "b2",
+          "rule": "topk",
+          "budget": 44090,
+          "dots": 44090,
+          "holdout": 0.00154,
+          "holdout_delta": -0.09487,
+          "holdout_delta_ci": [
+            -0.10741,
+            -0.08295
+          ],
+          "sgmc": 0.09439,
+          "sgmc_delta": -0.00233,
+          "sgmc_delta_ci": [
+            -0.03322,
+            0.03119
+          ],
+          "sgmc_p_gt0": 0.428
+        },
+        {
+          "surf": "parent_d2-8",
+          "collar": "b2",
+          "rule": "as-emitted",
+          "budget": 44090,
+          "dots": 44090,
+          "holdout": 0.09674,
+          "holdout_delta": 0.0,
+          "holdout_delta_ci": [
+            0,
+            0
+          ],
+          "sgmc": 0.09528,
+          "sgmc_delta": 0.0,
+          "sgmc_delta_ci": [
+            0,
+            0
+          ],
+          "sgmc_p_gt0": 0.5
+        }
+      ]
+    }
+  },
+  "params": {
+    "budget": 44090,
+    "spacing": 2.8,
+    "collar": 2.0,
+    "w_vent": 0.35,
+    "w_cont": 0.25,
+    "tag": "20261030T024740Z",
+    "out_dir": "/home/user/GEMSDOESASS2/docs/downloads",
+    "evidence": "/home/user/GEMSDOESASS2/evidence/vrc_run_card.json"
+  },
+  "files": {
+    "zeros": {
+      "path": "/home/user/GEMSDOESASS2/docs/downloads/gemsdoesass2-vrc-ventridge-44090-20261030T024740Z-zeros.tif",
+      "bytes": 295781,
+      "sha256": "75a07dc1a1faa521d7be7c88fbec3a418afb854e772bcf34ef64f8e960617c09",
+      "dots": 44090,
+      "value": 1.0
+    },
+    "nan": {
+      "path": "/home/user/GEMSDOESASS2/docs/downloads/gemsdoesass2-vrc-ventridge-44090-20261030T024740Z-nan.tif",
+      "bytes": 49139392,
+      "sha256": "869f08ba4d8e22b2659564adf8d1ec6b417b9624989de4bc480357d16d161934",
+      "dots": 44090
+    }
+  },
+  "score_evidence": "No organizer receipt exists in this environment; no organizer score is claimed. USER-REPORTED portfolio statistics are used for the estimate band, labelled as such.",
+  "assembled_utc": "2026-10-30T03:04:46.584996+00:00",
+  "validator_output": {
+    "nan_variant": {
+      "file": "gemsdoesass2-vrc-ventridge-44090-20261030T024740Z-nan.tif",
+      "sha256": "22c139121a7e34149357daab28c4251657f019203f9e9ad3538977619de3d792",
+      "checks": {
+        "tif_extension": true,
+        "single_band": true,
+        "float32": true,
+        "crs_match": true,
+        "shape_match": true,
+        "transform_match": true,
+        "competition_crs_epsg32611": true,
+        "competition_100m_north_up": true,
+        "whole_array_finite_in_0_1": false,
+        "inside_unmasked_finite_in_0_1": true,
+        "outside_masked_or_nan": true
+      },
+      "counts": {
+        "footprint_pixels": 5167373,
+        "inside_nan": 0,
+        "inside_inf": 0,
+        "inside_masked": 0,
+        "inside_out_of_range_finite": 0,
+        "outside_pixels": 7111787,
+        "outside_unmasked_finite": 0,
+        "inside_min": 0.0,
+        "inside_max": 1.0,
+        "whole_array_nan": 7111787,
+        "whole_array_inf": 0,
+        "whole_array_out_of_range_finite": 0
+      },
+      "strict_local_format_pass": false,
+      "failing_check": "outside_masked_or_nan is satisfied; whole_array_finite_in_0_1 is not (the two local checks are mutually exclusive - IR-SASS2-13)"
+    },
+    "zeros_variant": {
+      "file": "gemsdoesass2-vrc-ventridge-44090-20261030T024740Z-zeros.tif",
+      "sha256": "75a07dc1a1faa521d7be7c88fbec3a418afb854e772bcf34ef64f8e960617c09",
+      "checks": {
+        "tif_extension": true,
+        "single_band": true,
+        "float32": true,
+        "crs_match": true,
+        "shape_match": true,
+        "transform_match": true,
+        "competition_crs_epsg32611": true,
+        "competition_100m_north_up": true,
+        "whole_array_finite_in_0_1": true,
+        "inside_unmasked_finite_in_0_1": true,
+        "outside_masked_or_nan": false
+      },
+      "counts": {
+        "footprint_pixels": 5167373,
+        "inside_nan": 0,
+        "inside_inf": 0,
+        "inside_masked": 0,
+        "inside_out_of_range_finite": 0,
+        "outside_pixels": 7111787,
+        "outside_unmasked_finite": 7111787,
+        "inside_min": 0.0,
+        "inside_max": 1.0,
+        "whole_array_nan": 0,
+        "whole_array_inf": 0,
+        "whole_array_out_of_range_finite": 0
+      },
+      "strict_local_format_pass": false,
+      "failing_check": "outside_masked_or_nan (zeros used outside the footprint, which the spec permits)"
+    },
+    "no_nan_inside_footprint": true,
+    "values_in_0_1_inside_footprint": true,
+    "crs_shape_transform_match": true,
+    "reference_note": "validated against the mirror copy of the organizer's example_submission.tif (sha256 2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc), which is hash-identical to data/bridge/sample_submission.tif; NOT organizer-authenticated."
+  },
+  "uniqueness": {
+    "protocol_rule_1_limits": {
+      "overlap_3px": 0.7,
+      "abs_spearman": 0.9
+    },
+    "max_candidate_dot_overlap_vs_scanned_registry_rasters": 0.3999,
+    "registry_rasters_scanned": 40,
+    "share_of_dots_covered_by_registry_union": 0.761601270129281,
+    "max_abs_spearman_vs_focus_champions": 0.0162,
+    "pass_genuine_raster_gates": true,
+    "local_sass2_downloads_max_overlap": 0.3227,
+    "local_sass2_top": [
+      {
+        "file": "gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-nan.tif",
+        "ref_dots": 22163,
+        "ref_within3px_of_candidate": 0.3227
+      },
+      {
+        "file": "gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.tif",
+        "ref_dots": 22163,
+        "ref_within3px_of_candidate": 0.3227
+      },
+      {
+        "file": "gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif",
+        "ref_dots": 37654,
+        "ref_within3px_of_candidate": 0.1833
+      }
+    ],
+    "local_sass2_note": "the candidate's own two encodings are excluded from its own duplicate screen",
+    "lattice_probe": {
+      "file": "13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+      "candidate_dots_within_3px_of_probe": 1.0,
+      "status": "FAILS the literal rule (space-filling probe covers the footprint)",
+      "precedent": "the reported 0.2778 champion also fails it (IR-S-01); owner ruling pending"
+    }
+  },
+  "submission_name": "GEMSDOESASS2-VRC-44090-20261030",
+  "submission_note_140": "GEMSDOESASS2 VRC vent-ridge 44090d B=2 sep2.8 | HOLDOUT-DTI 0.0086 | research lane | 20261030",
+  "note_length": 93,
+  "verdict": "negative",
+  "ok_to_download_and_submit": false,
+  "decision_rationale": "Format and duplicate gates pass; the scientific gate does not. The candidate does not beat the hash-pinned focus-lineage parent on either instrument (public-catalogue hide-and-recover, nor the off-catalogue SGMC instrument), and the paired 95% CIs include zero on the one instrument where it is ahead. Under protocol rule 6 a slot is not spent on an idea that has not beaten the holdout best, so the file is published as a downloadable research artifact only."
+}
