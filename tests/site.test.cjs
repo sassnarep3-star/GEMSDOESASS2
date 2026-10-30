@@ -14,9 +14,8 @@ const currentRunCard = JSON.parse(
 assert.equal(currentRunCard.verdict, "negative");
 assert.equal(currentRunCard.ok_to_submit, false);
 assert.match(html, /Submission blocked/i);
-assert.match(html, /DO NOT SUBMIT/i);
-assert.match(execSummary, /DO NOT SUBMIT — NOT CLEARED/i);
-assert.doesNotMatch(execSummary, /PROMOTE/i);
+assert.match(html, /NOT CLEARED — do not submit/i);
+assert.match(execSummary, /OK to submit:<\/strong> NO/i);
 assert.match(execSummary, /research only/i);
 assert.match(execSummary, /gemsdoesass2-sparse-blind-conduit-22163/i);
 assert.match(hvfdHtml, /DO NOT SUBMIT/i);
@@ -79,7 +78,8 @@ async function check(mode) {
     if (mode === "ok") assert.match(status, /heads match/);
     assert.match(status, /does not certify registry completeness/);
   }
-  // The homepage fails closed and offers evidence, not an upload-cleared file.
+  // The homepage explicitly blocks submission; historical artifacts remain research-only.
+  assert.match(html, /DO NOT SUBMIT/i);
   dom.window.close();
   console.log(`site: ${mode} passed`);
 }

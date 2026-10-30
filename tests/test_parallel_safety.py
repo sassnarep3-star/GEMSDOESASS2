@@ -102,9 +102,9 @@ def test_current_lattice_witness_receipt_and_safety_notice():
     assert json.loads((ROOT / 'docs/data/lattice-recheck.json').read_text()) == receipt
     for page in ['hvfd-exp3.html']:
         assert 'DO NOT SUBMIT' in (ROOT / 'docs' / page).read_text().upper()
-    # Pages must fail closed while the archived candidate lacks required gates.
-    assert 'Submission blocked' in (ROOT / 'docs' / 'index.html').read_text()
-    assert 'DO NOT SUBMIT' in (ROOT / 'docs' / 'executive-summary.html').read_text()
+    # User-facing pages must fail closed on the incomplete literal registry gate.
+    assert 'DO NOT SUBMIT' in (ROOT / 'docs' / 'index.html').read_text()
+    assert 'OK to submit:</strong> NO' in (ROOT / 'docs' / 'executive-summary.html').read_text()
     card = json.loads((ROOT / 'evidence/hvfd_exp3_run_card.json').read_text())
     assert card['verdict'] == 'negative' and card['ok_to_submit'] is False
 

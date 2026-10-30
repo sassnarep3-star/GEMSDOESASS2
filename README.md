@@ -1,12 +1,14 @@
 # GEMSDOESASS2 — auditable geothermal fault discovery
 
-## 🚦 Current decision: **NO SUBMISSION APPROVED — research artifact only**
+## 🚫 Current decision: **DO NOT SUBMIT — uniqueness gate is not established**
 
-A novel-looking research GeoTIFF exists and passes local format checks, but required holdout, assigned-lane and full-registry gates are incomplete. It is NOT cleared to submit:
+Current-session run card: [`evidence/review_run_card_20261030.json`](evidence/review_run_card_20261030.json).
 
-| Artifact | Format (13 checks) | Uniqueness vs registry | Verdict | OK to download & submit? |
+A prior run produced a GeoTIFF that passed local format checks, but its run card claimed promotion without resolving the literal registered-lattice uniqueness gate. The current audit marks this candidate not selector-ready. A format pass is not proof of uniqueness, holdout improvement, or organizer acceptance:
+
+| Artifact | Historical format check | Uniqueness vs full registry | Holdout | Verdict | OK to submit? |
 |---|---|---|---|---|
-| **gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.tif** | 13/13 local format checks only | Incomplete registry / no assigned lane; not qualified | **NEGATIVE** | **NO — do not submit** |
+| **gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.tif** | 13/13 PASS | max overlap 41.29% (<70%); full-registry uniqueness not proven | Not run | **NEGATIVE / research only** | **NO** |
 
 - **22,163 sparse dots**, 0 on catalogue (B=2 exclusion enforced)
 - **SHA-256:** `65e3a775ad8b3fd3f3c55a501c84d48d05554219065cad69fa9ebfb54d572661`
@@ -14,9 +16,9 @@ A novel-looking research GeoTIFF exists and passes local format checks, but requ
 - **Submission name:** `GEMSDOESASS2-SPARSE-BLIND-CC522684`
 - **Note (≤140 chars):** `GEMSDOESASS2 sparse-blind-conduit 22163d B=2 sep3 | off-catalogue blind faults | cc522684 | research`
 
-**Research artifact (not submission-cleared):** `docs/downloads/gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.tif` (no download recommendation).
+**Research artifact only — do not submit:** [`docs/downloads/gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.tif`](docs/downloads/gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.tif) · [`...zeros.zip`](docs/downloads/gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.zip)
 
-⚠️ **No organizer receipt is available in this environment** (DrivenData requires login). Local validation is not a guarantee of portal acceptance. Verify against the live DrivenData submission page before uploading. No weekly submission slot was used.
+⚠️ **No organizer receipt is available in this environment** (DrivenData requires login). The artifact is not cleared and must not be uploaded. No weekly submission slot was used.
 
 ---
 
@@ -47,7 +49,7 @@ Review the repository. Focus on GEMSDOE24, 25, 27, 28, 30, 31, 32, 33 and 36; ma
 | GEMSDOE24 | **0.2477** · User-reported; no receipt | [Research variant only](https://github.com/buffedlizard55-lab/GEMSDOE24/blob/a433b430b74b813a9118ebd4ec438b12cbc69f46/docs/downloads/gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-allfinite.tif) | Unavailable · No defensible leaderboard estimate | **No** · 100.00% within 3 px of GEMSDOE25 |
 | GEMSDOE27 | **0.2449** · User-reported; no receipt | [Research variant only](https://github.com/buffedlizard55-lab/GEMSDOE27/blob/bef7ae8e8f63b69d299c9214c75988c8f5055f9c/docs/downloads/gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-allfinite.tif) | Unavailable · No defensible leaderboard estimate | **No** · 98.02% within 3 px of GEMSDOE24 |
 
-All nine focus-site variants share &gt;97% dot overlap within 3 px with at least one other focus site — none is unique under the parallel-run lane rule. The sparse-blind-conduit raster is an archived research artifact only; it is not approved to download for competition submission.
+All nine focus-site variants share &gt;97% dot overlap within 3 px with at least one other focus site — none is unique under the parallel-run lane rule. No candidate is cleared for submission. The SPARSE-BLIND-CONDUIT file is research only; no score estimate is available.
 
 ---
 

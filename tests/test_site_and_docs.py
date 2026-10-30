@@ -34,22 +34,20 @@ def test_github_pages_files_and_local_links_exist() -> None:
                 assert target.stat().st_size > 0, f"Empty asset '{attr_val}' in {page.name}"
 
 
-def test_archived_candidate_is_not_approved_for_submission() -> None:
+def test_submission_candidate_is_fail_closed_and_research_only() -> None:
     card = json.loads((DOCS / "data/run-card.json").read_text())
     index = (DOCS / "index.html").read_text()
     exec_html = (DOCS / "executive-summary.html").read_text()
-    # The archived candidate is explicitly negative; format/novelty subsets do not clear it.
-    run_card = json.loads((ROOT / "evidence/unique_run_card_cc522684.json").read_text())
-    assert run_card["verdict"] == "negative"
-    assert run_card["ok_to_download_and_submit"] is False
-    assert run_card["validator_output"]["all_passed"] is True
-    assert "raster_sha256" in run_card and run_card["raster_sha256"][:16] in exec_html
-    assert "DO NOT SUBMIT" in exec_html
-    assert "Download GeoTIFF" not in exec_html
-    assert "DO NOT SUBMIT" in exec_html
-    # Research artifacts remain marked research only
-    artifacts = (DOCS / "hvfd-exp3.html").read_text()
-    assert "Research only" in artifacts and "DO NOT SUBMIT" in artifacts
+    # Older artifact-level cards are historical evidence only and must not override
+    # the current aggregate decision card or the user-facing submission block.
+    assert card["verdict"] == "negative"
+    assert card["ok_to_submit"] is False
+    assert "DO NOT SUBMIT" in index
+    assert "NOT CLEARED" in index
+    assert "NEGATIVE / research only" in exec_html
+    assert "OK to submit:</strong> NO" in exec_html
+    assert "downloads/gemsdoesass2-sparse-blind-conduit-22163" in exec_html
+    assert "full-registry uniqueness" in exec_html
     assert "localhost" not in index and "127.0.0.1" not in index
 
 

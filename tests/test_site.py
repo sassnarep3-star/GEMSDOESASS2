@@ -51,12 +51,15 @@ def test_pages_root_redirects_to_docs_with_fallback():
     assert 'href="docs/"' in text
 
 
-def test_homepage_fails_closed_without_required_gates():
+def test_homepage_fails_closed_without_submission_clearance():
+    # A local format pass does not clear the incomplete full-registry/holdout gates.
     text = (DOCS / 'index.html').read_text()
-    assert 'Submission blocked' in text
-    assert 'DO NOT SUBMIT' in text
-    assert 'no compliant holdout' in text.lower()
-    assert 'Read decision &amp; evidence' in text
+    flat = ' '.join(text.split())
+    assert 'Submission blocked' in flat
+    assert 'DO NOT SUBMIT' in flat
+    assert 'NOT CLEARED' in flat
+    assert 'gemsdoesass2-sparse-blind-conduit-22163' in flat
+    assert 'focus-sites.html' in text
 
 
 def test_hvfd_candidate_is_marked_do_not_submit():
