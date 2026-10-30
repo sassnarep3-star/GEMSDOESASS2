@@ -1,0 +1,37 @@
+{
+  "review_date_utc": "2026-10-30",
+  "hypothesis": "SPARSE-BLIND-CONDUIT: sparse off-catalogue geothermal propensity may identify concealed permeable structures missed by scarp-oriented mapping.",
+  "mechanism": "Historical candidate uses catalogue-distance flank weighting and a smooth geothermal prior with a 2-pixel catalogue exclusion; this session generated no new surface or dots.",
+  "named_non_fault_process_that_could_mimic_it": "Alluvial-fan toes, paleo-shoreline benches, terrace risers, and non-fault geothermal alteration can resemble structural targets.",
+  "holdout_dti": {
+    "label": "HOLDOUT-DTI",
+    "evaluator_version": null,
+    "withheld_positive_pixels": null,
+    "dti": null,
+    "ci95": null,
+    "status": "NOT RUN in this review; no comparable independently verified holdout result is available."
+  },
+  "correlation_overlap_vs_registry": {
+    "surface_rank_correlation": null,
+    "preview_dot_overlap_fraction": null,
+    "final_dot_overlap_fraction": null,
+    "status": "Not recomputed on the complete current registry. Historical 41.29% scoped figure is insufficient to clear the literal gate; candidate not approved."
+  },
+  "raster_sha256": "65e3a775ad8b3fd3f3c55a501c84d48d05554219065cad69fa9ebfb54d572661",
+  "raster": "docs/downloads/gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.tif (historical artifact; no raster generated in this review)",
+  "validator_output": {
+    "historical_local_format_checks": "13/13 PASS (prior evidence)",
+    "no_nan_inside_footprint": true,
+    "values_in_0_1": true,
+    "crs_shape_transform_match": true,
+    "full_registry_uniqueness": "NOT ESTABLISHED",
+    "holdout": "NOT RUN"
+  },
+  "submission_name": "GEMSDOESASS2-SPARSE-BLIND-CC522684",
+  "submission_note": "Research only; do not submit until complete registry, holdout, and selector gates pass.",
+  "submission_note_length": 86,
+  "verdict": "negative",
+  "ok_to_submit": false,
+  "experiments_run_this_review": 0,
+  "reason": "Prior run used its three-experiment budget; current evidence exposes unresolved uniqueness and validation gaps."
+}
