@@ -57,6 +57,7 @@ def test_homepage_advertises_the_download_and_blocks_submission():
     text = (DOCS / 'index.html').read_text()
     flat = ' '.join(text.split())
     assert 'BLOCKED — DO NOT SUBMIT YET' in flat
+    assert 'Submission blocked' in flat and 'NOT CLEARED' in flat and 'DO NOT SUBMIT' in flat
     assert 'OK to download and submit' not in flat
     assert 'Download the TIF' in flat
     assert '99.74%' in flat

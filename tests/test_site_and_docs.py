@@ -40,12 +40,10 @@ def test_unique_submission_is_advertised_with_validation() -> None:
     exec_html = (DOCS / "executive-summary.html").read_text()
     # The unique submission run card (separate from the legacy negative card)
     run_card = None
-    for p in DOCS.glob("downloads/*-audit.json"):
-        c = json.loads(p.read_text())
-        if c.get("verdict") == "blocked-owner-ruling":
-            run_card = c
-            break
-    assert run_card is not None, "No blocked unique submission run card found"
+    run_card = json.loads(
+        (DOCS / "downloads/gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-audit.json").read_text()
+    )
+    assert run_card["verdict"] == "negative" and run_card["status"] == "blocked-owner-ruling"
     assert run_card["n_dots"] == 22163
     assert run_card["validator_output"]["all_passed"] is True
     # The lattice gate fails; the card must say so and must not allow submission.
@@ -57,6 +55,11 @@ def test_unique_submission_is_advertised_with_validation() -> None:
     assert "BLOCKED — DO NOT SUBMIT YET" in index
     assert "BLOCKED — DO NOT SUBMIT YET" in exec_html
     assert "OK to download and submit" not in index
+    # Fail-closed phrasing required by the parallel review
+    assert "DO NOT SUBMIT" in index and "NOT CLEARED" in index
+    assert "NEGATIVE / research only" in exec_html
+    assert "OK to submit:</strong> NO" in exec_html
+    assert "full-registry uniqueness" in exec_html
     assert run_card["raster_sha256"][:16] in exec_html
     assert "downloads/gemsdoesass2-sparse-blind-conduit-22163" in exec_html
     # Research artifacts remain marked research only

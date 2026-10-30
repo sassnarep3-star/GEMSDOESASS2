@@ -95,7 +95,7 @@
   "submission_name": "GEMSDOESASS2-SPARSE-BLIND-CC522684",
   "submission_note_140": "GEMSDOESASS2 sparse-blind-conduit 22163d B=2 sep3 | off-catalogue blind faults | cc522684 | research",
   "note_length": 100,
-  "verdict": "blocked-owner-ruling",
+  "verdict": "negative",
   "ok_to_download_and_submit": false,
   "n_dots": 22163,
   "params": {
@@ -158,5 +158,7 @@
     "holdout_dti": "NOT RUN. The candidate generator uses the full catalogue, so a valid hide-and-recover test needs a visible-only regeneration.",
     "organizer_receipt": null,
     "user_reported_score_for_this_file": null
-  }
+  },
+  "status": "blocked-owner-ruling",
+  "ok_to_submit": false
 }

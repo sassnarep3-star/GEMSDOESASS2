@@ -14,6 +14,9 @@ const currentRunCard = JSON.parse(
 assert.equal(currentRunCard.verdict, "negative");
 assert.equal(currentRunCard.ok_to_submit, false);
 assert.match(html, /BLOCKED — DO NOT SUBMIT YET/);
+assert.match(html, /Submission blocked/i);
+assert.match(html, /NOT CLEARED — do not submit/i);
+assert.match(execSummary, /OK to submit:<\/strong> NO/i);
 assert.doesNotMatch(html, /OK to download and submit/i);
 assert.match(html, /Download the TIF/);
 assert.match(execSummary, /BLOCKED — DO NOT SUBMIT YET/);

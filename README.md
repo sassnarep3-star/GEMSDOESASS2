@@ -11,9 +11,11 @@
 | Note (≤140 chars) | `GEMSDOESASS2 sparse-blind-conduit 22163d B=2 sep3 \| off-catalogue blind faults \| cc522684 \| research` |
 | Estimated leaderboard score | **NOT ESTIMABLE.** No organizer receipt, no valid holdout. |
 
+**Verdict: NEGATIVE / research only. OK to submit: NO. DO NOT SUBMIT.** Full-registry uniqueness is not established.
+
 **Corrections (2026-10-30):** the earlier card and README said "OK to download and submit", based on a 70% test that left out the 13GEMSDOE lattice. That claim is withdrawn; the card now reads `blocked-owner-ruling`. The zeros file was checked against the official rules: outside cells are masked, with raw value 0, and the NaN twin fails the whole-array [0, 1] check. See [IRREGULARITIES.md](IRREGULARITIES.md) (IR-S-15 to IR-S-24).
 
-**Links:** [front page and nine-site table](docs/index.html) · [how to submit](docs/executive-summary.html) · [run card](docs/downloads/gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-audit.json) · [research and next steps](research/2026-10-30-review.md)
+**Links:** [current review run card](evidence/review_run_card_20261030.json) (from main) · [front page and nine-site table](docs/index.html) · [how to submit](docs/executive-summary.html) · [run card](docs/downloads/gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-audit.json) · [research and next steps](research/2026-10-30-review.md)
 
 ---
 

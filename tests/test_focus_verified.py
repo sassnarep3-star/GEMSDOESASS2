@@ -66,7 +66,8 @@ def test_lineage_0_2778_is_pixel_exact_subset_of_gemsdoe25() -> None:
 
 def test_run_card_is_blocked_not_promoted() -> None:
     card = json.loads(CARD.read_text())
-    assert card["verdict"] == "blocked-owner-ruling"
+    assert card["verdict"] == "negative"
+    assert card["status"] == "blocked-owner-ruling"
     assert card["ok_to_download_and_submit"] is False
     assert card["download_available"] is True
     assert card["correlation_overlap_vs_registry"]["passes_lane"] is False

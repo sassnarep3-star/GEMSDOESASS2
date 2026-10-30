@@ -104,6 +104,8 @@ def test_current_lattice_witness_receipt_and_safety_notice():
         assert 'DO NOT SUBMIT' in (ROOT / 'docs' / page).read_text().upper()
     # index.html and executive-summary.html now advertise the approved unique submission
     assert 'BLOCKED — DO NOT SUBMIT YET' in (ROOT / 'docs' / 'index.html').read_text()
+    assert 'DO NOT SUBMIT' in (ROOT / 'docs' / 'index.html').read_text()
+    assert 'OK to submit:</strong> NO' in (ROOT / 'docs' / 'executive-summary.html').read_text()
     assert 'BLOCKED — DO NOT SUBMIT YET' in (ROOT / 'docs' / 'executive-summary.html').read_text()
     card = json.loads((ROOT / 'evidence/hvfd_exp3_run_card.json').read_text())
     assert card['verdict'] == 'negative' and card['ok_to_submit'] is False
