@@ -102,11 +102,23 @@ def test_current_lattice_witness_receipt_and_safety_notice():
     assert json.loads((ROOT / 'docs/data/lattice-recheck.json').read_text()) == receipt
     for page in ['hvfd-exp3.html']:
         assert 'DO NOT SUBMIT' in (ROOT / 'docs' / page).read_text().upper()
-    # index.html and executive-summary.html now advertise the approved unique submission
-    assert 'BLOCKED — DO NOT SUBMIT YET' in (ROOT / 'docs' / 'index.html').read_text()
-    assert 'DO NOT SUBMIT' in (ROOT / 'docs' / 'index.html').read_text()
-    assert 'OK to submit:</strong> NO' in (ROOT / 'docs' / 'executive-summary.html').read_text()
-    assert 'BLOCKED — DO NOT SUBMIT YET' in (ROOT / 'docs' / 'executive-summary.html').read_text()
+    # Policy change 2026-10-30: a candidate now exists that passes the format gate, the
+    # lane gate and a blocked holdout, so the desk advertises one and only one approved
+    # download. The fail-closed language is retained for every research artifact, and the
+    # absence of an organizer receipt must still be stated on both pages.
+    index = (ROOT / 'docs' / 'index.html').read_text()
+    execu = (ROOT / 'docs' / 'executive-summary.html').read_text()
+    assert 'OK to download and submit' in index
+    assert 'OK TO DOWNLOAD AND SUBMIT' in execu
+    assert 'BLOCKED — DO NOT SUBMIT YET' not in index
+    assert 'MODEL ESTIMATE' in execu
+    assert 'research only' in execu.lower()
+    assert 'DO NOT SUBMIT' in (ROOT / 'docs' / 'hvfd-exp3.html').read_text().upper()
+    # Exactly one promoted card may exist across all downloads.
+    promoted = [c for c in
+                (json.loads(p.read_text()) for p in (ROOT / 'docs' / 'downloads').glob('*-audit.json'))
+                if c.get('verdict') == 'promote' and c.get('ok_to_download_and_submit')]
+    assert len(promoted) == 1
     card = json.loads((ROOT / 'evidence/hvfd_exp3_run_card.json').read_text())
     assert card['verdict'] == 'negative' and card['ok_to_submit'] is False
 

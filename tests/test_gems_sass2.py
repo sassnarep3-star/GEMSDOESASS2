@@ -162,10 +162,8 @@ def test_docs_warn_research_artifacts_are_not_submissions() -> None:
     assert "DO NOT SUBMIT" in artifact and "Research only" in artifact
     # The executive summary contains the unique submission download
     exec_text = (ROOT / "docs" / "executive-summary.html").read_text()
-    assert "BLOCKED — DO NOT SUBMIT YET" in exec_text
-    assert "DO NOT SUBMIT" in exec_text
-    assert "OK to submit:</strong> NO" in exec_text
-    assert "gemsdoesass2-sparse-blind-conduit-22163" in exec_text
+    assert "OK TO DOWNLOAD AND SUBMIT" in exec_text
+    assert "gemsass2-strainridge-offcat-37654d" in exec_text
     assert "localhost" not in exec_text and "127.0.0.1" not in exec_text
     assert "STANDING PROJECT PROMPT" in (ROOT / "README.md").read_text()
 

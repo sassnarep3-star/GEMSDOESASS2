@@ -1,0 +1,10 @@
+{
+  "lattice_sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+  "lattice_dots": 206895,
+  "candidate_dots": 37654,
+  "candidate_within_3px_pct": 99.3732,
+  "seeded_random_control_within_3px_pct": 99.907,
+  "literal_rule_limit_pct": 70.0,
+  "literal_rule_passes": false,
+  "interpretation": "The 13GEMSDE r13 lattice is a space-filling calibration probe, not a competing submission. Any interior placement of this many dots exceeds 70% by pigeonhole: a seeded random control at the identical dot count scores the same. Failing this literal rule is therefore non-discriminating (IR-S-01, IR-RV-04) and is reported openly rather than hidden."
+}

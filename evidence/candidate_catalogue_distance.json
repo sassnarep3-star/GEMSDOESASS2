@@ -1,0 +1,14 @@
+{
+  "candidate": "gemsass2-strainridge-offcat-37654d-20261030T025503Z",
+  "n_dots": 37654,
+  "complete_qfaults": {
+    "pct_le_3px": 0.0,
+    "pct_le_10px": 26.6904,
+    "median_px": 19.24
+  },
+  "bridge_labels": {
+    "pct_le_3px": 0.0,
+    "pct_le_10px": 20.1811,
+    "median_px": 22.2
+  }
+}
