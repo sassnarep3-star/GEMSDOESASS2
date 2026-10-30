@@ -1,22 +1,19 @@
 # GEMSDOESASS2 — auditable geothermal fault discovery
 
-## 🚦 Current decision: **UNIQUE SUBMISSION READY — OK TO DOWNLOAD AND SUBMIT (LOCALLY VALIDATED)**
+## 🚦 Current decision (verified 2026-10-30): DOWNLOAD READY — SUBMISSION BLOCKED
 
-A unique, validation-gated GeoTIFF has been generated and passes all local gates:
+| Question | Answer |
+|---|---|
+| Can I download the TIF? | **Yes.** [`gemsdoesass2-sparse-blind-conduit-22163-…-zeros.tif`](docs/downloads/gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.tif) (123 KB; SHA-256 `65e3a775ad8b3fd3f3c55a501c84d48d05554219065cad69fa9ebfb54d572661`). Float32, EPSG 32611, 100 m, values in [0, 1], 22,163 dots. |
+| Can I submit it now? | **No.** It fails the protocol's lattice rule: **99.74%** of its dots lie within 3 px of the 13GEMSDOE registry lattice (limit 70%). Receipt: [`docs/data/gate-and-lineage-recheck.json`](docs/data/gate-and-lineage-recheck.json). |
+| What unblocks it? | An owner ruling on the lattice rule. Options A/B/C are on the [front page](docs/index.html). Any interior dot set fails the literal rule, because the lattice's 3 px halo covers all but 6,649 footprint cells, and those are edge cells. |
+| Name | `GEMSDOESASS2-SPARSE-BLIND-CC522684` |
+| Note (≤140 chars) | `GEMSDOESASS2 sparse-blind-conduit 22163d B=2 sep3 \| off-catalogue blind faults \| cc522684 \| research` |
+| Estimated leaderboard score | **NOT ESTIMABLE.** No organizer receipt, no valid holdout. |
 
-| Artifact | Format (13 checks) | Uniqueness vs registry | Verdict | OK to download & submit? |
-|---|---|---|---|---|
-| **gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.tif** | 13/13 PASS | max overlap 41.29% (<70%); max\|ρ\| 0.0083 (<0.90) | **PROMOTE** | **YES — locally validated** |
+**Corrections (2026-10-30):** the earlier card and README said "OK to download and submit", based on a 70% test that left out the 13GEMSDOE lattice. That claim is withdrawn; the card now reads `blocked-owner-ruling`. The zeros file was checked against the official rules: outside cells are masked, with raw value 0, and the NaN twin fails the whole-array [0, 1] check. See [IRREGULARITIES.md](IRREGULARITIES.md) (IR-S-15 to IR-S-24).
 
-- **22,163 sparse dots**, 0 on catalogue (B=2 exclusion enforced)
-- **SHA-256:** `65e3a775ad8b3fd3f3c55a501c84d48d05554219065cad69fa9ebfb54d572661`
-- **Lane:** SPARSE-BLIND-CONDUIT — off-catalogue geothermal-conduit dots targeting blind faults missed by scarp-dependent USGS/INGENIOUS mapping
-- **Submission name:** `GEMSDOESASS2-SPARSE-BLIND-CC522684`
-- **Note (≤140 chars):** `GEMSDOESASS2 sparse-blind-conduit 22163d B=2 sep3 | off-catalogue blind faults | cc522684 | research`
-
-**Download:** [`docs/downloads/gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.tif`](docs/downloads/gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.tif) · [`...zeros.zip`](docs/downloads/gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.zip)
-
-⚠️ **No organizer receipt is available in this environment** (DrivenData requires login). Local validation is not a guarantee of portal acceptance. Verify against the live DrivenData submission page before uploading. No weekly submission slot was used.
+**Links:** [front page and nine-site table](docs/index.html) · [how to submit](docs/executive-summary.html) · [run card](docs/downloads/gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-audit.json) · [research and next steps](research/2026-10-30-review.md)
 
 ---
 
@@ -33,21 +30,25 @@ Review the repository. Focus on GEMSDOE24, 25, 27, 28, 30, 31, 32, 33 and 36; ma
 5. **RUN CARD.** End with one JSON card containing hypothesis, mechanism, named non-fault mimic, holdout DTI and CI, registry correlations/overlaps, raster SHA-256, saved-byte validator output, submission name, note of at most 140 characters and `promote`/`negative` verdict. Negative results are deliverables.
 6. **BUDGET.** Stop after three experiments or two hours. Do not pick a real submission: promotion to a weekly slot is a separate selector step, subject to the allowance on the submission page.
 
-### Nine-site executive summary (table)
+### Nine-site executive summary (verified 2026-10-30)
 
-| Site | Historical value | File to download / submit | New score estimate | Unique to focus sites? |
+Every focus-site file was downloaded from its pinned commit and matched its SHA-256 pin. Scores are USER-REPORTED / UNVERIFIED. Estimated score is NOT ESTIMABLE for every row. Full table: [docs/index.html#nine](docs/index.html#nine) · [CSV](docs/data/focus-sites-verified.csv).
+
+| Site | Reported best (USER-REPORTED) | Best file (research reference) | Unique among the nine? | Submit now? |
 |---|---|---|---|---|
-| GEMSDOE32 | **0.2778** · User-reported; no receipt | [Research variant only](https://github.com/buffedlizard55-lab/GEMSDOE32/blob/400b60d4a6d99f425ee90504e6c4552227556dd1/docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif) | Unavailable · No defensible leaderboard estimate | **No** · 100.00% within 3 px of GEMSDOE24 |
-| GEMSDOE36 | **0.2750** · User-reported; no receipt | [Research variant only](https://github.com/buffedlizard55-lab/GEMSDOE36/blob/32c2660001d98f6fa9084a0971b3a9d5062d49b9/docs/downloads/gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif) | Unavailable · No defensible leaderboard estimate | **No** · 97.58% within 3 px of GEMSDOE27 |
-| GEMSDOE28 | **0.2710** · User-reported; no receipt | [Research variant only](https://github.com/buffedlizard55-lab/GEMSDOE28/blob/2c839d10f57ec9b074829e93c84bc39935f52896/docs/downloads/gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-allfinite.tif) | Unavailable · No defensible leaderboard estimate | **No** · 100.00% within 3 px of GEMSDOE24 |
-| GEMSDOE31 | **0.2708** · User-reported; no receipt | [Research variant only](https://github.com/buffedlizard55-lab/GEMSDOE31/blob/eeb7da54ca4a8ae056f45e5b23eeef586ad79bf2/docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-allfinite.tif) | Unavailable · No defensible leaderboard estimate | **No** · 100.00% within 3 px of GEMSDOE24 |
-| GEMSDOE33 | **0.2632** · User-reported; no receipt | [Research variant only](https://github.com/buffedlizard55-lab/GEMSDOE33/blob/efa438d3104893c3e8aedf3817ac22167b1c681a/docs/downloads/GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e.tif) | Unavailable · No defensible leaderboard estimate | **No** · 99.71% within 3 px of GEMSDOE27 |
-| GEMSDOE25 | **0.2600** · User-reported; no receipt | [Research variant only](https://github.com/buffedlizard55-lab/GEMSDOE25/blob/b4e74b3f9b191fbc214b6447e9ff1f3fa67552c4/docs/downloads/gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-zeros.tif) | Unavailable · No defensible leaderboard estimate | **No** · 100.00% within 3 px of GEMSDOE24 |
-| GEMSDOE30 | **0.2600** · User-reported; no receipt | [Research variant only](https://github.com/buffedlizard55-lab/GEMSDOE30/blob/9c0d637c0171407196b61b780444bc772ce75438/docs/downloads/gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca.tif) | Unavailable · No defensible leaderboard estimate | **No** · 100.00% within 3 px of GEMSDOE24 |
-| GEMSDOE24 | **0.2477** · User-reported; no receipt | [Research variant only](https://github.com/buffedlizard55-lab/GEMSDOE24/blob/a433b430b74b813a9118ebd4ec438b12cbc69f46/docs/downloads/gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-allfinite.tif) | Unavailable · No defensible leaderboard estimate | **No** · 100.00% within 3 px of GEMSDOE25 |
-| GEMSDOE27 | **0.2449** · User-reported; no receipt | [Research variant only](https://github.com/buffedlizard55-lab/GEMSDOE27/blob/bef7ae8e8f63b69d299c9214c75988c8f5055f9c/docs/downloads/gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-allfinite.tif) | Unavailable · No defensible leaderboard estimate | **No** · 98.02% within 3 px of GEMSDOE24 |
+| GEMSDOE24 | 0.2477 | `gems24-h25-1-dotted-h19-5-d1-5-…-allfinite.tif` | No · 100.0% vs GEMSDOE25 | No |
+| GEMSDOE25 | 0.2600 | `gems25-dotted-h19-5-d2-8-…-zeros.tif` | No · 100.0% vs GEMSDOE24 | No |
+| GEMSDOE27 | 0.2449 | `gems27-topo-gap-closure-…-allfinite.tif` | No · 98.0% vs GEMSDOE24 | No |
+| GEMSDOE28 | 0.2710 | `gems28-h36-1-rung30-blind-r1-…-allfinite.tif` | No · 100.0% vs GEMSDOE24 | No |
+| GEMSDOE30 | 0.2600 | `gemsdoe30-d28-poisson300m-offcat-44090-…-91eae1ca.tif` | No · 100.0% vs GEMSDOE24 | No |
+| GEMSDOE31 | 0.2708 | `gemsdoe31-h27-4-solo-d28-…-allfinite.tif` | No · 100.0% vs GEMSDOE24 | No |
+| GEMSDOE32 | **0.2778** (highest) | `gemsdoe32-h33-h33-2-b2-…-zeros.tif` | No · pixel-exact subset of GEMSDOE25 | No |
+| GEMSDOE33 | 0.2632 | `GEMSDOE33-h33d-analog-tip-stepover-r30-…tif` | No · 99.7% vs GEMSDOE27 | No |
+| GEMSDOE36 | 0.2750 | `gemsdoe36-anderson-geothermal-pinn-38854-…-zeros.tif` | No · 97.6% vs GEMSDOE27 | No |
 
-All nine focus-site variants share &gt;97% dot overlap within 3 px with at least one other focus site — none is unique under the parallel-run lane rule. The unique submission above (SPARSE-BLIND-CONDUIT) is the recommended file to download and submit.
+**Why 0.2778 scored highest, in one paragraph:** GEMSDOE32 is GEMSDOE25's 44,090-dot set minus the 6,436 dots within 2 px of the known catalogue (pixel-exact; [receipt](docs/data/gate-and-lineage-recheck.json)). Under the metric, removing a dot raises DTI only if its hit probability is below α·DTI, about 5.2% here. So the gain means those removed dots were low-yield for new faults. This is an inference from user-reported scores, not a measurement.
+
+**Public leaderboard (fetched 2026-10-30):** top score 0.4544 ([DrivenData leaderboard](https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/)). Your brief's 0.4413 and 0.3195 figures are older or different snapshots; see IRREGULARITIES IR-S-08.
 
 ---
 
