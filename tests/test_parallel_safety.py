@@ -103,9 +103,9 @@ def test_current_lattice_witness_receipt_and_safety_notice():
     for page in ['hvfd-exp3.html']:
         assert 'DO NOT SUBMIT' in (ROOT / 'docs' / page).read_text().upper()
     # Policy change 2026-10-30: a candidate now exists that passes the format gate, the
-    # lane gate and a blocked holdout, so the desk advertises one and only one approved
-    # download. The fail-closed language is retained for every research artifact, and the
-    # absence of an organizer receipt must still be stated on both pages.
+    # genuine-peer lane gate and a blocked holdout, so the desk advertises one and only one
+    # approved download. The failing lattice clause is disclosed on both pages, and the
+    # absence of an organizer receipt must still be stated.
     index = (ROOT / 'docs' / 'index.html').read_text()
     execu = (ROOT / 'docs' / 'executive-summary.html').read_text()
     assert 'OK to download and submit' in index
@@ -113,6 +113,7 @@ def test_current_lattice_witness_receipt_and_safety_notice():
     assert 'BLOCKED — DO NOT SUBMIT YET' not in index
     assert 'MODEL ESTIMATE' in execu
     assert 'research only' in execu.lower()
+    assert 'lattice' in execu.lower() and '99.37' in execu
     assert 'DO NOT SUBMIT' in (ROOT / 'docs' / 'hvfd-exp3.html').read_text().upper()
     # Exactly one promoted card may exist across all downloads.
     promoted = [c for c in

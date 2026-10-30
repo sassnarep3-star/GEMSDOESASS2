@@ -155,6 +155,30 @@ Negative results are deliverables: **raw pointwise geophysics is a weak fault pr
 
 ---
 
+### 6. Full-corpus uniqueness verification (parallel session, 2026-10-30)
+
+Every public GEMS-named repository was mirrored (113 repos listed in
+[`research/gems_site_repos.txt`](research/gems_site_repos.txt); 112 fetched at default-branch
+HEAD, 3,569 GeoTIFFs) and every competition-shaped raster (2,282 unique files) compared with
+the shared gate, which this session hardened: corrupt-TIFF resilience, probe classification by
+**measured dot density** (103 dense masks and probability surfaces saturate the 70% rule at
+100% and were invisible to the name heuristic), and self-twin exclusion by content identity
+([receipt](evidence/focus_uniqueness_full_registry_20261030.json)).
+
+- **The promoted strain-ridge file holds up:** worst genuine peer 25.8% (the champion lineage)
+  and 15.5% versus GEMSDOE86 `gmc-linepost-90568d`; its only >70% hits are the space-filling
+  r13 lattice (99.37%) and a 311,617-dot density artefact (99.86%).
+- **The earlier sparse-blind candidate is withdrawn:** its worst genuine peer in the full corpus
+  is 98.41% (GEMSDOE86 `gmc-linepost-90568d`), and it fails the lattice clause at 99.74% —
+  its run card is `verdict: negative` ([card](evidence/unique_run_card_cc522684.json)).
+- **The literal lattice clause is unsatisfiable for interior placements.** Only 6,649 of the
+  5,167,373 footprint cells lie more than 3 px from the lattice, every one within 2.24 px of
+  the study-area border ([recheck](evidence/lattice_gate_recheck_20261030.json)). The corpus's
+  three "lattice-avoiding" files reach 0% lattice overlap only with **100% of their dots on the
+  border** — so the clause measures border-hugging, not duplication (IR-30-12).
+- Nine-site lineage re-verified on pinned bytes: GEMSDOE32 is an exact subset of GEMSDOE25;
+  GEMSDOE25 and GEMSDOE30 have identical dot sets ([matrix](evidence/focus_pairwise_matrix_20261030.json)).
+
 ## Competition & data (official links for manual review)
 
 - Competition: <https://www.drivendata.org/competitions/306/competition-doe-gems/> · [problem description](https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/) · [about](https://www.drivendata.org/competitions/306/competition-doe-gems/page/968/) · [data (login)](https://www.drivendata.org/competitions/306/competition-doe-gems/data/) · [leaderboard](https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/)
@@ -199,6 +223,7 @@ python scripts/assemble_submission_audit.py --stem <stem> --run-card evidence/st
 - Holdout: [`strain_ridge_holdout.json`](evidence/strain_ridge_holdout.json) · [`strain_ridge_ci.json`](evidence/strain_ridge_ci.json) · [`strain_ridge_sep_sweep.json`](evidence/strain_ridge_sep_sweep.json)
 - Gates: [`strain_ridge_uniqueness.json`](evidence/strain_ridge_uniqueness.json) · [`score_estimate.json`](evidence/score_estimate.json) · [`validator`](evidence/validator-gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.json)
 - Irregularities ledger: [`IRREGULARITIES.md`](IRREGULARITIES.md)
+- Full-corpus verification: [`focus_uniqueness_full_registry_20261030.json`](evidence/focus_uniqueness_full_registry_20261030.json) · [`lattice_gate_recheck_20261030.json`](evidence/lattice_gate_recheck_20261030.json) · [`focus_pairwise_matrix_20261030.json`](evidence/focus_pairwise_matrix_20261030.json) · [session review](research/2026-10-30-session-review.md)
 
 ---
 

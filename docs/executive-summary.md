@@ -48,3 +48,5 @@ Full detail: [front page](index.html) · [how to submit](executive-summary.html)
 - **Ledger:** IR-S-23 … IR-S-33 added to
   [`IRREGULARITIES.md`](https://github.com/sassnarep3-star/GEMSDOESASS2/blob/main/IRREGULARITIES.md).
 
+
+**Full-corpus verification (2026-10-30).** All 113 public GEMS-named repositories were mirrored (2,282 unique competition-shaped rasters) and compared with the shared gate. The promoted file's worst genuine peer is 25.8% (the champion lineage); the only >70% hits are space-filling density artefacts (the r13 lattice at 99.37% and a 311,617-dot raster at 99.86%). The corpus's three "lattice-avoiding" files pass the literal clause only with 100% of dots on the study-area border. Receipts: [full-registry scan](https://github.com/sassnarep3-star/GEMSDOESASS2/blob/main/evidence/focus_uniqueness_full_registry_20261030.json) · [lattice recheck](https://github.com/sassnarep3-star/GEMSDOESASS2/blob/main/evidence/lattice_gate_recheck_20261030.json).
