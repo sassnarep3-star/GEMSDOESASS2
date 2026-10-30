@@ -39,7 +39,9 @@
     "lattice_recheck_receipt": "evidence/lattice_gate_recheck_20261030.json",
     "full_registry_receipt": "evidence/focus_uniqueness_full_registry_20261030.json",
     "focus_sites_receipt": "evidence/focus_pairwise_matrix_20261030.json",
-    "superseded_claims": "This card previously reported passes_lane=true and max_abs_spearman=0.0083. Both are withdrawn (IR-30-01, IR-30-04): the lane pass depended on a name-based probe exemption and the Spearman figure is not reproducible from the saved bytes with the shared tool."
+    "superseded_claims": "This card previously reported passes_lane=true and max_abs_spearman=0.0083. Both are withdrawn (IR-30-01, IR-30-04): the lane pass depended on a name-based probe exemption and the Spearman figure is not reproducible from the saved bytes with the shared tool.",
+    "passes_lane": false,
+    "passes_lane_note": "legacy key retained for the blocked-card vocabulary: the lane decision for this card is FAIL because the literal lattice clause fails (99.7428%). Genuine-peer gates pass only in the 18-raster focus scope."
   },
   "raster_sha256": "65e3a775ad8b3fd3f3c55a501c84d48d05554219065cad69fa9ebfb54d572661",
   "validator_output": {
@@ -97,5 +99,44 @@
     "No organizer submission receipt - ORGANIZER-CONFIRMED scores unavailable.",
     "The literal lane rule is unsatisfiable for interior placements (see evidence/lattice_gate_recheck_20261030.json); an owner ruling is required before any candidate can clear it.",
     "Weekly slot allowance unknown - promotion to a real slot is a separate selector decision; no slot was spent."
-  ]
+  ],
+  "reverification_2026-10-30": {
+    "sha256_zeros": "65e3a775ad8b3fd3f3c55a501c84d48d05554219065cad69fa9ebfb54d572661",
+    "sha256_nan": "ea9fca4c9b66df4a7ce6335e5d221c6a9f9702404379402ae19d4b0a76578585",
+    "outside_encoding": {
+      "zeros": "raw 0 outside the footprint with a TIFF internal mask (NewSubfileType=4); nodata tag absent",
+      "nan": "NaN outside; nodata tag NaN"
+    },
+    "range_guard_whole_array_0_1": {
+      "zeros": true,
+      "nan": false,
+      "note": "NaN outside fails a naive whole-array range test; this is the likeliest mechanism for a reported \"must be in range [0, 1]\" error if a NaN file was uploaded (inference, not confirmed)."
+    },
+    "max_overlap_vs_nine_focus_sites_excluding_self_twin": {
+      "value": 0.3026,
+      "peer": "GEMSDOE27",
+      "source": "docs/data/focus-sites-verified.json"
+    },
+    "max_abs_spearman_vs_nine_focus_sites_excluding_self_twin": {
+      "value": 0.0036,
+      "note": "sampled, n=400k seed 20261030; the earlier 0.0083 used a different scope"
+    },
+    "max_overlap_vs_all_measured_rasters_excluding_self_twin": {
+      "value": 0.4129,
+      "peer": "gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif"
+    },
+    "lattice_overlap_3px": 0.997428,
+    "holdout_dti": "NOT RUN. The candidate generator uses the full catalogue, so a valid hide-and-recover test needs a visible-only regeneration.",
+    "organizer_receipt": null,
+    "user_reported_score_for_this_file": null,
+    "max_overlap_vs_full_public_corpus_excluding_self_twin": {
+      "value": 0.984118,
+      "peer": "buffedlizard55-lab/GEMSDOE86 gems86-gmc-linepost-90568d-20261022T222859Z-900ceac1-zeros.tif (90,568 dots)",
+      "source": "evidence/focus_uniqueness_full_registry_20261030.json",
+      "note": "genuine gate (dense space-filling rasters excluded by measured density, IR-30-10); fails the 70% limit"
+    },
+    "self_twin_excluded": "gemsdoesass2-sparse-blind-conduit-22163-...-cc522684-nan.tif (identical in-footprint content; excluded by content identity)"
+  },
+  "status": "blocked-owner-ruling",
+  "download_available": true
 }

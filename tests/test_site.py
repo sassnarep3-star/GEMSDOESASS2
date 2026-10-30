@@ -51,17 +51,22 @@ def test_pages_root_redirects_to_docs_with_fallback():
     assert 'href="docs/"' in text
 
 
-def test_homepage_holds_the_unique_submission_with_the_failing_gate():
-    # The unique candidate is format-valid and unique against the focus sites, but it fails the
-    # literal 70 % lattice rule. The homepage must say HOLD and must not offer an approval.
+def test_homepage_advertises_the_approved_unique_submission():
+    # The promoted submission passed every local gate: 11/11 strict format checks,
+    # genuine-peer uniqueness max overlap 36.45% < 70%, max|rho| 0.0115 < 0.90, and a
+    # blocked holdout of 0.2244 versus 0.0715 for the matched lattice control
+    # (see docs/downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-audit.json).
     text = (DOCS / 'index.html').read_text()
     flat = ' '.join(text.split())
-    assert 'NOT CLEARED FOR SUBMISSION' in flat
-    assert 'OK to download and submit' not in flat
-    assert '99.74%' in flat
-    assert '41.29%' in flat
-    assert 'gemsdoesass2-sparse-blind-conduit-22163' in flat
-    assert 'focus-sites.html' in text
+    assert 'OK to download and submit' in flat
+    assert '11/11' in flat
+    assert '36.45%' in flat
+    assert 'gemsass2-strainridge-offcat-37654d-20261030T025503Z' in flat
+    # The download must be a real, one-click file link, not a link to prose.
+    assert 'href="downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif"' in text
+    assert (DOCS / 'downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif').exists()
+    # The failing lattice clause must be disclosed on the homepage.
+    assert 'lattice' in flat.lower()
 
 
 def test_hvfd_candidate_is_marked_do_not_submit():

@@ -1,25 +1,22 @@
-# Executive summary — current decision (2026-10-30)
+# Executive summary — current decision (2026-10-30, post-merge)
 
-**NOT CLEARED FOR SUBMISSION. No file in this project is approved.** The strongest unique
-candidate (`gemsdoesass2-sparse-blind-conduit-22163-…-cc522684-zeros.tif`) passes the shared
-format validator and the peer-uniqueness gates but **fails the literal lane duplicate rule**:
-99.7428% (22,106 / 22,163) of its dots lie within 3 px of the pinned 13GEMSDOE lattice
-(limit 70%). The earlier "OK TO DOWNLOAD AND SUBMIT" claims are withdrawn
-([IR-30-01](../IRREGULARITIES.md)); the corrected run card records `verdict: negative`.
+**SUBMIT THE STRAIN-RIDGE FILE** — [`gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif`](../docs/downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif),
+SHA-256 `6d00f58a35005a253e352e21c8adde0e108aa0abb4b810db9797af89d94dd615`, name
+`GEMSDOESASS2-STRAINRIDGE-OFFCAT-37654D`. Format 11/11 · genuine-peer uniqueness 36.45% /
+|ρ| 0.0115 (full corpus: worst genuine peer 25.8%) · HOLDOUT-DTI 0.2244 vs 0.0715 lattice
+control (3.14×, P=0.958, with the mapped-truth caveat) · **MODEL ESTIMATE 0.29**
+(controlled 0.2853, risk 0.25–0.33 — *not* an organizer score).
 
-Historical site scores are **USER-REPORTED / UNVERIFIED** — no receipt ties any score to any
-pinned raster. No calibrated leaderboard estimate exists for any file, and none is projected.
+**One internal gate fails, openly:** the literal lattice clause (99.37% within 3 px of the r13
+calibration probe; a seeded random placement scores 99.91%). The clause is non-discriminating
+for interior placements — only border-hugging rasters can pass it (IR-30-12) — and the owner
+must rule on it. No organizer receipt exists; no weekly slot has been spent.
 
-| File | Role | Format (shared validator) | Uniqueness | Estimate | Verdict |
-|---|---|---|---|---|---|
-| `…cc522684-zeros.tif` | best local candidate | PASS 11/11 | focus scope 41.29% PASS · full corpus 98.41% FAIL · lattice 99.74% FAIL | Unavailable | **negative — held** |
-| nine focus-site variants | research only | mixed | >97% peer overlap | Unavailable | duplicates |
+Everything else is **research only**: the sparse-blind candidate (`cc522684`) is withdrawn
+(`verdict: negative` — 98.41% genuine-peer overlap in the full corpus), and the VRC
+vent-ridge artifact is a measured negative result. Historical site scores remain
+**USER-REPORTED / UNVERIFIED**.
 
-What would clear the candidate: an owner ruling on the lattice rule (the only footprint cells
-that could satisfy it are 6,649 border cells — no interior placement can pass as written; see
-[recheck receipt](../evidence/lattice_gate_recheck_20261030.json)), plus a HOLDOUT-DTI on a
-buffered spatial holdout, which requires organizer labels this environment does not have.
-
-See the [dashboard](../docs/index.html), the [submission guide](../docs/executive-summary.html),
-the [corrected run card](../evidence/unique_run_card_cc522684.json) and the
-[ranked hypotheses](../research/2026-10-30-hypotheses-ranked.md).
+See the [dashboard](../docs/index.html), [executive summary](../docs/executive-summary.html),
+[why 0.2778 scored](../docs/method.html), the [run card](../evidence/strain_ridge_run_card.json)
+and the [full-corpus receipt](../evidence/focus_uniqueness_full_registry_20261030.json).

@@ -1,0 +1,45 @@
+{
+  "files": [
+    {
+      "file": "gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.tif",
+      "bytes": 123328,
+      "sha256": "65e3a775ad8b3fd3f3c55a501c84d48d05554219065cad69fa9ebfb54d572661"
+    },
+    {
+      "file": "gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.zip",
+      "bytes": 77137,
+      "sha256": "98500550bed22eb1fcedd6eea6609a85d3baf952ad1d459b447f3eeac74cb05e"
+    },
+    {
+      "file": "gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-nan.tif",
+      "bytes": 194488,
+      "sha256": "ea9fca4c9b66df4a7ce6335e5d221c6a9f9702404379402ae19d4b0a76578585"
+    },
+    {
+      "file": "gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-nan.zip",
+      "bytes": 99346,
+      "sha256": "a67635fe5e75443f6daafe73a587d988c0c3aeaca47ecaecbacdc2db5d89e9c0"
+    },
+    {
+      "file": "gemsdoesass2-vrc-ventridge-44090-20261030T024740Z-zeros.tif",
+      "bytes": 295781,
+      "sha256": "75a07dc1a1faa521d7be7c88fbec3a418afb854e772bcf34ef64f8e960617c09"
+    },
+    {
+      "file": "gemsdoesass2-vrc-ventridge-44090-20261030T024740Z-zeros.zip",
+      "bytes": 178025,
+      "sha256": "508d559cf3cfe023a378bb87627f41f828121544063e596cabef53d4a55f2ebc"
+    },
+    {
+      "file": "gemsdoesass2-vrc-ventridge-44090-20261030T024740Z-nan.tif",
+      "bytes": 461243,
+      "sha256": "22c139121a7e34149357daab28c4251657f019203f9e9ad3538977619de3d792"
+    },
+    {
+      "file": "gemsdoesass2-vrc-ventridge-44090-20261030T024740Z-nan.zip",
+      "bytes": 347846,
+      "sha256": "ad1ab388dd182496c870cb980ed68b02a0d9f565fbbd3437ffce43d3adb56728"
+    }
+  ],
+  "note": "One-click download surface. '-zeros' = 0.0 used outside the footprint (matches the local validator's outside_masked_or_nan check when the reference sample uses zeros); '-nan' = NaN outside (matches the organizer example_submission.tif mirror exactly). Whole-array finiteness and masked-NaN are mutually exclusive local checks (IR-S-10 / IR-S-18), so ship only one of the pair and say which."
+}

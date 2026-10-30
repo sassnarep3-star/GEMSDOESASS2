@@ -1,0 +1,252 @@
+{
+  "rows": [
+    {
+      "name": "parent_d2-8(44090)",
+      "dots": 44090,
+      "pooled": 0.09674,
+      "detached": 0.09432,
+      "n_truth": 22232,
+      "ci": [
+        0.08416,
+        0.10953
+      ],
+      "ci_det": [
+        0.07925,
+        0.10983
+      ]
+    },
+    {
+      "name": "learned_topk_11000",
+      "dots": 8028,
+      "pooled": 0.0098,
+      "detached": 0.00891,
+      "n_truth": 22232,
+      "ci": [
+        0.0068,
+        0.01334
+      ],
+      "ci_det": [
+        0.00606,
+        0.01243
+      ],
+      "paired_delta_vs_parent": {
+        "mean": -0.08655,
+        "ci95": [
+          -0.10093,
+          -0.07364
+        ],
+        "p_gt0": 0.0,
+        "positive_95": false,
+        "detached_mean": -0.08488,
+        "detached_ci95": [
+          -0.10099,
+          -0.06991
+        ]
+      }
+    },
+    {
+      "name": "learned_topk_22163",
+      "dots": 15880,
+      "pooled": 0.01498,
+      "detached": 0.0134,
+      "n_truth": 22232,
+      "ci": [
+        0.01109,
+        0.01937
+      ],
+      "ci_det": [
+        0.00981,
+        0.01784
+      ],
+      "paired_delta_vs_parent": {
+        "mean": -0.08141,
+        "ci95": [
+          -0.0957,
+          -0.06834
+        ],
+        "p_gt0": 0.0,
+        "positive_95": false,
+        "detached_mean": -0.08044,
+        "detached_ci95": [
+          -0.09646,
+          -0.06539
+        ]
+      }
+    },
+    {
+      "name": "learned_topk_30000",
+      "dots": 21420,
+      "pooled": 0.0168,
+      "detached": 0.01493,
+      "n_truth": 22232,
+      "ci": [
+        0.01251,
+        0.0216
+      ],
+      "ci_det": [
+        0.01089,
+        0.0196
+      ],
+      "paired_delta_vs_parent": {
+        "mean": -0.0796,
+        "ci95": [
+          -0.09336,
+          -0.06665
+        ],
+        "p_gt0": 0.0,
+        "positive_95": false,
+        "detached_mean": -0.07891,
+        "detached_ci95": [
+          -0.09491,
+          -0.06394
+        ]
+      }
+    },
+    {
+      "name": "learned_topk_44090",
+      "dots": 31550,
+      "pooled": 0.0213,
+      "detached": 0.01893,
+      "n_truth": 22232,
+      "ci": [
+        0.01638,
+        0.02674
+      ],
+      "ci_det": [
+        0.0144,
+        0.02401
+      ],
+      "paired_delta_vs_parent": {
+        "mean": -0.07514,
+        "ci95": [
+          -0.0885,
+          -0.06206
+        ],
+        "p_gt0": 0.0,
+        "positive_95": false,
+        "detached_mean": -0.07497,
+        "detached_ci95": [
+          -0.09102,
+          -0.06018
+        ]
+      }
+    },
+    {
+      "name": "learned_topk_60000",
+      "dots": 43206,
+      "pooled": 0.02391,
+      "detached": 0.02064,
+      "n_truth": 22232,
+      "ci": [
+        0.01888,
+        0.02927
+      ],
+      "ci_det": [
+        0.01583,
+        0.02574
+      ],
+      "paired_delta_vs_parent": {
+        "mean": -0.07252,
+        "ci95": [
+          -0.08615,
+          -0.05936
+        ],
+        "p_gt0": 0.0,
+        "positive_95": false,
+        "detached_mean": -0.07325,
+        "detached_ci95": [
+          -0.08941,
+          -0.05832
+        ]
+      }
+    },
+    {
+      "name": "learned_topk_90000",
+      "dots": 65517,
+      "pooled": 0.02637,
+      "detached": 0.02218,
+      "n_truth": 22232,
+      "ci": [
+        0.02132,
+        0.03186
+      ],
+      "ci_det": [
+        0.01757,
+        0.02706
+      ],
+      "paired_delta_vs_parent": {
+        "mean": -0.07006,
+        "ci95": [
+          -0.0838,
+          -0.05686
+        ],
+        "p_gt0": 0.0,
+        "positive_95": false,
+        "detached_mean": -0.0717,
+        "detached_ci95": [
+          -0.08721,
+          -0.05734
+        ]
+      }
+    },
+    {
+      "name": "learned_topk_sep2.0_22163",
+      "dots": 15880,
+      "pooled": 0.01498,
+      "detached": 0.0134,
+      "n_truth": 22232,
+      "ci": [
+        0.01109,
+        0.01937
+      ],
+      "ci_det": [
+        0.00981,
+        0.01784
+      ],
+      "paired_delta_vs_parent": {
+        "mean": -0.08141,
+        "ci95": [
+          -0.0957,
+          -0.06834
+        ],
+        "p_gt0": 0.0,
+        "positive_95": false,
+        "detached_mean": -0.08044,
+        "detached_ci95": [
+          -0.09646,
+          -0.06539
+        ]
+      }
+    },
+    {
+      "name": "learned_topk_sep2.0_44090",
+      "dots": 31550,
+      "pooled": 0.0213,
+      "detached": 0.01893,
+      "n_truth": 22232,
+      "ci": [
+        0.01638,
+        0.02674
+      ],
+      "ci_det": [
+        0.0144,
+        0.02401
+      ],
+      "paired_delta_vs_parent": {
+        "mean": -0.07514,
+        "ci95": [
+          -0.0885,
+          -0.06206
+        ],
+        "p_gt0": 0.0,
+        "positive_95": false,
+        "detached_mean": -0.07497,
+        "detached_ci95": [
+          -0.09102,
+          -0.06018
+        ]
+      }
+    }
+  ],
+  "evaluator": "GEMSDOE32-HIDE-RECOVER-v3.0"
+}

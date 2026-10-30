@@ -1,6 +1,17 @@
 # Geological hypotheses — ranked, 2026-10-30 session
 
-Status of every hypothesis below: **UNTESTED**. None is a score, a projection, or a claim of
+> **Post-merge reconciliation (2026-10-30, after PR #27/#28 landed).** A parallel session's
+> hypothesis register (README §5) reports: magnetic tilt-derivative **tested negative**
+> (ridge alone 0.0396 vs 0.0489 uniform) and radiometric Th/K point values **tested negative**
+> (point AUC 0.44–0.48, `evidence/exp1_halo_geometry.json` + register). The H2/H3 rows below
+> are therefore superseded in their *point-value* forms; the **edge-concordance** variant of H1
+> (Th/K corridor edges requiring a second structural edge) is not covered by that test and
+> remains untried but is demoted accordingly. The register's H4 (2-m probe temperature residual
+> kriging, INGENIOUS shallow-temperature archive — public and unused) is the strongest remaining
+> lead and now outranks everything below. Use this file for mechanisms and data-source
+> verification; use the README register for tested status.
+
+Status of every hypothesis below: **UNTESTED** (see reconciliation above where this differs). None is a score, a projection, or a claim of
 superiority. Each entry names the layer(s), the physical signature, why it should catch a fault
 missing from the USGS/INGENIOUS catalogue, how it differs from anything in this repository, the
 non-fault mimic, the data source with an official link, and the cost. Ranking is by expected

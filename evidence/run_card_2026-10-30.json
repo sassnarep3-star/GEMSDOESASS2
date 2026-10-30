@@ -1,0 +1,38 @@
+{
+  "hypothesis": "No new hypothesis tested in this session. Candidate under review: off-catalogue blind-conduit sparse set (H3 above).",
+  "mechanism": "Dots placed off the known catalogue, preferring damage-zone flanks, inside a smooth geothermal prior.",
+  "named_non_fault_process": "Alluvial-fan toes, paleo-shoreline benches and terrace risers can mimic scarps.",
+  "holdout_dti": {
+    "label": "HOLDOUT-DTI",
+    "status": "NOT RUN",
+    "evaluator_version": null,
+    "withheld_positives": null,
+    "dti": null,
+    "ci95": null,
+    "blocker": "scripts/evaluate_holdout.py is a fail-closed legacy stub (exit 2)"
+  },
+  "leakage_canary": {
+    "status": "NOT RUN",
+    "max_auc": null
+  },
+  "correlation_overlap_vs_registry": {
+    "max_overlap_3px_all_measured_rasters_excl_self": 0.4129,
+    "max_overlap_3px_nine_focus_sites": 0.3026,
+    "lattice_13GEMSDOE_overlap_3px": 0.9974,
+    "max_abs_spearman_sampled": 0.0191,
+    "passes_lattice_rule": false,
+    "passes_other_rules": true
+  },
+  "raster_sha256": "65e3a775ad8b3fd3f3c55a501c84d48d05554219065cad69fa9ebfb54d572661",
+  "validator_output": {
+    "format_official_literal": "pass (EPSG 32611, 100 m, float32, one band, shape and transform match)",
+    "values_in_0_1_whole_array": true,
+    "outside_encoding": "raw 0 with TIFF internal mask (NewSubfileType 4); no nodata tag",
+    "nan_inside_footprint": 0
+  },
+  "submission_name": "GEMSDOESASS2-SPARSE-BLIND-CC522684",
+  "submission_note": "GEMSDOESASS2 sparse-blind-conduit 22163d B=2 sep3 | off-catalogue blind faults | cc522684 | research",
+  "submission_note_chars": 100,
+  "verdict": "negative",
+  "verdict_reason": "Blocked: fails the protocol's lattice rule (99.74%). Not promoted. Owner ruling required. No slot used."
+}

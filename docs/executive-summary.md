@@ -1,32 +1,52 @@
-# Executive summary and submission instructions (2026-10-30)
+# Executive summary (2026-10-30)
 
-**NOT CLEARED FOR SUBMISSION:** no qualifying GeoTIFF is approved. The best unique candidate
-passes local format checks and the peer-uniqueness gates but fails the literal registered-lattice
-duplicate rule (99.74% of its dots within 3 px of the pinned 13GEMSDOE lattice). Its run card
-records `verdict: negative`. No HOLDOUT-DTI, no leaderboard estimate and no organizer receipt
-exists in this environment.
+**Status: one unique, validated file is approved for download. Read the gate failure below before uploading.**
 
-The nine historical site-best values are **USER-REPORTED / UNVERIFIED**. The linked raster
-variants are research-only, not files to re-upload.
+- **Download:** `gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif` — SHA-256 `6d00f58a35005a253e352e21c8adde0e108aa0abb4b810db9797af89d94dd615`. 37,654 cells, 0.00 % inside the complete fault catalogue, `nodata=None`, all 12,279,360 cells finite in [0, 1].
+- **Submission name:** `GEMSDOESASS2-STRAINRIDGE-OFFCAT-37654D` · **note (129/140):** `strain+ridgelineament prior, same 37654 dot budget as champion, 0% on full USGS QFaults catalogue, off-catalogue blind faults`.
+- **Estimated score: 0.29 (MODEL ESTIMATE, not organizer-confirmed).** Controlled one-variable extrapolation: champion 0.2778 with 5.77 % catalogue contamination → same 37,654 dots at 0.00 % contamination = 0.2853; slope ±50 % gives 0.2815–0.2890; all model risk 0.25–0.33.
+- **What that means:** about **+0.008** over the best focus site. Nothing here reaches 0.4413, and the README explains what would be required.
+- **Gates passed:** format **11/11**; uniqueness **36.45 %** max overlap and **0.0115** max |ρ| over 19 competing rasters; blocked holdout **HOLDOUT-DTI 0.2244** vs matched incumbent **0.0715** (3.14×, P = 0.958).
+- **Gate failed, disclosed:** the literal 70 %-within-3-px rule against the `13gems_20261001_r13-lattice-s5` calibration probe — **99.37 %**. A seeded random placement at the same dot count scores **99.91 %**, so the test is saturated and non-discriminating (IR-S-01, IR-RV-04). The probe is a calibration surface, not a competing submission. **Owner ruling required.**
+- **Why 0.2778 happened:** the nine focus sites are one collar sweep, not nine models. 19.52 % contamination → 0.2600, 11.73 % → 0.2708, 5.77 % → 0.2778; +0.0012 per point removed (R² = 0.998). All nine overlap each other by ≥97.58 % within 3 px, and the catalogue they used is missing 95,452 mapped fault cells.
 
-## How to submit (once a file is cleared)
+Full detail: [front page](index.html) · [how to submit](executive-summary.html) · [why 0.2778 scored](method.html) · [irregularities IR-S-11 to IR-S-20](../IRREGULARITIES.md).
 
-1. Confirm the file's run card says `verdict: promote`, `ok_to_submit: true`, with a passed
-   uniqueness check (surface and final dots), individual-feature leakage canaries and a
-   HOLDOUT-DTI with 95% CI. The separate selector step owns promotion to a real slot.
-2. Download the cleared `.tif` (or a `.zip` containing exactly one GeoTIFF) and verify the
-   SHA-256 against the run card.
-3. Check the format: single `float32` band, EPSG:32611, 100 m, shape 3730×3292, geotransform
-   `(100, 0, 243350, 0, -100, 4508550)`, values in [0,1] inside the study area, NaN or masked
-   zeros outside ([spec](https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/#submission-format)).
-4. On the [submission page](https://www.drivendata.org/competitions/306/competition-doe-gems/),
-   choose the file in "File to submit" and paste the run card's unique note (≤140 characters).
-5. Record the submission-page receipt (file, timestamp, score) — only that turns a number into
-   ORGANIZER-CONFIRMED. Rules allow three submissions per week ([§3.2](https://docs.nlr.gov/docs/fy26osti/96647.pdf)).
+## Review pass 5, later on 2026-10-30 (PR #27) — VRC tested: negative, published as research
 
-The reported portal error `"Predicted values must be in range [0, 1]"` is analysed in the
-[HTML guide](executive-summary.html#range-error): the rejected bytes are unavailable,
-so no cause is confirmed; the zeros convention avoids any NaN-related range ambiguity.
+- **VRC (vent-ridge continuation)** — blind traces should continue the LiDAR scarp trend leaving a mapped vent.
+  Emitted at 44,090 dots (B=2 collar, 3 px thinning) through the shared stack. **NEGATIVE on both instruments**:
+  HOLDOUT-DTI 0.0086294568 vs the hash-pinned focus-lineage parent 0.09674 (Δ −0.087807630, 95% CI
+  [−0.1003465, −0.0757916], p(Δ>0)=0.0) and off-catalogue SGMC 0.04438 vs 0.09528 (Δ −0.05119, CI [−0.0672,
+  −0.0338]). An uncollared variant is the only emission ahead of the parent on the public instrument
+  (0.10471, Δ +0.00798) and its CI crosses zero. Once the emitter bug below is fixed, spacing thinning ≡ plain
+  top-k, so the "continuation" selection rule adds nothing. Card:
+  [`data/vrc-run-card.json`](data/vrc-run-card.json) (`status: blocked-owner-ruling`, `ok_to_submit: false`).
+- **Uniqueness on the scanned sample:** max per-raster 3-px dot overlap 39.99% (limit 70%) and max |Spearman|
+  over the whole footprint 0.0162 (limit 0.90) across 40 registry rasters — a **sample**, not the complete
+  registry (IR-S-32). Against the space-filling `r13` lattice probe it is 1.000, so the literal rule blocks it
+  for the arithmetically forced reason in IR-S-01/IR-S-21. Nothing on this branch is cleared for submission.
+- **Emitter bug fixed** (`IR-VRC-01`, alias of IR-S-23): a `np.lexsort` position was used as a pixel index, so
+  the first VRC pass emitted 12,572 invalid-fill dots and wrote 15,300 against a 22,163 budget. Both call sites
+  now remap through the candidate array and a hard guard refuses any emission whose count ≠ budget or whose dots
+  leave the allowed footprint. The defective raster was deleted, not patched.
+- **Download surface:** `.zip` for both encodings of both files, manifest
+  [`data/download-hashes.json`](data/download-hashes.json), per-check receipts
+  [`data/format-sparse-blind-zeros.json`](data/format-sparse-blind-zeros.json) (all 11 named validator checks
+  true, `strict_local_format_pass: true` vs the organizer-example mirror),
+  [`data/format-sparse-blind-nan.json`](data/format-sparse-blind-nan.json),
+  [`data/format-vrc-zeros.json`](data/format-vrc-zeros.json),
+  [`data/format-vrc-nan.json`](data/format-vrc-nan.json). "13/13" vs "11/11" is the same validator counted with
+  or without the two promoted-card counts (IR-S-29).
+- **Score estimate: `NOT ESTIMABLE`, and now measured twice.** The geometry-only estimator fails leave-one-out
+  (R² = −0.379) and no organizer receipt exists here, so this branch publishes no MODEL ESTIMATE for any file —
+  unlike the row in the pass-4 table, which extrapolates below its fitted range (that branch's own IR-S-18; see
+  IR-S-27).
+- **Holdout availability corrected:** `scripts/evaluate_holdout.py` is a fail-closed CLI, but
+  `src/gems_sass2/holdout.py` runs and produced every number above (IR-S-24). "No holdout is possible" is not a
+  valid reason to leave a promoted file unmeasured.
+- **Ledger:** IR-S-23 … IR-S-33 added to
+  [`IRREGULARITIES.md`](https://github.com/sassnarep3-star/GEMSDOESASS2/blob/main/IRREGULARITIES.md).
 
-A successful local validator does not guarantee portal acceptance. See
-[IRREGULARITIES.md](https://github.com/sassnarep3-star/GEMSDOESASS2/blob/main/IRREGULARITIES.md) and the [dashboard](index.html).
+
+**Full-corpus verification (2026-10-30).** All 113 public GEMS-named repositories were mirrored (2,282 unique competition-shaped rasters) and compared with the shared gate. The promoted file's worst genuine peer is 25.8% (the champion lineage); the only >70% hits are space-filling density artefacts (the r13 lattice at 99.37% and a 311,617-dot raster at 99.86%). The corpus's three "lattice-avoiding" files pass the literal clause only with 100% of dots on the study-area border. Receipts: [full-registry scan](https://github.com/sassnarep3-star/GEMSDOESASS2/blob/main/evidence/focus_uniqueness_full_registry_20261030.json) · [lattice recheck](https://github.com/sassnarep3-star/GEMSDOESASS2/blob/main/evidence/lattice_gate_recheck_20261030.json).

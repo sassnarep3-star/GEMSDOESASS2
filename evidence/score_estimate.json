@@ -1,0 +1,63 @@
+{
+  "label": "MODEL ESTIMATE \u2014 not organizer-confirmed",
+  "method": "controlled extrapolation at a fixed dot budget. The candidate carries the champion's 37,654 dots so the ONLY variable that differs is catalogue contamination, which the collar sweep measures directly. The strain prior is excluded because its holdout advantage is measured against mapped faults and the leaderboard ranks those in reverse (Spearman = -1.000).",
+  "candidate": {
+    "n_dots": 37654,
+    "contamination_pct": 0.0
+  },
+  "primary_controlled_estimate": {
+    "anchor": "GEMSDOE32, 37,654 dots, 5.77 % within 3 px, reported 0.2778",
+    "changed_variable": "contamination 5.77 % -> 0.00 %",
+    "slope_dti_per_pct": -0.0012991353400063506,
+    "estimate": 0.28529601091183665,
+    "range_slope_minus_50pct": 0.28904401636775495,
+    "range_slope_plus_50pct": 0.2815480054559183
+  },
+  "secondary_family_law": {
+    "model": "1/DTI = a*N + b",
+    "a": 1.7682047228016126e-05,
+    "b": 3.006164626824118,
+    "r_squared": 0.9113901816289525,
+    "valid_range_dots": [
+      37654,
+      61328
+    ],
+    "value_at_candidate_N": 0.272333792498839,
+    "unexplained_dti": 0.0042,
+    "note": "the law reproduces the champion only to +/-0.004; it is reported for context, not used for the headline"
+  },
+  "axis2_catalogue_contamination": {
+    "model": "DTI = c*contamination_pct + d, fitted on the controlled collar sweep",
+    "c": -0.0012991353400063506,
+    "d": 0.2855646634290117,
+    "r_squared": 0.9978903898131201,
+    "sweep": [
+      {
+        "dots": 44090,
+        "reported": 0.26,
+        "pct_le_3px": 19.52
+      },
+      {
+        "dots": 40199,
+        "reported": 0.2708,
+        "pct_le_3px": 11.73
+      },
+      {
+        "dots": 37654,
+        "reported": 0.2778,
+        "pct_le_3px": 5.77
+      }
+    ],
+    "note": "the candidate is at 0.00 % by construction: a 400 m collar against the COMPLETE 156,418-cell database, not the 60,988-cell bridge copy"
+  },
+  "headline": 0.29,
+  "model_risk_range": [
+    0.25,
+    0.33
+  ],
+  "what_is_not_claimed": [
+    "The 3.14x blocked-holdout advantage is NOT converted into score. Its truth is mapped traces; the leaderboard truth is unmapped faults and the two are anti-correlated (Spearman = -1.000). Converting it would be a category error.",
+    "No organizer receipt exists.",
+    "The gain over the champion is small (~+0.008) and the whole nine-site family sits in a narrow 0.245-0.278 band; nothing here reaches 0.4413."
+  ]
+}
