@@ -34,27 +34,19 @@ def test_github_pages_files_and_local_links_exist() -> None:
                 assert target.stat().st_size > 0, f"Empty asset '{attr_val}' in {page.name}"
 
 
-def test_unique_submission_is_advertised_with_validation() -> None:
+def test_archived_candidate_is_not_approved_for_submission() -> None:
     card = json.loads((DOCS / "data/run-card.json").read_text())
     index = (DOCS / "index.html").read_text()
     exec_html = (DOCS / "executive-summary.html").read_text()
-    # The unique submission run card (separate from the legacy negative card)
-    run_card = None
-    for p in DOCS.glob("downloads/*-audit.json"):
-        c = json.loads(p.read_text())
-        if c.get("verdict") == "promote" and c.get("ok_to_download_and_submit"):
-            run_card = c
-            break
-    assert run_card is not None, "No promoted unique submission run card found"
-    assert run_card["n_dots"] == 22163
+    # The archived candidate is explicitly negative; format/novelty subsets do not clear it.
+    run_card = json.loads((ROOT / "evidence/unique_run_card_cc522684.json").read_text())
+    assert run_card["verdict"] == "negative"
+    assert run_card["ok_to_download_and_submit"] is False
     assert run_card["validator_output"]["all_passed"] is True
-    assert run_card["correlation_overlap_vs_registry"]["passes_lane"] is True
-    assert len(run_card["submission_note_140"]) <= 140
-    # Homepage and executive summary advertise the download
-    assert "OK to download and submit" in index
-    assert "OK TO DOWNLOAD AND SUBMIT" in exec_html
-    assert run_card["raster_sha256"][:16] in exec_html
-    assert "downloads/gemsdoesass2-sparse-blind-conduit-22163" in exec_html
+    assert "raster_sha256" in run_card and run_card["raster_sha256"][:16] in exec_html
+    assert "DO NOT SUBMIT" in exec_html
+    assert "Download GeoTIFF" not in exec_html
+    assert "DO NOT SUBMIT" in exec_html
     # Research artifacts remain marked research only
     artifacts = (DOCS / "hvfd-exp3.html").read_text()
     assert "Research only" in artifacts and "DO NOT SUBMIT" in artifacts

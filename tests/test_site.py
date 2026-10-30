@@ -51,18 +51,12 @@ def test_pages_root_redirects_to_docs_with_fallback():
     assert 'href="docs/"' in text
 
 
-def test_homepage_advertises_the_approved_unique_submission():
-    # A unique submission has passed all local gates (13/13 format checks,
-    # uniqueness max overlap 41.29% < 70%, max|rho| 0.0083 < 0.90).
-    # The homepage must advertise the download-ready TIF without estimating a score.
+def test_homepage_fails_closed_without_required_gates():
     text = (DOCS / 'index.html').read_text()
-    flat = ' '.join(text.split())
-    assert 'Unique submission available' in flat
-    assert 'OK to download and submit' in flat
-    assert '13/13' in flat
-    assert '41.29%' in flat
-    assert 'gemsdoesass2-sparse-blind-conduit-22163' in flat
-    assert 'focus-sites.html' in text
+    assert 'Submission blocked' in text
+    assert 'DO NOT SUBMIT' in text
+    assert 'no compliant holdout' in text.lower()
+    assert 'Read decision &amp; evidence' in text
 
 
 def test_hvfd_candidate_is_marked_do_not_submit():
