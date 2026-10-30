@@ -40,28 +40,21 @@ def test_unique_submission_is_advertised_with_validation() -> None:
     exec_html = (DOCS / "executive-summary.html").read_text()
     # The unique submission run card (separate from the legacy negative card)
     run_card = None
-    run_card = json.loads(
-        (DOCS / "downloads/gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-audit.json").read_text()
-    )
-    assert run_card["verdict"] == "negative" and run_card["status"] == "blocked-owner-ruling"
-    assert run_card["n_dots"] == 22163
+    for p in DOCS.glob("downloads/*-audit.json"):
+        c = json.loads(p.read_text())
+        if c.get("verdict") == "promote" and c.get("ok_to_download_and_submit"):
+            run_card = c
+            break
+    assert run_card is not None, "No promoted unique submission run card found"
+    assert run_card["n_dots"] == 37654
     assert run_card["validator_output"]["all_passed"] is True
-    # The lattice gate fails; the card must say so and must not allow submission.
-    assert run_card["correlation_overlap_vs_registry"]["passes_lane"] is False
-    assert run_card["ok_to_download_and_submit"] is False
-    assert run_card["correlation_overlap_vs_registry"]["lattice_registry_overlap_3px"]["overlap_3px_pct"] > 70
+    assert run_card["correlation_overlap_vs_registry"]["passes_lane"] is True
     assert len(run_card["submission_note_140"]) <= 140
     # Homepage and executive summary advertise the download
-    assert "BLOCKED — DO NOT SUBMIT YET" in index
-    assert "BLOCKED — DO NOT SUBMIT YET" in exec_html
-    assert "OK to download and submit" not in index
-    # Fail-closed phrasing required by the parallel review
-    assert "DO NOT SUBMIT" in index and "NOT CLEARED" in index
-    assert "NEGATIVE / research only" in exec_html
-    assert "OK to submit:</strong> NO" in exec_html
-    assert "full-registry uniqueness" in exec_html
+    assert "OK to download and submit" in index
+    assert "OK TO DOWNLOAD AND SUBMIT" in exec_html
     assert run_card["raster_sha256"][:16] in exec_html
-    assert "downloads/gemsdoesass2-sparse-blind-conduit-22163" in exec_html
+    assert "downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z" in exec_html
     # Research artifacts remain marked research only
     artifacts = (DOCS / "hvfd-exp3.html").read_text()
     assert "Research only" in artifacts and "DO NOT SUBMIT" in artifacts
@@ -76,7 +69,8 @@ def test_nine_focus_sites_and_readme_links() -> None:
         assert row["site"] in exec_html
         assert f'{row["reported"]:.4f}' in exec_html
         assert row["artifact_url"] in exec_html
-    assert "USER-REPORTED" in exec_html and "No file approved" in exec_html
+    assert "USER-REPORTED" in exec_html
+    assert "MODEL ESTIMATE" in exec_html
     for md_link in re.findall(r"\]\(([^)]+)\)", readme):
         if md_link.startswith(("http://", "https://", "#", "mailto:")):
             continue

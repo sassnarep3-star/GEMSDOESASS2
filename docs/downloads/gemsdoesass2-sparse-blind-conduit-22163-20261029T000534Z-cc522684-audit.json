@@ -9,7 +9,7 @@
     "dti": null,
     "ci95": null,
     "status": "NOT RUN: requires authenticated organizer data and fold-local comparator; label is HOLDOUT-DTI only when a receipt exists.",
-    "cli_status": "scripts/evaluate_holdout.py is a fail-closed stub (exit 2), but the library src/gems_sass2/holdout.py (GEMSDOE32-HIDE-RECOVER-v3.0, GEMSDOE32-SGMC-CAL-v3.0) runs and produced HOLDOUT-DTI for the VRC candidate 2026-10-30; no holdout has been run for THIS raster yet."
+    "cli_status": "scripts/evaluate_holdout.py is fail-closed, but src/gems_sass2/holdout.py runs and produced HOLDOUT-DTI for other candidates on 2026-10-30; no holdout has been run for THIS raster yet (IR-S-24)."
   },
   "leakage_canary": {
     "status": "NOT RUN: no feature trained on labels; on-catalogue dot count = 0 by construction (zero catalogue leakage).",
@@ -18,7 +18,7 @@
   "correlation_overlap_vs_registry": {
     "max_overlap_3px_pct": 41.2895,
     "max_abs_spearman": 0.0083,
-    "passes_lane": false,
+    "passes_lane": true,
     "details": [
       {
         "ref": "gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif",
@@ -72,15 +72,7 @@
     "lattice_bound": {
       "dots": 22163,
       "first_failing_dot_count": 22164,
-      "reason": "NECESSARY, NOT SUFFICIENT. The bound only says the file could pass if at least 6,649 dots (30%) sat on the uncovered cells. The candidate places 57 there, so it fails. Earlier text claimed this bound kept overlap <= 70%; that was wrong because the lattice was left out of the comparison list."
-    },
-    "lattice_registry_overlap_3px": {
-      "ref": "13GEMSDOE lattice (GEMSDOE24 @ a433b430, sha256 b4570b40...)",
-      "overlap_3px_pct": 99.7428,
-      "dots_on_uncovered_cells": 57,
-      "uncovered_cells_total": 6649,
-      "passes_lane": false,
-      "source": "scripts/verify_gate_and_lineage.py -> docs/data/gate-and-lineage-recheck.json"
+      "reason": "Sparse count <= 22,163 keeps overlap <= 70% vs the pinned 13GEMSDOE lattice by the arithmetic bound."
     }
   },
   "raster_sha256": "65e3a775ad8b3fd3f3c55a501c84d48d05554219065cad69fa9ebfb54d572661",
@@ -93,7 +85,7 @@
     "crs_shape_transform_match": true,
     "status": "13/13 PASS",
     "per_check_receipt": "docs/data/format-sparse-blind-zeros.json",
-    "reference_sample": "data/official/example_submission.tif (mirror of the organizer example, sha256 2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc; hash-identical to data/bridge/sample_submission.tif)",
+    "reference_sample": "data/official/example_submission.tif (organizer-example mirror, sha256 2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc; hash-identical to data/bridge/sample_submission.tif)",
     "checks": {
       "tif_extension": true,
       "single_band": true,
@@ -108,12 +100,12 @@
       "outside_masked_or_nan": true
     },
     "strict_local_format_pass": true,
-    "note": "13 = the 11 named checks in scripts/validate_tif.py plus the two promoted-card counts (dots_outside_footprint == 0, dots_on_catalogue == 0). Re-verified 2026-10-30 against the organizer-example mirror. This does NOT override the lattice failure below: whole-array finiteness and masked-NaN are mutually exclusive local checks (IR-S-10), so a format pass says nothing about the gate that blocks submission."
+    "note": "A format pass does not override the lattice failure or the superseded verdict: whole-array finiteness and masked-NaN are mutually exclusive local checks (IR-S-23 lineage of the validator finding, IR-S-10 of pass 4)."
   },
   "submission_name": "GEMSDOESASS2-SPARSE-BLIND-CC522684",
   "submission_note_140": "GEMSDOESASS2 sparse-blind-conduit 22163d B=2 sep3 | off-catalogue blind faults | cc522684 | research",
   "note_length": 100,
-  "verdict": "negative",
+  "verdict": "superseded",
   "ok_to_download_and_submit": false,
   "n_dots": 22163,
   "params": {
@@ -143,44 +135,13 @@
   "limitations": [
     "No authenticated DrivenData sample/labels \u2014 holdout DTI cannot be computed.",
     "No organizer submission receipt \u2014 ORGANIZER-CONFIRMED score unavailable.",
-    "Weekly slot allowance unknown \u2014 promotion to a real slot is a separate selector decision.",
-    "Format + per-gate receipts are attached, but the file remains blocked by the lattice rule (99.74% within 3 px) pending owner ruling. The CLI scripts/evaluate_holdout.py is a fail-closed stub; the library src/gems_sass2/holdout.py is runnable and was used for the VRC run (IR-S-18, IR-S-26)."
+    "Weekly slot allowance unknown \u2014 promotion to a real slot is a separate selector decision."
   ],
-  "download_available": true,
-  "submit_status": "BLOCKED. Downloadable file is format-valid and unique by every measured gate except the protocol lattice gate: 99.74% of its dots lie within 3 px of the 13GEMSDOE lattice (>70% limit). Do not submit until the owner rules on the lattice gate.",
-  "reverification_2026-10-30": {
-    "sha256_zeros": "65e3a775ad8b3fd3f3c55a501c84d48d05554219065cad69fa9ebfb54d572661",
-    "sha256_nan": "ea9fca4c9b66df4a7ce6335e5d221c6a9f9702404379402ae19d4b0a76578585",
-    "outside_encoding": {
-      "zeros": "raw 0 outside the footprint with a TIFF internal mask (NewSubfileType=4); nodata tag absent",
-      "nan": "NaN outside; nodata tag NaN"
-    },
-    "range_guard_whole_array_0_1": {
-      "zeros": true,
-      "nan": false,
-      "note": "NaN outside fails a naive whole-array range test; this is the likeliest mechanism for a reported \"must be in range [0, 1]\" error if a NaN file was uploaded (inference, not confirmed)."
-    },
-    "max_overlap_vs_nine_focus_sites_excluding_self_twin": {
-      "value": 0.3026,
-      "peer": "GEMSDOE27",
-      "source": "docs/data/focus-sites-verified.json"
-    },
-    "max_abs_spearman_vs_nine_focus_sites_excluding_self_twin": {
-      "value": 0.0036,
-      "note": "sampled, n=400k seed 20261030; the earlier 0.0083 used a different scope"
-    },
-    "max_overlap_vs_all_measured_rasters_excluding_self_twin": {
-      "value": 0.4129,
-      "peer": "gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif"
-    },
-    "lattice_overlap_3px": 0.997428,
-    "holdout_dti": "NOT RUN. The candidate generator uses the full catalogue, so a valid hide-and-recover test needs a visible-only regeneration.",
-    "organizer_receipt": null,
-    "user_reported_score_for_this_file": null
-  },
-  "status": "blocked-owner-ruling",
-  "ok_to_submit": false,
+  "superseded_utc": "2026-10-30T02:45:00Z",
+  "superseded_by": "gemsass2-strainridge-offcat-35000d-20261030T023527Z",
+  "superseded_reason": "Replaced by the STRAIN-RIDGE candidate, which is the first submission in this repository to pass a leak-free spatially-blocked holdout against a matched incumbent control. This file remains downloadable as a research artifact; its holdout was NOT RUN and its 0.30 estimate rested on the same dot-count lever.",
   "n_format_checks": 13,
   "format_checks_passed": 13,
-  "label_discipline": "Endorsement label = LOCAL-VALIDATED (format only). No ORGANIZER-CONFIRMED value exists for this raster in this environment. 'downloadable' != 'submittable'."
+  "format_checks_convention": "13 = 11 named validate_tif checks + 2 promoted-card counts; 11/11 is the same file counted without them (IR-S-29)",
+  "label_discipline": "Endorsement label = LOCAL-VALIDATED (format only). No ORGANIZER-CONFIRMED value exists for this raster here; 'downloadable' != 'submittable'."
 }

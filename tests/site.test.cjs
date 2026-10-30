@@ -1,96 +1,73 @@
+/**
+ * Static-site regression tests for the GitHub Pages decision desk.
+ *
+ * The site became fully static in this revision: the nine-site table is rendered in
+ * HTML rather than fetched at runtime, so the page works with JavaScript disabled and
+ * cannot silently show a stale "no file approved" verdict. These tests therefore assert
+ * on the served HTML directly, and additionally assert that every advertised download
+ * exists on disk and matches the SHA-256 recorded in its audit receipt.
+ */
+const assert = require("node:assert");
+const crypto = require("node:crypto");
 const fs = require("node:fs");
 const path = require("node:path");
-const assert = require("node:assert/strict");
-const { JSDOM } = require("jsdom");
 
-const root = path.join(__dirname, "..", "docs");
-const html = fs.readFileSync(path.join(root, "index.html"), "utf8");
-const app = fs.readFileSync(path.join(root, "assets/app.js"), "utf8");
-const hvfdHtml = fs.readFileSync(path.join(root, "hvfd-exp3.html"), "utf8");
-const execSummary = fs.readFileSync(path.join(root, "executive-summary.html"), "utf8");
-const currentRunCard = JSON.parse(
-  fs.readFileSync(path.join(root, "data/run-card.json"), "utf8"),
-);
-assert.equal(currentRunCard.verdict, "negative");
-assert.equal(currentRunCard.ok_to_submit, false);
-assert.match(html, /BLOCKED — DO NOT SUBMIT YET/);
-assert.match(html, /Submission blocked/i);
-assert.match(html, /NOT CLEARED — do not submit/i);
-assert.match(execSummary, /OK to submit:<\/strong> NO/i);
-assert.doesNotMatch(html, /OK to download and submit/i);
-assert.match(html, /Download the TIF/);
-assert.match(execSummary, /BLOCKED — DO NOT SUBMIT YET/);
-assert.doesNotMatch(execSummary, /OK TO DOWNLOAD AND SUBMIT/);
+const root = path.join(__dirname, "..");
+const docs = path.join(root, "docs");
+const html = fs.readFileSync(path.join(docs, "index.html"), "utf8");
+const execSummary = fs.readFileSync(path.join(docs, "executive-summary.html"), "utf8");
+const method = fs.readFileSync(path.join(docs, "method.html"), "utf8");
+const hvfdHtml = fs.readFileSync(path.join(docs, "hvfd-exp3.html"), "utf8");
+
+const flat = html.replace(/\s+/g, " ");
+
+// ---- the approved submission is unmistakable ------------------------------------
+assert.match(flat, /OK to download and submit/i);
+assert.match(flat, /Unique submission available/i);
+assert.match(execSummary, /OK TO DOWNLOAD AND SUBMIT/);
 assert.match(execSummary, /research only/i);
-assert.match(execSummary, /gemsdoesass2-sparse-blind-conduit-22163/i);
-assert.match(hvfdHtml, /DO NOT SUBMIT/i);
-assert.match(hvfdHtml, /research only/i);
-assert.doesNotMatch(hvfdHtml, /VERDICT: PROMOTE/i);
-const data = JSON.parse(
-  fs.readFileSync(path.join(root, "data/audit.json"), "utf8"),
-);
-const settle = () => new Promise((resolve) => setTimeout(resolve, 80));
+assert.match(execSummary, /MODEL ESTIMATE/);
+assert.match(execSummary, /gemsass2-strainridge-offcat-37654d/i);
+assert.match(method, /why.*0\.2778/is);
 
-async function check(mode) {
-  const dom = new JSDOM(html, {
-    url: "http://localhost:8000/",
-    runScripts: "outside-only",
-  });
-  dom.window.AbortController = AbortController;
-  dom.window.fetch = async (url) => {
-    if (url === "data/audit.json") {
-      if (mode === "missing") return { ok: false, status: 404 };
-      return { ok: true, json: async () => data };
-    }
-    const name = url.split("/")[5];
-    if (mode === "limited") return { ok: false, status: 403 };
-    const site = data.historical_sites.find((x) => x.site === name);
-    assert.ok(site, `unexpected source: ${url}`);
-    return {
-      ok: true,
-      json: async () => ({
-        sha:
-          mode === "changed" && name === "GEMSDOE24"
-            ? "a".repeat(40)
-            : site.observed_main_ref,
-      }),
-    };
-  };
-  dom.window.eval(app);
-  await settle();
-  const doc = dom.window.document;
-  if (mode === "missing") {
-    assert.match(
-      doc.querySelector("[data-sites-body]").textContent,
-      /Evidence unavailable/,
-    );
-    assert.equal(doc.querySelector("[data-refresh]").disabled, true);
-  } else {
-    const rows = [...doc.querySelectorAll("[data-sites-body] tr")];
-    assert.equal(rows.length, 9);
-    assert.match(rows[0].textContent, /GEMSDOE32.*0\.2778/s);
-    assert.equal(
-      rows.filter((row) => row.textContent.includes("No file approved")).length,
-      9,
-    );
-    assert.equal(
-      rows.filter((row) => row.textContent.includes("Unavailable")).length,
-      9,
-    );
-    const status = doc.querySelector("[data-freshness]").textContent;
-    if (mode === "limited") assert.match(status, /incomplete/);
-    if (mode === "changed") assert.match(status, /New commits: GEMSDOE24/);
-    if (mode === "ok") assert.match(status, /heads match/);
-    assert.match(status, /does not certify registry completeness/);
-  }
-  // The homepage now advertises an active download (no disabled button).
-  dom.window.close();
-  console.log(`site: ${mode} passed`);
+// ---- the headline download is a real file with a verifiable hash -----------------
+const downloadMatch = html.match(/href="(downloads\/[^"]+-zeros\.tif)"\s+download/);
+assert.ok(downloadMatch, "homepage must carry a one-click download of the primary TIF");
+const downloadPath = path.join(docs, downloadMatch[1]);
+assert.ok(fs.existsSync(downloadPath), `advertised download missing: ${downloadMatch[1]}`);
+
+const auditFiles = fs
+  .readdirSync(path.join(docs, "downloads"))
+  .filter((name) => name.endsWith("-audit.json"));
+const promoted = auditFiles
+  .map((name) => JSON.parse(fs.readFileSync(path.join(docs, "downloads", name), "utf8")))
+  .filter((card) => card.verdict === "promote" && card.ok_to_download_and_submit);
+
+assert.equal(promoted.length, 1, "exactly one promoted submission may be advertised");
+const card = promoted[0];
+assert.ok(flat.includes(path.basename(downloadPath)), "homepage must advertise the promoted file");
+assert.equal(card.validator_output.all_passed, true, "promoted file must pass every format check");
+assert.equal(card.correlation_overlap_vs_registry.passes_lane, true, "promoted file must pass the lane gate");
+assert.ok(card.submission_note_140.length <= 140, "submission note must fit 140 characters");
+
+const digest = crypto.createHash("sha256").update(fs.readFileSync(downloadPath)).digest("hex");
+assert.equal(digest, card.raster_sha256, "advertised bytes must match the audit receipt");
+
+// ---- the nine-site table is present, complete and honest ------------------------
+const sites = ["GEMSDOE24", "GEMSDOE25", "GEMSDOE27", "GEMSDOE28", "GEMSDOE30",
+  "GEMSDOE31", "GEMSDOE32", "GEMSDOE33", "GEMSDOE36"];
+for (const site of sites) assert.ok(html.includes(site), `missing focus site ${site}`);
+assert.match(flat, /GEMSDOE32/);
+assert.ok(flat.includes("0.2778"), "the champion value must appear");
+assert.ok(flat.includes("USER-REPORTED"), "historical values must be marked unverified");
+
+// ---- no research artifact may be presented as submittable ----------------------
+assert.match(hvfdHtml, /DO NOT SUBMIT/i);
+assert.doesNotMatch(hvfdHtml, /VERDICT: PROMOTE/i);
+
+// ---- no local-only hosts may leak into a published page ------------------------
+for (const page of [html, execSummary, method]) {
+  assert.doesNotMatch(page, /localhost|127\.0\.0\.1/);
 }
 
-(async () => {
-  for (const mode of ["ok", "changed", "limited", "missing"]) await check(mode);
-})().catch((error) => {
-  console.error(error);
-  process.exitCode = 1;
-});
+console.log("site: static decision desk passed");

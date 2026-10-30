@@ -52,3 +52,50 @@ From the official definition (see [knowledge/03](03_official_metric_and_submissi
 3. **A different parent.** The nine-site family shares one ancestor, so their ceiling is a property of that ancestor. Public scores up to 0.4544 show the metric allows much higher, but the method behind them is not public in the sources checked here.
 
 None of these has been run. The per-run budget in the standing prompt is three experiments or two hours.
+
+---
+
+## Revision 2026-10-30 — the cause is the collar sweep, and it is measurable
+
+Earlier revisions described the 0.2778 file as the 2 px member of a collar sweep and
+stopped there. This revision quantifies the mechanism and states its limit.
+
+**Single-cell calculus.** Adding one predicted cell `x` changes DTI by
+
+    ΔDTI > 0  ⇔  k(d(x,G)) > 0.2·[1 − k(d(x,G))]  ⇔  d(x,G) < 2.5 px (250 m)
+
+with `k(d) = max(1 − d/300 m, 0)`. Inside 250 m of a true unmapped fault a cell pays for
+itself several times; anywhere else it is a pure 0.2-unit cost. Because the truth set is
+defined as faults **absent** from the public catalogue, a dot inside the catalogue collar
+can never satisfy that test — it is a guaranteed −0.2.
+
+**The controlled triple.** One generator, one target density, three collar radii:
+
+| Member | Dots | % inside 3 px of catalogue | Reported | Marginal gain |
+|---|---|---|---|---|
+| GEMSDOE25 | 44,090 | 19.52 % | 0.2600 | — |
+| GEMSDOE31 | 40,199 | 11.73 % | 0.2708 | +0.0108 |
+| GEMSDOE32 | 37,654 | 5.77 % | 0.2778 | +0.0070 |
+
+Slope: **+0.00127 and +0.00117 per percentage point removed** — flat, as the single-cell
+calculus predicts, and diminishing only because 44,090 simultaneous dots are not
+independent. Fit on all nine: `1/DTI = 1.768205e−5·N + 3.006165`, R² = 0.9114,
+N ∈ [37,654, 61,328]. Spearman(N, reported) = −0.9832 (p = 2.0e−6);
+Spearman(catalogue-DTI, reported) = **−1.000**.
+
+**What 0.2778 therefore is.** The member of the family that spends the smallest share of
+its budget in territory the metric has already excluded. A better *filer* of the same
+guess — not a better geological model, and not evidence that the lattice geometry is
+close to the truth.
+
+**What it is not.** The N→0 limit of the fit (0.333) is an extrapolation artefact: a
+submission with no dots scores nothing, so the true curve must return to zero. It is not
+a ceiling and is not used as one. Equally, the fitted slope on N cannot be separated from
+the collar effect inside this family, which is why the shipped candidate holds N fixed at
+the champion's 37,654 and varies only contamination.
+
+**Consequences used downstream.** (1) Any candidate inside this family is judged on
+contamination and yield, not on dot count. (2) Because all nine overlap by ≥97.58 % within
+3 px, they are one submission, not nine (IR-S-11). (3) The catalogue they were built
+against is missing 95,452 mapped fault cells (IR-S-13), so every focus site under-collared
+by construction.

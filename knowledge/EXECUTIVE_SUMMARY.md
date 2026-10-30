@@ -14,8 +14,8 @@ table should be read as "cleared for upload"; "verdict" below separates *format/
 
 | file (in `docs/downloads/`) | dots | local format check vs organizer-example mirror | uniqueness vs registry | scientific gate | verdict |
 |---|---|---|---|---|---|
-| `gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.tif` (+ `.zip`) | 22,163 | **all checks pass** (`strict_local_format_pass: true`, `docs/data/format-sparse-blind-zeros.json`) | max 3-px overlap 41.29%, max \|ρ\| 0.0083 → pass | **NOT RUN** (IR-S-26) | PROMOTE on format+uniqueness only; holdout pending |
-| `…cc522684-nan.tif` (+ `.zip`) | 22,163 | fails only `whole_array_finite_in_0_1` — the check that is mutually exclusive with `outside_masked_or_nan` (IR-S-10) | identical dots | not run | GIS twin, byte-identical inside footprint; same lattice block |
+| `gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.tif` (+ `.zip`) | 22,163 | **all checks pass** (`strict_local_format_pass: true`, `docs/data/format-sparse-blind-zeros.json`) | max 3-px overlap 41.29%, max \|ρ\| 0.0083 → pass | **NOT RUN** (IR-S-24) | **PROMOTE on format + uniqueness only → now `blocked-owner-ruling` / NOT CLEARED** (99.74% of dots within 3 px of the pinned lattice, IR-S-15; holdout still owed, IR-S-26) |
+| `…cc522684-nan.tif` (+ `.zip`) | 22,163 | fails only `whole_array_finite_in_0_1` — the check that is mutually exclusive with `outside_masked_or_nan` (IR-S-23) | identical dots | not run | GIS twin, byte-identical inside footprint; same lattice block |
 
 | `gemsdoesass2-vrc-ventridge-44090-20261030T024740Z-nan.tif` (+ `.zip`) | 44,090 | fails only `whole_array_finite_in_0_1` | max per-raster overlap 39.99%, max \|ρ\| 0.0162 → pass | loses both instruments | **negative — research only** (`docs/data/vrc-run-card.json`; generator receipt `evidence/vrc_run_card.json`) |
 | `…44090-…-zeros.tif` (+ `.zip`) | 44,090 | fails only `outside_masked_or_nan` | same | same | negative — research only |

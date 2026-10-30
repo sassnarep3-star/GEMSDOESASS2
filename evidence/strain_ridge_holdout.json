@@ -1,0 +1,205 @@
+{
+  "protocol": {
+    "evaluator": "gems.metric.dti_probabilistic (alpha 0.2, beta 0.8, R=300 m)",
+    "block_grid": [
+      12,
+      12
+    ],
+    "blocks_held_out": [
+      2,
+      5,
+      8,
+      11,
+      12,
+      24,
+      27,
+      30,
+      35,
+      43,
+      48,
+      50,
+      55,
+      65,
+      68,
+      72,
+      74,
+      80,
+      86,
+      91,
+      94,
+      98,
+      101,
+      105,
+      109,
+      112,
+      113,
+      120,
+      132
+    ],
+    "holdout_fraction": 0.2,
+    "seed": 20261030,
+    "withheld_positive_cells": 38278,
+    "evaluation_masks": [
+      "within withheld blocks only (7 of 36 blocks)",
+      "whole competition footprint"
+    ],
+    "evaluation_cells": 119542,
+    "visible_positive_cells": 118536,
+    "collar_px": 4.0,
+    "min_sep_px": 3.0,
+    "truth_source": "USGS Quaternary Faults + GBCGE INGENIOUS (qfaults_ingenious 2023-06-27)"
+  },
+  "leakage_canary_single_feature_auc": {
+    "geod_shearrate": 0.6432363141666667,
+    "geod_2ndinv": 0.6285470908333334,
+    "dem": 0.6066684013075179,
+    "ieq_n200a05": 0.6064642741666667,
+    "ieq_n100a10": 0.6003648333333333,
+    "deq_n100a10": 0.59462211,
+    "thk": 0.5942971766990921,
+    "lid_relief": 0.5895420313863279,
+    "tmi_hg": 0.5788808045858137,
+    "lid_step_max": 0.5690102058208422,
+    "lid_lappos_max": 0.5663760625171624,
+    "lid_lapneg_max": 0.5627568619375269,
+    "uth": 0.44346659661572047,
+    "lid_ex_max": 0.551882952440239,
+    "th": 0.5481883138914305
+  },
+  "canary_max_auc": 0.6432363141666667,
+  "results": [
+    {
+      "n_dots": 20000,
+      "within_withheld_blocks": {
+        "strain_ridge": {
+          "holdout_dti": 0.153433485711693,
+          "TPw": 4847.247591677485,
+          "FPw": 0.0,
+          "FNw": 33430.752408322514
+        },
+        "uniform_lattice_control": {
+          "holdout_dti": 0.021249290445977384,
+          "TPw": 653.4814752867849,
+          "FPw": 0.0,
+          "FNw": 37624.51852471322
+        },
+        "ratio_vs_uniform": 7.220640430407353
+      },
+      "whole_footprint": {
+        "strain_ridge": {
+          "holdout_dti": 0.20231490259642596,
+          "TPw": 7206.650279047149,
+          "FPw": 17786.1305986829,
+          "FNw": 31071.34972095285
+        },
+        "uniform_lattice_control": {
+          "holdout_dti": 0.0419700500815652,
+          "TPw": 1461.976836673078,
+          "FPw": 19595.083461307382,
+          "FNw": 36816.02316332692
+        },
+        "ratio_vs_uniform": 4.8204589273361425
+      }
+    },
+    {
+      "n_dots": 35000,
+      "within_withheld_blocks": {
+        "strain_ridge": {
+          "holdout_dti": 0.1801163831273111,
+          "TPw": 5721.710697919803,
+          "FPw": 0.0,
+          "FNw": 32556.289302080197
+        },
+        "uniform_lattice_control": {
+          "holdout_dti": 0.03609823500095205,
+          "TPw": 1113.4533314977539,
+          "FPw": 0.0,
+          "FNw": 37164.54666850225
+        },
+        "ratio_vs_uniform": 4.989617445910048
+      },
+      "whole_footprint": {
+        "strain_ridge": {
+          "holdout_dti": 0.22293632403350022,
+          "TPw": 8649.791639888253,
+          "FPw": 32235.119302907795,
+          "FNw": 29628.20836011175
+        },
+        "uniform_lattice_control": {
+          "holdout_dti": 0.06794486725867312,
+          "TPw": 2581.645320298714,
+          "FPw": 34287.248340890146,
+          "FNw": 35696.35467970128
+        },
+        "ratio_vs_uniform": 3.281135618158744
+      }
+    },
+    {
+      "n_dots": 50000,
+      "within_withheld_blocks": {
+        "strain_ridge": {
+          "holdout_dti": 0.19648863440314002,
+          "TPw": 6263.0782985553315,
+          "FPw": 0.0,
+          "FNw": 32014.92170144467
+        },
+        "uniform_lattice_control": {
+          "holdout_dti": 0.052594082213714435,
+          "TPw": 1627.6782721538766,
+          "FPw": 0.0,
+          "FNw": 36650.32172784612
+        },
+        "ratio_vs_uniform": 3.7359456831039375
+      },
+      "whole_footprint": {
+        "strain_ridge": {
+          "holdout_dti": 0.22854676237917562,
+          "TPw": 9577.927726019845,
+          "FPw": 46849.85368049533,
+          "FNw": 28700.072273980157
+        },
+        "uniform_lattice_control": {
+          "holdout_dti": 0.08908631507883288,
+          "TPw": 3665.985252770822,
+          "FPw": 48976.69488675311,
+          "FNw": 34612.01474722918
+        },
+        "ratio_vs_uniform": 2.5654530909369586
+      }
+    },
+    {
+      "n_dots": 70000,
+      "within_withheld_blocks": {
+        "strain_ridge": {
+          "holdout_dti": 0.21012247833058179,
+          "TPw": 6716.721410224915,
+          "FPw": 0.0,
+          "FNw": 31561.278589775084
+        },
+        "uniform_lattice_control": {
+          "holdout_dti": 0.07474611313197073,
+          "TPw": 2323.6420165823943,
+          "FPw": 0.0,
+          "FNw": 35954.357983417605
+        },
+        "ratio_vs_uniform": 2.811149229386582
+      },
+      "whole_footprint": {
+        "strain_ridge": {
+          "holdout_dti": 0.22643689245931606,
+          "TPw": 10416.789229338865,
+          "FPw": 66486.4948571633,
+          "FNw": 27861.210770661135
+        },
+        "uniform_lattice_control": {
+          "holdout_dti": 0.11314368842740528,
+          "TPw": 5132.192892817145,
+          "FPw": 68555.59435780079,
+          "FNw": 33145.80710718285
+        },
+        "ratio_vs_uniform": 2.0013214665933523
+      }
+    }
+  ],
+  "label": "HOLDOUT-DTI \u2014 mapped fault traces, not the hidden competition truth"
+}
