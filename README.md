@@ -1,22 +1,15 @@
 # GEMSDOESASS2 — auditable geothermal fault discovery
 
-## 🚦 Current decision: **UNIQUE SUBMISSION READY — OK TO DOWNLOAD AND SUBMIT (LOCALLY VALIDATED)**
+## 🚦 Current decision: **DO NOT SUBMIT — no file passes the lane gate (2026-10-30)**
 
-A unique, validation-gated GeoTIFF has been generated and passes all local gates:
+This banner supersedes every earlier "OK TO DOWNLOAD AND SUBMIT" statement in this repository.
 
-| Artifact | Format (13 checks) | Uniqueness vs registry | Verdict | OK to download & submit? |
-|---|---|---|---|---|
-| **gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.tif** | 13/13 PASS | max overlap 41.29% (<70%); max\|ρ\| 0.0083 (<0.90) | **PROMOTE** | **YES — locally validated** |
+- **Unique candidate** (`gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.tif`): format-valid (strict local pass, `ok_to_submit: false`), **but fails the lane rule**: 100% of its dots lie within 3 px of the dense surface `GEMSDOE2/docs/gemsdoe2_turbo_submission.tif` (rule: more than 70% = duplicate). Evidence: [evidence/gates/lane_cc522684_vs_GEMSDOE2_turbo.json](evidence/gates/lane_cc522684_vs_GEMSDOE2_turbo.json).
+- **Holdout (proxy truth, HOLDOUT-DTI):** this design scores 0.0; uniform random coverage scores 0.0375 [0.0355, 0.0395]. Not an organizer score.
+- **Nine focus files:** every one is a lane duplicate of a sibling (see table below).
+- **Front page:** [docs/index.html](docs/index.html) · **Executive summary:** [docs/executive-summary.md](docs/executive-summary.md) · **Submission guide:** [docs/submission-guide.html](docs/submission-guide.html) · **Run card:** [evidence/run_card_20261030.json](evidence/run_card_20261030.json) · **Hypotheses:** [research/2026-10-30-hypotheses-and-experiments.md](research/2026-10-30-hypotheses-and-experiments.md)
 
-- **22,163 sparse dots**, 0 on catalogue (B=2 exclusion enforced)
-- **SHA-256:** `65e3a775ad8b3fd3f3c55a501c84d48d05554219065cad69fa9ebfb54d572661`
-- **Lane:** SPARSE-BLIND-CONDUIT — off-catalogue geothermal-conduit dots targeting blind faults missed by scarp-dependent USGS/INGENIOUS mapping
-- **Submission name:** `GEMSDOESASS2-SPARSE-BLIND-CC522684`
-- **Note (≤140 chars):** `GEMSDOESASS2 sparse-blind-conduit 22163d B=2 sep3 | off-catalogue blind faults | cc522684 | research`
-
-**Download:** [`docs/downloads/gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.tif`](docs/downloads/gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.tif) · [`...zeros.zip`](docs/downloads/gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.zip)
-
-⚠️ **No organizer receipt is available in this environment** (DrivenData requires login). Local validation is not a guarantee of portal acceptance. Verify against the live DrivenData submission page before uploading. No weekly submission slot was used.
+⚠️ No organizer receipt exists in this environment. Format validation is not approval. Historical scores are USER-REPORTED and unverified.
 
 ---
 

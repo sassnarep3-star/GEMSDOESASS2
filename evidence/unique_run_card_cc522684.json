@@ -1,122 +1,129 @@
 {
-  "hypothesis": "Blind geothermal conduits (permeability pathways with heat venting but no Quaternary surface scarp) are missed by scarp-dependent USGS QFaults/INGENIOUS mapping. Sparse off-catalogue dots in the damage-zone flank and prospective zones target this class.",
-  "mechanism": "Inverse distance-to-catalogue (damage-zone flank preference) multiplied by a smooth non-catalogue geothermal prior; B=2 catalogue exclusion, 3 px inhibition, <=22,163 dots (below the 22,164 first-failing lattice dot count).",
-  "named_non_fault_process": "Alluvial-fan toes, paleo-shoreline benches, and terrace risers can mimic fault scarps; mitigated by B=2 catalogue exclusion and requiring both flank-distance and prior propensity.",
-  "holdout_dti": {
-    "label": "HOLDOUT-DTI (NOT RUN \u2014 no fold-local incumbent or complete registry available in this environment)",
-    "evaluator_version": null,
-    "withheld_positive_pixels": null,
-    "dti": null,
-    "ci95": null,
-    "status": "NOT RUN: requires authenticated organizer data and fold-local comparator; label is HOLDOUT-DTI only when a receipt exists."
+ "hypothesis": "Blind geothermal conduits (permeability pathways with heat venting but no Quaternary surface scarp) are missed by scarp-dependent USGS QFaults/INGENIOUS mapping. Sparse off-catalogue dots in the damage-zone flank and prospective zones target this class.",
+ "mechanism": "Inverse distance-to-catalogue (damage-zone flank preference) multiplied by a smooth non-catalogue geothermal prior; B=2 catalogue exclusion, 3 px inhibition, <=22,163 dots (below the 22,164 first-failing lattice dot count).",
+ "named_non_fault_process": "Alluvial-fan toes, paleo-shoreline benches, and terrace risers can mimic fault scarps; mitigated by B=2 catalogue exclusion and requiring both flank-distance and prior propensity.",
+ "holdout_dti": {
+  "label": "HOLDOUT-DTI (NOT RUN \u2014 no fold-local incumbent or complete registry available in this environment)",
+  "evaluator_version": null,
+  "withheld_positive_pixels": null,
+  "dti": null,
+  "ci95": null,
+  "status": "NOT RUN: requires authenticated organizer data and fold-local comparator; label is HOLDOUT-DTI only when a receipt exists."
+ },
+ "leakage_canary": {
+  "status": "NOT RUN: no feature trained on labels; on-catalogue dot count = 0 by construction (zero catalogue leakage).",
+  "max_auc": null
+ },
+ "correlation_overlap_vs_registry": {
+  "max_overlap_3px_pct": 41.2895,
+  "max_abs_spearman": 0.0083,
+  "passes_lane": true,
+  "details": [
+   {
+    "ref": "gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif",
+    "ref_dots": 37654,
+    "overlap_3px_pct": 41.2895,
+    "abs_spearman": 0.0048
+   },
+   {
+    "ref": "gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-nan.tif",
+    "ref_dots": 37654,
+    "overlap_3px_pct": 41.2895,
+    "abs_spearman": 0.0048
+   },
+   {
+    "ref": "gemsass2-ass2-altedge-hgb-44090-20261027-cc854482215e-zeros.tif",
+    "ref_dots": 44090,
+    "overlap_3px_pct": 35.2524,
+    "abs_spearman": 0.0059
+   },
+   {
+    "ref": "gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif",
+    "ref_dots": 37654,
+    "overlap_3px_pct": 35.2073,
+    "abs_spearman": 0.0053
+   },
+   {
+    "ref": "gemsdoesass2-scu1-scarpcorridor-uth-37000-20261027T120000Z-zeros.tif",
+    "ref_dots": 37000,
+    "overlap_3px_pct": 23.6656,
+    "abs_spearman": 0.0049
+   },
+   {
+    "ref": "gemsdoesass2-scu1-scarpcorridor-uth-37000-20261027T120000Z-nan.tif",
+    "ref_dots": 37000,
+    "overlap_3px_pct": 23.6656,
+    "abs_spearman": 0.0049
+   },
+   {
+    "ref": "gemsdoesass2-thermo-tilt-conduit-37654-20261027T113705Z-d8f85365-zeros.tif",
+    "ref_dots": 37654,
+    "overlap_3px_pct": 12.2998,
+    "abs_spearman": 0.0083
+   },
+   {
+    "ref": "gemsdoesass2-thermo-tilt-conduit-37654-20261027T113705Z-d8f85365-nan.tif",
+    "ref_dots": 37654,
+    "overlap_3px_pct": 12.2998,
+    "abs_spearman": 0.0083
+   }
+  ],
+  "lattice_bound": {
+   "dots": 22163,
+   "first_failing_dot_count": 22164,
+   "reason": "Sparse count <= 22,163 keeps overlap <= 70% vs the pinned 13GEMSDOE lattice by the arithmetic bound."
+  }
+ },
+ "raster_sha256": "65e3a775ad8b3fd3f3c55a501c84d48d05554219065cad69fa9ebfb54d572661",
+ "validator_output": {
+  "checks_passed": 13,
+  "checks_total": 13,
+  "all_passed": true,
+  "no_nan_inside_footprint": true,
+  "values_in_0_1": true,
+  "crs_shape_transform_match": true,
+  "status": "13/13 PASS"
+ },
+ "submission_name": "GEMSDOESASS2-SPARSE-BLIND-CC522684",
+ "submission_note_140": "GEMSDOESASS2 sparse-blind-conduit 22163d B=2 sep3 | off-catalogue blind faults | cc522684 | research",
+ "note_length": 100,
+ "verdict": "withdrawn",
+ "ok_to_download_and_submit": false,
+ "n_dots": 22163,
+ "params": {
+  "max_dots": 22163,
+  "buffer_px": 2.0,
+  "min_sep_px": 3.0
+ },
+ "generated_utc": "2026-10-29T00:05:47.261905+00:00",
+ "files": {
+  "zeros": {
+   "filename": "gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.tif",
+   "sha256": "65e3a775ad8b3fd3f3c55a501c84d48d05554219065cad69fa9ebfb54d572661",
+   "size_bytes": 123328
   },
-  "leakage_canary": {
-    "status": "NOT RUN: no feature trained on labels; on-catalogue dot count = 0 by construction (zero catalogue leakage).",
-    "max_auc": null
+  "nan": {
+   "filename": "gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-nan.tif",
+   "sha256": "ea9fca4c9b66df4a7ce6335e5d221c6a9f9702404379402ae19d4b0a76578585",
+   "size_bytes": 194488
   },
-  "correlation_overlap_vs_registry": {
-    "max_overlap_3px_pct": 41.2895,
-    "max_abs_spearman": 0.0083,
-    "passes_lane": true,
-    "details": [
-      {
-        "ref": "gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif",
-        "ref_dots": 37654,
-        "overlap_3px_pct": 41.2895,
-        "abs_spearman": 0.0048
-      },
-      {
-        "ref": "gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-nan.tif",
-        "ref_dots": 37654,
-        "overlap_3px_pct": 41.2895,
-        "abs_spearman": 0.0048
-      },
-      {
-        "ref": "gemsass2-ass2-altedge-hgb-44090-20261027-cc854482215e-zeros.tif",
-        "ref_dots": 44090,
-        "overlap_3px_pct": 35.2524,
-        "abs_spearman": 0.0059
-      },
-      {
-        "ref": "gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif",
-        "ref_dots": 37654,
-        "overlap_3px_pct": 35.2073,
-        "abs_spearman": 0.0053
-      },
-      {
-        "ref": "gemsdoesass2-scu1-scarpcorridor-uth-37000-20261027T120000Z-zeros.tif",
-        "ref_dots": 37000,
-        "overlap_3px_pct": 23.6656,
-        "abs_spearman": 0.0049
-      },
-      {
-        "ref": "gemsdoesass2-scu1-scarpcorridor-uth-37000-20261027T120000Z-nan.tif",
-        "ref_dots": 37000,
-        "overlap_3px_pct": 23.6656,
-        "abs_spearman": 0.0049
-      },
-      {
-        "ref": "gemsdoesass2-thermo-tilt-conduit-37654-20261027T113705Z-d8f85365-zeros.tif",
-        "ref_dots": 37654,
-        "overlap_3px_pct": 12.2998,
-        "abs_spearman": 0.0083
-      },
-      {
-        "ref": "gemsdoesass2-thermo-tilt-conduit-37654-20261027T113705Z-d8f85365-nan.tif",
-        "ref_dots": 37654,
-        "overlap_3px_pct": 12.2998,
-        "abs_spearman": 0.0083
-      }
-    ],
-    "lattice_bound": {
-      "dots": 22163,
-      "first_failing_dot_count": 22164,
-      "reason": "Sparse count <= 22,163 keeps overlap <= 70% vs the pinned 13GEMSDOE lattice by the arithmetic bound."
-    }
-  },
-  "raster_sha256": "65e3a775ad8b3fd3f3c55a501c84d48d05554219065cad69fa9ebfb54d572661",
-  "validator_output": {
-    "checks_passed": 13,
-    "checks_total": 13,
-    "all_passed": true,
-    "no_nan_inside_footprint": true,
-    "values_in_0_1": true,
-    "crs_shape_transform_match": true,
-    "status": "13/13 PASS"
-  },
-  "submission_name": "GEMSDOESASS2-SPARSE-BLIND-CC522684",
-  "submission_note_140": "GEMSDOESASS2 sparse-blind-conduit 22163d B=2 sep3 | off-catalogue blind faults | cc522684 | research",
-  "note_length": 100,
-  "verdict": "promote",
-  "ok_to_download_and_submit": true,
-  "n_dots": 22163,
-  "params": {
-    "max_dots": 22163,
-    "buffer_px": 2.0,
-    "min_sep_px": 3.0
-  },
-  "generated_utc": "2026-10-29T00:05:47.261905+00:00",
-  "files": {
-    "zeros": {
-      "filename": "gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.tif",
-      "sha256": "65e3a775ad8b3fd3f3c55a501c84d48d05554219065cad69fa9ebfb54d572661",
-      "size_bytes": 123328
-    },
-    "nan": {
-      "filename": "gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-nan.tif",
-      "sha256": "ea9fca4c9b66df4a7ce6335e5d221c6a9f9702404379402ae19d4b0a76578585",
-      "size_bytes": 194488
-    },
-    "zip": {
-      "filename": "gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.zip",
-      "sha256": "98500550bed22eb1fcedd6eea6609a85d3baf952ad1d459b447f3eeac74cb05e",
-      "size_bytes": 77137
-    }
-  },
-  "score_evidence": "USER-REPORTED / UNVERIFIED only. No organizer receipt. No leaderboard estimate claimed. Historical GEMSDOE32 best: 0.2778 (user-reported, no receipt).",
-  "limitations": [
-    "No authenticated DrivenData sample/labels \u2014 holdout DTI cannot be computed.",
-    "No organizer submission receipt \u2014 ORGANIZER-CONFIRMED score unavailable.",
-    "Weekly slot allowance unknown \u2014 promotion to a real slot is a separate selector decision."
-  ]
+  "zip": {
+   "filename": "gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.zip",
+   "sha256": "98500550bed22eb1fcedd6eea6609a85d3baf952ad1d459b447f3eeac74cb05e",
+   "size_bytes": 77137
+  }
+ },
+ "score_evidence": "USER-REPORTED / UNVERIFIED only. No organizer receipt. No leaderboard estimate claimed. Historical GEMSDOE32 best: 0.2778 (user-reported, no receipt).",
+ "limitations": [
+  "No authenticated DrivenData sample/labels \u2014 holdout DTI cannot be computed.",
+  "No organizer submission receipt \u2014 ORGANIZER-CONFIRMED score unavailable.",
+  "Weekly slot allowance unknown \u2014 promotion to a real slot is a separate selector decision."
+ ],
+ "withdrawn": {
+  "status": "WITHDRAWN 2026-10-30",
+  "superseded_by": "evidence/run_card_20261030.json",
+  "reason": "Lane rule fails: 100% of dots within 3 px of GEMSDOE2 dense surface; holdout proxy DTI 0.0 vs random 0.0375. Earlier promote/ok_to_download_and_submit values are kept below for the audit trail only."
+ },
+ "verdict_as_originally_recorded": "promote",
+ "ok_to_download_and_submit_as_originally_recorded": true
 }

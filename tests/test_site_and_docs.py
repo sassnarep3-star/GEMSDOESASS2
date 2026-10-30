@@ -39,20 +39,26 @@ def test_unique_submission_is_advertised_with_validation() -> None:
     index = (DOCS / "index.html").read_text()
     exec_html = (DOCS / "executive-summary.html").read_text()
     # The unique submission run card (separate from the legacy negative card)
+    # 2026-10-30: the earlier promote card is WITHDRAWN; the current card must be negative.
     run_card = None
     for p in DOCS.glob("downloads/*-audit.json"):
         c = json.loads(p.read_text())
-        if c.get("verdict") == "promote" and c.get("ok_to_download_and_submit"):
+        if c.get("verdict") == "withdrawn":
             run_card = c
             break
-    assert run_card is not None, "No promoted unique submission run card found"
+    assert run_card is not None, "Withdrawn candidate audit card not found"
+    assert run_card["ok_to_download_and_submit"] is False
+    assert run_card["withdrawn"]["superseded_by"] == "evidence/run_card_20261030.json"
+    current = json.loads((ROOT / "evidence/run_card_20261030.json").read_text())
+    assert current["verdict"] == "negative" and current["ok_to_download_and_submit"] is False
+    assert current["submission"]["submitted"] is False
     assert run_card["n_dots"] == 22163
     assert run_card["validator_output"]["all_passed"] is True
     assert run_card["correlation_overlap_vs_registry"]["passes_lane"] is True
     assert len(run_card["submission_note_140"]) <= 140
     # Homepage and executive summary advertise the download
-    assert "OK to download and submit" in index
-    assert "OK TO DOWNLOAD AND SUBMIT" in exec_html
+    assert "OK to download and submit" not in index
+    assert "DO NOT SUBMIT" in index and "DO NOT SUBMIT" in exec_html
     assert run_card["raster_sha256"][:16] in exec_html
     assert "downloads/gemsdoesass2-sparse-blind-conduit-22163" in exec_html
     # Research artifacts remain marked research only

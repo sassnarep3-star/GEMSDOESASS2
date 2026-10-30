@@ -1,0 +1,388 @@
+{
+ "run": "2026-10-30 \u00b7 branch arena/1da540e5-gemsdoesass2 \u00b7 candidate SPARSE-BLIND-CONDUIT cc522684",
+ "verdict": "negative",
+ "ok_to_download_and_submit": false,
+ "reason": [
+  "Lane rule fails: 100% of the candidate's 22,163 dots are within 3 px of GEMSDOE2 docs/gemsdoe2_turbo_submission.tif (dense surface, 5,167,373 positives). Literal rule > 70% = duplicate.",
+  "Holdout (proxy truth) is 0.0 DTI; uniform random coverage scores 0.0375. Negative for the design.",
+  "Full 2,277-raster registry pass is incomplete (too slow on 2 cores); only the exact check against the dense surface and the nine-file pairwise check were completed.",
+  "No organizer receipt, portal response or weekly-slot authorization is available."
+ ],
+ "hypothesis": {
+  "id": "H-S1",
+  "mechanism": "catalogue-adjacent / sparse-blind conduit placement",
+  "named_non_fault_mimic": "random-field 'geothermal prior' and catalogue-adjacent drainage lineaments",
+  "status": "tested, negative"
+ },
+ "holdout": {
+  "label": "HOLDOUT-DTI (PROXY truth: withheld USGS/INGENIOUS segments; NOT organizer score)",
+  "evaluator": "src/gems/metric.py dti_binary + per_component_terms + bootstrap_dti (official DTI; alpha 0.2, beta 0.8, R 3 px)",
+  "buffer_px": 10.0,
+  "E1_sparse_blind_arm": {
+   "A_sparse_blind": {
+    "pooled_DTI": 0.0,
+    "ci95_cluster_bootstrap_over_withheld_segments": [
+     0.0,
+     0.0
+    ],
+    "TP_w": 0.0,
+    "FP_w": 88635.0,
+    "FN_w": 60988.0,
+    "dots_scored": 88635
+   },
+   "A0_no_random_field": {
+    "pooled_DTI": 0.0,
+    "ci95_cluster_bootstrap_over_withheld_segments": [
+     0.0,
+     0.0
+    ],
+    "TP_w": 0.0,
+    "FP_w": 88633.0,
+    "FN_w": 60988.0,
+    "dots_scored": 88633
+   },
+   "B_dense_adjacent": {
+    "pooled_DTI": 0.0,
+    "ci95_cluster_bootstrap_over_withheld_segments": [
+     0.0,
+     0.0
+    ],
+    "TP_w": 0.0,
+    "FP_w": 150587.0,
+    "FN_w": 60988.0,
+    "dots_scored": 150587
+   },
+   "C_random_null": {
+    "pooled_DTI": 0.03750603194973696,
+    "ci95_cluster_bootstrap_over_withheld_segments": [
+     0.035475411346177495,
+     0.039542300332107164
+    ],
+    "TP_w": 2506.700296464992,
+    "FP_w": 87714.2535132451,
+    "FN_w": 58481.299703535005,
+    "dots_scored": 88648
+   }
+  },
+  "E1_buffer0_sensitivity": {
+   "A_sparse_blind": {
+    "pooled_DTI": 0.0024350036885264622,
+    "ci95_cluster_bootstrap_over_withheld_segments": [
+     0.0015316725694008674,
+     0.0034942186275659847
+    ],
+    "TP_w": 162.02193292099838,
+    "FP_w": 88579.38154000271,
+    "FN_w": 60825.978067079006,
+    "dots_scored": 88652
+   },
+   "A0_no_random_field": {
+    "pooled_DTI": 0.0032384976190056682,
+    "ci95_cluster_bootstrap_over_withheld_segments": [
+     0.002344651806430993,
+     0.004197112065130606
+    ],
+    "TP_w": 215.5080595134697,
+    "FP_w": 88560.94331979958,
+    "FN_w": 60772.49194048652,
+    "dots_scored": 88652
+   },
+   "B_dense_adjacent": {
+    "pooled_DTI": 0.004281042961634301,
+    "ci95_cluster_bootstrap_over_withheld_segments": [
+     0.0031913103821013754,
+     0.0054643358145171255
+    ],
+    "TP_w": 337.98584675544123,
+    "FP_w": 150457.10006711038,
+    "FN_w": 60650.014153244556,
+    "dots_scored": 150616
+   },
+   "C_random_null": {
+    "pooled_DTI": 0.03745011428881643,
+    "ci95_cluster_bootstrap_over_withheld_segments": [
+     0.0354673372066075,
+     0.039435029617589996
+    ],
+    "TP_w": 2502.9814553866,
+    "FP_w": 87720.42800845776,
+    "FN_w": 58485.0185446134,
+    "dots_scored": 88652
+   }
+  },
+  "E2_strike_coherence": {
+   "H_S1_strike_coherence": {
+    "pooled_DTI": 0.007604888023042913,
+    "ci95_cluster_bootstrap_over_withheld_segments": [
+     0.005995446789378453,
+     0.009228811536607715
+    ],
+    "TP_w": 506.2769352776668,
+    "FP_w": 88404.56979148598,
+    "FN_w": 60481.72306472233,
+    "dots_scored": 88651
+   },
+   "A_sparse_blind": {
+    "pooled_DTI": 0.0,
+    "ci95_cluster_bootstrap_over_withheld_segments": [
+     0.0,
+     0.0
+    ],
+    "TP_w": 0.0,
+    "FP_w": 88635.0,
+    "FN_w": 60988.0,
+    "dots_scored": 88635
+   },
+   "C_random_null": {
+    "pooled_DTI": 0.03750603194973696,
+    "ci95_cluster_bootstrap_over_withheld_segments": [
+     0.035475411346177495,
+     0.039542300332107164
+    ],
+    "TP_w": 2506.700296464992,
+    "FP_w": 87714.2535132451,
+    "FN_w": 58481.299703535005,
+    "dots_scored": 88648
+   }
+  },
+  "source_files": [
+   "evidence/holdout_proxy_sparse_blind.json",
+   "evidence/holdout_proxy_sparse_blind_buffer0.json",
+   "evidence/holdout_strike_coherence.json"
+  ]
+ },
+ "leakage_canary": {
+  "threshold_auc": 0.9,
+  "result": "no flag (see holdout JSON canary fields)"
+ },
+ "registry": {
+  "manifest": "registry/gems_registry_manifest.json",
+  "generated_utc": "2026-10-30T03:06:25Z",
+  "entries": 3165,
+  "eligible_unique_rasters": 3148,
+  "errors": [
+   {
+    "blob": "89ffb2d61840859392a758928ffdbae4260f2918",
+    "repo": "buffedlizard55-lab/GEMSDOE63",
+    "path": "docs/downloads/smoke.tif",
+    "stage": "download/describe",
+    "error": "89ffb2d61840859392a758928ffdbae4260f2918.tif: MissingRequired:TIFF directory is missing required \"StripOffsets\" field"
+   },
+   {
+    "blob": "fae30d96afe48eaa083fce3995d23194596be280",
+    "repo": "wingbangboozle1-lang/WBGGEMSDOE3",
+    "path": "docs/downloads/wbg-gems-offnet-conduit-latest.tif",
+    "stage": "download/describe",
+    "error": "'/home/user/.cache/registry/blobs/fae30d96afe48eaa083fce3995d23194596be280.tif' not recognized as being in a supported file format."
+   }
+  ],
+  "full_pass_status": "INCOMPLETE: gate_batch pass stopped at 300/2277 (dense rasters are slow on 2 cores); not used for a verdict"
+ },
+ "lane_checks": {
+  "vs_GEMSDOE2_turbo_submission": {
+   "generated_utc": "2026-10-30T03:37:23Z",
+   "candidate": {
+    "file": "gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.tif",
+    "sha256": "65e3a775ad8b3fd3f3c55a501c84d48d05554219065cad69fa9ebfb54d572661",
+    "dots": 22163
+   },
+   "reference": {
+    "file": "51dfff6d3e57497ab4eb5bbe9362303115833730.tif",
+    "sha256": "fb9d98443cedb8c94c2f50ae3275be6969707600dfad989d7d82799c99e0e409",
+    "positives": 5167373,
+    "note": "registry blob from the nine-repo listing (see registry/gems_registry_manifest.json)"
+   },
+   "overlap_3px_fwd": 1.0,
+   "rule_max": 0.7,
+   "lane_duplicate": true
+  },
+  "focus_pairwise": {
+   "file": "evidence/focus_pairwise.json",
+   "summary": [
+    {
+     "file": "candidate-cc522684-zeros",
+     "path": "docs/downloads/gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.tif",
+     "dots": 22163,
+     "max_fwd_overlap_vs_other": {
+      "with": "GEMSDOE27",
+      "value": 0.302576
+     },
+     "max_abs_spearman_vs_other": {
+      "with": "GEMSDOE36",
+      "value": 0.004897
+     },
+     "lane_duplicate": false
+    },
+    {
+     "file": "GEMSDOE24",
+     "path": "/home/user/.cache/registry/focus/GEMSDOE24.tif",
+     "dots": 60069,
+     "max_fwd_overlap_vs_other": {
+      "with": "GEMSDOE25",
+      "value": 1.0
+     },
+     "max_abs_spearman_vs_other": {
+      "with": "GEMSDOE27",
+      "value": 0.988727
+     },
+     "lane_duplicate": true
+    },
+    {
+     "file": "GEMSDOE25",
+     "path": "/home/user/.cache/registry/focus/GEMSDOE25.tif",
+     "dots": 44090,
+     "max_fwd_overlap_vs_other": {
+      "with": "GEMSDOE24",
+      "value": 1.0
+     },
+     "max_abs_spearman_vs_other": {
+      "with": "GEMSDOE30",
+      "value": 1.0
+     },
+     "lane_duplicate": true
+    },
+    {
+     "file": "GEMSDOE27",
+     "path": "/home/user/.cache/registry/focus/GEMSDOE27.tif",
+     "dots": 61328,
+     "max_fwd_overlap_vs_other": {
+      "with": "GEMSDOE24",
+      "value": 0.980188
+     },
+     "max_abs_spearman_vs_other": {
+      "with": "GEMSDOE24",
+      "value": 0.988727
+     },
+     "lane_duplicate": true
+    },
+    {
+     "file": "GEMSDOE28",
+     "path": "/home/user/.cache/registry/focus/GEMSDOE28.tif",
+     "dots": 37660,
+     "max_fwd_overlap_vs_other": {
+      "with": "GEMSDOE24",
+      "value": 1.0
+     },
+     "max_abs_spearman_vs_other": {
+      "with": "GEMSDOE31",
+      "value": 0.707087
+     },
+     "lane_duplicate": true
+    },
+    {
+     "file": "GEMSDOE30",
+     "path": "/home/user/.cache/registry/focus/GEMSDOE30.tif",
+     "dots": 44090,
+     "max_fwd_overlap_vs_other": {
+      "with": "GEMSDOE24",
+      "value": 1.0
+     },
+     "max_abs_spearman_vs_other": {
+      "with": "GEMSDOE25",
+      "value": 1.0
+     },
+     "lane_duplicate": true
+    },
+    {
+     "file": "GEMSDOE31",
+     "path": "/home/user/.cache/registry/focus/GEMSDOE31.tif",
+     "dots": 40199,
+     "max_fwd_overlap_vs_other": {
+      "with": "GEMSDOE24",
+      "value": 1.0
+     },
+     "max_abs_spearman_vs_other": {
+      "with": "GEMSDOE32",
+      "value": 0.970619
+     },
+     "lane_duplicate": true
+    },
+    {
+     "file": "GEMSDOE32",
+     "path": "/home/user/.cache/registry/focus/GEMSDOE32.tif",
+     "dots": 37654,
+     "max_fwd_overlap_vs_other": {
+      "with": "GEMSDOE24",
+      "value": 1.0
+     },
+     "max_abs_spearman_vs_other": {
+      "with": "GEMSDOE36",
+      "value": 0.984332
+     },
+     "lane_duplicate": true
+    },
+    {
+     "file": "GEMSDOE33",
+     "path": "/home/user/.cache/registry/focus/GEMSDOE33.tif",
+     "dots": 41865,
+     "max_fwd_overlap_vs_other": {
+      "with": "GEMSDOE27",
+      "value": 0.997086
+     },
+     "max_abs_spearman_vs_other": {
+      "with": "GEMSDOE31",
+      "value": 0.819897
+     },
+     "lane_duplicate": true
+    },
+    {
+     "file": "GEMSDOE36",
+     "path": "/home/user/.cache/registry/focus/GEMSDOE36.tif",
+     "dots": 38854,
+     "max_fwd_overlap_vs_other": {
+      "with": "GEMSDOE27",
+      "value": 0.975781
+     },
+     "max_abs_spearman_vs_other": {
+      "with": "GEMSDOE32",
+      "value": 0.984332
+     },
+     "lane_duplicate": true
+    }
+   ]
+  }
+ },
+ "candidate": {
+  "zeros": {
+   "file": "docs/downloads/gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.tif",
+   "sha256": "65e3a775ad8b3fd3f3c55a501c84d48d05554219065cad69fa9ebfb54d572661",
+   "bytes": 123328
+  },
+  "nan_variant": {
+   "file": "docs/downloads/gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-nan.tif",
+   "sha256": "ea9fca4c9b66df4a7ce6335e5d221c6a9f9702404379402ae19d4b0a76578585",
+   "bytes": 194488
+  },
+  "validator": {
+   "file": "evidence/validate_cc522684_zeros.json",
+   "strict_local_format_pass": true,
+   "ok_to_submit": false,
+   "checks": {
+    "tif_extension": true,
+    "single_band": true,
+    "float32": true,
+    "crs_match": true,
+    "shape_match": true,
+    "transform_match": true,
+    "competition_crs_epsg32611": true,
+    "competition_100m_north_up": true,
+    "whole_array_finite_in_0_1": true,
+    "inside_unmasked_finite_in_0_1": true,
+    "outside_masked_or_nan": true
+   }
+  }
+ },
+ "submission": {
+  "name": "GEMSDOESASS2-SPARSE-BLIND-CC522684",
+  "note": "GEMSDOESASS2 sparse-blind-conduit 22163d B=2 sep3 | off-catalogue blind faults | cc522684 | research",
+  "note_chars": 100,
+  "submitted": false
+ },
+ "budget": {
+  "experiments_used": 2,
+  "experiments_max": 3,
+  "wall_clock_budget_minutes": 120,
+  "slots_used": 0
+ },
+ "generated_utc": "2026-10-30T03:37:46Z"
+}

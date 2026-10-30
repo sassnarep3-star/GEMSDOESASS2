@@ -1,0 +1,17 @@
+{
+ "generated_utc": "2026-10-30T03:37:23Z",
+ "candidate": {
+  "file": "gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.tif",
+  "sha256": "65e3a775ad8b3fd3f3c55a501c84d48d05554219065cad69fa9ebfb54d572661",
+  "dots": 22163
+ },
+ "reference": {
+  "file": "51dfff6d3e57497ab4eb5bbe9362303115833730.tif",
+  "sha256": "fb9d98443cedb8c94c2f50ae3275be6969707600dfad989d7d82799c99e0e409",
+  "positives": 5167373,
+  "note": "registry blob from the nine-repo listing (see registry/gems_registry_manifest.json)"
+ },
+ "overlap_3px_fwd": 1.0,
+ "rule_max": 0.7,
+ "lane_duplicate": true
+}

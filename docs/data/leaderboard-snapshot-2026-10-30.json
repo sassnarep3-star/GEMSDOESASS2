@@ -1,0 +1,23 @@
+{
+  "source": "https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/",
+  "retrieved": "2026-10-30 (UTC), via fetch of the public page; the page is dynamic and this is a dated snapshot, not an organizer receipt for any file of ours",
+  "metric_column": "Best public DW-Tversky",
+  "rows_verified_in_this_snapshot": {
+    "1": {"participant": "xiaofanhu", "score": 0.4544},
+    "2": {"participant": "cfld__", "score": 0.3916},
+    "3": {"participant": "Batik Shirt Brothers", "score": 0.3911},
+    "4": {"participant": "BrandenKMurray", "score": 0.3841},
+    "5": {"participant": "op01", "score": 0.3642},
+    "6": {"participant": "No Fault of Our Own", "score": 0.3604},
+    "7": {"participant": "joeyfezster", "score": 0.3447},
+    "8": {"participant": "JerryDataWorks", "score": 0.3418},
+    "9": {"participant": "alexoktaba", "score": 0.3416},
+    "10": {"participant": "zeaal", "score": 0.3405},
+    "22": {"participant": "baobao", "score": 0.3334},
+    "40": {"participant": "holandakrait", "score": 0.3287},
+    "43": {"participant": "nchuzhoy", "score": 0.3262},
+    "47": {"participant": "like60986", "score": 0.3231}
+  },
+  "reading": "A 0.2778 public score (the nine-site best, user-reported) would sit below rank 47 on this snapshot. The 0.4413 and 0.3195 figures in the project prompt do not match this snapshot and are not used as evidence.",
+  "user_reported_figures_not_matching_snapshot": {"0.4413": "prompt, 'GEMSDOE high score'", "0.3195": "prompt, 'current highest'"}
+}

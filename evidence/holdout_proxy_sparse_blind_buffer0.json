@@ -1,0 +1,245 @@
+{
+ "label": "HOLDOUT-DTI (PROXY TRUTH: withheld USGS/INGENIOUS fault segments; NOT an organizer score)",
+ "evaluator": "src/gems/metric.py dti_binary + per_component_terms + bootstrap_dti (official DTI; alpha 0.2, beta 0.8, R 3 px)",
+ "evaluator_version": "gems.metric (repo HEAD at run time)",
+ "generated_utc": "2026-10-30T02:35:50Z",
+ "buffer_px": 0.0,
+ "n_folds": 4,
+ "withheld_positives_total": 60988,
+ "withheld_segments_total": 3199,
+ "masking": "all catalogue pixels except withheld truth are masked from scoring",
+ "summary": {
+  "A_sparse_blind": {
+   "pooled_DTI": 0.0024350036885264622,
+   "ci95_cluster_bootstrap_over_withheld_segments": [
+    0.0015316725694008674,
+    0.0034942186275659847
+   ],
+   "TP_w": 162.02193292099838,
+   "FP_w": 88579.38154000271,
+   "FN_w": 60825.978067079006,
+   "dots_scored": 88652
+  },
+  "A0_no_random_field": {
+   "pooled_DTI": 0.0032384976190056682,
+   "ci95_cluster_bootstrap_over_withheld_segments": [
+    0.002344651806430993,
+    0.004197112065130606
+   ],
+   "TP_w": 215.5080595134697,
+   "FP_w": 88560.94331979958,
+   "FN_w": 60772.49194048652,
+   "dots_scored": 88652
+  },
+  "B_dense_adjacent": {
+   "pooled_DTI": 0.004281042961634301,
+   "ci95_cluster_bootstrap_over_withheld_segments": [
+    0.0031913103821013754,
+    0.0054643358145171255
+   ],
+   "TP_w": 337.98584675544123,
+   "FP_w": 150457.10006711038,
+   "FN_w": 60650.014153244556,
+   "dots_scored": 150616
+  },
+  "C_random_null": {
+   "pooled_DTI": 0.03745011428881643,
+   "ci95_cluster_bootstrap_over_withheld_segments": [
+    0.0354673372066075,
+    0.039435029617589996
+   ],
+   "TP_w": 2502.9814553866,
+   "FP_w": 87720.42800845776,
+   "FN_w": 58485.0185446134,
+   "dots_scored": 88652
+  }
+ },
+ "folds": [
+  {
+   "fold": 0,
+   "withheld_segments": 919,
+   "withheld_truth_pixels": 17745,
+   "visible_pixels": 43243,
+   "arms": {
+    "A_sparse_blind": {
+     "DTI": 0.0026908360021273723,
+     "TP_w": 50.14235629994163,
+     "FP_w": 22142.307135789364,
+     "FN_w": 17694.85764370006,
+     "dots_scored": 22163,
+     "dots_total": 22163
+    },
+    "A0_no_random_field": {
+     "DTI": 0.0037091979002745546,
+     "TP_w": 69.12701317865786,
+     "FP_w": 22134.109682740283,
+     "FN_w": 17675.87298682134,
+     "dots_scored": 22163,
+     "dots_total": 22163
+    },
+    "B_dense_adjacent": {
+     "DTI": 0.004640516641595587,
+     "TP_w": 100.87268654129754,
+     "FP_w": 37606.04121989569,
+     "FN_w": 17644.127313458703,
+     "dots_scored": 37654,
+     "dots_total": 37654
+    },
+    "C_random_null": {
+     "DTI": 0.03757426259460369,
+     "TP_w": 703.2480737451032,
+     "FP_w": 21897.839775215332,
+     "FN_w": 17041.751926254896,
+     "dots_scored": 22163,
+     "dots_total": 22163
+    }
+   },
+   "leakage_canary_auc": {
+    "off_fault_term_from_visible_only": 0.2509885776275007,
+    "random_field_term_alone": 0.4967798646097492,
+    "threshold": 0.9,
+    "leakage_flag": false
+   }
+  },
+  {
+   "fold": 1,
+   "withheld_segments": 586,
+   "withheld_truth_pixels": 10545,
+   "visible_pixels": 50443,
+   "arms": {
+    "A_sparse_blind": {
+     "DTI": 0.001790054465709936,
+     "TP_w": 23.039660333346806,
+     "FP_w": 22151.59528148466,
+     "FN_w": 10521.960339666653,
+     "dots_scored": 22163,
+     "dots_total": 22163
+    },
+    "A0_no_random_field": {
+     "DTI": 0.003215053501920344,
+     "TP_w": 41.38823329519657,
+     "FP_w": 22144.932996624408,
+     "FN_w": 10503.611766704804,
+     "dots_scored": 22163,
+     "dots_total": 22163
+    },
+    "B_dense_adjacent": {
+     "DTI": 0.0038151760297041814,
+     "TP_w": 60.9408354151671,
+     "FP_w": 37625.407323482614,
+     "FN_w": 10484.059164584833,
+     "dots_scored": 37654,
+     "dots_total": 37654
+    },
+    "C_random_null": {
+     "DTI": 0.033144695026935414,
+     "TP_w": 428.35175364808435,
+     "FP_w": 22010.09673410832,
+     "FN_w": 10116.648246351915,
+     "dots_scored": 22163,
+     "dots_total": 22163
+    }
+   },
+   "leakage_canary_auc": {
+    "off_fault_term_from_visible_only": 0.15998913679468943,
+    "random_field_term_alone": 0.5151678053579896,
+    "threshold": 0.9,
+    "leakage_flag": false
+   }
+  },
+  {
+   "fold": 2,
+   "withheld_segments": 1059,
+   "withheld_truth_pixels": 19993,
+   "visible_pixels": 40995,
+   "arms": {
+    "A_sparse_blind": {
+     "DTI": 0.0019311097139591588,
+     "TP_w": 39.454919300649046,
+     "FP_w": 22144.624083995906,
+     "FN_w": 19953.54508069935,
+     "dots_scored": 22163,
+     "dots_total": 22163
+    },
+    "A0_no_random_field": {
+     "DTI": 0.0028649709837631613,
+     "TP_w": 58.54227554537924,
+     "FP_w": 22138.512624416486,
+     "FN_w": 19934.45772445462,
+     "dots_scored": 22163,
+     "dots_total": 22163
+    },
+    "B_dense_adjacent": {
+     "DTI": 0.004025467549235909,
+     "TP_w": 94.74077739880967,
+     "FP_w": 37609.996446321726,
+     "FN_w": 19898.25922260119,
+     "dots_scored": 37654,
+     "dots_total": 37654
+    },
+    "C_random_null": {
+     "DTI": 0.04236683833825233,
+     "TP_w": 870.0107636683964,
+     "FP_w": 21833.90249687786,
+     "FN_w": 19122.989236331603,
+     "dots_scored": 22163,
+     "dots_total": 22163
+    }
+   },
+   "leakage_canary_auc": {
+    "off_fault_term_from_visible_only": 0.2337745017005952,
+    "random_field_term_alone": 0.46598816535787524,
+    "threshold": 0.9,
+    "leakage_flag": false
+   }
+  },
+  {
+   "fold": 3,
+   "withheld_segments": 635,
+   "withheld_truth_pixels": 12705,
+   "visible_pixels": 48283,
+   "arms": {
+    "A_sparse_blind": {
+     "DTI": 0.003382059623615782,
+     "TP_w": 49.384996987060916,
+     "FP_w": 22140.85503873278,
+     "FN_w": 12655.61500301294,
+     "dots_scored": 22163,
+     "dots_total": 22163
+    },
+    "A0_no_random_field": {
+     "DTI": 0.0031811149301604106,
+     "TP_w": 46.450537494236045,
+     "FP_w": 22143.388016018405,
+     "FN_w": 12658.549462505764,
+     "dots_scored": 22163,
+     "dots_total": 22163
+    },
+    "B_dense_adjacent": {
+     "DTI": 0.004599764322639967,
+     "TP_w": 81.43154740016698,
+     "FP_w": 37615.65507741035,
+     "FN_w": 12623.568452599833,
+     "dots_scored": 37654,
+     "dots_total": 37654
+    },
+    "C_random_null": {
+     "DTI": 0.0341999412576486,
+     "TP_w": 501.3708643250159,
+     "FP_w": 21978.58900225625,
+     "FN_w": 12203.629135674984,
+     "dots_scored": 22163,
+     "dots_total": 22163
+    }
+   },
+   "leakage_canary_auc": {
+    "off_fault_term_from_visible_only": 0.16368035458480912,
+    "random_field_term_alone": 0.5439262579693034,
+    "threshold": 0.9,
+    "leakage_flag": false
+   }
+  }
+ ],
+ "script_sha256": "41ec1f2e425383184f214a15326b6caf1ea5f36eb2a6f0fd325af62412481c41",
+ "generator_sha256": "4a38ff2bcb38e3488713aa24b2c8c230641930a71f71107509b36cae900f6607"
+}

@@ -33,7 +33,7 @@ def test_site_links_and_accessible_main():
     for path in DOCS.glob('*.html'):
         page = ParsePage(); page.feed(path.read_text()); pages[path.resolve()] = page
         assert page.main == 1
-        assert any('Skip to content' in text for text in page.text)
+        assert any('Skip to content' in text for text in page.text)  # every page keeps the skip link
     assert len(pages) >= 4
     for page_path, page in pages.items():
         for link in page.links:
@@ -52,16 +52,15 @@ def test_pages_root_redirects_to_docs_with_fallback():
 
 
 def test_homepage_advertises_the_approved_unique_submission():
-    # A unique submission has passed all local gates (13/13 format checks,
-    # uniqueness max overlap 41.29% < 70%, max|rho| 0.0083 < 0.90).
-    # The homepage must advertise the download-ready TIF without estimating a score.
+    # 2026-10-30: the earlier 'approved' claim is superseded. The lane gate fails
+    # (100% of dots within 3 px of GEMSDOE2 dense surface). The homepage must say so,
+    # offer the file as research-only, and must not estimate a score.
     text = (DOCS / 'index.html').read_text()
     flat = ' '.join(text.split())
-    assert 'Unique submission available' in flat
-    assert 'OK to download and submit' in flat
-    assert '13/13' in flat
-    assert '41.29%' in flat
+    assert 'DO NOT SUBMIT' in flat
+    assert 'OK to download and submit' not in flat
     assert 'gemsdoesass2-sparse-blind-conduit-22163' in flat
+    assert 'Not estimable' in flat
     assert 'focus-sites.html' in text
 
 

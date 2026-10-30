@@ -1,22 +1,58 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Evidence-led DOE GEMS competition research and submission decision desk."><title>Submission decision desk — GEMS Field Notes</title>
-<link rel="stylesheet" href="assets/style.css"><script src="assets/app.js" defer></script></head><body><a class="skip" href="#main">Skip to content</a><header class="site-header"><div class="wrap header-inner">
-<a class="brand" href="index.html"><span class="brand-mark">G.</span><span>GEMS Field Notes<small>Decision &amp; discovery</small></span></a>
-<nav class="nav" aria-label="Primary"><a href="index.html" aria-current="page">Overview</a><a href="executive-summary.html">Executive summary</a><a href="focus-sites.html">Nine-site receipts</a><a href="research.html">Research</a><a href="hvfd-exp3.html">Artifact audit</a><a href="parallel-review.html">Parallel review</a><a href="sources.html">Sources</a><a class="nav-link" href="https://www.drivendata.org/competitions/306/competition-doe-gems/" target="_blank" rel="noopener noreferrer">Competition ↗</a></nav>
-</div></header><main id="main"><section class="hero"><div class="wrap hero-grid"><div>
-<div class="eyebrow">DOE GEMS Prize · evidence before upload</div>
-<h1>Find the blind fault.<br>Audit every gate.</h1>
-<p>A transparent research desk for geothermal fault discovery. Compare the nine focus sites, inspect the evidence and conserve the next competition slot.</p>
-<p class="meta">Pinned-raster audit: <span data-audit-time>28 Oct 2026</span> · Owner mirrors, not organizer-authenticated files</p>
-</div><div class="status-card"><span class="status-tag">Unique submission available</span><h2>Download-ready TIF</h2>
-<p><strong>OK to download and submit</strong> — 13/13 format checks passed, uniqueness gate passed (41.29% max overlap vs registry). <span style="color:#a5432d">No organizer receipt available in this environment; verify on the live submission page before upload.</span></p>
-<div class="buttons"><a class="btn btn-primary" href="executive-summary.html">Download submission TIF →</a><a class="btn btn-outline" href="executive-summary.html">View full executive summary →</a></div>
-<div class="status-divider"></div><div class="status-mini"><span>New TIFF this session<strong>gemsdoesass2-sparse-blind-conduit-22163</strong></span><span>Weekly slots used<strong>None</strong></span></div></div></div></section><div class="wrap"><div class="metric-strip" aria-label="Decision highlights">
-<div class="metric"><strong>41.29%</strong><span>max 3-px overlap vs any registry raster (limit 70%)</span></div>
-<div class="metric"><strong>0.0083</strong><span>max |Spearman| vs registry (limit 0.90)</span></div>
-<div class="metric"><strong>22,163</strong><span>sparse dots, 0 on catalogue (B=2)</span></div>
-<div class="metric"><strong>13/13</strong><span>format checks passed; values in [0,1]</span></div></div></div><section class="section" id="sites"><div class="wrap"><div class="section-header"><div><div class="eyebrow">Nine-site executive summary</div><h2>Historical focus-site values</h2></div><p>Every historical focus-site variant shares &gt;97% dot overlap within 3 px with at least one other focus site — none is unique under the parallel-run lane rule.</p></div><div class="table-shell"><table><thead><tr><th scope="col">Site</th><th scope="col">Historical value</th><th scope="col">Unique?</th></tr></thead><tbody data-sites-body></tbody></table></div><p class="table-note">Historical values are <strong>USER-REPORTED · unverified</strong>; archived variants are research only. See the <a href="executive-summary.html">full executive summary</a> for the unique submission download.</p></div></section><section class="section-tight dark-band"><div class="wrap"><div class="eyebrow">What happens next</div><h2>Verify on the live portal, then submit.</h2>
-<p>The shared upstream evaluator and surface gate still fail synthetic checks. We restored the 19-band feature cache from a pinned owner mirror, but the authenticated organizer sample, complete registry and a comparable fold-local incumbent remain unavailable.</p>
-<p><a href="research.html">Explore the hypotheses →</a> &nbsp; <a href="data/run-card.json">Read the negative run card →</a> &nbsp; <a href="executive-summary.html">Download unique submission →</a></p>
-<div class="refresh"><div><strong>Source watch</strong><p data-freshness>Checking GitHub repository heads…</p></div><button type="button" data-refresh>Check for updates</button></div></div></section></main><footer class="site-footer"><div class="wrap footer-inner"><p><strong>GEMS Field Notes</strong> · Unique submission TIF available for download.</p><div><a href="sources.html">Sources</a><a href="data/run-card.json">Run card</a></div></div></footer></body></html>
+<title>GEMSDOESASS2 — submission decision desk</title>
+<style>
+body{font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;background:#0b1120;color:#e5e7eb}
+main{max-width:1040px;margin:0 auto;padding:24px}
+a{color:#7dd3fc} small{color:#94a3b8}
+.verdict{background:#3b0d0d;border:2px solid #ef4444;border-radius:10px;padding:16px;margin:16px 0}
+.btn{display:inline-block;background:#10b981;color:#052e1b;font-weight:700;padding:12px 18px;border-radius:8px;text-decoration:none;margin:6px 6px 6px 0}
+.btn2{background:#1e293b;color:#e5e7eb;border:1px solid #334155}
+table{width:100%;border-collapse:collapse;margin:12px 0} th,td{border-bottom:1px solid #1e293b;padding:8px;text-align:left;vertical-align:top}
+th{color:#94a3b8;font-weight:600} .no{background:#7f1d1d;color:#fecaca;padding:2px 6px;border-radius:4px;font-weight:700}
+.box{background:#111827;border:1px solid #1f2937;border-radius:10px;padding:14px;margin:14px 0}
+code{background:#1e293b;padding:1px 5px;border-radius:4px}
+</style></head><body><a class="skip" href="#main">Skip to content</a><main id="main">
+<h1>GEMSDOESASS2 — submission decision desk</h1>
+<p><small>Updated 2026-10-30 · DrivenData GEMS competition 306 · <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/">competition page ↗</a></small></p>
+
+<div class="verdict"><strong>Verdict: DO NOT SUBMIT.</strong> No file passes the lane gate. The unique candidate is format-valid, but 100% of its dots lie within 3 px of a dense GEMSDOE2 surface (rule: more than 70% = duplicate).<br>
+Do not upload anything from this site to the portal. The "[0, 1]" error reported earlier cannot be diagnosed without the rejected bytes and the portal's response.</div>
+
+<p><a class="btn" href="downloads/gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.tif" download>⬇ Download the candidate TIF (research only — not approved)</a>
+<a class="btn btn2" href="executive-summary.html">Executive summary</a>
+<a class="btn btn2" href="submission-guide.html">Submission guide</a></p>
+
+<div class="box"><strong>Candidate</strong><br>
+File: <code>gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.tif</code> · 22,163 dots · sha256 <code>65e3a775ad8b3fd3f3c55a501c84d48d05554219065cad69fa9ebfb54d572661</code><br>
+Format: float32, 1 band, 3730×3292, EPSG:32611, 100 m north-up, 0 NaN in footprint, values in [0, 1]. <strong>Format check passes; that is not approval.</strong><br>
+Submission name (if approved later): <code>GEMSDOESASS2-SPARSE-BLIND-CC522684</code> · note (100 chars): <code>GEMSDOESASS2 sparse-blind-conduit 22163d B=2 sep3 | off-catalogue blind faults | cc522684 | research</code></div>
+
+<h2>Score evidence</h2>
+<p>Proxy holdout (HOLDOUT-DTI, proxy truth, not organizer score): this design scores 0.0; uniform random coverage scores 0.0375 [0.0355, 0.0395]. Labels: <strong>HOLDOUT-DTI (PROXY)</strong>. No <strong>ORGANIZER-CONFIRMED</strong> score exists for any file here. The leaderboard snapshot of 2026-10-30 has #1 = 0.4544 and #47 = 0.3231 (<a href="data/leaderboard-snapshot-2026-10-30.json">snapshot</a>).</p>
+
+<h2>Nine focus sites</h2>
+<p><small>Historical values are <strong>USER-REPORTED / UNVERIFIED</strong>. "Unique" uses the parallel-run lane rule (duplicate if more than 70% of dots lie within 3 px of another raster). The overlap figure is the largest against any other focus file (<a href="https://github.com/sassnarep3-star/GEMSDOESASS2/blob/main/evidence/focus_pairwise.json">evidence</a>).</small></p>
+<table><thead><tr><th>Site</th><th>Historical value</th><th>File to download (pinned)</th><th>Estimated score</th><th>Unique?</th></tr></thead>
+<tbody>
+<tr><td><strong>GEMSDOE32</strong></td><td>0.2778 <small>USER-REPORTED</small></td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE32/blob/400b60d4a6d99f425ee90504e6c4552227556dd1/docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif" target="_blank" rel="noopener">pinned file ↗</a><br><small>219,065 B · sha256 c55bafc47005…</small></td><td>Not estimable <small>(no holdout run on this file)</small></td><td><span class="no">NO</span> <small>100.00% within 3 px of GEMSDOE24</small></td></tr>
+<tr><td><strong>GEMSDOE36</strong></td><td>0.2750 <small>USER-REPORTED</small></td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE36/blob/32c2660001d98f6fa9084a0971b3a9d5062d49b9/docs/downloads/gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif" target="_blank" rel="noopener">pinned file ↗</a><br><small>318,190 B · sha256 e15891020b9c…</small></td><td>Not estimable <small>(no holdout run on this file)</small></td><td><span class="no">NO</span> <small>97.58% within 3 px of GEMSDOE27</small></td></tr>
+<tr><td><strong>GEMSDOE28</strong></td><td>0.2710 <small>USER-REPORTED</small></td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE28/blob/2c839d10f57ec9b074829e93c84bc39935f52896/docs/downloads/gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-allfinite.tif" target="_blank" rel="noopener">pinned file ↗</a><br><small>825,430 B · sha256 7c74270ad48f…</small></td><td>Not estimable <small>(no holdout run on this file)</small></td><td><span class="no">NO</span> <small>100.00% within 3 px of GEMSDOE24</small></td></tr>
+<tr><td><strong>GEMSDOE31</strong></td><td>0.2708 <small>USER-REPORTED</small></td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE31/blob/eeb7da54ca4a8ae056f45e5b23eeef586ad79bf2/docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-allfinite.tif" target="_blank" rel="noopener">pinned file ↗</a><br><small>154,580 B · sha256 acd853936e5a…</small></td><td>Not estimable <small>(no holdout run on this file)</small></td><td><span class="no">NO</span> <small>100.00% within 3 px of GEMSDOE24</small></td></tr>
+<tr><td><strong>GEMSDOE33</strong></td><td>0.2632 <small>USER-REPORTED</small></td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE33/blob/efa438d3104893c3e8aedf3817ac22167b1c681a/docs/downloads/GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e.tif" target="_blank" rel="noopener">pinned file ↗</a><br><small>917,544 B · sha256 87f857d505e2…</small></td><td>Not estimable <small>(no holdout run on this file)</small></td><td><span class="no">NO</span> <small>99.71% within 3 px of GEMSDOE27</small></td></tr>
+<tr><td><strong>GEMSDOE25</strong></td><td>0.2600 <small>USER-REPORTED</small></td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE25/blob/b4e74b3f9b191fbc214b6447e9ff1f3fa67552c4/docs/downloads/gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-zeros.tif" target="_blank" rel="noopener">pinned file ↗</a><br><small>836,982 B · sha256 3e78737f0da8…</small></td><td>Not estimable <small>(no holdout run on this file)</small></td><td><span class="no">NO</span> <small>100.00% within 3 px of GEMSDOE24</small></td></tr>
+<tr><td><strong>GEMSDOE30</strong></td><td>0.2600 <small>USER-REPORTED</small></td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE30/blob/9c0d637c0171407196b61b780444bc772ce75438/docs/downloads/gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca.tif" target="_blank" rel="noopener">pinned file ↗</a><br><small>806,758 B · sha256 8cf893ead566…</small></td><td>Not estimable <small>(no holdout run on this file)</small></td><td><span class="no">NO</span> <small>100.00% within 3 px of GEMSDOE24</small></td></tr>
+<tr><td><strong>GEMSDOE24</strong></td><td>0.2477 <small>USER-REPORTED</small></td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE24/blob/a433b430b74b813a9118ebd4ec438b12cbc69f46/docs/downloads/gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-allfinite.tif" target="_blank" rel="noopener">pinned file ↗</a><br><small>863,902 B · sha256 3e0730e8d4f7…</small></td><td>Not estimable <small>(no holdout run on this file)</small></td><td><span class="no">NO</span> <small>100.00% within 3 px of GEMSDOE25</small></td></tr>
+<tr><td><strong>GEMSDOE27</strong></td><td>0.2449 <small>USER-REPORTED</small></td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE27/blob/bef7ae8e8f63b69d299c9214c75988c8f5055f9c/docs/downloads/gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-allfinite.tif" target="_blank" rel="noopener">pinned file ↗</a><br><small>866,160 B · sha256 a9bf76b57453…</small></td><td>Not estimable <small>(no holdout run on this file)</small></td><td><span class="no">NO</span> <small>98.02% within 3 px of GEMSDOE24</small></td></tr>
+<tr><td><strong>Candidate</strong></td><td>—</td><td><a href="downloads/gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.tif">download</a></td><td>Not estimable (proxy DTI 0.0)</td><td><span class="no">NO</span> <small>100% within 3 px of GEMSDOE2 dense surface</small></td></tr>
+</tbody></table>
+
+<h2>Why nothing here is approved</h2>
+<ul>
+<li>The unique candidate fails the written lane rule (dense-surface overlap = 100%). See <a href="https://github.com/sassnarep3-star/GEMSDOESASS2/blob/main/evidence/gates/lane_cc522684_vs_GEMSDOE2_turbo.json">evidence</a>.</li>
+<li>Every focus file is a duplicate of a sibling (8 of 9 at 97.5%+; GEMSDOE28 and GEMSDOE24 at 100%).</li>
+<li>The proxy holdout gives 0.0 for the candidate design; random coverage gives 0.0375.</li>
+<li>The full registry pass (2,277 rasters) is incomplete. See <a href="https://github.com/sassnarep3-star/GEMSDOESASS2/blob/main/evidence/run_card_20261030.json">run card</a>.</li>
+</ul>
+<p><a href="focus-sites.html">Nine-site receipts (legacy, superseded)</a> · <a href="executive-summary.html">Executive summary</a> · <a href="submission-guide.html">Submission guide</a><br><a href="https://github.com/sassnarep3-star/GEMSDOESASS2/blob/main/research/2026-10-30-hypotheses-and-experiments.md">Hypotheses and experiments</a> · <a href="https://github.com/sassnarep3-star/GEMSDOESASS2/blob/main/IRREGULARITIES.md">Irregularities</a> · <a href="https://github.com/sassnarep3-star/GEMSDOESASS2/blob/main/evidence/run_card_20261030.json">Run card</a> · <a href="https://github.com/sassnarep3-star/GEMSDOESASS2/blob/main/README.md">README</a></p>
+</main></body></html>

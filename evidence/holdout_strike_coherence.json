@@ -1,0 +1,175 @@
+{
+ "label": "HOLDOUT-DTI (PROXY TRUTH: withheld USGS/INGENIOUS fault segments; NOT an organizer score)",
+ "hypothesis": "H-S1 strike-coherence echelon corridor (see module docstring)",
+ "evaluator": "src/gems/metric.py dti_binary + per_component_terms + bootstrap_dti",
+ "buffer_px": 10.0,
+ "withheld_positives_total": 60988,
+ "withheld_segments_total": 3199,
+ "generated_utc": "2026-10-30T02:38:48Z",
+ "summary": {
+  "H_S1_strike_coherence": {
+   "pooled_DTI": 0.007604888023042913,
+   "ci95_cluster_bootstrap_over_withheld_segments": [
+    0.005995446789378453,
+    0.009228811536607715
+   ],
+   "TP_w": 506.2769352776668,
+   "FP_w": 88404.56979148598,
+   "FN_w": 60481.72306472233,
+   "dots_scored": 88651
+  },
+  "A_sparse_blind": {
+   "pooled_DTI": 0.0,
+   "ci95_cluster_bootstrap_over_withheld_segments": [
+    0.0,
+    0.0
+   ],
+   "TP_w": 0.0,
+   "FP_w": 88635.0,
+   "FN_w": 60988.0,
+   "dots_scored": 88635
+  },
+  "C_random_null": {
+   "pooled_DTI": 0.03750603194973696,
+   "ci95_cluster_bootstrap_over_withheld_segments": [
+    0.035475411346177495,
+    0.039542300332107164
+   ],
+   "TP_w": 2506.700296464992,
+   "FP_w": 87714.2535132451,
+   "FN_w": 58481.299703535005,
+   "dots_scored": 88648
+  }
+ },
+ "folds": [
+  {
+   "fold": 0,
+   "withheld_truth_pixels": 17745,
+   "arms": {
+    "H_S1_strike_coherence": {
+     "DTI": 0.009108868763242151,
+     "TP_w": 169.8426452372669,
+     "FP_w": 22079.431840881374,
+     "FN_w": 17575.157354762734,
+     "dots_scored": 22163
+    },
+    "A_sparse_blind": {
+     "DTI": 0.0,
+     "TP_w": 0.0,
+     "FP_w": 22158.0,
+     "FN_w": 17745.0,
+     "dots_scored": 22158
+    },
+    "C_random_null": {
+     "DTI": 0.03737682622097431,
+     "TP_w": 699.530788829638,
+     "FP_w": 21898.61101138166,
+     "FN_w": 17045.469211170363,
+     "dots_scored": 22162
+    }
+   },
+   "leakage_canary_auc": {
+    "H_S1_propensity_alone": 0.25954030233868697,
+    "threshold": 0.9,
+    "leakage_flag": false
+   }
+  },
+  {
+   "fold": 1,
+   "withheld_truth_pixels": 10545,
+   "arms": {
+    "H_S1_strike_coherence": {
+     "DTI": 0.009643338486818528,
+     "TP_w": 124.22961245132363,
+     "FP_w": 22107.909721417855,
+     "FN_w": 10420.770387548677,
+     "dots_scored": 22163
+    },
+    "A_sparse_blind": {
+     "DTI": 0.0,
+     "TP_w": 0.0,
+     "FP_w": 22160.0,
+     "FN_w": 10545.0,
+     "dots_scored": 22160
+    },
+    "C_random_null": {
+     "DTI": 0.03427946584376822,
+     "TP_w": 443.0643393869966,
+     "FP_w": 22002.262876372813,
+     "FN_w": 10101.935660613004,
+     "dots_scored": 22162
+    }
+   },
+   "leakage_canary_auc": {
+    "H_S1_propensity_alone": 0.18440349976292086,
+    "threshold": 0.9,
+    "leakage_flag": false
+   }
+  },
+  {
+   "fold": 2,
+   "withheld_truth_pixels": 19993,
+   "arms": {
+    "H_S1_strike_coherence": {
+     "DTI": 0.0059846376866111405,
+     "TP_w": 122.32291006481299,
+     "FP_w": 22103.10028438718,
+     "FN_w": 19870.677089935187,
+     "dots_scored": 22163
+    },
+    "A_sparse_blind": {
+     "DTI": 0.0,
+     "TP_w": 0.0,
+     "FP_w": 22157.0,
+     "FN_w": 19993.0,
+     "dots_scored": 22157
+    },
+    "C_random_null": {
+     "DTI": 0.04175829523151823,
+     "TP_w": 857.4468896622536,
+     "FP_w": 21838.40448074903,
+     "FN_w": 19135.553110337747,
+     "dots_scored": 22162
+    }
+   },
+   "leakage_canary_auc": {
+    "H_S1_propensity_alone": 0.23960636022607912,
+    "threshold": 0.9,
+    "leakage_flag": false
+   }
+  },
+  {
+   "fold": 3,
+   "withheld_truth_pixels": 12705,
+   "arms": {
+    "H_S1_strike_coherence": {
+     "DTI": 0.006154261309283765,
+     "TP_w": 89.88176752426328,
+     "FP_w": 22114.127944799562,
+     "FN_w": 12615.118232475737,
+     "dots_scored": 22162
+    },
+    "A_sparse_blind": {
+     "DTI": 0.0,
+     "TP_w": 0.0,
+     "FP_w": 22160.0,
+     "FN_w": 12705.0,
+     "dots_scored": 22160
+    },
+    "C_random_null": {
+     "DTI": 0.03455982185690717,
+     "TP_w": 506.6582785861035,
+     "FP_w": 21974.975144741587,
+     "FN_w": 12198.341721413897,
+     "dots_scored": 22162
+    }
+   },
+   "leakage_canary_auc": {
+    "H_S1_propensity_alone": 0.17915869716646987,
+    "threshold": 0.9,
+    "leakage_flag": false
+   }
+  }
+ ],
+ "script_sha256": "c06363a0b26c58268917f7e019bc55467aafaea50d24cae513cf48e26cefa587"
+}

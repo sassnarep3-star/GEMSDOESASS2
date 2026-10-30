@@ -1,0 +1,394 @@
+{
+ "generated_utc": "2026-10-30T03:37:10Z",
+ "scope": "pairwise among the nine pinned focus files and the candidate (NOT the full 2,277-raster registry)",
+ "rules": {
+  "overlap_3px_max": 0.7,
+  "abs_spearman_max": 0.9
+ },
+ "fwd_overlap": {
+  "candidate-cc522684-zeros": {
+   "candidate-cc522684-zeros": 1.0,
+   "GEMSDOE24": 0.281956,
+   "GEMSDOE25": 0.266976,
+   "GEMSDOE27": 0.302576,
+   "GEMSDOE28": 0.245635,
+   "GEMSDOE30": 0.266976,
+   "GEMSDOE31": 0.250823,
+   "GEMSDOE32": 0.222127,
+   "GEMSDOE33": 0.2589,
+   "GEMSDOE36": 0.226729
+  },
+  "GEMSDOE24": {
+   "candidate-cc522684-zeros": 0.13318,
+   "GEMSDOE24": 1.0,
+   "GEMSDOE25": 1.0,
+   "GEMSDOE27": 1.0,
+   "GEMSDOE28": 0.934792,
+   "GEMSDOE30": 1.0,
+   "GEMSDOE31": 0.940785,
+   "GEMSDOE32": 0.884766,
+   "GEMSDOE33": 0.962393,
+   "GEMSDOE36": 0.885615
+  },
+  "GEMSDOE25": {
+   "candidate-cc522684-zeros": 0.130665,
+   "GEMSDOE24": 1.0,
+   "GEMSDOE25": 1.0,
+   "GEMSDOE27": 1.0,
+   "GEMSDOE28": 0.931821,
+   "GEMSDOE30": 1.0,
+   "GEMSDOE31": 0.937151,
+   "GEMSDOE32": 0.881719,
+   "GEMSDOE33": 0.960581,
+   "GEMSDOE36": 0.882649
+  },
+  "GEMSDOE27": {
+   "candidate-cc522684-zeros": 0.137441,
+   "GEMSDOE24": 0.980188,
+   "GEMSDOE25": 0.980156,
+   "GEMSDOE27": 1.0,
+   "GEMSDOE28": 0.916156,
+   "GEMSDOE30": 0.980156,
+   "GEMSDOE31": 0.922091,
+   "GEMSDOE32": 0.86719,
+   "GEMSDOE33": 0.943289,
+   "GEMSDOE36": 0.868037
+  },
+  "GEMSDOE28": {
+   "candidate-cc522684-zeros": 0.125571,
+   "GEMSDOE24": 1.0,
+   "GEMSDOE25": 1.0,
+   "GEMSDOE27": 1.0,
+   "GEMSDOE28": 1.0,
+   "GEMSDOE30": 1.0,
+   "GEMSDOE31": 0.997557,
+   "GEMSDOE32": 0.954727,
+   "GEMSDOE33": 0.998407,
+   "GEMSDOE36": 0.955204
+  },
+  "GEMSDOE30": {
+   "candidate-cc522684-zeros": 0.130665,
+   "GEMSDOE24": 1.0,
+   "GEMSDOE25": 1.0,
+   "GEMSDOE27": 1.0,
+   "GEMSDOE28": 0.931821,
+   "GEMSDOE30": 1.0,
+   "GEMSDOE31": 0.937151,
+   "GEMSDOE32": 0.881719,
+   "GEMSDOE33": 0.960581,
+   "GEMSDOE36": 0.882649
+  },
+  "GEMSDOE31": {
+   "candidate-cc522684-zeros": 0.127068,
+   "GEMSDOE24": 1.0,
+   "GEMSDOE25": 1.0,
+   "GEMSDOE27": 1.0,
+   "GEMSDOE28": 0.995622,
+   "GEMSDOE30": 1.0,
+   "GEMSDOE31": 1.0,
+   "GEMSDOE32": 0.953904,
+   "GEMSDOE33": 0.999055,
+   "GEMSDOE36": 0.954402
+  },
+  "GEMSDOE32": {
+   "candidate-cc522684-zeros": 0.109205,
+   "GEMSDOE24": 1.0,
+   "GEMSDOE25": 1.0,
+   "GEMSDOE27": 1.0,
+   "GEMSDOE28": 0.998752,
+   "GEMSDOE30": 1.0,
+   "GEMSDOE31": 1.0,
+   "GEMSDOE32": 1.0,
+   "GEMSDOE33": 0.999841,
+   "GEMSDOE36": 1.0
+  },
+  "GEMSDOE33": {
+   "candidate-cc522684-zeros": 0.127505,
+   "GEMSDOE24": 0.997062,
+   "GEMSDOE25": 0.997038,
+   "GEMSDOE27": 0.997086,
+   "GEMSDOE28": 0.9705,
+   "GEMSDOE30": 0.997038,
+   "GEMSDOE31": 0.9748,
+   "GEMSDOE32": 0.92643,
+   "GEMSDOE33": 1.0,
+   "GEMSDOE36": 0.927123
+  },
+  "GEMSDOE36": {
+   "candidate-cc522684-zeros": 0.109049,
+   "GEMSDOE24": 0.975678,
+   "GEMSDOE25": 0.974983,
+   "GEMSDOE27": 0.975781,
+   "GEMSDOE28": 0.97313,
+   "GEMSDOE30": 0.974983,
+   "GEMSDOE31": 0.974571,
+   "GEMSDOE32": 0.974031,
+   "GEMSDOE33": 0.975035,
+   "GEMSDOE36": 1.0
+  }
+ },
+ "abs_spearman": {
+  "candidate-cc522684-zeros": {
+   "candidate-cc522684-zeros": 1.0,
+   "GEMSDOE24": 0.002912,
+   "GEMSDOE25": 0.003138,
+   "GEMSDOE27": 0.003428,
+   "GEMSDOE28": 0.00173,
+   "GEMSDOE30": 0.003138,
+   "GEMSDOE31": 0.003798,
+   "GEMSDOE32": 0.004254,
+   "GEMSDOE33": 0.002671,
+   "GEMSDOE36": 0.004897
+  },
+  "GEMSDOE24": {
+   "candidate-cc522684-zeros": 0.002912,
+   "GEMSDOE24": 1.0,
+   "GEMSDOE25": 0.56626,
+   "GEMSDOE27": 0.988727,
+   "GEMSDOE28": 0.527631,
+   "GEMSDOE30": 0.56626,
+   "GEMSDOE31": 0.541736,
+   "GEMSDOE32": 0.529655,
+   "GEMSDOE33": 0.558483,
+   "GEMSDOE36": 0.521186
+  },
+  "GEMSDOE25": {
+   "candidate-cc522684-zeros": 0.003138,
+   "GEMSDOE24": 0.56626,
+   "GEMSDOE25": 1.0,
+   "GEMSDOE27": 0.559801,
+   "GEMSDOE28": 0.676844,
+   "GEMSDOE30": 1.0,
+   "GEMSDOE31": 0.957469,
+   "GEMSDOE32": 0.929338,
+   "GEMSDOE33": 0.808526,
+   "GEMSDOE36": 0.914743
+  },
+  "GEMSDOE27": {
+   "candidate-cc522684-zeros": 0.003428,
+   "GEMSDOE24": 0.988727,
+   "GEMSDOE25": 0.559801,
+   "GEMSDOE27": 1.0,
+   "GEMSDOE28": 0.521616,
+   "GEMSDOE30": 0.559801,
+   "GEMSDOE31": 0.535556,
+   "GEMSDOE32": 0.523614,
+   "GEMSDOE33": 0.552115,
+   "GEMSDOE36": 0.515235
+  },
+  "GEMSDOE28": {
+   "candidate-cc522684-zeros": 0.00173,
+   "GEMSDOE24": 0.527631,
+   "GEMSDOE25": 0.676844,
+   "GEMSDOE27": 0.521616,
+   "GEMSDOE28": 1.0,
+   "GEMSDOE30": 0.676844,
+   "GEMSDOE31": 0.707087,
+   "GEMSDOE32": 0.691949,
+   "GEMSDOE33": 0.678105,
+   "GEMSDOE36": 0.681039
+  },
+  "GEMSDOE30": {
+   "candidate-cc522684-zeros": 0.003138,
+   "GEMSDOE24": 0.56626,
+   "GEMSDOE25": 1.0,
+   "GEMSDOE27": 0.559801,
+   "GEMSDOE28": 0.676844,
+   "GEMSDOE30": 1.0,
+   "GEMSDOE31": 0.957469,
+   "GEMSDOE32": 0.929338,
+   "GEMSDOE33": 0.808526,
+   "GEMSDOE36": 0.914743
+  },
+  "GEMSDOE31": {
+   "candidate-cc522684-zeros": 0.003798,
+   "GEMSDOE24": 0.541736,
+   "GEMSDOE25": 0.957469,
+   "GEMSDOE27": 0.535556,
+   "GEMSDOE28": 0.707087,
+   "GEMSDOE30": 0.957469,
+   "GEMSDOE31": 1.0,
+   "GEMSDOE32": 0.970619,
+   "GEMSDOE33": 0.819897,
+   "GEMSDOE36": 0.955398
+  },
+  "GEMSDOE32": {
+   "candidate-cc522684-zeros": 0.004254,
+   "GEMSDOE24": 0.529655,
+   "GEMSDOE25": 0.929338,
+   "GEMSDOE27": 0.523614,
+   "GEMSDOE28": 0.691949,
+   "GEMSDOE30": 0.929338,
+   "GEMSDOE31": 0.970619,
+   "GEMSDOE32": 1.0,
+   "GEMSDOE33": 0.802471,
+   "GEMSDOE36": 0.984332
+  },
+  "GEMSDOE33": {
+   "candidate-cc522684-zeros": 0.002671,
+   "GEMSDOE24": 0.558483,
+   "GEMSDOE25": 0.808526,
+   "GEMSDOE27": 0.552115,
+   "GEMSDOE28": 0.678105,
+   "GEMSDOE30": 0.808526,
+   "GEMSDOE31": 0.819897,
+   "GEMSDOE32": 0.802471,
+   "GEMSDOE33": 1.0,
+   "GEMSDOE36": 0.789841
+  },
+  "GEMSDOE36": {
+   "candidate-cc522684-zeros": 0.004897,
+   "GEMSDOE24": 0.521186,
+   "GEMSDOE25": 0.914743,
+   "GEMSDOE27": 0.515235,
+   "GEMSDOE28": 0.681039,
+   "GEMSDOE30": 0.914743,
+   "GEMSDOE31": 0.955398,
+   "GEMSDOE32": 0.984332,
+   "GEMSDOE33": 0.789841,
+   "GEMSDOE36": 1.0
+  }
+ },
+ "summary": [
+  {
+   "file": "candidate-cc522684-zeros",
+   "path": "docs/downloads/gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.tif",
+   "dots": 22163,
+   "max_fwd_overlap_vs_other": {
+    "with": "GEMSDOE27",
+    "value": 0.302576
+   },
+   "max_abs_spearman_vs_other": {
+    "with": "GEMSDOE36",
+    "value": 0.004897
+   },
+   "lane_duplicate": false
+  },
+  {
+   "file": "GEMSDOE24",
+   "path": "/home/user/.cache/registry/focus/GEMSDOE24.tif",
+   "dots": 60069,
+   "max_fwd_overlap_vs_other": {
+    "with": "GEMSDOE25",
+    "value": 1.0
+   },
+   "max_abs_spearman_vs_other": {
+    "with": "GEMSDOE27",
+    "value": 0.988727
+   },
+   "lane_duplicate": true
+  },
+  {
+   "file": "GEMSDOE25",
+   "path": "/home/user/.cache/registry/focus/GEMSDOE25.tif",
+   "dots": 44090,
+   "max_fwd_overlap_vs_other": {
+    "with": "GEMSDOE24",
+    "value": 1.0
+   },
+   "max_abs_spearman_vs_other": {
+    "with": "GEMSDOE30",
+    "value": 1.0
+   },
+   "lane_duplicate": true
+  },
+  {
+   "file": "GEMSDOE27",
+   "path": "/home/user/.cache/registry/focus/GEMSDOE27.tif",
+   "dots": 61328,
+   "max_fwd_overlap_vs_other": {
+    "with": "GEMSDOE24",
+    "value": 0.980188
+   },
+   "max_abs_spearman_vs_other": {
+    "with": "GEMSDOE24",
+    "value": 0.988727
+   },
+   "lane_duplicate": true
+  },
+  {
+   "file": "GEMSDOE28",
+   "path": "/home/user/.cache/registry/focus/GEMSDOE28.tif",
+   "dots": 37660,
+   "max_fwd_overlap_vs_other": {
+    "with": "GEMSDOE24",
+    "value": 1.0
+   },
+   "max_abs_spearman_vs_other": {
+    "with": "GEMSDOE31",
+    "value": 0.707087
+   },
+   "lane_duplicate": true
+  },
+  {
+   "file": "GEMSDOE30",
+   "path": "/home/user/.cache/registry/focus/GEMSDOE30.tif",
+   "dots": 44090,
+   "max_fwd_overlap_vs_other": {
+    "with": "GEMSDOE24",
+    "value": 1.0
+   },
+   "max_abs_spearman_vs_other": {
+    "with": "GEMSDOE25",
+    "value": 1.0
+   },
+   "lane_duplicate": true
+  },
+  {
+   "file": "GEMSDOE31",
+   "path": "/home/user/.cache/registry/focus/GEMSDOE31.tif",
+   "dots": 40199,
+   "max_fwd_overlap_vs_other": {
+    "with": "GEMSDOE24",
+    "value": 1.0
+   },
+   "max_abs_spearman_vs_other": {
+    "with": "GEMSDOE32",
+    "value": 0.970619
+   },
+   "lane_duplicate": true
+  },
+  {
+   "file": "GEMSDOE32",
+   "path": "/home/user/.cache/registry/focus/GEMSDOE32.tif",
+   "dots": 37654,
+   "max_fwd_overlap_vs_other": {
+    "with": "GEMSDOE24",
+    "value": 1.0
+   },
+   "max_abs_spearman_vs_other": {
+    "with": "GEMSDOE36",
+    "value": 0.984332
+   },
+   "lane_duplicate": true
+  },
+  {
+   "file": "GEMSDOE33",
+   "path": "/home/user/.cache/registry/focus/GEMSDOE33.tif",
+   "dots": 41865,
+   "max_fwd_overlap_vs_other": {
+    "with": "GEMSDOE27",
+    "value": 0.997086
+   },
+   "max_abs_spearman_vs_other": {
+    "with": "GEMSDOE31",
+    "value": 0.819897
+   },
+   "lane_duplicate": true
+  },
+  {
+   "file": "GEMSDOE36",
+   "path": "/home/user/.cache/registry/focus/GEMSDOE36.tif",
+   "dots": 38854,
+   "max_fwd_overlap_vs_other": {
+    "with": "GEMSDOE27",
+    "value": 0.975781
+   },
+   "max_abs_spearman_vs_other": {
+    "with": "GEMSDOE32",
+    "value": 0.984332
+   },
+   "lane_duplicate": true
+  }
+ ]
+}
