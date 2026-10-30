@@ -13,9 +13,10 @@ const currentRunCard = JSON.parse(
 );
 assert.equal(currentRunCard.verdict, "negative");
 assert.equal(currentRunCard.ok_to_submit, false);
-assert.match(html, /Unique submission available/i);
-assert.match(html, /OK to download and submit/i);
-assert.match(execSummary, /OK TO DOWNLOAD AND SUBMIT/i);
+assert.match(html, /NOT CLEARED FOR SUBMISSION/i);
+assert.doesNotMatch(html, /OK to download and submit/i);
+assert.match(execSummary, /NOT CLEARED FOR SUBMISSION/i);
+assert.doesNotMatch(execSummary, /OK TO DOWNLOAD AND SUBMIT/i);
 assert.match(execSummary, /research only/i);
 assert.match(execSummary, /gemsdoesass2-sparse-blind-conduit-22163/i);
 assert.match(hvfdHtml, /DO NOT SUBMIT/i);

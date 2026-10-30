@@ -1,0 +1,68 @@
+{
+  "generated_utc": "2026-10-30T02:41:27Z",
+  "scope": "Literal rule, no name-based exemption. Measurement on saved bytes. Not an organizer receipt; no holdout; no placement; no submission.",
+  "limit_overlap_3px": 0.7,
+  "lattice": {
+    "file": "GEMSDOE24__13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+    "sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+    "dots": 206895
+  },
+  "footprint_cells": 5167373,
+  "footprint_cells_farther_than_3px_from_lattice": 6649,
+  "far_cells_min_distance_to_footprint_edge_px": {
+    "min": 0.0,
+    "max": 2.23606797749979
+  },
+  "far_cells_within_10px_of_footprint_edge": 6649,
+  "candidates": [
+    {
+      "file": "gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.tif",
+      "sha256": "65e3a775ad8b3fd3f3c55a501c84d48d05554219065cad69fa9ebfb54d572661",
+      "dots": 22163,
+      "overlap_vs_lattice_3px": 0.997428,
+      "literal_lattice_gate_pass": false,
+      "dots_needed_in_far_cells_to_pass": 6649,
+      "far_cells_available": 6649,
+      "far_cells_can_satisfy_rule": true,
+      "validator_strict_local_format_pass": true,
+      "validator_checks": {
+        "tif_extension": true,
+        "single_band": true,
+        "float32": true,
+        "crs_match": true,
+        "shape_match": true,
+        "transform_match": true,
+        "competition_crs_epsg32611": true,
+        "competition_100m_north_up": true,
+        "whole_array_finite_in_0_1": true,
+        "inside_unmasked_finite_in_0_1": true,
+        "outside_masked_or_nan": true
+      }
+    },
+    {
+      "file": "gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-nan.tif",
+      "sha256": "ea9fca4c9b66df4a7ce6335e5d221c6a9f9702404379402ae19d4b0a76578585",
+      "dots": 22163,
+      "overlap_vs_lattice_3px": 0.997428,
+      "literal_lattice_gate_pass": false,
+      "dots_needed_in_far_cells_to_pass": 6649,
+      "far_cells_available": 6649,
+      "far_cells_can_satisfy_rule": true,
+      "validator_strict_local_format_pass": false,
+      "validator_checks": {
+        "tif_extension": true,
+        "single_band": true,
+        "float32": true,
+        "crs_match": true,
+        "shape_match": true,
+        "transform_match": true,
+        "competition_crs_epsg32611": true,
+        "competition_100m_north_up": true,
+        "whole_array_finite_in_0_1": false,
+        "inside_unmasked_finite_in_0_1": true,
+        "outside_masked_or_nan": true
+      }
+    }
+  ],
+  "interpretation": "Every one of the 6649 far cells lies within 2.24 px of the footprint boundary. A candidate with n dots passes only if at least ceil(0.3*n) of them sit in those far cells; for the 22,163-dot candidate that is 6649 of 6649 available cells, i.e. every one of them, on the study-area edge. No geologically motivated interior placement can satisfy the literal rule."
+}

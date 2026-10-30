@@ -31,6 +31,7 @@ from pathlib import Path
 
 import numpy as np
 import rasterio
+from scipy import ndimage
 from scipy.spatial import cKDTree
 
 OVERLAP_LIMIT = 0.70
@@ -41,6 +42,12 @@ RADIUS_PX = 3.0
 # separately; the genuine gates use every other registry raster. The owner must
 # rule on this exception (see IRREGULARITIES.md, item on the r13 lattice).
 PROBE_MARKERS = ("lattice", "pignistic")
+# A raster whose dots cover a large share of the footprint saturates the 70 % rule for ANY
+# candidate (the r13 lattice covers 99.87 % of the footprint within 3 px). Name markers are
+# not enough: several repos hold dense masks or probability surfaces whose names look like
+# submissions (e.g. "top37654" masks with 5.1 M positive pixels). Classify by measured dot
+# density as well, and record the reason in the receipt.
+DENSITY_PROBE_FRACTION = 0.15
 
 
 def is_probe(rel_name: str) -> bool:
@@ -65,14 +72,24 @@ def dots_of(arr: np.ndarray, footprint: np.ndarray) -> np.ndarray:
     return np.isfinite(arr) & (arr > 0) & footprint
 
 
-def overlap_3px(cand_coords: np.ndarray, other_coords: np.ndarray) -> float:
+def overlap_3px(cand_coords: np.ndarray, other_coords: np.ndarray,
+                other_mask: np.ndarray | None = None) -> float:
     """Fraction of candidate dots within RADIUS_PX (Euclidean, pixels) of any other-raster dot.
 
     Exact: a KD-tree nearest-neighbour query gives the same distances as a
     Euclidean distance transform, without rasterising 12 M pixels per pair.
+
+    Fast path: when ``other_mask`` is given and the other dot set is dense (space-filling
+    masks and probability surfaces carry millions of dots), a distance transform of the mask
+    gives the same exact answer in seconds instead of building a multi-million-point tree.
     """
     if len(cand_coords) == 0 or len(other_coords) == 0:
         return 0.0
+    if other_mask is not None and len(other_coords) > 200_000:
+        dist = ndimage.distance_transform_edt(~other_mask)
+        rows = cand_coords[:, 1].astype(int)
+        cols = cand_coords[:, 0].astype(int)
+        return float((dist[rows, cols] <= RADIUS_PX).mean())
     dist, _ = cKDTree(other_coords).query(cand_coords, k=1)
     return float((dist <= RADIUS_PX).mean())
 
@@ -116,7 +133,9 @@ def main() -> int:
 
     # Collect unique registry rasters with the competition shape.
     seen: dict[str, Path] = {}
+    probe_info: dict[str, dict] = {}
     skipped = 0
+    unreadable = []
     excluded_feature_stacks = 0
     for tif in sorted(args.registry.rglob("*.tif")):
         # Scope: submission rasters only. Feature stacks / audit sources live under
@@ -128,11 +147,25 @@ def main() -> int:
         digest = sha256_file(tif)
         if digest in seen:
             continue
-        with rasterio.open(tif) as ds:
-            if ds.shape != shape:
-                skipped += 1
-                continue
+        # A corrupt or truncated TIFF must not abort the gate; record it and move on.
+        try:
+            with rasterio.open(tif) as ds:
+                if ds.shape != shape:
+                    skipped += 1
+                    continue
+                arr = ds.read(1).astype(np.float32)
+        except Exception as exc:  # noqa: BLE001 - any reader failure means unusable bytes
+            unreadable.append({"file": str(tif.relative_to(args.registry)),
+                               "error": f"{type(exc).__name__}: {exc}"[:200]})
+            continue
         seen[digest] = tif
+        ndots = int(dots_of(arr, footprint).sum())
+        density_probe = ndots >= DENSITY_PROBE_FRACTION * int(footprint.sum())
+        probe_info[digest] = {
+            "dots": ndots,
+            "space_filling_by_name": is_probe(str(tif.relative_to(args.registry))),
+            "space_filling_by_density": density_probe,
+        }
     registry = list(seen.items())
 
     cand_paths = [c.expanduser().resolve() for c in args.candidates]
@@ -149,26 +182,38 @@ def main() -> int:
         worst_ov, worst_rho = 0.0, 0.0
         genuine_ov, genuine_rho = 0.0, 0.0
         probe_hits = []
+        self_twins: list[dict] = []
         closest = []
         for digest, pth in registry:
             other = load(pth)
             odots = dots_of(other, footprint)
+            # Same content as the candidate (e.g. the nan twin of a zeros submission) is a
+            # self-comparison, not a registry duplicate. SHA dedupe cannot see it because the
+            # bytes differ outside the footprint.
+            if odots.sum() == cdots.sum() and np.array_equal(odots, cdots):
+                self_twins.append({"file": str(pth.relative_to(args.registry)), "sha256": digest})
+                continue
             ocoords = np.argwhere(odots)[:, ::-1].astype(np.float64)
-            ov = overlap_3px(ccoords, ocoords)
+            ov = overlap_3px(ccoords, ocoords, other_mask=odots)
             rho = abs_spearman(cvals, np.nan_to_num(other, nan=0.0)[footprint])
             rel = str(pth.relative_to(args.registry))
-            row = {"file": rel, "sha256": digest,
+            info = probe_info.get(digest, {})
+            probe = bool(info.get("space_filling_by_name")) or bool(info.get("space_filling_by_density"))
+            row = {"file": rel, "sha256": digest, "registry_dots": info.get("dots"),
                    "overlap_3px": round(ov, 6), "abs_spearman": round(rho, 6),
-                   "space_filling_probe": is_probe(rel)}
+                   "space_filling_probe": probe,
+                   "space_filling_reason": ("name" if info.get("space_filling_by_name") else
+                                            ("density" if info.get("space_filling_by_density") else None))}
             closest.append(row)
             worst_ov = max(worst_ov, ov)
             worst_rho = max(worst_rho, rho)
-            if row["space_filling_probe"]:
+            if probe:
                 probe_hits.append(row)
             else:
                 genuine_ov = max(genuine_ov, ov)
                 genuine_rho = max(genuine_rho, rho)
         closest.sort(key=lambda r: -r["overlap_3px"])
+        genuine_sorted = [r for r in closest if not r["space_filling_probe"]]
         reports.append({
             "candidate": cand.name,
             "candidate_sha256": cand_sha[str(cand)],
@@ -183,6 +228,8 @@ def main() -> int:
             "space_filling_probe_overlaps": probe_hits,
             "unique_by_protocol": genuine_ov <= OVERLAP_LIMIT and genuine_rho <= SPEARMAN_LIMIT,
             "closest_5": closest[:5],
+            "closest_5_genuine": genuine_sorted[:5],
+            "self_twins_excluded": self_twins,
         })
         print(f"{cand.name}: n_reg={len(registry)} genuine_worst_overlap={genuine_ov:.4f} "
               f"genuine_worst_rho={genuine_rho:.4f} unique_genuine={reports[-1]['unique_by_protocol']} "
@@ -194,9 +241,14 @@ def main() -> int:
         "registry_root": str(args.registry),
         "registry_unique_sha256_rasters": len(registry),
         "registry_skipped_wrong_shape": skipped,
+        "registry_unreadable": unreadable,
         "registry_excluded_feature_stack_or_git_paths": excluded_feature_stacks,
         "scope": "every unique-sha256 3730x3292 GeoTIFF outside data/ directories in the registry root",
         "probe_markers_excluded_from_genuine_gates": list(PROBE_MARKERS),
+        "probe_density_fraction_excluded_from_genuine_gates": DENSITY_PROBE_FRACTION,
+        "probe_classification_note": "Space-filling rasters (name markers or measured dot density >= "
+            "15% of the footprint) saturate the 70% rule for any candidate and are reported "
+            "separately; the genuine gates use every other competition-shaped registry raster.",
         "gates": {"overlap_3px_max": OVERLAP_LIMIT, "abs_spearman_max": SPEARMAN_LIMIT, "radius_px": RADIUS_PX},
         "candidates": reports,
     }

@@ -34,31 +34,33 @@ def test_github_pages_files_and_local_links_exist() -> None:
                 assert target.stat().st_size > 0, f"Empty asset '{attr_val}' in {page.name}"
 
 
-def test_unique_submission_is_advertised_with_validation() -> None:
-    card = json.loads((DOCS / "data/run-card.json").read_text())
+def test_unique_candidate_is_held_by_literal_lattice_gate() -> None:
+    """The sparse candidate is format-valid and unique vs the focus sites, but it fails the literal
+    70 % lattice rule (99.74 %). Every public page must say HOLD, never OK TO SUBMIT."""
+    import hashlib
+
+    rc = json.loads((ROOT / "evidence/unique_run_card_cc522684.json").read_text())
+    assert rc["verdict"] == "negative"
+    assert rc["ok_to_submit"] is False and rc["ok_to_download_and_submit"] is False
+    assert rc["correlation_overlap_vs_registry"]["passes_literal_lattice_gate"] is False
+    recheck = json.loads((ROOT / "evidence/lattice_gate_recheck_20261030.json").read_text())
+    cand = next(c for c in recheck["candidates"] if c["file"].endswith("-zeros.tif"))
+    assert cand["literal_lattice_gate_pass"] is False and cand["overlap_vs_lattice_3px"] > 0.7
+    tif = DOCS / "downloads" / cand["file"]
+    assert hashlib.sha256(tif.read_bytes()).hexdigest() == cand["sha256"] == rc["raster_sha256"]
     index = (DOCS / "index.html").read_text()
     exec_html = (DOCS / "executive-summary.html").read_text()
-    # The unique submission run card (separate from the legacy negative card)
-    run_card = None
-    for p in DOCS.glob("downloads/*-audit.json"):
-        c = json.loads(p.read_text())
-        if c.get("verdict") == "promote" and c.get("ok_to_download_and_submit"):
-            run_card = c
-            break
-    assert run_card is not None, "No promoted unique submission run card found"
-    assert run_card["n_dots"] == 22163
-    assert run_card["validator_output"]["all_passed"] is True
-    assert run_card["correlation_overlap_vs_registry"]["passes_lane"] is True
-    assert len(run_card["submission_note_140"]) <= 140
-    # Homepage and executive summary advertise the download
-    assert "OK to download and submit" in index
-    assert "OK TO DOWNLOAD AND SUBMIT" in exec_html
-    assert run_card["raster_sha256"][:16] in exec_html
+    for page in (index, exec_html):
+        assert "NOT CLEARED FOR SUBMISSION" in page
+        assert "OK TO DOWNLOAD AND SUBMIT" not in page
+        assert "OK to download and submit" not in page
+    assert rc["raster_sha256"][:16] in exec_html
     assert "downloads/gemsdoesass2-sparse-blind-conduit-22163" in exec_html
+    assert "99.74%" in exec_html and "99.74%" in index
+    assert "localhost" not in index and "127.0.0.1" not in index
     # Research artifacts remain marked research only
     artifacts = (DOCS / "hvfd-exp3.html").read_text()
     assert "Research only" in artifacts and "DO NOT SUBMIT" in artifacts
-    assert "localhost" not in index and "127.0.0.1" not in index
 
 
 def test_nine_focus_sites_and_readme_links() -> None:
