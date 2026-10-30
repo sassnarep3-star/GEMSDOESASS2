@@ -9,7 +9,7 @@
 | Grid | EPSG:32611 · (3730, 3292) · 100 m · transform `(100,0,243350,0,-100,4508550)` |
 | Cells predicted | 37,654 — **the champion's exact dot budget** · 0.00 % inside the fault catalogue |
 | Format gate | **11 / 11 pass** (strict), every one of 12,279,360 cells finite in [0, 1], `nodata=None` |
-| Uniqueness gate | **PASS** — max 3-px overlap **36.45 %**, max \|ρ\| **0.0115** over 19 registry rasters |
+| Uniqueness gate | **PASS vs competing rasters** — 36.45 % max overlap, \|ρ\| 0.0115 over 19 · **FAIL vs the r13 calibration probe** (99.37 %, see below) |
 | Science gate | **PASS** — HOLDOUT-DTI **0.2244** vs matched incumbent **0.0715**, ratio **3.14×** (P = 0.958) |
 | Model score estimate | **0.29** (controlled 0.2853 · slope-range 0.2815–0.2890 · all-model-risk 0.25–0.33) — *not* organizer-confirmed |
 | Submission name | `GEMSDOESASS2-STRAINRIDGE-OFFCAT-37654D` |
@@ -18,6 +18,8 @@
 **Download and submit: [site](docs/index.html) · [executive summary](docs/executive-summary.html) · [why 0.2778 scored](docs/method.html) · [run card](evidence/strain_ridge_run_card.json)**
 
 ⚠️ No organizer receipt exists for any file here. The 0.29 is a **MODEL ESTIMATE** from a controlled one-variable extrapolation. It is never written as a score. No weekly slot has been spent.
+
+⚠️ **One gate is failed, openly.** Against the `13gems_20261001_r13-lattice-s5` calibration probe the file is **99.37 %** within 3 px, so the literal 70 % rule **fails**. A *seeded random placement* at the identical dot count scores **99.91 %** — the probe is a space-filling surface and the test is saturated for any interior placement at this budget (IR-S-01, IR-RV-04). Against every actual competing raster it passes at 36.45 %. **Owner ruling required**; the exemption is not assumed anywhere in this repository. Receipt: [`candidate_vs_registry_lattice.json`](evidence/candidate_vs_registry_lattice.json).
 
 ⚠️ **Honest size of the win: about +0.008 over the 0.2778 champion.** This is the best-supported move available, not a leap. Nothing in this repository reaches 0.4413; see §3 for why, arithmetically.
 

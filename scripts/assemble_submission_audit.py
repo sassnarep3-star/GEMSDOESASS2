@@ -73,6 +73,8 @@ def main() -> int:
                 "Compared against the nine hash-pinned focus-site champions plus every local "
                 "download. The wider GEMSDOE corpus (~90 sites) is not mirrored locally."
             ),
+            "against_calibration_lattice": card["uniqueness"].get(
+                "against_registry_calibration_lattice"),
         },
         "raster_sha256": live_sha,
         "validator_output": {

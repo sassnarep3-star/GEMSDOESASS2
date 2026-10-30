@@ -83,7 +83,17 @@
         "abs_spearman": 0.00941
       }
     ],
-    "scope_note": "Compared against the nine hash-pinned focus-site champions plus every local download. The wider GEMSDOE corpus (~90 sites) is not mirrored locally."
+    "scope_note": "Compared against the nine hash-pinned focus-site champions plus every local download. The wider GEMSDOE corpus (~90 sites) is not mirrored locally.",
+    "against_calibration_lattice": {
+      "reference": "13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+      "sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+      "lattice_dots": 206895,
+      "candidate_within_3px_pct": 99.37,
+      "literal_70pct_rule": "FAIL",
+      "seeded_random_control_same_count_pct": 99.91,
+      "interpretation": "The r13 lattice is a space-filling calibration probe, not a competing submission. At this dot count any interior placement exceeds 70 % by pigeonhole: a seeded random control at the identical count scores 99.91 %, i.e. WORSE than this candidate. The literal test is non-discriminating (IR-S-01, IR-RV-04) and is disclosed, not hidden.",
+      "receipt": "evidence/candidate_vs_registry_lattice.json"
+    }
   },
   "raster_sha256": "6d00f58a35005a253e352e21c8adde0e108aa0abb4b810db9797af89d94dd615",
   "validator_output": {
@@ -170,6 +180,7 @@
     "No organizer receipt exists for any file in this repository; every leaderboard value in the brief is USER-REPORTED and unverified.",
     "A weekly slot is the owner's decision, taken on the DrivenData submission page; this receipt does not reserve or spend one.",
     "The 0.29 figure is a model estimate from a controlled one-variable extrapolation. It is not an organizer score and must never be written as one.",
-    "The expected gain over the incumbent 0.2778 is roughly +0.008. It is the best-supported move available, not a large one."
+    "The expected gain over the incumbent 0.2778 is roughly +0.008. It is the best-supported move available, not a large one.",
+    "The literal 70 %-within-3-px rule is FAILED against the r13 calibration lattice (99.37 %), exactly as it is failed by a seeded random placement at the same dot count (99.91 %). The rule is saturated and discriminates nothing at this budget; the owner must rule whether the probe is exempt (IR-S-01/IR-RV-04)."
   ]
 }
