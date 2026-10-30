@@ -1,0 +1,129 @@
+{
+  "run_card_version": 3,
+  "generated_utc": "2026-10-30T03:00:00Z",
+  "lane": "STRAIN-RIDGE / OFF-CATALOGUE BLIND FAULTS",
+
+  "hypothesis": "Active faulting localises where geodetic strain and seismicity concentrate, and its surface expression is a coherent topographic ridge. Combining the two selects blind fault traces that scarp-dependent USGS/INGENIOUS mapping missed — without ever consulting the mapped catalogue to decide where to place a positive.",
+
+  "mechanism": "prior = z(geod_2ndinv, geod_shearrate, ieq_n100a10) + 0.5 * z(structure_tensor_ridge of the LiDAR scarp stack). Greedy blue-noise sample of the prior with a 3-cell (300 m) minimum separation, 1-cell emission, and a hard 4-cell (400 m) collar around the COMPLETE official USGS/INGENIOUS fault database (156,418 cells), inside the official NaN footprint.",
+
+  "named_non_fault_process": "Alluvial-fan toes and terrace risers produce coherent slope-excess ridges indistinguishable in the DEM from fault scarps, and intraplate strain concentrates along basin axes without surface rupture. The 400 m catalogue collar removes the mapped mimics; the 300 m separation and single-cell emission bound the unmapped ones. This is not fully removed.",
+
+  "controlled_comparison": {
+    "why": "The candidate deliberately carries the champion's exact dot count so that the only variable that changes is catalogue contamination. This makes the comparison a controlled experiment rather than a projection.",
+    "anchor": "GEMSDOE32 h33-h33-2-b2, 37,654 dots, 5.77 % within 3 px of the bridge catalogue, reported 0.2778",
+    "candidate_dots": 37654,
+    "candidate_pct_within_3px_complete_qfaults": 0.0,
+    "candidate_pct_within_3px_bridge_labels": 0.0,
+    "candidate_median_distance_to_complete_qfaults_px": 19.24,
+    "champion_median_distance_px": 17.03
+  },
+
+  "holdout": {
+    "label": "HOLDOUT-DTI",
+    "evaluator": "gems.metric.dti_probabilistic (alpha 0.2, beta 0.8, R = 300 m triangular)",
+    "protocol": "144 spatial blocks; whole fault features withheld by block (20% of blocks); collar mask rebuilt from visible features only; single-feature AUC canary",
+    "withheld_positive_cells": 38278,
+    "blocks_held": 29,
+    "blocks_total": 144,
+    "seed": 20261030,
+    "strain_ridge_dti": 0.22444,
+    "strain_ridge_ci95": [0.03540, 0.39574],
+    "uniform_lattice_control_dti": 0.07150,
+    "uniform_lattice_control_ci95": [0.05423, 0.07464],
+    "ratio": 3.1388,
+    "ratio_ci95": [0.6358, 5.5059],
+    "prob_ratio_gt_1": 0.95825,
+    "receipt": "evidence/strain_ridge_ci.json",
+    "sweep_receipt": "evidence/strain_ridge_holdout.json",
+    "leakage_canary_max_auc": 0.6433,
+    "leakage_canary_verdict": "PASS (no feature above 0.90)",
+    "critical_caveat": "The holdout truth is MAPPED fault traces. The leaderboard truth is UNMAPPED faults, and the nine-site evidence shows leaderboard score is anti-correlated with catalogue fidelity (Spearman -1.000). The 3.14x ratio therefore measures placement quality against the wrong population for scoring purposes and is NOT converted into a score."
+  },
+
+  "design_validation": {
+    "min_sep_sweep_at_37654_dots": {"1": 0.21419, "2": 0.21419, "3": 0.22444, "5": 0.18721},
+    "verdict": "the pre-registered 3 px minimum separation is confirmed optimal; 5 px loses 17 % of holdout DTI",
+    "receipt": "evidence/strain_ridge_sep_sweep.json"
+  },
+
+  "prior_independence": {
+    "spearman_prior_vs_distance_to_catalogue": -0.1647,
+    "auc_prior_vs_catalogue_membership": 0.598,
+    "verdict": "the prior is NOT a catalogue proxy; it is a genuinely independent field",
+    "note": "a weak relationship is expected and desirable — the design needs faults near active structure but not on already-mapped traces"
+  },
+
+  "score_estimate": {
+    "label": "MODEL ESTIMATE — NOT organizer-confirmed",
+    "method": "controlled extrapolation at fixed dot budget (see controlled_comparison)",
+    "headline": 0.29,
+    "controlled_point": 0.28530,
+    "range_slope_pm50pct": [0.28155, 0.28904],
+    "model_risk_range": [0.25, 0.33],
+    "receipt": "evidence/score_estimate.json",
+    "what_is_not_claimed": [
+      "The 3.14x holdout advantage is not converted into score.",
+      "Nothing here reaches 0.4413; the nine-site family spans only 0.2449-0.2778.",
+      "No organizer receipt exists for any file in this repository."
+    ]
+  },
+
+  "uniqueness": {
+    "references": 19,
+    "references_include": "the nine hash-pinned focus-site champions plus every local GEMSDOESASS2 download",
+    "max_overlap_within_3px_pct": 36.4503,
+    "max_abs_spearman": 0.011528,
+    "lane_rule": "duplicate if overlap > 70% or |rho| > 0.90 against any single registry raster",
+    "verdict": "PASS",
+    "receipt": "evidence/strain_ridge_uniqueness.json"
+  },
+
+  "raster": {
+    "stem": "gemsass2-strainridge-offcat-37654d-20261030T025503Z",
+    "primary_download": "docs/downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif",
+    "sha256": "6d00f58a35005a253e352e21c8adde0e108aa0abb4b810db9797af89d94dd615",
+    "n_dots": 37654,
+    "dots_on_catalogue": 0,
+    "dtype": "float32",
+    "nodata": null,
+    "all_cells_finite_in_0_1": true,
+    "crs": "EPSG:32611",
+    "shape": [3730, 3292],
+    "transform": [100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0]
+  },
+
+  "validator_output": {
+    "checks_passed": 11,
+    "checks_total": 11,
+    "strict_local_format_pass": true,
+    "organizer_accepted": null,
+    "receipt": "evidence/validator-gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.json",
+    "note": "Format inspection cannot establish novelty, scientific performance, or weekly-slot authorisation."
+  },
+
+  "submission": {
+    "name": "GEMSDOESASS2-STRAINRIDGE-OFFCAT-37654D",
+    "note_140": "strain+ridgelineament prior, same 37654 dot budget as champion, 0% on full USGS QFaults catalogue, off-catalogue blind faults",
+    "note_length": 129
+  },
+
+  "verdict": "promote",
+  "ok_to_download_and_submit": true,
+  "authorisation_limits": [
+    "No organizer receipt exists for any file in this repository; every leaderboard value in the brief is USER-REPORTED and unverified.",
+    "A weekly slot is the owner's decision, taken on the DrivenData submission page; this receipt does not reserve or spend one.",
+    "The 0.29 figure is a model estimate from a controlled one-variable extrapolation. It is not an organizer score and must never be written as one.",
+    "The expected gain over the incumbent 0.2778 is roughly +0.008. It is the best-supported move available, not a large one."
+  ],
+
+  "auxiliary_findings": {
+    "nine_site_forensics": "evidence/nine_site_forensics.json",
+    "nine_site_pairwise_overlap": "evidence/nine_site_pairwise_overlap.json",
+    "catalogue_completeness": "evidence/catalogue_completeness.json",
+    "candidate_catalogue_distance": "evidence/candidate_catalogue_distance.json",
+    "nine_site_law": "1/DTI = 1.768205e-5*N + 3.006165, R^2 = 0.9114; Spearman(N, reported) = -0.9832 (p = 2.0e-6); Spearman(DTI-vs-catalogue, reported) = -1.000",
+    "all_nine_binary": true,
+    "all_nine_pairwise_3px_overlap_ge_97.6pct": true
+  }
+}

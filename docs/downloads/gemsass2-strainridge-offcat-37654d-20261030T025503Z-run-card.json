@@ -1,0 +1,118 @@
+{
+  "hypothesis": "Active faults concentrate geodetic strain and seismicity, and their surface expression is a coherent topographic ridge; combining the two selects blind fault traces that the scarp-dependent USGS/INGENIOUS mapping missed.",
+  "mechanism": "z(geod_2ndinv, geod_shearrate, ieq_n100a10) + 0.5*z(structure-tensor ridge of the LiDAR scarp stack) -> greedy blue-noise sample, 3-cell minimum separation, 1-cell emission, hard 4-cell collar around the COMPLETE official fault database.",
+  "named_non_fault_process": "Alluvial-fan toes and terrace risers produce coherent slope-excess ridges, and intraplate strain concentrates in basin axes without surface rupture; the 400 m collar and the 3-cell separation damp but do not remove both mimics.",
+  "parameters": {
+    "w_ridge": 0.5,
+    "min_sep_px": 3.0,
+    "collar_px": 4.0,
+    "n_dots": 37654
+  },
+  "raster_sha256": "6d00f58a35005a253e352e21c8adde0e108aa0abb4b810db9797af89d94dd615",
+  "validator_output": {
+    "stem": "gemsass2-strainridge-offcat-37654d-20261030T025503Z",
+    "zeros": {
+      "path": "docs/downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif",
+      "filename": "gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif",
+      "size_bytes": 130908,
+      "sha256": "6d00f58a35005a253e352e21c8adde0e108aa0abb4b810db9797af89d94dd615",
+      "crs": "EPSG:32611",
+      "shape": [
+        3730,
+        3292
+      ],
+      "dtype": "float32",
+      "nodata": null,
+      "transform": [
+        100.0,
+        0.0,
+        243350.0,
+        0.0,
+        -100.0,
+        4508550.0
+      ],
+      "all_12279160_finite": true,
+      "min_in_footprint": 0.0,
+      "max_in_footprint": 1.0,
+      "min_all_cells": 0.0,
+      "max_all_cells": 1.0,
+      "positive_dots_in_footprint": 37654,
+      "positive_on_catalogue": 0,
+      "outside_mode": "zeros",
+      "checks": {
+        "01_file_exists_nonempty": true,
+        "02_single_band": true,
+        "03_dtype_float32": true,
+        "04_crs_epsg_32611": true,
+        "05_shape_3730x3292": true,
+        "06_geotransform_exact": true,
+        "07_footprint_5167373_match": true,
+        "08_catalogue_60988_match": true,
+        "09_no_nan_or_inf_inside_footprint": true,
+        "10_values_in_0_1_inside_footprint": true,
+        "11_outside_footprint_clean": true,
+        "12_zero_on_known_catalogue": true,
+        "13_nontrivial_positive_predictions": true
+      },
+      "checks_passed": 13,
+      "checks_total": 13,
+      "all_passed": true
+    },
+    "nan": {
+      "path": "docs/downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-nan.tif",
+      "filename": "gemsass2-strainridge-offcat-37654d-20261030T025503Z-nan.tif",
+      "size_bytes": 158003,
+      "sha256": "27a2f50ec0540c70cd56663f1efc444264d63135e21e18927a7f79457cede979",
+      "crs": "EPSG:32611",
+      "shape": [
+        3730,
+        3292
+      ],
+      "dtype": "float32",
+      "nodata": "NaN",
+      "transform": [
+        100.0,
+        0.0,
+        243350.0,
+        0.0,
+        -100.0,
+        4508550.0
+      ],
+      "all_12279160_finite": false,
+      "min_in_footprint": 0.0,
+      "max_in_footprint": 1.0,
+      "min_all_cells": 0.0,
+      "max_all_cells": 1.0,
+      "positive_dots_in_footprint": 37654,
+      "positive_on_catalogue": 0,
+      "outside_mode": "nan",
+      "checks": {
+        "01_file_exists_nonempty": true,
+        "02_single_band": true,
+        "03_dtype_float32": true,
+        "04_crs_epsg_32611": true,
+        "05_shape_3730x3292": true,
+        "06_geotransform_exact": true,
+        "07_footprint_5167373_match": true,
+        "08_catalogue_60988_match": true,
+        "09_no_nan_or_inf_inside_footprint": true,
+        "10_values_in_0_1_inside_footprint": true,
+        "11_outside_footprint_clean": true,
+        "12_zero_on_known_catalogue": true,
+        "13_nontrivial_positive_predictions": true
+      },
+      "checks_passed": 13,
+      "checks_total": 13,
+      "all_passed": true
+    },
+    "zip": {
+      "path": "docs/downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.zip",
+      "filename": "gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.zip",
+      "size_bytes": 82406,
+      "sha256": "340e928c052a366f80f282100a3d3383ffed1111bc77820122c26bafb463363a"
+    }
+  },
+  "submission_name": "gemsass2-strainridge-offcat-37654d-20261030T025503Z",
+  "generated_utc": "2026-10-30T02:51:42.214030+00:00",
+  "verdict": "promote"
+}

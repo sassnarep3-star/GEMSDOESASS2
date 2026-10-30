@@ -1,0 +1,26 @@
+{
+  "n_dots": 37654,
+  "holdout_dti": 0.22443906544721196,
+  "uniform_control_dti": 0.07150433112358748,
+  "ratio": 3.1388177739792207,
+  "holdout_dti_ci95": [
+    0.03539927289174471,
+    0.3957356720589568
+  ],
+  "uniform_control_ci95": [
+    0.054229372936742126,
+    0.07464446537333845
+  ],
+  "ratio_ci95": [
+    0.6358140775336655,
+    5.505866232971517
+  ],
+  "prob_ratio_gt_1": 0.95825,
+  "withheld_positive_cells": 38278,
+  "blocks_held": 29,
+  "blocks_total": 144,
+  "bootstrap": "paired cluster bootstrap over 29 withheld spatial blocks, 4000 draws",
+  "evaluator": "gems.metric.dti_probabilistic alpha=0.2 beta=0.8 R=300 m; whole footprint",
+  "label": "HOLDOUT-DTI (mapped USGS/INGENIOUS traces withheld by spatial block) \u2014 NOT a leaderboard score and NOT organizer-confirmed",
+  "caveat": "The truth is mapped fault traces, not the hidden expert-identified new faults. The ratio measures relative placement quality, not a leaderboard gain."
+}

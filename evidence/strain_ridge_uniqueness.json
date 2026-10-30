@@ -1,0 +1,76 @@
+{
+  "candidate": "gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif",
+  "n_dots": 37654,
+  "n_references": 19,
+  "radius_px": 3.0,
+  "limits": {
+    "overlap_pct": 70.0,
+    "abs_spearman": 0.9
+  },
+  "max_overlap_3px_pct": 36.4503,
+  "max_abs_spearman": 0.011528,
+  "passes_lane": true,
+  "top_overlaps": [
+    {
+      "ref": "gemsass2-ass2-altedge-hgb-44090-20261027-cc854482215e-zeros.tif",
+      "ref_dots": 44090,
+      "overlap_3px_pct": 36.4503,
+      "abs_spearman": 0.008391
+    },
+    {
+      "ref": "gemsdoesass2-scu1-scarpcorridor-uth-37000-20261027T120000Z-nan.tif",
+      "ref_dots": 37000,
+      "overlap_3px_pct": 30.4536,
+      "abs_spearman": 0.005775
+    },
+    {
+      "ref": "gemsdoesass2-scu1-scarpcorridor-uth-37000-20261027T120000Z-zeros.tif",
+      "ref_dots": 37000,
+      "overlap_3px_pct": 30.4536,
+      "abs_spearman": 0.010015
+    },
+    {
+      "ref": "gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-nan.tif",
+      "ref_dots": 37654,
+      "overlap_3px_pct": 28.3688,
+      "abs_spearman": 0.003222
+    },
+    {
+      "ref": "gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif",
+      "ref_dots": 37654,
+      "overlap_3px_pct": 28.3688,
+      "abs_spearman": 0.007493
+    },
+    {
+      "ref": "g27.tif",
+      "ref_dots": 61328,
+      "overlap_3px_pct": 27.5243,
+      "abs_spearman": 0.00941
+    },
+    {
+      "ref": "g24.tif",
+      "ref_dots": 60069,
+      "overlap_3px_pct": 27.1976,
+      "abs_spearman": 0.009545
+    },
+    {
+      "ref": "g36.tif",
+      "ref_dots": 38854,
+      "overlap_3px_pct": 26.3717,
+      "abs_spearman": 0.008036
+    },
+    {
+      "ref": "g33.tif",
+      "ref_dots": 41865,
+      "overlap_3px_pct": 26.0477,
+      "abs_spearman": 0.005232
+    },
+    {
+      "ref": "gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif",
+      "ref_dots": 37654,
+      "overlap_3px_pct": 26.0424,
+      "abs_spearman": 0.011528
+    }
+  ],
+  "scope_note": "Compared against the nine hash-pinned focus-site champions plus every local download. The wider GEMSDOE corpus (~90 sites) is not mirrored locally."
+}

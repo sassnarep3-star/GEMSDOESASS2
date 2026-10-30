@@ -1,0 +1,150 @@
+{
+  "scope": "measured on the nine hash-pinned champion rasters; no organizer receipt",
+  "files": [
+    {
+      "site": "GEMSDOE24",
+      "file": "g24.tif",
+      "sha256": "3e0730e8d4f7db095dd80246a98cba3bc0fc9a28f436b91db27ca34df4d0d1ce",
+      "n_dots": 60069,
+      "reported_leaderboard": 0.2477,
+      "reported_evidence": "USER-REPORTED / UNVERIFIED (no organizer receipt)",
+      "pct_within_1px_of_catalogue": 8.914748039754281,
+      "pct_within_2px_of_catalogue": 14.598212056135445,
+      "pct_within_3px_of_catalogue": 19.873811783116082,
+      "median_distance_to_catalogue_px": 14.866068747318506,
+      "dti_scored_against_catalogue": 0.17192870429612941,
+      "binary_values_only": true
+    },
+    {
+      "site": "GEMSDOE25",
+      "file": "g25.tif",
+      "sha256": "3e78737f0da8dd2ca66cc6caac0ce8eeefcd6715707f8d1bd3091845cd9bcc30",
+      "n_dots": 44090,
+      "reported_leaderboard": 0.26,
+      "reported_evidence": "USER-REPORTED / UNVERIFIED (no organizer receipt)",
+      "pct_within_1px_of_catalogue": 8.825130415060105,
+      "pct_within_2px_of_catalogue": 14.59741437967793,
+      "pct_within_3px_of_catalogue": 19.521433431617147,
+      "median_distance_to_catalogue_px": 15.0,
+      "dti_scored_against_catalogue": 0.1617719780036745,
+      "binary_values_only": true
+    },
+    {
+      "site": "GEMSDOE27",
+      "file": "g27.tif",
+      "sha256": "a9bf76b57453a5b3af74c8eef837df53c29a0931162aa540b8763220b36ba3bb",
+      "n_dots": 61328,
+      "reported_leaderboard": 0.2449,
+      "reported_evidence": "USER-REPORTED / UNVERIFIED (no organizer receipt)",
+      "pct_within_1px_of_catalogue": 8.826310983563788,
+      "pct_within_2px_of_catalogue": 14.471367075397861,
+      "pct_within_3px_of_catalogue": 19.87183668145056,
+      "median_distance_to_catalogue_px": 14.142135623730951,
+      "dti_scored_against_catalogue": 0.17273883783803545,
+      "binary_values_only": true
+    },
+    {
+      "site": "GEMSDOE28",
+      "file": "g28.tif",
+      "sha256": "7c74270ad48fa0b865163853046a6d3815967c5bf37bbda5b74ca7fa22583a32",
+      "n_dots": 37660,
+      "reported_leaderboard": 0.271,
+      "reported_evidence": "USER-REPORTED / UNVERIFIED (no organizer receipt)",
+      "pct_within_1px_of_catalogue": 0.0,
+      "pct_within_2px_of_catalogue": 6.248008497079129,
+      "pct_within_3px_of_catalogue": 11.622411046202867,
+      "median_distance_to_catalogue_px": 17.72004514666935,
+      "dti_scored_against_catalogue": 0.04621217413123315,
+      "binary_values_only": true
+    },
+    {
+      "site": "GEMSDOE30",
+      "file": "g30.tif",
+      "sha256": "8cf893ead5667df21d3288a9968c35fd5385c425b029d82ee71d311715b129fd",
+      "n_dots": 44090,
+      "reported_leaderboard": 0.26,
+      "reported_evidence": "USER-REPORTED / UNVERIFIED (no organizer receipt)",
+      "pct_within_1px_of_catalogue": 8.825130415060105,
+      "pct_within_2px_of_catalogue": 14.59741437967793,
+      "pct_within_3px_of_catalogue": 19.521433431617147,
+      "median_distance_to_catalogue_px": 15.0,
+      "dti_scored_against_catalogue": 0.1617719780036745,
+      "binary_values_only": true
+    },
+    {
+      "site": "GEMSDOE31",
+      "file": "g31.tif",
+      "sha256": "acd853936e5a7170b207f23411b1844caa0e7cfdfc303c600e520ccfe75159e6",
+      "n_dots": 40199,
+      "reported_leaderboard": 0.2708,
+      "reported_evidence": "USER-REPORTED / UNVERIFIED (no organizer receipt)",
+      "pct_within_1px_of_catalogue": 0.0,
+      "pct_within_2px_of_catalogue": 6.331003258787532,
+      "pct_within_3px_of_catalogue": 11.731635115301376,
+      "median_distance_to_catalogue_px": 17.69180601295413,
+      "dti_scored_against_catalogue": 0.04909549919996512,
+      "binary_values_only": true
+    },
+    {
+      "site": "GEMSDOE32",
+      "file": "g32.tif",
+      "sha256": "c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9",
+      "n_dots": 37654,
+      "reported_leaderboard": 0.2778,
+      "reported_evidence": "USER-REPORTED / UNVERIFIED (no organizer receipt)",
+      "pct_within_1px_of_catalogue": 0.0,
+      "pct_within_2px_of_catalogue": 0.0,
+      "pct_within_3px_of_catalogue": 5.76565570722898,
+      "median_distance_to_catalogue_px": 19.6468827043885,
+      "dti_scored_against_catalogue": 0.006709118968955278,
+      "binary_values_only": true
+    },
+    {
+      "site": "GEMSDOE33",
+      "file": "g33.tif",
+      "sha256": "87f857d505e23247e991ccfab2cbe9f49a04df4f9c8028dce7ea261554690757",
+      "n_dots": 41865,
+      "reported_leaderboard": 0.2632,
+      "reported_evidence": "USER-REPORTED / UNVERIFIED (no organizer receipt)",
+      "pct_within_1px_of_catalogue": 3.2891436761017556,
+      "pct_within_2px_of_catalogue": 9.301325689716949,
+      "pct_within_3px_of_catalogue": 14.389107846649946,
+      "median_distance_to_catalogue_px": 16.64331697709324,
+      "dti_scored_against_catalogue": 0.0864584361992844,
+      "binary_values_only": true
+    },
+    {
+      "site": "GEMSDOE36",
+      "file": "g36.tif",
+      "sha256": "e15891020b9c57056ac7fa874a5e506fbd6ed9314a4ea8e73af0753887a3708a",
+      "n_dots": 38854,
+      "reported_leaderboard": 0.275,
+      "reported_evidence": "USER-REPORTED / UNVERIFIED (no organizer receipt)",
+      "pct_within_1px_of_catalogue": 0.0,
+      "pct_within_2px_of_catalogue": 0.0,
+      "pct_within_3px_of_catalogue": 5.87069542389458,
+      "median_distance_to_catalogue_px": 19.235384061671343,
+      "dti_scored_against_catalogue": 0.0069296000705741535,
+      "binary_values_only": true
+    }
+  ],
+  "statistics": {
+    "spearman_dots_vs_reported": -0.9831932773109244,
+    "spearman_dots_vs_reported_p": 1.993470853426617e-06,
+    "spearman_catalogue_dti_vs_reported": -1.0,
+    "spearman_catalogue_overlap_vs_reported": -0.9831932773109244,
+    "law_inverse_dti_vs_dots": {
+      "form": "1/DTI = a*N + b",
+      "a": 1.7682047228016143e-05,
+      "b": 3.0061646268241167,
+      "r_squared": 0.9113901816289522,
+      "valid_range_N": [
+        37654.0,
+        61328.0
+      ],
+      "asymptote_DTI_as_N_to_0": 0.3326497794155927
+    },
+    "all_nine_binary": true
+  },
+  "interpretation": "Within this family the reported score is explained almost entirely by how many cells are predicted and how many of them sit on faults that are already mapped. 0.2778 is the fewest-dot, lowest-catalogue-overlap member; it is a dot-budget artefact, not evidence of a better geological model."
+}

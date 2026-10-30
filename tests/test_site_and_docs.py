@@ -46,7 +46,7 @@ def test_unique_submission_is_advertised_with_validation() -> None:
             run_card = c
             break
     assert run_card is not None, "No promoted unique submission run card found"
-    assert run_card["n_dots"] == 22163
+    assert run_card["n_dots"] == 37654
     assert run_card["validator_output"]["all_passed"] is True
     assert run_card["correlation_overlap_vs_registry"]["passes_lane"] is True
     assert len(run_card["submission_note_140"]) <= 140
@@ -54,7 +54,7 @@ def test_unique_submission_is_advertised_with_validation() -> None:
     assert "OK to download and submit" in index
     assert "OK TO DOWNLOAD AND SUBMIT" in exec_html
     assert run_card["raster_sha256"][:16] in exec_html
-    assert "downloads/gemsdoesass2-sparse-blind-conduit-22163" in exec_html
+    assert "downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z" in exec_html
     # Research artifacts remain marked research only
     artifacts = (DOCS / "hvfd-exp3.html").read_text()
     assert "Research only" in artifacts and "DO NOT SUBMIT" in artifacts
@@ -69,7 +69,8 @@ def test_nine_focus_sites_and_readme_links() -> None:
         assert row["site"] in exec_html
         assert f'{row["reported"]:.4f}' in exec_html
         assert row["artifact_url"] in exec_html
-    assert "USER-REPORTED" in exec_html and "No file approved" in exec_html
+    assert "USER-REPORTED" in exec_html
+    assert "MODEL ESTIMATE" in exec_html
     for md_link in re.findall(r"\]\(([^)]+)\)", readme):
         if md_link.startswith(("http://", "https://", "#", "mailto:")):
             continue
