@@ -11,3 +11,40 @@
 - **Why 0.2778 happened:** the nine focus sites are one collar sweep, not nine models. 19.52 % contamination → 0.2600, 11.73 % → 0.2708, 5.77 % → 0.2778; +0.0012 per point removed (R² = 0.998). All nine overlap each other by ≥97.58 % within 3 px, and the catalogue they used is missing 95,452 mapped fault cells.
 
 Full detail: [front page](index.html) · [how to submit](executive-summary.html) · [why 0.2778 scored](method.html) · [irregularities IR-S-11 to IR-S-20](../IRREGULARITIES.md).
+
+## Review pass 5, later on 2026-10-30 (PR #27) — VRC tested: negative, published as research
+
+- **VRC (vent-ridge continuation)** — blind traces should continue the LiDAR scarp trend leaving a mapped vent.
+  Emitted at 44,090 dots (B=2 collar, 3 px thinning) through the shared stack. **NEGATIVE on both instruments**:
+  HOLDOUT-DTI 0.0086294568 vs the hash-pinned focus-lineage parent 0.09674 (Δ −0.087807630, 95% CI
+  [−0.1003465, −0.0757916], p(Δ>0)=0.0) and off-catalogue SGMC 0.04438 vs 0.09528 (Δ −0.05119, CI [−0.0672,
+  −0.0338]). An uncollared variant is the only emission ahead of the parent on the public instrument
+  (0.10471, Δ +0.00798) and its CI crosses zero. Once the emitter bug below is fixed, spacing thinning ≡ plain
+  top-k, so the "continuation" selection rule adds nothing. Card:
+  [`data/vrc-run-card.json`](data/vrc-run-card.json) (`status: blocked-owner-ruling`, `ok_to_submit: false`).
+- **Uniqueness on the scanned sample:** max per-raster 3-px dot overlap 39.99% (limit 70%) and max |Spearman|
+  over the whole footprint 0.0162 (limit 0.90) across 40 registry rasters — a **sample**, not the complete
+  registry (IR-S-32). Against the space-filling `r13` lattice probe it is 1.000, so the literal rule blocks it
+  for the arithmetically forced reason in IR-S-01/IR-S-21. Nothing on this branch is cleared for submission.
+- **Emitter bug fixed** (`IR-VRC-01`, alias of IR-S-23): a `np.lexsort` position was used as a pixel index, so
+  the first VRC pass emitted 12,572 invalid-fill dots and wrote 15,300 against a 22,163 budget. Both call sites
+  now remap through the candidate array and a hard guard refuses any emission whose count ≠ budget or whose dots
+  leave the allowed footprint. The defective raster was deleted, not patched.
+- **Download surface:** `.zip` for both encodings of both files, manifest
+  [`data/download-hashes.json`](data/download-hashes.json), per-check receipts
+  [`data/format-sparse-blind-zeros.json`](data/format-sparse-blind-zeros.json) (all 11 named validator checks
+  true, `strict_local_format_pass: true` vs the organizer-example mirror),
+  [`data/format-sparse-blind-nan.json`](data/format-sparse-blind-nan.json),
+  [`data/format-vrc-zeros.json`](data/format-vrc-zeros.json),
+  [`data/format-vrc-nan.json`](data/format-vrc-nan.json). "13/13" vs "11/11" is the same validator counted with
+  or without the two promoted-card counts (IR-S-29).
+- **Score estimate: `NOT ESTIMABLE`, and now measured twice.** The geometry-only estimator fails leave-one-out
+  (R² = −0.379) and no organizer receipt exists here, so this branch publishes no MODEL ESTIMATE for any file —
+  unlike the row in the pass-4 table, which extrapolates below its fitted range (that branch's own IR-S-18; see
+  IR-S-27).
+- **Holdout availability corrected:** `scripts/evaluate_holdout.py` is a fail-closed CLI, but
+  `src/gems_sass2/holdout.py` runs and produced every number above (IR-S-24). "No holdout is possible" is not a
+  valid reason to leave a promoted file unmeasured.
+- **Ledger:** IR-S-23 … IR-S-33 added to
+  [`IRREGULARITIES.md`](https://github.com/sassnarep3-star/GEMSDOESASS2/blob/main/IRREGULARITIES.md).
+

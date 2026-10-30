@@ -1,0 +1,85 @@
+{
+  "generated_utc": "2026-10-30T02:47:51.802537+00:00",
+  "lane": "VENT-RIDGE CONTINUATION (VRC)",
+  "hypothesis": "Blind geothermal conduits and their bounding structures reactivate as short, linear, vent-proximal scarps that the scarp-dependent USGS/INGENIOUS catalogue never traced; they are recoverable from LiDAR scarp linearity, not from catalogue proximity.",
+  "mechanism": "fold-aware logistic propensity (out-of-fold, visible catalogue only) + 21 documented vents/wells proximity prior (1.5 km decay) + scarp ridge-continuity term; cell-of-max thinning at 2.8 px, B=2.0 px catalogue collar, LiDAR-valid pixels only, budget 44090 dots.",
+  "named_non_fault_process": "alluvial-fan toes, paleo-shoreline benches, terrace risers, lava-flow margins and road cuts all produce linear scarp-like steps; mitigated by requiring ridge continuity AND a vent-proximity term AND catalogue detachment, but not eliminated.",
+  "holdout": {
+    "label": "HOLDOUT-DTI",
+    "evaluator_version": "GEMSDOE32-HIDE-RECOVER-v3.0",
+    "withheld_positive_pixels": 22232,
+    "pooled_dti": 0.008629456799515822,
+    "ci95": [
+      0.00706343350633273,
+      0.010105329955198578
+    ],
+    "detached_600m_dti": 0.006029018415940903,
+    "detached_ci95": [
+      0.004231980446914477,
+      0.00781394501371476
+    ],
+    "n_dots": 44090,
+    "public_catalogue_proxy_only": true,
+    "paired_vs_parent": {
+      "parent_holdout_dti": 0.0967432973841192,
+      "delta_mean": -0.08780762987515028,
+      "delta_ci95": [
+        -0.10034652909747276,
+        -0.07579163560771866
+      ],
+      "p_gt_zero": 0.0,
+      "note": "The public-catalogue proxy rewards catalogue adjacency; the parent is catalogue-derived and the candidate is off-catalogue by construction, so this paired delta is reported as a measurement, not as a leaderboard signal (see knowledge/04 \u00a74)."
+    },
+    "sgmc_offcatalogue_instrument": {
+      "candidate": "gemsdoesass2-vrc-ventridge-44090-20261030T024740Z-nan.tif",
+      "instrument": "off-catalogue USGS SGMC holdout (62,703 fault px >300 m outside labels.tif)",
+      "evaluator_version": "GEMSDOE32-SGMC-CAL-v3.0",
+      "n_dots": 44090,
+      "sgmc_raw_pooled_dti": 0.04438,
+      "sgmc_raw_ci95": [
+        0.03432,
+        0.05512
+      ],
+      "parent_sgmc_raw_pooled_dti": 0.09528,
+      "parent_sgmc_ci95": [
+        0.08501,
+        0.10605
+      ],
+      "paired_delta_vs_parent": {
+        "mean": -0.05119,
+        "ci95": [
+          -0.0672,
+          -0.03384
+        ],
+        "p_gt_zero": 0.0
+      }
+    }
+  },
+  "params": {
+    "budget": 44090,
+    "spacing": 2.8,
+    "collar": 2.0,
+    "w_vent": 0.35,
+    "w_cont": 0.25,
+    "tag": "20261030T024740Z",
+    "out_dir": "/home/user/GEMSDOESASS2/docs/downloads",
+    "evidence": "/home/user/GEMSDOESASS2/evidence/vrc_run_card.json"
+  },
+  "files": {
+    "zeros": {
+      "path": "/home/user/GEMSDOESASS2/docs/downloads/gemsdoesass2-vrc-ventridge-44090-20261030T024740Z-zeros.tif",
+      "bytes": 295781,
+      "sha256": "75a07dc1a1faa521d7be7c88fbec3a418afb854e772bcf34ef64f8e960617c09",
+      "dots": 44090,
+      "value": 1.0
+    },
+    "nan": {
+      "path": "/home/user/GEMSDOESASS2/docs/downloads/gemsdoesass2-vrc-ventridge-44090-20261030T024740Z-nan.tif",
+      "bytes": 49139392,
+      "sha256": "869f08ba4d8e22b2659564adf8d1ec6b417b9624989de4bc480357d16d161934",
+      "dots": 44090
+    }
+  },
+  "score_evidence": "No organizer receipt exists in this environment; no organizer score is claimed. USER-REPORTED portfolio statistics are used for the estimate band, labelled as such.",
+  "SUPERSEDED_BY": "the emission guard was added after this card; the final measured card is docs/data/vrc-run-card.json (numbers re-verified and agree)"
+}

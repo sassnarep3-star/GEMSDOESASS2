@@ -1,0 +1,187 @@
+{
+  "generated_utc": "2026-10-30T02:55:00+00:00",
+  "label": "HOLDOUT-DTI (public-catalogue hide-and-recover) and off-catalogue SGMC instrument; NOT organizer scores",
+  "delta_definition": "paired 256-block bootstrap delta vs the hash-pinned focus-lineage parent d2-8 (44,090 dots)",
+  "rows": [
+    {
+      "surf": "learned",
+      "collar": "b2",
+      "rule": "thin",
+      "budget": 37654,
+      "dots": 37654,
+      "holdout": 0.00798,
+      "holdout_delta": -0.08845,
+      "holdout_delta_ci": [
+        -0.10109,
+        -0.07644
+      ],
+      "sgmc": 0.04177,
+      "sgmc_delta": -0.05378,
+      "sgmc_delta_ci": [
+        -0.06965,
+        -0.03635
+      ],
+      "sgmc_p_gt0": 0.0
+    },
+    {
+      "surf": "learned",
+      "collar": "b2",
+      "rule": "thin",
+      "budget": 44090,
+      "dots": 44090,
+      "holdout": 0.00862,
+      "holdout_delta": -0.08782,
+      "holdout_delta_ci": [
+        -0.10022,
+        -0.07573
+      ],
+      "sgmc": 0.04447,
+      "sgmc_delta": -0.0511,
+      "sgmc_delta_ci": [
+        -0.06707,
+        -0.03367
+      ],
+      "sgmc_p_gt0": 0.0
+    },
+    {
+      "surf": "learned",
+      "collar": "b2",
+      "rule": "topk",
+      "budget": 37654,
+      "dots": 37654,
+      "holdout": 0.00798,
+      "holdout_delta": -0.08845,
+      "holdout_delta_ci": [
+        -0.10109,
+        -0.07644
+      ],
+      "sgmc": 0.04177,
+      "sgmc_delta": -0.05378,
+      "sgmc_delta_ci": [
+        -0.06965,
+        -0.03635
+      ],
+      "sgmc_p_gt0": 0.0
+    },
+    {
+      "surf": "learned",
+      "collar": "b2",
+      "rule": "topk",
+      "budget": 44090,
+      "dots": 44090,
+      "holdout": 0.00862,
+      "holdout_delta": -0.08782,
+      "holdout_delta_ci": [
+        -0.10022,
+        -0.07573
+      ],
+      "sgmc": 0.04447,
+      "sgmc_delta": -0.0511,
+      "sgmc_delta_ci": [
+        -0.06707,
+        -0.03367
+      ],
+      "sgmc_p_gt0": 0.0
+    },
+    {
+      "surf": "amp",
+      "collar": "b2",
+      "rule": "thin",
+      "budget": 37654,
+      "dots": 37654,
+      "holdout": 0.00185,
+      "holdout_delta": -0.09456,
+      "holdout_delta_ci": [
+        -0.10702,
+        -0.08269
+      ],
+      "sgmc": 0.09941,
+      "sgmc_delta": 0.00268,
+      "sgmc_delta_ci": [
+        -0.02819,
+        0.03747
+      ],
+      "sgmc_p_gt0": 0.546
+    },
+    {
+      "surf": "amp",
+      "collar": "b2",
+      "rule": "thin",
+      "budget": 44090,
+      "dots": 44090,
+      "holdout": 0.00209,
+      "holdout_delta": -0.09432,
+      "holdout_delta_ci": [
+        -0.10679,
+        -0.08243
+      ],
+      "sgmc": 0.10684,
+      "sgmc_delta": 0.01002,
+      "sgmc_delta_ci": [
+        -0.02227,
+        0.04601
+      ],
+      "sgmc_p_gt0": 0.727
+    },
+    {
+      "surf": "amp",
+      "collar": "b2",
+      "rule": "topk",
+      "budget": 37654,
+      "dots": 37654,
+      "holdout": 0.00138,
+      "holdout_delta": -0.09503,
+      "holdout_delta_ci": [
+        -0.10769,
+        -0.08304
+      ],
+      "sgmc": 0.08566,
+      "sgmc_delta": -0.01097,
+      "sgmc_delta_ci": [
+        -0.04081,
+        0.02185
+      ],
+      "sgmc_p_gt0": 0.233
+    },
+    {
+      "surf": "amp",
+      "collar": "b2",
+      "rule": "topk",
+      "budget": 44090,
+      "dots": 44090,
+      "holdout": 0.00154,
+      "holdout_delta": -0.09487,
+      "holdout_delta_ci": [
+        -0.10741,
+        -0.08295
+      ],
+      "sgmc": 0.09439,
+      "sgmc_delta": -0.00233,
+      "sgmc_delta_ci": [
+        -0.03322,
+        0.03119
+      ],
+      "sgmc_p_gt0": 0.428
+    },
+    {
+      "surf": "parent_d2-8",
+      "collar": "b2",
+      "rule": "as-emitted",
+      "budget": 44090,
+      "dots": 44090,
+      "holdout": 0.09674,
+      "holdout_delta": 0.0,
+      "holdout_delta_ci": [
+        0,
+        0
+      ],
+      "sgmc": 0.09528,
+      "sgmc_delta": 0.0,
+      "sgmc_delta_ci": [
+        0,
+        0
+      ],
+      "sgmc_p_gt0": 0.5
+    }
+  ]
+}

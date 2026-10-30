@@ -23,6 +23,9 @@
 
 ⚠️ **Honest size of the win: about +0.008 over the 0.2778 champion.** This is the best-supported move available, not a leap. Nothing in this repository reaches 0.4413; see §3 for why, arithmetically.
 
+**Also new (later on 2026-10-30):** a second artifact pair, `gemsdoesass2-vrc-ventridge-44090-…`, with per-check format receipts, `.zip` archives for every encoding, the IR-VRC-01 emitter fix, and a measured HOLDOUT-DTI for the new hypothesis — all **negative / research only**, and it fails the same lattice rule. See the "New this session" block after the nine-site table and [knowledge/09](knowledge/09_vrc_and_download_surface.md).
+
+
 ---
 
 ## 📋 STANDING PROJECT PROMPT — read at the start of every session
@@ -115,6 +118,40 @@ Paired cluster bootstrap over 29 withheld blocks: candidate DTI 95 % CI [0.035, 
 | H5 | Fracture-mechanics tip step-over dilation | elastic crack-tip dilatation | untried · needs the login-gated 19-band strain tensor |
 
 Negative results are deliverables: **raw pointwise geophysics is a weak fault predictor on this grid** (AUC 0.44–0.58). Signal appears only after (a) the structure-tensor ridge transform and (b) adding the strain/seismicity corridor prior.
+
+### New this session, later on 2026-10-30 — 3 experiments, ~2 hours, negative result recorded as a deliverable
+
+- **VRC (vent-ridge continuation)** — blind traces should continue the LiDAR scarp trend leaving a mapped
+  vent; emitted through the shared stack only (cached feature stack, `submission_writer.py`,
+  `src/gems_sass2/holdout.py`), B=2 collar + 3-px thinning, 44,090 dots. Result **NEGATIVE**: HOLDOUT-DTI
+  0.008629 vs the hash-pinned focus-lineage parent 0.09674 (Δ −0.087808, 95% CI [−0.100347, −0.075792],
+  p(Δ>0)=0.0) and off-catalogue SGMC 0.04438 vs 0.09528 (Δ −0.05119). An uncollared variant is the only
+  emission ahead of the parent on the public instrument (0.10471, Δ +0.00798) and its CI crosses zero, so
+  nothing earns a slot. Once the emitter bug below is fixed, spacing thinning ≡ plain top-k — the
+  "continuation" selection rule adds nothing. Card: [docs/data/vrc-run-card.json](docs/data/vrc-run-card.json).
+- **Uniqueness, measured on a capped sample:** max per-raster 3-px dot overlap 39.99% (limit 70%) and max
+  |Spearman| over the whole footprint 0.0162 (limit 0.90) against 40 scanned registry rasters; 0.3227
+  reverse share against this repo's own previous file. Against the space-filling `r13` lattice probe it is
+  **1.000**, i.e. the literal rule blocks it for the same arithmetically forced reason it blocks the reported
+  0.2778 champion (IR-S-30). No file is cleared until the owner rules.
+- **IR-VRC-01 (alias of IR-S-23), root-caused and fixed:** a `np.lexsort` result (a position *inside the
+  candidate array*) was used as a *pixel* index, so "thinning" emitted arbitrary low-score pixels — 12,572 of
+  22,163 dots carried the −1.0 invalid fill — and the written count (15,300) silently differed from the budget
+  (22,163). Both call sites remap through the candidate array now, the emission mask is intersected with the
+  allowed region, and a hard guard refuses any emission whose count ≠ budget or whose dots fall outside the
+  footprint / on the catalogue / off LiDAR. The defective raster was **deleted, not patched**; every older
+  number made through those functions is marked superseded.
+- **Download surface:** `.zip` archives for both encodings of both files,
+  [docs/data/download-hashes.json](docs/data/download-hashes.json) as the manifest, and per-check receipts
+  `docs/data/format-{sparse-blind,vrc}-{zeros,nan}.json`. The promoted file re-verified against the
+  organizer-example mirror: all checks true and `strict_local_format_pass: true`, so "13/13" is now backed by
+  a receipt that names its reference sample (IR-S-10 / IR-S-33).
+- **Score estimation:** still **NOT ESTIMABLE**, and the reason is now measured twice: the geometry-only
+  estimator fails leave-one-out (R² = −0.379), and the only files with any organizer value are
+  USER-REPORTED. What exists instead: labelled HOLDOUT-DTI from `src/gems_sass2/holdout.py` (the library runs
+  even though the `scripts/evaluate_holdout.py` CLI is a fail-closed stub, IR-S-18) and the labelled nine-site
+  anchors in [evidence/org_ledger_measured.json](evidence/org_ledger_measured.json).
+
 
 ---
 

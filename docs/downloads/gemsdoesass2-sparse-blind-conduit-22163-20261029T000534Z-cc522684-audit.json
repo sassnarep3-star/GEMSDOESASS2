@@ -8,7 +8,8 @@
     "withheld_positive_pixels": null,
     "dti": null,
     "ci95": null,
-    "status": "NOT RUN: requires authenticated organizer data and fold-local comparator; label is HOLDOUT-DTI only when a receipt exists."
+    "status": "NOT RUN: requires authenticated organizer data and fold-local comparator; label is HOLDOUT-DTI only when a receipt exists.",
+    "cli_status": "scripts/evaluate_holdout.py is fail-closed, but src/gems_sass2/holdout.py runs and produced HOLDOUT-DTI for other candidates on 2026-10-30; no holdout has been run for THIS raster yet (IR-S-24)."
   },
   "leakage_canary": {
     "status": "NOT RUN: no feature trained on labels; on-catalogue dot count = 0 by construction (zero catalogue leakage).",
@@ -82,7 +83,24 @@
     "no_nan_inside_footprint": true,
     "values_in_0_1": true,
     "crs_shape_transform_match": true,
-    "status": "13/13 PASS"
+    "status": "13/13 PASS",
+    "per_check_receipt": "docs/data/format-sparse-blind-zeros.json",
+    "reference_sample": "data/official/example_submission.tif (organizer-example mirror, sha256 2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc; hash-identical to data/bridge/sample_submission.tif)",
+    "checks": {
+      "tif_extension": true,
+      "single_band": true,
+      "float32": true,
+      "crs_match": true,
+      "shape_match": true,
+      "transform_match": true,
+      "competition_crs_epsg32611": true,
+      "competition_100m_north_up": true,
+      "whole_array_finite_in_0_1": true,
+      "inside_unmasked_finite_in_0_1": true,
+      "outside_masked_or_nan": true
+    },
+    "strict_local_format_pass": true,
+    "note": "A format pass does not override the lattice failure or the superseded verdict: whole-array finiteness and masked-NaN are mutually exclusive local checks (IR-S-23 lineage of the validator finding, IR-S-10 of pass 4)."
   },
   "submission_name": "GEMSDOESASS2-SPARSE-BLIND-CC522684",
   "submission_note_140": "GEMSDOESASS2 sparse-blind-conduit 22163d B=2 sep3 | off-catalogue blind faults | cc522684 | research",
@@ -121,5 +139,9 @@
   ],
   "superseded_utc": "2026-10-30T02:45:00Z",
   "superseded_by": "gemsass2-strainridge-offcat-35000d-20261030T023527Z",
-  "superseded_reason": "Replaced by the STRAIN-RIDGE candidate, which is the first submission in this repository to pass a leak-free spatially-blocked holdout against a matched incumbent control. This file remains downloadable as a research artifact; its holdout was NOT RUN and its 0.30 estimate rested on the same dot-count lever."
+  "superseded_reason": "Replaced by the STRAIN-RIDGE candidate, which is the first submission in this repository to pass a leak-free spatially-blocked holdout against a matched incumbent control. This file remains downloadable as a research artifact; its holdout was NOT RUN and its 0.30 estimate rested on the same dot-count lever.",
+  "n_format_checks": 13,
+  "format_checks_passed": 13,
+  "format_checks_convention": "13 = 11 named validate_tif checks + 2 promoted-card counts; 11/11 is the same file counted without them (IR-S-29)",
+  "label_discipline": "Endorsement label = LOCAL-VALIDATED (format only). No ORGANIZER-CONFIRMED value exists for this raster here; 'downloadable' != 'submittable'."
 }

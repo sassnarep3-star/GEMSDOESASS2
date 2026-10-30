@@ -122,6 +122,24 @@
 <li><strong>No organizer receipt.</strong> Nothing on this page has been scored by DrivenData. The first submission response will replace the estimate with an ORGANIZER-CONFIRMED value.</li>
 </ul>
 </div></section>
+
+<h2 id="second-pass">Review pass 5 (PR #27) — VRC tested: negative, published as research only</h2>
+<p>Nothing in this block changes the ruling above; it adds a tested hypothesis, its receipts, and the archive
+surface for both encodings. No weekly slot was used.</p>
+<div style="overflow-x:auto"><table aria-label="VRC second pass gates"><thead><tr><th>Gate</th><th>Measured</th><th>Result</th><th>Receipt</th></tr></thead><tbody>
+<tr><td>Scientific — public-catalogue holdout (HIDE-RECOVER v3.0)</td><td>HOLDOUT-DTI <b>0.0086294568</b> vs pinned parent 0.09674; Δ −0.087807630, 95% CI [−0.1003465, −0.0757916], p(Δ&gt;0)=0.0</td><td>FAIL</td><td><a href="data/vrc-run-card.json">vrc-run-card.json</a></td></tr>
+<tr><td>Scientific — off-catalogue instrument (SGMC-CAL v3.0, 62,703 fault px &gt;300 m from the catalogue)</td><td>0.04438 vs 0.09528 (Δ −0.05119, CI [−0.0672, −0.0338]); amplitude-only control 0.10684 (Δ +0.01002, CI [−0.0223, +0.0460]) — the only emission not significantly behind the parent there, and it collapses to 0.00209 on the public instrument</td><td>FAIL (control: informative negative)</td><td><a href="https://github.com/sassnarep3-star/GEMSDOESASS2/blob/main/evidence/exp8_vrc_variants.json">exp8_vrc_variants.json</a></td></tr>
+<tr><td>Uniqueness — 40 scanned registry rasters (a sample, IR-S-32)</td><td>max per-raster 3-px dot overlap <b>39.99%</b> (limit 70%); max |Spearman| over the whole footprint <b>0.0162</b> (limit 0.90); 0.3227 reverse share against this repo's previous file</td><td>pass on the sample</td><td><a href="https://github.com/sassnarep3-star/GEMSDOESASS2/blob/main/evidence/registry_overlap_vrc.json">registry_overlap_vrc.json</a></td></tr>
+<tr><td>Lattice probe</td><td>1.000 of dots within 3 px of <code>r13-lattice-s5</code></td><td>FAILS the literal rule — arithmetically forced, same as the reported 0.2778 champion</td><td><a href="data/lattice_saturation_check.json">lattice_saturation_check.json</a></td></tr>
+<tr><td>Format — per named check, reference sample stated</td><td><a href="downloads/gemsdoesass2-vrc-ventridge-44090-20261030T024740Z-nan.tif" download><code>…vrc-ventridge-44090…-nan.tif</code></a> 461,243 B <code>22c13912…de3d792</code> (misses only <code>whole_array_finite_in_0_1</code>) · <a href="downloads/gemsdoesass2-vrc-ventridge-44090-20261030T024740Z-zeros.tif" download><code>…-zeros.tif</code></a> 295,781 B <code>75a07dc1…60617c09</code> (misses only <code>outside_masked_or_nan</code>; identical inside the footprint, max abs diff 0.0) · <code>.zip</code> for each, plus <code>.zip</code> for the sparse-blind <code>-nan</code> twin</td><td>necessary, not sufficient (the two checks are mutually exclusive)</td><td><a href="data/download-hashes.json">download-hashes.json</a> · <a href="data/format-vrc-nan.json">vrc-nan</a> · <a href="data/format-vrc-zeros.json">vrc-zeros</a></td></tr>
+<tr><td>Score estimate</td><td><b>NOT ESTIMABLE</b> — geometry-only estimator fails leave-one-out (R² = −0.379) and no organizer receipt exists here</td><td>no projection published</td><td><a href="https://github.com/sassnarep3-star/GEMSDOESASS2/blob/main/scripts/fit_org_score_estimator.py">fit_org_score_estimator.py</a></td></tr>
+<tr><td>Bug found while producing the above (<code>IR-VRC-01</code> = IR-S-23)</td><td><code>cell_of_max*</code> used a <code>np.lexsort</code> position as a pixel index: 12,572 of 22,163 dots carried the −1.0 invalid fill and 15,300 were written against a 22,163 budget, silently. Fixed; a guard now refuses any emission whose count ≠ budget or whose dots leave the allowed footprint. Defective raster deleted, not patched.</td><td>corrected numbers only</td><td><a href="https://github.com/sassnarep3-star/GEMSDOESASS2/blob/main/knowledge/09_vrc_and_download_surface.md">knowledge/09</a></td></tr>
+</tbody></table></div>
+<p>Ledger entries added by this pass: IR-S-23 … IR-S-33 in
+<a href="https://github.com/sassnarep3-star/GEMSDOESASS2/blob/main/IRREGULARITIES.md" target="_blank" rel="noopener noreferrer">IRREGULARITIES.md</a>.
+Holdout availability correction: the CLI <code>scripts/evaluate_holdout.py</code> is fail-closed, but the library
+<code>src/gems_sass2/holdout.py</code> runs — "no holdout possible" is not a reason to leave a promoted file
+unmeasured (IR-S-24).</p>
 </main>
 
 <footer class="site-footer"><div class="wrap footer-inner">
