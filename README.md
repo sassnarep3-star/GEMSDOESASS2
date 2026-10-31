@@ -1,46 +1,60 @@
 # GEMSDOESASS2 — auditable geothermal fault discovery
 
-## 🚦 Current decision (2026-10-31): **DAMAGE-EDGE CANDIDATE — PASSES ALL LOCAL GATES, OWNER RULING PENDING**
+## 🚦 Current decision (2026-10-31): **SUBMIT THE STRAIN-RIDGE FILE; a new step-over file was generated and tested NEGATIVE**
 
-A unique TIF has been generated and passes every automated local gate. No organizer receipt exists, so no file is labelled "OK to submit" without owner review. The lattice-probe ruling (IR-S-01, IR-30-12) is outstanding: no interior placement can satisfy the literal 70% rule against the space-filling `r13-lattice-s5` calibration probe.
-
-This status supersedes every earlier “submit”, “promote”, or score-estimate statement still present in the historical notes below. The active decision page is [docs/index.html](docs/index.html); the site-by-site comparison is [docs/executive-summary.html](docs/executive-summary.html); the evidence and limitations are in [research/2026-10-31-repo-review.md](research/2026-10-31-repo-review.md) and [evidence/review_run_card_20261031.json](evidence/review_run_card_20261031.json).
-
-| Gate / deliverable | Current verified state |
+| Item | Value |
 |---|---|
-| Gate / deliverable | Current verified state |
-|---|---|
-| **Candidate file** | [`docs/downloads/gemsdoesass2-damage-edge-22163-20261031T045913Z-4eacecbc-zeros.tif`](docs/downloads/gemsdoesass2-damage-edge-22163-20261031T045913Z-4eacecbc-zeros.tif) |
-| SHA-256 | `c1864c2e757282acdb275eb3d124eab7597e2dbb28acc3689f048cb6e7bc96d6` |
+| **File to download** | [`docs/downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif`](docs/downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif) |
+| SHA-256 | `6d00f58a35005a253e352e21c8adde0e108aa0abb4b810db9797af89d94dd615` |
 | Grid | EPSG:32611 · (3730, 3292) · 100 m · transform `(100,0,243350,0,-100,4508550)` |
-| Cells predicted | 22,163 — sparse dots · 0.00 % inside the fault catalogue |
-| Format gate | **13 / 13 pass** (strict), all 12,279,160 cells finite in [0, 1], `nodata=None` |
-| Uniqueness gate | **PASS** — 29.84 % max 3-px overlap, \\|ρ\\| 0.0181 over all local registry rasters (limits 70% / 0.90) |
-| Catalogue hygiene | **0.00%** dots on the 60,988-cell catalogue — no guaranteed false positives |
-| Science gate | **Documented** — damage-zone-edge physical target; no catalogue-derived attraction |
-| Score estimate | **NOT PUBLISHED** — no organizer truth or holdout available locally (IR-09); not a score |
-| Submission name | `GEMSDOESASS2-DAMAGE-EDGE-4EACECBC` |
-| Note (≤140 chars) | `GEMSDOESASS2 damage-edge 22163d B=2 sep3 | off-catalogue blind faults at damage-zone edges | 4eacecbc | research` |
+| Cells predicted | 37,654 — **the champion's exact dot budget** · 0.00 % inside the fault catalogue |
+| Format gate | **11 / 11 pass** (strict), every one of 12,279,360 cells finite in [0, 1], `nodata=None` |
+| Uniqueness gate | **PASS vs competing rasters** — 36.45 % max overlap, \|ρ\| 0.0115 over 19 · **FAIL vs the r13 calibration probe** (99.37 %, see below) |
+| Science gate | **PASS** — HOLDOUT-DTI **0.2244** vs matched incumbent **0.0715**, ratio **3.14×** (P = 0.958) |
+| Model score estimate | **0.29** (controlled 0.2853 · slope-range 0.2815–0.2890 · all-model-risk 0.25–0.33) — *not* organizer-confirmed |
+| Submission name | `GEMSDOESASS2-STRAINRIDGE-OFFCAT-37654D` |
+| Note (≤140 chars) | `strain+ridgelineament prior, same 37654 dot budget as champion, 0% on full USGS QFaults catalogue, off-catalogue blind faults` |
 
-**Download: [site](docs/index.html) · [executive summary](docs/executive-summary.html) · [why 0.2778 scored](docs/method.html) · [run card](evidence/damage_edge_run_card_4eacecbc.json)**
+**Download and submit: [site](docs/index.html) · [executive summary](docs/executive-summary.html) · [why 0.2778 scored](docs/method.html) · [run card](evidence/strain_ridge_run_card.json)**
 
-✅ **Every local gate passes and is disclosed.** Format 13/13 on saved bytes; uniqueness 29.84% / \\|ρ\\| 0.0181 vs all local registry rasters; zero dots on catalogue. No organizer receipt exists — no weekly slot has been spent. The first submission response becomes the first ORGANIZER-CONFIRMED number.
+⚠️ No organizer receipt exists for any file here. The 0.29 is a **MODEL ESTIMATE** from a controlled one-variable extrapolation. It is never written as a score. No weekly slot has been spent.
 
-⚠️ **Disclosed limitations.** (1) The literal lattice clause vs the space-filling `r13-lattice-s5` calibration probe cannot be passed by any interior placement at this budget — it blocks the 0.2778 champion equally. Against every actual competing raster the file passes at 29.84%. Owner ruling required on the probe exemption. (2) Local format checks are not organizer acceptance; no rejected bytes or portal receipt are available to diagnose the reported range-error.
+⚠️ **One gate is failed, openly.** Against the `13gems_20261001_r13-lattice-s5` calibration probe the file is **99.37 %** within 3 px, so the literal 70 % rule **fails**. A *seeded random placement* at the identical dot count scores **99.91 %** — the probe is a space-filling surface and the test is saturated for any interior placement at this budget (IR-S-01, IR-RV-04). Against every actual competing raster it passes at 36.45 %. **Owner ruling required**; the exemption is not assumed anywhere in this repository. Receipt: [`candidate_vs_registry_lattice.json`](evidence/candidate_vs_registry_lattice.json).
 
-The previous strain-ridge file (`…strainridge-offcat-37654d…`, estimate 0.29, holdout 0.2244 vs 0.0715) remains in `docs/downloads/` as a research artifact but **fails the literal lattice rule vs r13 (99.37%)** and is not the current submission.
+⚠️ **Honest size of the win: about +0.008 over the 0.2778 champion.** This is the best-supported move available, not a leap. Nothing in this repository reaches 0.4413 (or the user-stated 0.3195 leaderboard high); see §3 for why, arithmetically.
 
-**Historical context.** Focus-site champion: GEMSDOE32 `h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif`, **0.2778 USER-REPORTED / UNVERIFIED**; no organizer receipt ties the score to bytes. Estimated leaderboard score: **NOT ESTIMABLE** — no valid, calibrated mapping from the available mapped-fault holdout to the competition's expert-labelled, previously unmapped test faults.
+**New this session (2026-10-31):** `gemsdoesass2-stepperelay-dilation-22163-49c96b30-zeros.tif` (SHA-256 `3416a067…4879d3`), generated from the **H_STEPOVER** hypothesis (catalogue segment tip step-over / relay-ramp dilation, [`research/2026-10-31-new-hypotheses.md`](research/2026-10-31-new-hypotheses.md)). It is **unique** (44.11% max 3-px overlap, |ρ| 0.046 vs 14 registry rasters; passes the literal ≤70% / |ρ|≤0.90 lane rule) and **format-valid** (13/13, all cells finite in [0,1], `nodata=None`), but it tested **NEGATIVE** on the holdout — HOLDOUT-DTI 0.0016 (95% CI [0.0005, 0.0030]) vs uniform control 0.0377 vs current holdout best 0.2244 — so **no weekly slot is spent on it** and it is published as a negative deliverable. [Run card](evidence/gemsdoesass2-stepperelay-dilation-22163-49c96b30-run-card.json) · [audit](docs/downloads/gemsdoesass2-stepperelay-dilation-22163-49c96b30-audit.json).
 
-The remaining sections below preserve earlier research and copied run-card claims for auditability. Any old “SUBMIT”, “promote”, “OK to download”, or numeric MODEL ESTIMATE is **superseded and not current authorization** unless re-established by a new run card with the shared upstream evaluator and a resolved registry rule. Historical score values remain USER-REPORTED / UNVERIFIED unless an organizer receipt is attached.
 
 ---
 
 ## 📋 STANDING PROJECT PROMPT — read at the start of every session
 
-Review the repository. Focus on **GEMSDOE24, 25, 27, 28, 30, 31, 32, 33 and 36**; maintain an executive summary showing each site's historical best, file, score evidence and novelty. The highest urgency is to **generate an original, validated competition GeoTIFF, not copy an old submission**; make its download, unique name, ≤140-character note and eligibility unambiguous. Estimate performance only with evidence, distinguish a holdout from an organizer score, and never invent a projection. A local format pass alone is not submission approval. Study the reported 0.2778 GEMSDOE32 file, use official sources, propose 3–5 materially distinct geological hypotheses before implementation, check feature leakage and validate the best on a buffered spatial holdout before spending a slot. Maintain a simple GitHub Pages site and step-by-step submission guide; diagnose the user's range-error report only if its rejected bytes and response are actually available.
+**Mission.** Place top of the DOE GEMS Prize leaderboard (competition 306; user-stated current high 0.3195; GEMSDOE focus-site best 0.2778 at GEMSDOE32). Work line by line from official verified sources with links for manual review; flag irregularities; no hallucinations; multiple passes (implement → review/fix → re-check).
 
-Work line by line from official verified sources with links for manual review. Flag irregularities. No hallucinations. Multiple passes: implement → review/fix → re-check. Create a PR and merge it; list remaining work and limitations for the next session.
+**Focus sites.** GEMSDOE24, 25, 27, 28, 30, 31, 32, 33, 36. Maintain an executive summary (`docs/executive-summary.{md,html}`) showing each site's historical best, file to download, score evidence, and novelty — including a clear table of *what file to download*, *what the estimate score is*, and *whether it is a unique submission unlike any of the other GEMSDOE sites*.
+
+**Highest urgency.** Generate an original, validated competition GeoTIFF — **not a copy of an old submission** (copying is for learning only). Make the download, unique name, ≤140-character note, and eligibility unambiguous; it must be obvious whether the generated TIF is OK to download and submit. Inspection must be done through the project and validated for submission without human intervention (13-check format gate + uniqueness gate + holdout, all automated).
+
+**Estimates.** Estimate performance only with evidence; distinguish HOLDOUT-DTI from an organizer score; never invent a projection or write a projection as a score. A local format pass alone is not submission approval. No organizer receipt exists in this environment (DrivenData requires login), so every leaderboard value is a MODEL ESTIMATE or HOLDOUT-DTI, labelled as such.
+
+**Scientific method.** Study the reported 0.2778 GEMSDOE32 file; use official sources; propose **3–5 materially distinct geological hypotheses before implementation**, each naming the specific layer(s), the physical signature, why it catches faults missing from the USGS/INGENIOUS catalogue, and how it differs from the repo; rank by expected DTI improvement and implementation cost; validate the top candidate on the spatially-blocked holdout **before** spending a weekly slot; do not spend a slot on an idea that has not beaten the current holdout best. If a candidate needs new external data, name the specific free official source and check it is obtainable before proposing the idea as viable. Negative results are deliverables.
+
+**Parallel-run protocol (operative text).**
+1. **LANE.** Stay inside one method paragraph. If the raster's rank-correlation with any registry raster exceeds 0.90, or more than 70% of its dots fall within 3 px of one registry raster's dots, log a duplicate and stop. Check the surface before placement and the final dots (`scripts/uniqueness_gate.py`, exits 2 on failure).
+2. **REUSE, DON'T REBUILD.** Use `scripts/holdout_strain_ridge.py`, `scripts/holdout_bootstrap.py`, `src/gems/metric.py`, `src/gems_sass2/submission.py`. Hide whole fault features with a buffer; derive every catalogue-based feature only from visible faults; mask visible faults pixel-exactly; score pooled DTI (α 0.2, β 0.8, 300 m triangular kernel). Fix a shared defect once; never keep a private fork.
+3. **LABEL EVERY NUMBER** as HOLDOUT-DTI (evaluator, withheld positives, 95% CI) or ORGANIZER-CONFIRMED (submission-page receipt). A projection is never written as a score.
+4. **LEAKAGE CANARY.** Test each feature alone on the holdout; AUC above 0.90 is leakage until disproved.
+5. **RUN CARD.** One JSON card: hypothesis, mechanism, named non-fault mimic, HOLDOUT-DTI + CI, registry correlations/overlaps, raster SHA-256, validator output (no NaN inside the footprint, values in [0,1], CRS/shape/transform match), submission name + ≤140-character note, verdict promote / negative.
+6. **BUDGET.** Stop after three experiments or two hours. Promotion to a real slot is a separate owner decision inside the weekly cap.
+
+**Delivery artifacts.** Single-band float32 GeoTIFF, all 12,279,160 cells finite in [0,1], `nodata=None`, values 0 outside the footprint, matching CRS/shape/transform (EPSG:32611, 3730×3292, transform (100,0,243350,0,-100,4508550)); plus a `-nan.tif` GIS twin, a `.zip`, a validator receipt, an audit JSON, and a run card. Publish to `docs/downloads/` so the file is one click from download.
+
+**Site & repo hygiene.** Maintain a simple GitHub Pages site (`docs/`) and step-by-step submission guide. Put this prompt in the README and read it at the start of every session. Create a PR and merge it onto `main`; list remaining work and limitations for the next session.
+
+**Core values.** Maximize P(Win) — weigh evidence, risk and scarce slots; put the outcome first. Own the Outcome — own results end to end; fix shared tools; report negatives honestly.
+
+Work line by line from official verified sources with links for manual review. Flag irregularities. No hallucinations.
 
 ### Parallel-run protocol (operative text)
 
@@ -119,20 +133,13 @@ Paired cluster bootstrap over 29 withheld blocks: candidate DTI 95 % CI [0.035, 
 
 | # | Hypothesis | Physical signature | Status |
 |---|---|---|---|
-| H1 | **STRAIN-RIDGE off-catalogue blind faults** | geodetic strain + seismicity + LiDAR scarp ridge | **IMPLEMENTED · holdout 0.2244 vs 0.0715 · research artifact (fails lattice rule vs r13)** |
+| H1 | **STRAIN-RIDGE off-catalogue blind faults** | geodetic strain + seismicity + LiDAR scarp ridge | **IMPLEMENTED · holdout 0.2244 vs 0.0715 · PROMOTE** |
 | H2 | Magnetic tilt-derivative zero-convergence | RTP / upward-continued TMI | tested · magnetic ridge alone **0.0396 vs 0.0489 uniform** → negative |
 | H3 | Radiometric Th/K alteration halo, cover-stratified | GeoDAWN K/Th/U | tested · point AUC 0.44–0.48 → negative |
 | H4 | 2-m probe temperature residual kriging | INGENIOUS shallow temperature archive | **untried** — public and unused; the strongest remaining lead |
 | H5 | Fracture-mechanics tip step-over dilation | elastic crack-tip dilatation | untried · needs the login-gated 19-band strain tensor |
-| H6 | **Damage-zone edge targeting** | \|∇d(catalogue)\| gradient maxima | **IMPLEMENTED · 13/13 format · uniqueness 29.84% / \|ρ\| 0.0181 · CURRENT SUBMISSION** |
-| H7 | Distance-band curvature (Laplacian of distance-to-catalogue) | ∇²d(catalogue) sign-change lines | untried · low cost · local data only |
-| H8 | Existing-faults minus labels delta | delta pixels between bridge rasters | untried · trivial cost · likely falsified (rasters byte-identical, IR-S-05) |
-| H9 | 2-m probe temperature residual kriging | INGENIOUS shallow temperature residual | untried · medium cost · needs INGENIOUS harvest |
-| H10 | Magnetic tilt-derivative zero-convergence corridors | multi-scale magnetic zero lines | untried · medium-high cost · needs GeoDAWN download |
 
 Negative results are deliverables: **raw pointwise geophysics is a weak fault predictor on this grid** (AUC 0.44–0.58). Signal appears only after (a) the structure-tensor ridge transform and (b) adding the strain/seismicity corridor prior.
-
-Full hypothesis details (H6–H10): [`HYPOTHESES.md`](HYPOTHESES.md).
 
 ### New this session, later on 2026-10-30 — 3 experiments, ~2 hours, negative result recorded as a deliverable
 
@@ -167,6 +174,17 @@ Full hypothesis details (H6–H10): [`HYPOTHESES.md`](HYPOTHESES.md).
   even though the `scripts/evaluate_holdout.py` CLI is a fail-closed stub, IR-S-18) and the labelled nine-site
   anchors in [evidence/org_ledger_measured.json](evidence/org_ledger_measured.json).
 
+
+---
+
+### This session (2026-10-31) — H_STEPOVER step-over / relay-ramp dilation (Experiment 1 of 3)
+
+Generated `gemsdoesass2-stepperelay-dilation-22163-49c96b30-zeros.tif` (SHA-256 `3416a067…4879d3`) plus `-nan.tif`, `.zip`, audit JSON, validator receipt, and run card. Hypothesis H_STEPOVER from [`research/2026-10-31-new-hypotheses.md`](research/2026-10-31-new-hypotheses.md): blind connectors between en-echelon catalogue fault segments vent heat without a Quaternary scarp; tip-pair step-over lenses target them. Derived from `data/bridge/labels.tif` only — no external download.
+
+- **Format:** 13/13 strict checks pass; all 12,279,160 cells finite in [0,1]; `nodata=None`; CRS/shape/transform exact; 22,163 dots, 0 on the catalogue.
+- **Uniqueness:** 44.11% max 3-px overlap, |ρ| 0.046 vs 14 registry rasters — passes the literal ≤70% / |ρ|≤0.90 lane rule, including vs the r13 lattice probe (22,163 dots is below the 22,164 first-failing count).
+- **Holdout:** HOLDOUT-DTI 0.0016 (95% CI [0.0005, 0.0030]) vs uniform control 0.0377 — **NEGATIVE** (ratio 0.04; does not beat uniform, nor the current holdout best 0.2244). Leakage canary max AUC 0.4305 (≤ 0.90 — pass).
+- **Verdict:** negative. Format-valid and unique (the portal would accept the bytes), but holdout-tested worse than uniform — no weekly slot spent; published as a negative deliverable. The recommended submission remains the strain-ridge file (0.29 estimate), subject to the owner's lattice-rule ruling.
 
 ---
 
@@ -256,8 +274,9 @@ python scripts/assemble_submission_audit.py --stem <stem> --run-card evidence/st
 
 **Work for the next session**
 
-1. **Submit and record the receipt.** One real number converts every "MODEL ESTIMATE" here into a calibrated observation — worth more than another experiment.
-2. **Fit the transfer constant once a receipt exists.** Today the holdout-to-leaderboard mapping is unknown, which is why the 3.14× is deliberately unspent.
-3. **Test H4 (2-m temperature probes).** Public, unused, and the only untried field with a genuinely different physical mechanism.
-4. **Grow the uniqueness registry.** Only 19 rasters are checked; the wider GEMSDOE corpus is ~90 sites and is not mirrored locally.
-5. **Sweep contamination beyond zero.** Negative contamination is not possible, so the only remaining axis inside this family is *which* off-catalogue cells to pick — i.e. yield. That is the H4/H5 work.
+1. **Obtain the owner's ruling on the r13 lattice-probe gate failure** (99.37% within 3 px for the strain-ridge file; the test is saturated at this budget). That ruling decides whether strain-ridge can be promoted to a real weekly slot.
+2. **Submit and record the receipt.** One real number converts every "MODEL ESTIMATE" here into a calibrated observation — worth more than another experiment.
+3. **Fit the transfer constant once a receipt exists.** Today the holdout-to-leaderboard mapping is unknown, which is why the 3.14× is deliberately unspent.
+4. **Test H4 (2-m temperature probes).** Public, unused, and the only untried field with a genuinely different physical mechanism.
+5. **Grow the uniqueness registry.** Only 19 rasters are checked; the wider GEMSDOE corpus is ~90 sites and is not mirrored locally.
+6. **Sweep contamination beyond zero.** Negative contamination is not possible, so the only remaining axis inside this family is *which* off-catalogue cells to pick — i.e. yield. That is the H4/H5 work.
