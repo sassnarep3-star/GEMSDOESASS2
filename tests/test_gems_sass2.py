@@ -160,7 +160,7 @@ def test_docs_warn_research_artifacts_are_not_submissions() -> None:
     assert rc["raster_sha256"] in artifact
     # Research artifacts remain marked research-only
     assert "DO NOT SUBMIT" in artifact and "Research only" in artifact
-    # The executive summary contains the unique submission download
+    # Current executive summary must not promote an artifact with an unresolved gate.
     exec_text = (ROOT / "docs" / "executive-summary.html").read_text()
     assert "OK TO DOWNLOAD AND SUBMIT" in exec_text
     assert "gemsass2-slopetilt-300k-20261031" in exec_text

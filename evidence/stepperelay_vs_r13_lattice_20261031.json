@@ -1,0 +1,11 @@
+{
+ "measured_utc": "2026-10-31",
+ "measured_by": "this session, re-opening the bytes pinned on main",
+ "subject": "docs/downloads/gemsdoesass2-stepperelay-dilation-22163-49c96b30-zeros.tif",
+ "claim_under_test": "main's index.html: 'Unique lane: 44.11% max 3-px overlap, |rho| 0.046 (limits 70%/0.90) \u2014 passes even vs the r13 lattice probe'",
+ "dots": 22163,
+ "pct_of_its_dots_within_3px_of_r13": 99.842,
+ "pct_of_r13_dots_within_3px_of_it": 7.288,
+ "conclusion": "the forward share is 99.842 %, so the literal 70 % clause FAILS for that file exactly as it does for every interior placement (IR-03 pigeonhole bound: at most 6,649 of 5,167,373 footprint cells lie outside the lattice halo). 44.11 % is a *reverse-direction* or different-reference statistic and must not be quoted as clause passage. The file's own negative holdout verdict is unaffected.",
+ "pigeonhole_bound_note": "max cells outside halo = 6,649 -> min overlap at 22,163 dots = 70.0 %"
+}

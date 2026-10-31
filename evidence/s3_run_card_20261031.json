@@ -1,0 +1,247 @@
+{
+  "run_card_version": 4,
+  "generated_utc": "2026-10-31T05:51:29Z",
+  "lane": "S3 THERMAL-CONDUIT / RING-HABITAT EMISSION (self-declared; no method paragraph was ever supplied - IR-10)",
+  "hypothesis": "Off-catalogue fault density concentrates in the 3-30 px ring around the mapped catalogue (damage-zone splays and continuations) rather than in thermal anomalies or in blind uniform coverage; a clean-contamination blue-noise emission weighted to that ring covers more hidden truth per dot than any registry placement, and the thermal-well/spring field (GDR 1391) adds no further enrichment (measured negative).",
+  "mechanism": "m(d) = exp(-(d-12)^2/(2*10^2)) + 0.20 for d > 3 px from labels.tif (0 otherwise); mixture-sampled blue-noise (50% ring-rank / 50% seeded uniform floor), min-sep 3 px, N = 37,654 (champion-matched budget), binary 1-cell emission, hard 3 px collar off the bridge catalogue. No competition label is read; the catalogue is a repeller only.",
+  "named_non_fault_process": "Alluvial-fan toes and playa-margin reworking mimic fault-adjacent topography in the ring, and basin-fill groundwater advection mimics the thermal field. The 3 px collar removes mapped mimics; the uniform floor bounds the unmapped ones. Not fully removed.",
+  "experiments": {
+    "exp1_share_sweep": {
+      "receipt": "evidence/exp1_thermal_share_sweep.json",
+      "finding": "Greedy acceptance depends only on rank, so all thermal share values > 0 give identical dots; with a proper seeded uniform control the thermal-ranked placement LOSES on both instruments (IHR 0.0287 vs 0.0439; SGMC 0.0329 vs 0.0750). Verdict: thermal-conduit hypothesis NEGATIVE as a placement prior.",
+      "leakage_canary": {
+        "n_features_tested": 5,
+        "n_withheld_positives": 20321,
+        "auc_limit": 0.9,
+        "max_symmetric_auc": 0.52101,
+        "max_auc_feature": "probe",
+        "n_leaking": 0,
+        "canary_passed": true,
+        "features": [
+          {
+            "feature": "ws",
+            "symmetric_auc": 0.50726,
+            "leaks_gt_0p90": false
+          },
+          {
+            "feature": "probe",
+            "symmetric_auc": 0.52101,
+            "leaks_gt_0p90": false
+          },
+          {
+            "feature": "paleo",
+            "symmetric_auc": 0.50624,
+            "leaks_gt_0p90": false
+          },
+          {
+            "feature": "z",
+            "symmetric_auc": 0.5022,
+            "leaks_gt_0p90": false
+          },
+          {
+            "feature": "s",
+            "symmetric_auc": 0.50248,
+            "leaks_gt_0p90": false
+          }
+        ]
+      }
+    },
+    "exp2_placement_decision": {
+      "receipt": "evidence/exp2_placement_decision.json",
+      "rows": [
+        {
+          "name": "uniform-binary-37654",
+          "placement": "uniform",
+          "softness": "binary",
+          "n": 37654,
+          "share": 0.0,
+          "sum_p": 37654.0,
+          "ihr_pooled_dti": 0.04388558921922473,
+          "ihr_ci95": [
+            0.03937125386906819,
+            0.048124995711093715
+          ],
+          "sgmc_raw_pooled_dti": 0.075020866692409,
+          "sgmc_raw_ci95": [
+            0.07171748698085524,
+            0.07821992607561147
+          ]
+        },
+        {
+          "name": "ring-binary-37654",
+          "placement": "ring",
+          "softness": "binary",
+          "n": 37654,
+          "share": 0.25,
+          "sum_p": 37654.0,
+          "ihr_pooled_dti": 0.05971004189386576,
+          "ihr_ci95": [
+            0.05369529673354244,
+            0.06486610714014727
+          ],
+          "sgmc_raw_pooled_dti": 0.07697433262955876,
+          "sgmc_raw_ci95": [
+            0.07148139567554603,
+            0.08267367811031759
+          ]
+        },
+        {
+          "name": "ring-binary-24000",
+          "placement": "ring",
+          "softness": "binary",
+          "n": 24000,
+          "share": 0.25,
+          "sum_p": 24000.0,
+          "ihr_pooled_dti": 0.050641032137799746,
+          "ihr_ci95": [
+            0.045196229708080855,
+            0.05541045698178889
+          ],
+          "sgmc_raw_pooled_dti": 0.05232763501297077,
+          "sgmc_raw_ci95": [
+            0.047569090110628716,
+            0.05727552068871568
+          ]
+        },
+        {
+          "name": "ring-plateau1-37654",
+          "placement": "ring",
+          "softness": "plateau1",
+          "n": 37654,
+          "share": 0.25,
+          "sum_p": 338841.0,
+          "ihr_pooled_dti": 0.031214718043603953,
+          "ihr_ci95": [
+            0.027589340068919856,
+            0.034596558339147127
+          ],
+          "sgmc_raw_pooled_dti": 0.09251669217049738,
+          "sgmc_raw_ci95": [
+            0.08328640397081435,
+            0.10131519305229633
+          ]
+        }
+      ],
+      "finding": "ring-binary-37654 wins instrument consensus (IHR 0.0597, SGMC 0.0770). N=24,000 is negative on both instruments. plateau1 soft emission is a split verdict (IHR 0.0312 / SGMC 0.0925): soft axis stays UNTESTED for the leaderboard."
+    }
+  },
+  "holdout": {
+    "label": "HOLDOUT-DTI",
+    "instruments": {
+      "IHR": "GEMSDOE32-HIDE-RECOVER-v3.0 (22,232 withheld positive cells, 8 spatially-blocked cells, 1.5 km collar, visible faults masked pixel-exact, 256-block cluster bootstrap)",
+      "SGMC": "GEMSDOE32-SGMC-CAL-v3.0 (62,703 off-catalogue USGS SGMC fault px >300 m outside labels.tif)"
+    },
+    "primary_candidate": {
+      "config": "ring-binary-37654",
+      "ihr_pooled_dti": 0.05971004189386576,
+      "ihr_ci95": [
+        0.05369529673354244,
+        0.06486610714014727
+      ],
+      "sgmc_raw_pooled_dti": 0.07697433262955876,
+      "sgmc_raw_ci95": [
+        0.07148139567554603,
+        0.08267367811031759
+      ]
+    },
+    "controls": {
+      "uniform_binary_37654": {
+        "ihr": 0.04388558921922473,
+        "sgmc": 0.075020866692409
+      },
+      "ring_binary_24000": {
+        "ihr": 0.050641032137799746,
+        "sgmc": 0.05232763501297077
+      },
+      "ring_plateau1_37654": {
+        "ihr": 0.031214718043603953,
+        "sgmc": 0.09251669217049738
+      }
+    },
+    "critical_caveat": "IHR truth is MAPPED segments and rewards catalogue adjacency; the leaderboard truth is UNMAPPED faults and punishes it (Spearman -1.000 within the nine-site family). SGMC-off truth is a different population again (emitting ON SGMC faults scores 0.0512 on the leaderboard, GEMSDOE29). Instrument deltas are mechanism evidence, never score projections."
+  },
+  "correlation_overlap_vs_registry": {
+    "primary_receipt": "evidence/s3_uniqueness_20261031.json",
+    "references_checked": 24,
+    "max_3px_overlap_all": 99.8885,
+    "max_3px_overlap_genuine_peers": 22.999,
+    "max_abs_spearman_all": 0.008599,
+    "genuine_peer_gate": "PASS (<=70 %, worst 23.0 % vs gemsass2-ass2-altedge; <=0.90 |rho|, worst 0.0086)",
+    "literal_lattice_clause": "FAIL vs 13gems r13-lattice-s5 calibration probe only (99.89 %): the probe is space-filling (206,895 dots) and the clause is non-discriminating for interior placements (IR-30-1; a seeded random placement scores 99.91 %). Owner ruling required; not assumed anywhere.",
+    "vs_nine_focus_champions": {
+      "GEMSDOE24": {
+        "overlap_3px_pct": 17.09,
+        "abs_spearman": 0.0086
+      },
+      "GEMSDOE27": {
+        "overlap_3px_pct": 17.578,
+        "abs_spearman": 0.00847
+      },
+      "GEMSDOE36": {
+        "overlap_3px_pct": 16.545,
+        "abs_spearman": 0.00507
+      },
+      "GEMSDOE33": {
+        "overlap_3px_pct": 16.314,
+        "abs_spearman": 0.00469
+      }
+    },
+    "alternate_24000_receipt": "evidence/s3_uniqueness_24000_20261031.json"
+  },
+  "raster": {
+    "primary": {
+      "name": "GEMSDOESASS2-S3-RING-BINARY-37654",
+      "stem": "gemsass2-s3-ring-binary-37654-20261031T054926Z",
+      "zeros_tif": "docs/downloads/gemsass2-s3-ring-binary-37654-20261031T054926Z-zeros.tif",
+      "sha256_zeros": "b84a4f2642500b9817b946d99db14471f4b935d110b794d2736f643d56f8f7ae",
+      "sha256_nan": "b006b0c80170823b0d53a116148eb88089511382b52a25723cb59706f6ea1cde",
+      "validator": {
+        "checks_passed": 13,
+        "checks_total": 13,
+        "all_passed": true,
+        "no_nan_inside_footprint": true,
+        "values_in_0_1": true,
+        "crs_shape_transform_match": true,
+        "zero_on_catalogue": true,
+        "all_12279160_finite": true
+      },
+      "note_140char": "ring-habitat blue-noise 37654 dots, 0% within 3px of catalogue, champion-matched budget, unique vs all GEMSDOE site rasters"
+    },
+    "alternate_n_axis_probe": {
+      "name": "GEMSDOESASS2-S3-RING-BINARY-24000",
+      "note_140char": "N-axis probe: family-law est 0.29-0.30 vs 37654 sibling; holdout says worse; submit only via selector step",
+      "receipt": "evidence/s3_uniqueness_24000_20261031.json",
+      "stem": "gemsass2-s3-ring-binary-24000-20261031T055127Z",
+      "zeros_tif": "docs/downloads/gemsass2-s3-ring-binary-24000-20261031T055127Z-zeros.tif",
+      "sha256_zeros": "9825593fd0b48f906b8b783cec02db7001000b59928b6b6cb5d6f6f74c32d1d2",
+      "validator": {
+        "checks_passed": 13,
+        "checks_total": 13,
+        "all_passed": true
+      }
+    }
+  },
+  "score_estimate": {
+    "label": "MODEL ESTIMATE - NOT organizer-confirmed; no receipt exists",
+    "primary_controlled_anchor": {
+      "anchor": "GEMSDOE32 h33-h33-2-b2: 0.2778 reported at 37,654 dots, 5.77 % within 3 px of labels",
+      "changed_variable": "contamination 5.77 % -> 0.00 % at matched N",
+      "slope_dti_per_pct": -0.0012991353400063506,
+      "estimate": 0.2853,
+      "decomposition_caveat": "part of the collar-sweep slope is the confounded N axis; pure-contamination contribution estimated +0.0035..+0.0075"
+    },
+    "headline": 0.29,
+    "model_risk_range": [
+      0.25,
+      0.33
+    ],
+    "what_is_not_claimed": [
+      "Instrument deltas (IHR +36 %, SGMC +3 % vs uniform) are NOT converted into score.",
+      "No organizer receipt exists; no weekly slot has been spent.",
+      "The family-law N extrapolation at 24,000 dots (0.29-0.30 est) is confounded and is offered as a probe, not a headline."
+    ]
+  },
+  "verdict": "promote",
+  "verdict_rationale": "Format 13/13 PASS, genuine-peer uniqueness PASS (23.0 % worst, |rho| 0.0086), instrument consensus positive vs uniform at matched budget, controlled-anchor estimate 0.285-0.29 > 0.2778 champion. The literal lattice clause is failed only against the known non-discriminating calibration probe (IR-30-1, owner ruling pending). Promotion to a real slot is the owner's selector step.",
+  "weekly_slots_spent": 0
+}

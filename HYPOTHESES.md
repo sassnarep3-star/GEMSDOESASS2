@@ -8,6 +8,10 @@ The live hypothesis register — what was tried, what was measured, and what is 
   post-merge reconciliation against the tested register.
 - [research/2026-10-28-hypotheses-and-review.md](research/2026-10-28-hypotheses-and-review.md) —
   earlier XGHF-family proposals (historical).
+- [research/2026-10-31-new-hypotheses.md](research/2026-10-31-new-hypotheses.md) — five
+  NEW candidates not yet tried in this repo, ranked by expected DTI improvement and
+  implementation cost; H_STEPOVER (catalogue segment tip step-over / relay-ramp dilation)
+  is selected for holdout validation and submission generation in this session.
 
 **Current state:** H1 (STRAIN-RIDGE off-catalogue blind faults) is implemented and promoted —
 see the [decision table](README.md). H2 (magnetic tilt) and H3 (radiometric Th/K point values)

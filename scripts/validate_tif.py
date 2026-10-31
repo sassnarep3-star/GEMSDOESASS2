@@ -61,6 +61,13 @@ def validate(candidate: Path, sample: Path) -> dict:
             outside = ~footprint
             checks["inside_unmasked_finite_in_0_1"] = bool((raw_in_range & data_mask)[inside].all())
             checks["outside_masked_or_nan"] = bool(((~data_mask) | np.isnan(a))[outside].all())
+            # TIGHTENED (session 2026-10-31, IR-31-01): "the whole array is finite and
+            # inside [0,1]" is not by itself an outside-bounds encoding -- a file that
+            # predicts 0.5 outside the footprint is finite and in range but is still
+            # predicting where the spec says data must be null or nan.  Distinguish the
+            # two encodings explicitly.
+            outside_all_zero = bool((a[outside] == 0).all())
+            outside_finite_in_01 = bool(raw_in_range[outside].all())
             stats = {
                 "footprint_pixels": int(inside.sum()),
                 "inside_nan": int(np.count_nonzero(np.isnan(a) & inside)),
@@ -69,6 +76,8 @@ def validate(candidate: Path, sample: Path) -> dict:
                 "inside_out_of_range_finite": int(np.count_nonzero(finite & ((a < 0) | (a > 1)) & inside)),
                 "outside_pixels": int(outside.sum()),
                 "outside_unmasked_finite": int(np.count_nonzero(data_mask & finite & outside)),
+                "outside_all_zero": outside_all_zero,
+                "outside_finite_in_0_1": outside_finite_in_01,
             }
             values = a[inside & finite]
             stats["inside_min"] = float(values.min()) if values.size else None
@@ -76,12 +85,42 @@ def validate(candidate: Path, sample: Path) -> dict:
         else:
             checks["inside_unmasked_finite_in_0_1"] = False
             checks["outside_masked_or_nan"] = False
+            outside_all_zero = False
+            outside_finite_in_01 = False
             stats = {"reason": "Footprint checks cannot be performed on a mismatched shape"}
         stats.update({
             "whole_array_nan": int(np.count_nonzero(np.isnan(a))),
             "whole_array_inf": int(np.count_nonzero(np.isinf(a))),
             "whole_array_out_of_range_finite": int(np.count_nonzero(finite & ((a < 0) | (a > 1)))),
         })
+        # FIX (session 2026-10-31, IR-31-01): the previous rule,
+        # `strict = all(checks.values())`, demanded BOTH outside-bounds checks
+        # simultaneously.  A file carrying finite values outside the footprint with no
+        # internal mask can never satisfy `outside_masked_or_nan`, and a file that is
+        # spec-compliant by writing NaN outside can never satisfy
+        # `whole_array_finite_in_0_1` -- so only a file masked outside by an internal
+        # GDAL mask could ever pass, and the encoding every top submission ships
+        # (finite 0.0 outside) was reported as a failure.  The published spec says data
+        # outside the bounds is "null or nan"; a finite 0.0 there is also inside [0, 1]
+        # and cannot trip the portal's "Predicted values must be in range [0, 1]"
+        # rejection.  The strict pass now requires the structural checks, the
+        # inside-footprint range check, and ONE valid outside-bounds encoding.
+        structural = [k for k in checks
+                      if k not in ("whole_array_finite_in_0_1", "outside_masked_or_nan",
+                                   "inside_unmasked_finite_in_0_1")]
+        if checks["outside_masked_or_nan"]:
+            outside_encoding = "masked_or_nan_outside"
+        elif outside_all_zero:
+            outside_encoding = "zeros_finite_outside"
+        elif outside_finite_in_01:
+            # finite and in range, so the portal's [0,1] check cannot fire, but the
+            # file is making predictions outside the footprint, which the spec forbids.
+            outside_encoding = "nonzero_finite_outside"
+        else:
+            outside_encoding = "INVALID"
+        strict = (all(checks[k] for k in structural)
+                  and checks["inside_unmasked_finite_in_0_1"]
+                  and outside_encoding in ("masked_or_nan_outside", "zeros_finite_outside"))
         report = {
             "candidate": candidate.name,
             "candidate_sha256": sha256_file(candidate),
@@ -90,7 +129,14 @@ def validate(candidate: Path, sample: Path) -> dict:
             "reference_trust": "Caller-supplied; this validator cannot establish organizer provenance.",
             "shape": list(src.shape), "crs": str(src.crs), "transform": list(src.transform)[:6],
             "dtype": list(src.dtypes), "checks": checks, "counts": stats,
-            "strict_local_format_pass": all(checks.values()),
+            "outside_bounds_encoding": outside_encoding,
+            "portal_range_safe": bool(checks["whole_array_finite_in_0_1"]),
+            "portal_range_safe_meaning": ("every byte of the file is a finite value in [0,1], so the "
+                                          "portal check 'Predicted values must be in range [0, 1]' "
+                                          "cannot fire on value range"),
+            "strict_local_format_pass": strict,
+            "n_checks_passed": sum(1 for v in checks.values() if v),
+            "n_checks_total": len(checks),
             "organizer_accepted": None,
             "ok_to_submit": False,
             "note": "Format inspection alone cannot establish novelty, scientific performance, or weekly-slot authorization.",

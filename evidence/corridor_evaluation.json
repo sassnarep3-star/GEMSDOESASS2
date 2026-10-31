@@ -1,0 +1,243 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-10-31T06:10:44Z",
+  "note": "PROXY-HOLDOUT-DTI on measurable proxy truth sets. Reported leaderboard scores are OWNER-REPORTED. No organizer receipt exists for any file here.",
+  "enrichment": {
+    "question": "Are the champion's dots at higher model probability than random footprint cells?",
+    "champion_dots": 37654,
+    "median_prob_champion": 0.22671,
+    "median_prob_random": 0.09084,
+    "mean_prob_champion": 0.25626,
+    "mean_prob_random": 0.14241,
+    "p90_champion": 0.49671,
+    "p90_random": 0.34615,
+    "ratio_of_means": 1.7994,
+    "auc_model_vs_known_faults_footprint": 0.9099
+  },
+  "leakage_canary": {
+    "design": "4 spatially disjoint fold classes (4x4 block grid taken modulo 4); model trained on 1.2 M sampled footprint cells, never on the held-out blocks.",
+    "spatially_blocked_oof_auc": 0.6975,
+    "alarm_threshold": 0.9,
+    "verdict": "PASS (below 0.90)",
+    "note": "AUC measures detection of KNOWN catalogue faults, not of the hidden test faults."
+  },
+  "emissions": [
+    {
+      "emission": "CHAMPION_GEMSDOE32_binary",
+      "sum_p": 37654.0,
+      "nonzero_px": 37654,
+      "P_SGMC2": 0.094686,
+      "P_SGMC0": 0.088005,
+      "P_LABELS": 0.006709
+    },
+    {
+      "emission": "E1_dots_sep0_collar0",
+      "sum_p": 37654.0,
+      "nonzero_px": 37654,
+      "P_SGMC2": 0.013808,
+      "P_SGMC0": 0.078206,
+      "P_LABELS": 0.223811,
+      "dots": 37654,
+      "catalogue_collar_px": 0
+    },
+    {
+      "emission": "E1_dots_sep3_collar0",
+      "sum_p": 37654.0,
+      "nonzero_px": 37654,
+      "P_SGMC2": 0.073968,
+      "P_SGMC0": 0.100304,
+      "P_LABELS": 0.183444,
+      "dots": 37654,
+      "catalogue_collar_px": 0
+    },
+    {
+      "emission": "E1_dots_sep6_collar0",
+      "sum_p": 16998.0,
+      "nonzero_px": 16998,
+      "P_SGMC2": 0.036983,
+      "P_SGMC0": 0.049593,
+      "P_LABELS": 0.090489,
+      "dots": 16998,
+      "catalogue_collar_px": 0
+    },
+    {
+      "emission": "E1_dots_sep10_collar0",
+      "sum_p": 6384.0,
+      "nonzero_px": 6384,
+      "P_SGMC2": 0.013987,
+      "P_SGMC0": 0.023671,
+      "P_LABELS": 0.052088,
+      "dots": 6384,
+      "catalogue_collar_px": 0
+    },
+    {
+      "emission": "E1_dots_sep0_collar2",
+      "sum_p": 37654.0,
+      "nonzero_px": 37654,
+      "P_SGMC2": 0.036767,
+      "P_SGMC0": 0.041887,
+      "P_LABELS": 0.0,
+      "dots": 37654,
+      "catalogue_collar_px": 2
+    },
+    {
+      "emission": "E1_dots_sep3_collar2",
+      "sum_p": 37654.0,
+      "nonzero_px": 37654,
+      "P_SGMC2": 0.08138,
+      "P_SGMC0": 0.065885,
+      "P_LABELS": 0.0,
+      "dots": 37654,
+      "catalogue_collar_px": 2
+    },
+    {
+      "emission": "E1_dots_sep6_collar2",
+      "sum_p": 14510.0,
+      "nonzero_px": 14510,
+      "P_SGMC2": 0.036135,
+      "P_SGMC0": 0.028652,
+      "P_LABELS": 0.0,
+      "dots": 14510,
+      "catalogue_collar_px": 2
+    },
+    {
+      "emission": "E1_dots_sep10_collar2",
+      "sum_p": 5059.0,
+      "nonzero_px": 5059,
+      "P_SGMC2": 0.013365,
+      "P_SGMC0": 0.010647,
+      "P_LABELS": 0.0,
+      "dots": 5059,
+      "catalogue_collar_px": 2
+    },
+    {
+      "emission": "E2_graded_raw_q99.0",
+      "sum_p": 36894.9,
+      "nonzero_px": 51674,
+      "P_SGMC2": 0.013163,
+      "P_SGMC0": 0.06751,
+      "P_LABELS": 0.194545,
+      "threshold_p": 0.64035
+    },
+    {
+      "emission": "E2_graded_raw_q98.0",
+      "sum_p": 67901.9,
+      "nonzero_px": 103348,
+      "P_SGMC2": 0.02206,
+      "P_SGMC0": 0.088107,
+      "P_LABELS": 0.249691,
+      "threshold_p": 0.56533
+    },
+    {
+      "emission": "E2_graded_raw_q95.0",
+      "sum_p": 145114.4,
+      "nonzero_px": 258369,
+      "P_SGMC2": 0.034867,
+      "P_SGMC0": 0.108077,
+      "P_LABELS": 0.291138,
+      "threshold_p": 0.44606
+    },
+    {
+      "emission": "E2_graded_raw_q90.0",
+      "sum_p": 246081.4,
+      "nonzero_px": 516738,
+      "P_SGMC2": 0.04249,
+      "P_SGMC0": 0.110324,
+      "P_LABELS": 0.274575,
+      "threshold_p": 0.34589
+    },
+    {
+      "emission": "E2_graded_raw_q80.0",
+      "sum_p": 394083.8,
+      "nonzero_px": 1033475,
+      "P_SGMC2": 0.04757,
+      "P_SGMC0": 0.10459,
+      "P_LABELS": 0.226397,
+      "threshold_p": 0.23771
+    },
+    {
+      "emission": "E3_massmatched_q99.9",
+      "sum_p": 5168.0,
+      "nonzero_px": 5168,
+      "P_SGMC2": 0.002834,
+      "P_SGMC0": 0.026096,
+      "P_LABELS": 0.069339,
+      "threshold_p": 0.80408,
+      "scale": 1073741824.0,
+      "support_px": 5168,
+      "sum_p_achieved": 5168.0
+    },
+    {
+      "emission": "E3_massmatched_q99.5",
+      "sum_p": 25837.0,
+      "nonzero_px": 25837,
+      "P_SGMC2": 0.010174,
+      "P_SGMC0": 0.06538,
+      "P_LABELS": 0.185323,
+      "threshold_p": 0.69872,
+      "scale": 1073741824.0,
+      "support_px": 25837,
+      "sum_p_achieved": 25837.0
+    },
+    {
+      "emission": "E3_massmatched_q99.0",
+      "sum_p": 37654.0,
+      "nonzero_px": 51674,
+      "P_SGMC2": 0.013399,
+      "P_SGMC0": 0.068767,
+      "P_LABELS": 0.198098,
+      "threshold_p": 0.64035,
+      "scale": 1.02057,
+      "support_px": 51674,
+      "sum_p_achieved": 37654.0
+    },
+    {
+      "emission": "E3_massmatched_q98.0",
+      "sum_p": 37654.0,
+      "nonzero_px": 103348,
+      "P_SGMC2": 0.013498,
+      "P_SGMC0": 0.052591,
+      "P_LABELS": 0.150902,
+      "threshold_p": 0.56533,
+      "scale": 0.55454,
+      "support_px": 103348,
+      "sum_p_achieved": 37654.0
+    },
+    {
+      "emission": "E3_massmatched_q95.0",
+      "sum_p": 37654.0,
+      "nonzero_px": 258369,
+      "P_SGMC2": 0.012358,
+      "P_SGMC0": 0.035678,
+      "P_LABELS": 0.099822,
+      "threshold_p": 0.44606,
+      "scale": 0.25948,
+      "support_px": 258369,
+      "sum_p_achieved": 37654.0
+    },
+    {
+      "emission": "E3_massmatched_q90.0",
+      "sum_p": 37654.0,
+      "nonzero_px": 516738,
+      "P_SGMC2": 0.011109,
+      "P_SGMC0": 0.025864,
+      "P_LABELS": 0.068718,
+      "threshold_p": 0.34589,
+      "scale": 0.15301,
+      "support_px": 516738,
+      "sum_p_achieved": 37654.0
+    },
+    {
+      "emission": "E3_massmatched_q80.0",
+      "sum_p": 37654.0,
+      "nonzero_px": 1033475,
+      "P_SGMC2": 0.010041,
+      "P_SGMC0": 0.019161,
+      "P_LABELS": 0.045881,
+      "threshold_p": 0.23771,
+      "scale": 0.09555,
+      "support_px": 1033475,
+      "sum_p_achieved": 37654.0
+    }
+  ]
+}

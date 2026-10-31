@@ -1,0 +1,76 @@
+{
+  "candidate": "gemsdoesass2-stepperelay-dilation-22163-49c96b30-zeros.tif",
+  "n_dots": 22163,
+  "n_references": 14,
+  "radius_px": 3.0,
+  "limits": {
+    "overlap_pct": 70.0,
+    "abs_spearman": 0.9
+  },
+  "max_overlap_3px_pct": 44.1141,
+  "max_abs_spearman": 0.045804,
+  "passes_lane": true,
+  "top_overlaps": [
+    {
+      "ref": "gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-nan.tif",
+      "ref_dots": 22163,
+      "overlap_3px_pct": 44.1141,
+      "abs_spearman": 0.007894
+    },
+    {
+      "ref": "gemsdoesass2-sparse-blind-conduit-22163-20261029T000534Z-cc522684-zeros.tif",
+      "ref_dots": 22163,
+      "overlap_3px_pct": 44.1141,
+      "abs_spearman": 0.010428
+    },
+    {
+      "ref": "gemsdoesass2-hvfd-exp3-hydrocollinear-37654-20261027T120000Z-fc98343e-zeros.tif",
+      "ref_dots": 37654,
+      "overlap_3px_pct": 33.1544,
+      "abs_spearman": 0.045804
+    },
+    {
+      "ref": "gemsass2-ass2-altedge-hgb-44090-20261027-cc854482215e-zeros.tif",
+      "ref_dots": 44090,
+      "overlap_3px_pct": 31.0021,
+      "abs_spearman": 0.012572
+    },
+    {
+      "ref": "gemsdoesass2-vrc-ventridge-44090-20261030T024740Z-nan.tif",
+      "ref_dots": 44090,
+      "overlap_3px_pct": 30.8397,
+      "abs_spearman": 0.031335
+    },
+    {
+      "ref": "gemsdoesass2-vrc-ventridge-44090-20261030T024740Z-zeros.tif",
+      "ref_dots": 44090,
+      "overlap_3px_pct": 30.8397,
+      "abs_spearman": 0.03485
+    },
+    {
+      "ref": "gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-nan.tif",
+      "ref_dots": 37654,
+      "overlap_3px_pct": 30.023,
+      "abs_spearman": 0.002592
+    },
+    {
+      "ref": "gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif",
+      "ref_dots": 37654,
+      "overlap_3px_pct": 30.023,
+      "abs_spearman": 0.000739
+    },
+    {
+      "ref": "gemsdoesass2-scu1-scarpcorridor-uth-37000-20261027T120000Z-nan.tif",
+      "ref_dots": 37000,
+      "overlap_3px_pct": 18.8783,
+      "abs_spearman": 0.001491
+    },
+    {
+      "ref": "gemsdoesass2-scu1-scarpcorridor-uth-37000-20261027T120000Z-zeros.tif",
+      "ref_dots": 37000,
+      "overlap_3px_pct": 18.8783,
+      "abs_spearman": 0.00182
+    }
+  ],
+  "scope_note": "Compared against the nine hash-pinned focus-site champions plus every local download. The wider GEMSDOE corpus (~90 sites) is not mirrored locally."
+}

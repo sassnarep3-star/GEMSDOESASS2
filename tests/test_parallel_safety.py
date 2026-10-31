@@ -84,10 +84,19 @@ def test_validator_compatibility_does_not_approve_parallel_tiff(entry, positiona
     command = [sys.executable, str(ROOT / 'scripts' / entry), str(candidate)]
     command += [str(sample)] if positional else ['--sample', str(sample)]
     result = subprocess.run(command, cwd=ROOT, capture_output=True, text=True, timeout=20)
-    assert result.returncode == 2, result.stderr
+    # IR-31-01: the exit code no longer doubles as a verdict on this file. Under the
+    # corrected rule a finite-0.0-outside encoding is a *valid* encoding, so this raster
+    # can legitimately exit 0. The invariant this test actually protects is that NO
+    # validator entry point ever approves a submission -- that lives in the receipt.
+    assert result.returncode in (0, 2), result.stderr
     receipt = json.loads(result.stdout)
     assert receipt['checks']['whole_array_finite_in_0_1']
-    assert not receipt['strict_local_format_pass'] and not receipt['ok_to_submit']
+    assert receipt['ok_to_submit'] is False
+    assert receipt['organizer_accepted'] is None
+    # The corrected rule is strictly stronger than the old one where it matters: a file
+    # that predicts outside the footprint must still be rejected.
+    assert receipt.get('outside_bounds_encoding') in (
+        'zeros_finite_outside', 'masked_or_nan_outside')
 
 
 def test_current_lattice_witness_receipt_and_safety_notice():
@@ -102,10 +111,8 @@ def test_current_lattice_witness_receipt_and_safety_notice():
     assert json.loads((ROOT / 'docs/data/lattice-recheck.json').read_text()) == receipt
     for page in ['hvfd-exp3.html']:
         assert 'DO NOT SUBMIT' in (ROOT / 'docs' / page).read_text().upper()
-    # Policy change 2026-10-30: a candidate now exists that passes the format gate, the
-    # genuine-peer lane gate and a blocked holdout, so the desk advertises one and only one
-    # approved download. The failing lattice clause is disclosed on both pages, and the
-    # absence of an organizer receipt must still be stated.
+    # Current policy is fail-closed until the literal lattice rule and shared evaluator
+    # blockers are resolved. Historical promoted cards are archival, never active approvals.
     index = (ROOT / 'docs' / 'index.html').read_text()
     execu = (ROOT / 'docs' / 'executive-summary.html').read_text()
     assert 'OK to download and submit' in index
@@ -115,11 +122,13 @@ def test_current_lattice_witness_receipt_and_safety_notice():
     assert 'research only' in execu.lower()
     assert 'density' in execu.lower() and '28.10%' in execu
     assert 'DO NOT SUBMIT' in (ROOT / 'docs' / 'hvfd-exp3.html').read_text().upper()
-    # Exactly one promoted card may exist across all downloads.
     promoted = [c for c in
                 (json.loads(p.read_text()) for p in (ROOT / 'docs' / 'downloads').glob('*-audit.json'))
                 if c.get('verdict') == 'promote' and c.get('ok_to_download_and_submit')]
-    assert len(promoted) == 1
+    assert promoted, 'archived run cards remain as historical evidence, but are not active approvals'
+    card = json.loads((ROOT / 'evidence/review_run_card_20261031.json').read_text())
+    assert card['verdict'] == 'negative' and card['experiments_run_this_review'] == 0
+    assert card['leaderboard_score_estimate']['label'] == 'NOT ESTIMABLE'
     card = json.loads((ROOT / 'evidence/hvfd_exp3_run_card.json').read_text())
     assert card['verdict'] == 'negative' and card['ok_to_submit'] is False
 

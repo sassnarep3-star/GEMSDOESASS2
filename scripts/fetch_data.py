@@ -11,11 +11,12 @@ import argparse
 import hashlib
 import json
 import os
+import pathlib
+import re
 import subprocess
 import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
-from urllib.parse import quote
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST_PATH = ROOT / "registry" / "data_manifest.json"
@@ -29,13 +30,61 @@ def sha256_file(path: Path) -> str:
     return digest.hexdigest()
 
 
-def _download(repo: str, ref: str, path: str, dest: Path) -> None:
-    endpoint = f"repos/{repo}/contents/{quote(path, safe='/')}?ref={quote(ref, safe='')}"
-    with dest.open("wb") as stream:
+_GIT_CACHE = Path(os.environ.get("GEMS_GIT_CACHE", Path.home() / ".cache" / "gems_git"))
+
+
+def _repo_checkout(repo: str, ref: str) -> tuple[Path, str]:
+    """Blobless depth-1 fetch of one pinned ref into a shared cache. Only
+    github.com is contacted (git over HTTPS); no GitHub REST quota is used.
+    Returns the checkout directory and the resolved commit SHA."""
+    if not re.fullmatch(r"[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+", repo):
+        raise ValueError(f"Unsafe repository name: {repo!r}")
+    if not re.fullmatch(r"[0-9a-f]{7,40}", ref) and not re.fullmatch(r"[A-Za-z0-9_][A-Za-z0-9_./-]*", ref):
+        raise ValueError(f"Unsafe ref: {ref!r}")
+    if ".." in ref:
+        raise ValueError(f"Unsafe ref: {ref!r}")
+    repo_dir = _GIT_CACHE / repo.replace("/", "__")
+    repo_dir.mkdir(parents=True, exist_ok=True)
+    if not (repo_dir / ".git").exists():
+        subprocess.run(["git", "init", "-q"], cwd=repo_dir, check=True, timeout=120)
         subprocess.run(
-            ["gh", "api", endpoint, "-H", "Accept: application/vnd.github.raw+json"],
-            stdout=stream, check=True, timeout=180,
+            ["git", "remote", "add", "origin", f"https://github.com/{repo}.git"],
+            cwd=repo_dir, check=True, timeout=120,
         )
+    def rev_parse(name: str) -> str | None:
+        probe = subprocess.run(
+            ["git", "rev-parse", "--verify", "--quiet", f"{name}^{{commit}}"],
+            cwd=repo_dir, capture_output=True,
+        )
+        return probe.stdout.decode().strip() or None
+
+    sha = rev_parse(ref)
+    if sha is None:
+        subprocess.run(
+            ["git", "fetch", "-q", "--depth", "1", "--filter=blob:none", "origin", ref],
+            cwd=repo_dir, check=True, timeout=900,
+        )
+        sha = rev_parse(ref) or rev_parse("FETCH_HEAD")
+    if sha is None or not re.fullmatch(r"[0-9a-f]{40}", sha):
+        raise ValueError(f"Could not resolve {repo}@{ref} to a commit SHA")
+    return repo_dir, sha
+
+
+def _download(repo: str, ref: str, path: str, dest: Path) -> None:
+    parts = pathlib.PurePosixPath(path).parts
+    if not parts or path.startswith("/") or ".." in parts:
+        raise ValueError(f"Unsafe manifest path: {path!r}")
+    repo_dir, sha = _repo_checkout(repo, ref)
+    # Materialise exactly this one blob from the resolved commit (promisor fetch on demand).
+    result = subprocess.run(
+        ["git", "show", f"{sha}:{path}"],
+        cwd=repo_dir, capture_output=True, timeout=600,
+    )
+    if result.returncode != 0:
+        raise ValueError(f"git show {sha}:{path} failed: {result.stderr.decode(errors='replace')[-200:]}")
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    with dest.open("wb") as stream:
+        stream.write(result.stdout)
 
 
 def fetch_entry(entry: dict, dest: Path) -> dict:
