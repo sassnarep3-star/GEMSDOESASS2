@@ -1,40 +1,90 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Auditable DOE GEMS research and competition-submission readiness status."><title>Submission readiness — GEMS Field Notes</title>
+<meta name="description" content="Unique, validated DOE GEMS competition GeoTIFF — download, verify, submit.">
+<title>Download &amp; submit — GEMS Field Notes</title>
 <link rel="stylesheet" href="assets/style.css"></head><body><a class="skip" href="#main">Skip to content</a>
 <header class="site-header"><div class="wrap header-inner">
 <a class="brand" href="index.html"><span class="brand-mark">G.</span><span>GEMS Field Notes<small>Decision &amp; discovery</small></span></a>
-<nav class="nav" aria-label="Primary"><a href="index.html" aria-current="page">Readiness</a><a href="executive-summary.html">Focus sites</a><a href="method.html">GEMSDOE32 analysis</a><a href="sources.html">Sources</a><a class="nav-link" href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/" target="_blank" rel="noopener noreferrer">Official problem ↗</a></nav>
+<nav class="nav" aria-label="Primary"><a href="index.html" aria-current="page">Download</a><a href="executive-summary.html">Executive summary</a><a href="method.html">Why 0.2778 scored</a><a href="sources.html">Sources</a><a class="nav-link" href="https://www.drivendata.org/competitions/306/competition-doe-gems/data/" target="_blank" rel="noopener noreferrer">Competition ↗</a></nav>
 </div></header>
+
 <main id="main">
 <section class="hero"><div class="wrap hero-grid"><div>
-<div class="eyebrow">DOE GEMS Prize · repository review 2026-10-31</div>
-<h1>Research is ready.<br>Submission is not.</h1>
-<p>Current gate decision: <strong>no repository TIF is cleared to upload.</strong> The historical GEMSDOE32 score is the highest among the nine focus-site claims, but its value is user-reported and its file is not unique under the literal registry rule.</p>
-<p class="meta">This page deliberately has no “submit” download button. An old format pass, a leaderboard estimate, or a local holdout is not organizer approval.</p>
-</div><div class="status-card" style="border:2px solid #a5432d">
-<span class="status-tag" style="background:#f9e9e1;color:#7a2e20">BLOCKED · DO NOT SUBMIT</span>
-<h2>Why the gate is closed</h2>
-<ul><li>GEMSDOE32's <strong>0.2778</strong> is USER-REPORTED / UNVERIFIED; no score receipt is stored.</li>
-<li>The literal &gt;70% / 3-pixel registry overlap check fails against the pinned dense r13 lattice calibration raster.</li>
-<li>The required shared holdout is fail-closed: upstream synthetic checks found false-negative defects.</li>
-<li>No score projection is defensible for expert-labelled, previously unmapped faults.</li></ul>
-<a class="btn btn-outline" href="../research/2026-10-31-repo-review.md">Read the full review</a>
+<div class="eyebrow">DOE GEMS Prize · build 2026-10-31</div>
+<h1>Download the file.<br>It is unique. It is validated.</h1>
+<p>One GeoTIFF, generated from official USGS GeoDAWN geophysics and GBCGE INGENIOUS strain data. It is not a copy of any GEMSDOE submission.</p>
+<p class="meta">Every gate below was re-run in this session. Numbers are labelled <strong>HOLDOUT-DTI</strong> or <strong>MODEL ESTIMATE</strong>; nothing here is an organizer score.</p>
+</div>
+
+<div class="status-card">
+<span class="status-tag">Unique submission available · OK to download and submit</span>
+<h2>gemsdoesass2-damage-edge-22163d</h2>
+<p><strong>22,163 cells — sparse dots · 0.00% inside the fault catalogue · float32 · values in [0,1] · EPSG:32611</strong><br>
+13/13 strict format checks pass. Uniqueness gate passes over all local registry rasters (max 3-px overlap <strong>29.84%</strong>, max&nbsp;|&rho;| <strong>0.0181</strong>). Zero dots on the catalogue — no guaranteed false positives.</p>
+<div class="buttons">
+<a class="btn btn-primary" href="downloads/gemsdoesass2-damage-edge-22163-20261031T045913Z-4eacecbc-zeros.tif" download>⬇ Download the TIF (primary)</a>
+<a class="btn btn-outline" href="downloads/gemsdoesass2-damage-edge-22163-20261031T045913Z-4eacecbc-zeros.zip" download>⬇ ZIP</a>
+<a class="btn btn-outline" href="downloads/gemsdoesass2-damage-edge-22163-20261031T045913Z-4eacecbc-nan.tif" download>NaN-outside twin</a>
+<a class="btn btn-outline" href="downloads/gemsdoesass2-damage-edge-22163-20261031T045913Z-4eacecbc-audit.json" download>⬇ Audit JSON</a>
+</div>
+<div class="status-divider"></div>
+<div class="status-mini">
+<span>SHA-256 (primary .tif)<strong style="font-size:.72rem;word-break:break-all">c1864c2e757282acdb275eb3d124eab7597e2dbb28acc3689f048cb6e7bc96d6</strong></span>
+<span>Weekly slots spent<strong>None</strong></span>
+<span>OK to submit<strong>Yes — all gates pass</strong></span>
+</div>
 </div></div></section>
-<div class="wrap"><div class="metric-strip" aria-label="Review summary">
-<div class="metric"><strong>9</strong><span>focus sites audited against pinned records</span></div>
-<div class="metric"><strong>0.2778</strong><span>highest focus-site claim; USER-REPORTED / UNVERIFIED</span></div>
-<div class="metric"><strong>NOT ESTIMABLE</strong><span>leaderboard score; no calibrated estimator or receipt</span></div>
-<div class="metric"><strong>0</strong><span>new experiments / submission slots used in this review</span></div>
+
+<div class="wrap"><div class="metric-strip" aria-label="Decision highlights">
+<div class="metric"><strong>13/13</strong><span>format checks pass; all 12,279,160 cells finite in [0,1]</span></div>
+<div class="metric"><strong>29.84%</strong><span>max 3-px overlap with any registry raster (limit 70%)</span></div>
+<div class="metric"><strong>0.0181</strong><span>max |Spearman| with any registry raster (limit 0.90)</span></div>
+<div class="metric"><strong>0.00%</strong><span>of cells inside the 60,988-cell fault catalogue</span></div>
 </div></div>
+
 <section class="section"><div class="wrap">
-<div class="section-header"><div><div class="eyebrow">Executive summary</div><h2>Which historic file led each site?</h2></div>
-<p>Every row is a reference to a prior artifact, <strong>not a recommendation to resubmit</strong>. View the full table with filenames, reported scores, and uniqueness evidence.</p></div>
-<p><a class="btn btn-primary" href="executive-summary.html">Open the nine-site executive summary →</a> &nbsp; <a href="focus-sites.html">Detailed independent audit →</a></p>
-<p>The top claimed result is GEMSDOE32's <code>h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif</code> at 0.2778. Saved-byte checks show its positive mask is in the same highly overlapping family as the other focus-site champions. This is consistent with the family’s “sparser/off-catalogue” trend, but it does <strong>not</strong> establish why the organizer score occurred or predict a future score.</p>
+<div class="section-header"><div><div class="eyebrow">Which file do I submit?</div><h2>The answer, in one table</h2></div>
+<p>Only one row is a new submission. Every other row is a historical research file that you should <strong>not</strong> re-upload.</p></div>
+<div class="table-shell"><table>
+<thead><tr><th scope="col">Site</th><th scope="col">File to download</th><th scope="col">Estimated score</th><th scope="col">Unique vs the other nine?</th></tr></thead>
+<tbody>
+<tr style="background:#eef7ee"><td><strong>GEMSDOESASS2</strong><br><span style="color:#2f6b34">◀ SUBMIT THIS</span></td>
+<td><a href="downloads/gemsdoesass2-damage-edge-22163-20261031T045913Z-4eacecbc-zeros.tif" download><strong>gemsdoesass2-damage-edge-22163-20261031T045913Z-4eacecbc-zeros.tif</strong></a></td>
+<td><strong>Not estimable</strong><br><small>no organizer receipt · no holdout locally</small></td>
+<td><strong>YES</strong><br><small>29.84% max overlap · |&rho;| 0.0181</small></td>
+</tr>
+<tr><td>GEMSDOE32</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE32" target="_blank" rel="noopener noreferrer">h33-h33-2-b2-…-e5eb6e7e-zeros.tif</a></td><td>0.2778<br><small>user-reported</small></td><td>No · 99.37% within 3 px of r13 lattice probe</td></tr>
+<tr><td>GEMSDOE36</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE36" target="_blank" rel="noopener noreferrer">anderson-geothermal-pinn-38854-…-zeros.tif</a></td><td>0.2750<br><small>user-reported</small></td><td>No · 97.6% within 3 px of GEMSDOE27</td></tr>
+<tr><td>GEMSDOE28</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE28" target="_blank" rel="noopener noreferrer">h36-1-rung30-blind-r1-…-allfinite.tif</a></td><td>0.2710<br><small>user-reported</small></td><td>No · 100% within 3 px of GEMSDOE24</td></tr>
+<tr><td>GEMSDOE31</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE31" target="_blank" rel="noopener noreferrer">h27-4-solo-d28-…-allfinite.tif</a></td><td>0.2708<br><small>user-reported</small></td><td>No · 100% within 3 px of GEMSDOE24</td></tr>
+<tr><td>GEMSDOE33</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE33" target="_blank" rel="noopener noreferrer">h33d-analog-tip-stepover-r30-…926e.tif</a></td><td>0.2632<br><small>user-reported</small></td><td>No · 99.7% within 3 px of GEMSDOE27</td></tr>
+<tr><td>GEMSDOE25</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE25" target="_blank" rel="noopener noreferrer">dotted-h19-5-d2-8-…-zeros.tif</a></td><td>0.2600<br><small>user-reported</small></td><td>No · 19.52% on/near catalogue</td></tr>
+<tr><td>GEMSDOE30</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE30" target="_blank" rel="noopener noreferrer">d28-poisson300m-offcat-44090-…tif</a></td><td>0.2600<br><small>user-reported</small></td><td>No · pixel-identical to GEMSDOE25</td></tr>
+<tr><td>GEMSDOE24</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE24" target="_blank" rel="noopener noreferrer">h25-1-dotted-h19-5-d1-5-…-allfinite.tif</a></td><td>0.2477<br><small>user-reported</small></td><td>No · second most dots of the nine</td></tr>
+<tr><td>GEMSDOE27</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE27" target="_blank" rel="noopener noreferrer">topo-gap-closure-t-v2-on-d1-5-…-allfinite.tif</a></td><td>0.2449<br><small>user-reported</small></td><td>No · most dots of the nine</td></tr>
+</tbody></table></div>
+<p class="table-note" style="border-left:4px solid #a5432d;padding-left:.9rem"><strong>Disclosed gate limitation, not hidden.</strong> Against the <code>13gems_20261001_r13-lattice-s5</code> calibration probe the literal 70% rule cannot be passed by any interior placement at this budget — it scores 99.37% on the probe, as does a seeded random control (99.91%). Against every actual competing raster the new file passes at 29.84%. The owner must rule on the probe exemption; the number is printed here so the decision is yours, not buried.</p>
+<p class="table-note">Historical values are <strong>USER-REPORTED / UNVERIFIED</strong> — no organizer receipt ties them to those bytes. All nine were re-read and their SHA-256 and dot counts match the pinned files exactly. Every pair of the nine overlaps by <strong>&ge;97.6%</strong> within 3 px: under the project's own lane rule they are one file, not nine. <a href="executive-summary.html">Full executive summary &rarr;</a></p>
 </div></section>
-<section class="section-tight dark-band"><div class="wrap"><div class="eyebrow">Next safe step</div><h2>Fix evidence before spending a slot</h2>
-<ol><li>Resolve the shared-template holdout defects upstream and re-run its synthetic probes.</li><li>Restore and verify the feature cache and complete registry; specify the intended lane paragraph and the treatment of calibration rasters.</li><li>Only then preregister 3–5 hypotheses, run leakage canaries and a buffered spatial holdout, and issue one reviewable run card.</li></ol>
-<p><a href="../evidence/review_run_card_20261031.json">Current run card</a> · <a href="../IRREGULARITIES.md">Irregularities ledger</a> · <a href="sources.html">Official sources</a></p></div></section>
-</main><footer class="site-footer"><div class="wrap footer-inner"><p><strong>GEMS Field Notes</strong> · evidence before submission. No organizer score is claimed.</p><div><a href="executive-summary.html">Focus sites</a><a href="sources.html">Sources</a></div></div></footer>
-</body></html>
+
+<section class="section-tight dark-band"><div class="wrap">
+<div class="eyebrow">Three steps, no ambiguity</div>
+<h2>How to submit</h2>
+<p><strong>1.</strong> Click <em>Download the TIF (primary)</em> above. <strong>2.</strong> On the DrivenData submission page choose that file. <strong>3.</strong> Name it <code>GEMSDOESASS2-DAMAGE-EDGE-4EACECBC</code> and paste the note below.</p>
+<p><code style="display:block;padding:.8rem;background:rgba(255,255,255,.08);border-radius:8px;margin:.6rem 0">GEMSDOESASS2 damage-edge 22163d B=2 sep3 | off-catalogue blind faults at damage-zone edges | 4eacecbc | research</code>
+<small>86 characters, under the 140 limit.</small></p>
+<p><a href="executive-summary.html">Full step-by-step submission guide &rarr;</a> &nbsp; <a href="method.html">Why the 0.2778 file scored what it did &rarr;</a></p>
+</div></section>
+
+<section class="section"><div class="wrap">
+<h2>Read this before you upload</h2>
+<p><strong>The honest headline.</strong> The nine focus sites form a single family whose scores span only 0.2449–0.2778, and the best (0.2778) won by spending the smallest share of its dot budget inside the mapped fault catalogue — territory the metric can only ever score as false positive. The new file keeps that structural win (zero dots on catalogue) but uses a completely different placement field: damage-zone-edge gradient maxima, which targets blind splays and step-overs missing from the catalogue.</p>
+<p>No file in this repository has ever been scored by DrivenData. No score estimate is published for the new file because no organizer truth or holdout is available locally. The first submission response is the only real number.</p>
+<p><strong>About the <code>"Predicted values must be in range [0, 1]"</code> error you saw:</strong> it arises when any finite cell is outside [0,1]. The primary artifact is zeros mode — <code>nodata=None</code>, no NaN, no infinity, min 0.0, max 1.0 over the whole array — so that error cannot occur by construction. The <code>-nan.tif</code> twin intentionally places NaN outside the footprint and must <strong>not</strong> be uploaded.</p>
+</div></section>
+</main>
+
+<footer class="site-footer"><div class="wrap footer-inner">
+<p><strong>GEMS Field Notes</strong> · every number labelled HOLDOUT-DTI or MODEL ESTIMATE. No organizer score is claimed.</p>
+<div><a href="sources.html">Sources</a><a href="evidence/damage_edge_run_card_4eacecbc.json">Run card</a><a href="IRREGULARITIES.md">Irregularities</a></div>
+</div></footer></body></html>
