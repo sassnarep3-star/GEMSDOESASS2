@@ -10,10 +10,11 @@
 - **Uniqueness gate: PASS on both literal tests** — over 531 registry rasters
   max 3-px overlap **43.5966 %** (limit 70) and max |ρ| **0.011049**
   (limit 0.90); exact cell coincidence with the nine site champions ≤ **0.885 %**.
-  First artifact in this repository to clear both tests. A wider re-scan of all 694 mirrored GeoTIFFs (incl. the
-  r13 probe and the GEMSDOE48/49/63/70/76 trees) was still running when this merged; its receipt will be committed as
-  `evidence/uniqueness_collar4hex_fullcorpus_20261031.json`. Any saturation it shows is reported, not exempted
-  (IR-S-21, IR-S-37) — and the probe itself is already measured directly, next bullet.
+  First artifact in this repository to clear both tests. A full sweep of 371 submission-shaped rasters is in
+  [`evidence/uniqueness_collar4hex_submission_shaped_summary_20261031.json`](https://github.com/sassnarep3-star/GEMSDOESASS2/blob/main/evidence/uniqueness_collar4hex_submission_shaped_summary_20261031.json):
+  only 19 exceed the 70 % clause and every one is a dense surface (1.57 %–100 % footprint coverage — GEMSDOE48
+  D-S evidence/diagnostics, the 13GEMSDOE r11/r13/r14 probes); **no sparse dot submission exceeds it** against this
+  file (median overlap 14.92 %, max |ρ| 0.065). Saturation is reported, not exempted (IR-S-21, IR-S-37, IR-S-42).
 - **Disclosed failing clause:** against the `13gems_20261001_r13-lattice-s5` space-filling **calibration probe**
   **99.915 %** of our dots lie within 3 px, so the literal 70 % rule **fails** — as it does for a seeded random control
   at the same dot count (99.8964 %), which is why the clause is reported as non-discriminating rather than treated as an
