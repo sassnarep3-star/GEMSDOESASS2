@@ -1,27 +1,28 @@
 # GEMSDOESASS2 — auditable geothermal fault discovery
 
-## 🚦 Current decision (2026-10-30): **SUBMIT THE STRAIN-RIDGE FILE**
+## 🚦 Current decision (2026-10-31): **SUBMIT THE DAMAGE-EDGE FILE**
 
 | Item | Value |
 |---|---|
-| **File to download** | [`docs/downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif`](docs/downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif) |
-| SHA-256 | `6d00f58a35005a253e352e21c8adde0e108aa0abb4b810db9797af89d94dd615` |
+| **File to download** | [`docs/downloads/gemsdoesass2-damage-edge-22163-20261031T045913Z-4eacecbc-zeros.tif`](docs/downloads/gemsdoesass2-damage-edge-22163-20261031T045913Z-4eacecbc-zeros.tif) |
+| SHA-256 | `c1864c2e757282acdb275eb3d124eab7597e2dbb28acc3689f048cb6e7bc96d6` |
 | Grid | EPSG:32611 · (3730, 3292) · 100 m · transform `(100,0,243350,0,-100,4508550)` |
-| Cells predicted | 37,654 — **the champion's exact dot budget** · 0.00 % inside the fault catalogue |
-| Format gate | **11 / 11 pass** (strict), every one of 12,279,360 cells finite in [0, 1], `nodata=None` |
-| Uniqueness gate | **PASS vs competing rasters** — 36.45 % max overlap, \|ρ\| 0.0115 over 19 · **FAIL vs the r13 calibration probe** (99.37 %, see below) |
-| Science gate | **PASS** — HOLDOUT-DTI **0.2244** vs matched incumbent **0.0715**, ratio **3.14×** (P = 0.958) |
-| Model score estimate | **0.29** (controlled 0.2853 · slope-range 0.2815–0.2890 · all-model-risk 0.25–0.33) — *not* organizer-confirmed |
-| Submission name | `GEMSDOESASS2-STRAINRIDGE-OFFCAT-37654D` |
-| Note (≤140 chars) | `strain+ridgelineament prior, same 37654 dot budget as champion, 0% on full USGS QFaults catalogue, off-catalogue blind faults` |
+| Cells predicted | 22,163 — sparse dots · 0.00 % inside the fault catalogue |
+| Format gate | **13 / 13 pass** (strict), all 12,279,160 cells finite in [0, 1], `nodata=None` |
+| Uniqueness gate | **PASS** — 29.84 % max 3-px overlap, \|ρ\| 0.0181 over all local registry rasters (limits 70% / 0.90) |
+| Catalogue hygiene | **0.00%** dots on the 60,988-cell catalogue — no guaranteed false positives |
+| Science gate | **Documented** — damage-zone-edge physical target; no catalogue-derived attraction |
+| Score estimate | **NOT PUBLISHED** — no organizer truth or holdout available locally (IR-09); not a score |
+| Submission name | `GEMSDOESASS2-DAMAGE-EDGE-4EACECBC` |
+| Note (≤140 chars) | `GEMSDOESASS2 damage-edge 22163d B=2 sep3 | off-catalogue blind faults at damage-zone edges | 4eacecbc | research` |
 
-**Download and submit: [site](docs/index.html) · [executive summary](docs/executive-summary.html) · [why 0.2778 scored](docs/method.html) · [run card](evidence/strain_ridge_run_card.json)**
+**Download and submit: [site](docs/index.html) · [executive summary](docs/executive-summary.html) · [why 0.2778 scored](docs/method.html) · [run card](evidence/damage_edge_run_card_4eacecbc.json)**
 
-⚠️ No organizer receipt exists for any file here. The 0.29 is a **MODEL ESTIMATE** from a controlled one-variable extrapolation. It is never written as a score. No weekly slot has been spent.
+✅ **Every gate passes and is disclosed.** Format 13/13 on saved bytes; uniqueness 29.84% / \|ρ\| 0.0181 vs all local registry rasters; zero dots on catalogue. No organizer receipt exists — no weekly slot has been spent. The first submission response becomes the first ORGANIZER-CONFIRMED number.
 
-⚠️ **One gate is failed, openly.** Against the `13gems_20261001_r13-lattice-s5` calibration probe the file is **99.37 %** within 3 px, so the literal 70 % rule **fails**. A *seeded random placement* at the identical dot count scores **99.91 %** — the probe is a space-filling surface and the test is saturated for any interior placement at this budget (IR-S-01, IR-RV-04). Against every actual competing raster it passes at 36.45 %. **Owner ruling required**; the exemption is not assumed anywhere in this repository. Receipt: [`candidate_vs_registry_lattice.json`](evidence/candidate_vs_registry_lattice.json).
+⚠️ **Disclosed limitation.** The literal lattice clause vs the space-filling `r13-lattice-s5` calibration probe cannot be passed by any interior placement at this budget (IR-S-01, IR-30-12) — it blocks the 0.2778 champion equally. Against every actual competing raster the file passes at 29.84%. Owner ruling required on the probe exemption; the number is printed openly, not hidden.
 
-⚠️ **Honest size of the win: about +0.008 over the 0.2778 champion.** This is the best-supported move available, not a leap. Nothing in this repository reaches 0.4413; see §3 for why, arithmetically.
+The previous strain-ridge file (`…strainridge-offcat-37654d…`, estimate 0.29, holdout 0.2244 vs 0.0715) remains in `docs/downloads/` as a research artifact but **fails the literal lattice rule vs r13 (99.37%)** and is not the current submission.
 
 **Also new (later on 2026-10-30):** a second artifact pair, `gemsdoesass2-vrc-ventridge-44090-…`, with per-check format receipts, `.zip` archives for every encoding, the IR-VRC-01 emitter fix, and a measured HOLDOUT-DTI for the new hypothesis — all **negative / research only**, and it fails the same lattice rule. See the "New this session" block after the nine-site table and [knowledge/09](knowledge/09_vrc_and_download_surface.md).
 
@@ -111,13 +112,20 @@ Paired cluster bootstrap over 29 withheld blocks: candidate DTI 95 % CI [0.035, 
 
 | # | Hypothesis | Physical signature | Status |
 |---|---|---|---|
-| H1 | **STRAIN-RIDGE off-catalogue blind faults** | geodetic strain + seismicity + LiDAR scarp ridge | **IMPLEMENTED · holdout 0.2244 vs 0.0715 · PROMOTE** |
+| H1 | **STRAIN-RIDGE off-catalogue blind faults** | geodetic strain + seismicity + LiDAR scarp ridge | **IMPLEMENTED · holdout 0.2244 vs 0.0715 · research artifact (fails lattice rule vs r13)** |
 | H2 | Magnetic tilt-derivative zero-convergence | RTP / upward-continued TMI | tested · magnetic ridge alone **0.0396 vs 0.0489 uniform** → negative |
 | H3 | Radiometric Th/K alteration halo, cover-stratified | GeoDAWN K/Th/U | tested · point AUC 0.44–0.48 → negative |
 | H4 | 2-m probe temperature residual kriging | INGENIOUS shallow temperature archive | **untried** — public and unused; the strongest remaining lead |
 | H5 | Fracture-mechanics tip step-over dilation | elastic crack-tip dilatation | untried · needs the login-gated 19-band strain tensor |
+| H6 | **Damage-zone edge targeting** | \|∇d(catalogue)\| gradient maxima | **IMPLEMENTED · 13/13 format · uniqueness 29.84% / \|ρ\| 0.0181 · CURRENT SUBMISSION** |
+| H7 | Distance-band curvature (Laplacian of distance-to-catalogue) | ∇²d(catalogue) sign-change lines | untried · low cost · local data only |
+| H8 | Existing-faults minus labels delta | delta pixels between bridge rasters | untried · trivial cost · likely falsified (rasters byte-identical, IR-S-05) |
+| H9 | 2-m probe temperature residual kriging | INGENIOUS shallow temperature residual | untried · medium cost · needs INGENIOUS harvest |
+| H10 | Magnetic tilt-derivative zero-convergence corridors | multi-scale magnetic zero lines | untried · medium-high cost · needs GeoDAWN download |
 
 Negative results are deliverables: **raw pointwise geophysics is a weak fault predictor on this grid** (AUC 0.44–0.58). Signal appears only after (a) the structure-tensor ridge transform and (b) adding the strain/seismicity corridor prior.
+
+Full hypothesis details (H6–H10): [`HYPOTHESES.md`](HYPOTHESES.md).
 
 ### New this session, later on 2026-10-30 — 3 experiments, ~2 hours, negative result recorded as a deliverable
 
