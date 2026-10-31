@@ -109,8 +109,8 @@
   "submission_name": "GEMSDOESASS2-STRAINRIDGE-OFFCAT-37654D",
   "submission_note_140": "strain+ridgelineament prior, same 37654 dot budget as champion, 0% on full USGS QFaults catalogue, off-catalogue blind faults",
   "note_length": 125,
-  "verdict": "promote",
-  "ok_to_download_and_submit": true,
+  "verdict": "superseded",
+  "ok_to_download_and_submit": false,
   "n_dots": 37654,
   "params": {
     "w_ridge": 0.5,
@@ -182,5 +182,14 @@
     "The 0.29 figure is a model estimate from a controlled one-variable extrapolation. It is not an organizer score and must never be written as one.",
     "The expected gain over the incumbent 0.2778 is roughly +0.008. It is the best-supported move available, not a large one.",
     "The literal 70 %-within-3-px rule is FAILED against the r13 calibration lattice (99.37 %), exactly as it is failed by a seeded random placement at the same dot count (99.91 %). The rule is saturated and discriminates nothing at this budget; the owner must rule whether the probe is exempt (IR-S-01/IR-RV-04)."
+  ],
+  "ok_to_submit": false,
+  "SUPERSEDED_BY": "docs/data/run-card-20261031.json",
+  "superseded_on": "2026-10-31",
+  "superseded_reason": "IR-31-03: the catalogue claim behind this promotion (\"0.00% against a 156,418-cell complete fault database\") is not reproducible. Re-measured 2026-10-31, the complete GDR/INGENIOUS Quaternary trace database covers 79,318 footprint cells and holds 58,303 of the 60,988 label cells (recall 0.956), not 60,930 of 156,418. This file also fails the literal 70% lattice clause at 99.37%. RESEARCH ONLY - DO NOT SUBMIT.",
+  "withdrawn_claims": [
+    "156,418-cell complete catalogue",
+    "95,452 mapped fault cells missing from the bridge copy",
+    "recall 0.9996 of the label raster by the complete catalogue"
   ]
 }

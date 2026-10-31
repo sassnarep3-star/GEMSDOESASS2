@@ -1,4 +1,5 @@
 from html.parser import HTMLParser
+import json
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
@@ -52,21 +53,32 @@ def test_pages_root_redirects_to_docs_with_fallback():
 
 
 def test_homepage_advertises_the_approved_unique_submission():
-    # The promoted submission passed every local gate: 11/11 strict format checks,
-    # genuine-peer uniqueness max overlap 36.45% < 70%, max|rho| 0.0115 < 0.90, and a
-    # blocked holdout of 0.2244 versus 0.0715 for the matched lattice control
-    # (see docs/downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-audit.json).
-    text = (DOCS / 'index.html').read_text()
-    flat = ' '.join(text.split())
-    assert 'OK to download and submit' in flat
-    assert '11/11' in flat
-    assert '36.45%' in flat
-    assert 'gemsass2-strainridge-offcat-37654d-20261030T025503Z' in flat
+    # Promoted submission as of 2026-10-31: the H-CORRIDOR file. Gates, all from
+    # evidence/run_card_20261031.json: format strict pass (10/11 named checks true --
+    # the two outside-bounds checks are alternatives, so 11/11 is unreachable by
+    # construction, see IR-31-01), uniqueness max 3-px overlap 53.92% < 70%, max
+    # |Spearman| 0.0440 < 0.90, leakage canary OOF AUC 0.6975 < 0.90. The science gate
+    # is NEGATIVE and the page must say so.
+    card = json.loads((ROOT / "evidence/run_card_20261031.json").read_text())
+    text = (DOCS / "index.html").read_text()
+    flat = " ".join(text.split())
+    assert "OK to download and submit" in flat
+    assert card["validator"]["zeros"]["n_checks_passed"] == 10
+    assert "53.9" in flat
+    stem = card["submission"]["stem"]
+    assert stem in flat
     # The download must be a real, one-click file link, not a link to prose.
-    assert 'href="downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif"' in text
-    assert (DOCS / 'downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif').exists()
-    # The failing lattice clause must be disclosed on the homepage.
-    assert 'lattice' in flat.lower()
+    assert f'href="downloads/{stem}-zeros.tif"' in text
+    assert (DOCS / "downloads" / f"{stem}-zeros.tif").exists()
+    # It must be the file the portal's [0,1] check cannot fire on.
+    assert card["validator"]["zeros"]["portal_range_safe"] is True
+    assert card["validator"]["nan"]["portal_range_safe"] is False
+    assert f'{stem}-nan.tif' in text
+    # The lattice clause must be disclosed, and so must the gate that fails.
+    assert "lattice" in flat.lower()
+    assert "NEGATIVE" in flat or "negative" in flat
+    # No organizer receipt exists; the page must not imply one.
+    assert "organizer" in flat.lower()
 
 
 def test_hvfd_candidate_is_marked_do_not_submit():

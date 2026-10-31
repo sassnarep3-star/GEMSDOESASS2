@@ -35,9 +35,14 @@ def test_github_pages_files_and_local_links_exist() -> None:
 
 
 def test_one_promoted_candidate_and_honest_gate_disclosure() -> None:
-    """Exactly one candidate is advertised (strainridge: format + genuine-peer lane gate pass).
-    The lattice clause fails for it (99.37%) exactly as it fails for every interior placement,
-    and both pages must disclose that failing clause instead of hiding it."""
+    """Exactly one artifact is advertised as submittable, its bytes match its card, the
+    gate that fails is disclosed, and no page claims an organizer receipt.
+
+    Rewritten 2026-10-31: the previously promoted strain-ridge file is demoted to
+    research-only because the catalogue claim behind it is not reproducible
+    (IR-31-03) and it fails the literal lattice clause at 99.37%. Its receipts
+    remain on file and are still asserted here so the demotion is auditable.
+    """
     import hashlib
 
     rc = json.loads((ROOT / "evidence/unique_run_card_cc522684.json").read_text())
@@ -50,33 +55,40 @@ def test_one_promoted_candidate_and_honest_gate_disclosure() -> None:
     tif = DOCS / "downloads" / cand["file"]
     assert hashlib.sha256(tif.read_bytes()).hexdigest() == cand["sha256"] == rc["raster_sha256"]
 
-    # The one promoted submission run card (separate from the negative research cards)
-    run_card = None
-    for p in DOCS.glob("downloads/*-audit.json"):
-        c = json.loads(p.read_text())
-        if c.get("verdict") == "promote" and c.get("ok_to_download_and_submit"):
-            run_card = c
-            break
-    assert run_card is not None, "No promoted unique submission run card found"
-    assert run_card["n_dots"] == 37654
-    assert run_card["validator_output"]["all_passed"] is True
-    assert run_card["correlation_overlap_vs_registry"]["passes_lane"] is True
-    assert len(run_card["submission_note_140"]) <= 140
-    # Its bytes must be the advertised bytes.
-    promoted_tif = DOCS / "downloads" / "gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif"
-    assert hashlib.sha256(promoted_tif.read_bytes()).hexdigest() == run_card["raster_sha256"]
+    # The current promoted artifact: the H-CORRIDOR file, and only it.
+    card = json.loads((ROOT / "evidence/run_card_20261031.json").read_text())
+    assert card["verdict"] == "promote-with-caveat"
+    assert card["weekly_slots_spent"] == 0
+    stem = card["submission"]["stem"]
+    promoted_tif = DOCS / "downloads" / f"{stem}-zeros.tif"
+    assert hashlib.sha256(promoted_tif.read_bytes()).hexdigest() == (
+        card["validator"]["zeros"]["candidate_sha256"])
+    assert card["uniqueness"]["passes_lane"] is True
+    assert card["uniqueness"]["max_overlap_3px_pct"] <= 70.0
+    assert len(card["submission"]["note"]) <= 140
+    # The science gate is negative and the card says so.
+    hd = card["holdout_dti"]
+    assert hd["candidate"]["P_SGMC2"] < hd["champion_GEMSDOE32"]["P_SGMC2"]
+    assert "NEGATIVE" in hd["verdict"]
+
+    # Exactly one download may be advertised as submittable.
+    promoted = [c for c in
+                (json.loads(p.read_text()) for p in (DOCS / "downloads").glob("*-audit.json"))
+                if c.get("verdict") == "promote" and c.get("ok_to_download_and_submit")]
+    assert len(promoted) <= 1
 
     index = (DOCS / "index.html").read_text()
     exec_html = (DOCS / "executive-summary.html").read_text()
     for page in (index, exec_html):
         assert "ok to download and submit" in page.lower()
-        assert "lattice" in page.lower(), "the failing lattice clause must be disclosed"
+        assert "lattice" in page.lower(), "the lattice clause must be disclosed"
         assert "localhost" not in page and "127.0.0.1" not in page
-    assert "99.37" in exec_html
+    assert "99.37" in exec_html           # the strain-ridge file the clause blocks
+    assert "53.92" in exec_html           # and this file's own margin
     assert "MODEL ESTIMATE" in exec_html
     assert "not an organizer score" in exec_html.lower() or "NOT organizer-confirmed" in exec_html
-    assert "gemsass2-strainridge-offcat-37654d-20261030T025503Z" in exec_html
-    assert "downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif" in index
+    assert stem in exec_html
+    assert f"downloads/{stem}-zeros.tif" in index
     # Research artifacts remain marked research only
     artifacts = (DOCS / "hvfd-exp3.html").read_text()
     assert "Research only" in artifacts and "DO NOT SUBMIT" in artifacts

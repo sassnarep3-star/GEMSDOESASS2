@@ -1,30 +1,102 @@
 # GEMSDOESASS2 — auditable geothermal fault discovery
 
-## 🚦 Current decision (2026-10-30): **SUBMIT THE STRAIN-RIDGE FILE**
+## 🚦 Current decision (2026-10-31): **SUBMIT THE H-CORRIDOR FILE**
 
 | Item | Value |
 |---|---|
-| **File to download** | [`docs/downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif`](docs/downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif) |
-| SHA-256 | `6d00f58a35005a253e352e21c8adde0e108aa0abb4b810db9797af89d94dd615` |
+| **File to download** | [`docs/downloads/gemsass2-hcorr-lineament-offcat-37654-20261031T000000Z-zeros.tif`](docs/downloads/gemsass2-hcorr-lineament-offcat-37654-20261031T000000Z-zeros.tif) |
+| SHA-256 | `4367b360eda411afdba1a11db7dabd0a4744dbb3b679790b3d0fd77c2faf9c1f` |
 | Grid | EPSG:32611 · (3730, 3292) · 100 m · transform `(100,0,243350,0,-100,4508550)` |
-| Cells predicted | 37,654 — **the champion's exact dot budget** · 0.00 % inside the fault catalogue |
-| Format gate | **11 / 11 pass** (strict), every one of 12,279,360 cells finite in [0, 1], `nodata=None` |
-| Uniqueness gate | **PASS vs competing rasters** — 36.45 % max overlap, \|ρ\| 0.0115 over 19 · **FAIL vs the r13 calibration probe** (99.37 %, see below) |
-| Science gate | **PASS** — HOLDOUT-DTI **0.2244** vs matched incumbent **0.0715**, ratio **3.14×** (P = 0.958) |
-| Model score estimate | **0.29** (controlled 0.2853 · slope-range 0.2815–0.2890 · all-model-risk 0.25–0.33) — *not* organizer-confirmed |
-| Submission name | `GEMSDOESASS2-STRAINRIDGE-OFFCAT-37654D` |
-| Note (≤140 chars) | `strain+ridgelineament prior, same 37654 dot budget as champion, 0% on full USGS QFaults catalogue, off-catalogue blind faults` |
+| Cells predicted | 37,654 — the champion's exact emitted mass · catalogue-DTI **0.0000** |
+| Format gate | **PASS** — 10/11 named checks true, `strict_local_format_pass: true`, `portal_range_safe: true` |
+| Uniqueness gate | **PASS** — 53.92 % max 3-px overlap, \|ρ\| 0.0440 over **54** registry rasters (limit 70 % / 0.90) |
+| Leakage canary | **PASS** — spatially blocked out-of-fold AUC **0.6975** (alarm at 0.90); in-sample was 0.9137 |
+| Science gate | **NEGATIVE** — proxy holdout 0.08138 vs the champion's 0.094686 (−14.05 %) |
+| Score estimate | **0.23** (range 0.18–0.28) from three published estimators — *MODEL ESTIMATE, not a score* |
+| Submission name | `GEMSDOESASS2-HCORR-LINEAMENT-OFFCAT-37654` |
+| Note (118 chars) | `GBM lineament-probability model on 56 GeoDAWN/INGENIOUS/3DEP bands, 300 m NMS, 200 m off-catalogue collar, 37654 cells` |
+| Verdict | **promote-with-caveat** — see §1 below |
 
-**Download and submit: [site](docs/index.html) · [executive summary](docs/executive-summary.html) · [why 0.2778 scored](docs/method.html) · [run card](evidence/strain_ridge_run_card.json)**
+**Download: [site](docs/index.html) · [executive summary](docs/executive-summary.html) · [how to submit](docs/how-to-submit.html) · [why 0.2778 scored](docs/method.html) · [hypotheses](docs/hypotheses.html) · [run card](evidence/run_card_20261031.json)**
 
-⚠️ No organizer receipt exists for any file here. The 0.29 is a **MODEL ESTIMATE** from a controlled one-variable extrapolation. It is never written as a score. No weekly slot has been spent.
+⚠️ No organizer receipt exists for any file here. No weekly slot has been spent.
 
-⚠️ **One gate is failed, openly.** Against the `13gems_20261001_r13-lattice-s5` calibration probe the file is **99.37 %** within 3 px, so the literal 70 % rule **fails**. A *seeded random placement* at the identical dot count scores **99.91 %** — the probe is a space-filling surface and the test is saturated for any interior placement at this budget (IR-S-01, IR-RV-04). Against every actual competing raster it passes at 36.45 %. **Owner ruling required**; the exemption is not assumed anywhere in this repository. Receipt: [`candidate_vs_registry_lattice.json`](evidence/candidate_vs_registry_lattice.json).
+### §1 · Read this before spending a slot
 
-⚠️ **Honest size of the win: about +0.008 over the 0.2778 champion.** This is the best-supported move available, not a leap. Nothing in this repository reaches 0.4413; see §3 for why, arithmetically.
+This session produced **one positive result and one negative result, and the negative one is bigger**:
 
-**Also new (later on 2026-10-30):** a second artifact pair, `gemsdoesass2-vrc-ventridge-44090-…`, with per-check format receipts, `.zip` archives for every encoding, the IR-VRC-01 emitter fix, and a measured HOLDOUT-DTI for the new hypothesis — all **negative / research only**, and it fails the same lattice rule. See the "New this session" block after the nine-site table and [knowledge/09](knowledge/09_vrc_and_download_surface.md).
+1. **The champion is real.** Our independent gradient-boosted lineament model puts the
+   champion's dots at **1.80×** the mean fault probability of random cells
+   (0.2563 vs 0.1424). The reported 0.2778 is a geophysically informed placement, not a
+   lucky lattice.
+2. **No local instrument can rank two submissions.** We built the largest calibration set
+   this repository has had — 40 owner-scored rasters, 0.0107 to 0.2778 — and scored each
+   against three measurable catalogue-disjoint fault sets. **Every** proxy correlates
+   weakly and **every** leave-one-out R² is negative (Spearman 0.169–0.211, p ≥ 0.19;
+   LOO R² −0.06 to −0.12). Receipt: [`proxy_calibration.json`](evidence/proxy_calibration.json).
 
+So the honest expectation for this file is the **peer-group median, 0.18**, with
+0.28 requiring our score surface to carry the family's yield — which nothing here can
+confirm. The three estimators, published side by side:
+
+| Estimator | Design | Value |
+|---|---|---|
+| E1 | within-family contamination regression evaluated at catalogue-DTI = 0 (slope −0.1489, R² 0.852, n = 9) | 0.2777 |
+| E2 | champion 0.2778 × (0.08138 / 0.09469) proxy-yield ratio | 0.2388 |
+| E3 | median of the 13 submissions matched on mass 30k–45k and catalogue-DTI ≤ 0.02 | 0.1823 |
+| **Quoted** | central value / interval across all three | **0.23 · 0.18–0.28** |
+
+**Recommendation: spend the slot on this file.** The alternative — reproducing the
+champion's lineage — is forbidden by the brief (it is a copy) and, under the project's
+own 70 % rule, impossible to make unique. Expected value 0.23 against a forfeited
+alternative of 0.00.
+
+### §2 · What unblocked real work
+
+Previous sessions ran without the competition feature stack. It is now restored from the
+hash-pinned public GitHub mirrors (`registry/data_manifest.json`), verified byte-for-byte:
+
+| Restored | Bytes | SHA-256 |
+|---|---|---|
+| `training_features.tif`, 19 bands float32 (reassembled from 5 parts) | 418,912,844 | `4371c82e…c5` |
+| 12-band LiDAR scarp features (USGS 3DEP 1 m) | 36,943,606 | pinned |
+| GeoDAWN radiometrics + extensions (K/Th/U/TC, Th/K, U/K, U/Th, TMI_up150) | 53,745,895 | pinned |
+| 10 m DEM topography (9 ch) + chi/ksn (5 ch) | 45,300,427 | pinned |
+| GDR 1391 probes / paleo / vents / SGMC / TIGER roads | — | pinned |
+
+```bash
+git clone --filter=blob:none --no-checkout https://github.com/buffedlizard55-lab/GEMSDOE && ...
+python scripts/build_cube.py            # -> .cache/work/cube.f32, 58 bands
+python scripts/build_catalogues.py      # fault catalogues
+python scripts/build_proxy_split.py     # proxy holdout truth
+python scripts/fetch_registry_rasters.py   # 9 SHA-pinned champions (all hash-match)
+python scripts/fetch_score_anchors.py      # 31 default-branch anchors
+python scripts/build_lineament_candidate.py  # probability map
+python scripts/evaluate_corridor.py           # canary + enrichment + mass-matched comparison
+python scripts/sweep_and_build.py            # emission sweep + artifact
+python scripts/validate_tif.py <file> --sample data/bridge/sample_submission.tif --out <json>
+python scripts/uniqueness_gate.py --candidate <file> --reference-glob ".cache/registry/*.tif" ...
+python scripts/build_run_card_20261031.py
+```
+
+### §3 · Corrections to previous sessions (details in [IRREGULARITIES.md](IRREGULARITIES.md))
+
+- **IR-31-01** — `scripts/validate_tif.py` could never report a pass; the two
+  outside-bounds checks are mutually exclusive. Fixed in the shared tool, and a new
+  `portal_range_safe` flag marks the file that cannot trigger
+  *"Predicted values must be in range [0, 1]"*.
+- **IR-31-03** — the claim that the complete fault database holds 156,418 cells and that
+  the bridge copy is missing 95,452 of them is **not reproducible** (measured: 79,318 vs
+  60,988, recall 0.956). The "0.00 % against 156,418 cells" line on the previously
+  promoted strain-ridge file is **withdrawn pending re-measurement**. That file, and every
+  other artifact in `docs/downloads/` except the one above, is **RESEARCH ONLY — do not submit**.
+- **IR-31-04** — the only catalogue-disjoint fault set available is USGS SGMC
+  (82,151 cells, 4.5 % in the labels), and an owner submission that targeted it directly
+  scored **0.0512**, below random level. SGMC is used only as a relative instrument.
+- **IR-31-05** — replaces both "NOT ESTIMABLE" and the previous "0.29" with the three
+  published estimators above.
+- **IR-31-06** — 31 of 36 calibration anchors are pinned at default-branch HEAD, not at a
+  commit; the nine champions are SHA-pinned.
 
 ---
 
