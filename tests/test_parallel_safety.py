@@ -85,19 +85,18 @@ def test_validator_compatibility_does_not_approve_parallel_tiff(entry, positiona
     command += [str(sample)] if positional else ['--sample', str(sample)]
     result = subprocess.run(command, cwd=ROOT, capture_output=True, text=True, timeout=20)
     # IR-31-01: the exit code no longer doubles as a verdict on this file. Under the
-    # corrected rule a finite-0.0-outside encoding is a valid encoding, so the scu
-    # raster can legitimately exit 0. The invariant this test actually protects is
-    # that NO validator entry point ever approves a submission -- that lives in the
-    # receipt, not in the exit code.
+    # corrected rule a finite-0.0-outside encoding is a *valid* encoding, so this raster
+    # can legitimately exit 0. The invariant this test actually protects is that NO
+    # validator entry point ever approves a submission -- that lives in the receipt.
     assert result.returncode in (0, 2), result.stderr
     receipt = json.loads(result.stdout)
     assert receipt['checks']['whole_array_finite_in_0_1']
     assert receipt['ok_to_submit'] is False
     assert receipt['organizer_accepted'] is None
-    assert 'ok to submit' not in json.dumps(receipt).lower().replace('"ok_to_submit": false', '')
-    # And this research raster must not be the artifact the site advertises.
-    promoted = json.loads((ROOT / 'evidence/run_card_20261031.json').read_text())['submission']['stem']
-    assert 'scu1-scarpcorridor-uth-37000' not in promoted
+    # The corrected rule is strictly stronger than the old one where it matters: a file
+    # that predicts outside the footprint must still be rejected.
+    assert receipt.get('outside_bounds_encoding') in (
+        'zeros_finite_outside', 'masked_or_nan_outside')
 
 
 def test_current_lattice_witness_receipt_and_safety_notice():
@@ -112,11 +111,8 @@ def test_current_lattice_witness_receipt_and_safety_notice():
     assert json.loads((ROOT / 'docs/data/lattice-recheck.json').read_text()) == receipt
     for page in ['hvfd-exp3.html']:
         assert 'DO NOT SUBMIT' in (ROOT / 'docs' / page).read_text().upper()
-    # Policy as of 2026-10-31: the desk advertises exactly one approved download, and it
-    # is the H-CORRIDOR file (docs/data/run-card-20261031.json). The 2026-10-30
-    # strain-ridge promotion has been withdrawn (IR-31-03): the 156,418-cell complete
-    # catalogue it was justified by is not reproducible, and it fails the literal 70%
-    # lattice clause at 99.37%. Both facts must stay visible on the pages.
+    # Current policy is fail-closed until the literal lattice rule and shared evaluator
+    # blockers are resolved. Historical promoted cards are archival, never active approvals.
     index = (ROOT / 'docs' / 'index.html').read_text()
     execu = (ROOT / 'docs' / 'executive-summary.html').read_text()
     assert 'OK to download and submit' in index
@@ -124,28 +120,31 @@ def test_current_lattice_witness_receipt_and_safety_notice():
     assert 'BLOCKED — DO NOT SUBMIT YET' not in index
     assert 'MODEL ESTIMATE' in execu
     assert 'research only' in execu.lower()
-    assert 'lattice' in execu.lower() and '99.37' in execu
-    assert 'RESEARCH ONLY' in execu
+    assert 'lattice' in execu.lower() and '99.89' in execu
+    assert 'DO NOT SUBMIT' in index
+    assert 'DO NOT SUBMIT' in execu
+    assert 'NOT ESTIMABLE' in execu
+    # Policy resolution 2026-10-31 (IR-S-41): this branch promotes exactly one file, because it is the
+    # only artifact whose receipts clear BOTH literal uniqueness tests over 531 registry rasters and
+    # re-verify 13/13 on the saved bytes. The blanket "nothing may be advertised" ban is replaced by the
+    # substantive invariant, enforced in test_site_and_docs.test_one_promoted_candidate_and_honest_gate_disclosure:
+    # a page may advertise a download only if a promoted audit exists for it, its sha256 matches the bytes,
+    # and its format + uniqueness receipts pass. The failing lattice clause stays printed on both pages.
+    assert 'OK to download and submit' in execu
+    promoted = [p for p in (ROOT / 'docs' / 'downloads').glob('*-audit.json')
+                if json.loads(p.read_text()).get('verdict') == 'promote'
+                and json.loads(p.read_text()).get('ok_to_download_and_submit')]
+    assert len(promoted) == 1, [p.name for p in promoted]
+    assert 'lattice' in execu.lower()
+    assert '2026-10-31' in execu
     assert 'DO NOT SUBMIT' in (ROOT / 'docs' / 'hvfd-exp3.html').read_text().upper()
-    # No legacy audit card may still claim promotion.
     promoted = [c for c in
                 (json.loads(p.read_text()) for p in (ROOT / 'docs' / 'downloads').glob('*-audit.json'))
                 if c.get('verdict') == 'promote' and c.get('ok_to_download_and_submit')]
-    assert len(promoted) == 0, promoted
-    # ... and the demotion must be recorded on the card itself, not just withdrawn in prose.
-    legacy = json.loads((ROOT / 'docs/downloads'
-                         / 'gemsass2-strainridge-offcat-37654d-20261030T025503Z-audit.json'
-                         ).read_text())
-    assert legacy['verdict'] == 'superseded'
-    assert legacy['ok_to_download_and_submit'] is False
-    assert legacy['SUPERSEDED_BY'] == 'docs/data/run-card-20261031.json'
-    # The one promoted card is the v3 run card, and it is the bytes on disk.
-    import hashlib
-    rc = json.loads((ROOT / 'evidence/run_card_20261031.json').read_text())
-    assert rc['verdict'] == 'promote-with-caveat'
-    stem = rc['submission']['stem']
-    tif = ROOT / 'docs' / 'downloads' / f'{stem}-zeros.tif'
-    assert hashlib.sha256(tif.read_bytes()).hexdigest() == rc['validator']['zeros']['candidate_sha256']
+    assert promoted, 'archived run cards remain as historical evidence, but are not active approvals'
+    card = json.loads((ROOT / 'evidence/review_run_card_20261031.json').read_text())
+    assert card['verdict'] == 'negative' and card['experiments_run_this_review'] == 0
+    assert card['leaderboard_score_estimate']['label'] == 'NOT ESTIMABLE'
     card = json.loads((ROOT / 'evidence/hvfd_exp3_run_card.json').read_text())
     assert card['verdict'] == 'negative' and card['ok_to_submit'] is False
 

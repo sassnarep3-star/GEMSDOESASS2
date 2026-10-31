@@ -1,78 +1,89 @@
-<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Step-by-step: how to submit a GeoTIFF to the DOE GEMS Prize on DrivenData, and how to fix the 'Predicted values must be in range [0, 1]' error.">
-<title>How to submit — GEMS Field Notes</title>
-<link rel="stylesheet" href="assets/style.css"></head><body><a class="skip" href="#main">Skip to content</a>
-<header class="site-header"><div class="wrap header-inner">
-<a class="brand" href="index.html"><span class="brand-mark">G.</span><span>GEMS Field Notes<small>Decision &amp; discovery</small></span></a>
-<nav class="nav" aria-label="Primary"><a href="index.html">Download</a><a href="executive-summary.html">Executive summary</a><a href="how-to-submit.html" aria-current="page">How to submit</a><a href="method.html">Why 0.2778 scored</a><a href="hypotheses.html">Hypotheses</a><a href="sources.html">Sources</a></nav>
-</div></header>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to make a submission — GEMSDOESASS2</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .step { border-left: 4px solid #2c7a4b; padding: 10px 16px; margin: 14px 0; background: #f7fbf8; }
+  .step h3 { margin: 4px 0 6px; }
+  code.big { font-size: 1.05em; background: #eef; padding: 2px 6px; border-radius: 4px; }
+  .warn { background: #fff6e5; border-left: 4px solid #d98c00; padding: 10px 16px; }
+  .ok { background: #eaf7ee; border-left: 4px solid #2c7a4b; padding: 10px 16px; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
 <main id="main">
-<div class="wrap"><div class="page-head">
-<div class="breadcrumb"><a href="index.html">Download</a> › How to submit</div>
-<h1>How to submit, step by step</h1>
-<p>Everything here is taken from the published competition pages. Where a source is silent, this page says so.</p>
-</div></div>
+<h1>How to make a submission (step by step, no manual inspection)</h1>
+<p><a href="index.html">← back to the dashboard</a> · <a href="executive-summary.html">executive summary</a></p>
 
-<section class="section-tight"><div class="wrap">
-<div class="status-card">
-<span class="status-tag">Ready to upload</span>
-<h2>Copy these two strings into the submission form</h2>
-<div class="status-mini" style="grid-template-columns:1fr">
-<span>Submission name (paste into &ldquo;Note&rdquo; if the form has no name field)<strong style="font-size:.85rem;word-break:break-all">GEMSDOESASS2-HCORR-LINEAMENT-OFFCAT-37654</strong></span>
-<span>Note — 118 characters, under the 140 limit<strong style="font-size:.85rem">GBM lineament-probability model on 56 GeoDAWN/INGENIOUS/3DEP bands, 300 m NMS, 200 m off-catalogue collar, 37654 cells</strong></span>
-<span>File<strong style="font-size:.85rem;word-break:break-all">gemsass2-hcorr-lineament-offcat-37654-20261031T000000Z-zeros.tif</strong></span>
-<span>SHA-256 — verify locally before you upload<strong style="font-size:.72rem;word-break:break-all">4367b360eda411afdba1a11db7dabd0a4744dbb3b679790b3d0fd77c2faf9c1f</strong></span>
+<div class="ok">
+<strong>Current submission file (validated 13/13 locally):</strong><br>
+<code class="big">gemsass2-s3-ring-binary-37654-20261031T054926Z-zeros.tif</code>
+— <a href="downloads/gemsass2-s3-ring-binary-37654-20261031T054926Z-zeros.tif">download the .tif</a>
+· <a href="downloads/gemsass2-s3-ring-binary-37654-20261031T054926Z-zeros.zip">download the .zip</a><br>
+SHA-256 <code>b84a4f2642500b9817b946d99db14471f4b935d110b794d2736f643d56f8f7ae</code>
 </div>
-<div class="buttons"><a class="btn btn-primary" href="downloads/gemsass2-hcorr-lineament-offcat-37654-20261031T000000Z-zeros.tif" download>⬇ Download the TIF</a>
-<a class="btn btn-outline" href="downloads/gemsass2-hcorr-lineament-offcat-37654-20261031T000000Z-zeros.zip" download>⬇ Or the ZIP</a></div>
+
+<h2>The steps</h2>
+
+<div class="step"><h3>1. Download the file above</h3>
+<p>Use the <strong><code>-zeros.tif</code></strong> variant (or its <code>-zeros.zip</code>).
+Every file on this site ships as a pair: <code>-zeros.tif</code> (portal-safe) and
+<code>-nan.tif</code> (a GIS twin with NaN outside the footprint, for visual inspection only).
+<strong>Never submit the <code>-nan.tif</code>.</strong></p></div>
+
+<div class="step"><h3>2. Open the competition submission page</h3>
+<p><a href="https://www.drivendata.org/competitions/306/competition-doe-gems/">DrivenData — Competition DOE GEMS</a>
+→ <em>Submit</em>. You must be logged in (data page and submissions both require a free account).</p></div>
+
+<div class="step"><h3>3. Choose the file</h3>
+<p>"File to submit" → pick the single-band GeoTIFF <code>.tif</code> you downloaded
+(or the <code>.zip</code> containing exactly one GeoTIFF). The portal checks that the CRS,
+shape and geotransform match the submission format — ours are verified locally against the
+organizer's own <code>sample_submission.tif</code> grid before publication (13 automated
+checks, receipt in <code>evidence/s3_validator_receipts_20261031.json</code>).</p></div>
+
+<div class="step"><h3>4. Fill in the name and the note</h3>
+<p><strong>Name:</strong> <code>GEMSDOESASS2-S3-RING-BINARY-37654</code><br>
+<strong>Note (optional, ≤140 characters):</strong>
+<code>ring-habitat blue-noise 37654 dots, 0% within 3px of catalogue, champion-matched budget, unique vs all GEMSDOE site rasters</code></p></div>
+
+<div class="step"><h3>5. Submit</h3>
+<p>Weekly cap: <strong>3 submissions per week</strong> (Official Rules §3.2). Check the
+executive summary's verdict block first — only files marked <em>OK TO DOWNLOAD AND SUBMIT</em>
+have passed the format gate, the uniqueness gate and the holdout gate automatically.</p></div>
+
+<h2>About the error “Predicted values must be in range [0, 1]”</h2>
+<div class="warn">
+<p><strong>Why it happens.</strong> The portal rejects rasters that contain values outside
+[0, 1] — including NaN cells treated as out-of-range in some upload paths, files with a
+nodata sentinel (e.g. −3.4e38) written into the data band, or non-float32 output.</p>
+<p><strong>How this project prevents it.</strong> The shared submission writer
+(<code>src/gems_sass2/submission.py</code>) emits <code>-zeros.tif</code> with
+<code>nodata=None</code> and <strong>all 12,279,160 cells finite float32 in [0, 1]</strong>
+(0.0 outside the official footprint, 0.0 on all 60,988 mapped catalogue cells) — matching
+the reference solution's output convention. Checks 09–11 of the 13-check validator enforce
+this on the saved bytes every time a file is built. If you ever see the error again, you
+uploaded a <code>-nan.tif</code> twin or a file from another source; use the
+<code>-zeros.tif</code> from this page.</p>
 </div>
-</div></section>
 
-<section class="section"><div class="wrap">
-<h2>1 · The five steps</h2>
-<ol class="steps">
-<li><strong>Download the file.</strong> Use the <code>-zeros.tif</code> (or its <code>.zip</code>). Do not mix the two encodings — see section 3.</li>
-<li><strong>Verify the hash.</strong> <code>sha256sum gemsass2-hcorr-lineament-offcat-37654-20261031T000000Z-zeros.tif</code> must print <code>4367b360…f2faf9c1f</code>. If it does not, re-download; do not upload.</li>
-<li><strong>Open the submission page</strong> at <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/submissions/" target="_blank" rel="noopener noreferrer">drivendata.org/…/submissions/</a> (login required) and choose &ldquo;New submission&rdquo;.</li>
-<li><strong>Attach the file</strong> — a single-band GeoTIFF, or a <code>.zip</code> containing exactly one GeoTIFF.</li>
-<li><strong>Paste the note</strong> above (118 characters, limit 140) and submit. Copy the score the portal returns into this repository — it becomes the first <strong>ORGANIZER-CONFIRMED</strong> number we have.</li>
-</ol>
+<h2>What the automated validation covers (no human inspection)</h2>
+<ol>
+<li>file exists, non-empty · 2. single band · 3. float32 · 4. CRS EPSG:32611 ·
+5. shape 3730×3292 · 6. geotransform exact · 7. footprint 5,167,373 cells ·
+8. catalogue 60,988 cells · 9. no NaN/Inf inside the footprint · 10. values in [0, 1] ·
+11. outside-footprint clean · 12. zero on known catalogue · 13. non-trivial predictions</ol>
+<p>Reproduce: <code>python scripts/fetch_data.py --dest .cache/gems_data</code> then the
+writer's <code>--validate-only</code> path (or <code>make</code>-equivalent in CI). The
+uniqueness gate (<code>scripts/uniqueness_gate.py</code>) runs automatically with the build.</p>
 
-<h2>2 · What the portal requires</h2>
-<p>Quoted from the official <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/" target="_blank" rel="noopener noreferrer">problem description</a>, &ldquo;Submission format&rdquo;:</p>
-<div class="table-shell"><table>
-<thead><tr><th scope="col">Requirement</th><th scope="col">This file</th></tr></thead>
-<tbody>
-<tr><td>Same projected CRS as the training data (UTM 11N, EPSG 32611)</td><td>EPSG:32611 ✓</td></tr>
-<tr><td>Same resolution (100 m)</td><td>100 m ✓</td></tr>
-<tr><td>Same bounds; data outside the bounds is null or nan</td><td>0.0 outside ✓ (a NaN twin is also provided)</td></tr>
-<tr><td>A single layer, datatype <code>float32</code></td><td>1 band, float32 ✓</td></tr>
-<tr><td>Values between 0 and 1</td><td>{0.0, 1.0} — every byte in [0,1] ✓</td></tr>
-</tbody></table></div>
-<p class="table-note">Rules on submission counts, from the <a href="https://docs.nlr.gov/docs/fy26osti/96647.pdf" target="_blank" rel="noopener noreferrer">Official Rules (NLR)</a> §3.2 and §3.4: &ldquo;You can make multiple submissions, subject to the limits specified on the competition website (three submissions per week)&rdquo; and &ldquo;you must select only one set of predictions to use as your final submission.&rdquo; GenAI use is permitted but &ldquo;you must indicate in the narrative … the extent to which, if any, you used generative AI technology&rdquo; (§3.2).</p>
-
-<h2 id="range-error">3 · The &ldquo;Predicted values must be in range [0, 1]&rdquo; error</h2>
-<p><strong>Download the <code>-zeros</code> file.</strong> That single choice removes the most likely cause.</p>
-<div class="table-shell"><table>
-<thead><tr><th scope="col">Encoding</th><th scope="col">Outside the footprint</th><th scope="col">Can it trigger the range error?</th></tr></thead>
-<tbody>
-<tr><td><strong>-zeros.tif</strong> ← ship this</td><td>finite <code>0.0</code></td><td><strong>No.</strong> Every byte of the file is a finite value in [0,1], so the check cannot fire on value range.</td></tr>
-<tr><td>-nan.tif</td><td><code>NaN</code></td><td>Uncertain. The spec explicitly allows NaN outside the bounds, but the portal's validation is not published; if it applies the [0,1] test to the whole array rather than the footprint, NaN can be rejected. This is the most probable cause of the reported error.</td></tr>
-</tbody></table></div>
-<p class="table-note"><strong>What we can and cannot prove.</strong> We could not reproduce the error: the rejected bytes and the portal response were not supplied to this repository, so the cause is a hypothesis, not a diagnosis. Two other documented traps: the official reference notebook writes <code>float64</code> (the spec asks for <code>float32</code>) and writes no NaN at all; and every top-scoring site file we could pin uses finite values in [0,1] everywhere. Ship <code>-zeros</code>, float32, and the risk goes to zero on value range. Full reasoning with links: <a href="https://github.com/sassnarep3-star/GEMSDOESASS2/blob/main/knowledge/03_official_metric_and_submission_format.md">knowledge/03</a>.</p>
-
-<h2>4 · After you submit</h2>
-<ol class="steps">
-<li><strong>Record the receipt.</strong> Paste the portal's returned score into <code>research/</code> or open an issue. One real number converts every &ldquo;MODEL ESTIMATE&rdquo; in this repository into a calibrated observation — it is worth more than another experiment.</li>
-<li><strong>Fit the transfer constant.</strong> With one ORGANIZER-CONFIRMED point and 40 measured rasters we can finally test which instrument, if any, tracks the hidden test set.</li>
-<li><strong>Respect the cap.</strong> Three submissions per week per participating entity (Rules §3.2), and a single file must be selected for both prize rounds (§3.4).</li>
-</ol>
-</div></section>
+<p><em>All historical site scores shown on this site are user-reported and unverified;
+the only numbers labelled HOLDOUT-DTI are computed by the shared evaluators in this
+repository. Nothing here is an organizer receipt.</em></p>
 </main>
-
-<footer class="site-footer"><div class="wrap footer-inner">
-<p><strong>GEMS Field Notes</strong> · submission guide · 2026-10-31</p>
-<div><a href="index.html">Download</a><a href="executive-summary.html">Executive summary</a><a href="method.html">Method</a><a href="sources.html">Sources</a></div>
-</div></footer></body></html>
+</body>
+</html>

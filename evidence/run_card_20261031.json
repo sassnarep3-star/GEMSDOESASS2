@@ -1,6 +1,6 @@
 {
   "schema_version": 3,
-  "generated_utc": "2026-10-31T06:44:10Z",
+  "generated_utc": "2026-10-31T06:56:17Z",
   "session": "2026-10-31 \u00b7 branch arena/a8aac5cd-gemsdoesass2",
   "hypothesis": "H-CORRIDOR: faults missed by the USGS/INGENIOUS Quaternary catalogue are carried by the same geophysical lineament signature as the mapped ones, so a model fitted on the public catalogue and applied OFF it will rank unmapped traces higher than the hand-built multi-line corroboration rule the nine focus sites all descend from.",
   "mechanism": "Gradient-boosted classifier on 56 independent geophysical/geometric bands plus 12 structure-tensor lineament fields; emission = top-ranked cells after 300 m non-maximum suppression, 200 m off-catalogue collar, at the champion's exact emitted mass of 37,654.",
@@ -312,5 +312,12 @@
     "margin_pct": 1.015,
     "reason": "alpha is a monotone transform and therefore a NO-OP under top-K selection, so the argmax row is not a model-driven placement at all - it is an arbitrary scan-order selection. The shipped row is the best model-driven member and is within 1.0% of the argmax. Disclosed rather than hidden."
   },
-  "weekly_slots_spent": 0
+  "weekly_slots_spent": 0,
+  "promotion_status": {
+    "promoted": false,
+    "advertised_as_download": false,
+    "decided_on": "2026-10-31 merge of PR #40",
+    "reason": "A parallel 2026-10-31 lane promoted gemsass2-s3-ring-binary-37654 (estimate 0.29, worst genuine-peer overlap 23.0%%, positive on the leakage-screened hide-and-recover instrument). Under the one-promoted-card invariant (IR-S-41) only one file may advertise a download, and this candidate is behind on every axis the two lanes share: estimate 0.23 vs 0.29, overlap 53.92%% vs 23.0%%, and negative on the off-catalogue proxy (-14.05%%) where S3-RING is positive. See IR-31-08.",
+    "owner_may_reverse": true
+  }
 }

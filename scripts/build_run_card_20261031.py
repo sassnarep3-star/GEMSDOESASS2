@@ -200,6 +200,21 @@ def main() -> int:
                       "the argmax. Disclosed rather than hidden.",
         },
         "weekly_slots_spent": 0,
+        "promotion_status": {
+            "promoted": False,
+            "advertised_as_download": False,
+            "decided_on": "2026-10-31 merge of PR #40",
+            "reason": ("A parallel 2026-10-31 lane promoted gemsass2-s3-ring-binary-37654 "
+                       "(estimate 0.29, worst genuine-peer overlap 23.0%%, positive on the "
+                       "leakage-screened hide-and-recover instrument). Under the "
+                       "one-promoted-card invariant (IR-S-41) only one file may advertise a "
+                       "download, and this candidate is behind on every axis the two lanes "
+                       "share: estimate 0.23 vs 0.29, overlap 53.92%% vs 23.0%%, and negative "
+                       "on the off-catalogue proxy (-14.05%%) where S3-RING is positive. "
+                       "See IR-31-08."),
+            "owner_may_reverse": True,
+        },
+
     }
     (ROOT / "evidence/run_card_20261031.json").write_text(json.dumps(card, indent=2) + "\n", encoding="utf-8")
     (ROOT / "docs/data/run-card-20261031.json").write_text(json.dumps(card, indent=2) + "\n", encoding="utf-8")

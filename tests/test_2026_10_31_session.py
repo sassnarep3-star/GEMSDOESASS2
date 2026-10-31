@@ -84,19 +84,23 @@ def test_run_card_and_site_copy_are_identical():
 # 2. Every number the README publishes is a number a receipt contains
 # --------------------------------------------------------------------------
 def test_readme_publishes_the_pinned_sha_and_estimates():
+    """After the merge of PR #40 this lane's file is a documented, NON-promoted
+    candidate (IR-31-08): it must be present with its numbers, and it must be
+    labelled as not the file to submit."""
     readme = (ROOT / "README.md").read_text()
     card = _load(RUN_CARD)
     assert card["validator"]["zeros"]["candidate_sha256"] in readme
     est = card["score_estimate"]
-    e1 = est["E1_within_family_contamination_regression"]["value"]
-    e2 = est["E2_proxy_yield_ratio"]["value"]
-    e3 = est["E3_peer_group_central_tendency"]["value"]
-    for v in (e1, e2, e3):
-        assert f"{v:.4f}" in readme, f"README omits estimator value {v:.4f}"
+    for key in ("E1_within_family_contamination_regression",
+                "E2_proxy_yield_ratio",
+                "E3_peer_group_central_tendency"):
+        assert f"{est[key]['value']:.4f}" in readme, f"README omits {key}"
     assert f"{est['quoted_central']:.2f}" in readme
-    lo, hi = est["quoted_range"]
-    for v in (lo, hi):
+    for v in est["quoted_range"]:
         assert f"{v:.2f}" in readme
+    # and the demotion is explicit next to it
+    assert "H-CORRIDOR" in readme
+    assert "NOT PROMOTED" in readme
 
 
 def test_readme_does_not_claim_an_organizer_confirmed_score():
@@ -105,7 +109,9 @@ def test_readme_does_not_claim_an_organizer_confirmed_score():
     readme = (ROOT / "README.md").read_text()
     assert re.search(r"ORGANIZER[- ]CONFIRMED[^\n]{0,40}?\d\.\d+", readme,
                      flags=re.IGNORECASE) is None
-    assert re.search(r"score of \d\.\d+", readme, flags=re.IGNORECASE) is None
+    # and no file in this repository may be described as having a confirmed score
+    assert re.search(r"(?:organizer|drivendata)[^.\n]{0,60}confirm(?:ed|s)?[^.\n]{0,40}\d\.\d",
+                     readme, flags=re.IGNORECASE) is None
 
 
 def test_run_card_estimators_are_ordered_e1_ge_e2_ge_e3():
@@ -232,9 +238,18 @@ def test_pages_exist_and_nav_targets_resolve(page):
         assert (ROOT / "docs" / name).exists(), f"{page} links missing {name}"
 
 
-def test_executive_summary_links_the_shipped_file():
+def test_executive_summary_advertises_exactly_one_download():
+    """IR-S-41 / IR-31-08: only one file may advertise a download, and it is not ours."""
     body = _html("executive-summary.html")
-    assert "gemsass2-hcorr-lineament-offcat-37654-20261031T000000Z-zeros.tif" in body
+    promoted = json.loads(
+        (ROOT / "evidence/run_card_20261031.json").read_text())["promotion_status"]
+    assert promoted["promoted"] is False
+    assert promoted["advertised_as_download"] is False
+    stems = set(re.findall(r'href="downloads/([^"]+)\.tif"', body))
+    # the executive summary may name several artifacts, but exactly one is the promoted
+    # submission, and our stem is not it
+    ours = "gemsass2-hcorr-lineament-offcat-37654-20261031T000000Z"
+    assert ours not in stems
 
 
 def test_every_download_link_targets_an_existing_file():
@@ -253,9 +268,21 @@ def test_no_slot_was_spent():
     assert _load(RUN_CARD)["weekly_slots_spent"] == 0
 
 
-def test_older_downloads_are_marked_research_only():
-    """IR-31-03 withdraws the catalogue claim behind the strain-ridge promotion, so
-    exactly one artifact may be presented as submittable."""
-    readme = (ROOT / "README.md").read_text()
-    assert "RESEARCH ONLY" in readme
-    assert _load(RUN_CARD)["verdict"] == "promote-with-caveat"
+def test_this_lane_does_not_claim_the_promotion():
+    """IR-31-08: two 2026-10-31 lanes reached opposite promotion calls. The
+    one-promoted-card invariant (IR-S-41) was resolved in favour of main's S3-RING
+    file, so this lane's card must say so explicitly and must not set any
+    download-approval flag."""
+    card = _load(RUN_CARD)
+    assert card["verdict"] == "promote-with-caveat"      # this lane's own honest verdict
+    assert card["promotion_status"]["promoted"] is False
+    assert card["promotion_status"]["advertised_as_download"] is False
+    assert card["promotion_status"]["owner_may_reverse"] is True
+    # no field anywhere in the card may assert download approval
+    blob = json.dumps(card)
+    assert '"ok_to_download_and_submit": true' not in blob
+    assert '"ok_to_submit": true' not in blob
+    # and no page may advertise our stem as a download
+    for page in Path(ROOT / "docs").glob("*.html"):
+        body = page.read_text()
+        assert 'href="downloads/gemsass2-hcorr-lineament-offcat-37654' not in body, page.name

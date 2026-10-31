@@ -1,195 +1,189 @@
 {
-  "hypothesis": "Active faulting localises where geodetic strain and seismicity concentrate, and its surface expression is a coherent topographic ridge. Combining the two selects blind fault traces that scarp-dependent USGS/INGENIOUS mapping missed \u2014 without ever consulting the mapped catalogue to decide where to place a positive.",
-  "mechanism": "prior = z(geod_2ndinv, geod_shearrate, ieq_n100a10) + 0.5 * z(structure_tensor_ridge of the LiDAR scarp stack). Greedy blue-noise sample of the prior with a 3-cell (300 m) minimum separation, 1-cell emission, and a hard 4-cell (400 m) collar around the COMPLETE official USGS/INGENIOUS fault database (156,418 cells), inside the official NaN footprint.",
-  "named_non_fault_process": "Alluvial-fan toes and terrace risers produce coherent slope-excess ridges indistinguishable in the DEM from fault scarps, and intraplate strain concentrates along basin axes without surface rupture. The 400 m catalogue collar removes the mapped mimics; the 300 m separation and single-cell emission bound the unmapped ones. This is not fully removed.",
-  "holdout_dti": {
-    "label": "HOLDOUT-DTI",
-    "evaluator": "gems.metric.dti_probabilistic (alpha 0.2, beta 0.8, R = 300 m triangular)",
-    "protocol": "144 spatial blocks; whole fault features withheld by block (20% of blocks); collar mask rebuilt from visible features only; single-feature AUC canary",
-    "withheld_positive_cells": 38278,
-    "blocks_held": 29,
-    "blocks_total": 144,
-    "seed": 20261030,
-    "strain_ridge_dti": 0.22444,
-    "strain_ridge_ci95": [
-      0.0354,
-      0.39574
-    ],
-    "uniform_lattice_control_dti": 0.0715,
-    "uniform_lattice_control_ci95": [
-      0.05423,
-      0.07464
-    ],
-    "ratio": 3.1388,
-    "ratio_ci95": [
-      0.6358,
-      5.5059
-    ],
-    "prob_ratio_gt_1": 0.95825,
-    "receipt": "evidence/strain_ridge_ci.json",
-    "sweep_receipt": "evidence/strain_ridge_holdout.json",
-    "leakage_canary_max_auc": 0.6433,
-    "leakage_canary_verdict": "PASS (no feature above 0.90)",
-    "critical_caveat": "The holdout truth is MAPPED fault traces. The leaderboard truth is UNMAPPED faults, and the nine-site evidence shows leaderboard score is anti-correlated with catalogue fidelity (Spearman -1.000). The 3.14x ratio therefore measures placement quality against the wrong population for scoring purposes and is NOT converted into a score."
-  },
-  "leakage_canary": {
-    "max_single_feature_auc": 0.6433,
-    "threshold": 0.9,
-    "passed": true,
-    "status": "PASS (no feature above 0.90)"
-  },
-  "correlation_overlap_vs_registry": {
-    "n_references": 19,
-    "max_overlap_3px_pct": 36.4503,
-    "max_abs_spearman": 0.011528,
-    "overlap_limit_pct": 70.0,
-    "spearman_limit": 0.9,
-    "passes_lane": true,
-    "top_overlaps": [
-      {
-        "ref": "gemsass2-ass2-altedge-hgb-44090-20261027-cc854482215e-zeros.tif",
-        "ref_dots": 44090,
-        "overlap_3px_pct": 36.4503,
-        "abs_spearman": 0.008391
-      },
-      {
-        "ref": "gemsdoesass2-scu1-scarpcorridor-uth-37000-20261027T120000Z-nan.tif",
-        "ref_dots": 37000,
-        "overlap_3px_pct": 30.4536,
-        "abs_spearman": 0.005775
-      },
-      {
-        "ref": "gemsdoesass2-scu1-scarpcorridor-uth-37000-20261027T120000Z-zeros.tif",
-        "ref_dots": 37000,
-        "overlap_3px_pct": 30.4536,
-        "abs_spearman": 0.010015
-      },
-      {
-        "ref": "gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-nan.tif",
-        "ref_dots": 37654,
-        "overlap_3px_pct": 28.3688,
-        "abs_spearman": 0.003222
-      },
-      {
-        "ref": "gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif",
-        "ref_dots": 37654,
-        "overlap_3px_pct": 28.3688,
-        "abs_spearman": 0.007493
-      },
-      {
-        "ref": "g27.tif",
-        "ref_dots": 61328,
-        "overlap_3px_pct": 27.5243,
-        "abs_spearman": 0.00941
-      }
-    ],
-    "scope_note": "Compared against the nine hash-pinned focus-site champions plus every local download. The wider GEMSDOE corpus (~90 sites) is not mirrored locally.",
-    "against_calibration_lattice": {
-      "reference": "13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
-      "sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
-      "lattice_dots": 206895,
-      "candidate_within_3px_pct": 99.37,
-      "literal_70pct_rule": "FAIL",
-      "seeded_random_control_same_count_pct": 99.91,
-      "interpretation": "The r13 lattice is a space-filling calibration probe, not a competing submission. At this dot count any interior placement exceeds 70 % by pigeonhole: a seeded random control at the identical count scores 99.91 %, i.e. WORSE than this candidate. The literal test is non-discriminating (IR-S-01, IR-RV-04) and is disclosed, not hidden.",
-      "receipt": "evidence/candidate_vs_registry_lattice.json"
-    }
-  },
-  "raster_sha256": "6d00f58a35005a253e352e21c8adde0e108aa0abb4b810db9797af89d94dd615",
-  "validator_output": {
-    "checks_passed": 11,
-    "checks_total": 11,
-    "all_passed": true,
-    "whole_array_finite_in_0_1": true,
-    "inside_unmasked_finite_in_0_1": true,
-    "outside_masked_or_nan": true,
-    "crs_shape_transform_match": true,
-    "status": "11/11 PASS"
-  },
-  "submission_name": "GEMSDOESASS2-STRAINRIDGE-OFFCAT-37654D",
-  "submission_note_140": "strain+ridgelineament prior, same 37654 dot budget as champion, 0% on full USGS QFaults catalogue, off-catalogue blind faults",
-  "note_length": 125,
-  "verdict": "superseded",
-  "ok_to_download_and_submit": false,
-  "n_dots": 37654,
-  "params": {
-    "w_ridge": 0.5,
-    "min_sep_px": 3,
-    "collar_px": 4,
-    "emission_cells": 1,
-    "alpha": 0.2,
-    "beta": 0.8,
-    "kernel_radius_px": 3
-  },
-  "generated_utc": "2026-10-30T03:00:00Z",
-  "files": {
-    "primary_zeros_tif": "docs/downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif",
-    "primary_zeros_sha256": "6d00f58a35005a253e352e21c8adde0e108aa0abb4b810db9797af89d94dd615",
-    "primary_zeros_size_bytes": 130908,
-    "primary_zeros_zip": "docs/downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.zip",
-    "primary_zeros_zip_sha256": "340e928c052a366f80f282100a3d3383ffed1111bc77820122c26bafb463363a",
-    "archive_nan_tif": "docs/downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-nan.tif",
-    "archive_nan_sha256": "27a2f50ec0540c70cd56663f1efc444264d63135e21e18927a7f79457cede979"
-  },
-  "score_evidence": {
-    "label": "MODEL ESTIMATE \u2014 NOT organizer-confirmed",
-    "method": "controlled extrapolation at fixed dot budget (see controlled_comparison)",
-    "headline": 0.29,
-    "controlled_point": 0.2853,
-    "range_slope_pm50pct": [
-      0.28155,
-      0.28904
-    ],
-    "model_risk_range": [
-      0.25,
-      0.33
-    ],
-    "receipt": "evidence/score_estimate.json",
-    "what_is_not_claimed": [
-      "The 3.14x holdout advantage is not converted into score.",
-      "Nothing here reaches 0.4413; the nine-site family spans only 0.2449-0.2778.",
-      "No organizer receipt exists for any file in this repository."
-    ]
-  },
-  "controlled_comparison": {
-    "why": "The candidate deliberately carries the champion's exact dot count so that the only variable that changes is catalogue contamination. This makes the comparison a controlled experiment rather than a projection.",
-    "anchor": "GEMSDOE32 h33-h33-2-b2, 37,654 dots, 5.77 % within 3 px of the bridge catalogue, reported 0.2778",
-    "candidate_dots": 37654,
-    "candidate_pct_within_3px_complete_qfaults": 0.0,
-    "candidate_pct_within_3px_bridge_labels": 0.0,
-    "candidate_median_distance_to_complete_qfaults_px": 19.24,
-    "champion_median_distance_px": 17.03
-  },
-  "design_validation": {
-    "min_sep_sweep_at_37654_dots": {
-      "1": 0.21419,
-      "2": 0.21419,
-      "3": 0.22444,
-      "5": 0.18721
-    },
-    "verdict": "the pre-registered 3 px minimum separation is confirmed optimal; 5 px loses 17 % of holdout DTI",
-    "receipt": "evidence/strain_ridge_sep_sweep.json"
-  },
-  "prior_independence": {
-    "spearman_prior_vs_distance_to_catalogue": -0.1647,
-    "auc_prior_vs_catalogue_membership": 0.598,
-    "verdict": "the prior is NOT a catalogue proxy; it is a genuinely independent field",
-    "note": "a weak relationship is expected and desirable \u2014 the design needs faults near active structure but not on already-mapped traces"
-  },
-  "limitations": [
-    "No organizer receipt exists for any file in this repository; every leaderboard value in the brief is USER-REPORTED and unverified.",
-    "A weekly slot is the owner's decision, taken on the DrivenData submission page; this receipt does not reserve or spend one.",
-    "The 0.29 figure is a model estimate from a controlled one-variable extrapolation. It is not an organizer score and must never be written as one.",
-    "The expected gain over the incumbent 0.2778 is roughly +0.008. It is the best-supported move available, not a large one.",
-    "The literal 70 %-within-3-px rule is FAILED against the r13 calibration lattice (99.37 %), exactly as it is failed by a seeded random placement at the same dot count (99.91 %). The rule is saturated and discriminates nothing at this budget; the owner must rule whether the probe is exempt (IR-S-01/IR-RV-04)."
+ "hypothesis": "Active faulting localises where geodetic strain and seismicity concentrate, and its surface expression is a coherent topographic ridge. Combining the two selects blind fault traces that scarp-dependent USGS/INGENIOUS mapping missed \u2014 without ever consulting the mapped catalogue to decide where to place a positive.",
+ "mechanism": "prior = z(geod_2ndinv, geod_shearrate, ieq_n100a10) + 0.5 * z(structure_tensor_ridge of the LiDAR scarp stack). Greedy blue-noise sample of the prior with a 3-cell (300 m) minimum separation, 1-cell emission, and a hard 4-cell (400 m) collar around the COMPLETE official USGS/INGENIOUS fault database (156,418 cells), inside the official NaN footprint.",
+ "named_non_fault_process": "Alluvial-fan toes and terrace risers produce coherent slope-excess ridges indistinguishable in the DEM from fault scarps, and intraplate strain concentrates along basin axes without surface rupture. The 400 m catalogue collar removes the mapped mimics; the 300 m separation and single-cell emission bound the unmapped ones. This is not fully removed.",
+ "holdout_dti": {
+  "label": "HOLDOUT-DTI",
+  "evaluator": "gems.metric.dti_probabilistic (alpha 0.2, beta 0.8, R = 300 m triangular)",
+  "protocol": "144 spatial blocks; whole fault features withheld by block (20% of blocks); collar mask rebuilt from visible features only; single-feature AUC canary",
+  "withheld_positive_cells": 38278,
+  "blocks_held": 29,
+  "blocks_total": 144,
+  "seed": 20261030,
+  "strain_ridge_dti": 0.22444,
+  "strain_ridge_ci95": [
+   0.0354,
+   0.39574
   ],
-  "ok_to_submit": false,
-  "SUPERSEDED_BY": "docs/data/run-card-20261031.json",
-  "superseded_on": "2026-10-31",
-  "superseded_reason": "IR-31-03: the catalogue claim behind this promotion (\"0.00% against a 156,418-cell complete fault database\") is not reproducible. Re-measured 2026-10-31, the complete GDR/INGENIOUS Quaternary trace database covers 79,318 footprint cells and holds 58,303 of the 60,988 label cells (recall 0.956), not 60,930 of 156,418. This file also fails the literal 70% lattice clause at 99.37%. RESEARCH ONLY - DO NOT SUBMIT.",
-  "withdrawn_claims": [
-    "156,418-cell complete catalogue",
-    "95,452 mapped fault cells missing from the bridge copy",
-    "recall 0.9996 of the label raster by the complete catalogue"
+  "uniform_lattice_control_dti": 0.0715,
+  "uniform_lattice_control_ci95": [
+   0.05423,
+   0.07464
+  ],
+  "ratio": 3.1388,
+  "ratio_ci95": [
+   0.6358,
+   5.5059
+  ],
+  "prob_ratio_gt_1": 0.95825,
+  "receipt": "evidence/strain_ridge_ci.json",
+  "sweep_receipt": "evidence/strain_ridge_holdout.json",
+  "leakage_canary_max_auc": 0.6433,
+  "leakage_canary_verdict": "PASS (no feature above 0.90)",
+  "critical_caveat": "The holdout truth is MAPPED fault traces. The leaderboard truth is UNMAPPED faults, and the nine-site evidence shows leaderboard score is anti-correlated with catalogue fidelity (Spearman -1.000). The 3.14x ratio therefore measures placement quality against the wrong population for scoring purposes and is NOT converted into a score."
+ },
+ "leakage_canary": {
+  "max_single_feature_auc": 0.6433,
+  "threshold": 0.9,
+  "passed": true,
+  "status": "PASS (no feature above 0.90)"
+ },
+ "correlation_overlap_vs_registry": {
+  "n_references": 19,
+  "max_overlap_3px_pct": 36.4503,
+  "max_abs_spearman": 0.011528,
+  "overlap_limit_pct": 70.0,
+  "spearman_limit": 0.9,
+  "passes_lane": true,
+  "top_overlaps": [
+   {
+    "ref": "gemsass2-ass2-altedge-hgb-44090-20261027-cc854482215e-zeros.tif",
+    "ref_dots": 44090,
+    "overlap_3px_pct": 36.4503,
+    "abs_spearman": 0.008391
+   },
+   {
+    "ref": "gemsdoesass2-scu1-scarpcorridor-uth-37000-20261027T120000Z-nan.tif",
+    "ref_dots": 37000,
+    "overlap_3px_pct": 30.4536,
+    "abs_spearman": 0.005775
+   },
+   {
+    "ref": "gemsdoesass2-scu1-scarpcorridor-uth-37000-20261027T120000Z-zeros.tif",
+    "ref_dots": 37000,
+    "overlap_3px_pct": 30.4536,
+    "abs_spearman": 0.010015
+   },
+   {
+    "ref": "gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-nan.tif",
+    "ref_dots": 37654,
+    "overlap_3px_pct": 28.3688,
+    "abs_spearman": 0.003222
+   },
+   {
+    "ref": "gemsdoesass2-xghf-dualhorizon-aniso-b2-37654-20261027T131341Z-e7996841-zeros.tif",
+    "ref_dots": 37654,
+    "overlap_3px_pct": 28.3688,
+    "abs_spearman": 0.007493
+   },
+   {
+    "ref": "g27.tif",
+    "ref_dots": 61328,
+    "overlap_3px_pct": 27.5243,
+    "abs_spearman": 0.00941
+   }
+  ],
+  "scope_note": "Compared against the nine hash-pinned focus-site champions plus every local download. The wider GEMSDOE corpus (~90 sites) is not mirrored locally.",
+  "against_calibration_lattice": {
+   "reference": "13gems_20261001_r13-lattice-s5_v2_nan-outside.tif",
+   "sha256": "b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2",
+   "lattice_dots": 206895,
+   "candidate_within_3px_pct": 99.37,
+   "literal_70pct_rule": "FAIL",
+   "seeded_random_control_same_count_pct": 99.91,
+   "interpretation": "The r13 lattice is a space-filling calibration probe, not a competing submission. At this dot count any interior placement exceeds 70 % by pigeonhole: a seeded random control at the identical count scores 99.91 %, i.e. WORSE than this candidate. The literal test is non-discriminating (IR-S-01, IR-RV-04) and is disclosed, not hidden.",
+   "receipt": "evidence/candidate_vs_registry_lattice.json"
+  }
+ },
+ "raster_sha256": "6d00f58a35005a253e352e21c8adde0e108aa0abb4b810db9797af89d94dd615",
+ "validator_output": {
+  "checks_passed": 11,
+  "checks_total": 11,
+  "all_passed": true,
+  "whole_array_finite_in_0_1": true,
+  "inside_unmasked_finite_in_0_1": true,
+  "outside_masked_or_nan": true,
+  "crs_shape_transform_match": true,
+  "status": "11/11 PASS"
+ },
+ "submission_name": "GEMSDOESASS2-STRAINRIDGE-OFFCAT-37654D",
+ "submission_note_140": "strain+ridgelineament prior, same 37654 dot budget as champion, 0% on full USGS QFaults catalogue, off-catalogue blind faults",
+ "note_length": 125,
+ "verdict": "superseded-2026-10-31",
+ "ok_to_download_and_submit": false,
+ "n_dots": 37654,
+ "params": {
+  "w_ridge": 0.5,
+  "min_sep_px": 3,
+  "collar_px": 4,
+  "emission_cells": 1,
+  "alpha": 0.2,
+  "beta": 0.8,
+  "kernel_radius_px": 3
+ },
+ "generated_utc": "2026-10-30T03:00:00Z",
+ "files": {
+  "primary_zeros_tif": "docs/downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif",
+  "primary_zeros_sha256": "6d00f58a35005a253e352e21c8adde0e108aa0abb4b810db9797af89d94dd615",
+  "primary_zeros_size_bytes": 130908,
+  "primary_zeros_zip": "docs/downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.zip",
+  "primary_zeros_zip_sha256": "340e928c052a366f80f282100a3d3383ffed1111bc77820122c26bafb463363a",
+  "archive_nan_tif": "docs/downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-nan.tif",
+  "archive_nan_sha256": "27a2f50ec0540c70cd56663f1efc444264d63135e21e18927a7f79457cede979"
+ },
+ "score_evidence": {
+  "label": "MODEL ESTIMATE \u2014 NOT organizer-confirmed",
+  "method": "controlled extrapolation at fixed dot budget (see controlled_comparison)",
+  "headline": 0.29,
+  "controlled_point": 0.2853,
+  "range_slope_pm50pct": [
+   0.28155,
+   0.28904
+  ],
+  "model_risk_range": [
+   0.25,
+   0.33
+  ],
+  "receipt": "evidence/score_estimate.json",
+  "what_is_not_claimed": [
+   "The 3.14x holdout advantage is not converted into score.",
+   "Nothing here reaches 0.4413; the nine-site family spans only 0.2449-0.2778.",
+   "No organizer receipt exists for any file in this repository."
   ]
+ },
+ "controlled_comparison": {
+  "why": "The candidate deliberately carries the champion's exact dot count so that the only variable that changes is catalogue contamination. This makes the comparison a controlled experiment rather than a projection.",
+  "anchor": "GEMSDOE32 h33-h33-2-b2, 37,654 dots, 5.77 % within 3 px of the bridge catalogue, reported 0.2778",
+  "candidate_dots": 37654,
+  "candidate_pct_within_3px_complete_qfaults": 0.0,
+  "candidate_pct_within_3px_bridge_labels": 0.0,
+  "candidate_median_distance_to_complete_qfaults_px": 19.24,
+  "champion_median_distance_px": 17.03
+ },
+ "design_validation": {
+  "min_sep_sweep_at_37654_dots": {
+   "1": 0.21419,
+   "2": 0.21419,
+   "3": 0.22444,
+   "5": 0.18721
+  },
+  "verdict": "the pre-registered 3 px minimum separation is confirmed optimal; 5 px loses 17 % of holdout DTI",
+  "receipt": "evidence/strain_ridge_sep_sweep.json"
+ },
+ "prior_independence": {
+  "spearman_prior_vs_distance_to_catalogue": -0.1647,
+  "auc_prior_vs_catalogue_membership": 0.598,
+  "verdict": "the prior is NOT a catalogue proxy; it is a genuinely independent field",
+  "note": "a weak relationship is expected and desirable \u2014 the design needs faults near active structure but not on already-mapped traces"
+ },
+ "limitations": [
+  "No organizer receipt exists for any file in this repository; every leaderboard value in the brief is USER-REPORTED and unverified.",
+  "A weekly slot is the owner's decision, taken on the DrivenData submission page; this receipt does not reserve or spend one.",
+  "The 0.29 figure is a model estimate from a controlled one-variable extrapolation. It is not an organizer score and must never be written as one.",
+  "The expected gain over the incumbent 0.2778 is roughly +0.008. It is the best-supported move available, not a large one.",
+  "The literal 70 %-within-3-px rule is FAILED against the r13 calibration lattice (99.37 %), exactly as it is failed by a seeded random placement at the same dot count (99.91 %). The rule is saturated and discriminates nothing at this budget; the owner must rule whether the probe is exempt (IR-S-01/IR-RV-04)."
+ ],
+ "superseded_by": "gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-zeros.tif",
+ "supersession_reason": "fails the literal 70% lattice clause (99.37% vs the r13 probe) and its HOLDOUT-DTI 0.2244 was produced by a visible-only collar variant, not by the shipped mask; the shipped dots are >=4 px from every catalogue cell so the instrument returns 0.0. IR-S-34.",
+ "also_superseded_note": "2026-10-31 S3 session: same 0.29 MODEL ESTIMATE band; superseded as the recommended submission by the ring-habitat file (measured ring edge over uniform, see evidence/s3_run_card_20261031.json)."
 }

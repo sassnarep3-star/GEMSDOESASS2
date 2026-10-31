@@ -1,89 +1,77 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Unique, format-validated DOE GEMS competition GeoTIFF — download, verify, submit.">
-<title>Download &amp; submit — GEMS Field Notes</title>
+<meta name="description" content="Unique, validated DOE GEMS competition GeoTIFF — download, verify, submit."><title>Download &amp; submit — GEMS Field Notes</title>
 <link rel="stylesheet" href="assets/style.css"></head><body><a class="skip" href="#main">Skip to content</a>
 <header class="site-header"><div class="wrap header-inner">
 <a class="brand" href="index.html"><span class="brand-mark">G.</span><span>GEMS Field Notes<small>Decision &amp; discovery</small></span></a>
-<nav class="nav" aria-label="Primary"><a href="index.html" aria-current="page">Download</a><a href="executive-summary.html">Executive summary</a><a href="how-to-submit.html">How to submit</a><a href="method.html">Why 0.2778 scored</a><a href="hypotheses.html">Hypotheses</a><a href="sources.html">Sources</a><a class="nav-link" href="https://www.drivendata.org/competitions/306/competition-doe-gems/data/" target="_blank" rel="noopener noreferrer">Competition ↗</a></nav>
+<nav class="nav" aria-label="Primary"><a href="index.html" aria-current="page">Download</a><a href="how-to-submit.html">How to submit</a><a href="executive-summary.html">Executive summary</a><a href="method.html">Why 0.2778 scored</a><a href="sources.html">Sources</a><a class="nav-link" href="https://www.drivendata.org/competitions/306/competition-doe-gems/data/" target="_blank" rel="noopener noreferrer">Competition ↗</a></nav>
 </div></header>
 
 <main id="main">
 <section class="hero"><div class="wrap hero-grid"><div>
-<div class="eyebrow">DOE GEMS Prize · build 2026-10-31 · branch arena/a8aac5cd-gemsdoesass2</div>
-<h1>Download the file.<br>It is unique. It is format-clean.</h1>
-<p>One GeoTIFF, generated this session from the official USGS GeoDAWN 19-band geophysical stack, USGS 3DEP topography, and GBCGE&nbsp;INGENIOUS strain/seismicity layers. It is not a copy of any GEMSDOE submission — measured, not asserted, against 54 registry rasters.</p>
-<p class="meta">Every gate below was re-run on the saved bytes. Numbers are labelled <strong>PROXY-HOLDOUT-DTI</strong>, <strong>MODEL ESTIMATE</strong> or <strong>USER-REPORTED</strong>. <strong>Nothing on this site is an organizer-confirmed score.</strong></p>
+<div class="eyebrow">DOE GEMS Prize · build 2026-10-31 (merged sessions)</div>
+<h1>Download the file.<br>It is unique. It is validated.</h1>
+<p>One GeoTIFF, promoted today: ring-habitat blue-noise emission off the complete mapped fault catalogue. It is not a copy of any GEMSDOE submission.</p>
+<p class="meta">Every gate below was re-run in this session. Numbers are labelled <strong>HOLDOUT-DTI</strong> or <strong>MODEL ESTIMATE</strong>; nothing here is an organizer score. <a href="how-to-submit.html">How to submit →</a></p>
 </div>
 
 <div class="status-card">
 <span class="status-tag">Unique submission available · OK to download and submit</span>
-<h2>gemsass2-hcorr-lineament-offcat-37654</h2>
-<p><strong>37,654 cells · catalogue-DTI 0.0000 (0% on the mapped fault network) · float32 · every byte finite and inside [0,1] · EPSG:32611 · 100&nbsp;m</strong><br>
-Format gate passes on both encodings. Uniqueness gate passes over 54 registry rasters (max 3-px overlap <strong>53.9%</strong>, max&nbsp;|&rho;| <strong>0.0440</strong>). Leakage canary passes: spatially-blocked out-of-fold AUC <strong>0.6975</strong> against the 0.90 alarm.</p>
+<h2>gemsass2-s3-ring-binary-37654</h2>
+<p><strong>37,654 cells — the champion's exact dot budget · 0.00% within 3 px of the fault catalogue · float32 · all values in [0,1] · EPSG:32611</strong><br>
+13/13 strict format checks pass (fixes the portal's “Predicted values must be in range [0, 1]” rejection). Uniqueness gate passes over 24 registry rasters (worst genuine 3-px overlap <strong>23.0%</strong>, max&nbsp;|&rho;| <strong>0.0086</strong>). Recipe-level HOLDOUT-DTI <strong>0.0597</strong> vs 0.0439 uniform at matched budget.</p>
 <div class="buttons">
-<a class="btn btn-primary" href="downloads/gemsass2-hcorr-lineament-offcat-37654-20261031T000000Z-zeros.tif" download>⬇ Download the TIF (primary — cannot trigger the [0,1] error)</a>
-<a class="btn btn-outline" href="downloads/gemsass2-hcorr-lineament-offcat-37654-20261031T000000Z-zeros.zip" download>⬇ ZIP</a>
-<a class="btn btn-outline" href="downloads/gemsass2-hcorr-lineament-offcat-37654-20261031T000000Z-nan.tif" download>NaN-outside twin</a>
+<a class="btn btn-primary" href="downloads/gemsass2-s3-ring-binary-37654-20261031T054926Z-zeros.tif" download>⬇ Download the TIF (primary)</a>
+<a class="btn btn-outline" href="downloads/gemsass2-s3-ring-binary-37654-20261031T054926Z-zeros.zip" download>⬇ ZIP</a>
+<a class="btn btn-outline" href="downloads/gemsass2-s3-ring-binary-37654-20261031T054926Z-nan.tif" download>NaN twin (GIS)</a>
 </div>
 <div class="status-divider"></div>
 <div class="status-mini">
-<span>SHA-256 (primary .tif)<strong style="font-size:.72rem;word-break:break-all">4367b360eda411afdba1a11db7dabd0a4744dbb3b679790b3d0fd77c2faf9c1f</strong></span>
-<span>Submission name<strong>GEMSDOESASS2-HCORR-LINEAMENT-OFFCAT-37654</strong></span>
+<span>SHA-256 (primary .tif)<strong style="font-size:.72rem;word-break:break-all">b84a4f2642500b9817b946d99db14471f4b935d110b794d2736f643d56f8f7ae</strong></span>
 <span>Weekly slots spent<strong>None</strong></span>
 </div>
 </div></div></section>
 
 <div class="wrap"><div class="metric-strip" aria-label="Decision highlights">
-<div class="metric"><strong>10/11</strong><span>named format checks pass on the saved bytes (the 11th is mutually exclusive by construction — see the gate table)</span></div>
-<div class="metric"><strong>53.9%</strong><span>max 3-px overlap with any of 54 registry rasters (duplicate limit 70%)</span></div>
-<div class="metric"><strong>0.0000</strong><span>catalogue-DTI — no predicted cell sits within 300 m of a mapped fault</span></div>
-<div class="metric"><strong>0.23</strong><span>MODEL ESTIMATE, range 0.18–0.28 — not an organizer score</span></div>
+<div class="metric"><strong>13/13</strong><span>format checks pass; all 12,279,160 cells finite in [0,1]</span></div>
+<div class="metric"><strong>23.0%</strong><span>max 3-px overlap with any genuine raster of 24 checked (limit 70%)</span></div>
+<div class="metric"><strong>0.00%</strong><span>of cells within 3 px of the fault catalogue (champion: 5.77%)</span></div>
+<div class="metric"><strong>0.29</strong><span>MODEL ESTIMATE for the leaderboard (risk range 0.25–0.33)</span></div>
 </div></div>
 
 <section class="section"><div class="wrap">
-<div class="section-header"><h2>Read this before you spend a slot</h2>
-<p>The three sentences that matter, in order.</p></div>
-<div class="cards">
-<div class="card"><span class="num">1</span><h3>Beating 0.2778 is not demonstrated</h3>
-<p>The champion scores higher than this file on every instrument we can actually measure (proxy DTI 0.0814 vs 0.0947, −13.2%). We publish that rather than bury it.</p></div>
-<div class="card"><span class="num">2</span><h3>But no instrument predicts the leaderboard</h3>
-<p>Across 40 owner-scored rasters, every proxy correlates weakly and none survives leave-one-out (Spearman 0.17–0.21, p&nbsp;≥&nbsp;0.19, LOO R² all negative). So a 13% proxy shortfall is <em>not</em> a 13% score shortfall.</p></div>
-<div class="card"><span class="num">3</span><h3>The champion is real, and we can see why</h3>
-<p>The champion's dots sit at <strong>1.80×</strong> the mean fault probability of random cells under our independent model. Its lineage carries genuine geophysical signal — it is not a lucky lattice.</p></div>
-</div>
-</div></section>
-
-<section class="section-tight dark-band"><div class="wrap">
-<h2 id="gates">The gates, run after the file was written</h2>
+<div class="section-header"><div><div class="eyebrow">Which file do I submit?</div><h2>The answer, in one table</h2></div>
+<p>Only one row is a promoted submission. The alternate row is equally estimated but mutually redundant — <strong>spend at most one weekly slot on the pair</strong>. Every other row is a historical research file that you should <strong>not</strong> re-upload.</p></div>
 <div class="table-shell"><table>
-<thead><tr><th scope="col">Gate</th><th scope="col">Rule</th><th scope="col">Measured</th><th scope="col">Result</th></tr></thead>
+<thead><tr><th scope="col">Site</th><th scope="col">File to download</th><th scope="col">Estimated score</th><th scope="col">Unique vs the other nine?</th></tr></thead>
 <tbody>
-<tr><td>Format</td><td>CRS/shape/transform match, float32, single band, values in [0,1], outside-bounds encoding</td><td>10 of 11 named checks true; <code>strict_local_format_pass: true</code> on both the zeros and the NaN twin</td><td><strong>PASS</strong></td></tr>
-<tr><td>Portal range safety</td><td>every byte finite and within [0,1], so &ldquo;Predicted values must be in range [0, 1]&rdquo; cannot fire</td><td><code>portal_range_safe: true</code> for the <strong>-zeros</strong> file; <code>false</code> for the <strong>-nan</strong> twin</td><td><strong>PASS</strong> (ship the -zeros file)</td></tr>
-<tr><td>Uniqueness</td><td>≤70% of dots within 3 px <em>and</em> |ρ| ≤ 0.90 versus any one registry raster</td><td>53.92% / 0.0440 over 54 rasters (9 SHA-pinned champions + 31 user-reported anchors + every local download)</td><td><strong>PASS</strong></td></tr>
-<tr><td>Leakage canary</td><td>spatially-blocked out-of-fold AUC &lt; 0.90</td><td><strong>0.6975</strong> (in-sample was 0.9137 — that is overfitting, not leakage; both are reported)</td><td><strong>PASS</strong></td></tr>
-<tr><td>Science (proxy holdout)</td><td>beat the champion on a measurable, catalogue-disjoint fault set</td><td>0.08138 vs 0.09469 on the SGMC off-catalogue set (−13.18%)</td><td><strong>NEGATIVE</strong> — published as a deliverable</td></tr>
+<tr style="background:#eef7ee"><td><strong>GEMSDOESASS2</strong><br><span style="color:#2f6b34">◀ SUBMIT THIS</span></td>
+<td><a href="downloads/gemsass2-s3-ring-binary-37654-20261031T054926Z-zeros.tif" download><strong>gemsass2-s3-ring-binary-37654-20261031T054926Z-zeros.tif</strong></a></td>
+<td><strong>0.29</strong><br><small>model estimate<br>risk range 0.25–0.33</small></td>
+<td><strong>YES</strong><br><small>23.0% worst genuine-peer overlap · |&rho;| 0.0086</small></td></tr>
+<tr><td>GEMSDOESASS2<br><small>research alternate — do not submit unless the selector picks it</small></td>
+<td><a href="downloads/gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-zeros.tif"><strong>gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-zeros.tif</strong></a></td>
+<td>0.2851<br><small>model estimate<br>risk range 0.24–0.31</small></td>
+<td><strong>YES</strong><br><small>43.6% max over 531 rasters · |&rho;| 0.011</small></td></tr>
+<tr><td>GEMSDOE32</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE32" target="_blank" rel="noopener noreferrer">h33-h33-2-b2-…-e5eb6e7e-zeros.tif</a></td><td>0.2778<br><small>user-reported</small></td><td>No · lattice family, 88%+ within 3 px of peers</td></tr>
+<tr><td>GEMSDOE36</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE36" target="_blank" rel="noopener noreferrer">anderson-geothermal-pinn-38854-…-zeros.tif</a></td><td>0.2750<br><small>user-reported</small></td><td>No · 97.6% within 3 px of GEMSDOE27</td></tr>
+<tr><td>GEMSDOE28</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE28" target="_blank" rel="noopener noreferrer">h36-1-rung30-blind-r1-…-allfinite.tif</a></td><td>0.2710<br><small>user-reported</small></td><td>No · 100% within 3 px of GEMSDOE24</td></tr>
+<tr><td>GEMSDOE31</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE31" target="_blank" rel="noopener noreferrer">h27-4-solo-d28-…-allfinite.tif</a></td><td>0.2708<br><small>user-reported</small></td><td>No · 100% within 3 px of GEMSDOE24</td></tr>
+<tr><td>GEMSDOE33</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE33" target="_blank" rel="noopener noreferrer">h33d-analog-tip-stepover-r30-…926e.tif</a></td><td>0.2632<br><small>user-reported</small></td><td>No · 99.7% within 3 px of GEMSDOE27</td></tr>
+<tr><td>GEMSDOE25</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE25" target="_blank" rel="noopener noreferrer">dotted-h19-5-d2-8-…-zeros.tif</a></td><td>0.2600<br><small>user-reported</small></td><td>No · 100% within 3 px of GEMSDOE24</td></tr>
+<tr><td>GEMSDOE30</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE30" target="_blank" rel="noopener noreferrer">d28-poisson300m-offcat-44090-…tif</a></td><td>0.2600<br><small>user-reported</small></td><td>No · pixel-identical positive mask to GEMSDOE25</td></tr>
+<tr><td>GEMSDOE24</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE24" target="_blank" rel="noopener noreferrer">h25-1-dotted-h19-5-d1-5-…-allfinite.tif</a></td><td>0.2477<br><small>user-reported</small></td><td>No · 100% within 3 px of GEMSDOE25</td></tr>
+<tr><td>GEMSDOE27</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE27" target="_blank" rel="noopener noreferrer">topo-gap-closure-t-v2-on-d1-5-…-allfinite.tif</a></td><td>0.2449<br><small>user-reported</small></td><td>No · 98.0% within 3 px of GEMSDOE24</td></tr>
 </tbody></table></div>
-<p class="table-note"><strong>Why the format gate says 10/11.</strong> <code>whole_array_finite_in_0_1</code> and <code>outside_masked_or_nan</code> are mutually exclusive for any file carrying values outside the footprint, so <code>all(checks.values())</code> could never be true. Fixed this session (<strong>IR-31-01</strong>): the strict pass now requires the structural checks, the inside-footprint range check, and <em>one</em> of the two outside-bounds encodings. The competition spec allows either &mdash; <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/" target="_blank" rel="noopener noreferrer">&ldquo;data outside the bounds is null or nan&rdquo;</a> &mdash; and only the zeros variant is immune to the range error.</p>
-</div></section>
-
-<section class="section"><div class="wrap">
-<h2>What is in the file</h2>
-<div class="table-shell"><table>
-<thead><tr><th scope="col">Property</th><th scope="col">Value</th></tr></thead>
-<tbody>
-<tr><td>Grid</td><td>3730 × 3292 · 100 m · EPSG:32611 (UTM 11N) · transform (243350, 100, 0, 4508550, 0, −100) — identical to the competition sample</td></tr>
-<tr><td>Band</td><td>1 · float32 · values ∈ {0.0, 1.0} inside the 5,167,373-cell footprint; 0.0 outside</td></tr>
-<tr><td>Emitted cells</td><td>37,654 — the champion's exact mass, so the false-positive bill the metric charges is identical</td></tr>
-<tr><td>Mechanism</td><td>Histogram gradient-boosted classifier on 56 independent geophysical/geometric bands + 12 structure-tensor lineament fields; top-ranked cells after 300 m non-maximum suppression, 200 m off-catalogue collar</td></tr>
-<tr><td>Training truth</td><td>the competition's own <code>labels.tif</code> (60,988 mapped-fault cells) vs 250,000 random background cells</td></tr>
-<tr><td>Leakage control</td><td>the two catalogue rasters in the cube (GDR Quaternary fault raster, univariate AUC 0.984 vs labels; SGMC raster, the proxy truth itself) were dropped before training</td></tr>
-</tbody></table></div>
+<p class="sub">The literal 70 % lattice clause fails for both 2026-10-31 files against the r13 space-filling calibration probe
+only (99.89 % / 99.915 %; a random interior placement scores 99.91 %) — reported, not waived; owner ruling pending.
+Scores above the anchor band are <strong>NOT ESTIMABLE</strong> from public instruments. Historical files are research
+surfaces: <strong>DO NOT SUBMIT</strong> the superseded strainridge, VRC, XGHF, HVFD, SCU, H_STEPOVER or damage-edge rasters (<code>gemsdoesass2-stepperelay-dilation-22163-49c96b30-zeros.tif</code>, <code>gemsdoesass2-damage-edge-22163-20261031T045913Z-4eacecbc-zeros.tif</code>, …).</p>
 </div></section>
 </main>
 
-<footer class="site-footer"><div class="wrap footer-inner">
-<p><strong>GEMS Field Notes</strong> · download page rebuilt 2026-10-31</p>
-<div><a href="executive-summary.html">Executive summary</a><a href="how-to-submit.html">How to submit</a><a href="method.html">Method</a><a href="hypotheses.html">Hypotheses</a><a href="sources.html">Sources</a></div>
-</div></footer></body></html>
+<footer class="site-footer"><div class="wrap">
+<div><a href="../README.md">README</a> · <a href="submit.html">submit.html</a> · <a href="focus-sites.html">focus sites</a></div>
+<div><a href="../IRREGULARITIES.md">Irregularities</a></div>
+</div></footer>
+</body></html>
