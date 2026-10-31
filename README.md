@@ -7,14 +7,13 @@ submission walkthrough: [`docs/how-to-submit.html`](docs/how-to-submit.html) · 
 
 **One-promoted-card invariant (IR-S-41): exactly one file is cleared to submit.** Two 2026-10-31
 builds are equally estimated and mutually redundant — **spend at most ONE weekly slot on this pair.**
-
 | Item | **PROMOTED — GEMSDOESASS2-S3-RING-BINARY-37654** | Alternate (promote-alternate) — GEMSDOESASS2-COLLAR4HEX-37636D |
 |---|---|---|
 | **File to download** | [`gemsass2-s3-ring-binary-37654-20261031T054926Z-zeros.tif`](docs/downloads/gemsass2-s3-ring-binary-37654-20261031T054926Z-zeros.tif) | [`gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-zeros.tif`](docs/downloads/gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-zeros.tif) |
 | SHA-256 | `b84a4f2642500b9817b946d99db14471f4b935d110b794d2736f643d56f8f7ae` | `c200ceccef52b45b979d5a2ad5c184516f8181828493400704a408074b7cbeb6` |
 | Cells | 37,654 (champion-matched budget) · 0.00 % within 3 px of `labels.tif` | 37,636 · 0.00 % inside `labels.tif` (4 px collar, 2 defect re-sites) |
 | Format gate | **13 / 13** (`src/gems_sass2/submission.py::validate_geotiff`), all 12,279,160 cells finite float32 in [0,1], `nodata=None` — the portal-error fix | **13 / 13** on saved bytes, min/max over all 12,279,360 cells = 0.0 / 1.0 |
-| Uniqueness (candidate→ref direction) | worst genuine-peer 3-px overlap **23.0 %**, max \|ρ\| 0.0086 over 24 refs incl. all nine champions ([receipt](evidence/s3_uniqueness_20261031.json)) | 531 registry rasters: max **43.60 %**, max \|ρ\| 0.0110; exact coincidence with nine champions ≤ 0.885 % ([receipt](evidence/uniqueness_collar4hex_20261031.json)) |
+| Uniqueness (candidate→ref direction) | worst genuine-peer 3-px overlap **23.0 %**, max \|ρ\| 0.0086 over 24 refs incl. all nine champions ([receipt](evidence/s3_uniqueness_20261031.json)) | 372 opened / 370 shape-compatible submission-shaped rasters: max **43.5966 %**, max \|ρ\| 0.011049 (dense surfaces excluded per IR-S-42); exact coincidence with nine champions ≤ 0.885 % ([receipt](evidence/uniqueness_collar4hex_submission_shaped_summary_20261031.json)) |
 | SGMC-off (shipped bytes) | **0.0770** [0.0715, 0.0827] vs uniform 0.0750 (CIs overlap) | **0.0788** [0.0754, 0.0817] |
 | Hide-and-recover (recipe, leak-free fold-local) | **0.0597** [0.0537, 0.0649] vs uniform 0.0439 (disjoint CIs) — the only positive measurement in the repo; shipped-bytes IHR is 0.0 by construction for any full-catalogue collar (IR-S-34, IR-S3-7) | 0.0 by construction (IR-S-34) |
 | MODEL ESTIMATE | **0.29** (anchor 0.2853, band 0.25–0.33) | **0.2851** (band 0.24–0.31) |
@@ -351,10 +350,16 @@ python scripts/assemble_submission_audit.py --stem <stem> --run-card evidence/st
    built from the family's own three-point collar sweep, with its risk band, plus the failed fit as a receipt.
 3. **Targeted placement is measured as worse than random on off-catalogue truth** (IR-S-36). H4/H5-style
    "better geology → better score" is now a falsified premise on public instruments, not an untested idea.
-4. **Uniqueness is scoped to what is mirrored.** 531 rasters in the pinned registry + local downloads were
-   scanned for the headline receipt; a full-corpus re-scan of the 694 mirrored GeoTIFFs (9 extra sites incl. the
-   r13 probe) is recorded in the run card. ~90 sites exist; the corpus is not complete
-   ([`research/gems_site_repos.txt`](research/gems_site_repos.txt)).
+4. **Uniqueness is scoped to what is mirrored — and the clause it is measured by is saturated.** The headline
+   receipt covers 531 rasters; a low-memory incremental sweep of **371 submission-shaped** mirrored rasters
+   (370 shape-compatible after excluding diagnostics/inputs) found **19** above the 70 %-within-3-px limit and
+   **every one is a dense surface** (1.57 %–100 % of the footprint: GEMSDOE48 D-S evidence/diagnostics at 5.1 M
+   "dots", the 13GEMSDOE r11/r13/r14 probes), while **zero sparse dot submissions** exceed it against this file
+   (median overlap 14.92 %, max |ρ| 0.065). Receipt:
+   [`evidence/uniqueness_collar4hex_submission_shaped_summary_20261031.json`](evidence/uniqueness_collar4hex_submission_shaped_summary_20261031.json).
+   ~90 sites exist; the corpus is not complete ([`research/gems_site_repos.txt`](research/gems_site_repos.txt)).
+   Rule adopted (IR-S-42): apply the clause only to rasters covering < 1 % of the footprint, and treat a
+   background scan as unrun until its receipt exists — the first 694-raster attempt died silently.
 
 **Work for the next session, in priority order**
 

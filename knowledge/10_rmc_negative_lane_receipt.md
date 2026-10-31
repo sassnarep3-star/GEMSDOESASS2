@@ -92,8 +92,12 @@ attached; do not quietly drop the row, and do not "fix" it by shrinking the coll
 covering lattice at s = 1,190 m, collar 4 px against `labels.tif` only, complete cells only, plus
 two defect-sweep re-sites. 37,636 dots (budget-matched to the 0.2778 champion within 0.05 %).
 
-* Format: 13/13 checks pass on both twins; min/max over **all** 12,279,360 cells = 0.0/1.0
-  (immune to the "[0, 1]" portal error, which is an all-cells check).
+* Format: **13/13** on the portal (zeros) twin against `data/bridge/sample_submission.tif`; min/max over
+  **all** 12,279,360 cells = 0.0/1.0
+  (immune to the "[0, 1]" portal error, which is an all-cells check). The NaN twin is 12/13 against a
+  zeros-outside reference *by construction* — validator check 11 compares outside-footprint conventions — so no
+  document here may say "13/13 on both twins" (IR-S-43; matrix
+  `evidence/format_reverify_collar4hex_20261031.json`, produced by `scripts/reverify_shipped_bytes.py`).
 * Uniqueness over **531** registry rasters: max 3-px overlap **43.60 %** (limit 70),
   max |Spearman| **0.0110** (limit 0.90) — `passes_lane = true`. Exact cell coincidence with the
   nine champions ≤ **0.885 %**.
@@ -108,6 +112,22 @@ gates, not geology. Expected gain is small (+0.007 with a wide risk band that in
 information value is the point — it is the only file in this repository that is simultaneously
 format-clean, budget-matched, and not a member of the saturated lattice family.
 
+## 4.6 · Uniqueness sweep over the mirrored corpus — the clause measures density, not copying
+
+The 694-raster `uniqueness_gate.py` run **died silently** (no receipt, process gone) — the same class as the
+0-byte-glob and "exited rc=0 with an empty log" traps. Re-written low-memory and incremental
+(`scripts/uniqueness_sweep_lowmem.py`, JSONL flushed every 25 rasters so a killed run still yields evidence), it
+scanned 372 submission-shaped GeoTIFFs (**370 shape-compatible**): median 3-px overlap 14.92 %, and only **19** exceed the 70 % clause —
+**all 19 dense surfaces** (1.57 %–100 % of the footprint: GEMSDOE48 D-S evidence/diagnostic rasters at 5.1 M
+"dots", the 13GEMSDOE r11/r13/r14 probes at 192k–273k). **Zero sparse dot submissions** exceed the clause against
+this file, and max |ρ| is 0.065 there / 0.0110 across the 531-raster receipt. Two rules follow and are adopted
+(IR-S-42): the 70 % clause is applied only to rasters covering <1 % of the footprint, and a background scan counts
+as *unrun* until its receipt exists on disk. Review note: the first version of the sweep script kept a stale
+`rho = float("nan")` line that clobbered the computed Spearman — caught because the summary's `max |ρ|` came back
+empty; the shared gate (`uniqueness_gate.py`) is unaffected.
+
+Receipt: `evidence/uniqueness_collar4hex_submission_shaped_summary_20261031.json`.
+
 ## Reproduce
 
 ```sh
@@ -119,4 +139,6 @@ GEMS_DATA_DIR=$PWD/data/official PYTHONPATH=src python scripts/uniqueness_gate.p
     docs/downloads/gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-zeros.tif \
     --out evidence/uniqueness_collar4hex_20261031.json
 GEMS_DATA_DIR=$PWD/data/official PYTHONPATH=src python scripts/build_focus_decision_table.py
+python scripts/uniqueness_sweep_lowmem.py   # 370-raster incremental sweep -> JSONL + summary
+PYTHONPATH=src python scripts/reverify_shipped_bytes.py   # format matrix across reference conventions
 ```

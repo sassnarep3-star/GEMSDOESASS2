@@ -35,7 +35,7 @@
     "receipts": [
       "evidence/uniqueness_collar4hex_20261031.json",
       "evidence/exact_duplicate_check_collar4hex_20261031.json",
-      "evidence/uniqueness_collar4hex_fullcorpus_20261031.json"
+      "evidence/uniqueness_collar4hex_submission_shaped_summary_20261031.json"
     ],
     "against_calibration_lattice": {
       "reference": "13gems_20261001_r13-lattice-s5_v2_zerofill.tif",
@@ -46,7 +46,17 @@
       "interpretation": "non-discriminating: a seeded random placement at the identical dot count scores 99.8964 %, i.e. within 0.019 pp of this candidate. The r13 raster is a space-filling calibration probe, not a competing submission (IR-03, IR-S-21, IR-S-37). Disclosed, not exempted; owner ruling required before the clause can be cited against a file.",
       "receipt": "evidence/collar4hex_vs_r13_lattice_20261031.json"
     },
-    "scope_note": "531 registry rasters = the nine hash-pinned focus-site champions + every local download in the pinned mirror. ~90 GEMSDOE sites exist; the corpus is not complete locally."
+    "scope_note": "531 registry rasters = the nine hash-pinned focus-site champions + every local download in the pinned mirror. ~90 GEMSDOE sites exist; the corpus is not complete locally.",
+    "submission_shaped_sweep": {
+      "refs_scanned": 371,
+      "n_over_70pct": 19,
+      "offender_classes": "all dense surfaces (1.57%-100% footprint coverage): GEMSDOE48 D-S evidence/diagnostics + 13GEMSDOE r11/r13/r14 probes",
+      "sparse_submission_offenders": 0,
+      "max_abs_spearman_in_offenders": 0.064873,
+      "median_overlap_pct": 14.92,
+      "receipt": "evidence/uniqueness_collar4hex_submission_shaped_summary_20261031.json",
+      "rule_adopted": "apply the 70% clause only to rasters below 1% footprint coverage (IR-S-42)"
+    }
   },
   "holdout_dti": {
     "off_catalogue_sgmc_dti": 0.078774,
@@ -86,5 +96,5 @@
     "targeted-placement variants from this session were worse than random and are excluded from this file",
     "spending a weekly slot remains the owner's decision (3/week, one final selection)"
   ],
-  "alternate_note": "Equally estimated (MODEL ESTIMATE 0.2851 vs 0.2853) and uniquely valid; promoted-alternate under the one-promoted-card invariant (IR-S-41). Broader uniqueness scan (531 rasters, max 43.60%) and slightly higher SGMC point estimate; S3-RING carries the only positive leak-free recipe-level hide-and-recover edge and a non-lattice geometry. MUTUALLY REDUNDANT: spend at most ONE weekly slot on this pair; the selector may substitute this file for the headline."
+  "alternate_note": "Equally estimated (MODEL ESTIMATE 0.2851 vs 0.2853) and uniquely valid; promote-alternate under the one-promoted-card invariant (IR-S-41). Broader uniqueness sweep (370 shape-compatible submission-shaped rasters, max 43.5966%) and slightly higher SGMC point estimate; S3-RING carries the only positive leak-free recipe-level hide-and-recover edge and a non-lattice geometry. MUTUALLY REDUNDANT: spend at most ONE weekly slot on this pair."
 }
