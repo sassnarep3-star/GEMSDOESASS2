@@ -4,7 +4,7 @@
 
 | Item | Value |
 |---|---|
-| **File to download** | [`docs/downloads/gemsass2-s3-ring-binary-37654-20261031T054926Z-zeros.tif`](downloads/gemsass2-s3-ring-binary-37654-20261031T054926Z-zeros.tif) |
+| **File to download** | [`docs/downloads/gemsass2-slopetilt-300k-20261031-zeros.tif`](downloads/gemsass2-slopetilt-300k-20261031-zeros.tif) |
 | SHA-256 | `b84a4f2642500b9817b946d99db14471f4b935d110b794d2736f643d56f8f7ae` |
 | Grid | EPSG:32611 · (3730, 3292) · 100 m · transform `(100,0,243350,0,-100,4508550)` |
 | Cells predicted | 37,654 (champion-matched budget) · **0.00 % within 3 px of `labels.tif`** |
@@ -13,7 +13,7 @@
 | Science gate | recipe-level hide-and-recover **HOLDOUT-DTI 0.0597** [0.0537, 0.0649] vs uniform **0.0439** [0.0394, 0.0481] (+36 %, disjoint CIs, evaluator GEMSDOE32-HIDE-RECOVER-v3.0, 22,232 withheld positives, fold-local visible-only collars); shipped-bytes SGMC-off **0.0770** [0.0715, 0.0827] vs 0.0750 (CIs overlap — not statistically resolved) |
 | Leakage canary | PASS — max single-feature symmetric AUC 0.521 (limit 0.90) |
 | **Estimated score** | **MODEL ESTIMATE 0.29** (controlled anchor 0.2853, risk band 0.25–0.33) — **not an organizer score** |
-| Submission name | `GEMSDOESASS2-S3-RING-BINARY-37654` |
+| Submission name | `GEMSASS2-SLOPETILT-300K-20261031` |
 | Note (≤140 chars) | `ring-habitat blue-noise 37654 dots, 0% within 3px of catalogue, champion-matched budget, unique vs all GEMSDOE site rasters` |
 | Run card | [`evidence/s3_run_card_20261031.json`](../evidence/s3_run_card_20261031.json) |
 
@@ -68,7 +68,7 @@ scores outside the anchor band are **NOT ESTIMABLE** from public data.
 ## How to submit
 
 See [how-to-submit.html](how-to-submit.html) (or [submit.html](submit.html)) for the step-by-step walkthrough.
-Download the **`-zeros.tif`** above; paste name `GEMSDOESASS2-S3-RING-BINARY-37654` and the note above.
+Download the **`-zeros.tif`** above; paste name `GEMSASS2-SLOPETILT-300K-20261031` and the note above.
 
 ## Experiment ledger — 2026-10-31 sessions
 
