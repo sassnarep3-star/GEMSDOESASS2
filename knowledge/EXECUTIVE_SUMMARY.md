@@ -6,7 +6,7 @@ SHA-256 `af4d17511fd68fd01d742b4eee0c5be0f3569512e50207b940e5bb23b5f41e7f`,
 Name `GEMSASS2-SLOPETILT-300K-20261031`; note (104 chars)
 `density - detrended-elevation-slope prior at the metric optimum; zero cells on the public fault database`.
 Format gate 11/11. Uniqueness gate over 12 registry rasters: max 3-px overlap 28.10 %
-(limit 70), max |rho| 0.0215 (limit 0.90). MODEL ESTIMATE 0.28-0.40, centred ~0.30,
+(limit 70), max |rho| 0.0215 (limit 0.90). MODEL ESTIMATE 0.18-0.40, centred ~0.30,
 against the incumbent 0.2778. No organizer score exists.
 
 **What it is.** Emission density proportional to one official band — band 19,

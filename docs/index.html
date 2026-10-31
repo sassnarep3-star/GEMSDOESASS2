@@ -43,7 +43,7 @@ Uniqueness gate passes over 12 registry rasters: max 3-px overlap <strong>28.10%
 <div class="metric"><strong>11/11</strong><span>format checks pass; all 12,279,360 cells finite, values in {0,1}</span></div>
 <div class="metric"><strong>0.403</strong><span>independent-target DTI — versus 0.295 for a same-size space-filling lattice</span></div>
 <div class="metric"><strong>0.192</strong><span>same target for a fitted 125-feature model: the single band is 2.1× better</span></div>
-<div class="metric"><strong>0.28–0.40</strong><span>MODEL ESTIMATE range for the leaderboard, centred near 0.30</span></div>
+<div class="metric"><strong>0.18–0.40</strong><span>MODEL ESTIMATE range for the leaderboard, centred near 0.30</span></div>
 </div></div>
 
 <section class="section"><div class="wrap">
@@ -54,10 +54,10 @@ Uniqueness gate passes over 12 registry rasters: max 3-px overlap <strong>28.10%
 <tbody>
 <tr style="background:#eef7ee"><td><strong>GEMSDOESASS2</strong><br><span style="color:#2f6b34">◀ SUBMIT THIS</span></td>
 <td><a href="downloads/gemsass2-slopetilt-300k-20261031-zeros.tif" download><strong>gemsass2-slopetilt-300k-20261031-zeros.tif</strong></a></td>
-<td><strong>0.30</strong><br><small>model estimate<br>range 0.28–0.40</small></td>
-<td><strong>YES</strong><br><small>28.10% max 3-px overlap ·<br>|&rho;| 0.0215 ·<br>3.9× the independent-target DTI of every prior file</small></td></tr>
+<td><strong>0.30</strong><br><small>model estimate<br>range 0.18–0.40</small></td>
+<td><strong>YES</strong><br><small>28.10% max 3-px overlap ·<br>|&rho;| 0.0215 ·<br>3.9× the independent-target DTI of every GEMSDOE focus file</small></td></tr>
 <tr><td>GEMSDOE32</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE32" target="_blank" rel="noopener noreferrer">h33-h33-2-b2-…-e5eb6e7e-zeros.tif</a></td><td>0.2778<br><small>user-reported</small></td><td>No · 26.2 % overlap with GEMSDOE25 after a 1-px prune</td></tr>
-<tr><td>GEMSDOE36</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE36" target="_blank" rel="noopener noreferrer">anderson-geothermal-pinn-38854-…-zeros.tif</a></td><td>0.2750<br><small>user-reported</small></td><td>No · 5.87 % within 3 px of the catalogue, same lattice family</td></tr>
+<tr><td>GEMSDOE36</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE36" target="_blank" rel="noopener noreferrer">anderson-geothermal-pinn-38854-…-zeros.tif</a></td><td>0.2750<br><small>user-reported</small></td><td>No · 99.7 % within 3 px of GEMSDOE27</td></tr>
 <tr><td>GEMSDOE28</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE28" target="_blank" rel="noopener noreferrer">h36-1-rung30-blind-r1-…-allfinite.tif</a></td><td>0.2710<br><small>user-reported</small></td><td>No · dot-identical family (D2.8), 100 % within 3 px of GEMSDOE31</td></tr>
 <tr><td>GEMSDOE31</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE31" target="_blank" rel="noopener noreferrer">h27-4-solo-d28-…-allfinite.tif</a></td><td>0.2708<br><small>user-reported</small></td><td>No · dot-identical to GEMSDOE28</td></tr>
 <tr><td>GEMSDOE33</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE33" target="_blank" rel="noopener noreferrer">h33d-analog-tip-stepover-r30-…926e.tif</a></td><td>0.2632<br><small>user-reported</small></td><td>No · same D-lattice family, ≥99 % within 3 px</td></tr>
@@ -113,7 +113,7 @@ target. <code>evidence/sgmc_transfer_auc.json</code>, <code>evidence/feature_til
 owner-reported; no receipt exists anywhere in the ecosystem.</li>
 <li><strong>The estimator is a proxy.</strong> The 0.403 is DTI against an independent fault
 compilation, not the hidden truth. Applying the nine-site law to this file gives
-<strong>0.277</strong> — a tie with the incumbent. The plausible band is 0.28–0.40.</li>
+<strong>0.277</strong> — a tie with the incumbent. The plausible band is 0.18–0.40.</li>
 <li><strong>Part of the signal is terrain context.</strong> Within deciles of detrended elevation,
 band 19's AUC falls from 0.757 to a weighted 0.636. The design is not purely a fault detector.</li>
 <li><strong>One seed, one grid.</strong> The 300k/σ=5 choice sits on a broad plateau (200k–300k within

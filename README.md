@@ -11,13 +11,13 @@
 | Format gate | **11 / 11 pass** (strict), every one of 12,279,360 cells finite, values in {0, 1}, `nodata=None` |
 | Uniqueness gate | **PASS** — 28.10 % max 3-px overlap (limit 70), max \|ρ\| 0.0215 (limit 0.90) over 12 registry rasters |
 | Science gate | **PASS on the independent target** — DTI **0.403** vs **0.295** for a same-size space-filling control and **0.192** for the fitted 125-feature model |
-| Model score estimate | **0.28–0.40**, centred ≈ **0.30** · nine-site law applied to this file: 0.277 — *not* organizer-confirmed |
+| Model score estimate | **0.18–0.40**, centred ≈ **0.30** · nine-site law applied to this file: 0.277 — *not* organizer-confirmed |
 | Submission name | `GEMSASS2-SLOPETILT-300K-20261031` |
 | Note (≤140 chars) | `density - detrended-elevation-slope prior at the metric optimum; zero cells on the public fault database` (104) |
 
 **Download and submit: [site](docs/index.html) · [executive summary](docs/executive-summary.html) · [why 0.2778 scored](docs/method.html) · [run card](evidence/final_run_card.json)**
 
-⚠️ No organizer receipt exists for any file here. The 0.28–0.40 is a **MODEL ESTIMATE**. No weekly slot has been spent.
+⚠️ No organizer receipt exists for any file here. The 0.18–0.40 is a **MODEL ESTIMATE**. No weekly slot has been spent.
 
 **What changed on 2026-10-31 — the previous answer was overturned by its own evidence.** Four experiments against a fault compilation the model never saw (SGMC; only 4.8 % of it coincides with the QFaults catalogue) produced three findings:
 
