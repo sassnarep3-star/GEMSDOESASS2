@@ -304,10 +304,16 @@ python scripts/assemble_submission_audit.py --stem <stem> --run-card evidence/st
    built from the family's own three-point collar sweep, with its risk band, plus the failed fit as a receipt.
 3. **Targeted placement is measured as worse than random on off-catalogue truth** (IR-S-36). H4/H5-style
    "better geology → better score" is now a falsified premise on public instruments, not an untested idea.
-4. **Uniqueness is scoped to what is mirrored.** 531 rasters in the pinned registry + local downloads were
-   scanned for the headline receipt; a full-corpus re-scan of the 694 mirrored GeoTIFFs (9 extra sites incl. the
-   r13 probe) is recorded in the run card. ~90 sites exist; the corpus is not complete
-   ([`research/gems_site_repos.txt`](research/gems_site_repos.txt)).
+4. **Uniqueness is scoped to what is mirrored — and the clause it is measured by is saturated.** The headline
+   receipt covers 531 rasters; a low-memory incremental sweep of **371 submission-shaped** mirrored rasters
+   (372 candidates after excluding diagnostics/inputs) found **19** above the 70 %-within-3-px limit and
+   **every one is a dense surface** (1.57 %–100 % of the footprint: GEMSDOE48 D-S evidence/diagnostics at 5.1 M
+   "dots", the 13GEMSDOE r11/r13/r14 probes), while **zero sparse dot submissions** exceed it against this file
+   (median overlap 14.92 %, max |ρ| 0.065). Receipt:
+   [`evidence/uniqueness_collar4hex_submission_shaped_summary_20261031.json`](evidence/uniqueness_collar4hex_submission_shaped_summary_20261031.json).
+   ~90 sites exist; the corpus is not complete ([`research/gems_site_repos.txt`](research/gems_site_repos.txt)).
+   Rule adopted (IR-S-42): apply the clause only to rasters covering < 1 % of the footprint, and treat a
+   background scan as unrun until its receipt exists — the first 694-raster attempt died silently.
 
 **Work for the next session, in priority order**
 
