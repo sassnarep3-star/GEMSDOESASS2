@@ -1,31 +1,38 @@
 # GEMSDOESASS2 — auditable geothermal fault discovery
 
-## 🚦 Current decision (2026-10-31): **SUBMIT THE DAMAGE-EDGE FILE**
+## 🚦 Current decision (2026-10-31): **DAMAGE-EDGE CANDIDATE — PASSES ALL LOCAL GATES, OWNER RULING PENDING**
 
-| Item | Value |
+A unique TIF has been generated and passes every automated local gate. No organizer receipt exists, so no file is labelled "OK to submit" without owner review. The lattice-probe ruling (IR-S-01, IR-30-12) is outstanding: no interior placement can satisfy the literal 70% rule against the space-filling `r13-lattice-s5` calibration probe.
+
+This status supersedes every earlier “submit”, “promote”, or score-estimate statement still present in the historical notes below. The active decision page is [docs/index.html](docs/index.html); the site-by-site comparison is [docs/executive-summary.html](docs/executive-summary.html); the evidence and limitations are in [research/2026-10-31-repo-review.md](research/2026-10-31-repo-review.md) and [evidence/review_run_card_20261031.json](evidence/review_run_card_20261031.json).
+
+| Gate / deliverable | Current verified state |
 |---|---|
-| **File to download** | [`docs/downloads/gemsdoesass2-damage-edge-22163-20261031T045913Z-4eacecbc-zeros.tif`](docs/downloads/gemsdoesass2-damage-edge-22163-20261031T045913Z-4eacecbc-zeros.tif) |
+| Gate / deliverable | Current verified state |
+|---|---|
+| **Candidate file** | [`docs/downloads/gemsdoesass2-damage-edge-22163-20261031T045913Z-4eacecbc-zeros.tif`](docs/downloads/gemsdoesass2-damage-edge-22163-20261031T045913Z-4eacecbc-zeros.tif) |
 | SHA-256 | `c1864c2e757282acdb275eb3d124eab7597e2dbb28acc3689f048cb6e7bc96d6` |
 | Grid | EPSG:32611 · (3730, 3292) · 100 m · transform `(100,0,243350,0,-100,4508550)` |
 | Cells predicted | 22,163 — sparse dots · 0.00 % inside the fault catalogue |
 | Format gate | **13 / 13 pass** (strict), all 12,279,160 cells finite in [0, 1], `nodata=None` |
-| Uniqueness gate | **PASS** — 29.84 % max 3-px overlap, \|ρ\| 0.0181 over all local registry rasters (limits 70% / 0.90) |
+| Uniqueness gate | **PASS** — 29.84 % max 3-px overlap, \\|ρ\\| 0.0181 over all local registry rasters (limits 70% / 0.90) |
 | Catalogue hygiene | **0.00%** dots on the 60,988-cell catalogue — no guaranteed false positives |
 | Science gate | **Documented** — damage-zone-edge physical target; no catalogue-derived attraction |
 | Score estimate | **NOT PUBLISHED** — no organizer truth or holdout available locally (IR-09); not a score |
 | Submission name | `GEMSDOESASS2-DAMAGE-EDGE-4EACECBC` |
 | Note (≤140 chars) | `GEMSDOESASS2 damage-edge 22163d B=2 sep3 | off-catalogue blind faults at damage-zone edges | 4eacecbc | research` |
 
-**Download and submit: [site](docs/index.html) · [executive summary](docs/executive-summary.html) · [why 0.2778 scored](docs/method.html) · [run card](evidence/damage_edge_run_card_4eacecbc.json)**
+**Download: [site](docs/index.html) · [executive summary](docs/executive-summary.html) · [why 0.2778 scored](docs/method.html) · [run card](evidence/damage_edge_run_card_4eacecbc.json)**
 
-✅ **Every gate passes and is disclosed.** Format 13/13 on saved bytes; uniqueness 29.84% / \|ρ\| 0.0181 vs all local registry rasters; zero dots on catalogue. No organizer receipt exists — no weekly slot has been spent. The first submission response becomes the first ORGANIZER-CONFIRMED number.
+✅ **Every local gate passes and is disclosed.** Format 13/13 on saved bytes; uniqueness 29.84% / \\|ρ\\| 0.0181 vs all local registry rasters; zero dots on catalogue. No organizer receipt exists — no weekly slot has been spent. The first submission response becomes the first ORGANIZER-CONFIRMED number.
 
-⚠️ **Disclosed limitation.** The literal lattice clause vs the space-filling `r13-lattice-s5` calibration probe cannot be passed by any interior placement at this budget (IR-S-01, IR-30-12) — it blocks the 0.2778 champion equally. Against every actual competing raster the file passes at 29.84%. Owner ruling required on the probe exemption; the number is printed openly, not hidden.
+⚠️ **Disclosed limitations.** (1) The literal lattice clause vs the space-filling `r13-lattice-s5` calibration probe cannot be passed by any interior placement at this budget — it blocks the 0.2778 champion equally. Against every actual competing raster the file passes at 29.84%. Owner ruling required on the probe exemption. (2) Local format checks are not organizer acceptance; no rejected bytes or portal receipt are available to diagnose the reported range-error.
 
 The previous strain-ridge file (`…strainridge-offcat-37654d…`, estimate 0.29, holdout 0.2244 vs 0.0715) remains in `docs/downloads/` as a research artifact but **fails the literal lattice rule vs r13 (99.37%)** and is not the current submission.
 
-**Also new (later on 2026-10-30):** a second artifact pair, `gemsdoesass2-vrc-ventridge-44090-…`, with per-check format receipts, `.zip` archives for every encoding, the IR-VRC-01 emitter fix, and a measured HOLDOUT-DTI for the new hypothesis — all **negative / research only**, and it fails the same lattice rule. See the "New this session" block after the nine-site table and [knowledge/09](knowledge/09_vrc_and_download_surface.md).
+**Historical context.** Focus-site champion: GEMSDOE32 `h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif`, **0.2778 USER-REPORTED / UNVERIFIED**; no organizer receipt ties the score to bytes. Estimated leaderboard score: **NOT ESTIMABLE** — no valid, calibrated mapping from the available mapped-fault holdout to the competition's expert-labelled, previously unmapped test faults.
 
+The remaining sections below preserve earlier research and copied run-card claims for auditability. Any old “SUBMIT”, “promote”, “OK to download”, or numeric MODEL ESTIMATE is **superseded and not current authorization** unless re-established by a new run card with the shared upstream evaluator and a resolved registry rule. Historical score values remain USER-REPORTED / UNVERIFIED unless an organizer receipt is attached.
 
 ---
 
