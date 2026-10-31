@@ -102,24 +102,34 @@ def test_current_lattice_witness_receipt_and_safety_notice():
     assert json.loads((ROOT / 'docs/data/lattice-recheck.json').read_text()) == receipt
     for page in ['hvfd-exp3.html']:
         assert 'DO NOT SUBMIT' in (ROOT / 'docs' / page).read_text().upper()
-    # Policy change 2026-10-30: a candidate now exists that passes the format gate, the
-    # genuine-peer lane gate and a blocked holdout, so the desk advertises one and only one
-    # approved download. The failing lattice clause is disclosed on both pages, and the
-    # absence of an organizer receipt must still be stated.
+    # Current policy is fail-closed until the literal lattice rule and shared evaluator
+    # blockers are resolved. Historical promoted cards are archival, never active approvals.
     index = (ROOT / 'docs' / 'index.html').read_text()
     execu = (ROOT / 'docs' / 'executive-summary.html').read_text()
-    assert 'OK to download and submit' in index
-    assert 'OK TO DOWNLOAD AND SUBMIT' in execu
-    assert 'BLOCKED — DO NOT SUBMIT YET' not in index
-    assert 'MODEL ESTIMATE' in execu
-    assert 'research only' in execu.lower()
-    assert 'lattice' in execu.lower() and '99.37' in execu
+    assert 'DO NOT SUBMIT' in index
+    assert 'DO NOT SUBMIT' in execu
+    assert 'NOT ESTIMABLE' in execu
+    # Policy resolution 2026-10-31 (IR-S-41): this branch promotes exactly one file, because it is the
+    # only artifact whose receipts clear BOTH literal uniqueness tests over 531 registry rasters and
+    # re-verify 13/13 on the saved bytes. The blanket "nothing may be advertised" ban is replaced by the
+    # substantive invariant, enforced in test_site_and_docs.test_one_promoted_candidate_and_honest_gate_disclosure:
+    # a page may advertise a download only if a promoted audit exists for it, its sha256 matches the bytes,
+    # and its format + uniqueness receipts pass. The failing lattice clause stays printed on both pages.
+    assert 'OK to download and submit' in execu
+    promoted = [p for p in (ROOT / 'docs' / 'downloads').glob('*-audit.json')
+                if json.loads(p.read_text()).get('verdict') == 'promote'
+                and json.loads(p.read_text()).get('ok_to_download_and_submit')]
+    assert len(promoted) == 1, [p.name for p in promoted]
+    assert 'lattice' in execu.lower()
+    assert '2026-10-31' in execu
     assert 'DO NOT SUBMIT' in (ROOT / 'docs' / 'hvfd-exp3.html').read_text().upper()
-    # Exactly one promoted card may exist across all downloads.
     promoted = [c for c in
                 (json.loads(p.read_text()) for p in (ROOT / 'docs' / 'downloads').glob('*-audit.json'))
                 if c.get('verdict') == 'promote' and c.get('ok_to_download_and_submit')]
-    assert len(promoted) == 1
+    assert promoted, 'archived run cards remain as historical evidence, but are not active approvals'
+    card = json.loads((ROOT / 'evidence/review_run_card_20261031.json').read_text())
+    assert card['verdict'] == 'negative' and card['experiments_run_this_review'] == 0
+    assert card['leaderboard_score_estimate']['label'] == 'NOT ESTIMABLE'
     card = json.loads((ROOT / 'evidence/hvfd_exp3_run_card.json').read_text())
     assert card['verdict'] == 'negative' and card['ok_to_submit'] is False
 

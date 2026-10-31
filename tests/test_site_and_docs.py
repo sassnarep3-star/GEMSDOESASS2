@@ -84,6 +84,19 @@ def test_one_promoted_candidate_and_honest_gate_disclosure() -> None:
         assert "ok to download and submit" in page.lower()
         assert "lattice" in page.lower(), "the failing lattice clause must be disclosed"
         assert "localhost" not in page and "127.0.0.1" not in page
+    # Merged from origin/main (PR #33/#34): the sibling artifacts, the un-verifiable score class and the
+    # superseded bytes stay on the page, and the historical raster remains measurable but not promotable.
+    assert "0.2778" in exec_html and "USER-REPORTED / UNVERIFIED" in exec_html
+    assert "NOT ESTIMABLE" in exec_html
+    assert "not an organizer score" in exec_html.lower()
+    assert "downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif" not in index
+    historical = DOCS / "downloads" / "gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif"
+    assert historical.exists()
+    assert hashlib.sha256(historical.read_bytes()).hexdigest() == "6d00f58a35005a253e352e21c8adde0e108aa0abb4b810db9797af89d94dd615"
+    for page in (index, exec_html):
+        assert "do not submit" in page.lower()
+        assert "not estimable" in page.lower()
+        assert "lattice" in page.lower()
     assert "99.37" in exec_html
     assert "MODEL ESTIMATE" in exec_html
     assert "not an organizer score" in exec_html.lower() or "NOT organizer-confirmed" in exec_html

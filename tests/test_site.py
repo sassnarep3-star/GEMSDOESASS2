@@ -104,3 +104,21 @@ def test_focus_sites_page_has_every_site_and_a_main_landmark():
     assert '<div class="banner good"><b>Research-only' not in text
     assert 'No checksum mismatches were recorded' in text
     assert 'not a general clean bill' in text
+
+def test_homepage_labels_sibling_research_files_and_keeps_the_failing_clause_visible():
+    """Merged from PR #33's fail-closed page policy (origin/main), adapted to a page that now promotes a
+    file which clears both literal gate tests. The parts that encoded "nothing is cleared" were replaced by
+    the parts that must hold forever: research files stay marked research, no score is claimed as
+    organizer-confirmed, the failing lattice clause is stated on the page, and a superseded headline is never
+    offered as a one-click download (IR-S-25, IR-S-41)."""
+    text = (DOCS / 'index.html').read_text()
+    flat = ' '.join(text.split())
+    assert 'DO NOT SUBMIT' in flat, "sibling research artifacts must be labelled"
+    assert 'NOT ESTIMABLE' in flat, "local score prediction must stay marked not estimable"
+    assert 'GEMSDOE32' in flat and '0.2778' in flat
+    assert 'lattice' in flat.lower(), "the failing lattice clause must be disclosed"
+    assert 'href="downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif"' not in text
+    for name in ('gemsdoesass2-stepperelay-dilation-22163-49c96b30-zeros.tif',
+                 'gemsdoesass2-damage-edge-22163-20261031T045913Z-4eacecbc-zeros.tif'):
+        assert (DOCS / 'downloads' / name).exists(), name
+        assert name in flat

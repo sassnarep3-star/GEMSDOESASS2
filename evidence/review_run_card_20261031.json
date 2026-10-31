@@ -1,0 +1,59 @@
+{
+  "run_card_version": 1,
+  "review_date_utc": "2026-10-31",
+  "hypothesis": "No new geological hypothesis was implemented or tested in this review. Top future hypothesis (conditional, not selected for execution): use observed INGENIOUS 2-m temperature-probe residual corridors, with seasonal/elevation controls and well/spring corroboration, as an indirect indicator of concealed geothermal upflow structures.",
+  "mechanism": "Observed shallow thermal anomalies can reflect advective heat flow along concealed permeable structures without an exposed Quaternary scarp. This mechanism is unvalidated here; geothermal heat anomalies are not uniquely diagnostic of faults.",
+  "named_non_fault_process": "Aspect-driven solar heating, seasonal soil moisture, lithology, shallow groundwater, alluvial-fan contrasts, and uneven survey sampling can create apparent temperature residuals without a fault.",
+  "holdout_dti": {
+    "label": "HOLDOUT-DTI",
+    "evaluator_version": null,
+    "withheld_positive_pixels": null,
+    "dti": null,
+    "ci95": null,
+    "status": "NOT RUN. The shared upstream evaluator is not cleared: saved synthetic probes expose false-negative duplicate detection and false-positive accounting defects. The local CLI is intentionally fail-closed; using a private fork would violate the protocol."
+  },
+  "leaderboard_score_estimate": {
+    "label": "NOT ESTIMABLE",
+    "value": null,
+    "reason": "No organizer receipt and no calibrated independent benchmark for expert-labelled faults absent from the public USGS database."
+  },
+  "correlation_overlap_vs_registry": {
+    "surface_rank_correlation_before_placement": null,
+    "final_dot_overlap_fraction": 0.9937,
+    "reference": "13GEMSDOE r13-lattice-s5 calibration raster, saved-byte audit dated 2026-10-30",
+    "threshold": 0.7,
+    "status": "FAIL under the literal protocol. The cited value is a prior saved-byte receipt, not recomputed on a current complete registry in this review. No exemption has been assumed."
+  },
+  "raster": {
+    "status": "Historical artifact only; no new raster generated in this review.",
+    "path": "docs/downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif",
+    "sha256": "6d00f58a35005a253e352e21c8adde0e108aa0abb4b810db9797af89d94dd615"
+  },
+  "validator_output": {
+    "label": "LOCAL FORMAT INSPECTION ONLY",
+    "command": ".venv/bin/python scripts/validate_tif.py docs/downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif --sample data/bridge/sample_submission.tif",
+    "sample_sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+    "checks_passed": 11,
+    "checks_total": 11,
+    "no_nan_inside_footprint": true,
+    "values_in_0_1_whole_array": true,
+    "crs": "EPSG:32611",
+    "shape": [3730, 3292],
+    "transform": [100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0],
+    "organizer_accepted": null,
+    "interpretation": "Reference is the locally tracked bridge sample, not authenticated organizer bytes. Format pass does not override uniqueness/holdout failures or prove portal acceptance."
+  },
+  "submission_name": "NONE — no candidate cleared",
+  "submission_note": "No submission; historical artifact only; protocol and uniqueness gates unresolved.",
+  "submission_note_length": 70,
+  "verdict": "negative",
+  "experiments_run_this_review": 0,
+  "weekly_submission_slots_used": 0,
+  "blockers": [
+    "The single method paragraph referenced by the parallel-run protocol is not uniquely specified.",
+    "The literal 70%-overlap gate fails against the pinned dense calibration raster; no owner exception is recorded.",
+    "Required shared holdout evaluator has failing synthetic correctness probes and must be fixed upstream.",
+    "The described cached 19-band feature arrays are absent from this checkout.",
+    "The official DrivenData data page redirects to login; no authenticated sample, private truth, or score receipt is available."
+  ]
+}

@@ -1,4 +1,4 @@
-# Executive summary (2026-10-31 update) — **supersedes the 2026-10-30 headline**
+# Executive summary — which DOE GEMS file to submit (2026-10-31)
 
 - **Download (one click):** [`downloads/gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-zeros.tif`](downloads/gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-zeros.tif) ·
   SHA-256 `c200ceccef52b45b979d5a2ad5c184516f8181828493400704a408074b7cbeb6` · [zip](downloads/gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-zeros.zip) · GIS twin `-nan.tif` (not the portal file).
@@ -10,9 +10,10 @@
 - **Uniqueness gate: PASS on both literal tests** — over 531 registry rasters
   max 3-px overlap **43.5966 %** (limit 70) and max |ρ| **0.011049**
   (limit 0.90); exact cell coincidence with the nine site champions ≤ **0.885 %**.
-  First artifact in this repository to clear both tests; the r13 space-filling calibration probe is re-scanned in
-  [`evidence/uniqueness_collar4hex_fullcorpus_20261031.json`](https://github.com/sassnarep3-star/GEMSDOESASS2/blob/main/evidence/uniqueness_collar4hex_fullcorpus_20261031.json)
-  and any saturation there is reported, not exempted (IR-S-21, IR-S-37).
+  First artifact in this repository to clear both tests. A wider re-scan of all 694 mirrored GeoTIFFs (incl. the
+  r13 probe and the GEMSDOE48/49/63/70/76 trees) was still running when this merged; its receipt will be committed as
+  `evidence/uniqueness_collar4hex_fullcorpus_20261031.json`. Any saturation it shows is reported, not exempted
+  (IR-S-21, IR-S-37) — and the probe itself is already measured directly, next bullet.
 - **Disclosed failing clause:** against the `13gems_20261001_r13-lattice-s5` space-filling **calibration probe**
   **99.915 %** of our dots lie within 3 px, so the literal 70 % rule **fails** — as it does for a seeded random control
   at the same dot count (99.8964 %), which is why the clause is reported as non-discriminating rather than treated as an
@@ -36,6 +37,12 @@
   ([`knowledge/10_rmc_negative_lane_receipt.md`](https://github.com/sassnarep3-star/GEMSDOESASS2/blob/main/knowledge/10_rmc_negative_lane_receipt.md)):
   corridor geometry carries 1.4–3× *less* credit/px than random dots; supervised LOQO targeting is 3.7× *worse
   than random* on the USGS blind set; the score-transfer estimator is rejected (LOO MAE 0.1523 on 12 anchors).
+- **Sibling sessions today:** `gemsdoesass2-stepperelay-dilation-22163-49c96b30` (H_STEPOVER, HOLDOUT-DTI 0.0016 vs
+  uniform 0.0377 → **negative**, no slot) and `gemsdoesass2-damage-edge-22163-…-4eacecbc` (its audit promoted it; now
+  `superseded-2026-10-31`, since exactly one card may advertise a download). Both 13/13 format-valid, both **DO NOT
+  SUBMIT**. Their pages claimed the lattice clause was cleared at 29.84 % / 44.11 % overlap; measured on the pinned
+  bytes they are **99.892 %** / **99.842 %** within 3 px of the r13 probe (IR-S-40). Local score prediction:
+  **NOT ESTIMABLE**.
 - **Run card:** [`data/collar4hex-run-card.json`](data/collar4hex-run-card.json) ·
   format receipt [`downloads/format-gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-zeros.json`](downloads/format-gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-zeros.json) ·
   promoted audit [`downloads/gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-audit.json`](downloads/gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-audit.json).

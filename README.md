@@ -42,6 +42,19 @@ Receipt: [`evidence/collar4hex_vs_r13_lattice_20261031.json`](evidence/collar4he
 slot is that this is the only artifact in the repository that is simultaneously format-clean at all-cells range,
 budget-matched, and a member of **no** lattice family any other site has used.
 
+**Sibling sessions, 2026-10-31 (research, DO NOT SUBMIT).** `gemsdoesass2-stepperelay-dilation-22163-49c96b30-zeros.tif`
+(SHA-256 `3416a067…4879d3`) came from the **H_STEPOVER** hypothesis ([`research/2026-10-31-new-hypotheses.md`](research/2026-10-31-new-hypotheses.md)):
+format-valid 13/13, unique against peers (44.11 % max overlap, |ρ| 0.046 over 14 registry rasters), but **negative** on the
+holdout — HOLDOUT-DTI 0.0016 [0.0005, 0.0030] vs uniform control 0.0377 — so no slot is spent; it is published as a
+negative deliverable ([run card](evidence/gemsdoesass2-stepperelay-dilation-22163-49c96b30-run-card.json)).
+`gemsdoesass2-damage-edge-22163-20261031T045913Z-4eacecbc-zeros.tif` (damage-zone-edge gradient maxima, 22,163 dots) was
+promoted by its own session; its audit is now marked `superseded-2026-10-31` because exactly one card may advertise a
+download and COLLAR4-HEX is the only file whose receipt clears both literal tests. **Correction applied to both** (IR-S-40):
+their pages read as if the r13 lattice clause were cleared; re-measured on the pinned bytes, 99.842 % and 99.892 % of their
+dots lie within 3 px of it, i.e. the clause fails for them exactly as it does for ours — receipts
+[`evidence/stepperelay_vs_r13_lattice_20261031.json`](evidence/stepperelay_vs_r13_lattice_20261031.json),
+[`evidence/damage_edge_vs_r13_lattice_20261031.json`](evidence/damage_edge_vs_r13_lattice_20261031.json).
+
 ---
 
 ## 📋 STANDING PROJECT PROMPT — read at the start of every session
