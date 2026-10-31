@@ -1,30 +1,28 @@
 # GEMSDOESASS2 — auditable geothermal fault discovery
 
-## 🚦 Current decision (2026-10-30): **SUBMIT THE STRAIN-RIDGE FILE**
+## 🚦 Current decision (2026-10-31): **NO SUBMISSION CLEARED — DO NOT UPLOAD A REPO CANDIDATE**
 
-| Item | Value |
+This status supersedes every earlier “submit”, “promote”, or score-estimate statement still present in the historical notes below. The active decision page is [docs/index.html](docs/index.html); the site-by-site comparison is [docs/executive-summary.html](docs/executive-summary.html); the evidence and limitations are in [research/2026-10-31-repo-review.md](research/2026-10-31-repo-review.md) and [evidence/review_run_card_20261031.json](evidence/review_run_card_20261031.json).
+
+| Gate / deliverable | Current verified state |
 |---|---|
-| **File to download** | [`docs/downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif`](docs/downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif) |
-| SHA-256 | `6d00f58a35005a253e352e21c8adde0e108aa0abb4b810db9797af89d94dd615` |
-| Grid | EPSG:32611 · (3730, 3292) · 100 m · transform `(100,0,243350,0,-100,4508550)` |
-| Cells predicted | 37,654 — **the champion's exact dot budget** · 0.00 % inside the fault catalogue |
-| Format gate | **11 / 11 pass** (strict), every one of 12,279,360 cells finite in [0, 1], `nodata=None` |
-| Uniqueness gate | **PASS vs competing rasters** — 36.45 % max overlap, \|ρ\| 0.0115 over 19 · **FAIL vs the r13 calibration probe** (99.37 %, see below) |
-| Science gate | **PASS** — HOLDOUT-DTI **0.2244** vs matched incumbent **0.0715**, ratio **3.14×** (P = 0.958) |
-| Model score estimate | **0.29** (controlled 0.2853 · slope-range 0.2815–0.2890 · all-model-risk 0.25–0.33) — *not* organizer-confirmed |
-| Submission name | `GEMSDOESASS2-STRAINRIDGE-OFFCAT-37654D` |
-| Note (≤140 chars) | `strain+ridgelineament prior, same 37654 dot budget as champion, 0% on full USGS QFaults catalogue, off-catalogue blind faults` |
+| Focus-site champion | GEMSDOE32 `h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif`, **0.2778 USER-REPORTED / UNVERIFIED**; no organizer receipt ties the score to bytes. |
+| Estimated leaderboard score | **NOT ESTIMABLE.** No valid, calibrated mapping from the available mapped-fault holdout to the competition's expert-labelled, previously unmapped test faults. |
+| New candidate TIF | No new TIF was generated in this review. Existing files are historical research artifacts, not cleared submissions. |
+| Literal uniqueness lane | **Blocked.** The saved 13GEMSDOE lattice witness overlaps historical interior candidates above the stated 70% limit; no exemption is authorized. |
+| Holdout / leakage canary | **Not run this session.** The required shared evaluator is fail-closed after synthetic probes expose false-positive accounting and duplicate-detection defects; the cached 19-band arrays are not present in this checkout. |
+| Format / portal acceptance | Local format checks are not organizer acceptance. The rejected upload bytes and portal receipt are absent, so the reported range-error cause remains unknown. |
+| Submission decision | **No download is labelled OK to submit; no weekly slot should be spent.** |
 
-**Download and submit: [site](docs/index.html) · [executive summary](docs/executive-summary.html) · [why 0.2778 scored](docs/method.html) · [run card](evidence/strain_ridge_run_card.json)**
+The user-supplied historical scores are useful for prioritization, not as verified outcomes or proof of a causal mechanism. The official problem description says the initial test truth consists of faults expert-identified as absent from the public USGS database. Therefore, a holdout against known mapped faults and a score-vs-catalogue-overlap regression cannot by themselves estimate leaderboard performance.
 
-⚠️ No organizer receipt exists for any file here. The 0.29 is a **MODEL ESTIMATE** from a controlled one-variable extrapolation. It is never written as a score. No weekly slot has been spent.
+**Why no new GeoTIFF was generated:** the prompt's stated protocol is fail-closed: the lane paragraph is not uniquely specified; the literal novelty gate is currently unsatisfiable for interior predictions against the dense calibration lattice; and the shared evaluator is explicitly blocked pending upstream fixes. Creating or promoting a file under those conditions would violate the user's requirements. This is a negative result, not an invitation to submit an older file.
 
-⚠️ **One gate is failed, openly.** Against the `13gems_20261001_r13-lattice-s5` calibration probe the file is **99.37 %** within 3 px, so the literal 70 % rule **fails**. A *seeded random placement* at the identical dot count scores **99.91 %** — the probe is a space-filling surface and the test is saturated for any interior placement at this budget (IR-S-01, IR-RV-04). Against every actual competing raster it passes at 36.45 %. **Owner ruling required**; the exemption is not assumed anywhere in this repository. Receipt: [`candidate_vs_registry_lattice.json`](evidence/candidate_vs_registry_lattice.json).
+---
 
-⚠️ **Honest size of the win: about +0.008 over the 0.2778 champion.** This is the best-supported move available, not a leap. Nothing in this repository reaches 0.4413; see §3 for why, arithmetically.
+## Historical archive notice
 
-**Also new (later on 2026-10-30):** a second artifact pair, `gemsdoesass2-vrc-ventridge-44090-…`, with per-check format receipts, `.zip` archives for every encoding, the IR-VRC-01 emitter fix, and a measured HOLDOUT-DTI for the new hypothesis — all **negative / research only**, and it fails the same lattice rule. See the "New this session" block after the nine-site table and [knowledge/09](knowledge/09_vrc_and_download_surface.md).
-
+The remaining sections below preserve earlier research and copied run-card claims for auditability. Any old “SUBMIT”, “promote”, “OK to download”, or numeric MODEL ESTIMATE is **superseded and not current authorization** unless re-established by a new run card with the shared upstream evaluator and a resolved registry rule. Historical score values remain USER-REPORTED / UNVERIFIED unless an organizer receipt is attached.
 
 ---
 
