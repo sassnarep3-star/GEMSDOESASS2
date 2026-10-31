@@ -1,0 +1,76 @@
+{
+  "candidate": "gemsass2-hcorr-lineament-offcat-37654-20261031T000000Z-zeros.tif",
+  "n_dots": 37654,
+  "n_references": 54,
+  "radius_px": 3.0,
+  "limits": {
+    "overlap_pct": 70.0,
+    "abs_spearman": 0.9
+  },
+  "max_overlap_3px_pct": 53.9172,
+  "max_abs_spearman": 0.044032,
+  "passes_lane": true,
+  "top_overlaps": [
+    {
+      "ref": "GEMSDOE22--0.1002--gems22-h23-a-dti-optimal-emission-6pct-20261002-e2ec4b49-allfinite.tif",
+      "ref_dots": 335879,
+      "overlap_3px_pct": 53.9172,
+      "abs_spearman": 0.044032
+    },
+    {
+      "ref": "GEMSDOE23--0.1352--gemsdoe23-h30-arrangement-matched-habitat-20261002-0d4e02e8-allfinite.tif",
+      "ref_dots": 91533,
+      "overlap_3px_pct": 51.126,
+      "abs_spearman": 0.027
+    },
+    {
+      "ref": "GEMSDOE63--0.2303--gemsdoe63-cvarlw-thin-s3p17-54864-20261011T220606Z-c58f60c4-nan.tif",
+      "ref_dots": 54864,
+      "overlap_3px_pct": 39.9161,
+      "abs_spearman": 0.012941
+    },
+    {
+      "ref": "GEMSDOE48--0.2296--gemsdoe48-h59-cover-ds-belief-b2xh33d-diag-belief-normalized-20261008T184547Z.tif",
+      "ref_dots": 791389,
+      "overlap_3px_pct": 39.0848,
+      "abs_spearman": 0.027192
+    },
+    {
+      "ref": "GEMSDOE10--0.1839--gems10-h28-dotted-ridge-20260928T020256236880Z-6452ae1d00.tif",
+      "ref_dots": 69281,
+      "overlap_3px_pct": 37.9827,
+      "abs_spearman": 0.029013
+    },
+    {
+      "ref": "GEMSDOE37--0.1193--gemsdoe37-h6-physics-dotted-80k-20261005T055000Z-0bef9211631c.tif",
+      "ref_dots": 80000,
+      "overlap_3px_pct": 36.4742,
+      "abs_spearman": 0.02043
+    },
+    {
+      "ref": "gemsass2-ass2-altedge-hgb-44090-20261027-cc854482215e-zeros.tif",
+      "ref_dots": 44090,
+      "overlap_3px_pct": 32.0816,
+      "abs_spearman": 0.042295
+    },
+    {
+      "ref": "16GEMSDOE--0.1855--gems16-h16-1-topo-geophys-baseline-ridges-20260930-df20f65e-allfinite.tif",
+      "ref_dots": 123939,
+      "overlap_3px_pct": 30.8095,
+      "abs_spearman": 0.033778
+    },
+    {
+      "ref": "19GEMSDOE--0.1894--gems19-h19-4-multiline-corroborated-openness-thermal-pop-20260930-691e4dfa-allfinite.tif",
+      "ref_dots": 123779,
+      "overlap_3px_pct": 30.2836,
+      "abs_spearman": 0.036547
+    },
+    {
+      "ref": "19GEMSDOE--0.1922--gems19-h19-5-powerlaw-budget-multiline-corroborated-20260930-e27054cf-allfinite.tif",
+      "ref_dots": 121131,
+      "overlap_3px_pct": 29.4285,
+      "abs_spearman": 0.038235
+    }
+  ],
+  "scope_note": "Compared against the nine hash-pinned focus-site champions plus every local download. The wider GEMSDOE corpus (~90 sites) is not mirrored locally."
+}

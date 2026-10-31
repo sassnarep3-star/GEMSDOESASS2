@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Ranked, untried geological hypotheses for the DOE GEMS Prize, with the layers, physical signature, non-fault mimic and official data source for each.">
+<title>Hypotheses — GEMS Field Notes</title>
+<link rel="stylesheet" href="assets/style.css"></head><body><a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap header-inner">
+<a class="brand" href="index.html"><span class="brand-mark">G.</span><span>GEMS Field Notes<small>Decision &amp; discovery</small></span></a>
+<nav class="nav" aria-label="Primary"><a href="index.html">Download</a><a href="executive-summary.html">Executive summary</a><a href="how-to-submit.html">How to submit</a><a href="method.html">Why 0.2778 scored</a><a href="hypotheses.html" aria-current="page">Hypotheses</a><a href="sources.html">Sources</a></nav>
+</div></header>
+
+<main id="main">
+<div class="wrap"><div class="page-head">
+<div class="breadcrumb"><a href="index.html">Download</a> › Hypotheses</div>
+<h1>Five hypotheses, ranked — and which ones are already dead</h1>
+<p>Each entry names the layers, the physical signature, why it should catch a fault <em>missing</em> from the USGS/INGENIOUS catalogue rather than one already in it, how it differs from anything implemented here, the non-fault process that could mimic it, and the official free source. Ranked by expected DTI gain per unit cost. <strong>None may reach a submission slot before it beats the champion on a buffered spatial holdout.</strong></p>
+<p class="table-note"><strong>Status note.</strong> This page is a research register from the 2026-10-31 H-CORRIDOR lane. That lane's own file is a <em>measured, non-promoted</em> candidate — see the README and IR-31-08. The one file cleared to submit is unchanged.</p>
+</div></div>
+
+<section class="section-tight"><div class="wrap">
+<div class="callout"><p><strong>What this session measured first, and why it changes the ranking.</strong> Three things: (i) no proxy truth set predicts the leaderboard (40 rasters, all LOO R² negative); (ii) the champion's lineage is genuinely geophysically informed — its dots sit at <strong>1.80×</strong> the mean model probability of random cells; (iii) a gradient-boosted model fitted on the public catalogue reaches only <strong>0.6975</strong> spatially-blocked AUC, and placing cells by it does not beat the champion on the proxy. Any new hypothesis must therefore supply information the 56-band stack does not already contain — which is why the thermal and hydrologic fields rank at the top.</p></div>
+</div></section>
+
+<section class="section"><div class="wrap">
+
+<div class="hypothesis">
+<h3>H10 · Shallow (2 m) temperature-probe residual field <span class="tag" style="background:#eef7ee;color:#2f6b34">RANK 1 · untried · cost low</span></h3>
+<p><strong>Layers.</strong> UNR/GBCGE INGENIOUS 2-metre shallow temperature-probe regional survey, DOE GDR submission 1391, DOI <a href="https://doi.org/10.15121/1881483" target="_blank" rel="noopener noreferrer">10.15121/1881483</a>, CC BY 4.0. Local mirror verified present: <code>2m_temperature_probe_INGENIOUS_regional_data.zip</code> and the rasterised <code>derived_gdr_2m_probes_100m_u8.tif</code> (both hash-pinned in <code>registry/data_manifest.json</code>).</p>
+<p><strong>Physical signature.</strong> Advective heat transport: a permeable fault carrying 60–120 °C water to within a few metres of the surface raises the 2 m ground temperature above the conductive baseline. The target is the <em>residual</em> after removing the elevation and latitude trend, not the raw temperature — the trend is dominated by climate, the residual by upflow.</p>
+<p><strong>Why it catches a fault the catalogue misses.</strong> The USGS Quaternary catalogue is scarp-dependent: no scarp, no entry. A concealed or bedrock fault with active upflow has no scarp at all but does have a thermal halo. This is the only field in the stack that measures the <em>geothermal</em> property the competition is named for, rather than a structural proxy for it.</p>
+<p><strong>How it differs from this repository.</strong> The existing register lists H4 (probe-temperature kriging) as untried and this session confirms nothing here reads the probe values. The 56 bands the H-CORRIDOR candidate was built from contain no temperature channel: they are magnetics, gravity, strain, seismicity, conductivity, elevation and radiometrics.</p>
+<p><strong>Non-fault mimic.</strong> Shallow water table, irrigated pasture, pavement and playa albedo all shift 2 m temperature. Mitigation: require the residual to be elongated (structure-tensor coherence of the residual field) and cross-cutting to the regional gradient, and require concurrence with a second independent edge.</p>
+<p><strong>Data status.</strong> Free, official, CC BY 4.0 (share-alike-compatible with the sponsor requirement), and <strong>verified obtainable</strong> — mirrored in a public GEMS repository and already rasterised onto the competition grid.</p>
+</div>
+
+<div class="hypothesis">
+<h3>H13 · Upflow triple intersection — seismicity × conductivity-depth × dilatation <span class="tag" style="background:#eef7ee;color:#2f6b34">RANK 2 · untried · cost low</span></h3>
+<p><strong>Layers.</strong> Competition bands 16 (<code>ieq_n100a15</code> earthquake density), 17 (<code>cond_surf</code> conductivity) and 15 (<code>depth_to_base_surf</code>), plus band 8 (<code>geod_dilaterate</code>). No external data.</p>
+<p><strong>Physical signature.</strong> A convective geothermal cell concentrates microseismicity above the upflow, caps with a conductive clay layer at a shallow depth, and sits in a dilatational (opening) quadrant where permeability is maintained. The signature is the <em>intersection</em>, not any single field.</p>
+<p><strong>Why it catches a fault the catalogue misses.</strong> Each of the three fields is individually weak on this grid (univariate AUC 0.44–0.58 measured this session), which is precisely why no one has built on them; the joint restriction to cells that are simultaneously seismically active, shallow-clay-capped and dilatational is a much smaller set and is not represented in the scarp-based catalogue.</p>
+<p><strong>How it differs from this repository.</strong> The HVFD lane used hydro-features separately; the current model uses them as three of 68 weak features in a global fit. A multiplicative intersection prior, applied as a separate emission channel, has never been tested on the holdout.</p>
+<p><strong>Non-fault mimic.</strong> Reservoir-induced seismicity, aquifer drawdown and tectonic swarms; conductive clay basins that are purely sedimentary. Mitigation: subtract the basin-depth trend before intersecting.</p>
+<p><strong>Data status.</strong> In-repo, no external dependency.</p>
+</div>
+
+<div class="hypothesis">
+<h3>H8 · Corridor emission geometry (metric-mechanical, not geological) <span class="tag" style="background:#fdf3e7;color:#8a5a12">RANK 3 · tested this session · negative</span></h3>
+<p><strong>Layers.</strong> None new — the same probability surface, different <em>shape</em>.</p>
+<p><strong>Physical signature.</strong> Under the official metric a pixel emitted <em>on</em> a fault earns credit from every truth pixel within 300 m (roughly five of them along a thin trace) and pays a false-positive cost of <code>1 − k(d)</code> that falls to zero as the line approaches the trace. A space-filling lattice of isolated dots spaced ~1.2 km apart — which is what all nine focus sites are — forfeits that multiplier.</p>
+<p><strong>Measured result.</strong> Mass-matched corridor emissions (support 51,674 → 1,033,475 px at Σp = 37,654) scored <strong>0.0100–0.0135</strong> on the proxy against the champion's 0.0947 — far worse, not better. The reason is visible in the arithmetic: spreading the same mass over 27× more pixels pays 27× more false-positive distance penalty than it recovers. <strong>Negative result, published as a deliverable.</strong></p>
+<p><strong>Why it is still ranked.</strong> The instrument it failed on has no demonstrated validity (section 2 of the executive summary). It should be re-tested the moment an organizer receipt exists. Cost of a re-test: minutes.</p>
+</div>
+
+<div class="hypothesis">
+<h3>H11 · Tilt-depth consistency along strike (source-parameter imaging) <span class="tag">RANK 4 · untried here · cost medium</span></h3>
+<p><strong>Layers.</strong> GeoDAWN <code>rtp</code>, <code>tmi</code>, <code>tc</code> (tilt angle) and <code>TMI_up150</code> (upward-continued 150 m, in the extensions raster), plus competition band 15 (<code>depth_to_base_surf</code>).</p>
+<p><strong>Physical signature.</strong> A fault is a sub-vertical tabular source: the depth estimated from the local wavenumber of the analytic signal should be <em>constant along strike</em> and the source should be steeply dipping. A lithologic contact is a sub-horizontal or variable-depth boundary whose depth estimate wanders along strike. The signature is the variance of the depth estimate along a candidate lineament, not the depth itself.</p>
+<p><strong>Why it catches a fault the catalogue misses.</strong> It discriminates structure from lithology using geometry alone, which is exactly the confusion that keeps radiometric and magnetic amplitude methods at AUC 0.44–0.58 here.</p>
+<p><strong>How it differs from this repository.</strong> The register's H2 (magnetic tilt zero-convergence) was tested and is negative (ridge alone 0.0396 vs 0.0489 uniform). This is a different observable: depth-estimate stability along strike, not the zero-crossing of the tilt. Other GEMSDOE sites explored Euler depth clustering (reported 0.0355–0.0984) but not the along-strike consistency constraint.</p>
+<p><strong>Non-fault mimic.</strong> Bedding-plane magnetic horizons and welded tuff contacts can also be tabular; dykes are genuinely sub-vertical and magnetic. Mitigation: require the depth estimate to be stable over ≥2 km of strike.</p>
+<p><strong>Data status.</strong> GeoDAWN DOI <a href="https://doi.org/10.5066/P93LGLVQ" target="_blank" rel="noopener noreferrer">10.5066/P93LGLVQ</a>, public domain; the needed grids are already rasterised in <code>geodawn_extensions_u8.tif</code> (Th/K, U/K, U/Th, TMI_up150) and the 19-band stack. Verified present locally.</p>
+</div>
+
+<div class="hypothesis">
+<h3>H12 · Paleo-geothermal deposit catchments (sinter / travertine / tufa) <span class="tag">RANK 5 · partly tested · negative</span></h3>
+<p><strong>Layers.</strong> GDR 1391 paleo-geothermal features compilation (709 mapped deposits), DOI <a href="https://doi.org/10.15121/1881483" target="_blank" rel="noopener noreferrer">10.15121/1881483</a>; rasterised as <code>derived_gdr_paleo_100m_u8.tif</code>.</p>
+<p><strong>Physical signature.</strong> A fossil spring deposit is the surface outlet of a conduit that is still there. The untried variant is not the along-strike continuation of the deposit (tested as VRC: HOLDOUT-DTI 0.0086 vs the parent's 0.0967 — strongly negative) but the <em>upslope hydrologic catchment</em> above it: the recharge area whose structurally controlled drainage delivered the fluid.</p>
+<p><strong>Why it catches a fault the catalogue misses.</strong> Deposits mark faults that were permeable in the Quaternary but have no preserved scarp at map scale — precisely the population the experts were asked to find.</p>
+<p><strong>Non-fault mimic.</strong> Deposits also form on purely lithologic springs and at springs controlled by the water table rather than structure. Mitigation: require the catchment to be bounded by a lineament on at least one side.</p>
+<p><strong>Data status.</strong> Free, official, CC BY 4.0, verified present locally — but the <em>catchment</em> variant needs a flow-direction computation on the 10 m DEM, which is the cost driver.</p>
+</div>
+
+<h2 id="obtainability">External data: what is needed and whether it is obtainable</h2>
+<div class="table-shell"><table>
+<thead><tr><th scope="col">Source</th><th scope="col">Licence</th><th scope="col">Needed for</th><th scope="col">Obtainable here?</th></tr></thead>
+<tbody>
+<tr><td><a href="https://gdr.openei.org/submissions/1391" target="_blank" rel="noopener noreferrer">DOE GDR #1391</a> — 2 m probes, paleo features, wells/springs, Quaternary vents, fault traces (DOI 10.15121/1881483)</td><td>CC BY 4.0</td><td>H10, H12</td><td><strong>Yes — verified.</strong> Mirrored in the public GEMS repositories and already rasterised on the competition grid; hash-pinned in <code>registry/data_manifest.json</code>.</td></tr>
+<tr><td><a href="https://doi.org/10.5066/P93LGLVQ" target="_blank" rel="noopener noreferrer">USGS GeoDAWN</a> — magnetics, radiometrics, DEM</td><td>US public domain</td><td>H11</td><td><strong>Yes — verified.</strong> The 19-band stack plus the derived radiometric and extension rasters are present and pinned.</td></tr>
+<tr><td><a href="https://www.usgs.gov/3d-elevation-program" target="_blank" rel="noopener noreferrer">USGS 3DEP</a> 1 m and 10 m DEM</td><td>US public domain</td><td>H12 (catchments)</td><td><strong>Partially.</strong> Derived 100 m products (topography, scarp, chi/ksn, openness) are present; raw 1 m tiles are not, and this sandbox reaches github.com only, so new tiles cannot be fetched here.</td></tr>
+<tr><td>DrivenData <code>training_features.tif</code>, private test labels, <code>1m_DEM_links.csv</code></td><td>Competition login</td><td>any supervised fit against the true target</td><td><strong>No.</strong> Login-walled. The 19-band stack is available only via the owner mirror, which is integrity-pinned but not organizer-authenticated.</td></tr>
+<tr><td>US Census TIGER/Line 2024 roads</td><td>US public domain</td><td>anthropogenic-edge masking</td><td><strong>Yes — verified</strong> as a derived distance raster in the GEMSDOE24 mirror.</td></tr>
+</tbody></table></div>
+<p class="table-note"><strong>Sandbox limitation, stated once.</strong> This environment has outbound access to <code>github.com</code>, <code>api.github.com</code>, <code>codeload.github.com</code>, <code>pypi.org</code> and <code>files.pythonhosted.org</code> only. USGS ScienceBase, gbcge.org, openei.org and census.gov cannot be reached directly from here; every external layer used in this repository was obtained through public GitHub mirrors of official releases, and each is hash-pinned so its integrity can be checked but its provenance is the mirror, not the agency.</p>
+</div></section>
+</main>
+
+<footer class="site-footer"><div class="wrap footer-inner">
+<p><strong>GEMS Field Notes</strong> · hypothesis register · 2026-10-31</p>
+<div><a href="index.html">Download</a><a href="executive-summary.html">Executive summary</a><a href="method.html">Method</a><a href="sources.html">Sources</a></div>
+</div></footer></body></html>

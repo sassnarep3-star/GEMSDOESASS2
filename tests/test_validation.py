@@ -51,13 +51,36 @@ def test_rejects_nonfinite_and_out_of_range_inside(rasters, bad):
     assert not r["checks"]["whole_array_finite_in_0_1"]
 
 
-def test_fails_closed_on_unmasked_outside(rasters):
+def test_zeros_outside_is_an_accepted_encoding(rasters):
+    """IR-31-01. The old rule (`all(checks.values())`) rejected a file that is finite
+    and inside [0,1] everywhere merely because its outside values are 0.0 rather than
+    NaN -- even though that is what the organizer sample and every top submission ship,
+    and even though the portal's "[0,1]" check cannot fire on it. The strict pass now
+    requires ONE valid outside-bounds encoding, and this is one of them."""
     root, sample, _ = rasters
     out = write(root / "unmasked.tif", np.zeros((3, 3)))
     r = validate(out, sample)
     assert r["checks"]["whole_array_finite_in_0_1"]
     assert not r["checks"]["outside_masked_or_nan"]
+    assert r["strict_local_format_pass"] is True
+    assert r["outside_bounds_encoding"] == "zeros_finite_outside"
+    assert r["portal_range_safe"] is True
+    assert r["organizer_accepted"] is None
+    assert r["ok_to_submit"] is False
+
+
+@pytest.mark.parametrize("bad_outside", [0.5, 1.0, 2.0, -1.0])
+def test_fails_closed_on_nonzero_outside_values(rasters, bad_outside):
+    """Equal-or-stronger replacement for the old `unmasked outside == fail` rule: a
+    file that *predicts* outside the footprint fails whatever its range."""
+    root, sample, foot = rasters
+    a = np.zeros((3, 3), dtype=np.float32)
+    a[~foot] = bad_outside
+    r = validate(write(root / "outside-nonzero.tif", a), sample)
     assert not r["strict_local_format_pass"]
+    assert r["counts"]["outside_all_zero"] is False
+    # 0.5 outside is finite and in range, so the [0,1] check alone must not rescue it
+    assert r["outside_bounds_encoding"] in ("nonzero_finite_outside", "INVALID")
 
 
 def test_masked_inside_is_not_valid(rasters):
@@ -68,13 +91,20 @@ def test_masked_inside_is_not_valid(rasters):
     assert not validate(out, sample)["strict_local_format_pass"]
 
 
-def test_nan_outside_meets_null_but_not_strict_whole_array_policy(rasters):
+def test_nan_outside_passes_but_is_not_portal_range_safe(rasters):
+    """IR-31-01. NaN outside satisfies the published spec ("null or nan"), so it is a
+    valid encoding and the strict pass accepts it -- but it is flagged
+    `portal_range_safe: False`, because the portal's validation is unpublished and the
+    reported rejection was "Predicted values must be in range [0, 1]". Ship the zeros
+    twin."""
     root, sample, foot = rasters
     out = write(root / "outside-nan.tif", np.where(foot, .5, np.nan), nodata=np.nan)
     r = validate(out, sample)
     assert r["checks"]["outside_masked_or_nan"]
     assert not r["checks"]["whole_array_finite_in_0_1"]
-    assert not r["strict_local_format_pass"]
+    assert r["strict_local_format_pass"] is True
+    assert r["outside_bounds_encoding"] == "masked_or_nan_outside"
+    assert r["portal_range_safe"] is False
 
 
 @pytest.mark.parametrize("change", ["shape", "transform", "crs", "bands", "extension"])

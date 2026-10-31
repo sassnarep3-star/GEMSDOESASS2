@@ -1,0 +1,234 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-10-31T06:24:16Z",
+  "stem": "gemsass2-hcorr-lineament-offcat-37654-20261031T000000Z",
+  "selection": {
+    "rule": "max P_SGMC2 s.t. P_LABELS <= 0.006709 and emitted mass == 37654",
+    "n_candidates": 12,
+    "n_eligible": 12,
+    "champion_P_SGMC2": 0.094686,
+    "best_P_SGMC2": 0.082206,
+    "beats_champion_on_proxy": false,
+    "shortfall_pct": 13.18
+  },
+  "winner": {
+    "emission": "a1.0_sep3_c2",
+    "sum_p": 37654.0,
+    "nonzero_px": 37654,
+    "P_SGMC2": 0.08138,
+    "P_SGMC0": 0.065885,
+    "P_LABELS": 0.0,
+    "alpha": 1.0,
+    "sep": 3,
+    "collar": 2,
+    "dots": 37654,
+    "shipped": true
+  },
+  "sweep": [
+    {
+      "emission": "CHAMPION_GEMSDOE32_reference",
+      "sum_p": 37654.0,
+      "nonzero_px": 37654,
+      "P_SGMC2": 0.094686,
+      "P_SGMC0": 0.088005,
+      "P_LABELS": 0.006709,
+      "role": "reference"
+    },
+    {
+      "emission": "a0.0_sep3_c2",
+      "sum_p": 37654.0,
+      "nonzero_px": 37654,
+      "P_SGMC2": 0.059256,
+      "P_SGMC0": 0.049558,
+      "P_LABELS": 0.0,
+      "alpha": 0.0,
+      "sep": 3,
+      "collar": 2,
+      "dots": 37654
+    },
+    {
+      "emission": "a0.0_sep6_c2",
+      "sum_p": 37654.0,
+      "nonzero_px": 37654,
+      "P_SGMC2": 0.078692,
+      "P_SGMC0": 0.067814,
+      "P_LABELS": 0.0,
+      "alpha": 0.0,
+      "sep": 6,
+      "collar": 2,
+      "dots": 37654
+    },
+    {
+      "emission": "a0.0_sep9_c2",
+      "sum_p": 37654.0,
+      "nonzero_px": 37654,
+      "P_SGMC2": 0.073618,
+      "P_SGMC0": 0.064596,
+      "P_LABELS": 0.0,
+      "alpha": 0.0,
+      "sep": 9,
+      "collar": 2,
+      "dots": 37654
+    },
+    {
+      "emission": "a0.5_sep3_c2",
+      "sum_p": 37654.0,
+      "nonzero_px": 37654,
+      "P_SGMC2": 0.08138,
+      "P_SGMC0": 0.065885,
+      "P_LABELS": 0.0,
+      "alpha": 0.5,
+      "sep": 3,
+      "collar": 2,
+      "dots": 37654
+    },
+    {
+      "emission": "a1.0_sep3_c2",
+      "sum_p": 37654.0,
+      "nonzero_px": 37654,
+      "P_SGMC2": 0.08138,
+      "P_SGMC0": 0.065885,
+      "P_LABELS": 0.0,
+      "alpha": 1.0,
+      "sep": 3,
+      "collar": 2,
+      "dots": 37654
+    },
+    {
+      "emission": "a2.0_sep3_c2",
+      "sum_p": 37654.0,
+      "nonzero_px": 37654,
+      "P_SGMC2": 0.08138,
+      "P_SGMC0": 0.065885,
+      "P_LABELS": 0.0,
+      "alpha": 2.0,
+      "sep": 3,
+      "collar": 2,
+      "dots": 37654
+    },
+    {
+      "emission": "a0.0_sep3_c3",
+      "sum_p": 37654.0,
+      "nonzero_px": 37654,
+      "P_SGMC2": 0.060533,
+      "P_SGMC0": 0.04829,
+      "P_LABELS": 0.0,
+      "alpha": 0.0,
+      "sep": 3,
+      "collar": 3,
+      "dots": 37654
+    },
+    {
+      "emission": "a0.0_sep6_c3",
+      "sum_p": 37654.0,
+      "nonzero_px": 37654,
+      "P_SGMC2": 0.082206,
+      "P_SGMC0": 0.066032,
+      "P_LABELS": 0.0,
+      "alpha": 0.0,
+      "sep": 6,
+      "collar": 3,
+      "dots": 37654
+    },
+    {
+      "emission": "a0.0_sep9_c3",
+      "sum_p": 37654.0,
+      "nonzero_px": 37654,
+      "P_SGMC2": 0.072775,
+      "P_SGMC0": 0.059046,
+      "P_LABELS": 0.0,
+      "alpha": 0.0,
+      "sep": 9,
+      "collar": 3,
+      "dots": 37654
+    },
+    {
+      "emission": "a0.5_sep3_c3",
+      "sum_p": 37654.0,
+      "nonzero_px": 37654,
+      "P_SGMC2": 0.081248,
+      "P_SGMC0": 0.064314,
+      "P_LABELS": 0.0,
+      "alpha": 0.5,
+      "sep": 3,
+      "collar": 3,
+      "dots": 37654
+    },
+    {
+      "emission": "a1.0_sep3_c3",
+      "sum_p": 37654.0,
+      "nonzero_px": 37654,
+      "P_SGMC2": 0.081248,
+      "P_SGMC0": 0.064314,
+      "P_LABELS": 0.0,
+      "alpha": 1.0,
+      "sep": 3,
+      "collar": 3,
+      "dots": 37654
+    },
+    {
+      "emission": "a2.0_sep3_c3",
+      "sum_p": 37654.0,
+      "nonzero_px": 37654,
+      "P_SGMC2": 0.081248,
+      "P_SGMC0": 0.064314,
+      "P_LABELS": 0.0,
+      "alpha": 2.0,
+      "sep": 3,
+      "collar": 3,
+      "dots": 37654
+    }
+  ],
+  "emission": {
+    "alpha": 1.0,
+    "separation_px": 3,
+    "collar_px": 2,
+    "target_mass_sum_p": 37654.0,
+    "alpha_note": "alpha is a no-op under top-K greedy selection with NMS: p^alpha is monotone in p, so alpha >= 0.5 returns an identical cell set. Only `sep` and `collar` change the emission."
+  },
+  "files": [
+    {
+      "tag": "nan",
+      "name": "gemsass2-hcorr-lineament-offcat-37654-20261031T000000Z-nan.tif",
+      "bytes": 372100,
+      "sha256": "bf89a685eb3b5ea3e582be54a29806eec48fa459ac9593362557802927214d43",
+      "zip": "gemsass2-hcorr-lineament-offcat-37654-20261031T000000Z-nan.zip",
+      "zip_bytes": 263692,
+      "zip_sha256": "79936568684a5103c43622da30b24e0043b7fbd4c25a411d7344f34fc861b6dc",
+      "validator": {
+        "strict_local_format_pass": true,
+        "outside_bounds_encoding": "masked_or_nan_outside",
+        "portal_range_safe": false,
+        "n_checks_passed": 10,
+        "n_checks_total": 11
+      }
+    },
+    {
+      "tag": "zeros",
+      "name": "gemsass2-hcorr-lineament-offcat-37654-20261031T000000Z-zeros.tif",
+      "bytes": 331522,
+      "sha256": "4367b360eda411afdba1a11db7dabd0a4744dbb3b679790b3d0fd77c2faf9c1f",
+      "zip": "gemsass2-hcorr-lineament-offcat-37654-20261031T000000Z-zeros.zip",
+      "zip_bytes": 220637,
+      "zip_sha256": "b66294182d6a34704635f0818bb778b84d9fab3ad73d6e687cceab47c4b279f0",
+      "validator": {
+        "strict_local_format_pass": true,
+        "outside_bounds_encoding": "zeros_finite_outside",
+        "portal_range_safe": true,
+        "n_checks_passed": 10,
+        "n_checks_total": 11
+      }
+    }
+  ],
+  "label": "PROXY-HOLDOUT-DTI on measurable proxy truth (USGS SGMC faults), not an organizer score. No organizer receipt exists for any file in this repository.",
+  "rebuilt_utc": "2026-10-31T06:44:10Z",
+  "rebuild_note": "The `winner`, `emission` and `files` blocks of this receipt were rewritten on 2026-10-31 to describe the artifact that actually shipped (alpha 1.0, sep 3, collar 2, mass 37654). The sweep grid below is unchanged. See IR-31-02: alpha is a monotone transform and therefore a no-op under top-K selection, so the pre-registered argmax (a0.0_sep6_c3) was an arbitrary scan-order selection.",
+  "pre_registered_argmax": {
+    "emission": "a0.0_sep6_c3",
+    "P_SGMC2": 0.082206,
+    "shortfall_vs_champion_pct": 13.18,
+    "shipped": false,
+    "reason": "the argmax row is an arbitrary scan-order artefact of the alpha no-op, not a model-driven placement"
+  },
+  "verified_on_disk": true
+}

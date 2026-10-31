@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-10-31T05:10:32Z",
+  "provenance": "Public GitHub mirrors, SHA-pinned; mirror integrity only, not organizer-authenticated.",
+  "rows": [
+    {
+      "key": "GEMSDOE24",
+      "site": "GEMSDOE24",
+      "reported": 0.2477,
+      "repo": "buffedlizard55-lab/GEMSDOE24",
+      "ref": "a433b430b74b813a9118ebd4ec438b12cbc69f46",
+      "path": "docs/downloads/gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-allfinite.tif",
+      "file": ".cache/registry/GEMSDOE24.tif",
+      "status": "fetched",
+      "sha256": "3e0730e8d4f7db095dd80246a98cba3bc0fc9a28f436b91db27ca34df4d0d1ce",
+      "hash_match": true
+    },
+    {
+      "key": "GEMSDOE25",
+      "site": "GEMSDOE25",
+      "reported": 0.26,
+      "repo": "buffedlizard55-lab/GEMSDOE25",
+      "ref": "b4e74b3f9b191fbc214b6447e9ff1f3fa67552c4",
+      "path": "docs/downloads/gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-zeros.tif",
+      "file": ".cache/registry/GEMSDOE25.tif",
+      "status": "fetched",
+      "sha256": "3e78737f0da8dd2ca66cc6caac0ce8eeefcd6715707f8d1bd3091845cd9bcc30",
+      "hash_match": true
+    },
+    {
+      "key": "GEMSDOE27",
+      "site": "GEMSDOE27",
+      "reported": 0.2449,
+      "repo": "buffedlizard55-lab/GEMSDOE27",
+      "ref": "bef7ae8e8f63b69d299c9214c75988c8f5055f9c",
+      "path": "docs/downloads/gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-allfinite.tif",
+      "file": ".cache/registry/GEMSDOE27.tif",
+      "status": "fetched",
+      "sha256": "a9bf76b57453a5b3af74c8eef837df53c29a0931162aa540b8763220b36ba3bb",
+      "hash_match": true
+    },
+    {
+      "key": "GEMSDOE28",
+      "site": "GEMSDOE28",
+      "reported": 0.271,
+      "repo": "buffedlizard55-lab/GEMSDOE28",
+      "ref": "2c839d10f57ec9b074829e93c84bc39935f52896",
+      "path": "docs/downloads/gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-allfinite.tif",
+      "file": ".cache/registry/GEMSDOE28.tif",
+      "status": "fetched",
+      "sha256": "7c74270ad48fa0b865163853046a6d3815967c5bf37bbda5b74ca7fa22583a32",
+      "hash_match": true
+    },
+    {
+      "key": "GEMSDOE30",
+      "site": "GEMSDOE30",
+      "reported": 0.26,
+      "repo": "buffedlizard55-lab/GEMSDOE30",
+      "ref": "9c0d637c0171407196b61b780444bc772ce75438",
+      "path": "docs/downloads/gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca.tif",
+      "file": ".cache/registry/GEMSDOE30.tif",
+      "status": "fetched",
+      "sha256": "8cf893ead5667df21d3288a9968c35fd5385c425b029d82ee71d311715b129fd",
+      "hash_match": true
+    },
+    {
+      "key": "GEMSDOE31",
+      "site": "GEMSDOE31",
+      "reported": 0.2708,
+      "repo": "buffedlizard55-lab/GEMSDOE31",
+      "ref": "eeb7da54ca4a8ae056f45e5b23eeef586ad79bf2",
+      "path": "docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-allfinite.tif",
+      "file": ".cache/registry/GEMSDOE31.tif",
+      "status": "fetched",
+      "sha256": "acd853936e5a7170b207f23411b1844caa0e7cfdfc303c600e520ccfe75159e6",
+      "hash_match": true
+    },
+    {
+      "key": "GEMSDOE32",
+      "site": "GEMSDOE32",
+      "reported": 0.2778,
+      "repo": "buffedlizard55-lab/GEMSDOE32",
+      "ref": "400b60d4a6d99f425ee90504e6c4552227556dd1",
+      "path": "docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
+      "file": ".cache/registry/GEMSDOE32.tif",
+      "status": "fetched",
+      "sha256": "c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9",
+      "hash_match": true
+    },
+    {
+      "key": "GEMSDOE33",
+      "site": "GEMSDOE33",
+      "reported": 0.2632,
+      "repo": "buffedlizard55-lab/GEMSDOE33",
+      "ref": "efa438d3104893c3e8aedf3817ac22167b1c681a",
+      "path": "docs/downloads/GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e.tif",
+      "file": ".cache/registry/GEMSDOE33.tif",
+      "status": "fetched",
+      "sha256": "87f857d505e23247e991ccfab2cbe9f49a04df4f9c8028dce7ea261554690757",
+      "hash_match": true
+    },
+    {
+      "key": "GEMSDOE36",
+      "site": "GEMSDOE36",
+      "reported": 0.275,
+      "repo": "buffedlizard55-lab/GEMSDOE36",
+      "ref": "32c2660001d98f6fa9084a0971b3a9d5062d49b9",
+      "path": "docs/downloads/gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif",
+      "file": ".cache/registry/GEMSDOE36.tif",
+      "status": "fetched",
+      "sha256": "e15891020b9c57056ac7fa874a5e506fbd6ed9314a4ea8e73af0753887a3708a",
+      "hash_match": true
+    }
+  ]
+}

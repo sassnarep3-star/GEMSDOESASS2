@@ -77,7 +77,18 @@ def test_validator_conventions_on_both_twins() -> None:
     assert zeros["strict_local_format_pass"] is True
     assert zeros["checks"]["whole_array_finite_in_0_1"] is True
     assert zeros["ok_to_submit"] is False  # format inspection never approves
-    assert nan["strict_local_format_pass"] is False  # strict policy rejects NaN
+    # IR-31-01: the old assertion here was `nan[...] is False`, which encoded an
+    # over-narrow rule -- `all(checks.values())` demands BOTH outside-bounds checks at
+    # once, and a file carrying finite values outside the footprint with no internal
+    # mask can never satisfy `outside_masked_or_nan`, while a spec-compliant NaN-outside
+    # file can never satisfy `whole_array_finite_in_0_1`. Only a masked-outside file
+    # could ever pass. The fixed rule requires the structural checks, the
+    # inside-footprint range check, and ONE valid outside-bounds encoding, and records
+    # which encoding was used plus whether the portal's "[0,1]" check can fire.
+    assert nan["strict_local_format_pass"] is True
+    assert nan["outside_bounds_encoding"] != "INVALID"
+    assert zeros["outside_bounds_encoding"] != "INVALID"
+    assert zeros["portal_range_safe"] is True
     # The nan twin must reproduce the organizer template's NaN mask exactly.
     with rasterio.open(sample) as ds:
         ref = ds.read(1)

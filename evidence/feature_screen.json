@@ -1,0 +1,414 @@
+{
+ "schema_version": 1,
+ "generated_utc": "2026-10-31T05:22:31Z",
+ "subsample": 1500000,
+ "note": "Univariate AUC on 1.5 M random footprint cells. Leakage alarm if |AUC-0.5|>0.40.",
+ "rows": [
+  {
+   "band": 57,
+   "name": "sgm:b1",
+   "auc_known_faults": 0.5232,
+   "auc_sgmc_offcatalogue": 0.9981,
+   "valid_frac": 1.0
+  },
+  {
+   "band": 56,
+   "name": "qfv:b1",
+   "auc_known_faults": 0.9844,
+   "auc_sgmc_offcatalogue": 0.4942,
+   "valid_frac": 1.0
+  },
+  {
+   "band": 27,
+   "name": "lid:relief",
+   "auc_known_faults": 0.5703,
+   "auc_sgmc_offcatalogue": 0.7728,
+   "valid_frac": 0.7536
+  },
+  {
+   "band": 50,
+   "name": "chi:ksn_max_m0.9",
+   "auc_known_faults": 0.5975,
+   "auc_sgmc_offcatalogue": 0.7606,
+   "valid_frac": 0.1521
+  },
+  {
+   "band": 43,
+   "name": "t10:relief_local",
+   "auc_known_faults": 0.5571,
+   "auc_sgmc_offcatalogue": 0.7593,
+   "valid_frac": 1.0
+  },
+  {
+   "band": 39,
+   "name": "t10:slope_p90",
+   "auc_known_faults": 0.5605,
+   "auc_sgmc_offcatalogue": 0.7592,
+   "valid_frac": 1.0
+  },
+  {
+   "band": 40,
+   "name": "t10:slope_max",
+   "auc_known_faults": 0.5639,
+   "auc_sgmc_offcatalogue": 0.7588,
+   "valid_frac": 1.0
+  },
+  {
+   "band": 18,
+   "name": "f:det_elev_slope",
+   "auc_known_faults": 0.5562,
+   "auc_sgmc_offcatalogue": 0.7556,
+   "valid_frac": 0.9994
+  },
+  {
+   "band": 21,
+   "name": "lid:step_max",
+   "auc_known_faults": 0.5717,
+   "auc_sgmc_offcatalogue": 0.7517,
+   "valid_frac": 0.7536
+  },
+  {
+   "band": 23,
+   "name": "lid:lappos_max",
+   "auc_known_faults": 0.5801,
+   "auc_sgmc_offcatalogue": 0.7517,
+   "valid_frac": 0.7536
+  },
+  {
+   "band": 22,
+   "name": "lid:lapneg_max",
+   "auc_known_faults": 0.5764,
+   "auc_sgmc_offcatalogue": 0.7463,
+   "valid_frac": 0.7536
+  },
+  {
+   "band": 46,
+   "name": "t10:hs_lineament",
+   "auc_known_faults": 0.5648,
+   "auc_sgmc_offcatalogue": 0.7446,
+   "valid_frac": 1.0
+  },
+  {
+   "band": 41,
+   "name": "t10:steep_frac",
+   "auc_known_faults": 0.5411,
+   "auc_sgmc_offcatalogue": 0.7445,
+   "valid_frac": 1.0
+  },
+  {
+   "band": 42,
+   "name": "t10:slope_std",
+   "auc_known_faults": 0.5793,
+   "auc_sgmc_offcatalogue": 0.7357,
+   "valid_frac": 1.0
+  },
+  {
+   "band": 20,
+   "name": "lid:ex_mean",
+   "auc_known_faults": 0.557,
+   "auc_sgmc_offcatalogue": 0.7335,
+   "valid_frac": 0.7536
+  },
+  {
+   "band": 19,
+   "name": "lid:ex_max",
+   "auc_known_faults": 0.5697,
+   "auc_sgmc_offcatalogue": 0.7325,
+   "valid_frac": 0.7536
+  },
+  {
+   "band": 26,
+   "name": "lid:cross_max",
+   "auc_known_faults": 0.5454,
+   "auc_sgmc_offcatalogue": 0.7174,
+   "valid_frac": 0.6211
+  },
+  {
+   "band": 44,
+   "name": "t10:curv_prof_absmax",
+   "auc_known_faults": 0.5723,
+   "auc_sgmc_offcatalogue": 0.7162,
+   "valid_frac": 1.0
+  },
+  {
+   "band": 47,
+   "name": "t10:dem_mean",
+   "auc_known_faults": 0.505,
+   "auc_sgmc_offcatalogue": 0.7072,
+   "valid_frac": 1.0
+  },
+  {
+   "band": 24,
+   "name": "lid:downface_max",
+   "auc_known_faults": 0.5522,
+   "auc_sgmc_offcatalogue": 0.7069,
+   "valid_frac": 0.6211
+  },
+  {
+   "band": 52,
+   "name": "chi:zmean_m",
+   "auc_known_faults": 0.5031,
+   "auc_sgmc_offcatalogue": 0.7056,
+   "valid_frac": 1.0
+  },
+  {
+   "band": 11,
+   "name": "f:det_elev",
+   "auc_known_faults": 0.4848,
+   "auc_sgmc_offcatalogue": 0.704,
+   "valid_frac": 0.9994
+  },
+  {
+   "band": 25,
+   "name": "lid:upface_max",
+   "auc_known_faults": 0.5634,
+   "auc_sgmc_offcatalogue": 0.6932,
+   "valid_frac": 0.6211
+  },
+  {
+   "band": 14,
+   "name": "f:depth_to_base_surf",
+   "auc_known_faults": 0.5092,
+   "auc_sgmc_offcatalogue": 0.3368,
+   "valid_frac": 0.9994
+  },
+  {
+   "band": 31,
+   "name": "rad:K",
+   "auc_known_faults": 0.4388,
+   "auc_sgmc_offcatalogue": 0.3502,
+   "valid_frac": 0.9998
+  },
+  {
+   "band": 5,
+   "name": "f:tc",
+   "auc_known_faults": 0.4463,
+   "auc_sgmc_offcatalogue": 0.3795,
+   "valid_frac": 0.9994
+  },
+  {
+   "band": 34,
+   "name": "rad:TC",
+   "auc_known_faults": 0.4462,
+   "auc_sgmc_offcatalogue": 0.3795,
+   "valid_frac": 0.9998
+  },
+  {
+   "band": 12,
+   "name": "f:iso_grav_anom",
+   "auc_known_faults": 0.4616,
+   "auc_sgmc_offcatalogue": 0.6128,
+   "valid_frac": 0.9994
+  },
+  {
+   "band": 33,
+   "name": "rad:U",
+   "auc_known_faults": 0.4762,
+   "auc_sgmc_offcatalogue": 0.4024,
+   "valid_frac": 0.9998
+  },
+  {
+   "band": 48,
+   "name": "chi:step_max_x1000",
+   "auc_known_faults": 0.54,
+   "auc_sgmc_offcatalogue": 0.4225,
+   "valid_frac": 0.1521
+  },
+  {
+   "band": 49,
+   "name": "chi:step_min_x1000",
+   "auc_known_faults": 0.5417,
+   "auc_sgmc_offcatalogue": 0.4259,
+   "valid_frac": 0.1521
+  },
+  {
+   "band": 4,
+   "name": "f:iso_grav_anom_slope",
+   "auc_known_faults": 0.5311,
+   "auc_sgmc_offcatalogue": 0.4277,
+   "valid_frac": 0.9994
+  },
+  {
+   "band": 3,
+   "name": "f:geod_2ndinv",
+   "auc_known_faults": 0.57,
+   "auc_sgmc_offcatalogue": 0.4772,
+   "valid_frac": 0.9994
+  },
+  {
+   "band": 6,
+   "name": "f:geod_shearrate",
+   "auc_known_faults": 0.5697,
+   "auc_sgmc_offcatalogue": 0.4769,
+   "valid_frac": 0.9994
+  },
+  {
+   "band": 15,
+   "name": "f:ieq_n100a15",
+   "auc_known_faults": 0.5686,
+   "auc_sgmc_offcatalogue": 0.479,
+   "valid_frac": 0.9994
+  },
+  {
+   "band": 7,
+   "name": "f:geod_dilaterate",
+   "auc_known_faults": 0.5239,
+   "auc_sgmc_offcatalogue": 0.4394,
+   "valid_frac": 0.9994
+  },
+  {
+   "band": 32,
+   "name": "rad:Th",
+   "auc_known_faults": 0.4484,
+   "auc_sgmc_offcatalogue": 0.4423,
+   "valid_frac": 0.9998
+  },
+  {
+   "band": 36,
+   "name": "gde:UK",
+   "auc_known_faults": 0.5357,
+   "auc_sgmc_offcatalogue": 0.5572,
+   "valid_frac": 0.9998
+  },
+  {
+   "band": 9,
+   "name": "f:deq_n100a15",
+   "auc_known_faults": 0.5507,
+   "auc_sgmc_offcatalogue": 0.48,
+   "valid_frac": 0.9994
+  },
+  {
+   "band": 38,
+   "name": "gde:TMI_up150",
+   "auc_known_faults": 0.4916,
+   "auc_sgmc_offcatalogue": 0.5494,
+   "valid_frac": 0.9994
+  },
+  {
+   "band": 35,
+   "name": "gde:ThK",
+   "auc_known_faults": 0.4829,
+   "auc_sgmc_offcatalogue": 0.5466,
+   "valid_frac": 0.9998
+  },
+  {
+   "band": 37,
+   "name": "gde:UTh",
+   "auc_known_faults": 0.5435,
+   "auc_sgmc_offcatalogue": 0.5038,
+   "valid_frac": 0.9998
+  },
+  {
+   "band": 10,
+   "name": "f:iso_grav_anom_vg",
+   "auc_known_faults": 0.5278,
+   "auc_sgmc_offcatalogue": 0.4658,
+   "valid_frac": 0.9994
+  },
+  {
+   "band": 51,
+   "name": "chi:log10_area_m2_x1000",
+   "auc_known_faults": 0.4688,
+   "auc_sgmc_offcatalogue": 0.4958,
+   "valid_frac": 0.1521
+  },
+  {
+   "band": 13,
+   "name": "f:tmi",
+   "auc_known_faults": 0.4908,
+   "auc_sgmc_offcatalogue": 0.5311,
+   "valid_frac": 0.9994
+  },
+  {
+   "band": 2,
+   "name": "f:tmi_hg",
+   "auc_known_faults": 0.5277,
+   "auc_sgmc_offcatalogue": 0.489,
+   "valid_frac": 0.9994
+  },
+  {
+   "band": 28,
+   "name": "lid:coh100",
+   "auc_known_faults": 0.4741,
+   "auc_sgmc_offcatalogue": 0.4855,
+   "valid_frac": 0.7516
+  },
+  {
+   "band": 1,
+   "name": "f:rtp",
+   "auc_known_faults": 0.4993,
+   "auc_sgmc_offcatalogue": 0.5249,
+   "valid_frac": 0.9994
+  },
+  {
+   "band": 16,
+   "name": "f:cond_surf",
+   "auc_known_faults": 0.4839,
+   "auc_sgmc_offcatalogue": 0.5197,
+   "valid_frac": 0.9994
+  },
+  {
+   "band": 0,
+   "name": "f:mag_anom",
+   "auc_known_faults": 0.4942,
+   "auc_sgmc_offcatalogue": 0.5177,
+   "valid_frac": 0.9994
+  },
+  {
+   "band": 8,
+   "name": "f:tmi_vg",
+   "auc_known_faults": 0.4853,
+   "auc_sgmc_offcatalogue": 0.5028,
+   "valid_frac": 0.9994
+  },
+  {
+   "band": 45,
+   "name": "t10:aspect_coherence",
+   "auc_known_faults": 0.5076,
+   "auc_sgmc_offcatalogue": 0.512,
+   "valid_frac": 0.9893
+  },
+  {
+   "band": 29,
+   "name": "lid:strike",
+   "auc_known_faults": 0.5091,
+   "auc_sgmc_offcatalogue": 0.499,
+   "valid_frac": 0.7536
+  },
+  {
+   "band": 17,
+   "name": "f:iso_grav_anom_hg",
+   "auc_known_faults": 0.501,
+   "auc_sgmc_offcatalogue": 0.5062,
+   "valid_frac": 0.9994
+  },
+  {
+   "band": 30,
+   "name": "lid:valid",
+   "auc_known_faults": 0.4999,
+   "auc_sgmc_offcatalogue": 0.4992,
+   "valid_frac": 0.7539
+  },
+  {
+   "band": 55,
+   "name": "vol:b1",
+   "auc_known_faults": 0.5,
+   "auc_sgmc_offcatalogue": 0.4995,
+   "valid_frac": 1.0
+  },
+  {
+   "band": 53,
+   "name": "prb:b1",
+   "auc_known_faults": 0.5003,
+   "auc_sgmc_offcatalogue": 0.4999,
+   "valid_frac": 1.0
+  },
+  {
+   "band": 54,
+   "name": "pal:b1",
+   "auc_known_faults": 0.5002,
+   "auc_sgmc_offcatalogue": 0.5,
+   "valid_frac": 1.0
+  }
+ ]
+}

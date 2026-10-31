@@ -64,6 +64,39 @@ dots lie within 3 px of it, i.e. the clause fails for them exactly as it does fo
 [`evidence/stepperelay_vs_r13_lattice_20261031.json`](evidence/stepperelay_vs_r13_lattice_20261031.json),
 [`evidence/damage_edge_vs_r13_lattice_20261031.json`](evidence/damage_edge_vs_r13_lattice_20261031.json).
 
+**Sibling lane, 2026-10-31 — H-CORRIDOR (measured candidate, NOT PROMOTED, DO NOT SUBMIT AS THE ONE FILE).**
+[`gemsass2-hcorr-lineament-offcat-37654-20261031T000000Z-zeros.tif`](docs/downloads/gemsass2-hcorr-lineament-offcat-37654-20261031T000000Z-zeros.tif)
+(SHA-256 `4367b360eda411afdba1a11db7dabd0a4744dbb3b679790b3d0fd77c2faf9c1f`) was built by a parallel session ([PR #40](https://github.com/sassnarep3-star/GEMSDOESASS2/pull/40))
+from the same restored 58-band stack, by an independent gradient-boosted lineament model rather than a collar sweep:
+37,654 cells at the champion's exact mass, catalogue-DTI **0.0000**, format strict pass with `portal_range_safe: true`,
+leakage canary (spatially blocked OOF AUC) **0.6975**, uniqueness **53.92 %** max 3-px overlap and |ρ| **0.0440** over
+**54** registry rasters, MODEL ESTIMATE **0.23** (range 0.18–0.28) from three published estimators — E1 within-family
+contamination regression **0.2777** (R² 0.852, n = 9), E2 proxy-yield ratio **0.2388**, E3 matched peer-group
+median **0.1823** (n = 13).
+**It is not promoted, and the reason is measured:** it is behind S3-RING on every axis the two lanes share — lower
+estimate (0.23 vs 0.29), higher worst genuine-peer overlap (53.92 % vs 23.0 %), and **negative** on the off-catalogue
+proxy (0.08138 vs the champion's 0.094686, −14.05 %) where S3-RING holds the repository's only positive leakage-screened
+gradient. Receipts: [run card](evidence/run_card_20261031.json) · [uniqueness](evidence/hcorr_uniqueness.json) ·
+[corridor evaluation](evidence/corridor_evaluation.json) · [proxy calibration](evidence/proxy_calibration.json) ·
+[write-up](knowledge/11_2026_10_31_hcorr_session.md).
+
+**What that lane established that is new regardless of the promotion call** (all in
+[IRREGULARITIES.md](IRREGULARITIES.md), ids IR-31-01…IR-31-08):
+* **IR-31-01 — the shared `scripts/validate_tif.py` was over-narrow and is now fixed.** `all(checks.values())`
+  demanded both outside-bounds checks at once, so only a mask-outside file could ever pass and the finite-0.0-outside
+  encoding used by the organizer sample and all nine champions was reported as a failure. The strict pass now requires
+  one accepted encoding and **additionally** rejects, as `nonzero_finite_outside`, any file that predicts outside the
+  footprint even when every value is in [0,1] — strictly stronger than before. Note it counts a different check set
+  from `src/gems_sass2/submission.py::validate_geotiff`, so "10/11" here and "13/13" there are not comparable.
+* **IR-31-03 — the 156,418-cell catalogue figure is not reproducible.** Measured: the complete GDR/INGENIOUS
+  Quaternary database covers 79,318 footprint cells and holds 58,303 of the 60,988 label cells (recall 0.956). The
+  figure still appears inside the strain-ridge audit's `mechanism` string and should be retired or sourced.
+* **IR-31-04 — the leaderboard estimator is rejected on 40 rasters, not 12.** Spearman vs reported score 0.169–0.211
+  (p ≥ 0.19) and every leave-one-out R² negative, independently confirming IR-S-35.
+* **The champion is a real signal.** The H-CORRIDOR model, fitted without any catalogue-derived targeting, puts
+  GEMSDOE32's dots at **1.799×** the mean fault probability of random footprint cells (0.2563 vs 0.1424). The reported
+  0.2778 is a geophysically informed placement, not a lucky lattice.
+
 ---
 
 ## 📋 STANDING PROJECT PROMPT — read at the start of every session

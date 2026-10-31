@@ -84,10 +84,19 @@ def test_validator_compatibility_does_not_approve_parallel_tiff(entry, positiona
     command = [sys.executable, str(ROOT / 'scripts' / entry), str(candidate)]
     command += [str(sample)] if positional else ['--sample', str(sample)]
     result = subprocess.run(command, cwd=ROOT, capture_output=True, text=True, timeout=20)
-    assert result.returncode == 2, result.stderr
+    # IR-31-01: the exit code no longer doubles as a verdict on this file. Under the
+    # corrected rule a finite-0.0-outside encoding is a *valid* encoding, so this raster
+    # can legitimately exit 0. The invariant this test actually protects is that NO
+    # validator entry point ever approves a submission -- that lives in the receipt.
+    assert result.returncode in (0, 2), result.stderr
     receipt = json.loads(result.stdout)
     assert receipt['checks']['whole_array_finite_in_0_1']
-    assert not receipt['strict_local_format_pass'] and not receipt['ok_to_submit']
+    assert receipt['ok_to_submit'] is False
+    assert receipt['organizer_accepted'] is None
+    # The corrected rule is strictly stronger than the old one where it matters: a file
+    # that predicts outside the footprint must still be rejected.
+    assert receipt.get('outside_bounds_encoding') in (
+        'zeros_finite_outside', 'masked_or_nan_outside')
 
 
 def test_current_lattice_witness_receipt_and_safety_notice():
