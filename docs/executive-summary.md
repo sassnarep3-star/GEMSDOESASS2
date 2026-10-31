@@ -3,7 +3,10 @@
 - **Download (one click):** [`downloads/gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-zeros.tif`](downloads/gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-zeros.tif) ·
   SHA-256 `c200ceccef52b45b979d5a2ad5c184516f8181828493400704a408074b7cbeb6` · [zip](downloads/gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-zeros.zip) · GIS twin `-nan.tif` (not the portal file).
 - **Submission name:** `GEMSDOESASS2-COLLAR4HEX-37636D` · **note (94/140):** `hex covering lattice, 4 px off-catalogue collar, same 37,654-dot budget as the 0.2778 champion`.
-- **Format gate: 13/13 on the saved bytes** — float32, EPSG:32611, (3730, 3292), transform exact,
+- **Format gate: 13/13 on the saved bytes of the portal (zeros) twin**, re-verified against
+  `data/bridge/sample_submission.tif` from the merged file ([matrix](https://github.com/sassnarep3-star/GEMSDOESASS2/blob/main/evidence/format_reverify_collar4hex_20261031.json));
+  the NaN GIS twin is 12/13 against a zeros-outside reference by construction, i.e. check 11 compares conventions
+  (IR-S-43) — that twin is deliberately not offered as the submission file. float32, EPSG:32611, (3730, 3292), transform exact,
   `nodata=None`, and **min/max over all 12,279,360 cells = 0.0/1.0**. That last line is the fix for the portal
   rejection *"Predicted values must be in range [0, 1]"*: the check is an **all-cells** test, so an outside-footprint
   NaN / −3.4e38 fill fails it. Walkthrough: [submit.html](submit.html).
