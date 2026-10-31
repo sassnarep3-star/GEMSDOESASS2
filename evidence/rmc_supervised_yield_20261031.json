@@ -1,0 +1,257 @@
+{
+ "generated_utc": "2026-10-31T05:16:06+00:00",
+ "evidence_class": "DATA-MEASUREMENT + HOLDOUT-DTI (off-catalogue SGMC instrument, 62,703 px)",
+ "yield_definition": "TP_w / N_emitted against USGS SGMC faults >300 m outside labels.tif",
+ "random_reference_yield": {
+  "n": 37654,
+  "tp": 4005.99,
+  "fp": 36138.14,
+  "yield_": 0.10639,
+  "dti": 0.068842,
+  "coverage": 0.063888
+ },
+ "family_yields_measured_from_pinned_bytes": {
+  "GEMSDOE24 h25-1-dotted-h19-5-d1-5-2026": {
+   "dots": 60069,
+   "yield": 0.105624,
+   "reported": 0.2477
+  },
+  "GEMSDOE25 dotted-h19-5-d2-8-20261002-e": {
+   "dots": 44090,
+   "yield": 0.128812,
+   "reported": 0.26
+  },
+  "GEMSDOE27 topo-gap-closure-t-v2-on-d1-": {
+   "dots": 61328,
+   "yield": 0.105226,
+   "reported": 0.2449
+  },
+  "GEMSDOE28 h27-4-r1-solo-d2-8-20261003-": {
+   "dots": 40199,
+   "yield": 0.140889,
+   "reported": 0.2708
+  },
+  "GEMSDOE28 h36-1-rung30-blind-r1-202610": {
+   "dots": 37660,
+   "yield": 0.146093,
+   "reported": 0.271
+  },
+  "GEMSDOE28 h38-1-hf-euler-r30-r1-202610": {
+   "dots": 37860,
+   "yield": 0.145825,
+   "reported": 0.2707
+  },
+  "GEMSDOE28 h32-1-prethin-tip-euler-d2-8": {
+   "dots": 42294,
+   "yield": 0.13427,
+   "reported": 0.2649
+  },
+  "GEMSDOE30 d28-poisson300m-offcat-44090": {
+   "dots": 44090,
+   "yield": 0.128812,
+   "reported": 0.26
+  },
+  "GEMSDOE31 h27-4-solo-d28-20261004-8acb": {
+   "dots": 40199,
+   "yield": 0.140889,
+   "reported": 0.2708
+  },
+  "GEMSDOE32 h33-h33-2-b2-20261004T220000": {
+   "dots": 37654,
+   "yield": 0.148783,
+   "reported": 0.2778
+  },
+  "GEMSDOE33 h33d-analog-tip-stepover-r30": {
+   "dots": 41865,
+   "yield": 0.136757,
+   "reported": 0.2632
+  },
+  "GEMSDOE36 anderson-geothermal-pinn-388": {
+   "dots": 38854,
+   "yield": 0.146879,
+   "reported": 0.275
+  }
+ },
+ "loqo_fold_auc": [
+  {
+   "quadrant": 0,
+   "n_train_pos": 48382,
+   "auc_within_quadrant_vs_labels": 0.5436
+  },
+  {
+   "quadrant": 1,
+   "n_train_pos": 47617,
+   "auc_within_quadrant_vs_labels": 0.5447
+  },
+  {
+   "quadrant": 2,
+   "n_train_pos": 35215,
+   "auc_within_quadrant_vs_labels": 0.5378
+  },
+  {
+   "quadrant": 3,
+   "n_train_pos": 41244,
+   "auc_within_quadrant_vs_labels": 0.5941
+  }
+ ],
+ "rows": {
+  "random_37654": {
+   "n": 37654,
+   "tp": 4005.99,
+   "fp": 36138.14,
+   "yield_": 0.10639,
+   "dti": 0.068842,
+   "coverage": 0.063888
+  },
+  "sup_raw_n37654": {
+   "n": 37654,
+   "tp": 989.88,
+   "fp": 35627.14,
+   "yield_": 0.026289,
+   "dti": 0.01722,
+   "coverage": 0.015787,
+   "mean_rank_pct_of_top": null
+  },
+  "sup_raw_n60000": {
+   "n": 60000,
+   "tp": 1479.09,
+   "fp": 56976.45,
+   "yield_": 0.024651,
+   "dti": 0.023913,
+   "coverage": 0.023589,
+   "mean_rank_pct_of_top": null
+  },
+  "sup_raw_n120000": {
+   "n": 120000,
+   "tp": 2506.85,
+   "fp": 114731.66,
+   "yield_": 0.02089,
+   "dti": 0.034056,
+   "coverage": 0.03998,
+   "mean_rank_pct_of_top": null
+  },
+  "sup_b2_n37654": {
+   "n": 37654,
+   "tp": 1076.79,
+   "fp": 35458.83,
+   "yield_": 0.028597,
+   "dti": 0.018737,
+   "coverage": 0.017173,
+   "mean_rank_pct_of_top": null
+  },
+  "sup_b2_n60000": {
+   "n": 60000,
+   "tp": 1625.22,
+   "fp": 56692.98,
+   "yield_": 0.027087,
+   "dti": 0.026287,
+   "coverage": 0.025919,
+   "mean_rank_pct_of_top": null
+  },
+  "sup_b2_n120000": {
+   "n": 120000,
+   "tp": 2736.7,
+   "fp": 114348.91,
+   "yield_": 0.022806,
+   "dti": 0.037194,
+   "coverage": 0.043646,
+   "mean_rank_pct_of_top": null
+  },
+  "unsup_raw_n37654": {
+   "n": 37654,
+   "tp": 566.61,
+   "fp": 36362.74,
+   "yield_": 0.015048,
+   "dti": 0.009846,
+   "coverage": 0.009036,
+   "mean_rank_pct_of_top": null
+  },
+  "unsup_raw_n60000": {
+   "n": 60000,
+   "tp": 801.67,
+   "fp": 58096.16,
+   "yield_": 0.013361,
+   "dti": 0.012942,
+   "coverage": 0.012785,
+   "mean_rank_pct_of_top": null
+  },
+  "unsup_raw_n120000": {
+   "n": 120000,
+   "tp": 1455.52,
+   "fp": 116458.45,
+   "yield_": 0.012129,
+   "dti": 0.019737,
+   "coverage": 0.023213,
+   "mean_rank_pct_of_top": null
+  },
+  "unsup_b2_n37654": {
+   "n": 37654,
+   "tp": 656.02,
+   "fp": 36217.33,
+   "yield_": 0.017422,
+   "dti": 0.011402,
+   "coverage": 0.010462,
+   "mean_rank_pct_of_top": null
+  },
+  "unsup_b2_n60000": {
+   "n": 60000,
+   "tp": 911.97,
+   "fp": 57903.46,
+   "yield_": 0.015199,
+   "dti": 0.014727,
+   "coverage": 0.014544,
+   "mean_rank_pct_of_top": null
+  },
+  "unsup_b2_n120000": {
+   "n": 120000,
+   "tp": 1684.45,
+   "fp": 116119.43,
+   "yield_": 0.014037,
+   "dti": 0.022848,
+   "coverage": 0.026864,
+   "mean_rank_pct_of_top": null
+  },
+  "sup_corridor_m0.0002": {
+   "n": 1034,
+   "tp": 28.7,
+   "fp": 998.81,
+   "yield_": 0.027752,
+   "dti": 0.00057,
+   "coverage": 0.000458
+  },
+  "sup_corridor_m0.0005": {
+   "n": 2584,
+   "tp": 64.45,
+   "fp": 2488.84,
+   "yield_": 0.024941,
+   "dti": 0.001272,
+   "coverage": 0.001028
+  },
+  "sup_corridor_m0.001": {
+   "n": 5167,
+   "tp": 146.97,
+   "fp": 4939.31,
+   "yield_": 0.028443,
+   "dti": 0.002872,
+   "coverage": 0.002344
+  },
+  "sup_corridor_m0.002": {
+   "n": 10340,
+   "tp": 329.73,
+   "fp": 9739.75,
+   "yield_": 0.031889,
+   "dti": 0.00632,
+   "coverage": 0.005259
+  },
+  "sup_corridor_m0.005": {
+   "n": 25843,
+   "tp": 754.05,
+   "fp": 24307.09,
+   "yield_": 0.029178,
+   "dti": 0.013667,
+   "coverage": 0.012026
+  }
+ },
+ "best_row": "random_37654",
+ "ok_to_submit": false
+}

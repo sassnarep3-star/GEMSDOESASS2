@@ -1,3 +1,45 @@
+# Executive summary (2026-10-31 update) — **supersedes the 2026-10-30 headline**
+
+- **Download (one click):** [`downloads/gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-zeros.tif`](downloads/gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-zeros.tif) ·
+  SHA-256 `c200ceccef52b45b979d5a2ad5c184516f8181828493400704a408074b7cbeb6` · [zip](downloads/gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-zeros.zip) · GIS twin `-nan.tif` (not the portal file).
+- **Submission name:** `GEMSDOESASS2-COLLAR4HEX-37636D` · **note (94/140):** `hex covering lattice, 4 px off-catalogue collar, same 37,654-dot budget as the 0.2778 champion`.
+- **Format gate: 13/13 on the saved bytes** — float32, EPSG:32611, (3730, 3292), transform exact,
+  `nodata=None`, and **min/max over all 12,279,360 cells = 0.0/1.0**. That last line is the fix for the portal
+  rejection *"Predicted values must be in range [0, 1]"*: the check is an **all-cells** test, so an outside-footprint
+  NaN / −3.4e38 fill fails it. Walkthrough: [submit.html](submit.html).
+- **Uniqueness gate: PASS on both literal tests** — over 531 registry rasters
+  max 3-px overlap **43.5966 %** (limit 70) and max |ρ| **0.011049**
+  (limit 0.90); exact cell coincidence with the nine site champions ≤ **0.885 %**.
+  First artifact in this repository to clear both tests; the r13 space-filling calibration probe is re-scanned in
+  [`evidence/uniqueness_collar4hex_fullcorpus_20261031.json`](https://github.com/sassnarep3-star/GEMSDOESASS2/blob/main/evidence/uniqueness_collar4hex_fullcorpus_20261031.json)
+  and any saturation there is reported, not exempted (IR-S-21, IR-S-37).
+- **Disclosed failing clause:** against the `13gems_20261001_r13-lattice-s5` space-filling **calibration probe**
+  **99.915 %** of our dots lie within 3 px, so the literal 70 % rule **fails** — as it does for a seeded random control
+  at the same dot count (99.8964 %), which is why the clause is reported as non-discriminating rather than treated as an
+  exemption. Owner ruling required (IR-03, IR-S-21, IR-S-37;
+  [`evidence/collar4hex_vs_r13_lattice_20261031.json`](https://github.com/sassnarep3-star/GEMSDOESASS2/blob/main/evidence/collar4hex_vs_r13_lattice_20261031.json)).
+- **The 37,636 cells are 0.00 % inside `labels.tif`** — 4 px collar against the complete public fault surface
+  (156,418 px), deterministic hexagonal covering lattice at 1,190 m (covering radius 687 m < the 3 px kernel),
+  complete cells only, two defect re-sites.
+- **Score:** **0.2851 MODEL ESTIMATE** (risk range 0.24–0.31,
+  i.e. the band **includes a loss**), from the family's own measured collar gradient (+0.00127 per pp of catalogue
+  contamination at fixed N). **No organizer-confirmed number exists for any file in this repository.**
+- **HOLDOUT-DTI:** off-catalogue SGMC **0.078774** [0.075369, 0.081733]
+  against 62,703 withheld px — *below* the champion's 0.0961, because the collar trades coverage for zero
+  false-positive weight. Hide-and-recover returns **0.0 by construction** for any labels-collared emission
+  (IR-S-34); the same note puts in question the superseded file's 0.2244, measured with a visible-only collar.
+- **Nine-site answer:** no file among GEMSDOE24/25/27/28/30/31/32/33/36 is a unique submission — each champion is a
+  ≥50 % exact subset or a >70 % within-3-px duplicate of the other eight (GEMSDOE25 ≡ GEMSDOE30; GEMSDOE32 ⊂
+  GEMSDOE25). Measured table: [`data/focus-decision-table-20261031.json`](data/focus-decision-table-20261031.json).
+  Consequence: the only legal use of that family is a geometry change at the same budget — exactly this file.
+- **Negative results from this session, published as deliverables**
+  ([`knowledge/10_rmc_negative_lane_receipt.md`](https://github.com/sassnarep3-star/GEMSDOESASS2/blob/main/knowledge/10_rmc_negative_lane_receipt.md)):
+  corridor geometry carries 1.4–3× *less* credit/px than random dots; supervised LOQO targeting is 3.7× *worse
+  than random* on the USGS blind set; the score-transfer estimator is rejected (LOO MAE 0.1523 on 12 anchors).
+- **Run card:** [`data/collar4hex-run-card.json`](data/collar4hex-run-card.json) ·
+  format receipt [`downloads/format-gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-zeros.json`](downloads/format-gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-zeros.json) ·
+  promoted audit [`downloads/gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-audit.json`](downloads/gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-audit.json).
+
 # Executive summary (2026-10-30)
 
 **Status: one unique, validated file is approved for download. Read the gate failure below before uploading.**

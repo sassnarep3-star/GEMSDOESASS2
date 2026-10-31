@@ -1,0 +1,76 @@
+{
+  "candidate": "gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-zeros.tif",
+  "n_dots": 37636,
+  "n_references": 531,
+  "radius_px": 3.0,
+  "limits": {
+    "overlap_pct": 70.0,
+    "abs_spearman": 0.9
+  },
+  "max_overlap_3px_pct": 43.5966,
+  "max_abs_spearman": 0.011049,
+  "passes_lane": true,
+  "top_overlaps": [
+    {
+      "ref": "GEMSDOE24-geo1-concealed-conduit-rad-mag-lidar-20261029-8c9946590ca7-nan.tif",
+      "ref_dots": 129184,
+      "overlap_3px_pct": 43.5966,
+      "abs_spearman": 0.00124
+    },
+    {
+      "ref": "GEMSDOE24-geo1-concealed-conduit-rad-mag-lidar-20261029-8c9946590ca7-zeros.tif",
+      "ref_dots": 129184,
+      "overlap_3px_pct": 43.5966,
+      "abs_spearman": 0.006694
+    },
+    {
+      "ref": "GEMSDOE24-geo1-concealed-conduit-rad-mag-lidar-20261029-8c9946590ca7-nan.tif",
+      "ref_dots": 129184,
+      "overlap_3px_pct": 43.5966,
+      "abs_spearman": 0.00124
+    },
+    {
+      "ref": "GEMSDOE24-geo1-concealed-conduit-rad-mag-lidar-20261029-8c9946590ca7-zeros.tif",
+      "ref_dots": 129184,
+      "overlap_3px_pct": 43.5966,
+      "abs_spearman": 0.006694
+    },
+    {
+      "ref": "gemsdoe30-sgmc-hedge-d10-85k-20261003-ac08b41e-zeros.tif",
+      "ref_dots": 85526,
+      "overlap_3px_pct": 32.2856,
+      "abs_spearman": 0.004088
+    },
+    {
+      "ref": "gemsdoe30-sgmc-hedge-d10-85k-20261003-ac08b41e.tif",
+      "ref_dots": 85526,
+      "overlap_3px_pct": 32.2856,
+      "abs_spearman": 0.002346
+    },
+    {
+      "ref": "gemsdoe30-h3a-residual-ridge-gate-p400-7a88865b-nan.tif",
+      "ref_dots": 78256,
+      "overlap_3px_pct": 27.1283,
+      "abs_spearman": 0.003236
+    },
+    {
+      "ref": "gems25-h71-hgpc-blind-b2-sapd3-k3p5-20261026-9eb0c31e5149-nan.tif",
+      "ref_dots": 59472,
+      "overlap_3px_pct": 25.5022,
+      "abs_spearman": 0.00303
+    },
+    {
+      "ref": "gems25-h71-hgpc-blind-b2-sapd3-k3p5-20261026-9eb0c31e5149-zeros.tif",
+      "ref_dots": 59472,
+      "overlap_3px_pct": 25.5022,
+      "abs_spearman": 0.00841
+    },
+    {
+      "ref": "gemsdoe32-h47-lli-unique-coupling-49231-20261026T230000Z-33464ce2-zeros.tif",
+      "ref_dots": 49231,
+      "overlap_3px_pct": 23.2756,
+      "abs_spearman": 0.006825
+    }
+  ],
+  "scope_note": "Compared against the nine hash-pinned focus-site champions plus every local download. The wider GEMSDOE corpus (~90 sites) is not mirrored locally."
+}

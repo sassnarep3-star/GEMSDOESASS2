@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Exactly how to submit the generated GeoTIFF to the DOE GEMS Prize, including the [0,1] range error fix.">
+<title>How to submit — GEMS Field Notes</title>
+<link rel="stylesheet" href="assets/style.css"></head><body><a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap header-inner">
+<a class="brand" href="index.html"><span class="brand-mark">G.</span><span>GEMS Field Notes<small>Decision &amp; discovery</small></span></a>
+<nav class="nav" aria-label="Primary"><a href="index.html">Download</a><a href="executive-summary.html">Executive summary</a><a href="method.html">Why 0.2778 scored</a><a href="submit.html" aria-current="page">How to submit</a><a href="sources.html">Sources</a><a class="nav-link" href="https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/" target="_blank" rel="noopener noreferrer">Leaderboard ↗</a></nav>
+</div></header>
+
+<main id="main">
+<section class="hero"><div class="wrap"><div class="eyebrow">Three minutes, no inspection required</div>
+<h1>Submitting the file</h1>
+<p>The gate that decides whether a file may be uploaded is run <strong>here, in this project</strong>, on the saved bytes — 13 automated checks. No human inspector is needed and none is used. A page visit never approves a file; the receipt does.</p>
+</div></section>
+
+<section class="section"><div class="wrap">
+<div class="section-header"><div><h2>The six steps</h2></div></div>
+<ol>
+<li><strong>Download the primary file.</strong>
+<a href="downloads/gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-zeros.tif" download>gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-zeros.tif</a>
+(107,486 bytes, deflate-compressed float32). The <code>-zeros.zip</code> sibling contains the identical bytes if the portal prefers a zip.</li>
+<li><strong>Verify the bytes</strong> before uploading:
+<code>shasum -a 256 &lt;file&gt;</code> must equal
+<code>c200ceccef52b45b979d5a2ad5c184516f8181828493400704a408074b7cbeb6</code>.
+If it differs, the download was truncated — do not submit.</li>
+<li>Open the DrivenData submission form for competition 306 and attach the file.</li>
+<li><strong>Paste the submission name</strong> as the file name is already unique; nothing else is required in the name field.</li>
+<li><strong>Paste the note (≤140 characters):</strong>
+<code>hex covering lattice, 4 px off-catalogue collar, same 37,654-dot budget as the 0.2778 champion</code>
+(96 characters; it names the mechanism, the collar and the budget, and states the AI-use fact required by Rules §3.2 in the narrative, not here).</li>
+<li><strong>Submit.</strong> Three submissions per week are allowed (Official Rules §3.2 / §3.4); exactly one is selected as final. Spending a slot on this file is the owner's decision — this page authorises the <em>format</em> and the <em>uniqueness</em>, not the slot.</li>
+</ol>
+
+<div class="section-header"><div><h2>Why the portal said “Predicted values must be in range [0, 1]”</h2></div></div>
+<p>The check is applied to <strong>every cell of the raster that the portal reads</strong>, not only to the study area. Three things trip it, and the generator now refuses to write any of them:</p>
+<table>
+<thead><tr><th scope="col">Cause</th><th scope="col">What the bytes look like</th><th scope="col">How this build avoids it</th></tr></thead>
+<tbody>
+<tr><td>A NaN/inf nodata sentinel outside the footprint</td><td><code>-3.4028235e+38</code> or <code>nan</code> in the corners</td><td>the primary file writes <strong>0.0</strong> outside the footprint and sets <code>nodata=None</code>; the NaN twin exists only for GIS work and is labelled “not the portal file”</td></tr>
+<tr><td>A negative fill value carried into a predicted cell</td><td>a dot with value <code>-1.0</code> inside the study area (this actually happened in an earlier build, IR-VRC-01)</td><td>the writer asserts <code>min ≥ 0</code> and <code>max ≤ 1</code> over the <em>whole</em> array before it saves, and check 10 re-reads the saved bytes</td></tr>
+<tr><td>A float64 or integer raster</td><td>values correct but dtype wrong, or scaled 0–255</td><td>the writer forces <code>float32</code> and checks the saved dtype (check 03)</td></tr>
+</tbody>
+</table>
+<p class="meta">Reproduce locally: <code>python scripts/submission_writer.py --validate-only &lt;file&gt;</code> is a fail-closed legacy stub in this repository (IR-S-18); the live validator is
+<code>python -c "from gems_sass2.submission import validate_geotiff; ..."</code> or
+<code>scripts/validate_tif.py</code>. The receipts for this file are
+<a href="downloads/format-gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-zeros.json">format-…-zeros.json</a> and
+<a href="downloads/format-gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-nan.json">format-…-nan.json</a>.</p>
+
+<div class="section-header"><div><h2>What “validated for submission” does <em>not</em> mean</h2></div></div>
+<ul>
+<li>It does not mean a score is expected. The only leaderboard numbers in this repository are <strong>USER-REPORTED / UNVERIFIED</strong> transcriptions of other owners’ pages, and our own figure is a <strong>MODEL ESTIMATE</strong>.</li>
+<li>It does not mean the file was tested against the private truth. Nobody can: it is withheld (Rules §3.6.2).</li>
+<li>It does not authorize a weekly slot; the cap and the choice are the owner’s.</li>
+</ul>
+</div></section>
+</main>
+<footer class="site-footer"><div class="wrap"><p>Generated by <code>scripts/collar4_hex_submission.py</code> on 2026-10-31. Format receipts, the uniqueness gate and the run card are in <code>evidence/</code>.</p></div></footer>
+</body></html>

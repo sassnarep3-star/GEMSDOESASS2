@@ -1,30 +1,46 @@
 # GEMSDOESASS2 — auditable geothermal fault discovery
 
-## 🚦 Current decision (2026-10-30): **SUBMIT THE STRAIN-RIDGE FILE**
+## 🚦 Current decision (2026-10-31): **DOWNLOAD & SUBMIT `gemsass2-collar4hex-c4-b37636-sweep2-…-zeros.tif`**
+
+Pages site: <https://sassnarep3-star.github.io/GEMSDOESASS2/> · one-click download on the front page ·
+submission walkthrough: [`docs/submit.html`](docs/submit.html)
 
 | Item | Value |
 |---|---|
-| **File to download** | [`docs/downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif`](docs/downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif) |
-| SHA-256 | `6d00f58a35005a253e352e21c8adde0e108aa0abb4b810db9797af89d94dd615` |
+| **File to download** | [`docs/downloads/gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-zeros.tif`](docs/downloads/gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-zeros.tif) |
+| SHA-256 | `c200ceccef52b45b979d5a2ad5c184516f8181828493400704a408074b7cbeb6` |
 | Grid | EPSG:32611 · (3730, 3292) · 100 m · transform `(100,0,243350,0,-100,4508550)` |
-| Cells predicted | 37,654 — **the champion's exact dot budget** · 0.00 % inside the fault catalogue |
-| Format gate | **11 / 11 pass** (strict), every one of 12,279,360 cells finite in [0, 1], `nodata=None` |
-| Uniqueness gate | **PASS vs competing rasters** — 36.45 % max overlap, \|ρ\| 0.0115 over 19 · **FAIL vs the r13 calibration probe** (99.37 %, see below) |
-| Science gate | **PASS** — HOLDOUT-DTI **0.2244** vs matched incumbent **0.0715**, ratio **3.14×** (P = 0.958) |
-| Model score estimate | **0.29** (controlled 0.2853 · slope-range 0.2815–0.2890 · all-model-risk 0.25–0.33) — *not* organizer-confirmed |
-| Submission name | `GEMSDOESASS2-STRAINRIDGE-OFFCAT-37654D` |
-| Note (≤140 chars) | `strain+ridgelineament prior, same 37654 dot budget as champion, 0% on full USGS QFaults catalogue, off-catalogue blind faults` |
+| Cells predicted | **37,636** — budget-matched to the 0.2778 champion (37,654) within 0.05 % · **0.00 % inside `labels.tif`** (collar 4 px, complete cells only, 2 defect re-sites) |
+| Format gate | **13 / 13 pass** on the *saved bytes* for both twins; **min/max over all 12,279,360 cells = 0.0 / 1.0**, `nodata=None`, float32. This is the fix for the portal error *"Predicted values must be in range [0, 1]"*, which is an all-cells test that a NaN/−3.4e38 outside-fill fails ([receipt](docs/downloads/format-gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-zeros.json)) |
+| Uniqueness gate | **PASS on both literal tests** — 531 registry rasters: max 3-px overlap **43.60 %** (limit 70 %), max \|ρ\| **0.0110** (limit 0.90); exact cell coincidence with the nine site champions ≤ **0.885 %** ([receipt](evidence/uniqueness_collar4hex_20261031.json)). Full-corpus re-scan over 694 mirrored rasters incl. the r13 probe: printed in the run card and on the site |
+| Submission name | `GEMSDOESASS2-COLLAR4HEX-37636D` |
+| Note (94 chars, ≤ 140) | `hex covering lattice, 4 px off-catalogue collar, same 37,654-dot budget as the 0.2778 champion` |
+| HOLDOUT-DTI | off-catalogue SGMC **0.0788** [0.0754, 0.0817] (62,703 withheld px) · hide-and-recover **0.0 by construction** — that truth is a subset of `labels.tif`, which this emission collars; see IR-S-34 |
+| MODEL ESTIMATE | **0.2851** (risk range 0.24–0.31) — the family's measured collar gradient (+0.00127 per pp of catalogue contamination removed at fixed N). **Not a score. No organizer receipt exists.** |
+| Verdict | **promote to the selector.** The slot itself stays the owner's call (3 / week, one final selection) |
 
-**Download and submit: [site](docs/index.html) · [executive summary](docs/executive-summary.html) · [why 0.2778 scored](docs/method.html) · [run card](evidence/strain_ridge_run_card.json)**
+**This supersedes the 2026-10-30 headline** (`gemsass2-strainridge-offcat-37654d`, sha `6d00f58a…d615`), which is
+kept for provenance but **fails the literal uniqueness test** against the r13 lattice probe (99.37 %, IR-S-21) and
+whose `HOLDOUT-DTI 0.2244` cannot be reconciled with its own `0.00 % on catalogue` claim — see IR-S-34. Do not
+submit it until that number is reproduced from the shipped bytes.
 
-⚠️ No organizer receipt exists for any file here. The 0.29 is a **MODEL ESTIMATE** from a controlled one-variable extrapolation. It is never written as a score. No weekly slot has been spent.
+⚠️ **What the promotion does *not* claim.** The geoscience half of this session's work is **negative and recorded
+as a deliverable** ([`knowledge/10_rmc_negative_lane_receipt.md`](knowledge/10_rmc_negative_lane_receipt.md)):
+corridor geometry carries 1.4–3× *less* credit per emitted pixel than random dots on the off-catalogue instrument;
+supervised LOQO targeting is **3.7× worse than random** (geomorphic proxies select *against* geophysically-mapped
+blind faults); and the leaderboard-score estimator is **rejected** (LOO MAE 0.152 on 12 hash-pinned anchors). The
+file above earns its place on geometry + one measured gradient + two hard gates, not on prediction.
 
-⚠️ **One gate is failed, openly.** Against the `13gems_20261001_r13-lattice-s5` calibration probe the file is **99.37 %** within 3 px, so the literal 70 % rule **fails**. A *seeded random placement* at the identical dot count scores **99.91 %** — the probe is a space-filling surface and the test is saturated for any interior placement at this budget (IR-S-01, IR-RV-04). Against every actual competing raster it passes at 36.45 %. **Owner ruling required**; the exemption is not assumed anywhere in this repository. Receipt: [`candidate_vs_registry_lattice.json`](evidence/candidate_vs_registry_lattice.json).
+⚠️ **One clause fails, printed here rather than buried.** Against the `13gems_20261001_r13-lattice-s5`
+space-filling **calibration probe** 99.915 % of our dots fall within 3 px, so the literal 70 % rule fails — and a
+**seeded random placement at the identical dot count scores 99.8964 %**, i.e. within 0.019 pp. The
+clause is arithmetically saturated for interior placements (IR-03, IR-S-21, IR-S-37); every file in the nine-site
+family fails it too. It is reported, not waived — **owner ruling required** before it may be cited against a file.
+Receipt: [`evidence/collar4hex_vs_r13_lattice_20261031.json`](evidence/collar4hex_vs_r13_lattice_20261031.json).
 
-⚠️ **Honest size of the win: about +0.008 over the 0.2778 champion.** This is the best-supported move available, not a leap. Nothing in this repository reaches 0.4413; see §3 for why, arithmetically.
-
-**Also new (later on 2026-10-30):** a second artifact pair, `gemsdoesass2-vrc-ventridge-44090-…`, with per-check format receipts, `.zip` archives for every encoding, the IR-VRC-01 emitter fix, and a measured HOLDOUT-DTI for the new hypothesis — all **negative / research only**, and it fails the same lattice rule. See the "New this session" block after the nine-site table and [knowledge/09](knowledge/09_vrc_and_download_surface.md).
-
+⚠️ **The 0.24–0.31 band includes a loss.** +0.007 expected is inside the noise; the honest justification for the
+slot is that this is the only artifact in the repository that is simultaneously format-clean at all-cells range,
+budget-matched, and a member of **no** lattice family any other site has used.
 
 ---
 
@@ -33,6 +49,19 @@
 Review the repository. Focus on **GEMSDOE24, 25, 27, 28, 30, 31, 32, 33 and 36**; maintain an executive summary showing each site's historical best, file, score evidence and novelty. The highest urgency is to **generate an original, validated competition GeoTIFF, not copy an old submission**; make its download, unique name, ≤140-character note and eligibility unambiguous. Estimate performance only with evidence, distinguish a holdout from an organizer score, and never invent a projection. A local format pass alone is not submission approval. Study the reported 0.2778 GEMSDOE32 file, use official sources, propose 3–5 materially distinct geological hypotheses before implementation, check feature leakage and validate the best on a buffered spatial holdout before spending a slot. Maintain a simple GitHub Pages site and step-by-step submission guide; diagnose the user's range-error report only if its rejected bytes and response are actually available.
 
 Work line by line from official verified sources with links for manual review. Flag irregularities. No hallucinations. Multiple passes: implement → review/fix → re-check. Create a PR and merge it; list remaining work and limitations for the next session.
+
+**Standing additions (2026-10-31), binding on every session**
+
+- **No human inspector.** A file is "OK to download and submit" only because `validate_geotiff` (13 named checks on
+  the saved bytes) and `scripts/uniqueness_gate.py` (both literal lane tests, with the receipt path printed) both
+  return pass. If a gate cannot run, the file is not approved; the answer is "not verified", never "looks fine".
+- Every executive-summary row for every site states: the file to download, its score **class** (organizer-confirmed
+  / user-reported / model estimate / HOLDOUT-DTI), and a measured uniqueness verdict. Uniqueness is measured as
+  exact cell coincidence + 3-px share + Spearman ρ, and the 3-px number must be reported with its saturation caveat.
+- Negative results are deliverables: each rejected hypothesis keeps its JSON receipt, is named in the README, and is
+  not allowed to be quietly dropped from a table.
+- The `[0, 1]` portal error is diagnosed on `docs/submit.html`: the portal range check is an **all-cells** test, so
+  an outside-footprint NaN / −3.4e38 fill fails it. Ship the zeros twin; the NaN twin is GIS-only.
 
 ### Parallel-run protocol (operative text)
 
@@ -246,3 +275,37 @@ python scripts/assemble_submission_audit.py --stem <stem> --run-card evidence/st
 3. **Test H4 (2-m temperature probes).** Public, unused, and the only untried field with a genuinely different physical mechanism.
 4. **Grow the uniqueness registry.** Only 19 rasters are checked; the wider GEMSDOE corpus is ~90 sites and is not mirrored locally.
 5. **Sweep contamination beyond zero.** Negative contamination is not possible, so the only remaining axis inside this family is *which* off-catalogue cells to pick — i.e. yield. That is the H4/H5 work.
+
+---
+
+## 🚦 Addendum — 2026-10-31 session (this branch)
+
+**Limitations that constrain the score** *(supersedes items 2, 4 and 5 of the 2026-10-30 list; the rest stand)*
+
+1. **We cannot rank our own candidate on the only instrument that is not structurally zeroed.** Off-catalogue
+   SGMC DTI says the champion (0.0961) beats COLLAR4-HEX (0.0788); the hide-and-recover instrument says 0.0 for
+   *any* collared emission (IR-S-34). The promotion therefore rests on the measured collar gradient and the two
+   hard gates, and it is explicitly a **bet on the FP term**, not on recall.
+2. **The estimator the owner asked for ("we should be able to estimate the score") does not validate.** Fitted on
+   12 hash-pinned anchors it has LOO MAE 0.152 (IR-S-35). What is shipped instead is a labelled MODEL ESTIMATE
+   built from the family's own three-point collar sweep, with its risk band, plus the failed fit as a receipt.
+3. **Targeted placement is measured as worse than random on off-catalogue truth** (IR-S-36). H4/H5-style
+   "better geology → better score" is now a falsified premise on public instruments, not an untested idea.
+4. **Uniqueness is scoped to what is mirrored.** 531 rasters in the pinned registry + local downloads were
+   scanned for the headline receipt; a full-corpus re-scan of the 694 mirrored GeoTIFFs (9 extra sites incl. the
+   r13 probe) is recorded in the run card. ~90 sites exist; the corpus is not complete
+   ([`research/gems_site_repos.txt`](research/gems_site_repos.txt)).
+
+**Work for the next session, in priority order**
+
+1. **Spend one slot on the COLLAR4-HEX file and photograph the receipt.** A single organizer number converts the
+   MODEL ESTIMATE into a calibration point and is worth more than any further local experiment.
+2. **Reproduce or retire `HOLDOUT-DTI 0.2244`** for the superseded strain-ridge artifact (IR-S-34). Until then
+   that row is unverified and must not be quoted in the site tables.
+3. **Ask the owner to amend the duplicate clause** to exact-XOR + ρ + novel-mass (IR-S-37); the 3-px/70 % form is
+   arithmetically unable to clear any interior placement, so it currently blocks the only legal moves.
+4. **Push the collar only if a receipt shows the FP term is real.** The next rung (5–6 px) trades 3.5 % more area
+   for no measured benefit; a single organizer score settles whether the trade pays.
+5. **H4 as a *detector*, not a placement rule.** The 2-m INGENIOUS probe and paleo-geothermal archives are already
+   in the pinned clone (`/home/user/registry/GEMSDOE24/data/external/*.zip`) and obtainable without login; the
+   negative transfer result above says they must be tested for *truth correlation*, not used to rank lineaments.

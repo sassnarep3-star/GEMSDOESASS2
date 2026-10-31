@@ -1,8 +1,14 @@
 from html.parser import HTMLParser
+import json
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def sha256_file(p):
+    import hashlib
+    return hashlib.sha256(p.read_bytes()).hexdigest()
 DOCS = ROOT / 'docs'
 
 
@@ -52,21 +58,30 @@ def test_pages_root_redirects_to_docs_with_fallback():
 
 
 def test_homepage_advertises_the_approved_unique_submission():
-    # The promoted submission passed every local gate: 11/11 strict format checks,
-    # genuine-peer uniqueness max overlap 36.45% < 70%, max|rho| 0.0115 < 0.90, and a
-    # blocked holdout of 0.2244 versus 0.0715 for the matched lattice control
-    # (see docs/downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-audit.json).
+    # Policy 2026-10-31: COLLAR4-HEX supersedes the strain-ridge headline. The test asserts the
+    # *gate facts* behind the promotion, not the marketing sentence (IR-S-25 / IR-S-27): a page may
+    # only advertise a download if its receipts on disk say the same thing the page says.
     text = (DOCS / 'index.html').read_text()
     flat = ' '.join(text.split())
-    assert 'OK to download and submit' in flat
-    assert '11/11' in flat
-    assert '36.45%' in flat
-    assert 'gemsass2-strainridge-offcat-37654d-20261030T025503Z' in flat
-    # The download must be a real, one-click file link, not a link to prose.
-    assert 'href="downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif"' in text
-    assert (DOCS / 'downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif').exists()
-    # The failing lattice clause must be disclosed on the homepage.
-    assert 'lattice' in flat.lower()
+    stem = 'gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z'
+    fmt = json.loads((DOCS / 'downloads' / f'format-{stem}-zeros.json').read_text())
+    assert fmt['all_passed'] and fmt['checks_passed'] == fmt['checks_total'] == 13
+    assert fmt['min_all_cells'] >= 0.0 and fmt['max_all_cells'] <= 1.0, "the portal range check is an all-cells test"
+    assert fmt['dtype'] == 'float32' and '32611' in fmt['crs']
+    assert tuple(fmt['shape']) == (3730, 3292) and list(fmt['transform']) == [100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0]
+    gate = json.loads((ROOT / 'evidence' / 'uniqueness_collar4hex_20261031.json').read_text())
+    assert gate['passes_lane'] and gate['max_overlap_3px_pct'] <= 70.0 and gate['max_abs_spearman'] <= 0.90
+    for needle in (f'{fmt["checks_passed"]}/{fmt["checks_total"]}', f'{gate["max_overlap_3px_pct"]}%',
+                   f'{gate["max_abs_spearman"]}', stem, 'OK to download and submit'):
+        assert needle in flat, needle
+    # The download must be a real, one-click file link, not a link to prose; and the bytes must match.
+    assert f'href="downloads/{stem}-zeros.tif"' in text
+    tif = DOCS / 'downloads' / f'{stem}-zeros.tif'
+    assert tif.exists() and sha256_file(tif) == fmt['sha256']
+    assert (DOCS / 'downloads' / f'{stem}-zeros.zip').exists()
+    assert (DOCS / 'submit.html').exists() and 'must be in range [0, 1]' in (DOCS / 'submit.html').read_text()
+    # Nothing here is an organizer score: the estimate must stay labelled and the superseded file labelled.
+    assert 'MODEL ESTIMATE' in flat and 'strainridge' in flat.lower() and 'supersede' in flat.lower()
 
 
 def test_hvfd_candidate_is_marked_do_not_submit():

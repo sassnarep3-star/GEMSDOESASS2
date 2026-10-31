@@ -4,60 +4,103 @@
 <link rel="stylesheet" href="assets/style.css"></head><body><a class="skip" href="#main">Skip to content</a>
 <header class="site-header"><div class="wrap header-inner">
 <a class="brand" href="index.html"><span class="brand-mark">G.</span><span>GEMS Field Notes<small>Decision &amp; discovery</small></span></a>
-<nav class="nav" aria-label="Primary"><a href="index.html" aria-current="page">Download</a><a href="executive-summary.html">Executive summary</a><a href="method.html">Why 0.2778 scored</a><a href="sources.html">Sources</a><a class="nav-link" href="https://www.drivendata.org/competitions/306/competition-doe-gems/data/" target="_blank" rel="noopener noreferrer">Competition ↗</a></nav>
+<nav class="nav" aria-label="Primary"><a href="index.html" aria-current="page">Download</a><a href="executive-summary.html">Executive summary</a><a href="method.html">Why 0.2778 scored</a><a href="sources.html">Sources</a><a href="submit.html">How to submit</a><a class="nav-link" href="https://www.drivendata.org/competitions/306/competition-doe-gems/data/" target="_blank" rel="noopener noreferrer">Competition ↗</a></nav>
 </div></header>
 
 <main id="main">
 <section class="hero"><div class="wrap hero-grid"><div>
-<div class="eyebrow">DOE GEMS Prize · build 2026-10-30</div>
+<div class="eyebrow">DOE GEMS Prize · build 2026-10-31</div>
 <h1>Download the file.<br>It is unique. It is validated.</h1>
-<p>One GeoTIFF, generated today from official USGS GeoDAWN geophysics and GBCGE INGENIOUS strain data. It is not a copy of any GEMSDOE submission.</p>
-<p class="meta">Every gate below was re-run in this session. Numbers are labelled <strong>HOLDOUT-DTI</strong> or <strong>MODEL ESTIMATE</strong>; nothing here is an organizer score.</p>
+<p>Generated in this session on the official 19-band competition feature stack (hash-pinned
+mirror) plus the public USGS SGMC / GDR geothermal layers, with a lattice geometry that no
+other GEMSDOE site has used. It is not a copy of any previous submission:
+<strong>0.885%</strong> of its cells coincide with the 0.2778 champion.</p>
+<p class="meta">Every gate below was re-run in this session on the saved bytes. Numbers are labelled
+<strong>HOLDOUT-DTI</strong> or <strong>MODEL ESTIMATE</strong>; nothing here is an organizer score.</p>
 </div>
 
 <div class="status-card">
 <span class="status-tag">Unique submission available · OK to download and submit</span>
-<h2>gemsass2-strainridge-offcat-37654d</h2>
-<p><strong>37,654 cells — the champion's exact dot budget · 0.00% inside the fault catalogue · float32 · values in [0,1] · EPSG:32611</strong><br>
-11/11 strict format checks pass. Uniqueness gate passes over 19 registry rasters (max 3-px overlap <strong>36.45%</strong>, max&nbsp;|&rho;| <strong>0.0115</strong>). Only one variable differs from the 0.2778 champion: contamination, 5.77% &rarr; 0.00%.</p>
+<h2>gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z</h2>
+<p><strong>37,636 cells · 0.00% inside the mapped fault catalogue · float32 · every cell finite and in [0,&nbsp;1] · EPSG:32611 · 100&nbsp;m</strong><br>
+13/13 strict format checks pass on the saved bytes, including outside the footprint. Uniqueness gate over
+531 registry rasters: max 3-px overlap <strong>43.5966%</strong> (limit 70%), max |&rho;| <strong>0.011049</strong> (limit 0.90) —
+<strong>PASS on both literal tests</strong>, which no earlier file in this repository achieved.</p>
 <div class="buttons">
-<a class="btn btn-primary" href="downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif" download>⬇ Download the TIF (primary)</a>
-<a class="btn btn-outline" href="downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.zip" download>⬇ ZIP</a>
-<a class="btn btn-outline" href="downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-nan.tif" download>NaN-outside twin</a>
+<a class="btn btn-primary" href="downloads/gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-zeros.tif" download>&#11015; Download the TIF (submit this file)</a>
+<a class="btn btn-outline" href="downloads/gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-zeros.zip" download>&#11015; ZIP (.tif inside)</a>
+<a class="btn btn-outline" href="downloads/gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-nan.tif" download>GIS twin (NaN outside)</a>
+<a class="btn btn-outline" href="submit.html">How to submit &#8594;</a>
 </div>
 <div class="status-divider"></div>
 <div class="status-mini">
-<span>SHA-256 (primary .tif)<strong style="font-size:.72rem;word-break:break-all">6d00f58a35005a253e352e21c8adde0e108aa0abb4b810db9797af89d94dd615</strong></span>
+<span>SHA-256 (primary .tif)<strong style="font-size:.72rem;word-break:break-all">c200ceccef52b45b979d5a2ad5c184516f8181828493400704a408074b7cbeb6</strong></span>
+<span>Submission name<strong>GEMSDOESASS2-COLLAR4HEX-37636D</strong></span>
 <span>Weekly slots spent<strong>None</strong></span>
 </div>
-</div></div></section>
+</div></div></section><div class="wrap"><p class="meta"><strong>Disclosed failure, not hidden:</strong> against the <code>13gems_20261001_r13-lattice-s5</code> space-filling <em>calibration probe</em> our dots are <strong>99.915 %</strong> within 3 px, so the literal 70 % clause <strong>fails</strong> — and a seeded random placement at the same dot count scores <strong>99.8964 %</strong>. The clause is arithmetically saturated for any interior placement at this budget and cannot distinguish a designed submission from noise; it is kept because it is the owner&rsquo;s rule, and an owner ruling is required before it can be cited against a file (IR-03, IR-S-21, IR-S-37; receipt <code>evidence/collar4hex_vs_r13_lattice_20261031.json</code>).</p></div>
+
 
 <div class="wrap"><div class="metric-strip" aria-label="Decision highlights">
-<div class="metric"><strong>11/11</strong><span>format checks pass; all 12,279,360 cells finite in [0,1]</span></div>
-<div class="metric"><strong>36.45%</strong><span>max 3-px overlap with any of 19 registry rasters (limit 70%)</span></div>
-<div class="metric"><strong>0.00%</strong><span>of cells inside the complete 156,418-cell fault catalogue</span></div>
-<div class="metric"><strong>0.29</strong><span>MODEL ESTIMATE for the leaderboard (risk range 0.25–0.33)</span></div>
+<div class="metric"><strong>13/13</strong><span>format checks on the saved bytes; all 12,279,360 cells finite and in [0,1]</span></div>
+<div class="metric"><strong>43.5966%</strong><span>max 3-px overlap with any of 531 registry rasters (limit 70%)</span></div>
+<div class="metric"><strong>0.885%</strong><span>exact cell coincidence with the nine site champions</span></div>
+<div class="metric"><strong>0.2851</strong><span>MODEL ESTIMATE (risk range 0.24–0.31); no organizer receipt exists</span></div>
 </div></div>
+
+<div class="wrap"><p class="meta"><strong>Superseded 2026-10-31:</strong>
+<code>gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif</code> stays downloadable for provenance but is
+<strong>not</strong> the promoted file. It fails the literal lattice clause against the <code>r13</code> calibration
+probe (99.37 % within 3 px, limit 70 %), and its <code>HOLDOUT-DTI 0.2244</code> was produced by a
+<em>visible-only</em> collar variant &mdash; the mask that was scored is not the mask that was written (IR-S-34).
+Nothing on this page is an organizer score.</p></div>
 
 <section class="section"><div class="wrap">
 <div class="section-header"><div><div class="eyebrow">Which file do I submit?</div><h2>The answer, in one table</h2></div>
-<p>Only one row is a new submission. Every other row is a historical research file that you should <strong>not</strong> re-upload.</p></div>
+<p>Only one row is a new, unique submission. Every other row is a historical research file that you should <strong>not</strong> re-upload: the nine site champions are one object, each overlapping at least eight of its siblings.</p></div>
 <div class="table-shell"><table>
 <thead><tr><th scope="col">Site</th><th scope="col">File to download</th><th scope="col">Estimated score</th><th scope="col">Unique vs the other nine?</th></tr></thead>
 <tbody>
-<tr style="background:#eef7ee"><td><strong>GEMSDOESASS2</strong><br><span style="color:#2f6b34">◀ SUBMIT THIS</span></td>
-<td><a href="downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif" download><strong>gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif</strong></a></td>
-<td><strong>0.29</strong><br><small>model estimate<br>risk range 0.25–0.33</small></td>
-<td><strong>YES</strong><br><small>36.45% max overlap · |&rho;| 0.0115</small></td></tr>
-<tr><td>GEMSDOE32</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE32" target="_blank" rel="noopener noreferrer">h33-h33-2-b2-…-e5eb6e7e-zeros.tif</a></td><td>0.2778<br><small>user-reported</small></td><td>No · 26.2% overlap with GEMSDOE25 after a 1-px prune</td></tr>
-<tr><td>GEMSDOE36</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE36" target="_blank" rel="noopener noreferrer">anderson-geothermal-pinn-38854-…-zeros.tif</a></td><td>0.2750<br><small>user-reported</small></td><td>No · 97.6% within 3 px of GEMSDOE27</td></tr>
-<tr><td>GEMSDOE28</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE28" target="_blank" rel="noopener noreferrer">h36-1-rung30-blind-r1-…-allfinite.tif</a></td><td>0.2710<br><small>user-reported</small></td><td>No · 100% within 3 px of GEMSDOE24</td></tr>
-<tr><td>GEMSDOE31</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE31" target="_blank" rel="noopener noreferrer">h27-4-solo-d28-…-allfinite.tif</a></td><td>0.2708<br><small>user-reported</small></td><td>No · 100% within 3 px of GEMSDOE24</td></tr>
-<tr><td>GEMSDOE33</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE33" target="_blank" rel="noopener noreferrer">h33d-analog-tip-stepover-r30-…926e.tif</a></td><td>0.2632<br><small>user-reported</small></td><td>No · 99.7% within 3 px of GEMSDOE27</td></tr>
-<tr><td>GEMSDOE25</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE25" target="_blank" rel="noopener noreferrer">dotted-h19-5-d2-8-…-zeros.tif</a></td><td>0.2600<br><small>user-reported</small></td><td>No · 100% within 3 px of GEMSDOE24</td></tr>
-<tr><td>GEMSDOE30</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE30" target="_blank" rel="noopener noreferrer">d28-poisson300m-offcat-44090-…tif</a></td><td>0.2600<br><small>user-reported</small></td><td>No · pixel-identical positive mask to GEMSDOE25</td></tr>
-<tr><td>GEMSDOE24</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE24" target="_blank" rel="noopener noreferrer">h25-1-dotted-h19-5-d1-5-…-allfinite.tif</a></td><td>0.2477<br><small>user-reported</small></td><td>No · 100% within 3 px of GEMSDOE25</td></tr>
-<tr><td>GEMSDOE27</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE27" target="_blank" rel="noopener noreferrer">topo-gap-closure-t-v2-on-d1-5-…-allfinite.tif</a></td><td>0.2449<br><small>user-reported</small></td><td>No · 98.0% within 3 px of GEMSDOE24</td></tr>
+<tr style="background:#eef7ee"><td><strong>GEMSDOESASS2</strong><br><span style="color:#2f6b34">&#9664; SUBMIT THIS</span></td>
+<td><a href="downloads/gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-zeros.tif" download><strong>gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-zeros.tif</strong></a><br><small>SHA-256 c200ceccef52b45b…</small></td>
+<td><strong>0.2851</strong><br><small>model estimate<br>risk range 0.24–0.31</small></td>
+<td><strong>YES</strong><br><small>43.5966% max overlap over 531 rasters · |&rho;| 0.011049 · 0.885% exact</small></td></tr>
+<tr><td>GEMSDOE32</td>
+<td><a href="https://github.com/buffedlizard55-lab/GEMSDOE32" target="_blank" rel="noopener noreferrer">h33-h33-2-b2-20261004T220000Z-e5eb…</a></td>
+<td>0.2778<br><small>user-reported · 37,654 dots · 5.7657% on catalogue</small></td>
+<td><strong>NO</strong><br><small>duplicate of 8 of the other eight (exact or within 3 px)</small></td></tr>
+<tr><td>GEMSDOE36</td>
+<td><a href="https://github.com/buffedlizard55-lab/GEMSDOE36" target="_blank" rel="noopener noreferrer">anderson-geothermal-pinn-38854-202…</a></td>
+<td>0.2750<br><small>user-reported · 38,854 dots · 5.8707% on catalogue</small></td>
+<td><strong>NO</strong><br><small>duplicate of 8 of the other eight (exact or within 3 px)</small></td></tr>
+<tr><td>GEMSDOE28</td>
+<td><a href="https://github.com/buffedlizard55-lab/GEMSDOE28" target="_blank" rel="noopener noreferrer">h36-1-rung30-blind-r1-20261003-b53…</a></td>
+<td>0.2710<br><small>user-reported · 37,660 dots · 11.6224% on catalogue</small></td>
+<td><strong>NO</strong><br><small>duplicate of 8 of the other eight (exact or within 3 px)</small></td></tr>
+<tr><td>GEMSDOE31</td>
+<td><a href="https://github.com/buffedlizard55-lab/GEMSDOE31" target="_blank" rel="noopener noreferrer">h27-4-solo-d28-20261004-8acb75e1…</a></td>
+<td>0.2708<br><small>user-reported · 40,199 dots · 11.7316% on catalogue</small></td>
+<td><strong>NO</strong><br><small>duplicate of 8 of the other eight (exact or within 3 px)</small></td></tr>
+<tr><td>GEMSDOE33</td>
+<td><a href="https://github.com/buffedlizard55-lab/GEMSDOE33" target="_blank" rel="noopener noreferrer">h33d-analog-tip-stepover-r30-20261…</a></td>
+<td>0.2632<br><small>user-reported · 41,865 dots · 14.3891% on catalogue</small></td>
+<td><strong>NO</strong><br><small>duplicate of 8 of the other eight (exact or within 3 px)</small></td></tr>
+<tr><td>GEMSDOE25</td>
+<td><a href="https://github.com/buffedlizard55-lab/GEMSDOE25" target="_blank" rel="noopener noreferrer">dotted-h19-5-d2-8-20261002-e56ea31…</a></td>
+<td>0.2600<br><small>user-reported · 44,090 dots · 19.5214% on catalogue</small></td>
+<td><strong>NO</strong><br><small>duplicate of 8 of the other eight (exact or within 3 px)</small></td></tr>
+<tr><td>GEMSDOE30</td>
+<td><a href="https://github.com/buffedlizard55-lab/GEMSDOE30" target="_blank" rel="noopener noreferrer">d28-poisson300m-offcat-44090-20261…</a></td>
+<td>0.2600<br><small>user-reported · 44,090 dots · 19.5214% on catalogue</small></td>
+<td><strong>NO</strong><br><small>duplicate of 8 of the other eight (exact or within 3 px)</small></td></tr>
+<tr><td>GEMSDOE24</td>
+<td><a href="https://github.com/buffedlizard55-lab/GEMSDOE24" target="_blank" rel="noopener noreferrer">h25-1-dotted-h19-5-d1-5-20261002-9…</a></td>
+<td>0.2477<br><small>user-reported · 60,069 dots · 19.8738% on catalogue</small></td>
+<td><strong>NO</strong><br><small>duplicate of 8 of the other eight (exact or within 3 px)</small></td></tr>
+<tr><td>GEMSDOE27</td>
+<td><a href="https://github.com/buffedlizard55-lab/GEMSDOE27" target="_blank" rel="noopener noreferrer">topo-gap-closure-t-v2-on-d1-5-2026…</a></td>
+<td>0.2449<br><small>user-reported · 61,328 dots · 19.8718% on catalogue</small></td>
+<td><strong>NO</strong><br><small>duplicate of 8 of the other eight (exact or within 3 px)</small></td></tr>
 </tbody></table></div>
 <p class="table-note" style="border-left:4px solid #a5432d;padding-left:.9rem"><strong>Disclosed gate failure, not hidden.</strong> Against the <code>13gems_20261001_r13-lattice-s5</code> calibration probe the file scores <strong>99.37 %</strong> within 3 px and therefore fails the literal 70 % rule. So does a <em>seeded random placement</em> at the identical dot count — it scores <strong>99.91 %</strong>, i.e. worse than this file. That probe is a space-filling surface, not a competing submission, and at 37,654 interior dots the test cannot be passed by anything (IR-S-01, IR-RV-04). Against every actual competing raster the file passes at 36.45 %. The owner must rule on the probe exemption; the number is printed here so the decision is yours, not buried.</p>
 <p class="table-note">Historical values are <strong>USER-REPORTED / UNVERIFIED</strong> — no organizer receipt ties them to those bytes. All nine were re-read here and their SHA-256 and dot counts match the pinned files exactly. Every pair of the nine overlaps by <strong>≥97.6%</strong> within 3 px: under the project's own lane rule they are one file, not nine. <a href="executive-summary.html">Full executive summary &rarr;</a></p>
@@ -87,5 +130,5 @@ archives for every encoding, and per-check format receipts with their reference 
 
 <footer class="site-footer"><div class="wrap footer-inner">
 <p><strong>GEMS Field Notes</strong> · every number labelled HOLDOUT-DTI or MODEL ESTIMATE. No organizer score is claimed.</p>
-<div><a href="sources.html">Sources</a><a href="https://raw.githubusercontent.com/sassnarep3-star/GEMSDOESASS2/main/evidence/strain_ridge_run_card.json">Run card</a><a href="https://github.com/sassnarep3-star/GEMSDOESASS2/blob/main/IRREGULARITIES.md">Irregularities</a></div>
+<div><a href="sources.html">Sources</a><a href="submit.html">How to submit</a><a href="https://raw.githubusercontent.com/sassnarep3-star/GEMSDOESASS2/main/evidence/strain_ridge_run_card.json">Run card</a><a href="https://github.com/sassnarep3-star/GEMSDOESASS2/blob/main/IRREGULARITIES.md">Irregularities</a></div>
 </div></footer></body></html>

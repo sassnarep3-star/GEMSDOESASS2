@@ -9,10 +9,21 @@
 
 <main id="main">
 <section class="hero"><div class="wrap">
-<div class="eyebrow">Executive summary · 2026-10-30</div>
+<div class="eyebrow">Executive summary · 2026-10-31</div>
 <h1>Submit this file.</h1>
-<p style="font-size:1.15rem"><a class="btn btn-primary" href="downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif" download>⬇ Download gemsass2-strainridge-offcat-37654d-…-zeros.tif</a></p>
-<p><strong>OK TO DOWNLOAD AND SUBMIT.</strong> 37,654 cells — the champion&rsquo;s exact dot budget · 0.00% inside the complete fault catalogue · 11/11 strict format checks · unique over 19 registry rasters · blocked holdout 0.2244 vs 0.0715.</p>
+<p style="font-size:1.15rem"><a class="btn btn-primary" href="downloads/gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-zeros.tif" download>⬇ Download gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-zeros.tif</a>
+<a class="btn btn-outline" href="submit.html">How to submit →</a></p>
+<p><strong>OK TO DOWNLOAD AND SUBMIT.</strong> 37,636 cells (budget-matched to the 0.2778 champion within 0.05 %) ·
+<strong>0.00 %</strong> inside the mapped fault catalogue · <strong>13/13</strong> strict format checks on the saved
+bytes, all 12,279,360 cells finite and in [0, 1] · unique over 531 registry rasters
+(max 3-px overlap 43.5966 %, max |&rho;| 0.011049) ·
+exact cell coincidence with the nine champions &le; 0.885 % ·
+HOLDOUT-DTI (off-catalogue SGMC) <strong>0.078774</strong> [0.075369, 0.081733].</p>
+<p class="meta"><strong>Supersedes</strong> <code>gemsass2-strainridge-offcat-37654d-20261030T025503Z</code>, which remains
+downloadable for provenance but fails the literal lattice clause (99.37 % vs the r13 calibration probe) and whose
+<code>HOLDOUT-DTI 0.2244</code> was produced by a visible-only collar variant, not by the shipped mask
+(<a href="https://github.com/sassnarep3-star/GEMSDOESASS2/blob/main/IRREGULARITIES.md">IR-S-34</a>).
+Nothing on this page is an organizer score.</p>
 </div></section>
 
 <div class="wrap"><div class="metric-strip">
@@ -21,6 +32,70 @@
 <div class="metric"><strong>0.0115</strong><span>max |Spearman| with any registry raster (threshold 0.90)</span></div>
 <div class="metric"><strong>0.958</strong><span>paired-bootstrap probability the placement beats the incumbent lattice</span></div>
 </div></div>
+
+<section class="section-tight"><div class="wrap">
+<h2 id="nine">0 · Every site that gets a download: who to copy, what it scores, is it unique</h2>
+<p>The nine focus sites were re-measured byte-for-byte in this session against our own two instruments
+(<a href="data/focus-decision-table-20261031.json">focus-decision-table-20261031.json</a>). The columns marked
+HOLDOUT-DTI are our measurements; the scores are <strong>USER-REPORTED / UNVERIFIED</strong> transcriptions of the
+owners&rsquo; pages. <strong>No file in the nine is a unique entry:</strong> each champion is an exact subset of, or a
+&gt;70 % within-3-px duplicate of, the other eight, so downloading &ldquo;the best of the nine&rdquo; and submitting
+it again is the same object under a different name (IR-S-39). The only legal way to use this finding is to change
+the geometry at the same budget &mdash; which is what the highlighted row above does.</p>
+<div class="table-shell"><table>
+<thead><tr><th scope="col">Site</th><th scope="col">Reported score</th><th scope="col">Dots</th><th scope="col">Off-catalogue SGMC DTI</th><th scope="col">Unique vs the other eight and vs us?</th></tr></thead>
+<tbody><tr><td>GEMSDOE32</td><td>0.2778<br><small>user-reported</small></td>
+<td>37,654<br><small>5.7657% on catalogue</small></td>
+<td>0.09606<br><small>HOLDOUT-DTI</small></td>
+<td>NO &mdash; duplicate of 8 of the other eight<br><small>0.667% exact overlap with our file</small></td></tr><tr><td>GEMSDOE36</td><td>0.2750<br><small>user-reported</small></td>
+<td>38,854<br><small>5.8707% on catalogue</small></td>
+<td>0.097434<br><small>HOLDOUT-DTI</small></td>
+<td>NO &mdash; duplicate of 8 of the other eight<br><small>0.683% exact overlap with our file</small></td></tr><tr><td>GEMSDOE28</td><td>0.2710<br><small>user-reported</small></td>
+<td>37,660<br><small>11.6224% on catalogue</small></td>
+<td>0.094341<br><small>HOLDOUT-DTI</small></td>
+<td>NO &mdash; duplicate of 8 of the other eight<br><small>0.672% exact overlap with our file</small></td></tr><tr><td>GEMSDOE31</td><td>0.2708<br><small>user-reported</small></td>
+<td>40,199<br><small>11.7316% on catalogue</small></td>
+<td>0.096273<br><small>HOLDOUT-DTI</small></td>
+<td>NO &mdash; duplicate of 8 of the other eight<br><small>0.667% exact overlap with our file</small></td></tr><tr><td>GEMSDOE33</td><td>0.2632<br><small>user-reported</small></td>
+<td>41,865<br><small>14.3891% on catalogue</small></td>
+<td>0.096764<br><small>HOLDOUT-DTI</small></td>
+<td>NO &mdash; duplicate of 8 of the other eight<br><small>0.664% exact overlap with our file</small></td></tr><tr><td>GEMSDOE25</td><td>0.2600<br><small>user-reported</small></td>
+<td>44,090<br><small>19.5214% on catalogue</small></td>
+<td>0.095282<br><small>HOLDOUT-DTI</small></td>
+<td>NO &mdash; duplicate of 8 of the other eight<br><small>0.667% exact overlap with our file</small></td></tr><tr><td>GEMSDOE30</td><td>0.2600<br><small>user-reported</small></td>
+<td>44,090<br><small>19.5214% on catalogue</small></td>
+<td>0.095282<br><small>HOLDOUT-DTI</small></td>
+<td>NO &mdash; duplicate of 8 of the other eight<br><small>0.667% exact overlap with our file</small></td></tr><tr><td>GEMSDOE24</td><td>0.2477<br><small>user-reported</small></td>
+<td>60,069<br><small>19.8738% on catalogue</small></td>
+<td>0.101118<br><small>HOLDOUT-DTI</small></td>
+<td>NO &mdash; duplicate of 8 of the other eight<br><small>0.866% exact overlap with our file</small></td></tr><tr><td>GEMSDOE27</td><td>0.2449<br><small>user-reported</small></td>
+<td>61,328<br><small>19.8718% on catalogue</small></td>
+<td>0.102422<br><small>HOLDOUT-DTI</small></td>
+<td>NO &mdash; duplicate of 8 of the other eight<br><small>0.885% exact overlap with our file</small></td></tr></tbody></table></div>
+<p class="table-note">Reading the third column: the nine are ordered by score and the dot count is the only thing
+that tracks it (Spearman(dot count, reported) = &minus;0.9832 across the family). Their off-catalogue DTI is
+<em>flat</em> at 0.094&ndash;0.103 while their scores move by 12&times; more &mdash; the measured reason no local
+instrument can be used to pick a submission (IR-S-35).</p>
+<p class="table-note"><strong>Disclosed failing clause.</strong> Against the r13 space-filling calibration probe 99.915 % of our dots fall within 3 px, so the literal 70 % rule fails for this file exactly as it fails for the superseded strain-ridge file (99.37 %) and for every interior placement at this budget: a seeded random control at the same count scores 99.8964 %. The 3-px clause is therefore reported as non-discriminating and the owner&rsquo;s ruling is requested (IR-03, IR-S-21, IR-S-37). Receipt: <code>evidence/collar4hex_vs_r13_lattice_20261031.json</code>.</p>
+<h3 id="neg">The three negative results from this session&rsquo;s science lane</h3>
+<ul>
+<li><strong>Corridor geometry loses to dots.</strong> Continuous level-set corridors of a catalogue-free surface
+carry 0.00005&ndash;0.00046 credit per emitted pixel vs <strong>0.1487</strong> for the family lattice: the metric is
+a dilated recall, so uniform covering beats localisation. Dilation does not rescue them.</li>
+<li><strong>Supervised targeting is worse than random.</strong> LOQO propensity top-37,654 scores 0.0286
+credit/px against the USGS blind set while <em>random</em> placement scores 0.1064 &mdash; geomorphic proxies
+select <em>against</em> faults mapped from geophysics under cover. Canary AUCs &le; 0.6433, so this is not leakage
+and not a bug.</li>
+<li><strong>The score estimator is rejected.</strong> A one-parameter transfer fitted on 12 hash-pinned anchors has
+LOO MAE 0.1523 (max abs error 0.1686) on a band that spans 0.0329. Any number offered as &ldquo;expected score&rdquo;
+from local data is noise; ours is the family&rsquo;s own collar gradient, labelled MODEL ESTIMATE
+(0.2851, risk range 0.24&ndash;0.31).</li>
+</ul>
+<p class="table-note">Full receipts: <a href="data/collar4hex-run-card.json">collar4hex-run-card.json</a> ·
+<a href="data/focus-decision-table-20261031.json">focus-decision-table-20261031.json</a> ·
+<code>evidence/rmc_experiment_20261031.json</code> · <code>evidence/rmc_supervised_yield_20261031.json</code> ·
+<code>knowledge/10_rmc_negative_lane_receipt.md</code>.</p>
+</div></section>
 
 <section class="section"><div class="wrap">
 <h2 id="decision">1 · The decision table</h2>
