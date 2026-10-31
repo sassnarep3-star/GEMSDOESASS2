@@ -1,6 +1,46 @@
 # GEMSDOESASS2 — auditable geothermal fault discovery
 
-## 🚦 Current decision (2026-10-31): **SUBMIT THE S3 RING-HABITAT FILE** (alternate: COLLAR4-HEX)
+## 🚦 Current decision (2026-10-31): **SUBMIT THE SLOPE-DENSITY FILE**
+
+| Item | Value |
+|---|---|
+| **File to download** | [`docs/downloads/gemsass2-slopetilt-300k-20261031-zeros.tif`](docs/downloads/gemsass2-slopetilt-300k-20261031-zeros.tif) |
+| SHA-256 | `af4d17511fd68fd01d742b4eee0c5be0f3569512e50207b940e5bb23b5f41e7f` |
+| Grid | EPSG:32611 · (3730, 3292) · 100 m · transform `(100,0,243350,0,-100,4508550)` |
+| Cells predicted | 300,000 · binary {0, 1} · **0 cells inside the public fault database** |
+| Format gate | **11 / 11 pass** (strict), every one of 12,279,360 cells finite, values in {0, 1}, `nodata=None` |
+| Uniqueness gate | **PASS** — 28.10 % max 3-px overlap (limit 70), max \|ρ\| 0.0215 (limit 0.90) over 12 registry rasters |
+| Science gate | **PASS on the independent target** — DTI **0.403** vs **0.295** for a same-size space-filling control and **0.192** for the fitted 125-feature model |
+| Model score estimate | **0.18–0.40**, centred ≈ **0.30** · nine-site law applied to this file: 0.277 — *not* organizer-confirmed |
+| Submission name | `GEMSASS2-SLOPETILT-300K-20261031` |
+| Note (≤140 chars) | `density - detrended-elevation-slope prior at the metric optimum; zero cells on the public fault database` (104) |
+
+**Download and submit: [site](docs/index.html) · [executive summary](docs/executive-summary.html) · [why 0.2778 scored](docs/method.html) · [run card](evidence/final_run_card.json)**
+
+⚠️ No organizer receipt exists for any file here. The 0.18–0.40 is a **MODEL ESTIMATE**. No weekly slot has been spent.
+
+**What changed on 2026-10-31 — the previous answer was overturned by its own evidence.** Four experiments against a fault compilation the model never saw (SGMC; only 4.8 % of it coincides with the QFaults catalogue) produced three findings:
+
+1. **The nine-site density law.** `DTI = C/(0.2N + 0.8(G−C))` with **C = 10,950**, **G = 51,734** reproduces all nine owner-reported scores to within **±0.005** (R² 0.903). Score ≈ f(cells spent), not f(geological insight). `evidence/emission_optimum.json`.
+2. **The fitted model overfits the label.** A 125-feature LightGBM scores **0.37** on the catalogue and **0.192** on the independent target — *worse than a space-filling lattice* (0.295). Transfer degrades monotonically with tilt (0.2507 → 0.2298 → 0.1814). The previously promoted collar file scores 0.207–0.244 there and is **superseded**. `evidence/emission_controls.json`.
+3. **One raw band beats the model.** Band 19 (detrended-elevation slope) separates independently mapped faults at **AUC 0.757** — the highest of all 19 — and an unfitted density on it reaches **0.403**. `evidence/sgmc_transfer_auc.json`, `evidence/feature_tilt_sweep.json`.
+
+⚠️ **Caveats that must not be dropped.** The independent target is an analogue, not the truth: the nine-site law applied to this file gives **0.277**, i.e. a *tie* with the 0.2778 champion, not a win. Within deciles of detrended elevation band 19's AUC falls to a weighted **0.636**, so part of the gain is terrain context. 300k/σ=5 was selected on the same proxy it is reported on. Three submissions per week; this file consumes one slot.
+
+**Superseded artifacts (do not submit; intermediates are reproducible from `scripts/` and are not shipped):** the band-19-free collar file (sha `5f2ebbc4…`), the catalogue-avoidance-only file (sha `466e7b17…`), the strain-ridge file (sha `6d00f58a…`, still present in `docs/downloads/` for audit), and the VRC / thermo-tilt / HVFD files — all **negative or superseded** research.
+
+---
+
+# GEMSDOESASS2 — auditable geothermal fault discovery
+
+## 🧭 Sibling lane merged from main — S3 RING-HABITAT / COLLAR4-HEX (**NOT PROMOTED here**)
+
+Kept in full because it is measured work with its own receipts. It is **not** the file to submit:
+on the instrument both lanes share (`derived_sgmc_faults_100m_u8.tif`, off-catalogue) the S3 file
+scores **0.0770** at 37,654 cells — statistically level with a uniform control at the same budget
+(0.0750 theirs, 0.0789 re-measured here) — while the promoted slope-density file scores **0.4026**
+at 300,000 cells against 0.2953 for its matched control. Selector receipt:
+[`evidence/selector_20261031.json`](evidence/selector_20261031.json).
 
 Pages site: <https://sassnarep3-star.github.io/GEMSDOESASS2/> · one-click download on the front page ·
 submission walkthrough: [`docs/how-to-submit.html`](docs/how-to-submit.html) · [`docs/submit.html`](docs/submit.html)

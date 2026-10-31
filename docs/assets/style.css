@@ -833,3 +833,27 @@ code {
     gap: 25px;
   }
 }
+
+/* --- 2026-10-31 decision page additions --- */
+.callout-green {
+  border-left-color: #2f6b34;
+  background: #eef7ee;
+  color: #234d27;
+}
+.callout-amber {
+  border-left-color: #a86b12;
+  background: #fdf6e8;
+  color: #6d4708;
+}
+.callout-amber ul {
+  margin: 8px 0 0;
+  padding-left: 1.2rem;
+}
+.callout-amber li {
+  margin-bottom: 6px;
+}
+.subtitle {
+  font-size: 1.05rem;
+  color: var(--muted);
+  max-width: 780px;
+}

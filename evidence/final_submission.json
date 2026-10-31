@@ -1,0 +1,182 @@
+{
+ "file": "docs/downloads/gemsass2-dticover-250k-tilt0p35-collar20261031-zeros.tif",
+ "name": "GEMSASS2-DTICOVER-250K-TILT0P35-COLLAR20261031",
+ "note": "density-calibrated space-filling design at the metric's optimum; geophysics-tilted; 0 px on catalogue",
+ "note_chars": 101,
+ "n_cells": 250000,
+ "design": {
+  "n_requested": 250000,
+  "tilt": 0.35,
+  "seed": 20261031,
+  "collar": 0.85,
+  "collar_centre_px": 12.0,
+  "collar_sigma_px": 14.0
+ },
+ "sha256": "5f2ebbc4a14f8595201ea5ee3bc6c6be1da33186e9944621704d8b2efc7cbf69",
+ "validator": {
+  "path": "/home/user/GEMSDOESASS2/docs/downloads/gemsass2-dticover-250k-tilt0p35-collar20261031-zeros.tif",
+  "filename": "gemsass2-dticover-250k-tilt0p35-collar20261031-zeros.tif",
+  "size_bytes": 485290,
+  "sha256": "5f2ebbc4a14f8595201ea5ee3bc6c6be1da33186e9944621704d8b2efc7cbf69",
+  "crs": "EPSG:32611",
+  "shape": [
+   3730,
+   3292
+  ],
+  "dtype": "float32",
+  "nodata": null,
+  "transform": [
+   100.0,
+   0.0,
+   243350.0,
+   0.0,
+   -100.0,
+   4508550.0
+  ],
+  "all_12279160_finite": true,
+  "min_in_footprint": 0.0,
+  "max_in_footprint": 1.0,
+  "min_all_cells": 0.0,
+  "max_all_cells": 1.0,
+  "positive_dots_in_footprint": 245103,
+  "positive_on_catalogue": 0,
+  "outside_mode": "zeros",
+  "checks": {
+   "01_file_exists_nonempty": true,
+   "02_single_band": true,
+   "03_dtype_float32": true,
+   "04_crs_epsg_32611": true,
+   "05_shape_3730x3292": true,
+   "06_geotransform_exact": true,
+   "07_footprint_5167373_match": true,
+   "08_catalogue_60988_match": true,
+   "09_no_nan_or_inf_inside_footprint": true,
+   "10_values_in_0_1_inside_footprint": true,
+   "11_outside_footprint_clean": true,
+   "12_zero_on_known_catalogue": true,
+   "13_nontrivial_positive_predictions": true
+  },
+  "checks_passed": 13,
+  "checks_total": 13,
+  "all_passed": true
+ },
+ "local_DTI": {
+  "catalogue": {
+   "T": 28673.54044944657,
+   "F": 233535.71337580527,
+   "FN": 32314.45955055343,
+   "G": 60988,
+   "DTI": 0.36623181147797235
+  },
+  "sgmc_off": {
+   "T": 20803.12681548274,
+   "F": 239995.43597439674,
+   "FN": 41318.87318451726,
+   "G": 62122,
+   "DTI": 0.24412571647557346
+  }
+ },
+ "writer_info": {
+  "stem": "gemsass2-dticover-250k-tilt0p35-collar20261031",
+  "zeros": {
+   "path": "/home/user/GEMSDOESASS2/docs/downloads/gemsass2-dticover-250k-tilt0p35-collar20261031-zeros.tif",
+   "filename": "gemsass2-dticover-250k-tilt0p35-collar20261031-zeros.tif",
+   "size_bytes": 485290,
+   "sha256": "5f2ebbc4a14f8595201ea5ee3bc6c6be1da33186e9944621704d8b2efc7cbf69",
+   "crs": "EPSG:32611",
+   "shape": [
+    3730,
+    3292
+   ],
+   "dtype": "float32",
+   "nodata": null,
+   "transform": [
+    100.0,
+    0.0,
+    243350.0,
+    0.0,
+    -100.0,
+    4508550.0
+   ],
+   "all_12279160_finite": true,
+   "min_in_footprint": 0.0,
+   "max_in_footprint": 1.0,
+   "min_all_cells": 0.0,
+   "max_all_cells": 1.0,
+   "positive_dots_in_footprint": 245103,
+   "positive_on_catalogue": 0,
+   "outside_mode": "zeros",
+   "checks": {
+    "01_file_exists_nonempty": true,
+    "02_single_band": true,
+    "03_dtype_float32": true,
+    "04_crs_epsg_32611": true,
+    "05_shape_3730x3292": true,
+    "06_geotransform_exact": true,
+    "07_footprint_5167373_match": true,
+    "08_catalogue_60988_match": true,
+    "09_no_nan_or_inf_inside_footprint": true,
+    "10_values_in_0_1_inside_footprint": true,
+    "11_outside_footprint_clean": true,
+    "12_zero_on_known_catalogue": true,
+    "13_nontrivial_positive_predictions": true
+   },
+   "checks_passed": 13,
+   "checks_total": 13,
+   "all_passed": true
+  },
+  "nan": {
+   "path": "/home/user/GEMSDOESASS2/docs/downloads/gemsass2-dticover-250k-tilt0p35-collar20261031-nan.tif",
+   "filename": "gemsass2-dticover-250k-tilt0p35-collar20261031-nan.tif",
+   "size_bytes": 505306,
+   "sha256": "241156725967e840fc51de36eb77ac4f32eeb7b1c898b4b53c50cb7cad156e16",
+   "crs": "EPSG:32611",
+   "shape": [
+    3730,
+    3292
+   ],
+   "dtype": "float32",
+   "nodata": "NaN",
+   "transform": [
+    100.0,
+    0.0,
+    243350.0,
+    0.0,
+    -100.0,
+    4508550.0
+   ],
+   "all_12279160_finite": false,
+   "min_in_footprint": 0.0,
+   "max_in_footprint": 1.0,
+   "min_all_cells": 0.0,
+   "max_all_cells": 1.0,
+   "positive_dots_in_footprint": 245103,
+   "positive_on_catalogue": 0,
+   "outside_mode": "nan",
+   "checks": {
+    "01_file_exists_nonempty": true,
+    "02_single_band": true,
+    "03_dtype_float32": true,
+    "04_crs_epsg_32611": true,
+    "05_shape_3730x3292": true,
+    "06_geotransform_exact": true,
+    "07_footprint_5167373_match": true,
+    "08_catalogue_60988_match": true,
+    "09_no_nan_or_inf_inside_footprint": true,
+    "10_values_in_0_1_inside_footprint": true,
+    "11_outside_footprint_clean": true,
+    "12_zero_on_known_catalogue": true,
+    "13_nontrivial_positive_predictions": true
+   },
+   "checks_passed": 13,
+   "checks_total": 13,
+   "all_passed": true
+  },
+  "zip": {
+   "path": "/home/user/GEMSDOESASS2/docs/downloads/gemsass2-dticover-250k-tilt0p35-collar20261031-zeros.zip",
+   "filename": "gemsass2-dticover-250k-tilt0p35-collar20261031-zeros.zip",
+   "size_bytes": 448654,
+   "sha256": "a26e923459170a6f02e1eaaae4cfb2ea83512ac4badf284d72de45bb7be18730"
+  }
+ }
+}

@@ -1,0 +1,386 @@
+{
+ "scope": "MODEL ESTIMATE, never an organiser score",
+ "seed": 20261031,
+ "grid": [
+  {
+   "avoid_radius_px": 0,
+   "n_requested": 250000,
+   "n_cells": 250000,
+   "catalogue": {
+    "DTI": 0.2663,
+    "T": 22191.5,
+    "F": 239218.1,
+    "coverage_r": 0.3639
+   },
+   "sgmc_off": {
+    "DTI": 0.2507,
+    "T": 21303.9,
+    "F": 240377.4,
+    "coverage_r": 0.3429
+   }
+  },
+  {
+   "avoid_radius_px": 0,
+   "n_requested": 300000,
+   "n_cells": 300000,
+   "catalogue": {
+    "DTI": 0.2758,
+    "T": 25161.1,
+    "F": 287608.4,
+    "coverage_r": 0.4126
+   },
+   "sgmc_off": {
+    "DTI": 0.2703,
+    "T": 24957.9,
+    "F": 288113.3,
+    "coverage_r": 0.4018
+   }
+  },
+  {
+   "avoid_radius_px": 0,
+   "n_requested": 350000,
+   "n_cells": 350000,
+   "catalogue": {
+    "DTI": 0.2787,
+    "T": 27660.4,
+    "F": 335272.9,
+    "coverage_r": 0.4535
+   },
+   "sgmc_off": {
+    "DTI": 0.2758,
+    "T": 27676.9,
+    "F": 336228.6,
+    "coverage_r": 0.4455
+   }
+  },
+  {
+   "avoid_radius_px": 0,
+   "n_requested": 400000,
+   "n_cells": 400000,
+   "catalogue": {
+    "DTI": 0.274,
+    "T": 29493.7,
+    "F": 382746.8,
+    "coverage_r": 0.4836
+   },
+   "sgmc_off": {
+    "DTI": 0.2635,
+    "T": 28811.6,
+    "F": 384594.4,
+    "coverage_r": 0.4638
+   }
+  },
+  {
+   "avoid_radius_px": 1,
+   "n_requested": 250000,
+   "n_cells": 250000,
+   "catalogue": {
+    "DTI": 0.0057,
+    "T": 562.9,
+    "F": 249676.5,
+    "coverage_r": 0.0092
+   },
+   "sgmc_off": {
+    "DTI": 0.2599,
+    "T": 21962.1,
+    "F": 239828.5,
+    "coverage_r": 0.3535
+   }
+  },
+  {
+   "avoid_radius_px": 1,
+   "n_requested": 300000,
+   "n_cells": 300000,
+   "catalogue": {
+    "DTI": 0.017,
+    "T": 1822.6,
+    "F": 298954.2,
+    "coverage_r": 0.0299
+   },
+   "sgmc_off": {
+    "DTI": 0.2963,
+    "T": 26960.0,
+    "F": 287357.5,
+    "coverage_r": 0.434
+   }
+  },
+  {
+   "avoid_radius_px": 1,
+   "n_requested": 350000,
+   "n_cells": 350000,
+   "catalogue": {
+    "DTI": 0.0088,
+    "T": 1035.1,
+    "F": 349394.8,
+    "coverage_r": 0.017
+   },
+   "sgmc_off": {
+    "DTI": 0.2817,
+    "T": 28133.9,
+    "F": 335290.1,
+    "coverage_r": 0.4529
+   }
+  },
+  {
+   "avoid_radius_px": 1,
+   "n_requested": 400000,
+   "n_cells": 400000,
+   "catalogue": {
+    "DTI": 0.0142,
+    "T": 1808.9,
+    "F": 398906.9,
+    "coverage_r": 0.0297
+   },
+   "sgmc_off": {
+    "DTI": 0.2745,
+    "T": 29775.1,
+    "F": 383271.3,
+    "coverage_r": 0.4793
+   }
+  },
+  {
+   "avoid_radius_px": 2,
+   "n_requested": 250000,
+   "n_cells": 250000,
+   "catalogue": {
+    "DTI": 0.0,
+    "T": 0.0,
+    "F": 250000.0,
+    "coverage_r": 0.0
+   },
+   "sgmc_off": {
+    "DTI": 0.2594,
+    "T": 21922.1,
+    "F": 239861.3,
+    "coverage_r": 0.3529
+   }
+  },
+  {
+   "avoid_radius_px": 2,
+   "n_requested": 300000,
+   "n_cells": 300000,
+   "catalogue": {
+    "DTI": 0.0,
+    "T": 0.0,
+    "F": 300000.0,
+    "coverage_r": 0.0
+   },
+   "sgmc_off": {
+    "DTI": 0.2849,
+    "T": 26075.7,
+    "F": 287400.2,
+    "coverage_r": 0.4197
+   }
+  },
+  {
+   "avoid_radius_px": 2,
+   "n_requested": 350000,
+   "n_cells": 350000,
+   "catalogue": {
+    "DTI": 0.0,
+    "T": 0.0,
+    "F": 350000.0,
+    "coverage_r": 0.0
+   },
+   "sgmc_off": {
+    "DTI": 0.2803,
+    "T": 28012.7,
+    "F": 335322.7,
+    "coverage_r": 0.4509
+   }
+  },
+  {
+   "avoid_radius_px": 2,
+   "n_requested": 400000,
+   "n_cells": 400000,
+   "catalogue": {
+    "DTI": 0.0,
+    "T": 0.0,
+    "F": 400000.0,
+    "coverage_r": 0.0
+   },
+   "sgmc_off": {
+    "DTI": 0.2326,
+    "T": 25823.6,
+    "F": 384202.8,
+    "coverage_r": 0.4157
+   }
+  },
+  {
+   "avoid_radius_px": 3,
+   "n_requested": 250000,
+   "n_cells": 250000,
+   "catalogue": {
+    "DTI": 0.0,
+    "T": 0.0,
+    "F": 250000.0,
+    "coverage_r": 0.0
+   },
+   "sgmc_off": {
+    "DTI": 0.2613,
+    "T": 22066.5,
+    "F": 239905.3,
+    "coverage_r": 0.3552
+   }
+  },
+  {
+   "avoid_radius_px": 3,
+   "n_requested": 300000,
+   "n_cells": 300000,
+   "catalogue": {
+    "DTI": 0.0,
+    "T": 0.0,
+    "F": 300000.0,
+    "coverage_r": 0.0
+   },
+   "sgmc_off": {
+    "DTI": 0.2746,
+    "T": 25287.2,
+    "F": 287729.5,
+    "coverage_r": 0.4071
+   }
+  },
+  {
+   "avoid_radius_px": 3,
+   "n_requested": 350000,
+   "n_cells": 350000,
+   "catalogue": {
+    "DTI": 0.0,
+    "T": 0.0,
+    "F": 350000.0,
+    "coverage_r": 0.0
+   },
+   "sgmc_off": {
+    "DTI": 0.2719,
+    "T": 27299.5,
+    "F": 335466.3,
+    "coverage_r": 0.4395
+   }
+  },
+  {
+   "avoid_radius_px": 3,
+   "n_requested": 400000,
+   "n_cells": 400000,
+   "catalogue": {
+    "DTI": 0.0,
+    "T": 0.0,
+    "F": 400000.0,
+    "coverage_r": 0.0
+   },
+   "sgmc_off": {
+    "DTI": 0.2359,
+    "T": 26147.6,
+    "F": 384128.0,
+    "coverage_r": 0.4209
+   }
+  },
+  {
+   "avoid_radius_px": 1,
+   "n_requested": 300000,
+   "n_cells": 300000,
+   "catalogue": {
+    "DTI": 0.017,
+    "T": 1822.6,
+    "F": 298954.2,
+    "coverage_r": 0.0299
+   },
+   "sgmc_off": {
+    "DTI": 0.2963,
+    "T": 26960.0,
+    "F": 287357.5,
+    "coverage_r": 0.434
+   }
+  }
+ ],
+ "rule": "maximise DTI on sgmc_off (never in training); catalogue reported only",
+ "selected": {
+  "avoid_radius_px": 1,
+  "n_requested": 300000,
+  "n_cells": 300000,
+  "catalogue": {
+   "DTI": 0.017,
+   "T": 1822.6,
+   "F": 298954.2,
+   "coverage_r": 0.0299
+  },
+  "sgmc_off": {
+   "DTI": 0.2963,
+   "T": 26960.0,
+   "F": 287357.5,
+   "coverage_r": 0.434
+  }
+ },
+ "seed_confirmation": [
+  {
+   "seed": 20261031,
+   "n_cells": 300000,
+   "sgmc_DTI": 0.2963
+  },
+  {
+   "seed": 20261101,
+   "n_cells": 300000,
+   "sgmc_DTI": 0.2939
+  }
+ ],
+ "seed_spread_sgmc": 0.0024,
+ "submission": {
+  "stem": "gemsass2-catfree-300k-20261031",
+  "name": "GEMSASS2-CATFREE-300K-20261031",
+  "note": "space-filling at the metric's density optimum; zero cells on the public fault database",
+  "note_chars": 86,
+  "sha256": "466e7b1785bc1fba1bc0ae9f61995b324d8511cfc268a0efe23a53c7aa0aecc0",
+  "n_cells": 300000,
+  "validation": {
+   "path": "/home/user/GEMSDOESASS2/docs/downloads/gemsass2-catfree-300k-20261031-zeros.tif",
+   "filename": "gemsass2-catfree-300k-20261031-zeros.tif",
+   "size_bytes": 543746,
+   "sha256": "466e7b1785bc1fba1bc0ae9f61995b324d8511cfc268a0efe23a53c7aa0aecc0",
+   "crs": "EPSG:32611",
+   "shape": [
+    3730,
+    3292
+   ],
+   "dtype": "float32",
+   "nodata": null,
+   "transform": [
+    100.0,
+    0.0,
+    243350.0,
+    0.0,
+    -100.0,
+    4508550.0
+   ],
+   "all_12279160_finite": true,
+   "min_in_footprint": 0.0,
+   "max_in_footprint": 1.0,
+   "min_all_cells": 0.0,
+   "max_all_cells": 1.0,
+   "positive_dots_in_footprint": 300000,
+   "positive_on_catalogue": 0,
+   "outside_mode": "zeros",
+   "checks": {
+    "01_file_exists_nonempty": true,
+    "02_single_band": true,
+    "03_dtype_float32": true,
+    "04_crs_epsg_32611": true,
+    "05_shape_3730x3292": true,
+    "06_geotransform_exact": true,
+    "07_footprint_5167373_match": true,
+    "08_catalogue_60988_match": true,
+    "09_no_nan_or_inf_inside_footprint": true,
+    "10_values_in_0_1_inside_footprint": true,
+    "11_outside_footprint_clean": true,
+    "12_zero_on_known_catalogue": true,
+    "13_nontrivial_positive_predictions": true
+   },
+   "checks_passed": 13,
+   "checks_total": 13,
+   "all_passed": true
+  },
+  "files": {
+   "zeros": "/home/user/GEMSDOESASS2/docs/downloads/gemsass2-catfree-300k-20261031-zeros.tif",
+   "zip": "/home/user/GEMSDOESASS2/docs/downloads/gemsass2-catfree-300k-20261031-zeros.zip",
+   "nan": "/home/user/GEMSDOESASS2/docs/downloads/gemsass2-catfree-300k-20261031-nan.tif"
+  }
+ }
+}

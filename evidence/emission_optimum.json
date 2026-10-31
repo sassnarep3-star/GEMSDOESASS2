@@ -1,0 +1,304 @@
+{
+ "scope": "MODEL ESTIMATE, never an organiser score",
+ "law": {
+  "C_recovered_truth_cells": 10950.0,
+  "G_implied_hidden_cells": 51734.4,
+  "r_squared": 0.9028,
+  "rms_residual": 0.0034,
+  "max_abs_residual": 0.0051,
+  "coverage_r": 0.2117,
+  "rows": [
+   {
+    "site": "GEMSDOE24",
+    "n": 60069,
+    "reported": 0.2477,
+    "law": 0.2453,
+    "residual": -0.0024
+   },
+   {
+    "site": "GEMSDOE25",
+    "n": 44090,
+    "reported": 0.26,
+    "law": 0.2642,
+    "residual": 0.0042
+   },
+   {
+    "site": "GEMSDOE27",
+    "n": 61328,
+    "reported": 0.2449,
+    "law": 0.2439,
+    "residual": -0.001
+   },
+   {
+    "site": "GEMSDOE28",
+    "n": 37660,
+    "reported": 0.271,
+    "law": 0.2727,
+    "residual": 0.0017
+   },
+   {
+    "site": "GEMSDOE30",
+    "n": 44090,
+    "reported": 0.26,
+    "law": 0.2642,
+    "residual": 0.0042
+   },
+   {
+    "site": "GEMSDOE31",
+    "n": 40199,
+    "reported": 0.2708,
+    "law": 0.2693,
+    "residual": -0.0015
+   },
+   {
+    "site": "GEMSDOE32",
+    "n": 37654,
+    "reported": 0.2778,
+    "law": 0.2727,
+    "residual": -0.0051
+   },
+   {
+    "site": "GEMSDOE33",
+    "n": 41865,
+    "reported": 0.2632,
+    "law": 0.2671,
+    "residual": 0.0039
+   },
+   {
+    "site": "GEMSDOE36",
+    "n": 38854,
+    "reported": 0.275,
+    "law": 0.2711,
+    "residual": -0.0039
+   }
+  ]
+ },
+ "sweep": [
+  {
+   "n_requested": 40000,
+   "emission": "dot",
+   "n_cells": 40000,
+   "catalogue": {
+    "DTI": 0.1645,
+    "T": 8401.9,
+    "F": 36643.5,
+    "coverage_r": 0.1378,
+    "false_mass_per_cell": 0.9161,
+    "DTI_scaled_to_Gorg": 0.1604
+   },
+   "sgmc_off": {
+    "DTI": 0.0706,
+    "T": 3885.8,
+    "F": 38449.9,
+    "coverage_r": 0.0626,
+    "false_mass_per_cell": 0.9612,
+    "DTI_scaled_to_Gorg": 0.0687
+   },
+   "mean_DTI_scaled": 0.1145
+  },
+  {
+   "n_requested": 40000,
+   "emission": "ribbon",
+   "n_cells": 349340,
+   "catalogue": {
+    "DTI": 0.2052,
+    "T": 20620.6,
+    "F": 320328.5,
+    "coverage_r": 0.3381,
+    "false_mass_per_cell": 0.917,
+    "DTI_scaled_to_Gorg": 0.1842
+   },
+   "sgmc_off": {
+    "DTI": 0.0883,
+    "T": 9794.7,
+    "F": 335819.0,
+    "coverage_r": 0.1577,
+    "false_mass_per_cell": 0.9613,
+    "DTI_scaled_to_Gorg": 0.0787
+   },
+   "mean_DTI_scaled": 0.1315
+  },
+  {
+   "n_requested": 60000,
+   "emission": "dot",
+   "n_cells": 60000,
+   "catalogue": {
+    "DTI": 0.236,
+    "T": 12356.0,
+    "F": 54841.9,
+    "coverage_r": 0.2026,
+    "false_mass_per_cell": 0.914,
+    "DTI_scaled_to_Gorg": 0.2275
+   },
+   "sgmc_off": {
+    "DTI": 0.099,
+    "T": 5723.2,
+    "F": 57646.7,
+    "coverage_r": 0.0921,
+    "false_mass_per_cell": 0.9608,
+    "DTI_scaled_to_Gorg": 0.0952
+   },
+   "mean_DTI_scaled": 0.1613
+  },
+  {
+   "n_requested": 60000,
+   "emission": "ribbon",
+   "n_cells": 515257,
+   "catalogue": {
+    "DTI": 0.2255,
+    "T": 28434.7,
+    "F": 471815.1,
+    "coverage_r": 0.4662,
+    "false_mass_per_cell": 0.9157,
+    "DTI_scaled_to_Gorg": 0.1989
+   },
+   "sgmc_off": {
+    "DTI": 0.0978,
+    "T": 13744.4,
+    "F": 495117.9,
+    "coverage_r": 0.2212,
+    "false_mass_per_cell": 0.9609,
+    "DTI_scaled_to_Gorg": 0.0857
+   },
+   "mean_DTI_scaled": 0.1423
+  },
+  {
+   "n_requested": 100000,
+   "emission": "dot",
+   "n_cells": 100000,
+   "catalogue": {
+    "DTI": 0.3273,
+    "T": 18357.5,
+    "F": 91550.3,
+    "coverage_r": 0.301,
+    "false_mass_per_cell": 0.9155,
+    "DTI_scaled_to_Gorg": 0.3093
+   },
+   "sgmc_off": {
+    "DTI": 0.1372,
+    "T": 8737.3,
+    "F": 96139.3,
+    "coverage_r": 0.1406,
+    "false_mass_per_cell": 0.9614,
+    "DTI_scaled_to_Gorg": 0.1294
+   },
+   "mean_DTI_scaled": 0.2193
+  },
+  {
+   "n_requested": 100000,
+   "emission": "ribbon",
+   "n_cells": 825994,
+   "catalogue": {
+    "DTI": 0.2172,
+    "T": 38500.4,
+    "F": 757706.7,
+    "coverage_r": 0.6313,
+    "false_mass_per_cell": 0.9173,
+    "DTI_scaled_to_Gorg": 0.1884
+   },
+   "sgmc_off": {
+    "DTI": 0.0979,
+    "T": 19278.6,
+    "F": 794003.0,
+    "coverage_r": 0.3103,
+    "false_mass_per_cell": 0.9613,
+    "DTI_scaled_to_Gorg": 0.0843
+   },
+   "mean_DTI_scaled": 0.1363
+  },
+  {
+   "n_requested": 160000,
+   "emission": "dot",
+   "n_cells": 160000,
+   "catalogue": {
+    "DTI": 0.3587,
+    "T": 23163.7,
+    "F": 148404.7,
+    "coverage_r": 0.3798,
+    "false_mass_per_cell": 0.9275,
+    "DTI_scaled_to_Gorg": 0.3315
+   },
+   "sgmc_off": {
+    "DTI": 0.1907,
+    "T": 13764.7,
+    "F": 153686.0,
+    "coverage_r": 0.2216,
+    "false_mass_per_cell": 0.9605,
+    "DTI_scaled_to_Gorg": 0.1757
+   },
+   "mean_DTI_scaled": 0.2536
+  },
+  {
+   "n_requested": 160000,
+   "emission": "ribbon",
+   "n_cells": 1289909,
+   "catalogue": {
+    "DTI": 0.1701,
+    "T": 44577.5,
+    "F": 1200172.1,
+    "coverage_r": 0.7309,
+    "false_mass_per_cell": 0.9304,
+    "DTI_scaled_to_Gorg": 0.1461
+   },
+   "sgmc_off": {
+    "DTI": 0.1034,
+    "T": 28951.3,
+    "F": 1238973.0,
+    "coverage_r": 0.466,
+    "false_mass_per_cell": 0.9605,
+    "DTI_scaled_to_Gorg": 0.0878
+   },
+   "mean_DTI_scaled": 0.1169
+  },
+  {
+   "n_requested": 250000,
+   "emission": "dot",
+   "n_cells": 250000,
+   "catalogue": {
+    "DTI": 0.3662,
+    "T": 28673.5,
+    "F": 233535.7,
+    "coverage_r": 0.4702,
+    "false_mass_per_cell": 0.9341,
+    "DTI_scaled_to_Gorg": 0.3309
+   },
+   "sgmc_off": {
+    "DTI": 0.2441,
+    "T": 20803.1,
+    "F": 239995.4,
+    "coverage_r": 0.3349,
+    "false_mass_per_cell": 0.96,
+    "DTI_scaled_to_Gorg": 0.2193
+   },
+   "mean_DTI_scaled": 0.2751
+  },
+  {
+   "n_requested": 250000,
+   "emission": "ribbon",
+   "n_cells": 1957950,
+   "catalogue": {
+    "DTI": 0.1298,
+    "T": 50190.1,
+    "F": 1840083.2,
+    "coverage_r": 0.823,
+    "false_mass_per_cell": 0.9398,
+    "DTI_scaled_to_Gorg": 0.1109
+   },
+   "sgmc_off": {
+    "DTI": 0.1019,
+    "T": 40881.3,
+    "F": 1879448.6,
+    "coverage_r": 0.6581,
+    "false_mass_per_cell": 0.9599,
+    "DTI_scaled_to_Gorg": 0.0858
+   },
+   "mean_DTI_scaled": 0.0983
+  }
+ ],
+ "best_by_scaled_estimate": {
+  "n_requested": 250000,
+  "emission": "dot",
+  "mean_DTI_scaled": 0.2751
+ },
+ "caveat": "The scaled estimate assumes the design's coverage fraction and per-cell false mass transfer from the proxy truth to the hidden truth. That holds only if the two fault networks have similar geometry and density; no proxy in this repository can test that assumption, because every proxy is either the catalogue the model was trained on or a compilation with a different mapping convention."
+}

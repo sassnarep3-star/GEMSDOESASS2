@@ -109,7 +109,7 @@
  "submission_name": "GEMSDOESASS2-STRAINRIDGE-OFFCAT-37654D",
  "submission_note_140": "strain+ridgelineament prior, same 37654 dot budget as champion, 0% on full USGS QFaults catalogue, off-catalogue blind faults",
  "note_length": 125,
- "verdict": "superseded-2026-10-31",
+ "verdict": "superseded",
  "ok_to_download_and_submit": false,
  "n_dots": 37654,
  "params": {
@@ -183,7 +183,9 @@
   "The expected gain over the incumbent 0.2778 is roughly +0.008. It is the best-supported move available, not a large one.",
   "The literal 70 %-within-3-px rule is FAILED against the r13 calibration lattice (99.37 %), exactly as it is failed by a seeded random placement at the same dot count (99.91 %). The rule is saturated and discriminates nothing at this budget; the owner must rule whether the probe is exempt (IR-S-01/IR-RV-04)."
  ],
- "superseded_by": "gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-zeros.tif",
- "supersession_reason": "fails the literal 70% lattice clause (99.37% vs the r13 probe) and its HOLDOUT-DTI 0.2244 was produced by a visible-only collar variant, not by the shipped mask; the shipped dots are >=4 px from every catalogue cell so the instrument returns 0.0. IR-S-34.",
- "also_superseded_note": "2026-10-31 S3 session: same 0.29 MODEL ESTIMATE band; superseded as the recommended submission by the ring-habitat file (measured ring edge over uniform, see evidence/s3_run_card_20261031.json)."
+ "ok_to_submit": false,
+ "superseded_by": "gemsass2-slopetilt-300k-20261031-zeros.tif",
+ "superseded_on": "2026-10-31",
+ "superseded_reason": "On a fault compilation the model never saw, this file scores DTI 0.207-0.244 versus 0.295 for a same-size space-filling lattice and 0.403 for the band-19 density that replaced it (evidence/emission_controls.json). Its advantage was measured against the catalogue, which is also its training label.",
+ "historical_measurements_unchanged": true
 }

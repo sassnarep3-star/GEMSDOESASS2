@@ -1,0 +1,60 @@
+{
+ "scope": "MODEL ESTIMATE. Selector between two lanes that both passed their hard gates. No organizer receipt.",
+ "instrument": {
+  "name": "sgmc_off_catalogue",
+  "raster": "derived_sgmc_faults_100m_u8.tif",
+  "definition": "SGMC-derived fault cells with distance-to-catalogue > 3 px (62,122 in-footprint cells)",
+  "why": "it is the only target in the repo that is independent of the label both lanes were selected against (QFaults), and 95.2% of it is absent from that catalogue",
+  "cross_check": "a uniform 37,654-cell control scores 0.0789 here versus 0.0750 on the S3 lane's own implementation of the same instrument, so the two lanes are comparable"
+ },
+ "candidates": [
+  {
+   "id": "A_s3_ring",
+   "file": "docs/downloads/gemsass2-s3-ring-binary-37654-20261031T054926Z-zeros.tif",
+   "exists": true,
+   "n_cells": 37654,
+   "sgmc_off_DTI": 0.077,
+   "matched_control": 0.075,
+   "control_source": "S3 lane receipt (re-measured here: 0.0789)",
+   "edge_vs_control_pct": 2.7,
+   "hard_gates": {
+    "format": true,
+    "uniqueness": true
+   },
+   "other_evidence": {
+    "hide_and_recover": 0.0597,
+    "hide_and_recover_control": 0.0439,
+    "note": "catalogue-based holdout; structurally biased for designs that avoid the catalogue"
+   }
+  },
+  {
+   "id": "B_slopetilt",
+   "file": "docs/downloads/gemsass2-slopetilt-300k-20261031-zeros.tif",
+   "exists": true,
+   "n_cells": 300000,
+   "sgmc_off_DTI": 0.4026,
+   "matched_control": 0.2953,
+   "control_source": "this lane, same budget, same seed, tilt 0",
+   "edge_vs_control_pct": 36.3,
+   "hard_gates": {
+    "format": true,
+    "uniqueness": true
+   },
+   "other_evidence": {
+    "fitted_125_feature_model_same_budget": 0.192,
+    "note": "the fitted model is worse than the control; band 19 alone is not"
+   }
+  }
+ ],
+ "rule": "promote the candidate with the higher DTI on the shared independent instrument, among those that pass both hard gates; report both matched controls so a density effect cannot be mistaken for a design effect",
+ "verdict": {
+  "promoted": "B_slopetilt",
+  "alternate": "A_s3_ring",
+  "ratio": 5.23,
+  "caveat": "A and B differ in budget as well as design. The nine-site density law fitted in this lane predicts a score of about 0.273 for ANY 37.6k design and 0.277 for B, so on the law the two are close; on the independent instrument B is 5.2x. B's downside is larger if the hidden truth is much smaller than 50k cells (at |G| = 25k its estimate falls to 0.176)."
+ },
+ "sha256": {
+  "A": "b84a4f2642500b9817b946d99db14471f4b935d110b794d2736f643d56f8f7ae",
+  "B": "af4d17511fd68fd01d742b4eee0c5be0f3569512e50207b940e5bb23b5f41e7f"
+ }
+}

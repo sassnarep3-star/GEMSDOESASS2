@@ -1,0 +1,188 @@
+{
+ "scope": "MODEL ESTIMATE, never an organiser score",
+ "budget": 350000,
+ "seeds": [
+  20261031,
+  7
+ ],
+ "arms": [
+  {
+   "arm": "uniform",
+   "seed": 20261031,
+   "tilt": 0.0,
+   "n_cells": 350000,
+   "on_catalogue_cells": 4352,
+   "catalogue": {
+    "DTI": 0.2787,
+    "T": 27660.4,
+    "F": 335272.9,
+    "coverage_r": 0.4535
+   },
+   "sgmc_off": {
+    "DTI": 0.2758,
+    "T": 27676.9,
+    "F": 336228.6,
+    "coverage_r": 0.4455
+   }
+  },
+  {
+   "arm": "softcollar",
+   "seed": 20261031,
+   "tilt": 0.0,
+   "n_cells": 350000,
+   "on_catalogue_cells": 4352,
+   "catalogue": {
+    "DTI": 0.2787,
+    "T": 27660.4,
+    "F": 335272.9,
+    "coverage_r": 0.4535
+   },
+   "sgmc_off": {
+    "DTI": 0.2758,
+    "T": 27676.9,
+    "F": 336228.6,
+    "coverage_r": 0.4455
+   }
+  },
+  {
+   "arm": "hardavoid",
+   "seed": 20261031,
+   "tilt": 0.0,
+   "n_cells": 350000,
+   "on_catalogue_cells": 0,
+   "catalogue": {
+    "DTI": 0.0088,
+    "T": 1035.1,
+    "F": 349394.8,
+    "coverage_r": 0.017
+   },
+   "sgmc_off": {
+    "DTI": 0.2817,
+    "T": 28133.9,
+    "F": 335290.1,
+    "coverage_r": 0.4529
+   }
+  },
+  {
+   "arm": "promoted",
+   "seed": 20261031,
+   "tilt": 0.35,
+   "n_cells": 350000,
+   "on_catalogue_cells": 7537,
+   "catalogue": {
+    "DTI": 0.384,
+    "T": 35449.6,
+    "F": 323959.4,
+    "coverage_r": 0.5813
+   },
+   "sgmc_off": {
+    "DTI": 0.2073,
+    "T": 21559.8,
+    "F": 336173.8,
+    "coverage_r": 0.3471
+   }
+  },
+  {
+   "arm": "uniform",
+   "seed": 7,
+   "tilt": 0.0,
+   "n_cells": 350000,
+   "on_catalogue_cells": 4299,
+   "catalogue": {
+    "DTI": 0.2773,
+    "T": 27544.9,
+    "F": 335260.7,
+    "coverage_r": 0.4516
+   },
+   "sgmc_off": {
+    "DTI": 0.2752,
+    "T": 27619.6,
+    "F": 336255.6,
+    "coverage_r": 0.4446
+   }
+  },
+  {
+   "arm": "softcollar",
+   "seed": 7,
+   "tilt": 0.0,
+   "n_cells": 350000,
+   "on_catalogue_cells": 4299,
+   "catalogue": {
+    "DTI": 0.2773,
+    "T": 27544.9,
+    "F": 335260.7,
+    "coverage_r": 0.4516
+   },
+   "sgmc_off": {
+    "DTI": 0.2752,
+    "T": 27619.6,
+    "F": 336255.6,
+    "coverage_r": 0.4446
+   }
+  },
+  {
+   "arm": "hardavoid",
+   "seed": 7,
+   "tilt": 0.0,
+   "n_cells": 350000,
+   "on_catalogue_cells": 0,
+   "catalogue": {
+    "DTI": 0.0089,
+    "T": 1049.3,
+    "F": 349390.2,
+    "coverage_r": 0.0172
+   },
+   "sgmc_off": {
+    "DTI": 0.2845,
+    "T": 28367.9,
+    "F": 335214.2,
+    "coverage_r": 0.4566
+   }
+  },
+  {
+   "arm": "promoted",
+   "seed": 7,
+   "tilt": 0.35,
+   "n_cells": 350000,
+   "on_catalogue_cells": 7731,
+   "catalogue": {
+    "DTI": 0.3855,
+    "T": 35556.6,
+    "F": 323865.3,
+    "coverage_r": 0.583
+   },
+   "sgmc_off": {
+    "DTI": 0.2074,
+    "T": 21573.1,
+    "F": 336216.3,
+    "coverage_r": 0.3473
+   }
+  }
+ ],
+ "summary": {
+  "uniform": {
+   "sgmc_mean": 0.2755,
+   "sgmc_min": 0.2752,
+   "cat_mean": 0.278
+  },
+  "softcollar": {
+   "sgmc_mean": 0.2755,
+   "sgmc_min": 0.2752,
+   "cat_mean": 0.278
+  },
+  "hardavoid": {
+   "sgmc_mean": 0.2831,
+   "sgmc_min": 0.2817,
+   "cat_mean": 0.0089
+  },
+  "promoted": {
+   "sgmc_mean": 0.2074,
+   "sgmc_min": 0.2073,
+   "cat_mean": 0.3848
+  }
+ },
+ "verdict": {
+  "best_on_independent_worst_seed": "hardavoid",
+  "rule": "rank by the WORST seed on the independent target, so a single lucky draw cannot promote an arm"
+ }
+}

@@ -1,0 +1,172 @@
+{
+ "file": "docs/downloads/gemsass2-slopetilt-300k-20261031-zeros.tif",
+ "sha256": "af4d17511fd68fd01d742b4eee0c5be0f3569512e50207b940e5bb23b5f41e7f",
+ "n_cells": 300000,
+ "uniqueness": {
+  "gate": {
+   "max_abs_spearman": 0.021468652618370606,
+   "max_pct_ours_within3px_of_one_registry": 28.103333333333335,
+   "spearman_limit": 0.9,
+   "overlap_limit_pct": 70.0,
+   "passes": true
+  },
+  "per_raster": [
+   {
+    "name": "GEMSDOE24",
+    "their_cells": 60069,
+    "ours_within3px_of_theirs_pct": 27.88,
+    "theirs_within3px_of_ours_pct": 83.84191513093276,
+    "spearman_full_surface": 0.015036809740270201
+   },
+   {
+    "name": "GEMSDOE25",
+    "their_cells": 44090,
+    "ours_within3px_of_theirs_pct": 26.52466666666667,
+    "theirs_within3px_of_ours_pct": 83.54502154683601,
+    "spearman_full_surface": 0.010480804728555592
+   },
+   {
+    "name": "GEMSDOE27",
+    "their_cells": 61328,
+    "ours_within3px_of_theirs_pct": 28.103333333333335,
+    "theirs_within3px_of_ours_pct": 82.86916253587269,
+    "spearman_full_surface": 0.014729038969871957
+   },
+   {
+    "name": "GEMSDOE28",
+    "their_cells": 40199,
+    "ours_within3px_of_theirs_pct": 26.156333333333333,
+    "theirs_within3px_of_ours_pct": 87.75342670215677,
+    "spearman_full_surface": 0.012850874538220734
+   },
+   {
+    "name": "GEMSDOE30",
+    "their_cells": 44090,
+    "ours_within3px_of_theirs_pct": 26.52466666666667,
+    "theirs_within3px_of_ours_pct": 83.54502154683601,
+    "spearman_full_surface": 0.010480804728555592
+   },
+   {
+    "name": "GEMSDOE31",
+    "their_cells": 40199,
+    "ours_within3px_of_theirs_pct": 26.156333333333333,
+    "theirs_within3px_of_ours_pct": 87.75342670215677,
+    "spearman_full_surface": 0.012850874538220734
+   },
+   {
+    "name": "GEMSDOE32",
+    "their_cells": 37654,
+    "ours_within3px_of_theirs_pct": 25.700666666666667,
+    "theirs_within3px_of_ours_pct": 89.47787751633292,
+    "spearman_full_surface": 0.01413179826440332
+   },
+   {
+    "name": "GEMSDOE33",
+    "their_cells": 41865,
+    "ours_within3px_of_theirs_pct": 26.50766666666667,
+    "theirs_within3px_of_ours_pct": 85.92857995939329,
+    "spearman_full_surface": 0.011688200363242918
+   },
+   {
+    "name": "GEMSDOE36",
+    "their_cells": 38854,
+    "ours_within3px_of_theirs_pct": 26.259666666666664,
+    "theirs_within3px_of_ours_pct": 89.24435064600813,
+    "spearman_full_surface": 0.014292628277829704
+   },
+   {
+    "name": "ass2-strainridge",
+    "their_cells": 37654,
+    "ours_within3px_of_theirs_pct": 13.595666666666666,
+    "theirs_within3px_of_ours_pct": 66.09390768577043,
+    "spearman_full_surface": 0.008160292569589084
+   },
+   {
+    "name": "ass2-hvfd-exp3",
+    "their_cells": 37654,
+    "ours_within3px_of_theirs_pct": 18.797333333333334,
+    "theirs_within3px_of_ours_pct": 79.25054443087056,
+    "spearman_full_surface": 0.010151987274783496
+   },
+   {
+    "name": "ass2-thermo-tilt",
+    "their_cells": 37654,
+    "ours_within3px_of_theirs_pct": 21.01,
+    "theirs_within3px_of_ours_pct": 96.8635470335157,
+    "spearman_full_surface": 0.021468652618370606
+   }
+  ]
+ },
+ "score_estimate": {
+  "n_cells": 300000,
+  "terms": {
+   "catalogue": {
+    "T": 2259.7272310664416,
+    "F": 298646.23878969357,
+    "FN": 58728.27276893356,
+    "G": 60988,
+    "DTI": 0.021086663502708276
+   },
+   "sgmc_off": {
+    "T": 34044.54180375585,
+    "F": 276408.87346511555,
+    "FN": 28077.45819624415,
+    "G": 62122,
+    "DTI": 0.4026431100678309
+   }
+  },
+  "table": [
+   {
+    "proxy": "catalogue",
+    "assumed_G": 25000,
+    "c": 0.0371,
+    "implied_DTI": 0.0116
+   },
+   {
+    "proxy": "catalogue",
+    "assumed_G": 35000,
+    "c": 0.0371,
+    "implied_DTI": 0.0147
+   },
+   {
+    "proxy": "catalogue",
+    "assumed_G": 60000,
+    "c": 0.0371,
+    "implied_DTI": 0.0206
+   },
+   {
+    "proxy": "catalogue",
+    "assumed_G": 120000,
+    "c": 0.0371,
+    "implied_DTI": 0.0284
+   },
+   {
+    "proxy": "sgmc_off",
+    "assumed_G": 25000,
+    "c": 0.548,
+    "implied_DTI": 0.1756
+   },
+   {
+    "proxy": "sgmc_off",
+    "assumed_G": 35000,
+    "c": 0.548,
+    "implied_DTI": 0.2202
+   },
+   {
+    "proxy": "sgmc_off",
+    "assumed_G": 60000,
+    "c": 0.548,
+    "implied_DTI": 0.2993
+   },
+   {
+    "proxy": "sgmc_off",
+    "assumed_G": 120000,
+    "c": 0.548,
+    "implied_DTI": 0.3999
+   }
+  ],
+  "law_consistent_catalogue": 0.0189,
+  "law_consistent_sgmc_off": 0.277
+ },
+ "note": "MODEL ESTIMATE, not a leaderboard score. c is measured on local proxies; |G| is swept because it is not locally identifiable."
+}
