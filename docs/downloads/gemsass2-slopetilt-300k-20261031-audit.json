@@ -1,0 +1,62 @@
+{
+ "file": "gemsass2-slopetilt-300k-20261031-zeros.tif",
+ "verdict": "promote",
+ "ok_to_download_and_submit": true,
+ "ok_to_submit_scope": "format + uniqueness + independent-target evidence; NOT an organiser receipt, and NOT authorisation to exceed the 3-per-week cap",
+ "n_dots": 300000,
+ "raster_sha256": "af4d17511fd68fd01d742b4eee0c5be0f3569512e50207b940e5bb23b5f41e7f",
+ "submission_name": "GEMSASS2-SLOPETILT-300K-20261031",
+ "submission_note_140": "density - detrended-elevation-slope prior at the metric optimum; zero cells on the public fault database",
+ "validator_output": {
+  "all_passed": true,
+  "checks": {
+   "01_file_exists_nonempty": true,
+   "02_single_band": true,
+   "03_dtype_float32": true,
+   "04_crs_epsg_32611": true,
+   "05_shape_3730x3292": true,
+   "06_geotransform_exact": true,
+   "07_footprint_5167373_match": true,
+   "08_catalogue_60988_match": true,
+   "09_no_nan_or_inf_inside_footprint": true,
+   "10_values_in_0_1_inside_footprint": true,
+   "11_outside_footprint_clean": true,
+   "12_zero_on_known_catalogue": true,
+   "13_nontrivial_positive_predictions": true
+  }
+ },
+ "correlation_overlap_vs_registry": {
+  "passes_lane": true,
+  "max_pct_within_3px_of_one_registry": 28.103333333333335,
+  "max_abs_spearman": 0.021468652618370606,
+  "overlap_limit_pct": 70.0,
+  "spearman_limit": 0.9,
+  "rasters_compared": 12
+ },
+ "independent_target": {
+  "name": "sgmc_off_catalogue",
+  "DTI": 0.4026431100678309,
+  "T": 34044.54180375585,
+  "F": 276408.87346511555,
+  "G": 62122
+ },
+ "controls": {
+  "space_filling_same_budget": 0.2953,
+  "fitted_125_feature_model": 0.192
+ },
+ "score_estimate": {
+  "kind": "MODEL ESTIMATE",
+  "range": [
+   0.28,
+   0.4
+  ],
+  "centre": 0.3,
+  "law_consistent": 0.277
+ },
+ "limitations": [
+  "independent target is an analogue, not the hidden truth",
+  "band 19 within-elevation-decile AUC falls to 0.636 (terrain confound)",
+  "300k/sigma5 selected on the same proxy it is reported on",
+  "no organiser receipt; all historical scores owner-reported"
+ ]
+}

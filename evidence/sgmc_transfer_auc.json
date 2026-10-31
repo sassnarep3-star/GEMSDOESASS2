@@ -1,0 +1,121 @@
+{
+ "target": "sgmc_off_catalogue",
+ "n_pos": 40000,
+ "n_neg": 120000,
+ "bands": [
+  {
+   "band": 19,
+   "desc": "det_elev_slope - Detrended elevation slope - gradient of elevation after detrending",
+   "auc": 0.757,
+   "n": 159899
+  },
+  {
+   "band": 12,
+   "desc": "det_elev - Detrended elevation - topography with regional trends removed",
+   "auc": 0.7068,
+   "n": 159899
+  },
+  {
+   "band": 15,
+   "desc": "depth_to_base_surf - Depth to basement surface - thickness of sedimentary cover",
+   "auc": 0.3335,
+   "n": 159899
+  },
+  {
+   "band": 6,
+   "desc": "tc - Tilt angle or total curvature - magnetic field derivative for edge detection",
+   "auc": 0.3798,
+   "n": 159899
+  },
+  {
+   "band": 13,
+   "desc": "iso_grav_anom - Isostatic gravity anomaly - gravity after compensating for topographic mass",
+   "auc": 0.6138,
+   "n": 159899
+  },
+  {
+   "band": 5,
+   "desc": "iso_grav_anom_slope - Isostatic gravity anomaly slope - gradient of gravity after isostatic correction",
+   "auc": 0.4248,
+   "n": 159899
+  },
+  {
+   "band": 8,
+   "desc": "geod_dilaterate - Geodetic dilatation rate - rate of volumetric strain (expansion/contraction)",
+   "auc": 0.4384,
+   "n": 159899
+  },
+  {
+   "band": 11,
+   "desc": "iso_grav_anom_vg - Isostatic gravity anomaly vertical gradient - vertical rate of change",
+   "auc": 0.466,
+   "n": 159899
+  },
+  {
+   "band": 14,
+   "desc": "tmi - Total magnetic intensity - total strength of magnetic field",
+   "auc": 0.5317,
+   "n": 159899
+  },
+  {
+   "band": 7,
+   "desc": "geod_shearrate - Geodetic shear rate - rate of angular deformation from GPS/InSAR",
+   "auc": 0.4727,
+   "n": 159899
+  },
+  {
+   "band": 4,
+   "desc": "geod_2ndinv - Geodetic second invariant - measure of strain rate tensor magnitude",
+   "auc": 0.4734,
+   "n": 159899
+  },
+  {
+   "band": 16,
+   "desc": "ieq_n100a15 - Earthquake intensity or density (n=100km radius, a=15\u00b0 parameters)",
+   "auc": 0.4738,
+   "n": 159899
+  },
+  {
+   "band": 10,
+   "desc": "deq_n100a15 - Distance to earthquake (n=100km radius, a=15\u00b0 azimuth parameters)",
+   "auc": 0.4741,
+   "n": 159899
+  },
+  {
+   "band": 2,
+   "desc": "rtp - Reduced to pole magnetic data - magnetic anomaly corrected for latitude effects",
+   "auc": 0.523,
+   "n": 159899
+  },
+  {
+   "band": 17,
+   "desc": "cond_surf - Conductivity surface - electrical conductivity of subsurface",
+   "auc": 0.5193,
+   "n": 159899
+  },
+  {
+   "band": 1,
+   "desc": "mag_anom - Magnetic anomaly - deviation from expected Earth's magnetic field",
+   "auc": 0.518,
+   "n": 159899
+  },
+  {
+   "band": 3,
+   "desc": "tmi_hg - Total magnetic intensity horizontal gradient - rate of change in horizontal direction",
+   "auc": 0.4885,
+   "n": 159899
+  },
+  {
+   "band": 18,
+   "desc": "iso_grav_anom_hg - Isostatic gravity anomaly horizontal gradient - horizontal rate of change",
+   "auc": 0.5066,
+   "n": 159899
+  },
+  {
+   "band": 9,
+   "desc": "tmi_vg - Total magnetic intensity vertical gradient - rate of change in vertical direction",
+   "auc": 0.5023,
+   "n": 159899
+  }
+ ]
+}

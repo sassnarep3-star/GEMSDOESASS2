@@ -113,8 +113,44 @@
 <p>Paired cluster bootstrap over the 29 withheld blocks: DTI 95% interval <strong>[0.035, 0.396]</strong> for the candidate versus a tight <strong>[0.054, 0.075]</strong> for the control; the ratio interval is <strong>[0.64, 5.51]</strong> with <strong>P(ratio &gt; 1) = 0.958</strong>. The point advantage is large; the interval is wide because the withheld truth is concentrated in a few blocks. That limitation is stated rather than smoothed away.</p>
 </div></section>
 
+<section class="section"><div class="wrap">
+<h2>7 &middot; The 2026-10-31 correction: the model was the problem</h2>
+<p>Everything above was measured with the catalogue as truth, and the replacement design above
+was selected on it. That is circular, and the correction is the most useful result in this
+repository. Four experiments were run against a <strong>fault compilation the model never saw</strong>
+&mdash; the SGMC-derived raster, 83,593 cells of which only 3,978 (4.8 %) coincide with the QFaults
+catalogue. It is the closest available analogue of the competition's own definition of the target:
+<em>faults that are not in the public database</em>.</p>
+<div class="table-shell"><table>
+<thead><tr><th scope="col">Emission at 250,000&ndash;300,000 cells</th><th scope="col">Catalogue DTI (in-sample)</th><th scope="col">Independent DTI (out-of-sample)</th><th scope="col">Read</th></tr></thead>
+<tbody>
+<tr><td>Fitted 125-feature model, tilt 1.0</td><td>0.456</td><td>0.181</td><td>worst transfer of all; pure overfit</td></tr>
+<tr><td>Fitted model + soft collar (previous candidate)</td><td>0.366</td><td>0.207&ndash;0.244</td><td>looks good only where it was fitted</td></tr>
+<tr><td>Space-filling lattice, no geology</td><td>0.266</td><td>0.295</td><td>beats the model outright</td></tr>
+<tr><td>Lattice minus the 100 m catalogue collar</td><td>0.017</td><td>0.296</td><td>removing known faults helps</td></tr>
+<tr style="background:#eef7ee"><td><strong>Density &prop; band 19 (detrended-elevation slope)</strong></td><td>0.021</td><td><strong>0.403</strong></td><td>one raw physical band, no fitting</td></tr>
+</tbody></table></div>
+<p>The ranking on the catalogue is the exact reverse of the ranking on the independent target.
+That is why the file on the front page is a single band rather than a model, and why the number
+0.403 &mdash; not 0.366 &mdash; is the one quoted.</p>
+<h3>The density law</h3>
+<p>Fitting the mechanistic form to all nine owner-reported scores,</p>
+<pre><code>DTI = C / (0.2 N + 0.8 (G - C))     C = 10,950   G = 51,734   R2 = 0.903</code></pre>
+<p>reproduces every one of the nine to within 0.005. Read plainly: across this family the
+score is set by how many cells are spent and how many truth cells they recover, and the
+"geological model" contributes nothing measurable. That is the real answer to why a 37,654-dot
+lattice scored 0.2778.</p>
+<h3>What that implies for beating it</h3>
+<p>The exchange rate inside the metric is <code>1 recovered truth cell = 17 wasted cells</code>
+at DTI 0.28. Density alone cannot win, because false mass grows linearly while coverage saturates.
+The only lever that moves the score materially is <em>coverage per cell</em> &mdash; precision at the
+scale of a fault trace. Band 19 supplies some of it; a model fitted to the catalogue supplied
+none. Finding a feature that supplies more, and validating it against a compilation that is
+genuinely independent, is the open problem.</p>
+</div></section>
+
 <section class="section-tight"><div class="wrap">
-<h2>6 · Three places where this analysis could be wrong</h2>
+<h2>8 · Three places where this analysis could be wrong</h2>
 <ol style="line-height:1.9">
 <li><strong>The holdout truth is not the leaderboard truth.</strong> It is mapped fault traces, not expert-identified new faults. The 3.14&times; is a relative placement measurement and cannot be multiplied into a score — and here the two populations point in opposite directions, so it is not even a sign.</li>
 <li><strong>The law is a local fit.</strong> Nine per cent of the variance in 1/DTI is unexplained, the fit spans only 37.6k–61.3k dots, and no site below that range exists to test the extrapolation. The estimate for the new file deliberately does not use it.</li>

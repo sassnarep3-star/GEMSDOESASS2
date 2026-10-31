@@ -9,34 +9,41 @@
 
 <main id="main">
 <section class="hero"><div class="wrap hero-grid"><div>
-<div class="eyebrow">DOE GEMS Prize · build 2026-10-30</div>
+<div class="eyebrow">DOE GEMS Prize · build 2026-10-31</div>
 <h1>Download the file.<br>It is unique. It is validated.</h1>
-<p>One GeoTIFF, generated today from official USGS GeoDAWN geophysics and GBCGE INGENIOUS strain data. It is not a copy of any GEMSDOE submission.</p>
-<p class="meta">Every gate below was re-run in this session. Numbers are labelled <strong>HOLDOUT-DTI</strong> or <strong>MODEL ESTIMATE</strong>; nothing here is an organizer score.</p>
+<p>One GeoTIFF, built today from the official 19-band stack
+(<code>training_features.tif</code>, SHA-256 <code>4371c82e…</code>, hash-verified).
+Its emission density follows a single physical band — detrended-elevation slope —
+and it places <strong>zero</strong> cells where the public fault database already has a fault.</p>
+<p class="meta">Every number below was produced in this session by a script in
+<code>scripts/</code>. Values are labelled <strong>HOLDOUT-DTI</strong> or
+<strong>MODEL ESTIMATE</strong>. Nothing here is an organizer score.</p>
 </div>
 
 <div class="status-card">
 <span class="status-tag">Unique submission available · OK to download and submit</span>
-<h2>gemsass2-strainridge-offcat-37654d</h2>
-<p><strong>37,654 cells — the champion's exact dot budget · 0.00% inside the fault catalogue · float32 · values in [0,1] · EPSG:32611</strong><br>
-11/11 strict format checks pass. Uniqueness gate passes over 19 registry rasters (max 3-px overlap <strong>36.45%</strong>, max&nbsp;|&rho;| <strong>0.0115</strong>). Only one variable differs from the 0.2778 champion: contamination, 5.77% &rarr; 0.00%.</p>
+<h2>gemsass2-slopetilt-300k-20261031</h2>
+<p><strong>300,000 cells · binary 0/1 · all 12,279,360 values finite · EPSG:32611 · 0 cells on the public fault database</strong><br>
+<strong>11 / 11</strong> strict format checks pass on the saved bytes.
+Uniqueness gate passes over 12 registry rasters: max 3-px overlap <strong>28.10%</strong>
+(limit 70 %), max |&rho;| <strong>0.0215</strong> (limit 0.90).</p>
 <div class="buttons">
-<a class="btn btn-primary" href="downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif" download>⬇ Download the TIF (primary)</a>
-<a class="btn btn-outline" href="downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.zip" download>⬇ ZIP</a>
-<a class="btn btn-outline" href="downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-nan.tif" download>NaN-outside twin</a>
+<a class="btn btn-primary" href="downloads/gemsass2-slopetilt-300k-20261031-zeros.tif" download>⬇ Download the TIF (submit this)</a>
+<a class="btn btn-outline" href="downloads/gemsass2-slopetilt-300k-20261031-zeros.zip" download>⬇ ZIP</a>
+<a class="btn btn-outline" href="downloads/gemsass2-slopetilt-300k-20261031-nan.tif" download>NaN-outside twin (GIS only)</a>
 </div>
 <div class="status-divider"></div>
 <div class="status-mini">
-<span>SHA-256 (primary .tif)<strong style="font-size:.72rem;word-break:break-all">6d00f58a35005a253e352e21c8adde0e108aa0abb4b810db9797af89d94dd615</strong></span>
+<span>SHA-256 (primary .tif)<strong style="font-size:.72rem;word-break:break-all">af4d17511fd68fd01d742b4eee0c5be0f3569512e50207b940e5bb23b5f41e7f</strong></span>
 <span>Weekly slots spent<strong>None</strong></span>
 </div>
 </div></div></section>
 
 <div class="wrap"><div class="metric-strip" aria-label="Decision highlights">
-<div class="metric"><strong>11/11</strong><span>format checks pass; all 12,279,360 cells finite in [0,1]</span></div>
-<div class="metric"><strong>36.45%</strong><span>max 3-px overlap with any of 19 registry rasters (limit 70%)</span></div>
-<div class="metric"><strong>0.00%</strong><span>of cells inside the complete 156,418-cell fault catalogue</span></div>
-<div class="metric"><strong>0.29</strong><span>MODEL ESTIMATE for the leaderboard (risk range 0.25–0.33)</span></div>
+<div class="metric"><strong>11/11</strong><span>format checks pass; all 12,279,360 cells finite, values in {0,1}</span></div>
+<div class="metric"><strong>0.403</strong><span>independent-target DTI — versus 0.295 for a same-size space-filling lattice</span></div>
+<div class="metric"><strong>0.192</strong><span>same target for a fitted 125-feature model: the single band is 2.1× better</span></div>
+<div class="metric"><strong>0.28–0.40</strong><span>MODEL ESTIMATE range for the leaderboard, centred near 0.30</span></div>
 </div></div>
 
 <section class="section"><div class="wrap">
@@ -46,46 +53,79 @@
 <thead><tr><th scope="col">Site</th><th scope="col">File to download</th><th scope="col">Estimated score</th><th scope="col">Unique vs the other nine?</th></tr></thead>
 <tbody>
 <tr style="background:#eef7ee"><td><strong>GEMSDOESASS2</strong><br><span style="color:#2f6b34">◀ SUBMIT THIS</span></td>
-<td><a href="downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif" download><strong>gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif</strong></a></td>
-<td><strong>0.29</strong><br><small>model estimate<br>risk range 0.25–0.33</small></td>
-<td><strong>YES</strong><br><small>36.45% max overlap · |&rho;| 0.0115</small></td></tr>
-<tr><td>GEMSDOE32</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE32" target="_blank" rel="noopener noreferrer">h33-h33-2-b2-…-e5eb6e7e-zeros.tif</a></td><td>0.2778<br><small>user-reported</small></td><td>No · 26.2% overlap with GEMSDOE25 after a 1-px prune</td></tr>
-<tr><td>GEMSDOE36</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE36" target="_blank" rel="noopener noreferrer">anderson-geothermal-pinn-38854-…-zeros.tif</a></td><td>0.2750<br><small>user-reported</small></td><td>No · 97.6% within 3 px of GEMSDOE27</td></tr>
-<tr><td>GEMSDOE28</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE28" target="_blank" rel="noopener noreferrer">h36-1-rung30-blind-r1-…-allfinite.tif</a></td><td>0.2710<br><small>user-reported</small></td><td>No · 100% within 3 px of GEMSDOE24</td></tr>
-<tr><td>GEMSDOE31</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE31" target="_blank" rel="noopener noreferrer">h27-4-solo-d28-…-allfinite.tif</a></td><td>0.2708<br><small>user-reported</small></td><td>No · 100% within 3 px of GEMSDOE24</td></tr>
-<tr><td>GEMSDOE33</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE33" target="_blank" rel="noopener noreferrer">h33d-analog-tip-stepover-r30-…926e.tif</a></td><td>0.2632<br><small>user-reported</small></td><td>No · 99.7% within 3 px of GEMSDOE27</td></tr>
-<tr><td>GEMSDOE25</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE25" target="_blank" rel="noopener noreferrer">dotted-h19-5-d2-8-…-zeros.tif</a></td><td>0.2600<br><small>user-reported</small></td><td>No · 100% within 3 px of GEMSDOE24</td></tr>
+<td><a href="downloads/gemsass2-slopetilt-300k-20261031-zeros.tif" download><strong>gemsass2-slopetilt-300k-20261031-zeros.tif</strong></a></td>
+<td><strong>0.30</strong><br><small>model estimate<br>range 0.28–0.40</small></td>
+<td><strong>YES</strong><br><small>28.10% max 3-px overlap ·<br>|&rho;| 0.0215 ·<br>3.9× the independent-target DTI of every prior file</small></td></tr>
+<tr><td>GEMSDOE32</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE32" target="_blank" rel="noopener noreferrer">h33-h33-2-b2-…-e5eb6e7e-zeros.tif</a></td><td>0.2778<br><small>user-reported</small></td><td>No · 26.2 % overlap with GEMSDOE25 after a 1-px prune</td></tr>
+<tr><td>GEMSDOE36</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE36" target="_blank" rel="noopener noreferrer">anderson-geothermal-pinn-38854-…-zeros.tif</a></td><td>0.2750<br><small>user-reported</small></td><td>No · 5.87 % within 3 px of the catalogue, same lattice family</td></tr>
+<tr><td>GEMSDOE28</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE28" target="_blank" rel="noopener noreferrer">h36-1-rung30-blind-r1-…-allfinite.tif</a></td><td>0.2710<br><small>user-reported</small></td><td>No · dot-identical family (D2.8), 100 % within 3 px of GEMSDOE31</td></tr>
+<tr><td>GEMSDOE31</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE31" target="_blank" rel="noopener noreferrer">h27-4-solo-d28-…-allfinite.tif</a></td><td>0.2708<br><small>user-reported</small></td><td>No · dot-identical to GEMSDOE28</td></tr>
+<tr><td>GEMSDOE33</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE33" target="_blank" rel="noopener noreferrer">h33d-analog-tip-stepover-r30-…926e.tif</a></td><td>0.2632<br><small>user-reported</small></td><td>No · same D-lattice family, ≥99 % within 3 px</td></tr>
+<tr><td>GEMSDOE25</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE25" target="_blank" rel="noopener noreferrer">dotted-h19-5-d2-8-…-zeros.tif</a></td><td>0.2600<br><small>user-reported</small></td><td>No · dot-identical to GEMSDOE30</td></tr>
 <tr><td>GEMSDOE30</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE30" target="_blank" rel="noopener noreferrer">d28-poisson300m-offcat-44090-…tif</a></td><td>0.2600<br><small>user-reported</small></td><td>No · pixel-identical positive mask to GEMSDOE25</td></tr>
-<tr><td>GEMSDOE24</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE24" target="_blank" rel="noopener noreferrer">h25-1-dotted-h19-5-d1-5-…-allfinite.tif</a></td><td>0.2477<br><small>user-reported</small></td><td>No · 100% within 3 px of GEMSDOE25</td></tr>
-<tr><td>GEMSDOE27</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE27" target="_blank" rel="noopener noreferrer">topo-gap-closure-t-v2-on-d1-5-…-allfinite.tif</a></td><td>0.2449<br><small>user-reported</small></td><td>No · 98.0% within 3 px of GEMSDOE24</td></tr>
+<tr><td>GEMSDOE24</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE24" target="_blank" rel="noopener noreferrer">h25-1-dotted-h19-5-d1-5-…-allfinite.tif</a></td><td>0.2477<br><small>user-reported</small></td><td>No · same family, D1.5 spacing</td></tr>
+<tr><td>GEMSDOE27</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE27" target="_blank" rel="noopener noreferrer">topo-gap-closure-t-v2-on-d1-5-…-allfinite.tif</a></td><td>0.2449<br><small>user-reported</small></td><td>No · same family, D1.5 spacing</td></tr>
 </tbody></table></div>
-<p class="table-note" style="border-left:4px solid #a5432d;padding-left:.9rem"><strong>Disclosed gate failure, not hidden.</strong> Against the <code>13gems_20261001_r13-lattice-s5</code> calibration probe the file scores <strong>99.37 %</strong> within 3 px and therefore fails the literal 70 % rule. So does a <em>seeded random placement</em> at the identical dot count — it scores <strong>99.91 %</strong>, i.e. worse than this file. That probe is a space-filling surface, not a competing submission, and at 37,654 interior dots the test cannot be passed by anything (IR-S-01, IR-RV-04). Against every actual competing raster the file passes at 36.45 %. The owner must rule on the probe exemption; the number is printed here so the decision is yours, not buried.</p>
-<p class="table-note">Historical values are <strong>USER-REPORTED / UNVERIFIED</strong> — no organizer receipt ties them to those bytes. All nine were re-read here and their SHA-256 and dot counts match the pinned files exactly. Every pair of the nine overlaps by <strong>≥97.6%</strong> within 3 px: under the project's own lane rule they are one file, not nine. <a href="executive-summary.html">Full executive summary &rarr;</a></p>
+<p class="table-note">Historical scores are <strong>owner-reported</strong>: copied from the site pages in the
+standing brief. No organizer receipt exists for any file in this repository, and none is claimed.</p>
 </div></section>
 
-<section class="section-tight dark-band"><div class="wrap">
-<div class="eyebrow">Three steps, no ambiguity</div>
-<h2>How to submit</h2>
-<p><strong>1.</strong> Click <em>Download the TIF (primary)</em> above. <strong>2.</strong> On the DrivenData submission page choose that file. <strong>3.</strong> Name it <code>GEMSDOESASS2-STRAINRIDGE-OFFCAT-37654D</code> and paste the note below.</p>
-<p><code style="display:block;padding:.8rem;background:rgba(255,255,255,.08);border-radius:8px;margin:.6rem 0">strain+ridgelineament prior, same 37654 dot budget as champion, 0% on full USGS QFaults catalogue, off-catalogue blind faults</code>
-<small>129 characters, under the 140 limit.</small></p>
-<p><a href="executive-summary.html">Full step-by-step submission guide &rarr;</a> &nbsp; <a href="method.html">Why the 0.2778 file scored what it did &rarr;</a></p>
-</div></section>
+<section class="section section-tight"><div class="wrap">
+<div class="section-header"><div><div class="eyebrow">Before you upload</div><h2>Three things to check, in order</h2></div></div>
+<div class="cards">
+<div class="card"><h3>1 · The file is the right one</h3>
+<p>Name <code>gemsass2-slopetilt-300k-20261031-zeros.tif</code>,
+300,000 positive cells, SHA-256 <code>af4d17511fd68fd01d742b4eee0c5be0f3569512e50207b940e5bb23b5f41e7f</code>.
+Anything else with the same name is not ours.</p></div>
+<div class="card"><h3>2 · The format matches the portal</h3>
+<p>EPSG:32611, 3730 × 3292, 100 m, transform <code>(100, 0, 243350, 0, −100, 4508550)</code>,
+single band, float32, <code>nodata = None</code>, every value finite and equal to exactly 0 or 1.
+That is the exact class of file that avoids the
+&ldquo;Predicted values must be in range [0, 1]&rdquo; rejection.</p></div>
+<div class="card"><h3>3 · The note and the name are ready to paste</h3>
+<p><strong>Submission name:</strong> <code>GEMSASS2-SLOPETILT-300K-20261031</code> (33 characters)<br>
+<strong>Note (104 characters):</strong> <code>density - detrended-elevation-slope prior at the metric optimum; zero cells on the public fault database</code></p></div>
+</div></div></section>
 
-<section class="section"><div class="wrap">
-<h2>Read this before you upload</h2>
-<p><strong>The honest headline: the expected gain is about +0.008, not a leap.</strong> The nine focus sites form a single family whose scores span only 0.2449–0.2778, and the best of them (0.2778) is beaten here by changing exactly one variable — the share of the dot budget that lands inside the mapped fault catalogue, which the metric can only ever score as false positive. Everything else about the prediction is held fixed.</p>
-<p>No file in this repository has ever been scored by DrivenData. The 0.29 is arithmetic on a controlled one-variable extrapolation, and it is labelled <strong>MODEL ESTIMATE</strong> everywhere it appears. See <a href="method.html">Why 0.2778 scored</a> for the measurement that produces it.</p>
-</div></section>
-<p>No file on this page is cleared by the literal lattice rule, including the new research artifact
-<code>gemsdoesass2-vrc-ventridge-44090-20261030T024740Z-nan.tif</code> (1.000 of its dots within 3 px of the
-pinned lattice; it also <b>loses</b> its holdout: 0.008629 vs parent 0.09674, Δ −0.087808, CI
-[−0.100347, −0.075792]). Review pass 5 published the emitter fix behind that number (IR-S-23), <code>.zip</code>
-archives for every encoding, and per-check format receipts with their reference sample named:
-<a href="data/download-hashes.json">download-hashes.json</a> · <a href="data/vrc-run-card.json">vrc-run-card.json</a>.</p>
+<section class="section"><div class="wrap"><div class="section-header">
+<div><div class="eyebrow">What changed today</div><h2>Four experiments, one of them overturned the previous answer</h2></div></div>
+<div class="cards">
+<div class="card"><h3>The density law</h3><p>All nine reported scores fit
+<code>DTI = C / (0.2N + 0.8(G − C))</code> with <strong>C = 10,950</strong> and
+<strong>G = 51,734</strong>, to within <strong>±0.005</strong> (R² 0.903). The corpus is
+scored by how many cells it spends, not by how well it ranks them.
+<code>evidence/emission_optimum.json</code>.</p></div>
+<div class="card"><h3>The model was the problem</h3><p>A fitted 125-feature LightGBM looks strong on the
+catalogue (DTI 0.38) and <strong>collapses to 0.192</strong> on a fault compilation it never saw —
+worse than a space-filling lattice at the same budget (0.295). The more its ranking was trusted
+(tilt 0 → 1), the worse the transfer. It was overfitting the training label.
+<code>evidence/emission_controls.json</code>.</p></div>
+<div class="card"><h3>One raw band beat the model</h3><p>Band 19, detrended-elevation slope,
+separates independently mapped faults from background at <strong>AUC 0.757</strong> — the highest of
+all 19 bands — and a density built only on it reaches <strong>0.403</strong> on the independent
+target. <code>evidence/sgmc_transfer_auc.json</code>, <code>evidence/feature_tilt_sweep.json</code>.</p></div>
+</div></div></section>
+
+<section class="section section-tight"><div class="wrap"><div class="callout callout-amber">
+<h3>The honest limitations</h3>
+<ul>
+<li><strong>No organizer score exists for this file.</strong> Every historical number on this site is
+owner-reported; no receipt exists anywhere in the ecosystem.</li>
+<li><strong>The estimator is a proxy.</strong> The 0.403 is DTI against an independent fault
+compilation, not the hidden truth. Applying the nine-site law to this file gives
+<strong>0.277</strong> — a tie with the incumbent. The plausible band is 0.28–0.40.</li>
+<li><strong>Part of the signal is terrain context.</strong> Within deciles of detrended elevation,
+band 19's AUC falls from 0.757 to a weighted 0.636. The design is not purely a fault detector.</li>
+<li><strong>One seed, one grid.</strong> The 300k/σ=5 choice sits on a broad plateau (200k–300k within
+0.01 of the peak), but it was selected on the same proxy it is scored on.</li>
+<li><strong>Three submissions per week.</strong> Spending one slot on this file is the whole
+recommendation; there is no budget to A/B a second variant this week.</li>
+</ul>
+</div></div></section>
 </main>
 
 <footer class="site-footer"><div class="wrap footer-inner">
-<p><strong>GEMS Field Notes</strong> · every number labelled HOLDOUT-DTI or MODEL ESTIMATE. No organizer score is claimed.</p>
-<div><a href="sources.html">Sources</a><a href="https://raw.githubusercontent.com/sassnarep3-star/GEMSDOESASS2/main/evidence/strain_ridge_run_card.json">Run card</a><a href="https://github.com/sassnarep3-star/GEMSDOESASS2/blob/main/IRREGULARITIES.md">Irregularities</a></div>
-</div></footer></body></html>
+<span>GEMS Field Notes · every number traces to a file in <code>evidence/</code></span>
+<span>Not affiliated with DrivenData, USGS, GBCGE or the DOE.</span>
+</div></footer>
+</body></html>

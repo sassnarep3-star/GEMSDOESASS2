@@ -1,0 +1,130 @@
+{
+ "block_px": 200,
+ "folds": 2,
+ "negatives": 150000,
+ "trees": 150,
+ "features": 83,
+ "folds_report": [
+  {
+   "fold": 0,
+   "n_test": 2584009,
+   "pos": 29735,
+   "auc": 0.7533053811114727,
+   "ap": 0.05454382814420249,
+   "best_iteration": 95
+  },
+  {
+   "fold": 1,
+   "n_test": 2581843,
+   "pos": 31159,
+   "auc": 0.7359608082751739,
+   "ap": 0.04722515169101132,
+   "best_iteration": 88
+  }
+ ],
+ "auc_mean": 0.7446330946933233,
+ "auc_min": 0.7359608082751739,
+ "wall_seconds": 3876.3,
+ "top_features": [
+  {
+   "feature": "b19_detrended_elevation_slope_grad4",
+   "gain": 73630.905418396
+  },
+  {
+   "feature": "b10_raw",
+   "gain": 55999.060009002686
+  },
+  {
+   "feature": "b19_detrended_elevation_slope_gauss10",
+   "gain": 42589.1489982605
+  },
+  {
+   "feature": "b16_raw",
+   "gain": 40396.10029602051
+  },
+  {
+   "feature": "b19_detrended_elevation_slope_gauss4",
+   "gain": 36943.42406463623
+  },
+  {
+   "feature": "b17_raw",
+   "gain": 36440.89720726013
+  },
+  {
+   "feature": "b07_raw",
+   "gain": 36103.92451286316
+  },
+  {
+   "feature": "b08_raw",
+   "gain": 35871.63663673401
+  },
+  {
+   "feature": "b19_detrended_elevation_slope_grad1.5",
+   "gain": 28968.887168884277
+  },
+  {
+   "feature": "b13_isostatic_gravity_anomaly_gauss10",
+   "gain": 27360.81688308716
+  },
+  {
+   "feature": "b19_detrended_elevation_slope_gauss1.5",
+   "gain": 27357.589488983154
+  },
+  {
+   "feature": "b04_geodetic_second_invariant_gauss10",
+   "gain": 25649.72402572632
+  },
+  {
+   "feature": "b03_tmi_horizontal_gradient_gauss10",
+   "gain": 22475.75640487671
+  },
+  {
+   "feature": "b04_geodetic_second_invariant_gauss1.5",
+   "gain": 20814.800088882446
+  },
+  {
+   "feature": "b12_detrended_elevation_log4",
+   "gain": 19518.19202041626
+  },
+  {
+   "feature": "b01_raw",
+   "gain": 18125.602043151855
+  },
+  {
+   "feature": "b04_raw",
+   "gain": 17707.53291130066
+  },
+  {
+   "feature": "b12_raw",
+   "gain": 16886.521911621094
+  },
+  {
+   "feature": "b12_detrended_elevation_gauss10",
+   "gain": 16306.962381362915
+  },
+  {
+   "feature": "b12_detrended_elevation_grad4",
+   "gain": 15539.819526672363
+  },
+  {
+   "feature": "b04_geodetic_second_invariant_gauss4",
+   "gain": 14989.509149551392
+  },
+  {
+   "feature": "b12_detrended_elevation_log10",
+   "gain": 14966.826171875
+  },
+  {
+   "feature": "b12_detrended_elevation_gauss1.5",
+   "gain": 14108.745597839355
+  },
+  {
+   "feature": "b15_depth_to_basement_grad4",
+   "gain": 13900.46248626709
+  },
+  {
+   "feature": "b12_detrended_elevation_grad1.5",
+   "gain": 13684.469890594482
+  }
+ ]
+}

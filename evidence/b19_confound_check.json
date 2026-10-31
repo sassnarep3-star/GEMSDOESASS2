@@ -1,0 +1,57 @@
+{
+ "overall_auc": 0.7564,
+ "within_elevation_decile": [
+  {
+   "elev_decile": 0,
+   "n_pos": 951,
+   "auc_slope_within": 0.7356
+  },
+  {
+   "elev_decile": 1,
+   "n_pos": 1111,
+   "auc_slope_within": 0.8368
+  },
+  {
+   "elev_decile": 2,
+   "n_pos": 1276,
+   "auc_slope_within": 0.8388
+  },
+  {
+   "elev_decile": 3,
+   "n_pos": 1418,
+   "auc_slope_within": 0.8272
+  },
+  {
+   "elev_decile": 4,
+   "n_pos": 2069,
+   "auc_slope_within": 0.779
+  },
+  {
+   "elev_decile": 5,
+   "n_pos": 3275,
+   "auc_slope_within": 0.6847
+  },
+  {
+   "elev_decile": 6,
+   "n_pos": 4000,
+   "auc_slope_within": 0.6381
+  },
+  {
+   "elev_decile": 7,
+   "n_pos": 4377,
+   "auc_slope_within": 0.6004
+  },
+  {
+   "elev_decile": 8,
+   "n_pos": 5228,
+   "auc_slope_within": 0.5599
+  },
+  {
+   "elev_decile": 9,
+   "n_pos": 6295,
+   "auc_slope_within": 0.5155
+  }
+ ],
+ "weighted_mean": 0.636,
+ "target": "sgmc_off_catalogue vs background"
+}

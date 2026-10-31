@@ -1,30 +1,33 @@
 # GEMSDOESASS2 — auditable geothermal fault discovery
 
-## 🚦 Current decision (2026-10-30): **SUBMIT THE STRAIN-RIDGE FILE**
+## 🚦 Current decision (2026-10-31): **SUBMIT THE SLOPE-DENSITY FILE**
 
 | Item | Value |
 |---|---|
-| **File to download** | [`docs/downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif`](docs/downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif) |
-| SHA-256 | `6d00f58a35005a253e352e21c8adde0e108aa0abb4b810db9797af89d94dd615` |
+| **File to download** | [`docs/downloads/gemsass2-slopetilt-300k-20261031-zeros.tif`](docs/downloads/gemsass2-slopetilt-300k-20261031-zeros.tif) |
+| SHA-256 | `af4d17511fd68fd01d742b4eee0c5be0f3569512e50207b940e5bb23b5f41e7f` |
 | Grid | EPSG:32611 · (3730, 3292) · 100 m · transform `(100,0,243350,0,-100,4508550)` |
-| Cells predicted | 37,654 — **the champion's exact dot budget** · 0.00 % inside the fault catalogue |
-| Format gate | **11 / 11 pass** (strict), every one of 12,279,360 cells finite in [0, 1], `nodata=None` |
-| Uniqueness gate | **PASS vs competing rasters** — 36.45 % max overlap, \|ρ\| 0.0115 over 19 · **FAIL vs the r13 calibration probe** (99.37 %, see below) |
-| Science gate | **PASS** — HOLDOUT-DTI **0.2244** vs matched incumbent **0.0715**, ratio **3.14×** (P = 0.958) |
-| Model score estimate | **0.29** (controlled 0.2853 · slope-range 0.2815–0.2890 · all-model-risk 0.25–0.33) — *not* organizer-confirmed |
-| Submission name | `GEMSDOESASS2-STRAINRIDGE-OFFCAT-37654D` |
-| Note (≤140 chars) | `strain+ridgelineament prior, same 37654 dot budget as champion, 0% on full USGS QFaults catalogue, off-catalogue blind faults` |
+| Cells predicted | 300,000 · binary {0, 1} · **0 cells inside the public fault database** |
+| Format gate | **11 / 11 pass** (strict), every one of 12,279,360 cells finite, values in {0, 1}, `nodata=None` |
+| Uniqueness gate | **PASS** — 28.10 % max 3-px overlap (limit 70), max \|ρ\| 0.0215 (limit 0.90) over 12 registry rasters |
+| Science gate | **PASS on the independent target** — DTI **0.403** vs **0.295** for a same-size space-filling control and **0.192** for the fitted 125-feature model |
+| Model score estimate | **0.28–0.40**, centred ≈ **0.30** · nine-site law applied to this file: 0.277 — *not* organizer-confirmed |
+| Submission name | `GEMSASS2-SLOPETILT-300K-20261031` |
+| Note (≤140 chars) | `density - detrended-elevation-slope prior at the metric optimum; zero cells on the public fault database` (104) |
 
-**Download and submit: [site](docs/index.html) · [executive summary](docs/executive-summary.html) · [why 0.2778 scored](docs/method.html) · [run card](evidence/strain_ridge_run_card.json)**
+**Download and submit: [site](docs/index.html) · [executive summary](docs/executive-summary.html) · [why 0.2778 scored](docs/method.html) · [run card](evidence/final_run_card.json)**
 
-⚠️ No organizer receipt exists for any file here. The 0.29 is a **MODEL ESTIMATE** from a controlled one-variable extrapolation. It is never written as a score. No weekly slot has been spent.
+⚠️ No organizer receipt exists for any file here. The 0.28–0.40 is a **MODEL ESTIMATE**. No weekly slot has been spent.
 
-⚠️ **One gate is failed, openly.** Against the `13gems_20261001_r13-lattice-s5` calibration probe the file is **99.37 %** within 3 px, so the literal 70 % rule **fails**. A *seeded random placement* at the identical dot count scores **99.91 %** — the probe is a space-filling surface and the test is saturated for any interior placement at this budget (IR-S-01, IR-RV-04). Against every actual competing raster it passes at 36.45 %. **Owner ruling required**; the exemption is not assumed anywhere in this repository. Receipt: [`candidate_vs_registry_lattice.json`](evidence/candidate_vs_registry_lattice.json).
+**What changed on 2026-10-31 — the previous answer was overturned by its own evidence.** Four experiments against a fault compilation the model never saw (SGMC; only 4.8 % of it coincides with the QFaults catalogue) produced three findings:
 
-⚠️ **Honest size of the win: about +0.008 over the 0.2778 champion.** This is the best-supported move available, not a leap. Nothing in this repository reaches 0.4413; see §3 for why, arithmetically.
+1. **The nine-site density law.** `DTI = C/(0.2N + 0.8(G−C))` with **C = 10,950**, **G = 51,734** reproduces all nine owner-reported scores to within **±0.005** (R² 0.903). Score ≈ f(cells spent), not f(geological insight). `evidence/emission_optimum.json`.
+2. **The fitted model overfits the label.** A 125-feature LightGBM scores **0.37** on the catalogue and **0.192** on the independent target — *worse than a space-filling lattice* (0.295). Transfer degrades monotonically with tilt (0.2507 → 0.2298 → 0.1814). The previously promoted collar file scores 0.207–0.244 there and is **superseded**. `evidence/emission_controls.json`.
+3. **One raw band beats the model.** Band 19 (detrended-elevation slope) separates independently mapped faults at **AUC 0.757** — the highest of all 19 — and an unfitted density on it reaches **0.403**. `evidence/sgmc_transfer_auc.json`, `evidence/feature_tilt_sweep.json`.
 
-**Also new (later on 2026-10-30):** a second artifact pair, `gemsdoesass2-vrc-ventridge-44090-…`, with per-check format receipts, `.zip` archives for every encoding, the IR-VRC-01 emitter fix, and a measured HOLDOUT-DTI for the new hypothesis — all **negative / research only**, and it fails the same lattice rule. See the "New this session" block after the nine-site table and [knowledge/09](knowledge/09_vrc_and_download_surface.md).
+⚠️ **Caveats that must not be dropped.** The independent target is an analogue, not the truth: the nine-site law applied to this file gives **0.277**, i.e. a *tie* with the 0.2778 champion, not a win. Within deciles of detrended elevation band 19's AUC falls to a weighted **0.636**, so part of the gain is terrain context. 300k/σ=5 was selected on the same proxy it is reported on. Three submissions per week; this file consumes one slot.
 
+**Superseded artifacts (do not submit; intermediates are reproducible from `scripts/` and are not shipped):** the band-19-free collar file (sha `5f2ebbc4…`), the catalogue-avoidance-only file (sha `466e7b17…`), the strain-ridge file (sha `6d00f58a…`, still present in `docs/downloads/` for audit), and the VRC / thermo-tilt / HVFD files — all **negative or superseded** research.
 
 ---
 

@@ -1,0 +1,87 @@
+{
+ "scope": "MODEL ESTIMATE, never an organiser score",
+ "design": {
+  "n_requested": 300000,
+  "tilt": 1.0,
+  "seed": 20261031,
+  "weight": "band 19 (detrended elevation slope), gaussian sigma 5 px = 500 m",
+  "domain": "official footprint & feature coverage & not within 1 px of the catalogue",
+  "rationale": "highest transfer AUC of the 19 official bands on an independent fault compilation"
+ },
+ "local_DTI": {
+  "catalogue": {
+   "T": 2259.7272310664416,
+   "F": 298646.23878969357,
+   "FN": 58728.27276893356,
+   "G": 60988,
+   "DTI": 0.021086663502708276
+  },
+  "sgmc_off": {
+   "T": 34044.54180375585,
+   "F": 276408.87346511555,
+   "FN": 28077.45819624415,
+   "G": 62122,
+   "DTI": 0.4026431100678309
+  }
+ },
+ "submission": {
+  "stem": "gemsass2-slopetilt-300k-20261031",
+  "name": "GEMSASS2-SLOPETILT-300K-20261031",
+  "note": "density - detrended-elevation-slope prior at the metric optimum; zero cells on the public fault database",
+  "note_chars": 104,
+  "n_cells": 300000,
+  "sha256": "af4d17511fd68fd01d742b4eee0c5be0f3569512e50207b940e5bb23b5f41e7f",
+  "validation": {
+   "path": "/home/user/GEMSDOESASS2/docs/downloads/gemsass2-slopetilt-300k-20261031-zeros.tif",
+   "filename": "gemsass2-slopetilt-300k-20261031-zeros.tif",
+   "size_bytes": 506956,
+   "sha256": "af4d17511fd68fd01d742b4eee0c5be0f3569512e50207b940e5bb23b5f41e7f",
+   "crs": "EPSG:32611",
+   "shape": [
+    3730,
+    3292
+   ],
+   "dtype": "float32",
+   "nodata": null,
+   "transform": [
+    100.0,
+    0.0,
+    243350.0,
+    0.0,
+    -100.0,
+    4508550.0
+   ],
+   "all_12279160_finite": true,
+   "min_in_footprint": 0.0,
+   "max_in_footprint": 1.0,
+   "min_all_cells": 0.0,
+   "max_all_cells": 1.0,
+   "positive_dots_in_footprint": 300000,
+   "positive_on_catalogue": 0,
+   "outside_mode": "zeros",
+   "checks": {
+    "01_file_exists_nonempty": true,
+    "02_single_band": true,
+    "03_dtype_float32": true,
+    "04_crs_epsg_32611": true,
+    "05_shape_3730x3292": true,
+    "06_geotransform_exact": true,
+    "07_footprint_5167373_match": true,
+    "08_catalogue_60988_match": true,
+    "09_no_nan_or_inf_inside_footprint": true,
+    "10_values_in_0_1_inside_footprint": true,
+    "11_outside_footprint_clean": true,
+    "12_zero_on_known_catalogue": true,
+    "13_nontrivial_positive_predictions": true
+   },
+   "checks_passed": 13,
+   "checks_total": 13,
+   "all_passed": true
+  },
+  "files": {
+   "zeros": "/home/user/GEMSDOESASS2/docs/downloads/gemsass2-slopetilt-300k-20261031-zeros.tif",
+   "nan": "/home/user/GEMSDOESASS2/docs/downloads/gemsass2-slopetilt-300k-20261031-nan.tif",
+   "zip": "/home/user/GEMSDOESASS2/docs/downloads/gemsass2-slopetilt-300k-20261031-zeros.zip"
+  }
+ }
+}

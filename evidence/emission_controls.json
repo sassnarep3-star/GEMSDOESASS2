@@ -1,0 +1,198 @@
+{
+ "scope": "MODEL ESTIMATE, never an organiser score",
+ "targets": {
+  "catalogue": 60988,
+  "sgmc_off": 62122
+ },
+ "arms": [
+  {
+   "arm": "uniform",
+   "n_requested": 250000,
+   "n_cells": 250000,
+   "tilt": 0.0,
+   "collar": 0.0,
+   "catalogue": {
+    "DTI": 0.2663,
+    "T": 22191.5,
+    "F": 239218.1,
+    "G": 60988,
+    "coverage_r": 0.3639
+   },
+   "sgmc_off": {
+    "DTI": 0.2507,
+    "T": 21303.9,
+    "F": 240377.4,
+    "G": 62122,
+    "coverage_r": 0.3429
+   },
+   "rank_catalogue": 8,
+   "rank_sgmc_off": 3
+  },
+  {
+   "arm": "model",
+   "n_requested": 250000,
+   "n_cells": 250000,
+   "tilt": 0.35,
+   "collar": 0.0,
+   "catalogue": {
+    "DTI": 0.3656,
+    "T": 28638.7,
+    "F": 233669.6,
+    "G": 60988,
+    "coverage_r": 0.4696
+   },
+   "sgmc_off": {
+    "DTI": 0.2298,
+    "T": 19750.0,
+    "F": 240485.0,
+    "G": 62122,
+    "coverage_r": 0.3179
+   },
+   "rank_catalogue": 4,
+   "rank_sgmc_off": 6
+  },
+  {
+   "arm": "collar",
+   "n_requested": 250000,
+   "n_cells": 250000,
+   "tilt": 0.35,
+   "collar": 0.85,
+   "catalogue": {
+    "DTI": 0.3662,
+    "T": 28673.5,
+    "F": 233535.7,
+    "G": 60988,
+    "coverage_r": 0.4702
+   },
+   "sgmc_off": {
+    "DTI": 0.2441,
+    "T": 20803.1,
+    "F": 239995.4,
+    "G": 62122,
+    "coverage_r": 0.3349
+   },
+   "rank_catalogue": 3,
+   "rank_sgmc_off": 5
+  },
+  {
+   "arm": "sharp",
+   "n_requested": 250000,
+   "n_cells": 250000,
+   "tilt": 1.0,
+   "collar": 0.0,
+   "catalogue": {
+    "DTI": 0.4563,
+    "T": 33682.7,
+    "F": 226142.8,
+    "G": 60988,
+    "coverage_r": 0.5523
+   },
+   "sgmc_off": {
+    "DTI": 0.1814,
+    "T": 15992.8,
+    "F": 240306.8,
+    "G": 62122,
+    "coverage_r": 0.2574
+   },
+   "rank_catalogue": 1,
+   "rank_sgmc_off": 7
+  },
+  {
+   "arm": "uniform",
+   "n_requested": 400000,
+   "n_cells": 400000,
+   "tilt": 0.0,
+   "collar": 0.0,
+   "catalogue": {
+    "DTI": 0.274,
+    "T": 29493.7,
+    "F": 382746.8,
+    "G": 60988,
+    "coverage_r": 0.4836
+   },
+   "sgmc_off": {
+    "DTI": 0.2635,
+    "T": 28811.6,
+    "F": 384594.4,
+    "G": 62122,
+    "coverage_r": 0.4638
+   },
+   "rank_catalogue": 7,
+   "rank_sgmc_off": 1
+  },
+  {
+   "arm": "model",
+   "n_requested": 400000,
+   "n_cells": 400000,
+   "tilt": 0.35,
+   "collar": 0.0,
+   "catalogue": {
+    "DTI": 0.3433,
+    "T": 35206.0,
+    "F": 374499.0,
+    "G": 60988,
+    "coverage_r": 0.5773
+   },
+   "sgmc_off": {
+    "DTI": 0.2447,
+    "T": 27018.9,
+    "F": 384697.5,
+    "G": 62122,
+    "coverage_r": 0.4349
+   },
+   "rank_catalogue": 5,
+   "rank_sgmc_off": 4
+  },
+  {
+   "arm": "collar",
+   "n_requested": 400000,
+   "n_cells": 400000,
+   "tilt": 0.35,
+   "collar": 0.85,
+   "catalogue": {
+    "DTI": 0.341,
+    "T": 35022.2,
+    "F": 374582.1,
+    "G": 60988,
+    "coverage_r": 0.5742
+   },
+   "sgmc_off": {
+    "DTI": 0.2549,
+    "T": 27976.1,
+    "F": 384158.9,
+    "G": 62122,
+    "coverage_r": 0.4503
+   },
+   "rank_catalogue": 6,
+   "rank_sgmc_off": 2
+  },
+  {
+   "arm": "sharp",
+   "n_requested": 400000,
+   "n_cells": 400000,
+   "tilt": 1.0,
+   "collar": 0.0,
+   "catalogue": {
+    "DTI": 0.4094,
+    "T": 39844.4,
+    "F": 362222.1,
+    "G": 60988,
+    "coverage_r": 0.6533
+   },
+   "sgmc_off": {
+    "DTI": 0.1773,
+    "T": 20286.1,
+    "F": 384490.3,
+    "G": 62122,
+    "coverage_r": 0.3266
+   },
+   "rank_catalogue": 2,
+   "rank_sgmc_off": 8
+  }
+ ],
+ "verdict": {
+  "best_on_independent": "uniform",
+  "best_on_catalogue": "sharp",
+  "note": "The independent target is the only one that can distinguish transferable skill from fitting the training label. A tie or a uniform win means the geophysical tilt is not justified by evidence outside the catalogue."
+ }
+}

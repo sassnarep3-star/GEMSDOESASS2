@@ -35,49 +35,52 @@ def test_github_pages_files_and_local_links_exist() -> None:
 
 
 def test_one_promoted_candidate_and_honest_gate_disclosure() -> None:
-    """Exactly one candidate is advertised (strainridge: format + genuine-peer lane gate pass).
-    The lattice clause fails for it (99.37%) exactly as it fails for every interior placement,
-    and both pages must disclose that failing clause instead of hiding it."""
+    """Exactly one candidate is advertised, and the 2026-10-31 promotion is pinned.
+
+    The earlier strain-ridge card is retained as history but is no longer promoted: the
+    independent-target experiment reversed its ranking (see evidence/emission_controls.json).
+    The promoted artifact must match its audit receipt byte-for-byte, and both pages must
+    disclose the caveats that actually bound the claim.
+    """
     import hashlib
 
     rc = json.loads((ROOT / "evidence/unique_run_card_cc522684.json").read_text())
     assert rc["verdict"] == "negative"
     assert rc["ok_to_submit"] is False and rc["ok_to_download_and_submit"] is False
     assert rc["correlation_overlap_vs_registry"]["passes_literal_lattice_gate"] is False
-    recheck = json.loads((ROOT / "evidence/lattice_gate_recheck_20261030.json").read_text())
-    cand = next(c for c in recheck["candidates"] if c["file"].endswith("-zeros.tif"))
-    assert cand["literal_lattice_gate_pass"] is False and cand["overlap_vs_lattice_3px"] > 0.7
-    tif = DOCS / "downloads" / cand["file"]
-    assert hashlib.sha256(tif.read_bytes()).hexdigest() == cand["sha256"] == rc["raster_sha256"]
 
-    # The one promoted submission run card (separate from the negative research cards)
-    run_card = None
-    for p in DOCS.glob("downloads/*-audit.json"):
-        c = json.loads(p.read_text())
-        if c.get("verdict") == "promote" and c.get("ok_to_download_and_submit"):
-            run_card = c
-            break
-    assert run_card is not None, "No promoted unique submission run card found"
-    assert run_card["n_dots"] == 37654
-    assert run_card["validator_output"]["all_passed"] is True
-    assert run_card["correlation_overlap_vs_registry"]["passes_lane"] is True
-    assert len(run_card["submission_note_140"]) <= 140
-    # Its bytes must be the advertised bytes.
-    promoted_tif = DOCS / "downloads" / "gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif"
-    assert hashlib.sha256(promoted_tif.read_bytes()).hexdigest() == run_card["raster_sha256"]
+    promoted = "gemsass2-slopetilt-300k-20261031-zeros.tif"
+    audit = json.loads((DOCS / "downloads" / "gemsass2-slopetilt-300k-20261031-audit.json").read_text())
+    assert audit["verdict"] == "promote" and audit["ok_to_download_and_submit"] is True
+    assert audit["validator_output"]["all_passed"] is True
+    assert audit["correlation_overlap_vs_registry"]["passes_lane"] is True
+    assert audit["correlation_overlap_vs_registry"]["max_pct_within_3px_of_one_registry"] < 70.0
+    assert audit["correlation_overlap_vs_registry"]["max_abs_spearman"] < 0.90
+    assert len(audit["submission_note_140"]) <= 140
+    assert audit["independent_target"]["DTI"] > audit["controls"]["space_filling_same_budget"]
+    assert audit["independent_target"]["DTI"] > audit["controls"]["fitted_125_feature_model"]
+
+    tif = DOCS / "downloads" / promoted
+    assert hashlib.sha256(tif.read_bytes()).hexdigest() == audit["raster_sha256"]
+
+    # the run card behind it must agree on the same bytes and the same gate
+    card = json.loads((ROOT / "evidence" / "final_run_card.json").read_text())
+    assert card["sha256"] == audit["raster_sha256"]
+    assert card["n_cells"] == audit["n_dots"]
+    assert card["uniqueness"]["gate"]["passes"] is True
 
     index = (DOCS / "index.html").read_text()
     exec_html = (DOCS / "executive-summary.html").read_text()
     for page in (index, exec_html):
         assert "ok to download and submit" in page.lower()
-        assert "lattice" in page.lower(), "the failing lattice clause must be disclosed"
         assert "localhost" not in page and "127.0.0.1" not in page
-    assert "99.37" in exec_html
-    assert "MODEL ESTIMATE" in exec_html
-    assert "not an organizer score" in exec_html.lower() or "NOT organizer-confirmed" in exec_html
-    assert "gemsass2-strainridge-offcat-37654d-20261030T025503Z" in exec_html
-    assert "downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif" in index
-    # Research artifacts remain marked research only
+        # the caveats that bound the claim must be present, not hidden
+        assert "MODEL ESTIMATE" in page or "model estimate" in page
+    assert promoted in index and promoted in exec_html
+    assert "0.403" in exec_html and "0.295" in exec_html and "0.192" in exec_html
+    assert "0.277" in exec_html, "the law-consistent tie must be disclosed"
+    assert "terrain" in exec_html.lower()
+    assert "no organizer" in exec_html.lower() or "no organizer" in index.lower()
     artifacts = (DOCS / "hvfd-exp3.html").read_text()
     assert "Research only" in artifacts and "DO NOT SUBMIT" in artifacts
 

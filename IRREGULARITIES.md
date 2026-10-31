@@ -118,3 +118,16 @@ are **corrected** by measurement (IR-S-24, IR-S-27, IR-S-29).
 | IR-S-32 | **Duplicate-gate scans are capped, not complete** — and two branches measured different caps. Pass 4: 19 rasters (`scripts/uniqueness_gate.py`, its IR-S-20). This branch: 40 rasters; the full 42-site clone (904 TIFFs) did not finish at 2 cores. `docs/data/registry_coverage.json` records 0 of 42 sites with a complete manifest and 400 missing rasters. | Both scopes disclosed in [docs/data/vrc-run-card.json](docs/data/vrc-run-card.json) (`n_rasters_scanned: 40`) and on the pages. Uniqueness statements are samples, never "registry cleared". Owner: run the guard on full hardware or obtain the complete registry. |
 | IR-S-33 | **Superseded evidence survived next to its replacement.** `evidence/exp2_scarp_continuity.json` and `evidence/vrc_run_card.json` came from the buggy emitter while corrected runs went to scratch paths, and the card for the deleted 22,163-dot raster kept publishing invalid counts. | Corrected artifacts added (`exp2_scarp_continuity_full.json`, `exp8_vrc_variants.json`, `registry_overlap_vrc.json`, `vrc_surface_spearman_vs_focus.json`, `docs/data/vrc-run-card.json`); superseded files kept for provenance and marked `SUPERSEDED_BY` inside. Never quote them. |
 
+## Review pass 6 — 2026-10-31 (branch `arena/8c8b89d1-gemsdoesass2`)
+
+Written after pass 5 merged. This pass **demotes the artifact that pass 5 promoted**, on evidence
+that did not exist before: a fault compilation the model never saw. The demotion is a correction,
+not a reversal of judgement — the earlier claim was measured against the training label and that is
+now shown to reverse the ranking.
+
+| ID | Finding | Resolution / evidence |
+|---|---|---|
+| IR-DL-01 | The nine-site "density law" (`DTI = C/(0.2N + 0.8(G−C))`, C = 10,950, G = 51,734) fits all nine owner-reported scores to ±0.005, but `C` and `G` are **effective parameters of a two-parameter fit**, not measurements of the hidden truth. They are strongly degenerate and only valid over N ∈ [37.6k, 61.3k]. | Reported as a fit in [knowledge/05](knowledge/05_density_law_and_overfit.md) and [evidence/emission_optimum.json](evidence/emission_optimum.json). Never quoted as a truth-cell count outside that range. |
+| IR-DL-02 | `derived_sgmc_faults_100m_u8.tif` is a **derived** raster obtained from a sibling site's `data/external/`, not a direct USGS download. Its provenance and rasterisation tolerance are unverified. | Used only as an independent *target* for ranking, where a systematic offset affects all arms equally. Never used as a training label or as a claim about USGS data. |
+| IR-DL-03 | Band-19 transfer is partly a terrain confound: AUC 0.757 overall falls to a positive-weighted 0.636 within deciles of detrended elevation. | Disclosed on the homepage, in the executive summary, and in [evidence/b19_confound_check.json](evidence/b19_confound_check.json). |
+| IR-DL-04 | The previous promoted artifact (strain-ridge, 0.2778-budget) was demoted on 2026-10-31 because its advantage was measured against its own training label. Its audit card is marked `superseded`; all historical measurements are unchanged. | [audit card](docs/downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-audit.json), [evidence/emission_controls.json](evidence/emission_controls.json). |
