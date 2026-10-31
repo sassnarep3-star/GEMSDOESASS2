@@ -1,67 +1,101 @@
 # Executive summary — which DOE GEMS file to submit (2026-10-31)
 
-**Status: one file is format-valid, unique and recommended for download; one newly generated file is unique but holdout-tested negative. Read the table before uploading anything.**
+- **Download (one click):** [`downloads/gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-zeros.tif`](downloads/gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-zeros.tif) ·
+  SHA-256 `c200ceccef52b45b979d5a2ad5c184516f8181828493400704a408074b7cbeb6` · [zip](downloads/gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-zeros.zip) · GIS twin `-nan.tif` (not the portal file).
+- **Submission name:** `GEMSDOESASS2-COLLAR4HEX-37636D` · **note (94/140):** `hex covering lattice, 4 px off-catalogue collar, same 37,654-dot budget as the 0.2778 champion`.
+- **Format gate: 13/13 on the saved bytes** — float32, EPSG:32611, (3730, 3292), transform exact,
+  `nodata=None`, and **min/max over all 12,279,360 cells = 0.0/1.0**. That last line is the fix for the portal
+  rejection *"Predicted values must be in range [0, 1]"*: the check is an **all-cells** test, so an outside-footprint
+  NaN / −3.4e38 fill fails it. Walkthrough: [submit.html](submit.html).
+- **Uniqueness gate: PASS on both literal tests** — over 531 registry rasters
+  max 3-px overlap **43.5966 %** (limit 70) and max |ρ| **0.011049**
+  (limit 0.90); exact cell coincidence with the nine site champions ≤ **0.885 %**.
+  First artifact in this repository to clear both tests. A wider re-scan of all 694 mirrored GeoTIFFs (incl. the
+  r13 probe and the GEMSDOE48/49/63/70/76 trees) was still running when this merged; its receipt will be committed as
+  `evidence/uniqueness_collar4hex_fullcorpus_20261031.json`. Any saturation it shows is reported, not exempted
+  (IR-S-21, IR-S-37) — and the probe itself is already measured directly, next bullet.
+- **Disclosed failing clause:** against the `13gems_20261001_r13-lattice-s5` space-filling **calibration probe**
+  **99.915 %** of our dots lie within 3 px, so the literal 70 % rule **fails** — as it does for a seeded random control
+  at the same dot count (99.8964 %), which is why the clause is reported as non-discriminating rather than treated as an
+  exemption. Owner ruling required (IR-03, IR-S-21, IR-S-37;
+  [`evidence/collar4hex_vs_r13_lattice_20261031.json`](https://github.com/sassnarep3-star/GEMSDOESASS2/blob/main/evidence/collar4hex_vs_r13_lattice_20261031.json)).
+- **The 37,636 cells are 0.00 % inside `labels.tif`** — 4 px collar against the complete public fault surface
+  (156,418 px), deterministic hexagonal covering lattice at 1,190 m (covering radius 687 m < the 3 px kernel),
+  complete cells only, two defect re-sites.
+- **Score:** **0.2851 MODEL ESTIMATE** (risk range 0.24–0.31,
+  i.e. the band **includes a loss**), from the family's own measured collar gradient (+0.00127 per pp of catalogue
+  contamination at fixed N). **No organizer-confirmed number exists for any file in this repository.**
+- **HOLDOUT-DTI:** off-catalogue SGMC **0.078774** [0.075369, 0.081733]
+  against 62,703 withheld px — *below* the champion's 0.0961, because the collar trades coverage for zero
+  false-positive weight. Hide-and-recover returns **0.0 by construction** for any labels-collared emission
+  (IR-S-34); the same note puts in question the superseded file's 0.2244, measured with a visible-only collar.
+- **Nine-site answer:** no file among GEMSDOE24/25/27/28/30/31/32/33/36 is a unique submission — each champion is a
+  ≥50 % exact subset or a >70 % within-3-px duplicate of the other eight (GEMSDOE25 ≡ GEMSDOE30; GEMSDOE32 ⊂
+  GEMSDOE25). Measured table: [`data/focus-decision-table-20261031.json`](data/focus-decision-table-20261031.json).
+  Consequence: the only legal use of that family is a geometry change at the same budget — exactly this file.
+- **Negative results from this session, published as deliverables**
+  ([`knowledge/10_rmc_negative_lane_receipt.md`](https://github.com/sassnarep3-star/GEMSDOESASS2/blob/main/knowledge/10_rmc_negative_lane_receipt.md)):
+  corridor geometry carries 1.4–3× *less* credit/px than random dots; supervised LOQO targeting is 3.7× *worse
+  than random* on the USGS blind set; the score-transfer estimator is rejected (LOO MAE 0.1523 on 12 anchors).
+- **Sibling sessions today:** `gemsdoesass2-stepperelay-dilation-22163-49c96b30` (H_STEPOVER, HOLDOUT-DTI 0.0016 vs
+  uniform 0.0377 → **negative**, no slot) and `gemsdoesass2-damage-edge-22163-…-4eacecbc` (its audit promoted it; now
+  `superseded-2026-10-31`, since exactly one card may advertise a download). Both 13/13 format-valid, both **DO NOT
+  SUBMIT**. Their pages claimed the lattice clause was cleared at 29.84 % / 44.11 % overlap; measured on the pinned
+  bytes they are **99.892 %** / **99.842 %** within 3 px of the r13 probe (IR-S-40). Local score prediction:
+  **NOT ESTIMABLE**.
+- **Run card:** [`data/collar4hex-run-card.json`](data/collar4hex-run-card.json) ·
+  format receipt [`downloads/format-gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-zeros.json`](downloads/format-gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-zeros.json) ·
+  promoted audit [`downloads/gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-audit.json`](downloads/gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-audit.json).
 
-## 1 · The decision table (read this first)
+# Executive summary (2026-10-30)
 
-| Site | File to download | Estimated score | Unique vs the other GEMSDOE sites? | OK to download & submit? |
-|------|------------------|-----------------|-----------------------------------|--------------------------|
-| **GEMSDOESASS2** (recommended) | [`gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif`](downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif) · [`.zip`](downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.zip) · [NaN twin](downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-nan.tif) | **0.29 MODEL ESTIMATE** (risk range 0.25–0.33). Not organizer-confirmed. | **Yes vs genuine peers** — 36.45% max 3-px overlap, |ρ| 0.0115 over 19 registry rasters. Caveat: 99.37% vs the r13 calibration lattice probe (disclosed gate failure; owner ruling required). | **Yes, with caveat** — format 11/11, values in [0,1], nodata=None. Best-supported submission available. |
-| **GEMSDOESASS2** (new, NEGATIVE) | [`gemsdoesass2-stepperelay-dilation-22163-49c96b30-zeros.tif`](downloads/gemsdoesass2-stepperelay-dilation-22163-49c96b30-zeros.tif) · [`.zip`](downloads/gemsdoesass2-stepperelay-dilation-22163-49c96b30-zeros.zip) · [NaN twin](downloads/gemsdoesass2-stepperelay-dilation-22163-49c96b30-nan.tif) | **NOT ESTIMABLE** — no organizer receipt; geometry-only extrapolator failed leave-one-out (R² < 0). HOLDOUT-DTI 0.0016 (95% CI [0.0005, 0.0030]) vs uniform control 0.0377 — NEGATIVE. | **Yes** — 44.11% max 3-px overlap, |ρ| 0.046 over 14 registry rasters; passes the literal ≤70% / |ρ|≤0.90 lane rule, including vs the r13 lattice probe (22,163 dots is below the 22,164 first-failing count). | **Format: yes** — 13/13 checks, all cells finite in [0,1]. **Recommendation: NO** — do not spend a weekly slot; holdout-tested worse than uniform. Published as a negative deliverable. |
-| GEMSDOE32 | `gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif` (GEMSDOE32 GitHub releases) | 0.2778 (user-reported, unverified) | **No** — 100% within 3 px of GEMSDOE24/25; one member of the single nine-site lattice family. | **No** — already scored; a duplicate lattice-family file. |
-| GEMSDOE36 | `anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif` (GEMSDOE36 GitHub releases) | 0.2750 (user-reported, unverified) | **No** — 97.6% within 3 px of GEMSDOE27. | **No** — duplicate lattice family. |
-| GEMSDOE28 | `h36-1-rung30-blind-r1-20261003-b531dae0a36f-allfinite.tif` (GEMSDOE28 GitHub releases) | 0.2710 (user-reported, unverified) | **No** — 100% within 3 px of GEMSDOE24. | **No** — duplicate lattice family. |
-| GEMSDOE31 | `h27-4-solo-d28-20261004-8acb75e1-allfinite.tif` (GEMSDOE31 GitHub releases) | 0.2708 (user-reported, unverified) | **No** — 100% within 3 px of GEMSDOE24. | **No** — duplicate lattice family. |
-| GEMSDOE33 | `h33d-analog-tip-stepover-r30-20261004-cb490425926e.tif` (GEMSDOE33 GitHub releases) | 0.2632 (user-reported, unverified) | **No** — 99.7% within 3 px of GEMSDOE27. | **No** — duplicate lattice family. |
-| GEMSDOE25 | `dotted-h19-5-d2-8-20261002-e56ea318af89-zeros.tif` (GEMSDOE25 GitHub releases) | 0.2600 (user-reported, unverified) | **No** — 100% within 3 px of GEMSDOE24. | **No** — duplicate lattice family. |
-| GEMSDOE30 | `d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca.tif` (GEMSDOE30 GitHub releases) | 0.2600 (user-reported, unverified) | **No** — pixel-identical positive mask to GEMSDOE25. | **No** — duplicate lattice family. |
-| GEMSDOE24 | `h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-allfinite.tif` (GEMSDOE24 GitHub releases) | 0.2477 (user-reported, unverified) | **No** — 100% within 3 px of GEMSDOE25. | **No** — duplicate lattice family. |
-| GEMSDOE27 | `topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-allfinite.tif` (GEMSDOE27 GitHub releases) | 0.2449 (user-reported, unverified) | **No** — 98.0% within 3 px of GEMSDOE24. | **No** — duplicate lattice family. |
+**Status: one unique, validated file is approved for download. Read the gate failure below before uploading.**
 
-**Leaderboard context (user-stated):** the highest score on the current competition leaderboard is **0.3195**; the GEMSDOE focus-site best is **0.2778** (GEMSDOE32). No file in this repository has an organizer-confirmed score (DrivenData requires login), so every estimate above is a MODEL ESTIMATE or HOLDOUT-DTI, never an organizer score. Reaching 0.3195+ requires a truth-trained detector, which is login-gated — see §5 limitations.
+- **Download:** `gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif` — SHA-256 `6d00f58a35005a253e352e21c8adde0e108aa0abb4b810db9797af89d94dd615`. 37,654 cells, 0.00 % inside the complete fault catalogue, `nodata=None`, all 12,279,360 cells finite in [0, 1].
+- **Submission name:** `GEMSDOESASS2-STRAINRIDGE-OFFCAT-37654D` · **note (129/140):** `strain+ridgelineament prior, same 37654 dot budget as champion, 0% on full USGS QFaults catalogue, off-catalogue blind faults`.
+- **Estimated score: 0.29 (MODEL ESTIMATE, not organizer-confirmed).** Controlled one-variable extrapolation: champion 0.2778 with 5.77 % catalogue contamination → same 37,654 dots at 0.00 % contamination = 0.2853; slope ±50 % gives 0.2815–0.2890; all model risk 0.25–0.33.
+- **What that means:** about **+0.008** over the best focus site. Nothing here reaches 0.4413, and the README explains what would be required.
+- **Gates passed:** format **11/11**; uniqueness **36.45 %** max overlap and **0.0115** max |ρ| over 19 competing rasters; blocked holdout **HOLDOUT-DTI 0.2244** vs matched incumbent **0.0715** (3.14×, P = 0.958).
+- **Gate failed, disclosed:** the literal 70 %-within-3-px rule against the `13gems_20261001_r13-lattice-s5` calibration probe — **99.37 %**. A seeded random placement at the same dot count scores **99.91 %**, so the test is saturated and non-discriminating (IR-S-01, IR-RV-04). The probe is a calibration surface, not a competing submission. **Owner ruling required.**
+- **Why 0.2778 happened:** the nine focus sites are one collar sweep, not nine models. 19.52 % contamination → 0.2600, 11.73 % → 0.2708, 5.77 % → 0.2778; +0.0012 per point removed (R² = 0.998). All nine overlap each other by ≥97.58 % within 3 px, and the catalogue they used is missing 95,452 mapped fault cells.
 
-## 2 · Why the nine focus sites all score the same thing
+Full detail: [front page](index.html) · [how to submit](executive-summary.html) · [why 0.2778 scored](method.html) · [irregularities IR-S-11 to IR-S-20](../IRREGULARITIES.md).
 
-The nine focus sites are **one file, not nine models**: every pair overlaps by ≥ 97.6% of dots within 3 px, and they share a single generator — a Poisson-disk lattice over the footprint modulated by distance to the already-mapped fault catalogue. Their reported score is a function of one variable only: the share of the dot budget that lands inside the catalogue exclusion zone, which the metric can only ever score as false positive.
+## Review pass 5, later on 2026-10-30 (PR #27) — VRC tested: negative, published as research
 
-| Focus site | Dots | % of dots within 3 px of catalogue | Reported |
-|------------|------|------------------------------------|----------|
-| GEMSDOE25 | 44,090 | 19.52% | 0.2600 |
-| GEMSDOE31 | 40,199 | 11.73% | 0.2708 |
-| **GEMSDOE32** | **37,654** | **5.77%** | **0.2778** |
+- **VRC (vent-ridge continuation)** — blind traces should continue the LiDAR scarp trend leaving a mapped vent.
+  Emitted at 44,090 dots (B=2 collar, 3 px thinning) through the shared stack. **NEGATIVE on both instruments**:
+  HOLDOUT-DTI 0.0086294568 vs the hash-pinned focus-lineage parent 0.09674 (Δ −0.087807630, 95% CI
+  [−0.1003465, −0.0757916], p(Δ>0)=0.0) and off-catalogue SGMC 0.04438 vs 0.09528 (Δ −0.05119, CI [−0.0672,
+  −0.0338]). An uncollared variant is the only emission ahead of the parent on the public instrument
+  (0.10471, Δ +0.00798) and its CI crosses zero. Once the emitter bug below is fixed, spacing thinning ≡ plain
+  top-k, so the "continuation" selection rule adds nothing. Card:
+  [`data/vrc-run-card.json`](data/vrc-run-card.json) (`status: blocked-owner-ruling`, `ok_to_submit: false`).
+- **Uniqueness on the scanned sample:** max per-raster 3-px dot overlap 39.99% (limit 70%) and max |Spearman|
+  over the whole footprint 0.0162 (limit 0.90) across 40 registry rasters — a **sample**, not the complete
+  registry (IR-S-32). Against the space-filling `r13` lattice probe it is 1.000, so the literal rule blocks it
+  for the arithmetically forced reason in IR-S-01/IR-S-21. Nothing on this branch is cleared for submission.
+- **Emitter bug fixed** (`IR-VRC-01`, alias of IR-S-23): a `np.lexsort` position was used as a pixel index, so
+  the first VRC pass emitted 12,572 invalid-fill dots and wrote 15,300 against a 22,163 budget. Both call sites
+  now remap through the candidate array and a hard guard refuses any emission whose count ≠ budget or whose dots
+  leave the allowed footprint. The defective raster was deleted, not patched.
+- **Download surface:** `.zip` for both encodings of both files, manifest
+  [`data/download-hashes.json`](data/download-hashes.json), per-check receipts
+  [`data/format-sparse-blind-zeros.json`](data/format-sparse-blind-zeros.json) (all 11 named validator checks
+  true, `strict_local_format_pass: true` vs the organizer-example mirror),
+  [`data/format-sparse-blind-nan.json`](data/format-sparse-blind-nan.json),
+  [`data/format-vrc-zeros.json`](data/format-vrc-zeros.json),
+  [`data/format-vrc-nan.json`](data/format-vrc-nan.json). "13/13" vs "11/11" is the same validator counted with
+  or without the two promoted-card counts (IR-S-29).
+- **Score estimate: `NOT ESTIMABLE`, and now measured twice.** The geometry-only estimator fails leave-one-out
+  (R² = −0.379) and no organizer receipt exists here, so this branch publishes no MODEL ESTIMATE for any file —
+  unlike the row in the pass-4 table, which extrapolates below its fitted range (that branch's own IR-S-18; see
+  IR-S-27).
+- **Holdout availability corrected:** `scripts/evaluate_holdout.py` is a fail-closed CLI, but
+  `src/gems_sass2/holdout.py` runs and produced every number above (IR-S-24). "No holdout is possible" is not a
+  valid reason to leave a promoted file unmeasured.
+- **Ledger:** IR-S-23 … IR-S-33 added to
+  [`IRREGULARITIES.md`](https://github.com/sassnarep3-star/GEMSDOESASS2/blob/main/IRREGULARITIES.md).
 
-The three points are almost perfectly linear in contamination (−0.001299 DTI per percentage point, R² = 0.998): the truth set is faults *absent* from the catalogue, so any dot inside the catalogue is guaranteed false positive and guaranteed zero true positive. The candidate recommended above removes that contamination (0.00% on the complete 156,418-cell database) while keeping the champion's dot budget — a controlled one-variable change, which is the only defensible basis for its 0.29 estimate.
 
-## 3 · The two GEMSDOESASS2 files in detail
-
-### Recommended: strain-ridge off-catalogue (model estimate 0.29)
-- **Hypothesis:** geodetic strain + seismicity + LiDAR scarp ridge select blind fault traces that scarp-dependent USGS/INGENIOUS mapping missed.
-- **Holdout:** HOLDOUT-DTI 0.2244 vs matched incumbent lattice 0.0715 (3.14×, paired-bootstrap P = 0.958) on a leak-free spatially-blocked holdout (29 withheld blocks, 38,278 positive cells). Single-feature leakage canary max AUC 0.6433 (≤ 0.90 — pass).
-- **Format:** 11/11 strict checks on saved bytes; all 12,279,360 cells finite in [0,1]; nodata=None; CRS EPSG:32611; shape (3730, 3292); exact transform.
-- **Uniqueness:** 36.45% max 3-px overlap, |ρ| 0.0115 vs 19 registry rasters (limits 70% / 0.90) — pass vs genuine peers.
-- **Disclosed failure:** 99.37% of dots within 3 px of the `r13-lattice-s5` calibration probe (a space-filling surface; a seeded random control at the same count scores 99.91%). The literal 70% rule is saturated at this budget and cannot discriminate; owner ruling required. Receipt: `evidence/candidate_vs_registry_lattice.json`.
-- **Submission name:** `GEMSDOESASS2-STRAINRIDGE-OFFCAT-37654D` · **note (129/140 chars):** `strain+ridgelineament prior, same 37654 dot budget as champion, 0% on full USGS QFaults catalogue, off-catalogue blind faults`.
-
-### New: step-over / relay-ramp dilation (NEGATIVE — do not spend a slot)
-- **Hypothesis:** blind connectors between en-echelon catalogue fault segments vent heat without a Quaternary scarp; tip-pair step-over lenses target them. Derived from `labels.tif` geometry only (no external download).
-- **Holdout:** HOLDOUT-DTI 0.0016 (95% CI [0.0005, 0.0030]) vs uniform control 0.0377 — ratio 0.04. NEGATIVE: does not beat the uniform control, nor the current holdout best (0.2244). Per protocol, no weekly slot is spent.
-- **Leakage canary:** single-feature AUC 0.4305 (≤ 0.90 — pass).
-- **Format:** 13/13 checks on saved bytes; all cells finite in [0,1]; nodata=None; 22,163 dots, 0 on the catalogue.
-- **Uniqueness:** 44.11% max 3-px overlap, |ρ| 0.046 vs 14 registry rasters — passes the literal lane rule, including vs the r13 lattice probe (22,163 dots < 22,164 first-failing count).
-- **Verdict:** negative. Format-valid and unique, so the portal would accept the bytes, but it is not score-recommended. Published as a negative deliverable (negative results are deliverables).
-- **Submission name:** `GEMSDOESASS2-STEPOVER-49C96B30` · **note (99/140 chars):** `GEMSDOESASS2 stepover-relay 22163d B2 sep3 | blind connectors between catalogue segments | 49c96b30`.
-
-## 4 · Submission guide — exactly what to click
-
-1. **Download** the primary `.tif` (the `-zeros.tif`, not the `-nan.tif` twin): every cell is finite and inside [0,1] and the file declares `nodata=None`, so a portal range check cannot read a sentinel as out of range.
-2. Open the DrivenData submission page for competition 306 and choose that file.
-3. **Name field:** use the submission name in §3. **Note field:** paste the ≤140-character note in §3.
-4. Submit. Record the returned score and submission ID — that receipt, not this page, becomes the first ORGANIZER-CONFIRMED number in the project.
-
-## 5 · Limitations
-
-- No DrivenData auth → no organizer receipt, no private test truth, no submission-page response. Every historical score is USER-REPORTED / UNVERIFIED; every estimate here is a MODEL ESTIMATE or HOLDOUT-DTI, labelled as such.
-- The gain is small: roughly +0.008 over 0.2778 for the recommended file. Nothing in this repository reaches 0.3195 or 0.4413.
-- Holdout truth = mapped catalogue traces; leaderboard truth = unmapped faults. These are anti-correlated here (Spearman −1.000 across the nine sites), so holdout DTI is not convertible into a leaderboard score.
-- The literal 70%-within-3-px lane rule is non-discriminating at high dot counts (any interior placement exceeds 70% vs the space-filling r13 lattice by pigeonhole). It is disclosed, not hidden; its ruling is the owner's.
-- Negative results are deliverables: the step-over file tested negative and is published as such.
+**Full-corpus verification (2026-10-30).** All 113 public GEMS-named repositories were mirrored (2,282 unique competition-shaped rasters) and compared with the shared gate. The promoted file's worst genuine peer is 25.8% (the champion lineage); the only >70% hits are space-filling density artefacts (the r13 lattice at 99.37% and a 311,617-dot raster at 99.86%). The corpus's three "lattice-avoiding" files pass the literal clause only with 100% of dots on the study-area border. Receipts: [full-registry scan](https://github.com/sassnarep3-star/GEMSDOESASS2/blob/main/evidence/focus_uniqueness_full_registry_20261030.json) · [lattice recheck](https://github.com/sassnarep3-star/GEMSDOESASS2/blob/main/evidence/lattice_gate_recheck_20261030.json).

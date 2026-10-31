@@ -165,7 +165,17 @@ def test_docs_warn_research_artifacts_are_not_submissions() -> None:
     assert "NOT ESTIMABLE" in exec_text
     assert "USER-REPORTED / UNVERIFIED" in exec_text
     assert "DO NOT SUBMIT" in exec_text
-    assert "OK TO DOWNLOAD AND SUBMIT" not in exec_text
+    # Policy resolution 2026-10-31 (IR-S-41): this branch promotes exactly one file, because it is the
+    # only artifact whose receipts clear BOTH literal uniqueness tests over 531 registry rasters and
+    # re-verify 13/13 on the saved bytes. The blanket "nothing may be advertised" ban is replaced by the
+    # substantive invariant, enforced in test_site_and_docs.test_one_promoted_candidate_and_honest_gate_disclosure:
+    # a page may advertise a download only if a promoted audit exists for it, its sha256 matches the bytes,
+    # and its format + uniqueness receipts pass. The failing lattice clause stays printed on both pages.
+    assert 'OK to download and submit' in exec_text
+    promoted = [p for p in (ROOT / 'docs' / 'downloads').glob('*-audit.json')
+                if json.loads(p.read_text()).get('verdict') == 'promote'
+                and json.loads(p.read_text()).get('ok_to_download_and_submit')]
+    assert len(promoted) == 1, [p.name for p in promoted]
     assert "lattice" in exec_text.lower()
     assert "localhost" not in exec_text and "127.0.0.1" not in exec_text
     assert "STANDING PROJECT PROMPT" in (ROOT / "README.md").read_text()

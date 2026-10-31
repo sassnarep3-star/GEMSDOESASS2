@@ -1,0 +1,570 @@
+{
+ "generated_utc": "2026-10-31T05:38:24+00:00",
+ "score_class_legend": {
+  "reported": "USER-REPORTED / UNVERIFIED (owner brief; no organizer submission-page receipt)",
+  "offcat_sgmc_dti_holdout": "HOLDOUT-DTI, off-catalogue USGS SGMC instrument, 62,703 withheld px",
+  "hide_recover_dti_holdout": "HOLDOUT-DTI, hide-and-recover instrument, 22,232 withheld px",
+  "model_estimate_leaderboard": "MODEL ESTIMATE derived from the family's measured collar slope; never a score"
+ },
+ "focus_sites": [
+  {
+   "site": "GEMSDOE24",
+   "submission": "h25-1-dotted-h19-5-d1-5-20261002-989f59505db1",
+   "reported_score_user_unverified": 0.2477,
+   "file_in_repo": "GEMSDOE24/docs/downloads/gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-allfinite.tif",
+   "download_url": "https://buffedlizard55-lab.github.io/GEMSDOE24/docs/downloads/gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-allfinite.tif",
+   "file_present_in_pinned_clone": true,
+   "dots": 60069,
+   "pct_dots_within3px_of_catalogue": 19.8738,
+   "offcat_sgmc_dti_holdout": 0.101118,
+   "hide_recover_dti_holdout": 0.097204,
+   "model_estimate_leaderboard": null,
+   "duplicate_of_other_focus_sites": [
+    {
+     "site": "GEMSDOE25",
+     "exact_pct": 49.69,
+     "within3px_pct": 100.0
+    },
+    {
+     "site": "GEMSDOE27",
+     "exact_pct": 100.0,
+     "within3px_pct": 100.0
+    },
+    {
+     "site": "GEMSDOE28",
+     "exact_pct": 42.34,
+     "within3px_pct": 93.48
+    },
+    {
+     "site": "GEMSDOE30",
+     "exact_pct": 49.69,
+     "within3px_pct": 100.0
+    },
+    {
+     "site": "GEMSDOE31",
+     "exact_pct": 45.05,
+     "within3px_pct": 94.08
+    },
+    {
+     "site": "GEMSDOE32",
+     "exact_pct": 42.48,
+     "within3px_pct": 88.48
+    },
+    {
+     "site": "GEMSDOE33",
+     "exact_pct": 47.55,
+     "within3px_pct": 96.24
+    },
+    {
+     "site": "GEMSDOE36",
+     "exact_pct": 42.48,
+     "within3px_pct": 88.56
+    }
+   ],
+   "exact_overlap_with_our_candidate_pct": 0.866,
+   "within3px_overlap_with_our_candidate_pct": 15.684,
+   "verdict": "NOT SUBMITTABLE AS A UNIQUE ENTRY - duplicate of another focus site"
+  },
+  {
+   "site": "GEMSDOE25",
+   "submission": "dotted-h19-5-d2-8-20261002-e56ea318af89",
+   "reported_score_user_unverified": 0.26,
+   "file_in_repo": "GEMSDOE25/docs/downloads/gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-zeros.tif",
+   "download_url": "https://buffedlizard55-lab.github.io/GEMSDOE25/docs/downloads/gems25-dotted-h19-5-d2-8-20261002-e56ea318af89-zeros.tif",
+   "file_present_in_pinned_clone": true,
+   "dots": 44090,
+   "pct_dots_within3px_of_catalogue": 19.5214,
+   "offcat_sgmc_dti_holdout": 0.095282,
+   "hide_recover_dti_holdout": 0.099202,
+   "model_estimate_leaderboard": null,
+   "duplicate_of_other_focus_sites": [
+    {
+     "site": "GEMSDOE24",
+     "exact_pct": 67.7,
+     "within3px_pct": 100.0
+    },
+    {
+     "site": "GEMSDOE27",
+     "exact_pct": 67.7,
+     "within3px_pct": 100.0
+    },
+    {
+     "site": "GEMSDOE28",
+     "exact_pct": 63.17,
+     "within3px_pct": 93.18
+    },
+    {
+     "site": "GEMSDOE30",
+     "exact_pct": 100.0,
+     "within3px_pct": 100.0
+    },
+    {
+     "site": "GEMSDOE31",
+     "exact_pct": 91.17,
+     "within3px_pct": 93.72
+    },
+    {
+     "site": "GEMSDOE32",
+     "exact_pct": 85.4,
+     "within3px_pct": 88.17
+    },
+    {
+     "site": "GEMSDOE33",
+     "exact_pct": 79.05,
+     "within3px_pct": 96.06
+    },
+    {
+     "site": "GEMSDOE36",
+     "exact_pct": 85.4,
+     "within3px_pct": 88.26
+    }
+   ],
+   "exact_overlap_with_our_candidate_pct": 0.667,
+   "within3px_overlap_with_our_candidate_pct": 14.917,
+   "verdict": "NOT SUBMITTABLE AS A UNIQUE ENTRY - duplicate of another focus site"
+  },
+  {
+   "site": "GEMSDOE27",
+   "submission": "topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1",
+   "reported_score_user_unverified": 0.2449,
+   "file_in_repo": "GEMSDOE27/docs/downloads/gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-allfinite.tif",
+   "download_url": "https://buffedlizard55-lab.github.io/GEMSDOE27/docs/downloads/gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-allfinite.tif",
+   "file_present_in_pinned_clone": true,
+   "dots": 61328,
+   "pct_dots_within3px_of_catalogue": 19.8718,
+   "offcat_sgmc_dti_holdout": 0.102422,
+   "hide_recover_dti_holdout": 0.096778,
+   "model_estimate_leaderboard": null,
+   "duplicate_of_other_focus_sites": [
+    {
+     "site": "GEMSDOE24",
+     "exact_pct": 97.95,
+     "within3px_pct": 98.02
+    },
+    {
+     "site": "GEMSDOE25",
+     "exact_pct": 48.67,
+     "within3px_pct": 98.02
+    },
+    {
+     "site": "GEMSDOE28",
+     "exact_pct": 41.47,
+     "within3px_pct": 91.62
+    },
+    {
+     "site": "GEMSDOE30",
+     "exact_pct": 48.67,
+     "within3px_pct": 98.02
+    },
+    {
+     "site": "GEMSDOE31",
+     "exact_pct": 44.12,
+     "within3px_pct": 92.21
+    },
+    {
+     "site": "GEMSDOE32",
+     "exact_pct": 41.61,
+     "within3px_pct": 86.72
+    },
+    {
+     "site": "GEMSDOE33",
+     "exact_pct": 46.57,
+     "within3px_pct": 94.33
+    },
+    {
+     "site": "GEMSDOE36",
+     "exact_pct": 41.61,
+     "within3px_pct": 86.8
+    }
+   ],
+   "exact_overlap_with_our_candidate_pct": 0.885,
+   "within3px_overlap_with_our_candidate_pct": 16.03,
+   "verdict": "NOT SUBMITTABLE AS A UNIQUE ENTRY - duplicate of another focus site"
+  },
+  {
+   "site": "GEMSDOE28",
+   "submission": "h36-1-rung30-blind-r1-20261003-b531dae0a36f",
+   "reported_score_user_unverified": 0.271,
+   "file_in_repo": "GEMSDOE28/docs/downloads/gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-allfinite.tif",
+   "download_url": "https://buffedlizard55-lab.github.io/GEMSDOE28/docs/downloads/gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-allfinite.tif",
+   "file_present_in_pinned_clone": true,
+   "dots": 37660,
+   "pct_dots_within3px_of_catalogue": 11.6224,
+   "offcat_sgmc_dti_holdout": 0.094341,
+   "hide_recover_dti_holdout": 0.028932,
+   "model_estimate_leaderboard": null,
+   "duplicate_of_other_focus_sites": [
+    {
+     "site": "GEMSDOE24",
+     "exact_pct": 67.54,
+     "within3px_pct": 100.0
+    },
+    {
+     "site": "GEMSDOE25",
+     "exact_pct": 73.96,
+     "within3px_pct": 100.0
+    },
+    {
+     "site": "GEMSDOE27",
+     "exact_pct": 67.54,
+     "within3px_pct": 100.0
+    },
+    {
+     "site": "GEMSDOE30",
+     "exact_pct": 73.96,
+     "within3px_pct": 100.0
+    },
+    {
+     "site": "GEMSDOE31",
+     "exact_pct": 73.96,
+     "within3px_pct": 99.76
+    },
+    {
+     "site": "GEMSDOE32",
+     "exact_pct": 69.7,
+     "within3px_pct": 95.47
+    },
+    {
+     "site": "GEMSDOE33",
+     "exact_pct": 73.31,
+     "within3px_pct": 99.84
+    },
+    {
+     "site": "GEMSDOE36",
+     "exact_pct": 69.7,
+     "within3px_pct": 95.52
+    }
+   ],
+   "exact_overlap_with_our_candidate_pct": 0.672,
+   "within3px_overlap_with_our_candidate_pct": 14.909,
+   "verdict": "NOT SUBMITTABLE AS A UNIQUE ENTRY - duplicate of another focus site"
+  },
+  {
+   "site": "GEMSDOE30",
+   "submission": "d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca",
+   "reported_score_user_unverified": 0.26,
+   "file_in_repo": "GEMSDOE30/docs/downloads/gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca.tif",
+   "download_url": "https://buffedlizard55-lab.github.io/GEMSDOE30/docs/downloads/gemsdoe30-d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca.tif",
+   "file_present_in_pinned_clone": true,
+   "dots": 44090,
+   "pct_dots_within3px_of_catalogue": 19.5214,
+   "offcat_sgmc_dti_holdout": 0.095282,
+   "hide_recover_dti_holdout": 0.099202,
+   "model_estimate_leaderboard": null,
+   "duplicate_of_other_focus_sites": [
+    {
+     "site": "GEMSDOE24",
+     "exact_pct": 67.7,
+     "within3px_pct": 100.0
+    },
+    {
+     "site": "GEMSDOE25",
+     "exact_pct": 100.0,
+     "within3px_pct": 100.0
+    },
+    {
+     "site": "GEMSDOE27",
+     "exact_pct": 67.7,
+     "within3px_pct": 100.0
+    },
+    {
+     "site": "GEMSDOE28",
+     "exact_pct": 63.17,
+     "within3px_pct": 93.18
+    },
+    {
+     "site": "GEMSDOE31",
+     "exact_pct": 91.17,
+     "within3px_pct": 93.72
+    },
+    {
+     "site": "GEMSDOE32",
+     "exact_pct": 85.4,
+     "within3px_pct": 88.17
+    },
+    {
+     "site": "GEMSDOE33",
+     "exact_pct": 79.05,
+     "within3px_pct": 96.06
+    },
+    {
+     "site": "GEMSDOE36",
+     "exact_pct": 85.4,
+     "within3px_pct": 88.26
+    }
+   ],
+   "exact_overlap_with_our_candidate_pct": 0.667,
+   "within3px_overlap_with_our_candidate_pct": 14.917,
+   "verdict": "NOT SUBMITTABLE AS A UNIQUE ENTRY - duplicate of another focus site"
+  },
+  {
+   "site": "GEMSDOE31",
+   "submission": "h27-4-solo-d28-20261004-8acb75e1",
+   "reported_score_user_unverified": 0.2708,
+   "file_in_repo": "GEMSDOE31/docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-allfinite.tif",
+   "download_url": "https://buffedlizard55-lab.github.io/GEMSDOE31/docs/downloads/gemsdoe31-h27-4-solo-d28-20261004-8acb75e1-allfinite.tif",
+   "file_present_in_pinned_clone": true,
+   "dots": 40199,
+   "pct_dots_within3px_of_catalogue": 11.7316,
+   "offcat_sgmc_dti_holdout": 0.096273,
+   "hide_recover_dti_holdout": 0.030057,
+   "model_estimate_leaderboard": null,
+   "duplicate_of_other_focus_sites": [
+    {
+     "site": "GEMSDOE24",
+     "exact_pct": 67.31,
+     "within3px_pct": 100.0
+    },
+    {
+     "site": "GEMSDOE25",
+     "exact_pct": 100.0,
+     "within3px_pct": 100.0
+    },
+    {
+     "site": "GEMSDOE27",
+     "exact_pct": 67.31,
+     "within3px_pct": 100.0
+    },
+    {
+     "site": "GEMSDOE28",
+     "exact_pct": 69.29,
+     "within3px_pct": 99.56
+    },
+    {
+     "site": "GEMSDOE30",
+     "exact_pct": 100.0,
+     "within3px_pct": 100.0
+    },
+    {
+     "site": "GEMSDOE32",
+     "exact_pct": 93.67,
+     "within3px_pct": 95.39
+    },
+    {
+     "site": "GEMSDOE33",
+     "exact_pct": 83.76,
+     "within3px_pct": 99.91
+    },
+    {
+     "site": "GEMSDOE36",
+     "exact_pct": 93.67,
+     "within3px_pct": 95.44
+    }
+   ],
+   "exact_overlap_with_our_candidate_pct": 0.667,
+   "within3px_overlap_with_our_candidate_pct": 14.917,
+   "verdict": "NOT SUBMITTABLE AS A UNIQUE ENTRY - duplicate of another focus site"
+  },
+  {
+   "site": "GEMSDOE32",
+   "submission": "h33-h33-2-b2-20261004T220000Z-e5eb6e7e (CHAMPION 0.2778)",
+   "reported_score_user_unverified": 0.2778,
+   "file_in_repo": "GEMSDOE32/docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
+   "download_url": "https://buffedlizard55-lab.github.io/GEMSDOE32/docs/downloads/gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif",
+   "file_present_in_pinned_clone": true,
+   "dots": 37654,
+   "pct_dots_within3px_of_catalogue": 5.7657,
+   "offcat_sgmc_dti_holdout": 0.09606,
+   "hide_recover_dti_holdout": 0.004515,
+   "model_estimate_leaderboard": null,
+   "duplicate_of_other_focus_sites": [
+    {
+     "site": "GEMSDOE24",
+     "exact_pct": 67.77,
+     "within3px_pct": 100.0
+    },
+    {
+     "site": "GEMSDOE25",
+     "exact_pct": 100.0,
+     "within3px_pct": 100.0
+    },
+    {
+     "site": "GEMSDOE27",
+     "exact_pct": 67.77,
+     "within3px_pct": 100.0
+    },
+    {
+     "site": "GEMSDOE28",
+     "exact_pct": 69.71,
+     "within3px_pct": 99.88
+    },
+    {
+     "site": "GEMSDOE30",
+     "exact_pct": 100.0,
+     "within3px_pct": 100.0
+    },
+    {
+     "site": "GEMSDOE31",
+     "exact_pct": 100.0,
+     "within3px_pct": 100.0
+    },
+    {
+     "site": "GEMSDOE33",
+     "exact_pct": 83.96,
+     "within3px_pct": 99.98
+    },
+    {
+     "site": "GEMSDOE36",
+     "exact_pct": 100.0,
+     "within3px_pct": 100.0
+    }
+   ],
+   "exact_overlap_with_our_candidate_pct": 0.667,
+   "within3px_overlap_with_our_candidate_pct": 14.837,
+   "verdict": "NOT SUBMITTABLE AS A UNIQUE ENTRY - duplicate of another focus site"
+  },
+  {
+   "site": "GEMSDOE33",
+   "submission": "h33d-analog-tip-stepover-r30-20261004-cb490425926e",
+   "reported_score_user_unverified": 0.2632,
+   "file_in_repo": "GEMSDOE33/docs/downloads/GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e.tif",
+   "download_url": "https://buffedlizard55-lab.github.io/GEMSDOE33/docs/downloads/GEMSDOE33-h33d-analog-tip-stepover-r30-20261004-cb490425926e.tif",
+   "file_present_in_pinned_clone": true,
+   "dots": 41865,
+   "pct_dots_within3px_of_catalogue": 14.3891,
+   "offcat_sgmc_dti_holdout": 0.096764,
+   "hide_recover_dti_holdout": 0.05069,
+   "model_estimate_leaderboard": null,
+   "duplicate_of_other_focus_sites": [
+    {
+     "site": "GEMSDOE24",
+     "exact_pct": 68.22,
+     "within3px_pct": 99.71
+    },
+    {
+     "site": "GEMSDOE25",
+     "exact_pct": 83.25,
+     "within3px_pct": 99.7
+    },
+    {
+     "site": "GEMSDOE27",
+     "exact_pct": 68.22,
+     "within3px_pct": 99.71
+    },
+    {
+     "site": "GEMSDOE28",
+     "exact_pct": 65.94,
+     "within3px_pct": 97.05
+    },
+    {
+     "site": "GEMSDOE30",
+     "exact_pct": 83.25,
+     "within3px_pct": 99.7
+    },
+    {
+     "site": "GEMSDOE31",
+     "exact_pct": 80.43,
+     "within3px_pct": 97.48
+    },
+    {
+     "site": "GEMSDOE32",
+     "exact_pct": 75.51,
+     "within3px_pct": 92.64
+    },
+    {
+     "site": "GEMSDOE36",
+     "exact_pct": 75.51,
+     "within3px_pct": 92.71
+    }
+   ],
+   "exact_overlap_with_our_candidate_pct": 0.664,
+   "within3px_overlap_with_our_candidate_pct": 15.071,
+   "verdict": "NOT SUBMITTABLE AS A UNIQUE ENTRY - duplicate of another focus site"
+  },
+  {
+   "site": "GEMSDOE36",
+   "submission": "anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6",
+   "reported_score_user_unverified": 0.275,
+   "file_in_repo": "GEMSDOE36/docs/downloads/gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif",
+   "download_url": "https://buffedlizard55-lab.github.io/GEMSDOE36/docs/downloads/gemsdoe36-anderson-geothermal-pinn-38854-20261004T230000Z-9b9ea4e6-zeros.tif",
+   "file_present_in_pinned_clone": true,
+   "dots": 38854,
+   "pct_dots_within3px_of_catalogue": 5.8707,
+   "offcat_sgmc_dti_holdout": 0.097434,
+   "hide_recover_dti_holdout": 0.004577,
+   "model_estimate_leaderboard": null,
+   "duplicate_of_other_focus_sites": [
+    {
+     "site": "GEMSDOE24",
+     "exact_pct": 65.68,
+     "within3px_pct": 97.57
+    },
+    {
+     "site": "GEMSDOE25",
+     "exact_pct": 96.91,
+     "within3px_pct": 97.5
+    },
+    {
+     "site": "GEMSDOE27",
+     "exact_pct": 65.68,
+     "within3px_pct": 97.58
+    },
+    {
+     "site": "GEMSDOE28",
+     "exact_pct": 67.56,
+     "within3px_pct": 97.31
+    },
+    {
+     "site": "GEMSDOE30",
+     "exact_pct": 96.91,
+     "within3px_pct": 97.5
+    },
+    {
+     "site": "GEMSDOE31",
+     "exact_pct": 96.91,
+     "within3px_pct": 97.46
+    },
+    {
+     "site": "GEMSDOE32",
+     "exact_pct": 96.91,
+     "within3px_pct": 97.4
+    },
+    {
+     "site": "GEMSDOE33",
+     "exact_pct": 81.37,
+     "within3px_pct": 97.5
+    }
+   ],
+   "exact_overlap_with_our_candidate_pct": 0.683,
+   "within3px_overlap_with_our_candidate_pct": 15.156,
+   "verdict": "NOT SUBMITTABLE AS A UNIQUE ENTRY - duplicate of another focus site"
+  }
+ ],
+ "this_session": {
+  "site": "GEMSDOESASS2 (this session)",
+  "submission": "gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z",
+  "file_to_download": "docs/downloads/gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-zeros.tif",
+  "zip": "docs/downloads/gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-zeros.zip",
+  "sha256": "c200ceccef52b45b979d5a2ad5c184516f8181828493400704a408074b7cbeb6",
+  "dots": 37636,
+  "pct_dots_within3px_of_catalogue": 0.0,
+  "collar_px": 4.0,
+  "offcat_sgmc_dti_holdout": 0.078774,
+  "offcat_sgmc_dti_ci95": [
+   0.075369,
+   0.081733
+  ],
+  "hide_recover_dti_holdout": 0.0,
+  "hide_recover_note": "0.0 by construction: the emission collars 4 px away from labels.tif and the hide-and-recover truth is a subset of labels.tif. It is not a negative result.",
+  "model_estimate_leaderboard": 0.2851,
+  "model_estimate_basis": "champion anchor 0.2778 + (contamination removed 5.77 pp -> 0.00 pp) x the measured family slope +0.00127 per pp; budget held at 37,654 so the N term cancels. MODEL ESTIMATE, not a score.",
+  "model_estimate_risk_range": [
+   0.24,
+   0.31
+  ],
+  "format_checks": "13/13",
+  "uniqueness": {
+   "gate_max_overlap_3px_pct": 43.5966,
+   "gate_max_abs_spearman": 0.011049,
+   "gate_references": 531,
+   "passes_lane_rule": true,
+   "max_exact_dot_overlap_with_focus_champions_pct": 0.885,
+   "max_within3px_overlap_with_focus_champions_pct": 16.03
+  },
+  "ok_to_download_and_submit": true,
+  "submission_name": "GEMSDOESASS2-COLLAR4HEX-37636D",
+  "note": "hex covering lattice, 4 px off-catalogue collar, same 37,654-dot budget as the 0.2778 champion"
+ },
+ "ok_to_submit": false,
+ "owner_slot_decision_required": true
+}

@@ -1,0 +1,47 @@
+{
+ "path": "/home/user/GEMSDOESASS2/docs/downloads/gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-zeros.tif",
+ "filename": "gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-zeros.tif",
+ "size_bytes": 107486,
+ "sha256": "c200ceccef52b45b979d5a2ad5c184516f8181828493400704a408074b7cbeb6",
+ "crs": "EPSG:32611",
+ "shape": [
+  3730,
+  3292
+ ],
+ "dtype": "float32",
+ "nodata": null,
+ "transform": [
+  100.0,
+  0.0,
+  243350.0,
+  0.0,
+  -100.0,
+  4508550.0
+ ],
+ "all_12279160_finite": true,
+ "min_in_footprint": 0.0,
+ "max_in_footprint": 1.0,
+ "min_all_cells": 0.0,
+ "max_all_cells": 1.0,
+ "positive_dots_in_footprint": 37636,
+ "positive_on_catalogue": 0,
+ "outside_mode": "zeros",
+ "checks": {
+  "01_file_exists_nonempty": true,
+  "02_single_band": true,
+  "03_dtype_float32": true,
+  "04_crs_epsg_32611": true,
+  "05_shape_3730x3292": true,
+  "06_geotransform_exact": true,
+  "07_footprint_5167373_match": true,
+  "08_catalogue_60988_match": true,
+  "09_no_nan_or_inf_inside_footprint": true,
+  "10_values_in_0_1_inside_footprint": true,
+  "11_outside_footprint_clean": true,
+  "12_zero_on_known_catalogue": true,
+  "13_nontrivial_positive_predictions": true
+ },
+ "checks_passed": 13,
+ "checks_total": 13,
+ "all_passed": true
+}
