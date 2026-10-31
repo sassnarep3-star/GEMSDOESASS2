@@ -117,7 +117,7 @@ format-clean, budget-matched, and not a member of the saturated lattice family.
 The 694-raster `uniqueness_gate.py` run **died silently** (no receipt, process gone) — the same class as the
 0-byte-glob and "exited rc=0 with an empty log" traps. Re-written low-memory and incremental
 (`scripts/uniqueness_sweep_lowmem.py`, JSONL flushed every 25 rasters so a killed run still yields evidence), it
-scanned **370 submission-shaped** rasters: median 3-px overlap 14.92 %, and only **19** exceed the 70 % clause —
+scanned 372 submission-shaped GeoTIFFs (**370 shape-compatible**): median 3-px overlap 14.92 %, and only **19** exceed the 70 % clause —
 **all 19 dense surfaces** (1.57 %–100 % of the footprint: GEMSDOE48 D-S evidence/diagnostic rasters at 5.1 M
 "dots", the 13GEMSDOE r11/r13/r14 probes at 192k–273k). **Zero sparse dot submissions** exceed the clause against
 this file, and max |ρ| is 0.065 there / 0.0110 across the 531-raster receipt. Two rules follow and are adopted

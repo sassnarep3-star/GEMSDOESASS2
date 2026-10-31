@@ -159,5 +159,7 @@
    "classification": "dense space-filling surface (saturates the 3-px clause)"
   }
  ],
- "lane_verdict": "the 70%-within-3px clause is hit only by rasters that cover >1% of the footprint (probability/covering surfaces); no sparse dot submission in the mirrored corpus exceeds it, and no |rho| approaches 0.90"
+ "lane_verdict": "the 70%-within-3px clause is hit only by rasters that cover >1% of the footprint (probability/covering surfaces); no sparse dot submission in the mirrored corpus exceeds it, and no |rho| approaches 0.90",
+ "files_matched": 372,
+ "refs_scanned_note": "370 shape-compatible references compared; 372 submission-shaped GeoTIFFs opened (2 skipped for grid mismatch)"
 }

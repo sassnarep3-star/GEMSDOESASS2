@@ -306,7 +306,7 @@ python scripts/assemble_submission_audit.py --stem <stem> --run-card evidence/st
    "better geology → better score" is now a falsified premise on public instruments, not an untested idea.
 4. **Uniqueness is scoped to what is mirrored — and the clause it is measured by is saturated.** The headline
    receipt covers 531 rasters; a low-memory incremental sweep of **371 submission-shaped** mirrored rasters
-   (372 candidates after excluding diagnostics/inputs) found **19** above the 70 %-within-3-px limit and
+   (370 shape-compatible after excluding diagnostics/inputs) found **19** above the 70 %-within-3-px limit and
    **every one is a dense surface** (1.57 %–100 % of the footprint: GEMSDOE48 D-S evidence/diagnostics at 5.1 M
    "dots", the 13GEMSDOE r11/r13/r14 probes), while **zero sparse dot submissions** exceed it against this file
    (median overlap 14.92 %, max |ρ| 0.065). Receipt:
