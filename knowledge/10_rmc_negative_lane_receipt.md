@@ -92,8 +92,12 @@ attached; do not quietly drop the row, and do not "fix" it by shrinking the coll
 covering lattice at s = 1,190 m, collar 4 px against `labels.tif` only, complete cells only, plus
 two defect-sweep re-sites. 37,636 dots (budget-matched to the 0.2778 champion within 0.05 %).
 
-* Format: 13/13 checks pass on both twins; min/max over **all** 12,279,360 cells = 0.0/1.0
-  (immune to the "[0, 1]" portal error, which is an all-cells check).
+* Format: **13/13** on the portal (zeros) twin against `data/bridge/sample_submission.tif`; min/max over
+  **all** 12,279,360 cells = 0.0/1.0
+  (immune to the "[0, 1]" portal error, which is an all-cells check). The NaN twin is 12/13 against a
+  zeros-outside reference *by construction* — validator check 11 compares outside-footprint conventions — so no
+  document here may say "13/13 on both twins" (IR-S-43; matrix
+  `evidence/format_reverify_collar4hex_20261031.json`, produced by `scripts/reverify_shipped_bytes.py`).
 * Uniqueness over **531** registry rasters: max 3-px overlap **43.60 %** (limit 70),
   max |Spearman| **0.0110** (limit 0.90) — `passes_lane = true`. Exact cell coincidence with the
   nine champions ≤ **0.885 %**.
@@ -136,4 +140,5 @@ GEMS_DATA_DIR=$PWD/data/official PYTHONPATH=src python scripts/uniqueness_gate.p
     --out evidence/uniqueness_collar4hex_20261031.json
 GEMS_DATA_DIR=$PWD/data/official PYTHONPATH=src python scripts/build_focus_decision_table.py
 python scripts/uniqueness_sweep_lowmem.py   # 370-raster incremental sweep -> JSONL + summary
+PYTHONPATH=src python scripts/reverify_shipped_bytes.py   # format matrix across reference conventions
 ```

@@ -1,0 +1,48 @@
+{
+ "generated_utc": "2026-10-31",
+ "validator": "src/gems_sass2/submission.py::validate_geotiff",
+ "labels_file": "data/bridge/labels.tif",
+ "matrix": {
+  "zeros|bridge_sample_submission(zeros outside)": {
+   "checks_passed": "13/13",
+   "sha256": "c200ceccef52b45b979d5a2ad5c184516f8181828493400704a408074b7cbeb6",
+   "min_all_cells": 0.0,
+   "max_all_cells": 1.0,
+   "positive_dots_in_footprint": 37636,
+   "positive_on_catalogue": 0,
+   "failing_checks": []
+  },
+  "zeros|organizer_example_mirror(zeros outside)": {
+   "skipped": "missing reference /home/user/GEMSDOESASS2/data/official/example_submission.tif"
+  },
+  "zeros|self_reference(no_convention)": {
+   "checks_passed": "11/13",
+   "failing_checks": [
+    "07_footprint_5167373_match",
+    "11_outside_footprint_clean"
+   ]
+  },
+  "nan|bridge_sample_submission(zeros outside)": {
+   "checks_passed": "12/13",
+   "sha256": "709fcb8f93a3e4f96d181f137e892d2f9dcd2257176760e15be93ede702cbbef",
+   "min_all_cells": 0.0,
+   "max_all_cells": 1.0,
+   "positive_dots_in_footprint": 37636,
+   "positive_on_catalogue": 0,
+   "failing_checks": [
+    "11_outside_footprint_clean"
+   ]
+  },
+  "nan|organizer_example_mirror(zeros outside)": {
+   "skipped": "missing reference /home/user/GEMSDOESASS2/data/official/example_submission.tif"
+  },
+  "nan|self_reference(no_convention)": {
+   "checks_passed": "12/13",
+   "failing_checks": [
+    "11_outside_footprint_clean"
+   ]
+  }
+ },
+ "claim_that_survives_every_convention": "the PORTAL file (zeros twin) is 13/13 against both zeros-outside references and its values are 0.0/1.0 min/max over all 12,279,360 cells; the NaN twin is 12/13 against a zeros-outside reference by construction (check 11 compares conventions) which is exactly why it is labelled GIS-only and never offered as the portal file",
+ "primary_all_pass": true
+}
