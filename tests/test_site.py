@@ -52,19 +52,19 @@ def test_pages_root_redirects_to_docs_with_fallback():
 
 
 def test_homepage_advertises_the_approved_unique_submission():
-    # The promoted submission passed every local gate: 11/11 strict format checks,
-    # genuine-peer uniqueness max overlap 36.45% < 70%, max|rho| 0.0115 < 0.90, and a
-    # blocked holdout of 0.2244 versus 0.0715 for the matched lattice control
-    # (see docs/downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-audit.json).
+    # The promoted submission passed every local gate: 13/13 strict format checks,
+    # genuine-peer uniqueness max overlap 23.0% < 70%, max|rho| 0.0086 < 0.90, and a
+    # blocked holdout of 0.0597 versus 0.0439 for the matched uniform control
+    # (see evidence/s3_validator_receipts_20261031.json).
     text = (DOCS / 'index.html').read_text()
     flat = ' '.join(text.split())
     assert 'OK to download and submit' in flat
-    assert '11/11' in flat
-    assert '36.45%' in flat
-    assert 'gemsass2-strainridge-offcat-37654d-20261030T025503Z' in flat
+    assert '13/13' in flat
+    assert '23.0%' in flat
+    assert 'gemsass2-s3-ring-binary-37654-20261031T054926Z' in flat
     # The download must be a real, one-click file link, not a link to prose.
-    assert 'href="downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif"' in text
-    assert (DOCS / 'downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif').exists()
+    assert 'href="downloads/gemsass2-s3-ring-binary-37654-20261031T054926Z-zeros.tif"' in text
+    assert (DOCS / 'downloads/gemsass2-s3-ring-binary-37654-20261031T054926Z-zeros.tif').exists()
     # The failing lattice clause must be disclosed on the homepage.
     assert 'lattice' in flat.lower()
 

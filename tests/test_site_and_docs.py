@@ -36,7 +36,7 @@ def test_github_pages_files_and_local_links_exist() -> None:
 
 def test_one_promoted_candidate_and_honest_gate_disclosure() -> None:
     """Exactly one candidate is advertised (strainridge: format + genuine-peer lane gate pass).
-    The lattice clause fails for it (99.37%) exactly as it fails for every interior placement,
+    The lattice clause fails for it (99.89%) exactly as it fails for every interior placement,
     and both pages must disclose that failing clause instead of hiding it."""
     import hashlib
 
@@ -63,7 +63,7 @@ def test_one_promoted_candidate_and_honest_gate_disclosure() -> None:
     assert run_card["correlation_overlap_vs_registry"]["passes_lane"] is True
     assert len(run_card["submission_note_140"]) <= 140
     # Its bytes must be the advertised bytes.
-    promoted_tif = DOCS / "downloads" / "gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif"
+    promoted_tif = DOCS / "downloads" / "gemsass2-s3-ring-binary-37654-20261031T054926Z-zeros.tif"
     assert hashlib.sha256(promoted_tif.read_bytes()).hexdigest() == run_card["raster_sha256"]
 
     index = (DOCS / "index.html").read_text()
@@ -72,11 +72,11 @@ def test_one_promoted_candidate_and_honest_gate_disclosure() -> None:
         assert "ok to download and submit" in page.lower()
         assert "lattice" in page.lower(), "the failing lattice clause must be disclosed"
         assert "localhost" not in page and "127.0.0.1" not in page
-    assert "99.37" in exec_html
+    assert "99.89" in exec_html
     assert "MODEL ESTIMATE" in exec_html
     assert "not an organizer score" in exec_html.lower() or "NOT organizer-confirmed" in exec_html
-    assert "gemsass2-strainridge-offcat-37654d-20261030T025503Z" in exec_html
-    assert "downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif" in index
+    assert "gemsass2-s3-ring-binary-37654-20261031T054926Z" in exec_html
+    assert "downloads/gemsass2-s3-ring-binary-37654-20261031T054926Z-zeros.tif" in index
     # Research artifacts remain marked research only
     artifacts = (DOCS / "hvfd-exp3.html").read_text()
     assert "Research only" in artifacts and "DO NOT SUBMIT" in artifacts

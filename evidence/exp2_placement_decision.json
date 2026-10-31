@@ -1,0 +1,79 @@
+{
+  "experiment": "EXP-2 placement decision (uniform vs ring habitat; N; softness probe)",
+  "generated_utc": "2026-10-31T05:48:29Z",
+  "seed": 20261031,
+  "rows": [
+    {
+      "name": "uniform-binary-37654",
+      "placement": "uniform",
+      "softness": "binary",
+      "n": 37654,
+      "share": 0.0,
+      "sum_p": 37654.0,
+      "ihr_pooled_dti": 0.04388558921922473,
+      "ihr_ci95": [
+        0.03937125386906819,
+        0.048124995711093715
+      ],
+      "sgmc_raw_pooled_dti": 0.075020866692409,
+      "sgmc_raw_ci95": [
+        0.07171748698085524,
+        0.07821992607561147
+      ]
+    },
+    {
+      "name": "ring-binary-37654",
+      "placement": "ring",
+      "softness": "binary",
+      "n": 37654,
+      "share": 0.25,
+      "sum_p": 37654.0,
+      "ihr_pooled_dti": 0.05971004189386576,
+      "ihr_ci95": [
+        0.05369529673354244,
+        0.06486610714014727
+      ],
+      "sgmc_raw_pooled_dti": 0.07697433262955876,
+      "sgmc_raw_ci95": [
+        0.07148139567554603,
+        0.08267367811031759
+      ]
+    },
+    {
+      "name": "ring-binary-24000",
+      "placement": "ring",
+      "softness": "binary",
+      "n": 24000,
+      "share": 0.25,
+      "sum_p": 24000.0,
+      "ihr_pooled_dti": 0.050641032137799746,
+      "ihr_ci95": [
+        0.045196229708080855,
+        0.05541045698178889
+      ],
+      "sgmc_raw_pooled_dti": 0.05232763501297077,
+      "sgmc_raw_ci95": [
+        0.047569090110628716,
+        0.05727552068871568
+      ]
+    },
+    {
+      "name": "ring-plateau1-37654",
+      "placement": "ring",
+      "softness": "plateau1",
+      "n": 37654,
+      "share": 0.25,
+      "sum_p": 338841.0,
+      "ihr_pooled_dti": 0.031214718043603953,
+      "ihr_ci95": [
+        0.027589340068919856,
+        0.034596558339147127
+      ],
+      "sgmc_raw_pooled_dti": 0.09251669217049738,
+      "sgmc_raw_ci95": [
+        0.08328640397081435,
+        0.10131519305229633
+      ]
+    }
+  ]
+}

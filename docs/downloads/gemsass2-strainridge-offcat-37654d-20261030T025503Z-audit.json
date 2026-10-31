@@ -110,7 +110,7 @@
   "submission_note_140": "strain+ridgelineament prior, same 37654 dot budget as champion, 0% on full USGS QFaults catalogue, off-catalogue blind faults",
   "note_length": 125,
   "verdict": "promote",
-  "ok_to_download_and_submit": true,
+  "ok_to_download_and_submit": false,
   "n_dots": 37654,
   "params": {
     "w_ridge": 0.5,
@@ -182,5 +182,8 @@
     "The 0.29 figure is a model estimate from a controlled one-variable extrapolation. It is not an organizer score and must never be written as one.",
     "The expected gain over the incumbent 0.2778 is roughly +0.008. It is the best-supported move available, not a large one.",
     "The literal 70 %-within-3-px rule is FAILED against the r13 calibration lattice (99.37 %), exactly as it is failed by a seeded random placement at the same dot count (99.91 %). The rule is saturated and discriminates nothing at this budget; the owner must rule whether the probe is exempt (IR-S-01/IR-RV-04)."
-  ]
+  ],
+  "superseded_utc": "2026-10-31T00:00:00Z",
+  "superseded_by": "gemsass2-s3-ring-binary-37654-20261031T054926Z",
+  "superseded_note": "Still valid and unique research artifact with the same 0.29 MODEL ESTIMATE band; superseded as the recommended submission by the S3 ring-habitat file (measured ring edge over uniform)."
 }

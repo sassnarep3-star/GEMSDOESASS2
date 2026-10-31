@@ -1,29 +1,29 @@
 # GEMSDOESASS2 — auditable geothermal fault discovery
 
-## 🚦 Current decision (2026-10-30): **SUBMIT THE STRAIN-RIDGE FILE**
+## 🚦 Current decision (2026-10-31): **SUBMIT THE S3 RING-HABITAT FILE**
 
 | Item | Value |
 |---|---|
-| **File to download** | [`docs/downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif`](docs/downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif) |
-| SHA-256 | `6d00f58a35005a253e352e21c8adde0e108aa0abb4b810db9797af89d94dd615` |
+| **File to download** | [`docs/downloads/gemsass2-s3-ring-binary-37654-20261031T054926Z-zeros.tif`](docs/downloads/gemsass2-s3-ring-binary-37654-20261031T054926Z-zeros.tif) |
+| SHA-256 | `b84a4f2642500b9817b946d99db14471f4b935d110b794d2736f643d56f8f7ae` |
 | Grid | EPSG:32611 · (3730, 3292) · 100 m · transform `(100,0,243350,0,-100,4508550)` |
-| Cells predicted | 37,654 — **the champion's exact dot budget** · 0.00 % inside the fault catalogue |
-| Format gate | **11 / 11 pass** (strict), every one of 12,279,360 cells finite in [0, 1], `nodata=None` |
-| Uniqueness gate | **PASS vs competing rasters** — 36.45 % max overlap, \|ρ\| 0.0115 over 19 · **FAIL vs the r13 calibration probe** (99.37 %, see below) |
-| Science gate | **PASS** — HOLDOUT-DTI **0.2244** vs matched incumbent **0.0715**, ratio **3.14×** (P = 0.958) |
-| Model score estimate | **0.29** (controlled 0.2853 · slope-range 0.2815–0.2890 · all-model-risk 0.25–0.33) — *not* organizer-confirmed |
-| Submission name | `GEMSDOESASS2-STRAINRIDGE-OFFCAT-37654D` |
-| Note (≤140 chars) | `strain+ridgelineament prior, same 37654 dot budget as champion, 0% on full USGS QFaults catalogue, off-catalogue blind faults` |
+| Cells predicted | 37,654 — **the champion's exact dot budget** · 0.00 % within 3 px of the fault catalogue |
+| Format gate | **13 / 13 pass** (strict), every one of 12,279,160 cells finite float32 in [0, 1], `nodata=None` — permanent fix for the portal error "Predicted values must be in range [0, 1]" |
+| Uniqueness gate | **PASS vs competing rasters** — 23.0 % worst genuine-peer overlap, \|ρ\| 0.0086 over 24 · **FAIL vs the r13 calibration probe** (99.89 %, see below) |
+| Science gate | **PASS** — HOLDOUT-DTI **0.0597** [0.0537–0.0649] vs uniform control **0.0439** [0.0394–0.0481] at matched budget (+36 %, disjoint CIs); SGMC-off **0.0770** vs **0.0750** |
+| Model score estimate | **0.29** (controlled 0.2853 · all-model-risk 0.25–0.33) — *not* organizer-confirmed |
+| Submission name | `GEMSDOESASS2-S3-RING-BINARY-37654` |
+| Note (≤140 chars) | `ring-habitat blue-noise 37654 dots, 0% within 3px of catalogue, champion-matched budget, unique vs all GEMSDOE site rasters` |
 
-**Download and submit: [site](docs/index.html) · [executive summary](docs/executive-summary.html) · [why 0.2778 scored](docs/method.html) · [run card](evidence/strain_ridge_run_card.json)**
+**Download and submit: [site](docs/index.html) · [how to submit](docs/how-to-submit.html) · [executive summary](docs/executive-summary.md) · [run card](evidence/s3_run_card_20261031.json)**
 
 ⚠️ No organizer receipt exists for any file here. The 0.29 is a **MODEL ESTIMATE** from a controlled one-variable extrapolation. It is never written as a score. No weekly slot has been spent.
 
-⚠️ **One gate is failed, openly.** Against the `13gems_20261001_r13-lattice-s5` calibration probe the file is **99.37 %** within 3 px, so the literal 70 % rule **fails**. A *seeded random placement* at the identical dot count scores **99.91 %** — the probe is a space-filling surface and the test is saturated for any interior placement at this budget (IR-S-01, IR-RV-04). Against every actual competing raster it passes at 36.45 %. **Owner ruling required**; the exemption is not assumed anywhere in this repository. Receipt: [`candidate_vs_registry_lattice.json`](evidence/candidate_vs_registry_lattice.json).
+⚠️ **One gate is failed, openly.** Against the `13gems_20261001_r13-lattice-s5` calibration probe the file is **99.89 %** within 3 px, so the literal 70 % rule **fails**. A *seeded random placement* at the identical dot count scores **99.91 %** — the probe is a space-filling surface and the test is saturated for any interior placement at this budget (IR-S-01, IR-RV-04, IR-30-1). Against every actual competing raster it passes at 23.0 %. **Owner ruling required**; the exemption is not assumed anywhere in this repository. Receipt: [`s3_uniqueness_20261031.json`](evidence/s3_uniqueness_20261031.json).
 
-⚠️ **Honest size of the win: about +0.008 over the 0.2778 champion.** This is the best-supported move available, not a leap. Nothing in this repository reaches 0.4413; see §3 for why, arithmetically.
+⚠️ **Honest size of the win: about +0.008 over the 0.2778 champion** (contamination axis at matched budget). The ring-habitat placement adds a measured +36 % hide-and-recover advantage over uniform whose leaderboard transfer is honestly unquantified. Nothing in this repository reaches 0.4413; see §3 for why, arithmetically.
 
-**Also new (later on 2026-10-30):** a second artifact pair, `gemsdoesass2-vrc-ventridge-44090-…`, with per-check format receipts, `.zip` archives for every encoding, the IR-VRC-01 emitter fix, and a measured HOLDOUT-DTI for the new hypothesis — all **negative / research only**, and it fails the same lattice rule. See the "New this session" block after the nine-site table and [knowledge/09](knowledge/09_vrc_and_download_surface.md).
+**Previous candidate (still valid):** `gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif`, same 0.29 estimate band. Prefer the 2026-10-31 file — it adds the measured ring-habitat edge. The 2026-10-30 VRC artefacts remain **negative / research only** ([knowledge/09](knowledge/09_vrc_and_download_surface.md)).
 
 
 ---
@@ -246,3 +246,40 @@ python scripts/assemble_submission_audit.py --stem <stem> --run-card evidence/st
 3. **Test H4 (2-m temperature probes).** Public, unused, and the only untried field with a genuinely different physical mechanism.
 4. **Grow the uniqueness registry.** Only 19 rasters are checked; the wider GEMSDOE corpus is ~90 sites and is not mirrored locally.
 5. **Sweep contamination beyond zero.** Negative contamination is not possible, so the only remaining axis inside this family is *which* off-catalogue cells to pick — i.e. yield. That is the H4/H5 work.
+
+---
+
+## APPENDIX — STANDING PROMPT (verbatim, as issued; read at the start of every session)
+
+> Review the repository. Focus on **GEMSDOE24, 25, 27, 28, 30, 31, 32, 33, 36**, and **GEMSDOESASS2**. Understand what is in it.
+> I want you to work in a line by line basis, to not make any hallucinations.
+> I want you to reference the official and verified sources so that we can check and manually look at them too.
+> If there is anything that is not right or you see any irregularities, please note them.
+> Follow all the rules and standards outlined above in the prompt.
+> Also follow the Arena core values described in your instructions.
+> Study the highest scoring submissions from these GEMSDOE GitHub repos and see why they scored the way they did.
+> Write an executive summary of each of these websites and tell me why their score is what it is, and can we possibly beat their score of 0.2778?
+> Also make one clear table telling me which file to download and submit, what the estimated score is, and if it is unique compared to the other GEMSDOEsites.
+> There needs to be a new TIF file that is a submission generated and is unique and unlike any of the GEMDOE sites listed above.
+> It must be obvious whether it is OK to download and submit the generated TIF submission.
+> Study the top scores and confirm the file to download.
+> Also note that the first time I downloaded one of the TIF submission and made a submission, it said the error "Predicted values must be in range [0, 1]".
+> You need to fix this and make sure the file meets the required format and range etc.
+> Read this standing prompt carefully and obey every requirement. Create a new submission name and a short note of less than 140 characters for this new submission, and explain what is going on here in the executive summary and also make a subpage describing exactly how to make a submission.
+> I want to make sure we pass the high scoring validation gates before we declare a file unique and ready for submission. Remember, we don't have a human who can inspect this, everything is validated through this project. Make sure this is taken care of and at the top of the site you can download the files and easily access them.
+> Also review how to make a submission and update it with the correct way to do so. Then generate this unique TIF submission and report to me which one is the best submission to submit to obtain a high score, along with the score estimate.
+> When implementing, first generate 3-5 candidate geological hypotheses we haven't tried yet, each naming: the specific layer(s) involved, the physical signature being targeted (what measurable quantity changes near a hidden fault), why it should catch a fault missing from the USGS/INGENIOUS catalogue rather than one already in it, and how it differs from anything already implemented in this repo. Rank them by expected DTI improvement and implementation cost. Then validate the top candidate on our spatially-blocked holdout set before touching a weekly submission slot. If external data is needed, name the free official source and verify it is obtainable.
+> I need the score estimate to be higher than 0.3195. We need to design a new strategy or a new way to do this and beat the current score. Also, GEMSDOE current leaderboard high is 0.4413. The current GEMSDOE score is 0.3195. So we need to make sure our submissions are unique and obtain a high score.
+> We need to start doing heavy and deep research into the part of the project that matters the most, which is the scientific discovery of geothermal vents.
+> Make sure to generate a new TIF submission and include it on the site. Make sure to update the README with the full standing prompt, put this prompt into the repo readme and read it everytime we work on the project as a starting point. Keep the GitHub site updated and easy to use with clean user interface. Make sure the executive summary is clear and can tell me the best submission to submit and if we are ready to submit or not.
+> Create a separate subpage in the website explaining exactly how to make a submission. Make sure to include a link to download the TIF submission at the top of the website. Make sure to update the executive summary and the website to include the new submission and the new score estimate. Make sure to include the new submission in the README and the knowledge base. Keep in mind we want a high score and we want to win this competition. Be contrarian where necessary and find gaps in the market that we can fill. I don't want us to be losing right now. We are at the top of the leaderboard but we want to make sure we stay there. Make sure to give me a table with the following: the file to download, the estimated score, and if it is unique compared to the other GEMSDOE sites. I need to know which one to download and submit. Make sure the file is ready to submit and meets the submission format and there is an obvious way to tell that it is ready.
+> Make sure the executive summary makes it obvious which is the best submission to submit and if we are ready to submit or not. Also include a way to make the submission on the site with clear instructions. Make sure to have the download at the top of the site. Make sure everything in the site works. Make sure the site is easy to use and navigate. Then create a PR and submit, and then merge the PR. Make sure to add any remaining work needed to be done and limitations to the project as well.
+
+### Parallel-run protocol (this session; operative)
+
+1. **LANE (self-declared — IR-10: no lane was assigned).** This session's lane paragraph: *ring-habitat emission — off-catalogue fault density concentrates in the 3–30 px ring around the mapped catalogue (damage-zone splays and continuations); a clean-contamination blue-noise emission weighted to that ring covers more hidden truth per dot than uniform spreading or thermal-anomaly ranking (both measured), with a seeded uniform coverage floor.* Drift check before placement and after final dots: rank-correlation > 0.90 or > 70 % of dots within 3 px of one registry raster = duplicate → log + stop (surface + final dots, both logged).
+2. **REUSE.** Shared cached feature stack restored by `scripts/fetch_data.py`; shared evaluators `src/gems_sass2/holdout.py` (GEMSDOE32-HIDE-RECOVER-v3.0, GEMSDOE32-SGMC-CAL-v3.0), shared metric `src/gems/metric.py`, shared writer `src/gems_sass2/submission.py`, shared gate `scripts/uniqueness_gate.py`. Shared tools fixed once (this session: `scripts/fetch_data.py` git-over-HTTPS download path — see IRREGULARITIES).
+3. **LABELS.** HOLDOUT-DTI (evaluator version, withheld positives, 95 % CI) or ORGANIZER-CONFIRMED only; projections never written as scores.
+4. **CANARY.** Single-feature AUC > 0.90 = leakage until disproved (measured max 0.521 this session).
+5. **RUN CARD.** `evidence/s3_run_card_20261031.json`.
+6. **BUDGET.** 3 experiments / 2 hours, stop; zero weekly slots spent; promotion is the owner's selector step.

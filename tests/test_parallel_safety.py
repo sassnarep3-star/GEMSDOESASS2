@@ -113,7 +113,7 @@ def test_current_lattice_witness_receipt_and_safety_notice():
     assert 'BLOCKED — DO NOT SUBMIT YET' not in index
     assert 'MODEL ESTIMATE' in execu
     assert 'research only' in execu.lower()
-    assert 'lattice' in execu.lower() and '99.37' in execu
+    assert 'lattice' in execu.lower() and '99.89' in execu
     assert 'DO NOT SUBMIT' in (ROOT / 'docs' / 'hvfd-exp3.html').read_text().upper()
     # Exactly one promoted card may exist across all downloads.
     promoted = [c for c in
