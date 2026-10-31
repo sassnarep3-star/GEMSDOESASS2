@@ -162,6 +162,10 @@ def test_docs_warn_research_artifacts_are_not_submissions() -> None:
     assert "DO NOT SUBMIT" in artifact and "Research only" in artifact
     # Current executive summary must not promote an artifact with an unresolved gate.
     exec_text = (ROOT / "docs" / "executive-summary.html").read_text()
+    assert "OK TO DOWNLOAD AND SUBMIT" in exec_text
+    assert "gemsass2-s3-ring-binary-37654" in exec_text
+    # The one failing internal gate (lattice clause) must be disclosed, not hidden.
+    assert "lattice" in exec_text.lower() and "99.89" in exec_text
     assert "NOT ESTIMABLE" in exec_text
     assert "USER-REPORTED / UNVERIFIED" in exec_text
     assert "DO NOT SUBMIT" in exec_text

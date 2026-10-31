@@ -35,11 +35,10 @@ def test_github_pages_files_and_local_links_exist() -> None:
 
 
 def test_one_promoted_candidate_and_honest_gate_disclosure() -> None:
-    """Exactly one candidate is advertised. Policy 2026-10-31: COLLAR4-HEX supersedes strain-ridge
-    because it clears both literal uniqueness tests over 531 registry rasters and re-verifies 13/13
-    on the saved bytes. The assertions track the *receipts on disk*, so a page cannot advertise a
-    download that the gate JSON does not clear (IR-S-25); the r13 lattice disclosure must stay on both
-    pages because that clause still fails for every interior placement (IR-S-21, IR-S-37)."""
+    """Exactly one candidate is advertised (S3-RING-BINARY-37654). Policy 2026-10-31 (IR-S-41):
+    the promoted card is enforced through the receipts on disk, not marketing strings; the r13
+    lattice disclosure must stay on both pages because that clause fails for every interior
+    placement (IR-S-21, IR-S-37, IR-S3-6)."""
     import hashlib
 
     rc = json.loads((ROOT / "evidence/unique_run_card_cc522684.json").read_text())
@@ -60,7 +59,7 @@ def test_one_promoted_candidate_and_honest_gate_disclosure() -> None:
             promoted.append(c)
     assert len(promoted) == 1, f"exactly one promoted card may exist, found {len(promoted)}"
     run_card = promoted[0]
-    assert run_card["n_dots"] == 37636
+    assert run_card["n_dots"] == 37654
     assert run_card["dots_on_catalogue"] == 0
     assert run_card["validator_output"]["all_passed"] is True
     assert run_card["validator_output"]["values_in_0_1"] is True
@@ -84,6 +83,11 @@ def test_one_promoted_candidate_and_honest_gate_disclosure() -> None:
         assert "ok to download and submit" in page.lower()
         assert "lattice" in page.lower(), "the failing lattice clause must be disclosed"
         assert "localhost" not in page and "127.0.0.1" not in page
+    assert "99.89" in exec_html
+    assert "MODEL ESTIMATE" in exec_html
+    assert "not an organizer score" in exec_html.lower() or "NOT organizer-confirmed" in exec_html
+    assert "gemsass2-s3-ring-binary-37654-20261031T054926Z" in exec_html
+    assert "downloads/gemsass2-s3-ring-binary-37654-20261031T054926Z-zeros.tif" in index
     # Merged from origin/main (PR #33/#34): the sibling artifacts, the un-verifiable score class and the
     # superseded bytes stay on the page, and the historical raster remains measurable but not promotable.
     assert "0.2778" in exec_html and "USER-REPORTED / UNVERIFIED" in exec_html

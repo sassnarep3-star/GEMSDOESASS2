@@ -184,5 +184,6 @@
   "The literal 70 %-within-3-px rule is FAILED against the r13 calibration lattice (99.37 %), exactly as it is failed by a seeded random placement at the same dot count (99.91 %). The rule is saturated and discriminates nothing at this budget; the owner must rule whether the probe is exempt (IR-S-01/IR-RV-04)."
  ],
  "superseded_by": "gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-zeros.tif",
- "supersession_reason": "fails the literal 70% lattice clause (99.37% vs the r13 probe) and its HOLDOUT-DTI 0.2244 was produced by a visible-only collar variant, not by the shipped mask; the shipped dots are >=4 px from every catalogue cell so the instrument returns 0.0. IR-S-34."
+ "supersession_reason": "fails the literal 70% lattice clause (99.37% vs the r13 probe) and its HOLDOUT-DTI 0.2244 was produced by a visible-only collar variant, not by the shipped mask; the shipped dots are >=4 px from every catalogue cell so the instrument returns 0.0. IR-S-34.",
+ "also_superseded_note": "2026-10-31 S3 session: same 0.29 MODEL ESTIMATE band; superseded as the recommended submission by the ring-habitat file (measured ring edge over uniform, see evidence/s3_run_card_20261031.json)."
 }

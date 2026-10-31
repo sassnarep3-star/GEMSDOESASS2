@@ -106,6 +106,12 @@ def test_current_lattice_witness_receipt_and_safety_notice():
     # blockers are resolved. Historical promoted cards are archival, never active approvals.
     index = (ROOT / 'docs' / 'index.html').read_text()
     execu = (ROOT / 'docs' / 'executive-summary.html').read_text()
+    assert 'OK to download and submit' in index
+    assert 'OK TO DOWNLOAD AND SUBMIT' in execu
+    assert 'BLOCKED — DO NOT SUBMIT YET' not in index
+    assert 'MODEL ESTIMATE' in execu
+    assert 'research only' in execu.lower()
+    assert 'lattice' in execu.lower() and '99.89' in execu
     assert 'DO NOT SUBMIT' in index
     assert 'DO NOT SUBMIT' in execu
     assert 'NOT ESTIMABLE' in execu

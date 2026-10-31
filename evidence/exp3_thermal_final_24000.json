@@ -1,0 +1,123 @@
+{
+  "experiment": "EXP-3 final candidate",
+  "generated_utc": "2026-10-31T05:51:29Z",
+  "lane": "S3 THERMAL-CONDUIT / RING-HABITAT EMISSION",
+  "config": {
+    "placement": "ring",
+    "softness": "binary",
+    "n_dots": 24000,
+    "collar_px": 3.0,
+    "repeller": "labels.tif (bridge catalogue), 3 px collar; SGMC adjacency kept as diagnostic"
+  },
+  "diagnostics": {
+    "pct_cells_within_3px_labels": 0.0,
+    "pct_cells_within_3px_sgmc": 8.8375,
+    "median_dist_to_labels_px": 12.083045973594572,
+    "n_positive_cells": 24000,
+    "sum_p": 24000.0
+  },
+  "stem": "gemsass2-s3-ring-binary-24000-20261031T055127Z",
+  "write_receipt": {
+    "stem": "gemsass2-s3-ring-binary-24000-20261031T055127Z",
+    "zeros": {
+      "path": "/home/user/GEMSDOESASS2/docs/downloads/gemsass2-s3-ring-binary-24000-20261031T055127Z-zeros.tif",
+      "filename": "gemsass2-s3-ring-binary-24000-20261031T055127Z-zeros.tif",
+      "size_bytes": 135532,
+      "sha256": "9825593fd0b48f906b8b783cec02db7001000b59928b6b6cb5d6f6f74c32d1d2",
+      "crs": "EPSG:32611",
+      "shape": [
+        3730,
+        3292
+      ],
+      "dtype": "float32",
+      "nodata": null,
+      "transform": [
+        100.0,
+        0.0,
+        243350.0,
+        0.0,
+        -100.0,
+        4508550.0
+      ],
+      "all_12279160_finite": true,
+      "min_in_footprint": 0.0,
+      "max_in_footprint": 1.0,
+      "min_all_cells": 0.0,
+      "max_all_cells": 1.0,
+      "positive_dots_in_footprint": 24000,
+      "positive_on_catalogue": 0,
+      "outside_mode": "zeros",
+      "checks": {
+        "01_file_exists_nonempty": true,
+        "02_single_band": true,
+        "03_dtype_float32": true,
+        "04_crs_epsg_32611": true,
+        "05_shape_3730x3292": true,
+        "06_geotransform_exact": true,
+        "07_footprint_5167373_match": true,
+        "08_catalogue_60988_match": true,
+        "09_no_nan_or_inf_inside_footprint": true,
+        "10_values_in_0_1_inside_footprint": true,
+        "11_outside_footprint_clean": true,
+        "12_zero_on_known_catalogue": true,
+        "13_nontrivial_positive_predictions": true
+      },
+      "checks_passed": 13,
+      "checks_total": 13,
+      "all_passed": true
+    },
+    "nan": {
+      "path": "/home/user/GEMSDOESASS2/docs/downloads/gemsass2-s3-ring-binary-24000-20261031T055127Z-nan.tif",
+      "filename": "gemsass2-s3-ring-binary-24000-20261031T055127Z-nan.tif",
+      "size_bytes": 165100,
+      "sha256": "b006b0c80170823b0d53a116148eb88089511382b52a25723cb59706f6ea1cde",
+      "crs": "EPSG:32611",
+      "shape": [
+        3730,
+        3292
+      ],
+      "dtype": "float32",
+      "nodata": "NaN",
+      "transform": [
+        100.0,
+        0.0,
+        243350.0,
+        0.0,
+        -100.0,
+        4508550.0
+      ],
+      "all_12279160_finite": false,
+      "min_in_footprint": 0.0,
+      "max_in_footprint": 1.0,
+      "min_all_cells": 0.0,
+      "max_all_cells": 1.0,
+      "positive_dots_in_footprint": 24000,
+      "positive_on_catalogue": 0,
+      "outside_mode": "nan",
+      "checks": {
+        "01_file_exists_nonempty": true,
+        "02_single_band": true,
+        "03_dtype_float32": true,
+        "04_crs_epsg_32611": true,
+        "05_shape_3730x3292": true,
+        "06_geotransform_exact": true,
+        "07_footprint_5167373_match": true,
+        "08_catalogue_60988_match": true,
+        "09_no_nan_or_inf_inside_footprint": true,
+        "10_values_in_0_1_inside_footprint": true,
+        "11_outside_footprint_clean": true,
+        "12_zero_on_known_catalogue": true,
+        "13_nontrivial_positive_predictions": true
+      },
+      "checks_passed": 13,
+      "checks_total": 13,
+      "all_passed": true
+    },
+    "zip": {
+      "path": "/home/user/GEMSDOESASS2/docs/downloads/gemsass2-s3-ring-binary-24000-20261031T055127Z-zeros.zip",
+      "filename": "gemsass2-s3-ring-binary-24000-20261031T055127Z-zeros.zip",
+      "size_bytes": 95653,
+      "sha256": "f9de69ebdafa362c11e437b48defa771f0394546635fb6c408514b4eaee0e3cc"
+    }
+  }
+}

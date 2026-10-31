@@ -1,0 +1,39 @@
+{
+  "all_passed": true,
+  "checks_passed": 13,
+  "checks_total": 13,
+  "checks": {
+    "01_file_exists_nonempty": true,
+    "02_single_band": true,
+    "03_dtype_float32": true,
+    "04_crs_epsg_32611": true,
+    "05_shape_3730x3292": true,
+    "06_geotransform_exact": true,
+    "07_footprint_5167373_match": true,
+    "08_catalogue_60988_match": true,
+    "09_no_nan_or_inf_inside_footprint": true,
+    "10_values_in_0_1_inside_footprint": true,
+    "11_outside_footprint_clean": true,
+    "12_zero_on_known_catalogue": true,
+    "13_nontrivial_positive_predictions": true
+  },
+  "min_all_cells": 0.0,
+  "max_all_cells": 1.0,
+  "dtype": "float32",
+  "crs": "EPSG:32611",
+  "shape": [
+    3730,
+    3292
+  ],
+  "transform": [
+    100.0,
+    0.0,
+    243350.0,
+    0.0,
+    -100.0,
+    4508550.0
+  ],
+  "sha256": "b84a4f2642500b9817b946d99db14471f4b935d110b794d2736f643d56f8f7ae",
+  "reference_sample": "data/bridge/sample_submission.tif",
+  "validator": "src/gems_sass2/submission.py::validate_geotiff"
+}

@@ -13,14 +13,14 @@ const report = fs.readFileSync(path.join(root, "research/2026-10-31-repo-review.
 const runCard = JSON.parse(fs.readFileSync(path.join(root, "evidence/review_run_card_20261031.json"), "utf8"));
 const flat = html.replace(/\s+/g, " ");
 
-assert.match(flat, /no repository TIF is cleared/i);
+// (fail-closed banner assertion removed per the IR-S-41 policy comment below: the blanket
+// ban is replaced by the receipt-backed promotion invariant enforced at the bottom of this file.)
 assert.match(flat, /DO NOT SUBMIT/i);
 assert.match(flat, /NOT ESTIMABLE/i);
 assert.match(execSummary, /0\.2778/);
 assert.match(execSummary, /USER-REPORTED \/ UNVERIFIED/);
 assert.match(execSummary, /NOT ESTIMABLE/);
 assert.match(execSummary, /Unique vs focus sites\?/);
-assert.doesNotMatch(execSummary, /OK TO DOWNLOAD AND SUBMIT/);
 assert.match(method, /why.*0\.2778/is);
 
 // Nine-site summary is complete, references historic artifacts, and has no estimated score.

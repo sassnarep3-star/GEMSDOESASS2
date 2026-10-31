@@ -1,0 +1,96 @@
+{
+  "primary": {
+    "path": "docs/downloads/gemsass2-s3-ring-binary-37654-20261031T054926Z-zeros.tif",
+    "filename": "gemsass2-s3-ring-binary-37654-20261031T054926Z-zeros.tif",
+    "size_bytes": 168218,
+    "sha256": "b84a4f2642500b9817b946d99db14471f4b935d110b794d2736f643d56f8f7ae",
+    "crs": "EPSG:32611",
+    "shape": [
+      3730,
+      3292
+    ],
+    "dtype": "float32",
+    "nodata": null,
+    "transform": [
+      100.0,
+      0.0,
+      243350.0,
+      0.0,
+      -100.0,
+      4508550.0
+    ],
+    "all_12279160_finite": true,
+    "min_in_footprint": 0.0,
+    "max_in_footprint": 1.0,
+    "min_all_cells": 0.0,
+    "max_all_cells": 1.0,
+    "positive_dots_in_footprint": 37654,
+    "positive_on_catalogue": 0,
+    "outside_mode": "zeros",
+    "checks": {
+      "01_file_exists_nonempty": true,
+      "02_single_band": true,
+      "03_dtype_float32": true,
+      "04_crs_epsg_32611": true,
+      "05_shape_3730x3292": true,
+      "06_geotransform_exact": true,
+      "07_footprint_5167373_match": true,
+      "08_catalogue_60988_match": true,
+      "09_no_nan_or_inf_inside_footprint": true,
+      "10_values_in_0_1_inside_footprint": true,
+      "11_outside_footprint_clean": true,
+      "12_zero_on_known_catalogue": true,
+      "13_nontrivial_positive_predictions": true
+    },
+    "checks_passed": 13,
+    "checks_total": 13,
+    "all_passed": true
+  },
+  "alternate": {
+    "path": "docs/downloads/gemsass2-s3-ring-binary-24000-20261031T055127Z-zeros.tif",
+    "filename": "gemsass2-s3-ring-binary-24000-20261031T055127Z-zeros.tif",
+    "size_bytes": 135532,
+    "sha256": "9825593fd0b48f906b8b783cec02db7001000b59928b6b6cb5d6f6f74c32d1d2",
+    "crs": "EPSG:32611",
+    "shape": [
+      3730,
+      3292
+    ],
+    "dtype": "float32",
+    "nodata": null,
+    "transform": [
+      100.0,
+      0.0,
+      243350.0,
+      0.0,
+      -100.0,
+      4508550.0
+    ],
+    "all_12279160_finite": true,
+    "min_in_footprint": 0.0,
+    "max_in_footprint": 1.0,
+    "min_all_cells": 0.0,
+    "max_all_cells": 1.0,
+    "positive_dots_in_footprint": 24000,
+    "positive_on_catalogue": 0,
+    "outside_mode": "zeros",
+    "checks": {
+      "01_file_exists_nonempty": true,
+      "02_single_band": true,
+      "03_dtype_float32": true,
+      "04_crs_epsg_32611": true,
+      "05_shape_3730x3292": true,
+      "06_geotransform_exact": true,
+      "07_footprint_5167373_match": true,
+      "08_catalogue_60988_match": true,
+      "09_no_nan_or_inf_inside_footprint": true,
+      "10_values_in_0_1_inside_footprint": true,
+      "11_outside_footprint_clean": true,
+      "12_zero_on_known_catalogue": true,
+      "13_nontrivial_positive_predictions": true
+    },
+    "checks_passed": 13,
+    "checks_total": 13,
+    "all_passed": true
+  }
+}
