@@ -1,0 +1,9 @@
+{
+ "reference": "13gems_20261001_r13-lattice-s5_v2_zerofill.tif",
+ "ref_dots": 206895,
+ "candidate_dots": 37636,
+ "candidate_within_3px_pct": 99.915,
+ "seeded_random_control_same_count_pct": 99.8964,
+ "interpretation": "the r13 probe is a space-filling calibration lattice, not a submission; at any interior placement of this size the 3-px clause is arithmetically saturated (IR-03, IR-S-21, IR-S-37)",
+ "literal_70pct_rule_vs_probe": "FAIL"
+}

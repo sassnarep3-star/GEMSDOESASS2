@@ -31,7 +31,8 @@
     "all_12279160_finite": true,
     "min_in_footprint": 0.0,
     "max_in_footprint": 1.0,
-    "positive_on_catalogue": 0
+    "positive_on_catalogue": 0,
+    "values_in_0_1": true
   },
   "correlation_overlap_vs_registry": {
     "passes_lane": true,
@@ -41,7 +42,10 @@
     "max_overlap_3px_pct_all": 99.8885,
     "max_overlap_3px_pct_genuine_peers": 22.999,
     "max_abs_spearman": 0.008599,
-    "receipt": "evidence/s3_uniqueness_20261031.json"
+    "receipt": "evidence/s3_uniqueness_20261031.json",
+    "overlap_direction": "share of MY positive cells within 3 px of REF dots (candidate->reference)",
+    "max_overlap_3px_pct": 22.999,
+    "max_overlap_3px_pct_probe_scope": 99.8885
   },
   "holdout": {
     "label": "HOLDOUT-DTI",
@@ -76,7 +80,8 @@
         "sgmc": 0.09251669217049738
       }
     },
-    "critical_caveat": "IHR truth is MAPPED segments and rewards catalogue adjacency; the leaderboard truth is UNMAPPED faults and punishes it (Spearman -1.000 within the nine-site family). SGMC-off truth is a different population again (emitting ON SGMC faults scores 0.0512 on the leaderboard, GEMSDOE29). Instrument deltas are mechanism evidence, never score projections."
+    "critical_caveat": "IHR truth is MAPPED segments and rewards catalogue adjacency; the leaderboard truth is UNMAPPED faults and punishes it (Spearman -1.000 within the nine-site family). SGMC-off truth is a different population again (emitting ON SGMC faults scores 0.0512 on the leaderboard, GEMSDOE29). Instrument deltas are mechanism evidence, never score projections.",
+    "shipped_static_raster_ihr": "0.0 by construction: the shipped raster collars the full labels.tif and the hide-and-recover truth is a subset of labels.tif (IR-S-34). The 0.0597 [0.0537-0.0649] measures the LANE RECIPE with fold-local visible-only collars rebuilt per holdout cell (protocol rule 2; evaluator mode fold_local_visible_only_oof) - it is a recipe measurement, not a shipped-bytes measurement. The SGMC instrument IS a shipped-bytes measurement (0.0770 vs uniform 0.0750; CIs overlap)."
   },
   "leakage_canary": {
     "n_features_tested": 5,
@@ -135,5 +140,17 @@
       "No organizer receipt exists; no weekly slot has been spent.",
       "The family-law N extrapolation at 24,000 dots (0.29-0.30 est) is confounded and is offered as a probe, not a headline."
     ]
+  },
+  "artifact": "gemsass2-s3-ring-binary-37654-20261031T054926Z-zeros.tif",
+  "dots_on_catalogue": 0,
+  "holdout_dti": {
+    "evidence_class": "HOLDOUT-DTI",
+    "instrument_IHR_recipe": 0.0597,
+    "instrument_SGMC_shipped_bytes": 0.077,
+    "note": "scopes per IR-S-34 / IR-S3-7"
+  },
+  "score_evidence": {
+    "organizer_confirmed": false,
+    "label": "MODEL ESTIMATE 0.29 (anchor 0.2853, band 0.25-0.33)"
   }
 }

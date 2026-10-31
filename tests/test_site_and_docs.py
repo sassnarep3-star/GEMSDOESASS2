@@ -35,9 +35,10 @@ def test_github_pages_files_and_local_links_exist() -> None:
 
 
 def test_one_promoted_candidate_and_honest_gate_disclosure() -> None:
-    """Exactly one candidate is advertised (strainridge: format + genuine-peer lane gate pass).
-    The lattice clause fails for it (99.89%) exactly as it fails for every interior placement,
-    and both pages must disclose that failing clause instead of hiding it."""
+    """Exactly one candidate is advertised (S3-RING-BINARY-37654). Policy 2026-10-31 (IR-S-41):
+    the promoted card is enforced through the receipts on disk, not marketing strings; the r13
+    lattice disclosure must stay on both pages because that clause fails for every interior
+    placement (IR-S-21, IR-S-37, IR-S3-6)."""
     import hashlib
 
     rc = json.loads((ROOT / "evidence/unique_run_card_cc522684.json").read_text())
@@ -51,20 +52,30 @@ def test_one_promoted_candidate_and_honest_gate_disclosure() -> None:
     assert hashlib.sha256(tif.read_bytes()).hexdigest() == cand["sha256"] == rc["raster_sha256"]
 
     # The one promoted submission run card (separate from the negative research cards)
-    run_card = None
+    promoted = []
     for p in DOCS.glob("downloads/*-audit.json"):
         c = json.loads(p.read_text())
         if c.get("verdict") == "promote" and c.get("ok_to_download_and_submit"):
-            run_card = c
-            break
-    assert run_card is not None, "No promoted unique submission run card found"
+            promoted.append(c)
+    assert len(promoted) == 1, f"exactly one promoted card may exist, found {len(promoted)}"
+    run_card = promoted[0]
     assert run_card["n_dots"] == 37654
+    assert run_card["dots_on_catalogue"] == 0
     assert run_card["validator_output"]["all_passed"] is True
+    assert run_card["validator_output"]["values_in_0_1"] is True
     assert run_card["correlation_overlap_vs_registry"]["passes_lane"] is True
+    assert run_card["correlation_overlap_vs_registry"]["max_overlap_3px_pct"] <= 70.0
+    assert run_card["correlation_overlap_vs_registry"]["max_abs_spearman"] <= 0.90
+    assert run_card["holdout_dti"]["evidence_class"] == "HOLDOUT-DTI"
+    assert run_card["score_evidence"]["organizer_confirmed"] is False
     assert len(run_card["submission_note_140"]) <= 140
     # Its bytes must be the advertised bytes.
-    promoted_tif = DOCS / "downloads" / "gemsass2-s3-ring-binary-37654-20261031T054926Z-zeros.tif"
+    promoted_tif = DOCS / "downloads" / run_card["artifact"]
     assert hashlib.sha256(promoted_tif.read_bytes()).hexdigest() == run_card["raster_sha256"]
+    # The superseded headline keeps its history but must not be promotable.
+    sup = json.loads((DOCS / "downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-audit.json").read_text())
+    assert sup["verdict"].startswith("superseded") and sup["ok_to_download_and_submit"] is False
+    assert sup["supersession_reason"]
 
     index = (DOCS / "index.html").read_text()
     exec_html = (DOCS / "executive-summary.html").read_text()
@@ -77,6 +88,25 @@ def test_one_promoted_candidate_and_honest_gate_disclosure() -> None:
     assert "not an organizer score" in exec_html.lower() or "NOT organizer-confirmed" in exec_html
     assert "gemsass2-s3-ring-binary-37654-20261031T054926Z" in exec_html
     assert "downloads/gemsass2-s3-ring-binary-37654-20261031T054926Z-zeros.tif" in index
+    # Merged from origin/main (PR #33/#34): the sibling artifacts, the un-verifiable score class and the
+    # superseded bytes stay on the page, and the historical raster remains measurable but not promotable.
+    assert "0.2778" in exec_html and "USER-REPORTED / UNVERIFIED" in exec_html
+    assert "NOT ESTIMABLE" in exec_html
+    assert "not an organizer score" in exec_html.lower()
+    assert "downloads/gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif" not in index
+    historical = DOCS / "downloads" / "gemsass2-strainridge-offcat-37654d-20261030T025503Z-zeros.tif"
+    assert historical.exists()
+    assert hashlib.sha256(historical.read_bytes()).hexdigest() == "6d00f58a35005a253e352e21c8adde0e108aa0abb4b810db9797af89d94dd615"
+    for page in (index, exec_html):
+        assert "do not submit" in page.lower()
+        assert "not estimable" in page.lower()
+        assert "lattice" in page.lower()
+    assert "99.37" in exec_html
+    assert "MODEL ESTIMATE" in exec_html
+    assert "not an organizer score" in exec_html.lower() or "NOT organizer-confirmed" in exec_html
+    assert "gemsass2-strainridge-offcat-37654d-20261030T025503Z" in exec_html
+    assert "downloads/gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-zeros.tif" in index
+    assert "Supersedes" in exec_html and "IR-S-34" in exec_html
     # Research artifacts remain marked research only
     artifacts = (DOCS / "hvfd-exp3.html").read_text()
     assert "Research only" in artifacts and "DO NOT SUBMIT" in artifacts

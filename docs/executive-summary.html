@@ -27,9 +27,8 @@
 <li id="lattice"><strong>Uniqueness PASS vs every genuine raster</strong> — worst 23.0 % within 3 px, max |ρ| 0.0086 (24 references incl. all nine focus champions). The literal 70 % clause fails <em>only</em> against the r13 space-filling calibration probe (99.89 %; non-discriminating — a random interior placement scores 99.91 %; owner ruling pending).</li>
 <li><strong>Science gate</strong> — HOLDOUT-DTI <strong>0.0597</strong> [0.0537–0.0649] vs uniform control <strong>0.0439</strong> [0.0394–0.0481] at matched 37,654-dot budget (+36 %, disjoint CIs); SGMC-off 0.0770 vs 0.0750. Leakage canary PASS (max single-feature AUC 0.521).</li>
 <li><strong>Estimated score: MODEL ESTIMATE 0.29</strong> (controlled anchor 0.2853, risk band 0.25–0.33) — <em>not</em> organizer-confirmed.</li>
-<li>Submission name <code>GEMSDOESASS2-S3-RING-BINARY-37654</code> · note (≤140 chars): <code>ring-habitat blue-noise 37654 dots, 0% within 3px of catalogue, champion-matched budget, unique vs all GEMSDOE site rasters</code></li>
-</ul>
-<p><strong>Verdict: OK TO DOWNLOAD AND SUBMIT.</strong> Weekly slots spent: 0 — promotion is the owner's selector step (cap 3/week).</p>
+<li>Submission name <code>GEMSDOESASS2-S3-RING-BINARY-37654</code> · note (≤140 chars): <code>ring-habitat blue-noise 37654 dots, 0% within 3px of catalogue, champion-matched budget, unique vs all GEMSDOE site rasters</code></li></ul>
+<p><strong>Verdict: OK to download and submit</strong> (banner status: OK TO DOWNLOAD AND SUBMIT). Weekly slots spent: 0 — promotion is the owner's selector step (cap 3/week).</p>
 </div>
 
 <div class="warnbox">
@@ -39,7 +38,7 @@
 <h2>Focus-site table — what to download, estimated score, unique?</h2>
 <p class="sub">All nine historical bests are one lattice family (every pair ≥ 86.7 % of dots within 3 px). Scores are <strong>USER-REPORTED / UNVERIFIED</strong>. Links are commit-pinned. Unique = passes the project's 70 % / 0.90 lane rule against the other focus variants.</p>
 <table class="g">
-<thead><tr><th>Site</th><th>Best submission</th><th>File to download</th><th>Estimated score</th><th>Unique?</th></tr></thead>
+<thead><tr><th>Site</th><th>Best submission</th><th>File to download</th><th>Estimated score</th><th>Unique vs focus sites?</th></tr></thead>
 <tbody>
 <tr style="background:#eef7ee"><td><strong>GEMSDOESASS2</strong><br><span style="color:#2f6b34">◀ SUBMIT THIS</span></td><td><strong>GEMSDOESASS2-S3-RING-BINARY-37654</strong></td><td><a href="downloads/gemsass2-s3-ring-binary-37654-20261031T054926Z-zeros.tif" download><strong>…-zeros.tif</strong></a></td><td><strong>0.29</strong> <span class="sub">MODEL ESTIMATE (0.25–0.33)</span></td><td><strong>YES</strong> <span class="sub">23.0 % worst, |ρ| 0.0086</span></td></tr>
 <tr><td>GEMSDOE24</td><td>h25-1-dotted-h19-5-d1-5</td><td><a href="https://github.com/buffedlizard55-lab/GEMSDOE24/blob/a433b430b74b813a9118ebd4ec438b12cbc69f46/docs/downloads/gems24-h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-allfinite.tif">allfinite.tif</a></td><td>0.2477 <span class="sub">reported</span></td><td>No <span class="sub">100 % overlap w/ GEMSDOE25</span></td></tr>
@@ -73,7 +72,20 @@ staged in <code>scripts/ass2_train.py</code>.</p>
 <tr><td>EXP-3</td><td>Final candidate + 13-check validator + uniqueness + run card</td><td><strong>PROMOTE</strong> (verdict above)</td></tr>
 </table>
 <p class="sub">Run card: <code>evidence/s3_run_card_20261031.json</code> · hypotheses: <code>research/2026-10-31-hypotheses-s3.md</code> · validator receipts: <code>evidence/s3_validator_receipts_20261031.json</code></p>
-<p class="sub">All other artifacts in <code>docs/downloads/</code> (strain-ridge, VRC vent-ridge, XGHF, HVFD, SCU families) are <strong>research only</strong> — do not submit them.</p>
+<p class="sub">All other artifacts in <code>docs/downloads/</code> (strain-ridge, VRC vent-ridge, XGHF, HVFD, SCU families) are <strong>research only</strong> — DO NOT SUBMIT them.</p>
+<h2 id="alternate">Alternate 2026-10-31 build — promote-alternate (mutually redundant)</h2>
+<p><a href="downloads/gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-zeros.tif"><strong>gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-zeros.tif</strong></a>
+(sha <code>c200ceccef52b45b979d5a2ad5c184516f8181828493400704a408074b7cbeb6</code>, 37,636 dots, MODEL ESTIMATE 0.2851 [0.24–0.31],
+SGMC-off 0.0788 [0.0754, 0.0817], uniqueness over 531 registry rasters max 43.60 %). Equally estimated with the promoted
+file; <strong>spend at most ONE weekly slot on this pair</strong>; the selector may substitute it (audit verdict
+<code>promote-alternate</code>, IR-S-41).</p>
+<h2>Supersession and scope notes</h2>
+<p><strong>Supersedes</strong> the 2026-10-30 headline <code>gemsass2-strainridge-offcat-37654d-20261030T025503Z</code> (sha <code>6d00f58a…d615</code>):
+its HOLDOUT-DTI 0.2244 came from a visible-only collar variant, not the shipped mask (IR-S-34), and the literal probe
+figure for it is 99.37 % — <strong>do not submit it</strong> until that number reproduces from its saved bytes. Scores above
+the anchor band are <strong>NOT ESTIMABLE</strong> from public instruments (IR-S-35). The hide-and-recover figure on this
+page is a <em>recipe</em> measurement with fold-local visible-only collars (IR-S3-7); the shipped static raster scores
+hide-and-recover 0.0 by construction under IR-S-34.</p>
 </main>
 </body>
 </html>

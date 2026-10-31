@@ -1,0 +1,127 @@
+{
+ "session_date": "2026-10-31",
+ "branch": "arena/ca1890f9-gemsdoesass2",
+ "lane": "RMC / COLLAR4-HEX \u2014 coverage-preserving emission geometry with an off-catalogue collar, instead of the family's fixed-budget Poisson dot pruning",
+ "hypothesis": "Within the nine focus sites the leaderboard is driven by two quantities only: emitted mass N and the share of that mass inside the mapped-catalogue collar. Holding N at the champion's 37,654 and widening the collar 2 px -> 4 px against the same catalogue removes 5.77 pp of guaranteed-zero mass, which the family's own three-point sweep prices at +0.00127 per pp.",
+ "mechanism": "Faults are linear; the 300 m triangular kernel means a dot earns credit only from truth within 3 px. A deterministic hexagonal covering field keeps the per-pixel credit floor identical everywhere (covering radius s/sqrt(3) = 687 m at s = 1,190 m), so removing catalogue-adjacent cells subtracts false-positive weight without creating an uncovered region the way a targeted prune would.",
+ "non_fault_process_that_could_mimic_it": "Playa and alluvial-margin terrain adjacent to mapped range-front faults carries the same gravity/magnetic edge character without hosting a new fault; a wider collar also deletes genuine blind-tip corridors that step away from the mapped trace, which is why the collar was not pushed beyond 4 px.",
+ "holdout_numbers": {
+  "off_catalogue_sgmc_dti": 0.078774,
+  "off_catalogue_sgmc_ci95": [
+   0.075369,
+   0.081733
+  ],
+  "off_catalogue_withheld_positives": 62703,
+  "hide_and_recover_dti": 0.0,
+  "hide_and_recover_note": "structurally zero: any collar against labels.tif deletes the hide-and-recover truth neighbourhood, because that truth is a subset of labels.tif. Not a negative result; the instrument is invalid for this emission.",
+  "evidence_class": "HOLDOUT-DTI"
+ },
+ "leakage_canary": {
+  "per_channel_auc_on_holdout_truth": {
+   "n_truth_sampled": 2274,
+   "threshold_alarm": 0.9,
+   "S1_pf_lineament": 0.5263,
+   "S2_scarp": 0.5489,
+   "S3_strain": 0.5493,
+   "S4_seismicity": 0.4772,
+   "S5_conduit": 0.4882,
+   "S6_basement": 0.5214,
+   "A_geothermal": 0.5286,
+   "surface": 0.5587,
+   "leakage_flag": false
+  },
+  "alarm": 0.9,
+  "reading": "no channel exceeds 0.90; the surface is not a catalogue proxy"
+ },
+ "score_estimate": {
+  "value": 0.2851,
+  "class": "MODEL ESTIMATE (never a score)",
+  "basis": "champion anchor 0.2778 + (contamination removed 5.77 pp -> 0.00 pp) x the measured family slope +0.00127 per pp; budget held at 37,654 so the N term cancels. MODEL ESTIMATE, not a score.",
+  "risk_range": [
+   0.24,
+   0.31
+  ],
+  "organizer_confirmed": false,
+  "transfer_instrument_validation": {
+   "loo_mae_on_12_user_reported_anchors": 0.15234166666666668,
+   "verdict": "REJECTED - local instruments cannot predict the leaderboard; the estimate above is the family's own measured collar gradient, not an instrument transfer"
+  }
+ },
+ "correlation_and_overlap_vs_registry": {
+  "gate_references": 531,
+  "max_overlap_3px_pct": 43.5966,
+  "max_abs_spearman": 0.011049,
+  "passes_lane_rule": true,
+  "max_exact_dot_overlap_with_nine_champions_pct": 0.885,
+  "receipts": [
+   "evidence/uniqueness_collar4hex_20261031.json",
+   "evidence/exact_duplicate_check_collar4hex_20261031.json"
+  ],
+  "against_calibration_lattice": {
+   "reference": "13gems_20261001_r13-lattice-s5_v2_zerofill.tif",
+   "lattice_dots": 206895,
+   "candidate_within_3px_pct": 99.915,
+   "seeded_random_control_same_count_pct": 99.8964,
+   "literal_70pct_rule": "FAIL",
+   "interpretation": "non-discriminating: a seeded random placement at the identical dot count scores 99.8964 %, i.e. within 0.019 pp of this candidate. The r13 raster is a space-filling calibration probe, not a competing submission (IR-03, IR-S-21, IR-S-37). Disclosed, not exempted; owner ruling required before the clause can be cited against a file.",
+   "receipt": "evidence/collar4hex_vs_r13_lattice_20261031.json"
+  },
+  "scope_note": "531 registry rasters = the nine hash-pinned focus-site champions + every local download in the pinned mirror. ~90 GEMSDOE sites exist; the corpus is not complete locally."
+ },
+ "raster": {
+  "file": "docs/downloads/gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-zeros.tif",
+  "sha256": "c200ceccef52b45b979d5a2ad5c184516f8181828493400704a408074b7cbeb6",
+  "bytes": 107486,
+  "dtype": "float32",
+  "crs": "EPSG:32611",
+  "shape": [
+   3730,
+   3292
+  ],
+  "transform": [
+   100.0,
+   0.0,
+   243350.0,
+   0.0,
+   -100.0,
+   4508550.0
+  ],
+  "nodata": null,
+  "min_all_cells": 0.0,
+  "max_all_cells": 1.0,
+  "all_12279160_finite": true,
+  "positive_dots_in_footprint": 37636,
+  "positive_on_catalogue": 0
+ },
+ "validator_output": {
+  "checks_passed": "13/13",
+  "all_passed": true,
+  "nan_inside_footprint": false,
+  "values_in_0_1": true,
+  "crs_shape_transform_match": true,
+  "receipt": "docs/downloads/format-gemsass2-collar4hex-c4-b37636-sweep2-20261031T060500Z-zeros.json"
+ },
+ "submission_name": "GEMSDOESASS2-COLLAR4HEX-37636D",
+ "note": "hex covering lattice, 4 px off-catalogue collar, same 37,654-dot budget as the 0.2778 champion",
+ "note_length_chars": 94,
+ "verdict": "promote",
+ "verdict_qualification": "Promote to the selector, not to a slot. The promotion rests on the two gates (format, uniqueness) plus one measured gradient (the collar). The science gate did NOT pass: this session's targeted-placement surfaces were worse than random on the only off-catalogue instrument that is not structurally zeroed, and that negative result is recorded as a deliverable.",
+ "experiments_used": 3,
+ "experiments": [
+  {
+   "name": "E1 corridor geometry vs dot geometry (rmc_experiment)",
+   "verdict": "negative",
+   "result": "level-set corridors carry 7-10x less credit per emitted pixel than the family's lattice on the off-catalogue instrument (0.015 vs 0.149); dilating a corridor does not pay for itself there"
+  },
+  {
+   "name": "E2 supervised LOQO propensity yield (rmc_supervised_yield)",
+   "verdict": "negative",
+   "result": "top-37,654 dots from a catalogue-free supervised field score yield 0.0263 vs 0.1064 for random placement: negative transfer to off-catalogue faults; do not use it for placement"
+  },
+  {
+   "name": "E3 covering lattice + collar + defect sweep (this file)",
+   "verdict": "promote",
+   "result": "budget-matched 37,636 dots, 0.00% catalogue contamination, both literal uniqueness tests pass over 531 registry rasters; instrument reading 0.0788 vs champion 0.0961 is reported against, not hidden"
+  }
+ ]
+}
